@@ -16,19 +16,11 @@
 package jetbrains.mps.ide.findusages.view.treeholder.treeview;
 
 import com.intellij.icons.AllIcons.General;
-import com.intellij.ide.CommonActionsManager;
-import com.intellij.ide.DefaultTreeExpander;
-import com.intellij.ide.OccurenceNavigator;
-import com.intellij.ide.OccurenceNavigatorSupport;
-import com.intellij.ide.TreeExpander;
 import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.actionSystem.ToggleAction;
-import com.intellij.pom.Navigatable;
 import com.intellij.ui.ScrollPaneFactory;
-import com.intellij.usageView.UsageViewBundle;
-import com.intellij.util.ui.tree.TreeUtil;
 import jetbrains.mps.icons.MPSIcons.Actions;
 import jetbrains.mps.ide.findusages.CantLoadSomethingException;
 import jetbrains.mps.ide.findusages.CantSaveSomethingException;
@@ -59,7 +51,6 @@ import javax.swing.Icon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
-import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -83,14 +74,12 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
   private Set<PathItemRole> myPathProvider = new HashSet<>();
 
   private ViewToolbar myViewToolbar;
-  private ActionsToolbar myActionsToolbar;
 
   private ViewOptions myViewOptions = new ViewOptions();
   private ViewOptions myDefaultOptions;
 
   private boolean mySearchedNodesButtonsVisible = true;
   private boolean myAdditionalInfoButtonVisible = true;
-  private OccurenceNavigatorSupport myOccurrenceNavigator;
 
   public UsagesTreeComponent(ViewOptions defaultOptions, Project mpsProject, DataTreeChangesNotifier changeDispatch) {
     super(new BorderLayout());
@@ -98,36 +87,6 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
     myContents = new DataTree(changeDispatch);
 
     myTree = new UsagesTree(mpsProject);
-    myOccurrenceNavigator = new OccurenceNavigatorSupport(myTree) {
-      @Override
-      protected Navigatable createDescriptorForNode(DefaultMutableTreeNode node) {
-        if (node.getChildCount() > 0) {
-          return null;
-        }
-        if (!(node instanceof UsagesTreeNode)) {
-          return null;
-        }
-        UsagesTreeNode treeNode = (UsagesTreeNode) node;
-
-        if (treeNode.getUserObject() == null) {
-          return null;
-        }
-
-        final BaseNodeData data = treeNode.getUserObject().getData();
-        return toNavigatable(data);
-      }
-
-
-      @Override
-      public String getNextOccurenceActionName() {
-        return UsageViewBundle.message("action.next.occurrence");
-      }
-
-      @Override
-      public String getPreviousOccurenceActionName() {
-        return UsageViewBundle.message("action.previous.occurrence");
-      }
-    };
 
     TreeHighlighterExtension.attachHighlighters(myTree, ProjectHelper.toIdeaProject(mpsProject));
     myTree.setBorder(new EmptyBorder(3, 5, 3, 5));
@@ -138,8 +97,8 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
     myPathProvider.add(PathItemRole.ROLE_TARGET_NODE);
 
     myViewToolbar = new ViewToolbar();
-    myActionsToolbar = new ActionsToolbar();
 
+    // defaultOptions is the instance we need to update with actual values, as it's the one that gets serialized
     myDefaultOptions = defaultOptions;
     myViewOptions.setValues(myDefaultOptions);
 
@@ -159,10 +118,6 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
   public void setContents(final SearchResults contents) {
     // XXX no idea if there's real need to have read action here, just refactored ModelAccess static out of DataTree here.
     myProject.getModelAccess().runReadAction(() -> myContents.setContents(contents, myNodeRepresentator));
-  }
-
-  public OccurenceNavigator getOccurenceNavigator() {
-    return myOccurrenceNavigator;
   }
 
   @Override
@@ -189,13 +144,11 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
 
   public void setComponentsViewOptions(ViewOptions options) {
     myViewToolbar.setViewOptions(options);
-    myActionsToolbar.setViewOptions(options);
     myTree.setShowPopupMenu(options.myShowPopupMenu);
   }
 
   public void getComponentsViewOptions(ViewOptions options) {
     myViewToolbar.getViewOptions(options);
-    myActionsToolbar.getViewOptions(options);
     options.myShowPopupMenu = myTree.isShowPopupMenu();
   }
 
@@ -262,44 +215,12 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
     return myContents.getAllResultNodes();
   }
 
-  public ActionGroup getActionsToolbar() {
-    return myActionsToolbar.getActions();
-  }
-
   public ActionGroup getViewToolbar() {
     return myViewToolbar.getActions();
   }
 
   public UsagesTree getTree() {
     return myTree;
-  }
-
-  private Navigatable toNavigatable(final BaseNodeData data) {
-    if (!(data instanceof AbstractResultNodeData)) {
-      return null;
-    }
-    return new Navigatable() {
-      @Override
-      public void navigate(boolean requestFocus) {
-        // Show nodes directly in editor instead of project pane
-        boolean useProjectTree = !(data instanceof NodeNodeData);
-        if (data instanceof ModelNodeData || data instanceof ModuleNodeData) {
-          // Leave focus in UsagesView or it became unusable
-          requestFocus = false;
-        }
-        ((AbstractResultNodeData) data).navigate(myProject, useProjectTree, requestFocus);
-      }
-
-      @Override
-      public boolean canNavigate() {
-        return true;
-      }
-
-      @Override
-      public boolean canNavigateToSource() {
-        return true;
-      }
-    };
   }
 
   class ViewToolbar {
@@ -569,55 +490,6 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
           removePathComponent(myPathItemRole);
         }
       }
-    }
-  }
-
-  /**
-   * generic tree actions like expand/collapse and occurrence navigation
-   */
-  class ActionsToolbar {
-    private DefaultActionGroup myActions;
-    private MyBaseToggleAction myAutoscrollButton;
-
-    public ActionsToolbar() {
-      myActions = new DefaultActionGroup();
-
-      final CommonActionsManager actionsManager = CommonActionsManager.getInstance();
-      final TreeExpander treeExpander = new DefaultTreeExpander(myTree) {
-        @Override
-        public void collapseAll() {
-          super.collapseAll();
-          TreeUtil.expand(myTree, 2);
-        }
-      };
-      myActions.add(actionsManager.createExpandAllAction(treeExpander, myTree));
-      myActions.add(actionsManager.createCollapseAllAction(treeExpander, myTree));
-      myActions.add(actionsManager.createPrevOccurenceAction(getOccurenceNavigator()));
-      myActions.add(actionsManager.createNextOccurenceAction(getOccurenceNavigator()));
-      myAutoscrollButton = new MyBaseToggleAction("Autoscroll to source", "", Icons.AUTOSCROLL_ICON) {
-        @Override
-        public boolean isSelected(AnActionEvent e) {
-          return myTree.isAutoscroll();
-        }
-
-        @Override
-        public void doSetSelected(AnActionEvent e, boolean state) {
-          myTree.setAutoscroll(state);
-        }
-      };
-      myActions.addAction(myAutoscrollButton);
-    }
-
-    public void setViewOptions(ViewOptions options) {
-      myAutoscrollButton.doSetSelected(null, options.myAutoscrolls);
-    }
-
-    public void getViewOptions(ViewOptions options) {
-      options.myAutoscrolls = myAutoscrollButton.isSelected(null);
-    }
-
-    public ActionGroup getActions() {
-      return myActions;
     }
   }
 

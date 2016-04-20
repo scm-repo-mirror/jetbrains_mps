@@ -55,7 +55,7 @@ final class InspectorToolWindowFixer {
         return null;
       }
       UsagesView usagesView = usagesViewTool.getUsagesView(currentTabIndex);
-      return usagesView.getTreeComponent().getOccurenceNavigator();
+      return usagesView.getOccurrenceNavigator();
     }
     return null;
   }

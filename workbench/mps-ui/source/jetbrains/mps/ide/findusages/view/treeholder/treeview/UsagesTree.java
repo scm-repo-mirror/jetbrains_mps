@@ -20,6 +20,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.KeyboardShortcut;
 import com.intellij.openapi.keymap.KeymapManager;
 import com.intellij.openapi.util.SystemInfo;
+import com.intellij.pom.Navigatable;
 import com.intellij.ui.LayeredIcon;
 import jetbrains.mps.icons.MPSIcons.Nodes;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.DataNode;
@@ -28,8 +29,12 @@ import jetbrains.mps.ide.findusages.view.treeholder.tree.TextOptions;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.AbstractResultNodeData;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.BaseNodeData;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.ModelNodeData;
+import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.ModuleNodeData;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.NodeNodeData;
 import jetbrains.mps.ide.findusages.view.treeholder.treeview.path.PathItemRole;
+import jetbrains.mps.ide.navigation.ModelNavigatable;
+import jetbrains.mps.ide.navigation.ModuleNavigatable;
+import jetbrains.mps.ide.navigation.NodeNavigatable;
 import jetbrains.mps.ide.ui.tree.MPSTree;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.project.Project;
@@ -38,6 +43,9 @@ import jetbrains.mps.util.ComputeRunnable;
 import jetbrains.mps.workbench.action.ActionUtils;
 import jetbrains.mps.workbench.action.BaseAction;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.module.SModule;
 
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
@@ -45,6 +53,7 @@ import javax.swing.KeyStroke;
 import javax.swing.event.TreeExpansionEvent;
 import javax.swing.event.TreeExpansionListener;
 import javax.swing.event.TreeSelectionEvent;
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
@@ -652,6 +661,48 @@ public class UsagesTree extends MPSTree {
   public boolean isAutoscroll() {
     return myAutoscroll;
   }
+
+  @Nullable
+  public Navigatable toNavigatable(DefaultMutableTreeNode treeNode) {
+    // FIXME this is provisional code while I refactor UsagesView to get ready for new SearchState.
+    // BaseNodeData would cease and the code shall be different (no instanceof + cast).
+    if (treeNode instanceof UsagesTreeNode && treeNode.getChildCount() == 0 && treeNode.getUserObject() != null) {
+      UsagesTreeNode usageNode = (UsagesTreeNode) treeNode;
+      final BaseNodeData data = usageNode.getUserObject().getData();
+      return toNavigatable(data);
+    }
+    return null;
+  }
+
+  private Navigatable toNavigatable(final BaseNodeData data) {
+    if (!(data instanceof AbstractResultNodeData)) {
+      return null;
+    }
+    return new Navigatable() {
+      @Override
+      public void navigate(boolean requestFocus) {
+        // Show nodes directly in editor instead of project pane
+        boolean useProjectTree = !(data instanceof NodeNodeData);
+        if (data instanceof ModelNodeData || data instanceof ModuleNodeData) {
+          // Leave focus in UsagesView or it became unusable
+          requestFocus = false;
+        }
+        ((AbstractResultNodeData) data).navigate(myProject, useProjectTree, requestFocus);
+      }
+
+      @Override
+      public boolean canNavigate() {
+        return true;
+      }
+
+      @Override
+      public boolean canNavigateToSource() {
+        return true;
+      }
+    };
+  }
+
+
 
   public class UsagesTreeNode extends MPSTreeNode {
     private int mySubresultsCount = 0;
