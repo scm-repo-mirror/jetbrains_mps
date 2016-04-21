@@ -41,8 +41,6 @@ import jetbrains.mps.ide.findusages.view.treeholder.treeview.path.PathItemRole;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.ui.tree.TreeHighlighterExtension;
 import jetbrains.mps.project.Project;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jdom.Element;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -59,12 +57,8 @@ import java.util.List;
 import java.util.Set;
 
 public class UsagesTreeComponent extends JPanel implements IChangeListener {
-  private static final Logger LOG = LogManager.getLogger(UsagesTreeComponent.class);
-
   private static final String CONTENTS = "contents";
   private static final String VIEW_OPTIONS = "view_options";
-  private static final String NODE_REPRESENTATOR = "node_representator";
-  private static final String CLASS_NAME = "class_name";
 
   private final Project myProject;
   private INodeRepresentator myNodeRepresentator = null;
@@ -158,23 +152,6 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
   }
 
   public void read(Element element, Project project) throws CantLoadSomethingException {
-    myNodeRepresentator = null;
-    Element nodeRepresentatorXML = element.getChild(NODE_REPRESENTATOR);
-    if (nodeRepresentatorXML != null) {
-      String className = nodeRepresentatorXML.getAttributeValue(CLASS_NAME);
-      if (className != null) {
-        try {
-          Class nodeRepresentatorClass = Class.forName(className);
-          myNodeRepresentator = (INodeRepresentator) nodeRepresentatorClass.newInstance();
-          //noinspection ConstantConditions
-          myNodeRepresentator.read(nodeRepresentatorXML, project);
-        } catch (Throwable t) {
-          LOG.error("Can't instantiate node representator " + className, t);
-          throw new CantLoadSomethingException("Can't instantiate node representator " + className, t);
-        }
-      }
-    }
-
     Element viewOptionsXML = element.getChild(VIEW_OPTIONS);
     myViewOptions.read(viewOptionsXML, project);
     setComponentsViewOptions(myViewOptions);
@@ -186,14 +163,6 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
   }
 
   public void write(Element element, Project project) throws CantSaveSomethingException {
-    Element nodeRepresentatorXML = new Element(NODE_REPRESENTATOR);
-    if (myNodeRepresentator != null) {
-      nodeRepresentatorXML.setAttribute(CLASS_NAME, myNodeRepresentator.getClass().getName());
-      //noinspection ConstantConditions
-      myNodeRepresentator.write(nodeRepresentatorXML, project);
-    }
-    element.addContent(nodeRepresentatorXML);
-
     Element viewOptionsXML = new Element(VIEW_OPTIONS);
     ViewOptions op = getComponentsViewOptions();
     op.write(viewOptionsXML, project);
