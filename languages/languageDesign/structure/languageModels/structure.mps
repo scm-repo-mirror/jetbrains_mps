@@ -26,7 +26,7 @@
       <concept id="6054523464627964745" name="jetbrains.mps.lang.structure.structure.AttributeInfo_AttributedConcept" flags="ng" index="trNpa">
         <reference id="6054523464627965081" name="concept" index="trN6q" />
       </concept>
-      <concept id="1082978164219" name="jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration" flags="ng" index="AxPO7">
+      <concept id="1082978164219" name="jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration_Old" flags="ng" index="AxPO7">
         <property id="1212080844762" name="hasNoDefaultMember" index="PDuV0" />
         <property id="1197591154882" name="memberIdentifierPolicy" index="3lZH7k" />
         <reference id="1083171729157" name="memberDataType" index="M4eZT" />
@@ -36,7 +36,7 @@
       <concept id="1082978499127" name="jetbrains.mps.lang.structure.structure.ConstrainedDataTypeDeclaration" flags="ng" index="Az7Fb">
         <property id="1083066089218" name="constraint" index="FLfZY" />
       </concept>
-      <concept id="1083171877298" name="jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration" flags="ig" index="M4N5e">
+      <concept id="1083171877298" name="jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration_Old" flags="ig" index="M4N5e">
         <property id="1192116978809" name="javaIdentifier" index="2fHolG" />
         <property id="1083923523172" name="externalValue" index="1uS6qo" />
         <property id="1083923523171" name="internalValue" index="1uS6qv" />
@@ -184,8 +184,8 @@
   <node concept="1TIwiD" id="fKAxPRU">
     <property role="TrG5h" value="DataTypeDeclaration" />
     <property role="EcuMT" value="1082978164218" />
-    <node concept="PrWs8" id="yuXZmMPAvJ" role="PzmwI">
-      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    <node concept="PrWs8" id="4kEAgZCmU$P" role="PzmwI">
+      <ref role="PrY4T" to="tpee:hCUYCKd" resolve="IValidIdentifier" />
     </node>
     <node concept="PrWs8" id="5GuVNMLxi4Q" role="PzmwI">
       <ref role="PrY4T" node="hOIDzy1" resolve="IStructureDeprecatable" />
@@ -209,8 +209,9 @@
     </node>
   </node>
   <node concept="1TIwiD" id="fKM4N6M">
-    <property role="TrG5h" value="EnumerationMemberDeclaration" />
+    <property role="TrG5h" value="EnumerationMemberDeclaration_Old" />
     <property role="EcuMT" value="1083171877298" />
+    <property role="3GE5qa" value="enums" />
     <node concept="1TJgyi" id="fLuS6pz" role="1TKVEl">
       <property role="TrG5h" value="internalValue" />
       <property role="IQ2nx" value="1083923523171" />
@@ -228,6 +229,13 @@
     </node>
     <node concept="PrWs8" id="1$21UiMc2k0" role="PzmwI">
       <ref role="PrY4T" to="tpck:19gBtYEAf4C" resolve="InterfacePart" />
+    </node>
+    <node concept="PrWs8" id="VFd4X$DJPr" role="PzmwI">
+      <ref role="PrY4T" node="VFd4X$DyC0" resolve="IEnumerationMember" />
+    </node>
+    <node concept="asaX9" id="VFd4X$dxFi" role="lGtFl">
+      <property role="YLQ7P" value="Use EnumerationMemberDeclaration instead" />
+      <property role="YLPcu" value="19.1" />
     </node>
   </node>
   <node concept="1TIwiD" id="fKQkHSB">
@@ -681,9 +689,10 @@
     <property role="19KtqR" value="true" />
     <property role="R5$K7" value="false" />
     <property role="R5$K2" value="false" />
-    <property role="TrG5h" value="EnumerationDataTypeDeclaration" />
+    <property role="TrG5h" value="EnumerationDataTypeDeclaration_Old" />
     <property role="34LRSv" value="Enum Data Type" />
     <property role="EcuMT" value="1082978164219" />
+    <property role="3GE5qa" value="enums" />
     <ref role="1TJDcQ" node="fKAxPRU" resolve="DataTypeDeclaration" />
     <node concept="1TJgyi" id="hrlZH32" role="1TKVEl">
       <property role="TrG5h" value="memberIdentifierPolicy" />
@@ -710,20 +719,27 @@
       <property role="20kJfa" value="defaultMember" />
       <property role="20lbJX" value="0..1" />
       <property role="IQ2ns" value="1083241965437" />
-      <ref role="20lvS9" node="fKM4N6M" resolve="EnumerationMemberDeclaration" />
+      <ref role="20lvS9" node="fKM4N6M" resolve="EnumerationMemberDeclaration_Old" />
     </node>
     <node concept="1TJgyj" id="fKM5hVY" role="1TKVEi">
       <property role="20lmBu" value="aggregation" />
       <property role="20kJfa" value="member" />
       <property role="20lbJX" value="1..n" />
       <property role="IQ2ns" value="1083172003582" />
-      <ref role="20lvS9" node="fKM4N6M" resolve="EnumerationMemberDeclaration" />
+      <ref role="20lvS9" node="fKM4N6M" resolve="EnumerationMemberDeclaration_Old" />
     </node>
     <node concept="PrWs8" id="yuXZmMPAu4" role="PzmwI">
       <ref role="PrY4T" to="tpee:hCUYCKd" resolve="IValidIdentifier" />
     </node>
+    <node concept="PrWs8" id="VFd4X$DAKZ" role="PzmwI">
+      <ref role="PrY4T" node="VFd4X$DyB_" resolve="IEnumeration" />
+    </node>
     <node concept="1QGGSu" id="4Q8sAA5iJRG" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/enum.png" />
+    </node>
+    <node concept="asaX9" id="VFd4X$dxBi" role="lGtFl">
+      <property role="YLPcu" value="19.1" />
+      <property role="YLQ7P" value="Use EnumerationDeclaration instead" />
     </node>
   </node>
   <node concept="1TIwiD" id="f_TIwhg">
@@ -775,6 +791,68 @@
     <node concept="1QGGSu" id="4Q8sAA5iJRI" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/structure.png" />
     </node>
+  </node>
+  <node concept="1TIwiD" id="2TR3acGo7Lv">
+    <property role="EcuMT" value="3348158742936976479" />
+    <property role="TrG5h" value="EnumerationDeclartaion" />
+    <property role="34LRSv" value="Enumeration" />
+    <property role="3GE5qa" value="enums" />
+    <property role="19KtqR" value="true" />
+    <property role="R5$K2" value="true" />
+    <ref role="1TJDcQ" node="fKAxPRU" resolve="DataTypeDeclaration" />
+    <node concept="1TJgyj" id="2TR3acGo7N1" role="1TKVEi">
+      <property role="IQ2ns" value="3348158742936976577" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="members" />
+      <property role="20lbJX" value="1..n" />
+      <ref role="20lvS9" node="2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
+    </node>
+    <node concept="1TJgyj" id="VFd4XzZw5G" role="1TKVEi">
+      <property role="IQ2ns" value="1075010451642646892" />
+      <property role="20lmBu" value="reference" />
+      <property role="20kJfa" value="defaultMember" />
+      <ref role="20lvS9" node="2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
+    </node>
+    <node concept="PrWs8" id="VFd4X$DB9R" role="PzmwI">
+      <ref role="PrY4T" to="tpee:hCUYCKd" resolve="IValidIdentifier" />
+    </node>
+    <node concept="PrWs8" id="VFd4X$DyUD" role="PzmwI">
+      <ref role="PrY4T" node="VFd4X$DyB_" resolve="IEnumeration" />
+    </node>
+    <node concept="1QGGSu" id="VFd4X$JQVc" role="rwd14">
+      <property role="1iqoE4" value="${module}/icons/enum.png" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="2TR3acGo7Lw">
+    <property role="EcuMT" value="3348158742936976480" />
+    <property role="3GE5qa" value="enums" />
+    <property role="TrG5h" value="EnumerationMemberDeclaration" />
+    <property role="34LRSv" value="member" />
+    <property role="R5$K2" value="true" />
+    <node concept="PrWs8" id="2TR3acGo7Ne" role="PzmwI">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+    <node concept="PrWs8" id="VFd4X$DABJ" role="PzmwI">
+      <ref role="PrY4T" node="VFd4X$DyC0" resolve="IEnumerationMember" />
+    </node>
+    <node concept="1TJgyi" id="_jzzDSlxy8" role="1TKVEl">
+      <property role="IQ2nx" value="672037151186491528" />
+      <property role="TrG5h" value="presentation" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="VFd4X$DyB_">
+    <property role="EcuMT" value="1075010451653667301" />
+    <property role="3GE5qa" value="enums" />
+    <property role="TrG5h" value="IEnumeration" />
+    <node concept="PrWs8" id="50Pb80HvPH9" role="PrDN$">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="VFd4X$DyC0">
+    <property role="EcuMT" value="1075010451653667328" />
+    <property role="3GE5qa" value="enums" />
+    <property role="TrG5h" value="IEnumerationMember" />
   </node>
 </model>
 

@@ -35,9 +35,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.smodel.SNodePointer;
 
-public class EnumerationDataTypeDeclaration_Constraints extends BaseConstraintsDescriptor {
-  public EnumerationDataTypeDeclaration_Constraints() {
-    super(MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, "jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration"));
+public class EnumerationDataTypeDeclaration_Old_Constraints extends BaseConstraintsDescriptor {
+  public EnumerationDataTypeDeclaration_Old_Constraints() {
+    super(MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, "jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration_Old"));
   }
 
   @Override
@@ -88,7 +88,7 @@ public class EnumerationDataTypeDeclaration_Constraints extends BaseConstraintsD
         return new BaseScopeProvider() {
           @Override
           public SNodeReference getSearchScopeValidatorNode() {
-            return breakingNode_8h501v_a0a0a0a0a1a0b0a1a4;
+            return breakingNode_njbcyv_a0a0a0a0a1a0b0a1a4;
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
@@ -104,5 +104,5 @@ public class EnumerationDataTypeDeclaration_Constraints extends BaseConstraintsD
     return SModuleOperations.isAspect(model, "structure") || SModelStereotype.isGeneratorModel(model);
   }
   private static SNodePointer canBeRootBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "1227087688291");
-  private static SNodePointer breakingNode_8h501v_a0a0a0a0a1a0b0a1a4 = new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "6836281137582805030");
+  private static SNodePointer breakingNode_njbcyv_a0a0a0a0a1a0b0a1a4 = new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "6836281137582805030");
 }

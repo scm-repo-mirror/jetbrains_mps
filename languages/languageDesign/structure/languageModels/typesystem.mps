@@ -26,6 +26,8 @@
     <import index="twe9" ref="r:28e6d713-c3c3-493e-8d97-e9a2c49f28ce(jetbrains.mps.lang.structure.util)" />
     <import index="9anm" ref="r:6f374023-1b4e-4a80-8bf6-2cc3148faa52(jetbrains.mps.lang.editor.plugin)" />
     <import index="tpcc" ref="r:00000000-0000-4000-0000-011c89590290(jetbrains.mps.lang.structure.plugin)" />
+    <import index="yg2w" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util.containers(MPS.Core/)" />
+    <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -114,6 +116,7 @@
       <concept id="1079359253375" name="jetbrains.mps.baseLanguage.structure.ParenthesizedExpression" flags="nn" index="1eOMI4">
         <child id="1079359253376" name="expression" index="1eOMHV" />
       </concept>
+      <concept id="1081506762703" name="jetbrains.mps.baseLanguage.structure.GreaterThanExpression" flags="nn" index="3eOSWO" />
       <concept id="1081516740877" name="jetbrains.mps.baseLanguage.structure.NotExpression" flags="nn" index="3fqX7Q">
         <child id="1081516765348" name="expression" index="3fr31v" />
       </concept>
@@ -121,8 +124,12 @@
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
+      <concept id="1212685548494" name="jetbrains.mps.baseLanguage.structure.ClassCreator" flags="nn" index="1pGfFk">
+        <child id="1212687122400" name="typeParameter" index="1pMfVU" />
+      </concept>
       <concept id="1107535904670" name="jetbrains.mps.baseLanguage.structure.ClassifierType" flags="in" index="3uibUv">
         <reference id="1107535924139" name="classifier" index="3uigEE" />
+        <child id="1109201940907" name="parameter" index="11_B2D" />
       </concept>
       <concept id="1081773326031" name="jetbrains.mps.baseLanguage.structure.BinaryOperation" flags="nn" index="3uHJSO">
         <child id="1081773367579" name="rightExpression" index="3uHU7w" />
@@ -378,7 +385,9 @@
       <concept id="1203518072036" name="jetbrains.mps.baseLanguage.collections.structure.SmartClosureParameterDeclaration" flags="ig" index="Rh6nW" />
       <concept id="1160612413312" name="jetbrains.mps.baseLanguage.collections.structure.AddElementOperation" flags="nn" index="TSZUe" />
       <concept id="1160666733551" name="jetbrains.mps.baseLanguage.collections.structure.AddAllElementsOperation" flags="nn" index="X8dFx" />
+      <concept id="1162935959151" name="jetbrains.mps.baseLanguage.collections.structure.GetSizeOperation" flags="nn" index="34oBXx" />
       <concept id="1201792049884" name="jetbrains.mps.baseLanguage.collections.structure.TranslateOperation" flags="nn" index="3goQfb" />
+      <concept id="7125221305512719026" name="jetbrains.mps.baseLanguage.collections.structure.CollectionType" flags="in" index="3vKaQO" />
       <concept id="1225727723840" name="jetbrains.mps.baseLanguage.collections.structure.FindFirstOperation" flags="nn" index="1z4cxt" />
       <concept id="1202120902084" name="jetbrains.mps.baseLanguage.collections.structure.WhereOperation" flags="nn" index="3zZkjj" />
       <concept id="1176501494711" name="jetbrains.mps.baseLanguage.collections.structure.IsNotEmptyOperation" flags="nn" index="3GX2aA" />
@@ -2994,6 +3003,7 @@
   </node>
   <node concept="18kY7G" id="6LkeDcbPyMM">
     <property role="TrG5h" value="check_EnumerationDataTypeDeclaration" />
+    <property role="3GE5qa" value="enums" />
     <node concept="3clFbS" id="6LkeDcbPyMN" role="18ibNy">
       <node concept="3cpWs8" id="3KCTwZFhPAw" role="3cqZAp">
         <node concept="3cpWsn" id="3KCTwZFhPAx" role="3cpWs9">
@@ -3142,7 +3152,7 @@
                                         <ref role="3cqZAo" node="6LkeDcbPGxJ" resolve="it" />
                                       </node>
                                       <node concept="chp4Y" id="714IaVdH1ya" role="3oSUPX">
-                                        <ref role="cht4Q" to="tpce:fKM4N6M" resolve="EnumerationMemberDeclaration" />
+                                        <ref role="cht4Q" to="tpce:fKM4N6M" resolve="EnumerationMemberDeclaration_Old" />
                                       </node>
                                     </node>
                                     <node concept="3TrcHB" id="1gmd4rNzXbe" role="2OqNvi">
@@ -3231,7 +3241,7 @@
                                         <ref role="3cqZAo" node="1gmd4rN$5ME" resolve="it" />
                                       </node>
                                       <node concept="chp4Y" id="714IaVdH1xJ" role="3oSUPX">
-                                        <ref role="cht4Q" to="tpce:fKM4N6M" resolve="EnumerationMemberDeclaration" />
+                                        <ref role="cht4Q" to="tpce:fKM4N6M" resolve="EnumerationMemberDeclaration_Old" />
                                       </node>
                                     </node>
                                     <node concept="3TrcHB" id="1gmd4rN$6Bo" role="2OqNvi">
@@ -3381,7 +3391,7 @@
                                             <ref role="3cqZAo" node="1gmd4rNu3r$" resolve="it" />
                                           </node>
                                           <node concept="chp4Y" id="714IaVdH1xO" role="3oSUPX">
-                                            <ref role="cht4Q" to="tpce:fKM4N6M" resolve="EnumerationMemberDeclaration" />
+                                            <ref role="cht4Q" to="tpce:fKM4N6M" resolve="EnumerationMemberDeclaration_Old" />
                                           </node>
                                         </node>
                                         <node concept="2qgKlT" id="1gmd4rNzNjN" role="2OqNvi">
@@ -3416,7 +3426,7 @@
     </node>
     <node concept="1YaCAy" id="6LkeDcbPyMP" role="1YuTPh">
       <property role="TrG5h" value="enumerationDataTypeDeclaration" />
-      <ref role="1YaFvo" to="tpce:fKAxPRV" resolve="EnumerationDataTypeDeclaration" />
+      <ref role="1YaFvo" to="tpce:fKAxPRV" resolve="EnumerationDataTypeDeclaration_Old" />
     </node>
   </node>
   <node concept="Q5z_Y" id="1gmd4rN_CQ7">
@@ -3429,7 +3439,7 @@
               <node concept="1PxgMI" id="1gmd4rN_EXw" role="2Oq$k0">
                 <node concept="Q6c8r" id="1gmd4rN_EUU" role="1m5AlR" />
                 <node concept="chp4Y" id="714IaVdH1xV" role="3oSUPX">
-                  <ref role="cht4Q" to="tpce:fKAxPRV" resolve="EnumerationDataTypeDeclaration" />
+                  <ref role="cht4Q" to="tpce:fKAxPRV" resolve="EnumerationDataTypeDeclaration_Old" />
                 </node>
               </node>
               <node concept="3TrcHB" id="1gmd4rN_Fhr" role="2OqNvi">
@@ -4597,6 +4607,303 @@
     <node concept="1YaCAy" id="ROe8A_3B2D" role="1YuTPh">
       <property role="TrG5h" value="dataTypeDeclaration" />
       <ref role="1YaFvo" to="tpce:fKAxPRU" resolve="DataTypeDeclaration" />
+    </node>
+  </node>
+  <node concept="18kY7G" id="VFd4X$twIN">
+    <property role="3GE5qa" value="enums" />
+    <property role="TrG5h" value="check_EnumerationDeclaration" />
+    <node concept="3clFbS" id="VFd4X$twIO" role="18ibNy">
+      <node concept="3cpWs8" id="VFd4X$txkK" role="3cqZAp">
+        <node concept="3cpWsn" id="VFd4X$txkN" role="3cpWs9">
+          <property role="TrG5h" value="names" />
+          <node concept="2ShNRf" id="VFd4X$txnQ" role="33vP2m">
+            <node concept="1pGfFk" id="VFd4X$tOOF" role="2ShVmc">
+              <ref role="37wK5l" to="yg2w:~MultiMap.&lt;init&gt;()" resolve="MultiMap" />
+              <node concept="17QB3L" id="VFd4X$tOUc" role="1pMfVU" />
+              <node concept="3Tqbb2" id="VFd4X$tOYF" role="1pMfVU">
+                <ref role="ehGHo" to="tpce:2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
+              </node>
+            </node>
+          </node>
+          <node concept="3uibUv" id="VFd4X$tOmn" role="1tU5fm">
+            <ref role="3uigEE" to="yg2w:~MultiMap" resolve="MultiMap" />
+            <node concept="17QB3L" id="VFd4X$tOmo" role="11_B2D" />
+            <node concept="3Tqbb2" id="VFd4X$tOmp" role="11_B2D">
+              <ref role="ehGHo" to="tpce:2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3cpWs8" id="VFd4X$txUY" role="3cqZAp">
+        <node concept="3cpWsn" id="VFd4X$txUZ" role="3cpWs9">
+          <property role="TrG5h" value="prensetations" />
+          <node concept="3uibUv" id="VFd4X$tOi7" role="1tU5fm">
+            <ref role="3uigEE" to="yg2w:~MultiMap" resolve="MultiMap" />
+            <node concept="17QB3L" id="VFd4X$tOin" role="11_B2D" />
+            <node concept="3Tqbb2" id="VFd4X$tOjs" role="11_B2D">
+              <ref role="ehGHo" to="tpce:2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
+            </node>
+          </node>
+          <node concept="2ShNRf" id="VFd4X$tP17" role="33vP2m">
+            <node concept="1pGfFk" id="VFd4X$tP18" role="2ShVmc">
+              <ref role="37wK5l" to="yg2w:~MultiMap.&lt;init&gt;()" resolve="MultiMap" />
+              <node concept="17QB3L" id="VFd4X$tP19" role="1pMfVU" />
+              <node concept="3Tqbb2" id="VFd4X$tP1a" role="1pMfVU">
+                <ref role="ehGHo" to="tpce:2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3clFbH" id="VFd4X$txUp" role="3cqZAp" />
+      <node concept="2Gpval" id="VFd4X$twLd" role="3cqZAp">
+        <node concept="2GrKxI" id="VFd4X$twLe" role="2Gsz3X">
+          <property role="TrG5h" value="member" />
+        </node>
+        <node concept="2OqwBi" id="VFd4X$twZG" role="2GsD0m">
+          <node concept="1YBJjd" id="VFd4X$twLX" role="2Oq$k0">
+            <ref role="1YBMHb" node="VFd4X$twIQ" resolve="enumerationDeclartaion" />
+          </node>
+          <node concept="3Tsc0h" id="VFd4X$txgG" role="2OqNvi">
+            <ref role="3TtcxE" to="tpce:2TR3acGo7N1" resolve="members" />
+          </node>
+        </node>
+        <node concept="3clFbS" id="VFd4X$twLg" role="2LFqv$">
+          <node concept="3clFbJ" id="VFd4X$ua$2" role="3cqZAp">
+            <node concept="3clFbS" id="VFd4X$ua$4" role="3clFbx">
+              <node concept="2MkqsV" id="VFd4X$uLJf" role="3cqZAp">
+                <node concept="Xl_RD" id="VFd4X$uLJx" role="2MkJ7o">
+                  <property role="Xl_RC" value="Empty member name" />
+                </node>
+                <node concept="2GrUjf" id="VFd4X$uLKu" role="2OEOjV">
+                  <ref role="2Gs0qQ" node="VFd4X$twLe" resolve="member" />
+                </node>
+              </node>
+            </node>
+            <node concept="2OqwBi" id="VFd4X$uB_L" role="3clFbw">
+              <node concept="2OqwBi" id="VFd4X$uaVB" role="2Oq$k0">
+                <node concept="2GrUjf" id="VFd4X$uaAz" role="2Oq$k0">
+                  <ref role="2Gs0qQ" node="VFd4X$twLe" resolve="member" />
+                </node>
+                <node concept="3TrcHB" id="VFd4X$ukNq" role="2OqNvi">
+                  <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+                </node>
+              </node>
+              <node concept="17RlXB" id="VFd4X$uLJ0" role="2OqNvi" />
+            </node>
+            <node concept="9aQIb" id="VFd4X$zu$G" role="9aQIa">
+              <node concept="3clFbS" id="VFd4X$zu$H" role="9aQI4">
+                <node concept="3clFbF" id="VFd4X$tP3J" role="3cqZAp">
+                  <node concept="2OqwBi" id="VFd4X$tPsU" role="3clFbG">
+                    <node concept="37vLTw" id="VFd4X$tP3I" role="2Oq$k0">
+                      <ref role="3cqZAo" node="VFd4X$txkN" resolve="names" />
+                    </node>
+                    <node concept="liA8E" id="VFd4X$tTkj" role="2OqNvi">
+                      <ref role="37wK5l" to="yg2w:~MultiMap.putValue(java.lang.Object,java.lang.Object):void" resolve="putValue" />
+                      <node concept="2OqwBi" id="VFd4X$tTBD" role="37wK5m">
+                        <node concept="2GrUjf" id="VFd4X$tTmy" role="2Oq$k0">
+                          <ref role="2Gs0qQ" node="VFd4X$twLe" resolve="member" />
+                        </node>
+                        <node concept="3TrcHB" id="VFd4X$tTVY" role="2OqNvi">
+                          <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+                        </node>
+                      </node>
+                      <node concept="2GrUjf" id="VFd4X$tUhY" role="37wK5m">
+                        <ref role="2Gs0qQ" node="VFd4X$twLe" resolve="member" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbJ" id="VFd4X$zuYX" role="3cqZAp">
+            <node concept="3clFbS" id="VFd4X$zuYZ" role="3clFbx">
+              <node concept="2MkqsV" id="VFd4X$$crR" role="3cqZAp">
+                <node concept="Xl_RD" id="VFd4X$$crS" role="2MkJ7o">
+                  <property role="Xl_RC" value="Empty member presentation" />
+                </node>
+                <node concept="2GrUjf" id="VFd4X$$crT" role="2OEOjV">
+                  <ref role="2Gs0qQ" node="VFd4X$twLe" resolve="member" />
+                </node>
+              </node>
+            </node>
+            <node concept="2OqwBi" id="VFd4X$zZtj" role="3clFbw">
+              <node concept="2OqwBi" id="VFd4X$zvnj" role="2Oq$k0">
+                <node concept="2GrUjf" id="VFd4X$zv8Q" role="2Oq$k0">
+                  <ref role="2Gs0qQ" node="VFd4X$twLe" resolve="member" />
+                </node>
+                <node concept="3TrcHB" id="VFd4X$zEVQ" role="2OqNvi">
+                  <ref role="3TsBF5" to="tpce:_jzzDSlxy8" resolve="presentation" />
+                </node>
+              </node>
+              <node concept="17RlXB" id="VFd4X$$b4s" role="2OqNvi" />
+            </node>
+            <node concept="9aQIb" id="VFd4X$$c67" role="9aQIa">
+              <node concept="3clFbS" id="VFd4X$$c68" role="9aQI4">
+                <node concept="3clFbF" id="VFd4X$tV8x" role="3cqZAp">
+                  <node concept="2OqwBi" id="VFd4X$tVrr" role="3clFbG">
+                    <node concept="37vLTw" id="VFd4X$tV8v" role="2Oq$k0">
+                      <ref role="3cqZAo" node="VFd4X$txUZ" resolve="prensetations" />
+                    </node>
+                    <node concept="liA8E" id="VFd4X$tZiB" role="2OqNvi">
+                      <ref role="37wK5l" to="yg2w:~MultiMap.putValue(java.lang.Object,java.lang.Object):void" resolve="putValue" />
+                      <node concept="2OqwBi" id="VFd4X$tZDm" role="37wK5m">
+                        <node concept="2GrUjf" id="VFd4X$tZlj" role="2Oq$k0">
+                          <ref role="2Gs0qQ" node="VFd4X$twLe" resolve="member" />
+                        </node>
+                        <node concept="3TrcHB" id="VFd4X$u9Ew" role="2OqNvi">
+                          <ref role="3TsBF5" to="tpce:_jzzDSlxy8" resolve="presentation" />
+                        </node>
+                      </node>
+                      <node concept="2GrUjf" id="VFd4X$u9i6" role="37wK5m">
+                        <ref role="2Gs0qQ" node="VFd4X$twLe" resolve="member" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3clFbH" id="VFd4X$u9O6" role="3cqZAp" />
+      <node concept="2Gpval" id="VFd4X$uLX$" role="3cqZAp">
+        <node concept="2GrKxI" id="VFd4X$uLXA" role="2Gsz3X">
+          <property role="TrG5h" value="namePartition" />
+        </node>
+        <node concept="2OqwBi" id="VFd4X$uMoE" role="2GsD0m">
+          <node concept="37vLTw" id="VFd4X$uMa7" role="2Oq$k0">
+            <ref role="3cqZAo" node="VFd4X$txkN" resolve="names" />
+          </node>
+          <node concept="liA8E" id="VFd4X$uMBo" role="2OqNvi">
+            <ref role="37wK5l" to="yg2w:~MultiMap.entrySet():java.util.Set" resolve="entrySet" />
+          </node>
+        </node>
+        <node concept="3clFbS" id="VFd4X$uLXE" role="2LFqv$">
+          <node concept="3cpWs8" id="VFd4X$uMNl" role="3cqZAp">
+            <node concept="3cpWsn" id="VFd4X$uMNo" role="3cpWs9">
+              <property role="TrG5h" value="members" />
+              <node concept="3vKaQO" id="VFd4X$uMNB" role="1tU5fm">
+                <node concept="3Tqbb2" id="VFd4X$uMNW" role="3O5elw">
+                  <ref role="ehGHo" to="tpce:2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
+                </node>
+              </node>
+              <node concept="2OqwBi" id="VFd4X$uMOP" role="33vP2m">
+                <node concept="2GrUjf" id="VFd4X$uMOx" role="2Oq$k0">
+                  <ref role="2Gs0qQ" node="VFd4X$uLXA" resolve="namePartition" />
+                </node>
+                <node concept="liA8E" id="VFd4X$vcEM" role="2OqNvi">
+                  <ref role="37wK5l" to="33ny:~Map$Entry.getValue():java.lang.Object" resolve="getValue" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbJ" id="VFd4X$vdXP" role="3cqZAp">
+            <node concept="3clFbS" id="VFd4X$vdXR" role="3clFbx">
+              <node concept="2Gpval" id="VFd4X$xFMU" role="3cqZAp">
+                <node concept="2GrKxI" id="VFd4X$xFMW" role="2Gsz3X">
+                  <property role="TrG5h" value="member" />
+                </node>
+                <node concept="37vLTw" id="VFd4X$xFNs" role="2GsD0m">
+                  <ref role="3cqZAo" node="VFd4X$uMNo" resolve="members" />
+                </node>
+                <node concept="3clFbS" id="VFd4X$xFN0" role="2LFqv$">
+                  <node concept="2MkqsV" id="VFd4X$xFOX" role="3cqZAp">
+                    <node concept="Xl_RD" id="VFd4X$xFOY" role="2MkJ7o">
+                      <property role="Xl_RC" value="Duplicate member name" />
+                    </node>
+                    <node concept="2GrUjf" id="VFd4X$xFOZ" role="2OEOjV">
+                      <ref role="2Gs0qQ" node="VFd4X$xFMW" resolve="member" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3eOSWO" id="VFd4X$xFEu" role="3clFbw">
+              <node concept="3cmrfG" id="VFd4X$xFEL" role="3uHU7w">
+                <property role="3cmrfH" value="1" />
+              </node>
+              <node concept="2OqwBi" id="VFd4X$vezt" role="3uHU7B">
+                <node concept="37vLTw" id="VFd4X$ve2A" role="2Oq$k0">
+                  <ref role="3cqZAo" node="VFd4X$uMNo" resolve="members" />
+                </node>
+                <node concept="34oBXx" id="VFd4X$vXGt" role="2OqNvi" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2Gpval" id="VFd4X$xFRK" role="3cqZAp">
+        <node concept="2GrKxI" id="VFd4X$xFRL" role="2Gsz3X">
+          <property role="TrG5h" value="presentationPartition" />
+        </node>
+        <node concept="2OqwBi" id="VFd4X$xFRM" role="2GsD0m">
+          <node concept="37vLTw" id="VFd4X$xIQc" role="2Oq$k0">
+            <ref role="3cqZAo" node="VFd4X$txUZ" resolve="prensetations" />
+          </node>
+          <node concept="liA8E" id="VFd4X$xFRO" role="2OqNvi">
+            <ref role="37wK5l" to="yg2w:~MultiMap.entrySet():java.util.Set" resolve="entrySet" />
+          </node>
+        </node>
+        <node concept="3clFbS" id="VFd4X$xFRP" role="2LFqv$">
+          <node concept="3cpWs8" id="VFd4X$xFRQ" role="3cqZAp">
+            <node concept="3cpWsn" id="VFd4X$xFRR" role="3cpWs9">
+              <property role="TrG5h" value="members" />
+              <node concept="3vKaQO" id="VFd4X$xFRS" role="1tU5fm">
+                <node concept="3Tqbb2" id="VFd4X$xFRT" role="3O5elw">
+                  <ref role="ehGHo" to="tpce:2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
+                </node>
+              </node>
+              <node concept="2OqwBi" id="VFd4X$xFRU" role="33vP2m">
+                <node concept="2GrUjf" id="VFd4X$xFRV" role="2Oq$k0">
+                  <ref role="2Gs0qQ" node="VFd4X$xFRL" resolve="presentationPartition" />
+                </node>
+                <node concept="liA8E" id="VFd4X$xFRW" role="2OqNvi">
+                  <ref role="37wK5l" to="33ny:~Map$Entry.getValue():java.lang.Object" resolve="getValue" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbJ" id="VFd4X$xFRX" role="3cqZAp">
+            <node concept="3clFbS" id="VFd4X$xFRY" role="3clFbx">
+              <node concept="2Gpval" id="VFd4X$xFRZ" role="3cqZAp">
+                <node concept="2GrKxI" id="VFd4X$xFS0" role="2Gsz3X">
+                  <property role="TrG5h" value="member" />
+                </node>
+                <node concept="37vLTw" id="VFd4X$xFS1" role="2GsD0m">
+                  <ref role="3cqZAo" node="VFd4X$xFRR" resolve="members" />
+                </node>
+                <node concept="3clFbS" id="VFd4X$xFS2" role="2LFqv$">
+                  <node concept="2MkqsV" id="VFd4X$xFS3" role="3cqZAp">
+                    <node concept="Xl_RD" id="VFd4X$xFS4" role="2MkJ7o">
+                      <property role="Xl_RC" value="Duplicate member presentation" />
+                    </node>
+                    <node concept="2GrUjf" id="VFd4X$xFS5" role="2OEOjV">
+                      <ref role="2Gs0qQ" node="VFd4X$xFS0" resolve="member" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3eOSWO" id="VFd4X$xFS6" role="3clFbw">
+              <node concept="3cmrfG" id="VFd4X$xFS7" role="3uHU7w">
+                <property role="3cmrfH" value="1" />
+              </node>
+              <node concept="2OqwBi" id="VFd4X$xFS8" role="3uHU7B">
+                <node concept="37vLTw" id="VFd4X$xFS9" role="2Oq$k0">
+                  <ref role="3cqZAo" node="VFd4X$xFRR" resolve="members" />
+                </node>
+                <node concept="34oBXx" id="VFd4X$xFSa" role="2OqNvi" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="VFd4X$twIQ" role="1YuTPh">
+      <property role="TrG5h" value="enumerationDeclartaion" />
+      <ref role="1YaFvo" to="tpce:2TR3acGo7Lv" resolve="EnumerationDeclartaion" />
     </node>
   </node>
 </model>

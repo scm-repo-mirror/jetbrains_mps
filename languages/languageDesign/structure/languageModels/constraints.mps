@@ -325,6 +325,9 @@
       <concept id="1138056143562" name="jetbrains.mps.lang.smodel.structure.SLinkAccess" flags="nn" index="3TrEf2">
         <reference id="1138056516764" name="link" index="3Tt5mk" />
       </concept>
+      <concept id="1138056282393" name="jetbrains.mps.lang.smodel.structure.SLinkListAccess" flags="nn" index="3Tsc0h">
+        <reference id="1138056546658" name="link" index="3TtcxE" />
+      </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
@@ -385,9 +388,6 @@
       </concept>
     </language>
   </registry>
-  <node concept="1M2fIO" id="hDMFHWh">
-    <ref role="1M2myG" to="tpce:fKM4N6M" resolve="EnumerationMemberDeclaration" />
-  </node>
   <node concept="1M2fIO" id="hDMFHZx">
     <ref role="1M2myG" to="tpce:f_TIwhg" resolve="ConceptDeclaration" />
     <node concept="XeQIk" id="1fdcuoJ1213" role="XeZnq">
@@ -823,7 +823,8 @@
     </node>
   </node>
   <node concept="1M2fIO" id="hDMFJ$N">
-    <ref role="1M2myG" to="tpce:fKAxPRV" resolve="EnumerationDataTypeDeclaration" />
+    <property role="3GE5qa" value="enums" />
+    <ref role="1M2myG" to="tpce:fKAxPRV" resolve="EnumerationDataTypeDeclaration_Old" />
     <node concept="EnEH3" id="hDMFJ$O" role="1MhHOB">
       <ref role="EomxK" to="tpce:hCPDuZq" resolve="hasNoDefaultMember" />
       <node concept="1LLf8_" id="hDMFJ$P" role="1LXaQT">
@@ -2405,6 +2406,48 @@
                   <ref role="37wK5l" to="tpcn:hEwILL0" resolve="getReferenceLinkDeclarations" />
                 </node>
               </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="1M2fIO" id="VFd4X$D$hf">
+    <property role="3GE5qa" value="enums" />
+    <ref role="1M2myG" to="tpce:2TR3acGo7Lv" resolve="EnumerationDeclartaion" />
+    <node concept="1N5Pfh" id="VFd4X$D$pO" role="1Mr941">
+      <ref role="1N5Vy1" to="tpce:VFd4XzZw5G" resolve="defaultMember" />
+      <node concept="3dgokm" id="VFd4X$D$pW" role="1N6uqs">
+        <node concept="3clFbS" id="VFd4X$D$pY" role="2VODD2">
+          <node concept="3clFbF" id="VFd4X$D$sY" role="3cqZAp">
+            <node concept="2YIFZM" id="VFd4X$D$zP" role="3clFbG">
+              <ref role="37wK5l" to="o8zo:4IP40Bi3eAf" resolve="forNamedElements" />
+              <ref role="1Pybhc" to="o8zo:4IP40Bi3e_R" resolve="ListScope" />
+              <node concept="2OqwBi" id="VFd4X$D$R$" role="37wK5m">
+                <node concept="3kakTB" id="VFd4X$D$CB" role="2Oq$k0" />
+                <node concept="3Tsc0h" id="VFd4X$D_70" role="2OqNvi">
+                  <ref role="3TtcxE" to="tpce:2TR3acGo7N1" resolve="members" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2NXJUA" id="VFd4X$D$hg" role="2NY200">
+      <node concept="3clFbS" id="VFd4X$D$hh" role="2VODD2">
+        <node concept="3clFbF" id="VFd4X$D$hi" role="3cqZAp">
+          <node concept="22lmx$" id="VFd4X$D$hj" role="3clFbG">
+            <node concept="2OqwBi" id="VFd4X$D$hk" role="3uHU7B">
+              <node concept="1Q6Npb" id="VFd4X$D$hl" role="2Oq$k0" />
+              <node concept="3zA4fs" id="VFd4X$D$hm" role="2OqNvi">
+                <ref role="3zA4av" to="tpcc:2LiUEk8oQ$g" resolve="structure" />
+              </node>
+            </node>
+            <node concept="2YIFZM" id="VFd4X$D$hn" role="3uHU7w">
+              <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
+              <ref role="37wK5l" to="w1kc:~SModelStereotype.isGeneratorModel(org.jetbrains.mps.openapi.model.SModel):boolean" resolve="isGeneratorModel" />
+              <node concept="1Q6Npb" id="VFd4X$D$ho" role="37wK5m" />
             </node>
           </node>
         </node>
