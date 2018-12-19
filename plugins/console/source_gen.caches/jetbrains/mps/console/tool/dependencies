@@ -48,6 +48,7 @@
     <classNode dependClassName="jetbrains.mps.console.tool.ConsoleTool" />
     <classNode dependClassName="jetbrains.mps.console.tool.ConsoleUtil" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId" />
+    <classNode dependClassName="jetbrains.mps.editor.runtime.commands.EditorCommand" />
     <classNode dependClassName="jetbrains.mps.editor.runtime.selection.SelectionUtil" />
     <classNode dependClassName="jetbrains.mps.ide.ThreadUtils" />
     <classNode dependClassName="jetbrains.mps.ide.datatransfer.SModelDataFlavor" />
@@ -84,7 +85,6 @@
     <classNode dependClassName="jetbrains.mps.smodel.tempmodel.TempModuleOptions" />
     <classNode dependClassName="jetbrains.mps.smodel.tempmodel.TemporaryModels" />
     <classNode dependClassName="jetbrains.mps.smodel.undo.DefaultCommand" />
-    <classNode dependClassName="jetbrains.mps.smodel.undo.NodeBasedCommand" />
     <classNode dependClassName="jetbrains.mps.workbench.MPSDataKeys" />
     <classNode dependClassName="jetbrains.mps.workbench.action.ActionUtils" />
     <classNode dependClassName="jetbrains.mps.workbench.action.BaseAction" />

@@ -59,7 +59,7 @@ import javax.swing.SwingUtilities;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.workbench.action.ActionUtils;
 import com.intellij.openapi.actionSystem.DataContext;
-import jetbrains.mps.smodel.undo.NodeBasedCommand;
+import jetbrains.mps.editor.runtime.commands.EditorCommand;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import java.awt.datatransfer.Transferable;
 import com.intellij.ide.CopyPasteManagerEx;
@@ -352,8 +352,8 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
     }
 
     public final void performPaste(@NotNull final DataContext context) {
-      myProject.getModelAccess().executeCommand(new NodeBasedCommand(myRoot, myProject.getRepository()) {
-        public void run() {
+      myProject.getModelAccess().executeCommand(new EditorCommand(myEditor) {
+        protected void doExecute() {
           SNodeReference pastingNodeReference = null;
           try {
             for (Transferable trf : CopyPasteManagerEx.getInstanceEx().getAllContents()) {
@@ -484,8 +484,8 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
         ApplicationManager.getApplication().invokeLater(new Runnable() {
           public void run() {
             // we are not in command here 
-            myProject.getModelAccess().executeCommand(new NodeBasedCommand(myRoot, getProject().getRepository()) {
-              public void run() {
+            myProject.getModelAccess().executeCommand(new EditorCommand(myEditor) {
+              public void doExecute() {
                 addNodeImports(response);
                 ListSequence.fromList(SLinkOperations.getChildren(getLastReponse(), MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171a5ba02L, 0x4e3b035171b356edL, "item"))).addElement(response);
               }
@@ -560,8 +560,8 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
           // non-undoable actions should not affect project files 
           throw new IllegalStateException();
         }
-        myProject.getModelAccess().executeCommand(new NodeBasedCommand(myRoot, getProject().getRepository()) {
-          public void run() {
+        myProject.getModelAccess().executeCommand(new EditorCommand(myEditor) {
+          public void doExecute() {
             ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bafL, "history")), MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0xa835f28c1aa02beL, 0x63da33792b5df49aL, "item"))).addElement(SNodeOperations.copyNode(SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder"))));
             SLinkOperations.setNewChild(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder"), MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL, "jetbrains.mps.console.base.structure.CommandHolder"));
             SLinkOperations.setTarget(SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x7d401fa40806ebe7L, "cursor")), MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4fe9275cea077231L, 0x4fe9275cea077232L, "target"), SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder")));
