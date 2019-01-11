@@ -9501,6 +9501,11 @@
               <ref role="3bR37D" node="7YI57w6K0rx" resolve="jetbrains.mps.lang.smodel#1139186730696" />
             </node>
           </node>
+          <node concept="1SiIV0" id="4b5B0qPdLhD" role="3bR37C">
+            <node concept="3bR9La" id="4b5B0qPdLhE" role="1SiIV1">
+              <ref role="3bR37D" node="7Kfy9QB6L9O" resolve="jetbrains.mps.lang.smodel" />
+            </node>
+          </node>
         </node>
         <node concept="1SiIV0" id="2a9bszgruxY" role="3bR37C">
           <node concept="3bR9La" id="2a9bszgruxX" role="1SiIV1">
