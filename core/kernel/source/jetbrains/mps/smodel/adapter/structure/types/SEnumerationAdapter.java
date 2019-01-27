@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.smodel.adapter.structure.types;
 
+import jetbrains.mps.smodel.JavaFriendlyBase64;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 import jetbrains.mps.smodel.adapter.ids.SDataTypeId;
 import jetbrains.mps.smodel.adapter.ids.SEnumerationLiteralId;
@@ -31,12 +32,12 @@ import org.jetbrains.mps.openapi.language.SDataType;
 import org.jetbrains.mps.openapi.language.SEnumeration;
 import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
 import org.jetbrains.mps.openapi.language.SLanguage;
+import org.jetbrains.mps.openapi.language.SType;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.util.AbstractList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author Radimir.Sorokin
@@ -76,7 +77,7 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
     if (memberDescriptor == null) {
       return null;
     }
-    return new SEnumLiteralAdapter(memberDescriptor);
+    return new SEnumLiteralAdapter(memberDescriptor.getIdValue());
   }
 
   @Override
@@ -89,45 +90,78 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
     if (memberDescriptor == null) {
       return null;
     }
-    return new SEnumLiteralAdapter(memberDescriptor);
+    return new SEnumLiteralAdapter(memberDescriptor.getIdValue());
   }
 
   @NotNull
   @Override
   public List<SEnumerationLiteral> getLiterals() {
-    EnumerationDescriptor descriptor = getDescriptor();
-    if (descriptor == null) {
-      return Collections.emptyList();
-    }
-    return new EnumerationLiteralsList((List<MemberDescriptor>) descriptor.getMembers());
+    return new EnumerationLiteralsList();
   }
 
   @Override
   public Object fromString(String string) {
-    final SEnumerationLiteral literal = getLiteral(string);
+    final EnumerationDescriptor descriptor = getDescriptor();
+    if (descriptor == null) {
+      return SType.NOT_A_VALUE;
+    }
+    if (string == null) {
+      // if persisted by name == null, TODO remove after 19.1 since all literals stored by id
+      SEnumerationLiteral literal = getLiteral(null);
+      if (literal != null) {
+        return literal;
+      }
+      // else if default implicitly stored
+      return getDefault();
+    }
+    // if persisted by id
+    try {
+      long idValue = deserializeId(string);
+      MemberDescriptor md = descriptor.getMember(idValue);
+      if (md != null) {
+        return new SEnumLiteralAdapter(md.getIdValue());
+      }
+    } catch (IllegalArgumentException e) {
+      // serialized value is not id
+    }
+    // else if persisted by name, TODO replace with just 'return SType.NOT_A_VALUE' after 19.1 since all literals stored by id
+    SEnumerationLiteral literal = getLiteral(string);
     if (literal != null) {
       return literal;
     }
-    if (string == null) {
-      // return default for absent string
-      return getDefault();
+    SDataType rawMemberType = getRawMemberType();
+    if (rawMemberType != null) {
+      return new InvalidEnumerationLiteral(this, rawMemberType.fromString(string));
     }
-    return new InvalidEnumerationLiteral(this, getRawMemberType().fromString(string));
+    return SType.NOT_A_VALUE;
   }
 
   @Override
   public String toString(Object value) {
-    if (value instanceof SEnumerationLiteral) {
-      SEnumerationLiteral literal = (SEnumerationLiteral) value;
-      if (equals(literal.getEnumeration())) {
-        return literal.getName();
+    if (value instanceof SEnumLiteralAdapter) {
+      SEnumLiteralAdapter literal = (SEnumLiteralAdapter) value;
+      if (literal.equals(getDefault())) {
+        // store default values implicitly
+        return null;
       }
+      return serializeId(literal.myId);
     }
     if (value instanceof InvalidEnumerationLiteral) {
-      Object rawValue = ((InvalidEnumerationLiteral) value).getRawValue();
-      return getRawMemberType().toString(rawValue);
+      SDataType rawMemberType = getRawMemberType();
+      if (rawMemberType != null) {
+        Object rawValue = ((InvalidEnumerationLiteral) value).getRawValue();
+        return rawMemberType.toString(rawValue);
+      }
     }
     return null;
+  }
+
+  private long deserializeId(String string) throws IllegalArgumentException {
+    return new JavaFriendlyBase64().parseLong(string);
+  }
+
+  private String serializeId(long id) {
+    return new JavaFriendlyBase64().toString(id);
   }
 
   @Override
@@ -154,10 +188,18 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
   }
 
   public class SEnumLiteralAdapter implements SEnumerationLiteral {
-    private final MemberDescriptor myDescriptor;
+    private final long myId;
 
-    private SEnumLiteralAdapter(@NotNull MemberDescriptor descriptor) {
-      myDescriptor = descriptor;
+    private SEnumLiteralAdapter(long id) {
+      myId = id;
+    }
+
+    private MemberDescriptor getDescriptor() {
+      EnumerationDescriptor enumDescriptor = SEnumerationAdapter.this.getDescriptor();
+      if (enumDescriptor == null) {
+        return null;
+      }
+      return enumDescriptor.getMember(myId);
     }
 
     @NotNull
@@ -169,28 +211,44 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
     @NotNull
     @Override
     public String getPresentation() {
-      return myDescriptor.getPresentation();
+      MemberDescriptor descriptor = getDescriptor();
+      if (descriptor == null) {
+        return "";
+      }
+      return descriptor.getPresentation();
     }
 
     @Nullable
     @Override
     public SNodeReference getSourceNode() {
-      return myDescriptor.getSourceNode();
+      MemberDescriptor descriptor = getDescriptor();
+      if (descriptor == null) {
+        return null;
+      }
+      return descriptor.getSourceNode();
     }
 
     @Nullable
     @Override
     public String getName() {
-      return myDescriptor.getName();
+      MemberDescriptor descriptor = getDescriptor();
+      if (descriptor == null) {
+        return null;
+      }
+      return descriptor.getName();
     }
 
     @Nullable
     public String getIdentifier() {
-      return myDescriptor.getIdentifier();
+      MemberDescriptor descriptor = getDescriptor();
+      if (descriptor == null) {
+        return null;
+      }
+      return descriptor.getIdentifier();
     }
 
     public SEnumerationLiteralId getId() {
-      return new SEnumerationLiteralId(SEnumerationAdapter.this.getId(), myDescriptor.getIdValue());
+      return new SEnumerationLiteralId(SEnumerationAdapter.this.getId(), myId);
     }
 
     @Override
@@ -204,12 +262,12 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
 
       SEnumLiteralAdapter that = (SEnumLiteralAdapter) o;
 
-      return myDescriptor.equals(that.myDescriptor);
+      return myId == that.myId;
     }
 
     @Override
     public int hashCode() {
-      return myDescriptor.hashCode();
+      return Long.hashCode(myId);
     }
 
     @Override
@@ -218,7 +276,7 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
     }
   }
 
-  @NotNull
+  @Nullable
   public SDataType getRawMemberType() {
     final EnumerationDescriptor descriptor = getDescriptor();
     if (descriptor == null) {
@@ -226,7 +284,7 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
     }
     final PrimitiveTypeId id = descriptor.getMemberRawType();
     if (id == null) {
-      return SPrimitiveTypes.STRING;
+      return null;
     }
     return SPrimitiveTypes.getType(id);
   }
@@ -264,24 +322,23 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
 
   private class EnumerationLiteralsList extends AbstractList<SEnumerationLiteral> {
 
-    private final List<MemberDescriptor> myMembers;
-
-    private EnumerationLiteralsList(List<MemberDescriptor> members) {
-      myMembers = members;
+    @NotNull
+    private List<MemberDescriptor> getMembersList() {
+      EnumerationDescriptor descriptor = getDescriptor();
+      if (descriptor == null) {
+        return Collections.emptyList();
+      }
+      return (List<MemberDescriptor>) descriptor.getMembers();
     }
 
     @Override
     public SEnumerationLiteral get(int index) {
-      EnumerationDescriptor descriptor = getDescriptor();
-      if (descriptor == null) {
-        return null;
-      }
-      return new SEnumLiteralAdapter(myMembers.get(index));
+      return new SEnumLiteralAdapter(getMembersList().get(index).getIdValue());
     }
 
     @Override
     public int size() {
-      return myMembers.size();
+      return getMembersList().size();
     }
 
     @Override
@@ -290,7 +347,7 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
         return false;
       }
       SEnumLiteralAdapter lit = (SEnumLiteralAdapter) o;
-      return myMembers.contains(lit.myDescriptor);
+      return getMembersList().contains(lit.getDescriptor());
     }
   }
 }

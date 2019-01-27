@@ -45,9 +45,9 @@ public final class EnumerationLiteralsIndex {
     return myIndex.get(literalId.getIdValue());
   }
 
-  // Note that check for containment of memberDescriptor to an appropriate enumeration should be done on call-site
-  public int index(@NotNull MemberDescriptor memberDescriptor) {
-    return myIndex.get(memberDescriptor.getIdValue());
+  // Note that check for containment of given member to an appropriate enumeration should be done on call-site
+  public int index(long member) {
+    return myIndex.get(member);
   }
 
   @NotNull
@@ -65,7 +65,7 @@ public final class EnumerationLiteralsIndex {
     @Override
     public int get(long key) {
       int index = this.index(key);
-      return index < 0 ? -1 : super.get(key);
+      return index < 0 ? -1 : _values[index];
     }
   }
 }

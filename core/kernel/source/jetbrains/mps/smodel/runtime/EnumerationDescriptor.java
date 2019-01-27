@@ -35,14 +35,17 @@ import java.util.Objects;
 public interface EnumerationDescriptor extends DataTypeDescriptor {
 
   @NotNull
+  /* change to List<MemberDescriptor> after 19.1 when descriptors regenerated */
   Collection<MemberDescriptor> getMembers();
 
   @Nullable
-  MemberDescriptor getMember(@Nullable String value);
+  MemberDescriptor getMember(@Nullable String name);
+
+  @Nullable
+  MemberDescriptor getMember(long idValue);
 
   @Nullable
   MemberDescriptor getDefault();
-
 
   @Nullable
   default PrimitiveTypeId getMemberRawType() {

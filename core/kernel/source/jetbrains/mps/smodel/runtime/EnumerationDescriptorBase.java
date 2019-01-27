@@ -1,6 +1,7 @@
 package jetbrains.mps.smodel.runtime;
 
 import jetbrains.mps.lang.smodel.EnumerationLiteralsIndex;
+import jetbrains.mps.smodel.JavaFriendlyBase64;
 import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 import jetbrains.mps.smodel.adapter.ids.SDataTypeId;
@@ -8,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.AbstractList;
+import java.util.Collection;
 
 public abstract class EnumerationDescriptorBase extends NamedElementDescriptorBase implements EnumerationDescriptor {
   private final SDataTypeId myId;
@@ -35,10 +37,21 @@ public abstract class EnumerationDescriptorBase extends NamedElementDescriptorBa
     return myMemberRawType;
   }
 
+  @Nullable
+  @Override
+  /*remove after 19.1 when all classes regenerated*/
+  public MemberDescriptor getMember(long idValue) {
+    Collection<MemberDescriptor> members = getMembers();
+    if (members instanceof MembersList) {
+      MembersList membersList = (MembersList) members;
+      return membersList.get(membersList.myIndex.index(idValue));
+    }
+    return members.stream().filter(md -> md.getIdValue() == idValue).findFirst().orElse(null);
+  }
+
   protected class MembersList extends AbstractList<MemberDescriptor> {
     private final MemberDescriptor[] myDescriptors;
     private final EnumerationLiteralsIndex myIndex;
-
     public MembersList(EnumerationLiteralsIndex index, MemberDescriptor ... descriptors) {
       myIndex = index;
       myDescriptors = descriptors;
@@ -60,8 +73,9 @@ public abstract class EnumerationDescriptorBase extends NamedElementDescriptorBa
         return false;
       }
       MemberDescriptor md = (MemberDescriptor) o;
-      int index = myIndex.index(md);
+      int index = myIndex.index(md.getIdValue());
       return myDescriptors[index] == md;
     }
+
   }
 }

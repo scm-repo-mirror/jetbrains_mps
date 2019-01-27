@@ -39,7 +39,7 @@ public interface IPropertyPresentationProvider {
   String getPresentation(@Nullable Object value);
 
   /**
-   * Return value that has given presentation ir {@link SType#NOT_A_VALUE} if
+   * Return value that has given presentation or {@link SType#NOT_A_VALUE} if
    * there is no value that matches with given presentation
    */
   @Nullable
