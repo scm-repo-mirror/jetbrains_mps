@@ -19,6 +19,7 @@ import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.reloading.ClassBytesProvider.ClassBytes;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.util.ProtectionDomainUtil;
+import jetbrains.mps.util.SystemInfo;
 import jetbrains.mps.util.iterable.IterableEnumeration;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -63,6 +64,10 @@ public final class ModuleClassLoader extends ClassLoader {
   private boolean myDisposed;
   private final Object myPackageLock = new Object();
 
+  static {
+    registerParallelCapable();
+  }
+
   /**
    * MPS has a cyclic delegation classloading model (module A.a1 triggers class B.b which in turn triggers the loading of
    * the class A.a2 in the case when A depends on B and vice versa; the implicit class loading is triggered in the #defineClass invocation
@@ -72,9 +77,12 @@ public final class ModuleClassLoader extends ClassLoader {
    * Without this registration the threading model of the MPS classloading is flawed.
    * @since 3.4
    */
-  static {
-    if (!registerAsParallelCapable()) {
-      LOG.error("Was not able to register the MPS class loader as parallel capable: one might encounter a deadlock", new Throwable());
+  private static void registerParallelCapable() {
+    if (!SystemInfo.isJavaVersionAtLeast("1.7")) {
+      LOG.error("Java version is less than 1.7, it is impossible to register MPS class loader as parallel capable: one might encounter a deadlock");
+      if (!registerAsParallelCapable()) {
+        LOG.error("MPS was not able to register the MPS class loader as parallel capable: one might encounter a deadlock", new Throwable());
+      }
     }
   }
 
