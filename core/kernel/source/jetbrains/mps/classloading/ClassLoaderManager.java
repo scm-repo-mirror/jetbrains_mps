@@ -614,7 +614,7 @@ public class ClassLoaderManager implements CoreComponent {
   /**
    * it is possible to associate a ClassLoader with such module
    */
-  private final Condition<SModule> myLoadableCondition = module -> module instanceof ReloadableModule;
+  private final Condition<SModule> myLoadableCondition = module -> (module instanceof ReloadableModule) && ((ReloadableModule) module).canLoadClasses();
 
   /**
    * the modules which we want to watch (and trace the dependencies between them)
