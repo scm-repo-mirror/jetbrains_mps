@@ -131,7 +131,7 @@ public class PluginLoaderRegistry implements ApplicationComponent {
 
   @Nullable
   private static PluginContributor createPluginContributor(@NotNull ReloadableModule module) {
-    if (module.willLoad()) {
+    if (module.getStatus().isDeployed()) {
       LOG.trace("Creating plugin contributor from " + module);
       return new ModulePluginContributor(module);
     }

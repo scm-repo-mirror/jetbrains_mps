@@ -110,7 +110,7 @@ public class QueriesGenerated extends QueryProviderBase {
     }
     SModule module = model.getModule();
     if (module instanceof ReloadableModule) {
-      return ((ReloadableModule) module).willLoad();
+      return ((ReloadableModule) module).canLoadClasses();
     }
     return false;
   }

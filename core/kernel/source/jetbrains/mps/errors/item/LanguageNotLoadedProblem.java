@@ -25,9 +25,7 @@ import jetbrains.mps.project.AbstractModule;
 import java.util.HashSet;
 import org.jetbrains.mps.openapi.module.SDependency;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.classloading.ClassLoaderManager;
 import org.jetbrains.mps.openapi.module.SModule;
-import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
 
 public class LanguageNotLoadedProblem extends LanguageMissingProblem {
@@ -45,7 +43,7 @@ public class LanguageNotLoadedProblem extends LanguageMissingProblem {
     for (SDependency dep : Sequence.fromIterable(langModule.getDeclaredDependencies())) {
       @Nullable SModule targetModule = dep.getTargetModule().resolve(repository);
 
-      if (targetModule == null || (targetModule instanceof ReloadableModule && !((ReloadableModule) targetModule).getStatus().canLoadClasses())) {
+      if (targetModule == null || (targetModule instanceof ReloadableModule && !((ReloadableModule) targetModule).getStatus().canBeDeployed())) {
         invalidDep.add(dep.getTargetModule().getModuleName());
       }
     }

@@ -36,7 +36,7 @@ import java.util.Set;
  * and spends noticeable time in ModuleUpdater#updateAdded -> updateAllEdges. {@link TempModule} is {@link jetbrains.mps.module.ReloadableModule}, and there's
  * no other temp module. TransformationTests (like NodesTestCase, EditorTestCase) use modeling facilities only and don't need to load classes for test nodes,
  * however I can't tell for sure other clients of TempModule do not, therefore a change in TempModule would be dangerous. Another alternative is to use
- * {@link ReloadableModule#willLoad()} and corresponding setting in TempModuleOptions, but there's no clear contract for willLoad(), besides, it might get
+ * {@link ReloadableModule#canLoadClasses()} ()} and corresponding setting in TempModuleOptions, but there's no clear contract for willLoad(), besides, it might get
  * changed with respect to improved module classloading story. Yet another alternative is to use TransientModuleProvider and TransientModelsModule (which
  * is not ReloadableModule as well). Though this seems the most appropriate way forward, it's not viable right now. First, due to single provider instance,
  * second, due to greater changes in the tests.

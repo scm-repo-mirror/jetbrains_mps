@@ -21,6 +21,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
 
+import java.lang.reflect.Method;
+
 /**
  * Represents a module which can be associated with some class loader.
  * The naming is poor: the better choice would be "DeployedModule".
@@ -31,9 +33,34 @@ import org.jetbrains.mps.openapi.module.SModule;
  * Obviously you expect MPS to change the UI appearance for the instances of the concept C in the solution S.
  * Moreover you want MPS to change the UI representation right after the used language L is generated and compiled.
  *
- * To enable such workflow MPS introduces its own class loading subsystem. Also it brings in a notion of reloadable modules --
- * such modules which can be redeployed during design-time in MPS.
+ * To enable such workflow MPS introduces its own class loading subsystem.
+ * Also it brings in a notion of reloadable modules such modules which can be redeployed during design-time in MPS (the idea plugin modules are the exception)
  * So the language L in the given example is clearly a reloadable module.
+ *
+ * As for 191 the common workflow must look like this
+ *
+ * <code>
+ * default void invokeMethodFoo(@NotNull ReloadableModule module) {
+ * DeploymentStatus status = module.getStatus();
+ *   if (!status.canBeDeployed()) {
+ *     <show a UI notification or a message in the log which says that the module can not be deployed using status.getMessage()>
+ *     return;
+ *   }
+ *   try {
+ *     Class<?> main = module.getClass("Main");
+ *     Object instance = main.newInstance();
+ *     <working with new instance>
+ *   } catch (ClassNotFoundException e) {
+ *     <show a UI notification or a message in the log which says that the class is not found>
+ *   } catch (IllegalAccessException e) {
+ *     e.printStackTrace();
+ *   } catch (InstantiationException e) {
+ *     e.printStackTrace();
+ *   }
+ * }
+ * </code>
+ *
+ * @author apyshkin
  */
 public interface ReloadableModule extends SModule {
   /**
@@ -42,13 +69,12 @@ public interface ReloadableModule extends SModule {
    * a ModuleClassLoader. ModuleClassLoader's #loadClass method yields some additional information
    * about the reasons of class which could not be found.
    * Clients of this API are supposed to process it on their own behalf.
-   *
-   * @see jetbrains.mps.classloading.ModuleClassNotFoundException
-   * @see jetbrains.mps.classloading.ModuleIsNotLoadableException
+   * * @see jetbrains.mps.classloading.ModuleClassNotFoundException * @see jetbrains.mps.classloading.ModuleIsNotLoadableException
    * warning: this method is lazy implemented!
    */
   @NotNull
   Class<?> getClass(@NotNull String classFqName) throws ClassNotFoundException;
+
 
   /**
    * @return a class which can be obtained by calling #getClass from
@@ -71,6 +97,7 @@ public interface ReloadableModule extends SModule {
    * The latter is returned in the case when IDEA plugin manages the module's classes.
    * Use it if you want to get a class from the module with IdeaPluginFacet.
    * warning: this method is lazy implemented!
+   * if getStatus().isDeployed() || getStatus().canBeDeployed() is true then the return value is guaranteed to be not null
    */
   @Nullable
   ClassLoader getClassLoader();
@@ -87,7 +114,7 @@ public interface ReloadableModule extends SModule {
    * For some subclasses it is possible to disable class loading for <code>ReloadableModule</code>.
    * E.g. solution without idea/mps facet cannot load classes
    * @see jetbrains.mps.project.Solution
-   * @deprecated no real contract, use getStatus#isDeployed or getStatus#canLoadClasses
+   * @deprecated bad naming, use #canLoadClasses or sometimes it is more convenient to use getStatus#isDeployed
    */
   @Deprecated
   @ToRemove(version = 191)
@@ -95,13 +122,31 @@ public interface ReloadableModule extends SModule {
     return true;
   }
 
+  /**
+   * For some subclasses it is possible to disable class loading for <code>ReloadableModule</code>.
+   * E.g. solution without idea/mps facet cannot load classes
+   * @see jetbrains.mps.project.Solution
+   */
+  default boolean canLoadClasses() {
+    return willLoad();
+  }
+
   @NotNull
   DeploymentStatus getStatus();
 
   interface DeploymentStatus {
-    @NotNull String getStatusMessage();
-    boolean canLoadClasses();
+    /**
+     * @return the message describing the current status
+     * it is likely to appear in some short logging or UI notification
+     */
+    @NotNull String getMessage();
+
+    /**
+     * @return if that module can be deployed on demand. if it is already deployed returns true
+     * as for 191 the module will be deployed automatically (providing that they can be deployed) on any class or class loader request)
+     */
+    boolean canBeDeployed();
+
     boolean isDeployed();
   }
-
 }

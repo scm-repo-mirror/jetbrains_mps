@@ -88,7 +88,7 @@ public class ReloadableModuleBase extends AbstractModule implements ReloadableMo
 
   @Override
   public final void reload() {
-    if (!getStatus().canLoadClasses()) {
+    if (!getStatus().canBeDeployed()) {
       LOG.warn("The deployment status is " + getStatus() + "; impossible to reload the module");
       return;
     }
@@ -105,7 +105,7 @@ public class ReloadableModuleBase extends AbstractModule implements ReloadableMo
   @Override
   protected void dependenciesChanged() {
     super.dependenciesChanged();
-    if (willLoad()) {
+    if (canLoadClasses()) {
       fireDependenciesChanged();
     }
   }

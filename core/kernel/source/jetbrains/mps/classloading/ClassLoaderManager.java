@@ -562,7 +562,8 @@ public class ClassLoaderManager implements CoreComponent {
   }
 
   enum DeploymentStatuses implements DeploymentStatus {
-    NOT_IN_REPO("The module does not belong to any repository", false, false),
+    //fixme
+    NOT_IN_REPO("The module does not belong to any repository (or depends on such module)", false, false),
 //    DEPENDENCY_IS_NOT_IN_REPO("The module has a dependency which is not in the repository", false, false),
     NOT_DEPLOYED("The module is not deployed but it can be", true, false),
     DEPLOYED("The module is deployed and is ready to load classes", true, true);
@@ -578,12 +579,12 @@ public class ClassLoaderManager implements CoreComponent {
     }
 
     @NotNull
-    public String getStatusMessage() {
+    public String getMessage() {
       return myMessage;
     }
 
     @Override
-    public boolean canLoadClasses() {
+    public boolean canBeDeployed() {
       return myCanLoadClasses;
     }
 
