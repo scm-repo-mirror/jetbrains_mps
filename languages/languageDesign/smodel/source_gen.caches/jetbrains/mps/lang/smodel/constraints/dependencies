@@ -57,6 +57,7 @@
     <classNode dependClassName="jetbrains.mps.lang.smodel.constraints.EnumMemberReference_Old_Constraints" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.constraints.EnumMemberValueRefExpression_Constraints" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.constraints.EnumOperation_Constraints" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.constraints.EnumSwitchExpression_Constraints" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.constraints.Enum_MemberLiteral_Constraints" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.constraints.IReferenceOperation_Constraints" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.constraints.IfInstanceOfVarReference_Constraints" />
@@ -119,9 +120,11 @@
     <classNode dependClassName="java.util.HashMap" />
     <classNode dependClassName="java.util.Map" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.behavior.EnumMemberOperation__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.behavior.EnumSwitchExpression__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.behavior.SNodeOperation__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
+    <classNode dependClassName="jetbrains.mps.lang.structure.behavior.IEnumeration__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.scope.EmptyScope" />
     <classNode dependClassName="jetbrains.mps.scope.ListScope" />
     <classNode dependClassName="jetbrains.mps.scope.Scope" />
@@ -204,6 +207,22 @@
     <classNode dependClassName="jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild" />
     <classNode dependClassName="jetbrains.mps.smodel.runtime.ConstraintFunction" />
     <classNode dependClassName="jetbrains.mps.typesystem.inference.TypeChecker" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode extendsClassName="jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor" />
+  </dependency>
+  <dependency className="jetbrains.mps.lang.smodel.constraints.EnumSwitchExpression_Constraints">
+    <classNode dependClassName="java.lang.Boolean" />
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
+    <classNode dependClassName="jetbrains.mps.smodel.SNodePointer" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="jetbrains.mps.smodel.runtime.CheckingNodeContext" />
+    <classNode dependClassName="jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild" />
+    <classNode dependClassName="jetbrains.mps.smodel.runtime.ConstraintFunction" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />

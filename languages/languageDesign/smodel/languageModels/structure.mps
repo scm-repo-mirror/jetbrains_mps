@@ -3174,7 +3174,7 @@
       <property role="20lmBu" value="reference" />
       <property role="20kJfa" value="decl" />
       <property role="20lbJX" value="1" />
-      <ref role="20lvS9" to="tpce:2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
+      <ref role="20lvS9" to="tpce:VFd4X$DyC0" resolve="IEnumerationMember" />
     </node>
   </node>
   <node concept="1TIwiD" id="45eRmv04Pqk">
@@ -3193,6 +3193,90 @@
     </node>
     <node concept="PrWs8" id="45eRmv04PqX" role="PzmwI">
       <ref role="PrY4T" node="i3MheXj" resolve="EnumMemberOperation" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="28aPEVv7nnv">
+    <property role="EcuMT" value="2453008993612559839" />
+    <property role="TrG5h" value="EnumSwitchExpression" />
+    <property role="34LRSv" value="enum switch" />
+    <property role="3GE5qa" value="enumSwitch" />
+    <ref role="1TJDcQ" to="tpee:fz3vP1J" resolve="Expression" />
+    <node concept="1TJgyj" id="28aPEVv7nnw" role="1TKVEi">
+      <property role="IQ2ns" value="2453008993612559840" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="enumExpression" />
+      <property role="20lbJX" value="1" />
+      <ref role="20lvS9" to="tpee:fz3vP1J" resolve="Expression" />
+    </node>
+    <node concept="1TJgyj" id="28aPEVv7XeR" role="1TKVEi">
+      <property role="IQ2ns" value="2453008993612714935" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="cases" />
+      <property role="20lbJX" value="0..n" />
+      <ref role="20lvS9" node="28aPEVv7nnz" resolve="EnumSwitchCase" />
+    </node>
+    <node concept="1TJgyj" id="28aPEVvzpHe" role="1TKVEi">
+      <property role="IQ2ns" value="2453008993619909454" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="default" />
+      <ref role="20lvS9" node="28aPEVv7XLw" resolve="EnumBody" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="28aPEVv7nnz">
+    <property role="EcuMT" value="2453008993612559843" />
+    <property role="3GE5qa" value="enumSwitch" />
+    <property role="TrG5h" value="EnumSwitchCase" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="28aPEVv7nn$" role="1TKVEi">
+      <property role="IQ2ns" value="2453008993612559844" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="members" />
+      <property role="20lbJX" value="1..n" />
+      <ref role="20lvS9" node="45eRmv04iIh" resolve="EnumMemberReference" />
+    </node>
+    <node concept="1TJgyj" id="28aPEVv7XLq" role="1TKVEi">
+      <property role="IQ2ns" value="2453008993612717146" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="body" />
+      <property role="20lbJX" value="1" />
+      <ref role="20lvS9" node="28aPEVv7XLw" resolve="EnumBody" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="28aPEVv7XLw">
+    <property role="EcuMT" value="2453008993612717152" />
+    <property role="3GE5qa" value="enumSwitch" />
+    <property role="TrG5h" value="EnumBody" />
+    <property role="R5$K7" value="true" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+  </node>
+  <node concept="1TIwiD" id="28aPEVv7XN5">
+    <property role="EcuMT" value="2453008993612717253" />
+    <property role="3GE5qa" value="enumSwitch" />
+    <property role="TrG5h" value="ExpressionEnumBody" />
+    <ref role="1TJDcQ" node="28aPEVv7XLw" resolve="EnumBody" />
+    <node concept="1TJgyj" id="28aPEVv7XN6" role="1TKVEi">
+      <property role="IQ2ns" value="2453008993612717254" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="expression" />
+      <property role="20lbJX" value="1" />
+      <ref role="20lvS9" to="tpee:fz3vP1J" resolve="Expression" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="28aPEVv7XN9">
+    <property role="EcuMT" value="2453008993612717257" />
+    <property role="3GE5qa" value="enumSwitch" />
+    <property role="TrG5h" value="StatementListEnumBody" />
+    <property role="34LRSv" value="{" />
+    <ref role="1TJDcQ" node="28aPEVv7XLw" resolve="EnumBody" />
+    <node concept="1TJgyj" id="28aPEVv7XNa" role="1TKVEi">
+      <property role="IQ2ns" value="2453008993612717258" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="statementList" />
+      <property role="20lbJX" value="1" />
+      <ref role="20lvS9" to="tpee:fzclF80" resolve="StatementList" />
+    </node>
+    <node concept="PrWs8" id="28aPEVv_djS" role="PzmwI">
+      <ref role="PrY4T" to="tpee:htgVS9_" resolve="IStatementListContainer" />
     </node>
   </node>
 </model>

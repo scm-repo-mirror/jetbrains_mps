@@ -11281,38 +11281,45 @@
       </scope>
     </file>
     <file name="check_ExpressionStatement_NonTypesystemRule.java">
-      <node id="1239212949442" at="23,371,24,58" concept="12" />
-      <node id="1239212949442" at="24,58,25,292" concept="12" />
-      <node id="1239212909416" at="28,50,29,158" concept="13" />
-      <node id="1239212909416" at="31,68,32,102" concept="13" />
-      <node id="1239212909416" at="34,30,35,17" concept="13" />
-      <node id="1239212909416" at="20,0,22,0" concept="3" trace="check_ExpressionStatement_NonTypesystemRule#()V" />
-      <node id="1239212909416" at="28,0,31,0" concept="11" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="1239212909416" at="31,0,34,0" concept="11" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
-      <node id="1239212909416" at="34,0,37,0" concept="11" trace="overrides#()Z" />
-      <node id="1239212949442" at="22,132,26,5" concept="10" />
-      <node id="1239212909416" at="22,0,28,0" concept="11" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
-      <scope id="1239212909416" at="20,56,20,56" />
-      <scope id="1239212909416" at="28,50,29,158" />
-      <scope id="1239212909416" at="31,68,32,102" />
-      <scope id="1239212909416" at="34,30,35,17" />
-      <scope id="1239212909416" at="20,0,22,0" />
-      <scope id="1239212949442" at="23,371,25,292">
-        <var name="_reporter_2309309498" id="1239212949442" />
-        <var name="errorTarget" id="1239212949442" />
+      <node id="2453008993620309695" at="26,368,27,13" concept="13" />
+      <node id="2453008993620309698" at="28,5,29,0" concept="15" />
+      <node id="2453008993620447704" at="29,0,30,264" concept="12" />
+      <node id="2453008993620467766" at="31,343,32,58" concept="12" />
+      <node id="2453008993620467766" at="32,58,33,298" concept="12" />
+      <node id="1239212909416" at="36,50,37,158" concept="13" />
+      <node id="1239212909416" at="39,68,40,102" concept="13" />
+      <node id="1239212909416" at="42,30,43,17" concept="13" />
+      <node id="1239212909416" at="23,0,25,0" concept="3" trace="check_ExpressionStatement_NonTypesystemRule#()V" />
+      <node id="2453008993620306462" at="25,132,28,5" concept="10" />
+      <node id="1239212909416" at="36,0,39,0" concept="11" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="1239212909416" at="39,0,42,0" concept="11" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
+      <node id="1239212909416" at="42,0,45,0" concept="11" trace="overrides#()Z" />
+      <node id="2453008993620467766" at="30,264,34,5" concept="10" />
+      <node id="1239212909416" at="25,0,36,0" concept="11" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
+      <scope id="1239212909416" at="23,56,23,56" />
+      <scope id="2453008993620306464" at="26,368,27,13" />
+      <scope id="1239212909416" at="36,50,37,158" />
+      <scope id="1239212909416" at="39,68,40,102" />
+      <scope id="1239212909416" at="42,30,43,17" />
+      <scope id="1239212909416" at="23,0,25,0" />
+      <scope id="2453008993620467766" at="31,343,33,298">
+        <var name="_reporter_2309309498" id="2453008993620467766" />
+        <var name="errorTarget" id="2453008993620467766" />
       </scope>
-      <scope id="1239212909416" at="28,0,31,0" />
-      <scope id="1239212909416" at="31,0,34,0">
+      <scope id="1239212909416" at="36,0,39,0" />
+      <scope id="1239212909416" at="39,0,42,0">
         <var name="argument" id="1239212909416" />
       </scope>
-      <scope id="1239212909416" at="34,0,37,0" />
-      <scope id="1239212909417" at="22,132,26,5" />
-      <scope id="1239212909416" at="22,0,28,0">
+      <scope id="1239212909416" at="42,0,45,0" />
+      <scope id="1239212909417" at="25,132,34,5">
+        <var name="statementListContainer" id="2453008993620447705" />
+      </scope>
+      <scope id="1239212909416" at="25,0,36,0">
         <var name="expressionStatement" id="1239212909416" />
         <var name="status" id="1239212909416" />
         <var name="typeCheckingContext" id="1239212909416" />
       </scope>
-      <unit id="1239212909416" at="19,0,38,0" name="jetbrains.mps.baseLanguage.typesystem.check_ExpressionStatement_NonTypesystemRule" />
+      <unit id="1239212909416" at="22,0,46,0" name="jetbrains.mps.baseLanguage.typesystem.check_ExpressionStatement_NonTypesystemRule" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/1239631684045">

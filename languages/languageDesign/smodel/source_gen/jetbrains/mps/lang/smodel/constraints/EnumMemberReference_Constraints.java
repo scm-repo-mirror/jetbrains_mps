@@ -21,8 +21,10 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.behavior.SNodeOperation__BehaviorDescriptor;
-import jetbrains.mps.scope.ListScope;
 import jetbrains.mps.lang.smodel.behavior.EnumMemberOperation__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.behavior.EnumSwitchExpression__BehaviorDescriptor;
+import jetbrains.mps.scope.ListScope;
+import jetbrains.mps.lang.structure.behavior.IEnumeration__BehaviorDescriptor;
 import jetbrains.mps.scope.EmptyScope;
 import jetbrains.mps.smodel.SNodePointer;
 
@@ -50,13 +52,18 @@ public class EnumMemberReference_Constraints extends BaseConstraintsDescriptor {
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             SNode container = (_context.getReferenceNode() != null ? SNodeOperations.getParent(_context.getReferenceNode()) : _context.getContextNode());
+            SNode enumDelcaration = null;
             if (SNodeOperations.isInstanceOf(container, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1091d8a1d53L, "jetbrains.mps.lang.smodel.structure.Property_SetOperation"))) {
-              SNode enumm = SNodeOperations.as(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.as(SNodeOperation__BehaviorDescriptor.getLeftExpressionOperation_idhEwJdHi.invoke(SNodeOperations.cast(container, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1091d8a1d53L, "jetbrains.mps.lang.smodel.structure.Property_SetOperation"))), MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f96cca6fL, "jetbrains.mps.lang.smodel.structure.SPropertyAccess")), MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f96cca6fL, 0x108f9727bcdL, "property")), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0xfc26f42fe5L, "dataType")), MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion"));
-              return ListScope.forNamedElements(SLinkOperations.getChildren(enumm, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, 0x2e770ca32c607cc1L, "members")));
+              enumDelcaration = SNodeOperations.as(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.as(SNodeOperation__BehaviorDescriptor.getLeftExpressionOperation_idhEwJdHi.invoke(SNodeOperations.cast(container, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1091d8a1d53L, "jetbrains.mps.lang.smodel.structure.Property_SetOperation"))), MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f96cca6fL, "jetbrains.mps.lang.smodel.structure.SPropertyAccess")), MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f96cca6fL, 0x108f9727bcdL, "property")), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0xfc26f42fe5L, "dataType")), MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion"));
+            } else if (SNodeOperations.isInstanceOf(container, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x414edd67c0135694L, "jetbrains.mps.lang.smodel.structure.EnumMember_IsOperation"))) {
+              enumDelcaration = EnumMemberOperation__BehaviorDescriptor.getEnumDecl_id45eRmv04ROr.invoke(SNodeOperations.cast(container, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x414edd67c0135694L, "jetbrains.mps.lang.smodel.structure.EnumMember_IsOperation")));
+            } else if (SNodeOperations.isInstanceOf(container, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75e3L, "jetbrains.mps.lang.smodel.structure.EnumSwitchCase"))) {
+              enumDelcaration = EnumSwitchExpression__BehaviorDescriptor.getEnumDecl_id28aPEVv7w3k.invoke(SNodeOperations.cast(SNodeOperations.getParent(container), MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, "jetbrains.mps.lang.smodel.structure.EnumSwitchExpression")));
+            } else if (SNodeOperations.isInstanceOf(container, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, "jetbrains.mps.lang.smodel.structure.EnumSwitchExpression"))) {
+              enumDelcaration = EnumSwitchExpression__BehaviorDescriptor.getEnumDecl_id28aPEVv7w3k.invoke(SNodeOperations.cast(container, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, "jetbrains.mps.lang.smodel.structure.EnumSwitchExpression")));
             }
-            if (SNodeOperations.isInstanceOf(container, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x414edd67c0135694L, "jetbrains.mps.lang.smodel.structure.EnumMember_IsOperation"))) {
-              SNode enumm = EnumMemberOperation__BehaviorDescriptor.getEnumDecl_id45eRmv04ROr.invoke(SNodeOperations.cast(container, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x414edd67c0135694L, "jetbrains.mps.lang.smodel.structure.EnumMember_IsOperation")));
-              return ListScope.forNamedElements(SLinkOperations.getChildren(enumm, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, 0x2e770ca32c607cc1L, "members")));
+            if (enumDelcaration != null) {
+              return ListScope.forNamedElements(IEnumeration__BehaviorDescriptor.getMembers_idVFd4X$DyC_.invoke(enumDelcaration));
             }
             return new EmptyScope();
           }

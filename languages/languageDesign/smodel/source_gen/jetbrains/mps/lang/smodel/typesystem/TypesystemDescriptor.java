@@ -153,6 +153,10 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       this.myInferenceRules.add(inferenceRule);
     }
     {
+      InferenceRule_Runtime inferenceRule = new typeof_EnumSwitchExpression_InferenceRule();
+      this.myInferenceRules.add(inferenceRule);
+    }
+    {
       InferenceRule_Runtime inferenceRule = new typeof_Enum_FromNameOperation_InferenceRule();
       this.myInferenceRules.add(inferenceRule);
     }
@@ -174,6 +178,10 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
     }
     {
       InferenceRule_Runtime inferenceRule = new typeof_EqualsStructurallyExpression_InferenceRule();
+      this.myInferenceRules.add(inferenceRule);
+    }
+    {
+      InferenceRule_Runtime inferenceRule = new typeof_ExpressionEnumBody_InferenceRule();
       this.myInferenceRules.add(inferenceRule);
     }
     {
@@ -557,11 +565,19 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       this.myInferenceRules.add(inferenceRule);
     }
     {
+      InferenceRule_Runtime inferenceRule = new typeof_StatementListEnumBody_InferenceRule();
+      this.myInferenceRules.add(inferenceRule);
+    }
+    {
       NonTypesystemRule_Runtime nonTypesystemRule = new check_ConceptEqualsExpression_NonTypesystemRule();
       this.myNonTypesystemRules.add(nonTypesystemRule);
     }
     {
       NonTypesystemRule_Runtime nonTypesystemRule = new check_ConceptSwitch_NonTypesystemRule();
+      this.myNonTypesystemRules.add(nonTypesystemRule);
+    }
+    {
+      NonTypesystemRule_Runtime nonTypesystemRule = new check_EnumSwitchExpression_NonTypesystemRule();
       this.myNonTypesystemRules.add(nonTypesystemRule);
     }
     {

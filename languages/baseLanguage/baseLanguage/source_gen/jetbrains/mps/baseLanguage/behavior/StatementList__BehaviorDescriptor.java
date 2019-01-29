@@ -43,13 +43,14 @@ public final class StatementList__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Set<SNode>> uncaughtThrowables_id2SVUfbZ9Qq1 = new SMethodBuilder<Set<SNode>>(new SJavaCompoundTypeImpl((Class<Set<SNode>>) ((Class) Object.class))).name("uncaughtThrowables").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2SVUfbZ9Qq1").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
   public static final SMethod<Void> collectUncaughtThrowables_id4Gt7ANIVHca = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("collectUncaughtThrowables").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4Gt7ANIVHca").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<Set<SNode>>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
   public static final SMethod<SNode> getFirstStatement_id4GU1DgEHJ2u = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getFirstStatement").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4GU1DgEHJ2u").registry(REGISTRY).build();
+  public static final SMethod<SNode> getLastStatement_id28aPEVv8l7T = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getLastStatement").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("28aPEVv8l7T").registry(REGISTRY).build();
   public static final SMethod<List<SNode>> getScopeVariables_id4pl5GY7LKmA = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getScopeVariables").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4pl5GY7LKmA").registry(REGISTRY).build();
   public static final SMethod<List<SNode>> getLocalVariableDeclarations_id3tkxRydYUUs = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getLocalVariableDeclarations").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3tkxRydYUUs").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<List<SNode>> getLocalVariableDeclarations_id7WLeqcv1izg = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getLocalVariableDeclarations").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7WLeqcv1izg").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(Integer.TYPE, ""));
   public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("52_Geb4QDV$").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Scope> getScope_id52_Geb4QFgX = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("52_Geb4QFgX").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(SContainmentLink.class, ""), SMethodBuilder.createJavaParameter(Integer.TYPE, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getExternalVariablesDeclarations_idhF5UhAC, isCompact_idi0zxBt8, isOneLiner_idi0z3USV, getLocalVariableElements_idi1I$XiP, uncaughtThrowables_id2SVUfbZ9Qq1, collectUncaughtThrowables_id4Gt7ANIVHca, getFirstStatement_id4GU1DgEHJ2u, getScopeVariables_id4pl5GY7LKmA, getLocalVariableDeclarations_id3tkxRydYUUs, getLocalVariableDeclarations_id7WLeqcv1izg, getScope_id52_Geb4QDV$, getScope_id52_Geb4QFgX);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getExternalVariablesDeclarations_idhF5UhAC, isCompact_idi0zxBt8, isOneLiner_idi0z3USV, getLocalVariableElements_idi1I$XiP, uncaughtThrowables_id2SVUfbZ9Qq1, collectUncaughtThrowables_id4Gt7ANIVHca, getFirstStatement_id4GU1DgEHJ2u, getLastStatement_id28aPEVv8l7T, getScopeVariables_id4pl5GY7LKmA, getLocalVariableDeclarations_id3tkxRydYUUs, getLocalVariableDeclarations_id7WLeqcv1izg, getScope_id52_Geb4QDV$, getScope_id52_Geb4QFgX);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -111,7 +112,18 @@ public final class StatementList__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static SNode getFirstStatement_id4GU1DgEHJ2u(@NotNull SNode __thisNode__) {
     for (SNode statement : SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))) {
-      if (SNodeOperations.isInstanceOf(statement, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, "jetbrains.mps.baseLanguage.structure.SingleLineComment")) || SNodeOperations.isInstanceOf(statement, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1121e2102fdL, "jetbrains.mps.baseLanguage.structure.CommentedStatementsBlock")) || SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(statement)), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement"))) {
+      if (SNodeOperations.isInstanceOf(statement, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, "jetbrains.mps.baseLanguage.structure.SingleLineComment")) || SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(statement)), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement"))) {
+        continue;
+      }
+      return statement;
+    }
+    return null;
+  }
+  /*package*/ static SNode getLastStatement_id28aPEVv8l7T(@NotNull SNode __thisNode__) {
+    List<SNode> statements = SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"));
+    for (int index = ListSequence.fromList(statements).count() - 1; index >= 0; index--) {
+      SNode statement = ListSequence.fromList(statements).getElement(index);
+      if (SNodeOperations.isInstanceOf(statement, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, "jetbrains.mps.baseLanguage.structure.SingleLineComment")) || SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(statement)), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement"))) {
         continue;
       }
       return statement;
@@ -204,14 +216,16 @@ public final class StatementList__BehaviorDescriptor extends BaseBHDescriptor {
       case 6:
         return (T) ((SNode) getFirstStatement_id4GU1DgEHJ2u(node));
       case 7:
-        return (T) ((List<SNode>) getScopeVariables_id4pl5GY7LKmA(node));
+        return (T) ((SNode) getLastStatement_id28aPEVv8l7T(node));
       case 8:
-        return (T) ((List<SNode>) getLocalVariableDeclarations_id3tkxRydYUUs(node, (SNode) parameters[0]));
+        return (T) ((List<SNode>) getScopeVariables_id4pl5GY7LKmA(node));
       case 9:
-        return (T) ((List<SNode>) getLocalVariableDeclarations_id7WLeqcv1izg(node, ((int) (Integer) parameters[0])));
+        return (T) ((List<SNode>) getLocalVariableDeclarations_id3tkxRydYUUs(node, (SNode) parameters[0]));
       case 10:
-        return (T) ((Scope) getScope_id52_Geb4QDV$(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
+        return (T) ((List<SNode>) getLocalVariableDeclarations_id7WLeqcv1izg(node, ((int) (Integer) parameters[0])));
       case 11:
+        return (T) ((Scope) getScope_id52_Geb4QDV$(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
+      case 12:
         return (T) ((Scope) getScope_id52_Geb4QFgX(node, (SAbstractConcept) parameters[0], (SContainmentLink) parameters[1], ((int) (Integer) parameters[2])));
       default:
         throw new BHMethodNotFoundException(this, method);

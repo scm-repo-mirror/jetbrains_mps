@@ -12,10 +12,12 @@ import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.SModifiersImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -26,8 +28,10 @@ public final class IStatementListContainer__BehaviorDescriptor extends BaseBHDes
 
   public static final SMethod<Boolean> isClosure_id2P5W1FWMZPJ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isClosure").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2P5W1FWMZPJ").registry(REGISTRY).build();
   public static final SMethod<Boolean> isExecuteSynchronous_idhTIpcC8 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isExecuteSynchronous").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hTIpcC8").registry(REGISTRY).build();
+  public static final SMethod<Boolean> isPassLastExpressionValue_id28aPEVv$IZv = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isPassLastExpressionValue").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("28aPEVv$IZv").registry(REGISTRY).build();
+  public static final SMethod<SNode> getStatementList_id28aPEVv_31A = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getStatementList").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("28aPEVv_31A").registry(REGISTRY).build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isClosure_id2P5W1FWMZPJ, isExecuteSynchronous_idhTIpcC8);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isClosure_id2P5W1FWMZPJ, isExecuteSynchronous_idhTIpcC8, isPassLastExpressionValue_id28aPEVv$IZv, getStatementList_id28aPEVv_31A);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -37,6 +41,12 @@ public final class IStatementListContainer__BehaviorDescriptor extends BaseBHDes
   }
   /*package*/ static boolean isExecuteSynchronous_idhTIpcC8(@NotNull SNode __thisNode__) {
     return false;
+  }
+  /*package*/ static boolean isPassLastExpressionValue_id28aPEVv$IZv(@NotNull SNode __thisNode__) {
+    return false;
+  }
+  /*package*/ static SNode getStatementList_id28aPEVv_31A(@NotNull SNode __thisNode__) {
+    return Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getChildren(__thisNode__), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList"))).first();
   }
 
   /*package*/ IStatementListContainer__BehaviorDescriptor() {
@@ -59,6 +69,10 @@ public final class IStatementListContainer__BehaviorDescriptor extends BaseBHDes
         return (T) ((Boolean) isClosure_id2P5W1FWMZPJ(node));
       case 1:
         return (T) ((Boolean) isExecuteSynchronous_idhTIpcC8(node));
+      case 2:
+        return (T) ((Boolean) isPassLastExpressionValue_id28aPEVv$IZv(node));
+      case 3:
+        return (T) ((SNode) getStatementList_id28aPEVv_31A(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
