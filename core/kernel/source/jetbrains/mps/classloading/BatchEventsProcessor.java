@@ -57,8 +57,7 @@ public class BatchEventsProcessor {
   public void startBatching() {
     if (myBatchStarted) {
       myBatchStarted = false;
-      myEvents.clear();
-      throw new IllegalStateException("Batching has been already started; Clearing the queue...");
+      LOG.error("Batching has been already started; Ignoring...", new IllegalStateException());
     }
     if (!myEvents.isEmpty()) {
       LOG.warn("Events have not been flushed");
