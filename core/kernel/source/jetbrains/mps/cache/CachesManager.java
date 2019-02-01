@@ -16,10 +16,9 @@
 package jetbrains.mps.cache;
 
 import jetbrains.mps.classloading.ClassLoaderManager;
-import jetbrains.mps.classloading.MPSClassesListener;
-import jetbrains.mps.classloading.MPSClassesListenerAdapter;
+import jetbrains.mps.classloading.DeployListener;
 import jetbrains.mps.components.CoreComponent;
-import jetbrains.mps.classloading.ReloadableModuleBase;
+import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.smodel.RepoListenerRegistrar;
 import jetbrains.mps.smodel.SModelAdapter;
 import jetbrains.mps.smodel.SModelInternal;
@@ -32,11 +31,13 @@ import jetbrains.mps.smodel.event.SModelReferenceEvent;
 import jetbrains.mps.smodel.event.SModelRootEvent;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.module.SRepositoryContentAdapter;
+import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,9 +76,9 @@ public class CachesManager implements CoreComponent {
     }
   };
 
-  private MPSClassesListener myClassesListener = new MPSClassesListenerAdapter() {
+  private DeployListener myClassesListener = new DeployListener() {
     @Override
-    public void beforeClassesUnloaded(Set<? extends ReloadableModuleBase> modules) {
+    public void onUnloaded(@NotNull Set<ReloadableModule> modules, @NotNull ProgressMonitor monitor) {
       removeAllCaches();
     }
   };
@@ -106,12 +107,12 @@ public class CachesManager implements CoreComponent {
 
     INSTANCE = this;
     new RepoListenerRegistrar(myRepository, myModelRepoListener).attach();
-    myClassLoaderManager.addClassesHandler(myClassesListener);
+    myClassLoaderManager.addListener(myClassesListener);
   }
 
   @Override
   public void dispose() {
-    myClassLoaderManager.removeClassesHandler(myClassesListener);
+    myClassLoaderManager.removeListener(myClassesListener);
     new RepoListenerRegistrar(myRepository, myModelRepoListener).detach();
     INSTANCE = null;
   }
@@ -172,10 +173,6 @@ public class CachesManager implements CoreComponent {
         removeCache(key);
       }
     }
-  }
-
-  public void removeGenerationCaches() {
-    removeAllCaches();
   }
 
   private void onModelRemoved(SModel modelDescriptor) {

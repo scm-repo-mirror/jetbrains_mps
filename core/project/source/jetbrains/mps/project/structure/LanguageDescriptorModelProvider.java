@@ -131,7 +131,7 @@ public class LanguageDescriptorModelProvider extends DescriptorModelProvider {
       // it doesn't hurt if I refresh a bit more than utterly necessary.
       myModels.forEach((mr, lmd) -> {
         Set<SLanguage> moduleUsedLanguages = lmd.getModule().getUsedLanguages();
-        if (moduleUsedLanguages.stream().anyMatch(loadedLanguages::contains)) {
+        if (!Collections.disjoint(moduleUsedLanguages, loadedLanguages)) {
           lmd.updateGenerationLanguages();
         }
       });

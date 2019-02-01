@@ -15,11 +15,14 @@
  */
 package jetbrains.mps.ide.projectPane.logicalview.highlighting;
 
+import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.classloading.ClassLoaderManager;
-import jetbrains.mps.classloading.MPSClassesListenerAdapter;
+import jetbrains.mps.classloading.DeployListener;
+import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.ui.tree.module.ProjectModuleTreeNode;
-import jetbrains.mps.classloading.ReloadableModuleBase;
+import jetbrains.mps.module.ReloadableModule;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,12 +47,17 @@ public final class ModuleNodeListeners {
     myListAccess = new Semaphore(1);
   }
 
+  private ClassLoaderManager getClassLoaderManager() {
+    MPSCoreComponents core = ApplicationManager.getApplication().getComponent(MPSCoreComponents.class);
+    return core.getClassLoaderManager();
+  }
+
   public void startListening() {
-    ClassLoaderManager.getInstance().addClassesHandler(myHandler);
+    getClassLoaderManager().addListener(myHandler);
   }
 
   public void stopListening() {
-    ClassLoaderManager.getInstance().removeClassesHandler(myHandler);
+    getClassLoaderManager().removeListener(myHandler);
   }
 
   public void attach(@NotNull ProjectModuleTreeNode node) {
@@ -82,9 +90,9 @@ public final class ModuleNodeListeners {
     myTreeHighlighter.refreshModuleTreeNodes(a);
   }
 
-  private class MyReloadAdapter extends MPSClassesListenerAdapter {
+  private class MyReloadAdapter implements DeployListener {
     @Override
-    public void afterClassesLoaded(Set<? extends ReloadableModuleBase> loadedModules) {
+    public void onLoaded(@NotNull Set<ReloadableModule> loadedModules, @NotNull ProgressMonitor monitor) {
       refreshTreeNodes();
     }
   }

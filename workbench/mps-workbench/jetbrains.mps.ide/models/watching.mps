@@ -894,13 +894,6 @@
       </node>
       <node concept="3Tm6S6" id="5T8zXYahxkz" role="1B3o_S" />
     </node>
-    <node concept="312cEg" id="5T8zXYahxk$" role="jymVt">
-      <property role="TrG5h" value="myClassesListener" />
-      <node concept="3uibUv" id="3xbdaSvK8m5" role="1tU5fm">
-        <ref role="3uigEE" to="3qmy:~MPSClassesListener" resolve="MPSClassesListener" />
-      </node>
-      <node concept="3Tm6S6" id="5T8zXYahxkA" role="1B3o_S" />
-    </node>
     <node concept="312cEg" id="5T8zXYahxkK" role="jymVt">
       <property role="TrG5h" value="myLibrariesRequests" />
       <property role="3TUv4t" value="true" />
@@ -1767,19 +1760,6 @@
       <node concept="3Tm1VV" id="5T8zXYahxt2" role="1B3o_S" />
       <node concept="3cqZAl" id="5T8zXYahxt3" role="3clF45" />
       <node concept="3clFbS" id="5T8zXYahxt4" role="3clF47">
-        <node concept="3clFbF" id="5T8zXYahxt5" role="3cqZAp">
-          <node concept="2OqwBi" id="5T8zXYahxt6" role="3clFbG">
-            <node concept="37vLTw" id="5T8zXYahxt7" role="2Oq$k0">
-              <ref role="3cqZAo" node="5T8zXYahxkx" resolve="myClassLoaderManager" />
-            </node>
-            <node concept="liA8E" id="5T8zXYahxt8" role="2OqNvi">
-              <ref role="37wK5l" to="3qmy:~ClassLoaderManager.removeClassesHandler(jetbrains.mps.classloading.MPSClassesListener):void" resolve="removeClassesHandler" />
-              <node concept="37vLTw" id="5T8zXYahxt9" role="37wK5m">
-                <ref role="3cqZAo" node="5T8zXYahxk$" resolve="myClassesListener" />
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="3clFbF" id="5T8zXYahxta" role="3cqZAp">
           <node concept="2OqwBi" id="5T8zXYahxtb" role="3clFbG">
             <node concept="37vLTw" id="5T8zXYahxtc" role="2Oq$k0">

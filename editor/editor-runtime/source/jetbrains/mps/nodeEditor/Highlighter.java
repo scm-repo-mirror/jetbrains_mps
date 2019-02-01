@@ -28,12 +28,11 @@ import com.intellij.util.concurrency.EdtExecutorService;
 import com.intellij.util.messages.MessageBusConnection;
 import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.classloading.ClassLoaderManager;
-import jetbrains.mps.classloading.MPSClassesListener;
-import jetbrains.mps.classloading.MPSClassesListenerAdapter;
+import jetbrains.mps.classloading.DeployListener;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.make.MakeServiceComponent;
-import jetbrains.mps.classloading.ReloadableModuleBase;
+import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.nodeEditor.checking.EditorChecker;
 import jetbrains.mps.nodeEditor.highlighter.EditorCheckerWrapper;
 import jetbrains.mps.nodeEditor.highlighter.EditorComponentCreateListener;
@@ -54,6 +53,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.repository.CommandListener;
+import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -87,9 +87,9 @@ public class Highlighter implements IHighlighter, ProjectComponent {
 
   private MessageBusConnection myMessageBusConnection;
 
-  private MPSClassesListener myClassesListener = new MPSClassesListenerAdapter() {
+  private DeployListener myClassesListener = new DeployListener() {
     @Override
-    public void beforeClassesUnloaded(Set<? extends ReloadableModuleBase> modules) {
+    public void onUnloaded(@NotNull Set<ReloadableModule> modules, @NotNull ProgressMonitor monitor) {
       addPendingAction(() -> {
         myEditorTracker.markEverythingUnchecked();
         myEditorList.clearAdditionalEditors();
@@ -121,7 +121,7 @@ public class Highlighter implements IHighlighter, ProjectComponent {
 
   @Override
   public void projectOpened() {
-    myClassLoaderManager.addClassesHandler(myClassesListener);
+    myClassLoaderManager.addListener(myClassesListener);
     myEventCollector.startListening(myMPSProject.getRepository());
 
     myInspectorTool = myProject.getComponent(InspectorTool.class);
@@ -150,7 +150,7 @@ public class Highlighter implements IHighlighter, ProjectComponent {
     CommandProcessor.getInstance().removeCommandListener(myCommandListener);
     ApplicationManager.getApplication().removeApplicationListener(myApplicationListener);
     myEventCollector.stopListening(myMPSProject.getRepository());
-    myClassLoaderManager.removeClassesHandler(myClassesListener);
+    myClassLoaderManager.removeListener(myClassesListener);
     myMessageBusConnection.disconnect();
     myInspectorTool = null;
   }

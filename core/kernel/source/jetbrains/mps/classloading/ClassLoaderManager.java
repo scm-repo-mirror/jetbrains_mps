@@ -71,13 +71,13 @@ import static jetbrains.mps.classloading.ClassLoadersHolder.ClassLoadingProgress
  * Common part
  * CLManager listens to newly added <it>loadable</it> modules (into the repository) and to modules' removal.
  * When module is added, CLManager marks it as ({@code LAZY_LOADED}) and broadcasts the event to
- * {@link jetbrains.mps.classloading.MPSClassesListener} clients.
+ * {@link jetbrains.mps.classloading.DeployListener} clients.
  * When module's classes (or ClassLoader) are requested, the actual module load happens.
  * When module is removed from the repository, CLManager unloaded module's data from its' storage.
  * @see jetbrains.mps.classloading.ClassLoadersHolder.ClassLoadingProgress for more information on module's loading progress and module's lifecycle
  *
  * Every module add/remove/reload triggers events dispatching to MPSClassesListeners
- * @see jetbrains.mps.classloading.MPSClassesListener
+ * @see jetbrains.mps.classloading.DeployListener
  *
  * Also CLManager tracks the <em>validity</em> of the repository modules.
  * The invariant condition is that a module can not be (class) loaded if any of its dependencies is absent in the repository.
@@ -288,10 +288,10 @@ public class ClassLoaderManager implements CoreComponent {
 
   /**
    * @lazy
-   * @param modules are modules which are about to load. The notifications for {@link MPSClassesListener} are sent here.
+   * @param modules are modules which are about to load. The notifications for {@link DeployListener} are sent here.
    * The actual load happens in {@link #doLoadModules} on a method call of {@link #getClassLoader}.
    *
-   * Note: currently we need to broadcast load/unload events because there are clients of {@link MPSClassesListener}
+   * Note: currently we need to broadcast load/unload events because there are clients of {@link DeployListener}
    * These clients need to be rewritten in a lazy way, i.e. using only #getClass [#getClassLoader] method. (do they?)
    */
   Collection<ReloadableModule> preLoadModules(Iterable<? extends ReloadableModule> modules, ProgressMonitor monitor) {
@@ -410,37 +410,12 @@ public class ClassLoaderManager implements CoreComponent {
     return filteredModules;
   }
 
-  /**
-   * @deprecated It is recommended to use {@link jetbrains.mps.classloading.DeployListener}
-   */
-  @Deprecated
-  public void addClassesHandler(MPSClassesListener handler) {
-    myBroadCaster.addClassesHandler(handler);
-  }
-
-  @Deprecated
-  public void removeClassesHandler(MPSClassesListener handler) {
-    myBroadCaster.removeClassesHandler(handler);
-  }
-
-  /**
-   * @deprecated It is recommended to use {@link jetbrains.mps.classloading.DeployListener}
-   */
-  @Deprecated
-  public void addReloadListener(ModuleReloadListener listener) {
-    myBroadCaster.addReloadListener(listener);
-  }
-
   public void addListener(@NotNull DeployListener listener) {
     myBroadCaster.addListener(listener);
   }
 
   public void removeListener(@NotNull DeployListener listener) {
     myBroadCaster.removeListener(listener);
-  }
-
-  public void removeReloadListener(ModuleReloadListener listener) {
-    myBroadCaster.removeReloadListener(listener);
   }
 
   /**
@@ -487,7 +462,6 @@ public class ClassLoaderManager implements CoreComponent {
       Collection<? extends ReloadableModule> unloadedModules = unloadModules(myModulesWatcher.getModuleRefs(modulesToReload), monitor.subTask(1));
       modulesToReload.addAll(unloadedModules);
       Collection<ReloadableModule> loadedModules = preLoadModules(modulesToReload, monitor.subTask(1));
-      myBroadCaster.onReload(loadedModules);
 
       if (!silentMode) {
         LOG.info(String.format("Reloaded %d module(s) in %.3f s", loadedModules.size(), (System.nanoTime() - beginTime) / 1e9));

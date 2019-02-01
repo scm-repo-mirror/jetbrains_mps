@@ -5,7 +5,6 @@ package jetbrains.mps.watching;
 import com.intellij.openapi.components.ApplicationComponent;
 import jetbrains.mps.library.AdditionalLibrariesManager;
 import jetbrains.mps.classloading.ClassLoaderManager;
-import jetbrains.mps.classloading.MPSClassesListener;
 import java.util.Map;
 import jetbrains.mps.library.Library;
 import com.intellij.openapi.vfs.LocalFileSystem;
@@ -30,7 +29,6 @@ import java.util.ArrayList;
 public class WatchedRootsUpdater implements ApplicationComponent {
   private final AdditionalLibrariesManager myLibraryManager;
   private final ClassLoaderManager myClassLoaderManager;
-  private MPSClassesListener myClassesListener;
   private final Map<Library, LocalFileSystem.WatchRequest> myLibrariesRequests = new HashMap<Library, LocalFileSystem.WatchRequest>();
   private final Map<Library, LocalFileSystem.WatchRequest> myProjectLibrariesRequests = new HashMap<Library, LocalFileSystem.WatchRequest>();
   private final LocalFileSystem myLocalFileSystem;
@@ -122,7 +120,6 @@ public class WatchedRootsUpdater implements ApplicationComponent {
 
   @Override
   public void disposeComponent() {
-    myClassLoaderManager.removeClassesHandler(myClassesListener);
     myProjectManager.removeProjectManagerListener(myProjectManagerListener);
   }
 }

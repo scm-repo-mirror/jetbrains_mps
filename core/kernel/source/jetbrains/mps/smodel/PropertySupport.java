@@ -16,7 +16,7 @@
 package jetbrains.mps.smodel;
 
 import jetbrains.mps.classloading.ClassLoaderManager;
-import jetbrains.mps.classloading.ModuleReloadListener;
+import jetbrains.mps.classloading.DeployListener;
 import jetbrains.mps.components.CoreComponent;
 import jetbrains.mps.kernel.model.SModelUtil;
 import jetbrains.mps.module.ReloadableModule;
@@ -36,6 +36,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SType;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
+import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -278,7 +279,7 @@ public abstract class PropertySupport {
    * @deprecated
    */
   @Deprecated
-  public static class PropertySupportCache implements CoreComponent, ModuleReloadListener {
+  public static class PropertySupportCache implements CoreComponent, DeployListener {
     private final Map<SNode, PropertySupport> myMap = new ConcurrentHashMap<>();
     private final ClassLoaderManager myCLM;
 
@@ -295,19 +296,19 @@ public abstract class PropertySupport {
     }
 
     @Override
-    public void modulesReloaded(Set<ReloadableModule> modules) {
+    public void onUnloaded(@NotNull Set<ReloadableModule> modules, @NotNull ProgressMonitor monitor) {
       myMap.clear();
     }
 
     @Override
     public void init() {
-      myCLM.addReloadListener(this);
+      myCLM.addListener(this);
       PropertySupport.ourPropertySupportCache = this;
     }
 
     @Override
     public void dispose() {
-      myCLM.removeReloadListener(this);
+      myCLM.removeListener(this);
     }
   }
 }

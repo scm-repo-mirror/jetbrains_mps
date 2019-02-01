@@ -26,6 +26,7 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.module.SRepositoryListener;
 import org.jetbrains.mps.openapi.module.SRepositoryListenerBase;
+import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
 import java.util.Arrays;
 import java.util.List;
@@ -110,8 +111,8 @@ public class ClassLoadersHolder {
   }
 
   /**
-   * @param toLoadLazy for these modules only notifications {@link MPSClassesListener#afterClassesLoaded} were sent,
-   *                   so for {@link MPSClassesListener} clients these modules appear to be loaded.
+   * @param toLoadLazy for these modules only notifications {@link DeployListener#onLoaded(Set, ProgressMonitor)} were sent,
+   *                   so for {@link DeployListener} clients these modules appear to be loaded.
    *                   No actual loading is performed for these modules.
    * @return modules which changed their ClassLoadingProgress from UNLOADED to LAZY_LOADED.
    */
@@ -136,7 +137,7 @@ public class ClassLoadersHolder {
    * Module lifecycle:
    * At first the module is UNLOADED. It comes to repository and a call of {@link ClassLoaderManager#preLoadModules(Iterable, org.jetbrains.mps.openapi.util.ProgressMonitor)} happens.
    * Then we check whether the module's dependencies are valid to load (and some other conditions). If everything is okay then we send
-   * broadcast notification to the clients of {@link jetbrains.mps.classloading.MPSClassesListener}.
+   * broadcast notification to the clients of {@link jetbrains.mps.classloading.DeployListener}.
    * The state of module is changed to LAZY_LOADED at that moment.
    * When the classes of module are requested [through #getClass(), #getOwnClass(), #getClassLoader()] methods,
    * the actual ClassLoader construction happens and then the module is marked as LOADED.
@@ -156,7 +157,7 @@ public class ClassLoadersHolder {
      */
     UNLOADED,
     /**
-     * The notifications for {@link MPSClassesListener} clients were sent. No actual class loading happened,
+     * The notifications for {@link DeployListener} clients were sent. No actual class loading happened,
      * This module was only marked to load.
      */
     LAZY_LOADED,

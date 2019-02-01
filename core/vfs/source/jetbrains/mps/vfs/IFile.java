@@ -151,6 +151,7 @@ public interface IFile {
    * null iff it is a file and therefore has no children
    */
   //todo [MM] change to iterable. This will save resources and time on copying (see java's Path)
+  // AP I do not agree with this optimization
   @Nullable List<IFile> getChildren();
 
   /**

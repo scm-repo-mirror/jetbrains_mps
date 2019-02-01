@@ -40,7 +40,9 @@ public interface DeployListener {
    * @see ReloadableModule#getStatus()
    * @param loadedModules are surely in the repository at this moment.
    */
-  void onLoaded(@NotNull Set<ReloadableModule> loadedModules, @NotNull ProgressMonitor monitor);
+  default void onLoaded(@NotNull Set<ReloadableModule> loadedModules, @NotNull ProgressMonitor monitor) {
+    // nop
+  }
 
   /**
    * Contract: The class loaders of the {@code unloadedModules} are still valid (i.e. not disposed)

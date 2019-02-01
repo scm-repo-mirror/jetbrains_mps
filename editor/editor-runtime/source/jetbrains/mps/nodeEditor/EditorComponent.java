@@ -273,11 +273,11 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
   private final DeployListener myClassesListener = new DeployListener() {
     @Override
-    public void onUnloaded(Set<ReloadableModule> unloadedModules, @NotNull ProgressMonitor monitor) {
+    public void onUnloaded(@NotNull Set<ReloadableModule> unloadedModules, @NotNull ProgressMonitor monitor) {
     }
 
     @Override
-    public void onLoaded(Set<ReloadableModule> loadedModules, @NotNull ProgressMonitor monitor) {
+    public void onLoaded(@NotNull Set<ReloadableModule> loadedModules, @NotNull ProgressMonitor monitor) {
       getModelAccess().runReadInEDT(() -> {
         if (isDisposed() || isModuleDisposed() || isProjectDisposed() || isNodeDisposed()) {
           return;

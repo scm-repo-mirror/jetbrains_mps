@@ -23,11 +23,11 @@ import com.intellij.ui.content.ContentManager;
 import com.intellij.ui.content.ContentManagerAdapter;
 import com.intellij.ui.content.ContentManagerEvent;
 import jetbrains.mps.classloading.ClassLoaderManager;
-import jetbrains.mps.classloading.MPSClassesListener;
-import jetbrains.mps.classloading.MPSClassesListenerAdapter;
+import jetbrains.mps.classloading.DeployListener;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.tools.BaseProjectTool;
-import jetbrains.mps.classloading.ReloadableModuleBase;
+import jetbrains.mps.module.ReloadableModule;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.Icon;
 import java.util.Set;
@@ -36,7 +36,7 @@ public abstract class TabbedUsagesTool extends BaseProjectTool {
 
   private final ClassLoaderManager myClassLoaderManager;
   private ContentManagerAdapter myContentListener;
-  private MPSClassesListener myClassesListener;
+  private DeployListener myClassesListener;
   private ContentManager myContentManager;
 
   public TabbedUsagesTool(Project project, String id, int number, Icon icon, ToolWindowAnchor anchor, boolean canCloseContent) {
@@ -66,16 +66,16 @@ public abstract class TabbedUsagesTool extends BaseProjectTool {
     myContentManager.addContentManagerListener(myContentListener);
 
     if (forceCloseOnReload()) {
-      myClassesListener = new MPSClassesListenerAdapter() {
+      myClassesListener = new DeployListener() {
         @Override
-        public void beforeClassesUnloaded(Set<? extends ReloadableModuleBase> modules) {
+        public void onUnloaded(@NotNull Set<ReloadableModule> modules, @NotNull org.jetbrains.mps.openapi.util.ProgressMonitor monitor) {
           ApplicationManager.getApplication().invokeLater(() -> {
             if (getProject().isDisposed()) return;
             myContentManager.removeAllContents(true);
           });
         }
       };
-      myClassLoaderManager.addClassesHandler(myClassesListener);
+      myClassLoaderManager.addListener(myClassesListener);
     }
   }
 
@@ -85,7 +85,7 @@ public abstract class TabbedUsagesTool extends BaseProjectTool {
     //getContentManager().removeContentManagerListener(myContentListener);
 
     if (myClassesListener != null) {
-      myClassLoaderManager.removeClassesHandler(myClassesListener);
+      myClassLoaderManager.removeListener(myClassesListener);
     }
   }
 
