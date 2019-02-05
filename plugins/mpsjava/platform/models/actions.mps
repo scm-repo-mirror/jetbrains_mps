@@ -15400,7 +15400,7 @@
     <property role="TrG5h" value="GoToSuperClassMethod" />
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="overridemethod" />
-    <property role="2uzpH1" value="Go to Overridden Method" />
+    <property role="2uzpH1" value="Go to Super Method" />
     <property role="1teQrl" value="true" />
     <node concept="2XrIbr" id="4CAk1UdgKbD" role="32lrUH">
       <property role="TrG5h" value="captionFun" />
@@ -15799,7 +15799,7 @@
     <property role="TrG5h" value="GoToInheritedClassifier" />
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="overridemethod" />
-    <property role="2uzpH1" value="Go to Inherited Classifiers" />
+    <property role="2uzpH1" value="Implementation(s)" />
     <property role="1teQrl" value="true" />
     <node concept="2XrIbr" id="6fXRpC8kMQb" role="32lrUH">
       <property role="TrG5h" value="captionFun" />
@@ -16324,18 +16324,16 @@
       <node concept="tCFHf" id="5GUQLVLhiol" role="ftvYc">
         <ref role="tCJdB" node="2rUHgdX2EIy" resolve="GoToInheritedClassifier" />
       </node>
-      <node concept="tCFHf" id="beXdrGerVu" role="ftvYc">
-        <ref role="tCJdB" node="beXdrGepvM" resolve="ShowMembers" />
-      </node>
     </node>
     <node concept="tT9cl" id="60b8ERQoC8S" role="2f5YQi">
-      <ref role="tU$_T" to="ekwn:1xsN4xJX8VI" resolve="EditorPopup" />
+      <ref role="tU$_T" to="ekwn:2Nd7jcMouna" resolve="GoToEditorPopupAddition" />
+      <ref role="2f8Tey" to="ekwn:2Nd7jcMoune" resolve="other" />
     </node>
   </node>
   <node concept="sE7Ow" id="2rUHgdX3hA7">
     <property role="TrG5h" value="GoToImplementationClassMethod" />
     <property role="72QZ$" value="true" />
-    <property role="2uzpH1" value="Go to Overriding Methods" />
+    <property role="2uzpH1" value="Implementation(s)" />
     <property role="3GE5qa" value="overridemethod" />
     <property role="1teQrl" value="true" />
     <node concept="2XrIbr" id="2WqrB2Puq2s" role="32lrUH">
@@ -26003,6 +26001,19 @@
     <node concept="tT9cl" id="2LI6gbERXqo" role="2f5YQi">
       <ref role="tU$_T" to="tprs:2LI6gbERWMf" resolve="TouchBarDefault_shift" />
       <ref role="2f8Tey" to="tprs:2LI6gbES1Dy" resolve="rename" />
+    </node>
+  </node>
+  <node concept="tC5Ba" id="7ixvpurf9zZ">
+    <property role="TrG5h" value="ShowMembersInMenu" />
+    <property role="3GE5qa" value="Groups" />
+    <property role="3OnEW4" value="true" />
+    <node concept="ftmFs" id="7ixvpurf9$0" role="ftER_">
+      <node concept="tCFHf" id="7ixvpurf9$4" role="ftvYc">
+        <ref role="tCJdB" node="beXdrGepvM" resolve="ShowMembers" />
+      </node>
+    </node>
+    <node concept="tT9cl" id="7ixvpurf9$5" role="2f5YQi">
+      <ref role="tU$_T" to="ekwn:1xsN4xJX8VI" resolve="EditorPopup" />
     </node>
   </node>
 </model>

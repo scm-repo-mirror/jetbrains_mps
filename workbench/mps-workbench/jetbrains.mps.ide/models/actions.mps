@@ -43802,15 +43802,15 @@
       </node>
     </node>
     <node concept="tT9cl" id="7GoW1pr1KTL" role="2f5YQi">
-      <ref role="tU$_T" to="ekwn:1xsN4xJX8VI" resolve="EditorPopup" />
-      <ref role="2f8Tey" to="ekwn:1xsN4xJX8VT" resolve="goto" />
+      <ref role="tU$_T" to="ekwn:2Nd7jcMouna" resolve="GoToEditorPopupAddition" />
+      <ref role="2f8Tey" to="ekwn:2Nd7jcMoune" resolve="other" />
     </node>
   </node>
   <node concept="sE7Ow" id="5VO8AhfgrAF">
     <property role="TrG5h" value="GoToConceptDescendants" />
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="Structure.Actions" />
-    <property role="2uzpH1" value="Go to Descending Concepts" />
+    <property role="2uzpH1" value="Implementation(s)" />
     <property role="1teQrl" value="true" />
     <node concept="2XrIbr" id="5VO8AhfgrAG" role="32lrUH">
       <property role="TrG5h" value="captionFun" />
@@ -44613,15 +44613,15 @@
       </node>
     </node>
     <node concept="tT9cl" id="1oCHNhnjllX" role="2f5YQi">
-      <ref role="tU$_T" to="ekwn:1xsN4xJX8VI" resolve="EditorPopup" />
-      <ref role="2f8Tey" to="ekwn:1xsN4xJX8VT" resolve="goto" />
+      <ref role="tU$_T" to="ekwn:2Nd7jcMouna" resolve="GoToEditorPopupAddition" />
+      <ref role="2f8Tey" to="ekwn:2Nd7jcMoune" resolve="other" />
     </node>
   </node>
   <node concept="sE7Ow" id="1oCHNhnjllY">
     <property role="TrG5h" value="GoToImplementationBehaviorMethod" />
     <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="Behavior.Actions" />
-    <property role="2uzpH1" value="Go to Implementing Methods" />
+    <property role="2uzpH1" value="Implementation(s)" />
     <node concept="2XrIbr" id="2WqrB2Puq2s" role="32lrUH">
       <property role="TrG5h" value="captionFun" />
       <node concept="3uibUv" id="4CAk1Udgnc$" role="3clF45">

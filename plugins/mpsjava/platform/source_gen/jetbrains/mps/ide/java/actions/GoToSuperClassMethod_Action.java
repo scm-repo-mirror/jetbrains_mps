@@ -33,7 +33,7 @@ public class GoToSuperClassMethod_Action extends BaseAction {
   private static final Icon ICON = null;
 
   public GoToSuperClassMethod_Action() {
-    super("Go to Overridden Method", "", ICON);
+    super("Go to Super Method", "", ICON);
     this.setIsAlwaysVisible(false);
     this.setExecuteOutsideCommand(true);
   }

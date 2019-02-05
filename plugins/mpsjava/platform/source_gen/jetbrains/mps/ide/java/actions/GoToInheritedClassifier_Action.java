@@ -35,7 +35,7 @@ public class GoToInheritedClassifier_Action extends BaseAction {
   private static final Icon ICON = null;
 
   public GoToInheritedClassifier_Action() {
-    super("Go to Inherited Classifiers", "", ICON);
+    super("Implementation(s)", "", ICON);
     this.setIsAlwaysVisible(false);
     this.setExecuteOutsideCommand(true);
   }
