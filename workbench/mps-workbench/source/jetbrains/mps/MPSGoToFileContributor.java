@@ -27,10 +27,6 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.search.FilenameIndex;
 import com.intellij.psi.search.GlobalSearchScope;
-import com.intellij.util.indexing.FileBasedIndex;
-import jetbrains.mps.ide.project.ProjectHelper;
-import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.smodel.ModelAccessHelper;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.Icon;
@@ -49,21 +45,16 @@ public class MPSGoToFileContributor implements ChooseByNameContributor, DumbAwar
   @NotNull
   @Override
   public NavigationItem[] getItemsByName(final String name, final String pattern, final Project project, boolean includeNonProjectItems) {
+    // XXX why not GlobalSearchScope.allScope(project)?
     final GlobalSearchScope scope = new AllScope();
 
     Collection<VirtualFile> files;
-    MPSProject mpsProject = ProjectHelper.fromIdeaProject(project);
-    assert mpsProject != null;
-    // FIXME it's an extension contributed to a point, it's caller responsibility to ensure proper read lock
-    //       moreover, here we care about platform read, not MPS model read!
-    //       Guess, it's FileOpenUtil to get fixed instead, see b4ba217a and MPS-23363
-    files = new ModelAccessHelper(mpsProject.getModelAccess()).runReadAction(() -> {
-      try {
-        return FileBasedIndex.getInstance().getContainingFiles(FilenameIndex.NAME, name, scope);
-      } catch (ProcessCanceledException ex) {
-        return Collections.emptyList();
-      }
-    });
+    // it's an extension contributed to a point, it's caller responsibility to ensure proper platform read lock, don't grab
+    try {
+      files = FilenameIndex.getVirtualFilesByName(project, name, scope);
+    } catch (ProcessCanceledException ex) {
+      files = Collections.emptyList();
+    }
 
     List<NavigationItem> result = new ArrayList<>();
     for (final VirtualFile file : files) {
