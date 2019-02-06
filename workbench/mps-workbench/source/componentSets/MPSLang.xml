@@ -1,16 +1,5 @@
 <components>
   <application-components>
-
-    <component>
-      <interface-class>com.intellij.openapi.fileEditor.impl.text.TextEditorProvider</interface-class>
-      <implementation-class>com.intellij.openapi.fileEditor.impl.text.TextEditorProvider</implementation-class>
-    </component>
-
-    <component>
-      <interface-class>com.intellij.formatting.FormatterEx</interface-class>
-      <implementation-class>com.intellij.formatting.FormatterImpl</implementation-class>
-    </component>
-
     <component>
       <interface-class>com.intellij.util.indexing.FileBasedIndex</interface-class>
       <implementation-class>com.intellij.util.indexing.FileBasedIndexImpl</implementation-class>
@@ -81,7 +70,6 @@
     -->
 
     <component>
-      <interface-class>com.intellij.execution.impl.ProjectRunConfigurationInitializer</interface-class>
       <implementation-class>com.intellij.execution.impl.ProjectRunConfigurationInitializer</implementation-class>
     </component>
 
@@ -92,7 +80,7 @@
 
     <component>
       <interface-class>com.intellij.openapi.fileEditor.FileEditorManager</interface-class>
-      <implementation-class>com.intellij.openapi.fileEditor.impl.FileEditorManagerImpl</implementation-class>
+      <implementation-class>com.intellij.openapi.fileEditor.impl.PsiAwareFileEditorManagerImpl</implementation-class>
       <headless-implementation-class>com.intellij.openapi.fileEditor.impl.TestEditorManagerImpl</headless-implementation-class>
       <option name="workspace" value="true"/>
     </component>
@@ -104,7 +92,6 @@
     </component>
 
     <component>
-      <interface-class>com.intellij.pom.tree.TreeAspect</interface-class>
       <implementation-class>com.intellij.pom.tree.TreeAspect</implementation-class>
       <loadForDefaultProject/>
     </component>
@@ -156,6 +143,9 @@
       <implementation-class>com.intellij.codeInsight.daemon.impl.CodeFoldingPassFactory</implementation-class>
     </component>
     <component>
+      <implementation-class>com.intellij.codeInsight.daemon.impl.focusMode.FocusModePassFactory</implementation-class>
+    </component>
+    <component>
       <implementation-class>com.intellij.codeInsight.hints.ParameterHintsPassFactory</implementation-class>
     </component>
     <component>
@@ -186,9 +176,7 @@
 
     <!--
     <component>
-      <interface-class>com.intellij.codeInsight.navigation.CtrlMouseHandler</interface-class>
       <implementation-class>com.intellij.codeInsight.navigation.CtrlMouseHandler</implementation-class>
-      <skipForDefaultProject/>
     </component>
 
     <component>
