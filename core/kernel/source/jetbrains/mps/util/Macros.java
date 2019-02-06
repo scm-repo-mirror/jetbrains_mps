@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@ package jetbrains.mps.util;
 
 import jetbrains.mps.project.PathMacros;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.vfs.impl.IoFileSystem;
+import jetbrains.mps.vfs.path.Path;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -58,7 +58,16 @@ class Macros {
   }
 
   private static String getCanonicalPath(String path) {
-    return FileUtil.getCanonicalPath(path);
+    // Mimic j.m.util.IFileUtil.getCanonicalPath(IFile) so that we can match jar-relative paths recieved from different getCanonicalPath implementations
+    // In fact, FileUtil.getCanonicalPath(String) might be better place for the logic, just too big of a change at the moment.
+    // XXX besides, I feel the whole 'canonical' story is pointless for macro factory, which shall NOT deal with FS anyway.
+    final int archiveSeparatorIdx = path == null ? -1 : path.indexOf(Path.ARCHIVE_SEPARATOR);
+    if (archiveSeparatorIdx != -1) {
+      // keep past-"!/" suffix intact
+      return FileUtil.getCanonicalPath(path.substring(0, archiveSeparatorIdx)) + path.substring(archiveSeparatorIdx);
+    } else {
+      return FileUtil.getCanonicalPath(path);
+    }
   }
 
   protected static String shrink(String path, String prefix) {
