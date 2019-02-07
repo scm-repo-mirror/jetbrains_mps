@@ -122,8 +122,14 @@ public final class IdeaEnvironment extends EnvironmentBase {
         }
         pluginPath.append(pluginFolder.getPath());
       }
-      System.setProperty(PLUGINS_PATH, pluginPath.toString());
     }
+    for (PluginDescriptor pd : myConfig.getPlugins()) {
+      if (pluginPath.length() > 0) {
+        pluginPath.append(File.pathSeparator);
+      }
+      pluginPath.append(pd.getPath());
+    }
+    System.setProperty(PLUGINS_PATH, pluginPath.toString());
   }
 
   private void setPluginIdsPropertyFromConfig(EnvironmentConfig config) {
