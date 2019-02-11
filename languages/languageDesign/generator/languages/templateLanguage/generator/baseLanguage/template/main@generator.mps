@@ -35374,52 +35374,6 @@
       <ref role="2rTdP9" to="tpee:fz3vP1J" resolve="Expression" />
       <ref role="2rZz_L" to="tpee:fIYIFWa" resolve="StaticMethodDeclaration" />
     </node>
-    <node concept="3aamgX" id="4gPmXg0edxA" role="3acgRq">
-      <ref role="30HIoZ" to="tpcw:gTQ799U" resolve="ConceptFunctionParameter_operationContext" />
-      <node concept="1Koe21" id="4gPmXg0edxB" role="1lVwrX">
-        <node concept="3clFb_" id="4gPmXg0edxC" role="1Koe22">
-          <property role="TrG5h" value="m" />
-          <node concept="3cqZAl" id="4gPmXg0edxD" role="3clF45" />
-          <node concept="3Tm1VV" id="4gPmXg0edxE" role="1B3o_S" />
-          <node concept="3clFbS" id="4gPmXg0edxF" role="3clF47">
-            <node concept="3cpWs8" id="4gPmXg0edxG" role="3cqZAp">
-              <node concept="3cpWsn" id="4gPmXg0edxH" role="3cpWs9">
-                <property role="TrG5h" value="o" />
-                <node concept="3uibUv" id="4gPmXg0edxI" role="1tU5fm">
-                  <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
-                </node>
-                <node concept="2OqwBi" id="4gPmXg0edy7" role="33vP2m">
-                  <node concept="2OqwBi" id="4gPmXg0edy8" role="2Oq$k0">
-                    <node concept="37vLTw" id="4gPmXg0edy9" role="2Oq$k0">
-                      <ref role="3cqZAo" node="4gPmXg0edye" resolve="_context" />
-                    </node>
-                    <node concept="liA8E" id="4gPmXg0edya" role="2OqNvi">
-                      <ref role="37wK5l" to="q1l7:~TemplateQueryContext.getGenerator():jetbrains.mps.generator.template.ITemplateGenerator" resolve="getGenerator" />
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="4gPmXg0edyb" role="2OqNvi">
-                    <ref role="37wK5l" to="q1l7:~ITemplateGenerator.getGeneratorSessionContext():jetbrains.mps.generator.GenerationSessionContext" resolve="getGeneratorSessionContext" />
-                  </node>
-                  <node concept="raruj" id="6ZOpaPQmV0b" role="lGtFl" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="37vLTG" id="4gPmXg0edyc" role="3clF46">
-            <property role="TrG5h" value="operationContext" />
-            <node concept="3uibUv" id="4gPmXg0edyd" role="1tU5fm">
-              <ref role="3uigEE" to="w1kc:~IOperationContext" resolve="IOperationContext" />
-            </node>
-          </node>
-          <node concept="37vLTG" id="4gPmXg0edye" role="3clF46">
-            <property role="TrG5h" value="_context" />
-            <node concept="3uibUv" id="4gPmXg0edyf" role="1tU5fm">
-              <ref role="3uigEE" to="q1l7:~TemplateQueryContext" resolve="TemplateQueryContext" />
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
     <node concept="3aamgX" id="4gPmXg0edyg" role="3acgRq">
       <ref role="30HIoZ" to="tpf3:hHiwH3z" resolve="TemplateFunctionParameter_generationContext" />
       <node concept="1Koe21" id="4gPmXg0edyh" role="1lVwrX">
