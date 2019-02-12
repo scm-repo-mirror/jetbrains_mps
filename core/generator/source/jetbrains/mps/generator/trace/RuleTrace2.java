@@ -18,21 +18,24 @@ package jetbrains.mps.generator.trace;
 import jetbrains.mps.generator.runtime.TemplateReductionRule;
 import org.jetbrains.mps.openapi.model.SNode;
 
+import java.nio.ByteBuffer;
 import java.util.Collection;
 
 /**
  * Alternative trace mechanism approach. Unlike {@link RuleTrace}, not a 'get a bundle ready and fire as batch', but with distinct notifications for each phase.
- * Perhaps, shall be an iterface to hide different implementations (e.g. no-op; the one that reports thread; asynch/with batching; synchronous
+ * Perhaps, shall be an interface to hide different implementations (e.g. no-op; the one that reports thread; asynch/with batching; synchronous
  *
  * @author Artem Tikhomirov
  */
 public final class RuleTrace2 {
   private final Collection<ClientToken> myClients;
   private final TemplateReductionRule myRule;
+  private final byte[] myHeader;
 
   /*package*/ RuleTrace2(Collection<ClientToken> interestedInTheRule, TemplateReductionRule reductionRule) {
     myClients = interestedInTheRule;
     myRule = reductionRule;
+    myHeader = myRule.getRuleNode().toString().getBytes();
   }
 
   public boolean isActive() {
@@ -61,8 +64,15 @@ public final class RuleTrace2 {
   }
 
   private void notify(byte[] message) {
+    // could be thread-local with pre-filled header and thread id
+    final ByteBuffer bb = ByteBuffer.allocate(myHeader.length + message.length + 8 + 1);
+    bb.put(myHeader);
+    bb.put((byte) 0);
+    bb.putLong(Thread.currentThread().getId());
+    bb.put(message);
+    final byte[] array = bb.array();
     for (ClientToken client : myClients) {
-      client.sendToClient(message);
+      client.sendToClient(array);
     }
   }
 }
