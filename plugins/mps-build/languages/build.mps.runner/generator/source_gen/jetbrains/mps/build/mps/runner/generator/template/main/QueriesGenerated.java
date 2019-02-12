@@ -15,12 +15,14 @@ import jetbrains.mps.build.mps.behavior.BuildMps_AbstractModule__BehaviorDescrip
 import jetbrains.mps.build.mps.runner.behavior.BuildSolutionRunnerAspect__BehaviorDescriptor;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
+import jetbrains.mps.build.mps.util.ModulePlugins;
+import jetbrains.mps.build.mps.util.MPSModulesClosure;
+import java.util.List;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.build.mps.util.ModuleFinder;
 import jetbrains.mps.generator.template.TemplateVarContext;
-import jetbrains.mps.build.mps.util.MPSModulesClosure;
-import jetbrains.mps.build.mps.util.ModulePlugins;
-import java.util.ArrayList;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.SourceNodesQuery;
 import java.util.HashMap;
@@ -47,18 +49,21 @@ public class QueriesGenerated extends QueryProviderBase {
     return "Running code from " + SPropertyOperations.getString(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, 0x54b085b5945c6691L, "solution")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + " solution in MPS";
   }
   public static Object propertyMacro_GetValue_1_1(final PropertyMacroContext _context) {
-    return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0xd94b027412f0824L, 0xd94b027412f0827L, "path"));
+    return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3283ab1237f81c49L, 0x3283ab1237f81c4aL, "path"));
   }
   public static Object propertyMacro_GetValue_1_2(final PropertyMacroContext _context) {
-    return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0xd94b027412f0824L, 0xd94b027412f0827L, "path"));
+    return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3283ab1237f81c49L, 0x3283ab1237f81c4bL, "id"));
   }
   public static Object propertyMacro_GetValue_1_3(final PropertyMacroContext _context) {
-    return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0xd94b027412f0824L, 0xd94b027412f0827L, "path"));
   }
   public static Object propertyMacro_GetValue_1_4(final PropertyMacroContext _context) {
-    return "${" + SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "}";
+    return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
   }
   public static Object propertyMacro_GetValue_1_5(final PropertyMacroContext _context) {
+    return "${" + SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "}";
+  }
+  public static Object propertyMacro_GetValue_1_6(final PropertyMacroContext _context) {
     SNode mpsAspect = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(((SNode) _context.getVariable("var:buildProject")), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x31292e1a60db57afL, "aspects")), MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5a408fb8c80220a9L, "jetbrains.mps.build.mps.structure.BuildMpsAspect"))).first();
 
     int heapSize;
@@ -72,32 +77,41 @@ public class QueriesGenerated extends QueryProviderBase {
 
     return "-Xmx" + heapSize + "m";
   }
-  public static Object propertyMacro_GetValue_1_6(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_1_7(final PropertyMacroContext _context) {
     // 0 is the default value (not generated) 
     int size = SPropertyOperations.getInteger(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(((SNode) _context.getVariable("var:buildProject")), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x31292e1a60db57afL, "aspects")), MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5a408fb8c80220a9L, "jetbrains.mps.build.mps.structure.BuildMpsAspect"))).first(), MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5a408fb8c80220a9L, 0x4e80d5b7ab57aaaL, "generationMaxPermSizeInMb"));
     return "-XX:MaxPermSize=" + size + "m";
   }
-  public static Object propertyMacro_GetValue_1_7(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_1_8(final PropertyMacroContext _context) {
     return (String) BuildMps_AbstractModule__BehaviorDescriptor.getModuleReference_id41K1b4v5ZCB.invoke(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, 0x54b085b5945c6691L, "solution")));
   }
-  public static Object propertyMacro_GetValue_1_8(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_1_9(final PropertyMacroContext _context) {
     return (String) BuildSolutionRunnerAspect__BehaviorDescriptor.getFQClassName_id1aYLt$9eyUg.invoke(_context.getNode());
   }
-  public static Object propertyMacro_GetValue_1_9(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_1_10(final PropertyMacroContext _context) {
     return (String) BuildSolutionRunnerAspect__BehaviorDescriptor.getMethodName_id1aYLt$9dX0a.invoke(_context.getNode());
   }
-  public static Object propertyMacro_GetValue_1_10(final PropertyMacroContext _context) {
+  public static Object propertyMacro_GetValue_1_11(final PropertyMacroContext _context) {
     return "run." + SPropertyOperations.getString(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, 0x54b085b5945c6691L, "solution")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
   }
   public static boolean ifMacro_Condition_1_0(final IfMacroContext _context) {
     return SPropertyOperations.getInteger(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(((SNode) _context.getVariable("var:buildProject")), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x31292e1a60db57afL, "aspects")), MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5a408fb8c80220a9L, "jetbrains.mps.build.mps.structure.BuildMpsAspect"))).first(), MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5a408fb8c80220a9L, 0x4e80d5b7ab57aaaL, "generationMaxPermSizeInMb")) != 0;
   }
   public static Iterable<SNode> sourceNodesQuery_1_0(final SourceSubstituteMacroNodesContext _context) {
-    return Sequence.fromIterable(Sequence.fromArray(((String[]) _context.getVariable("var:requiredPlugins")))).select(new ISelector<String, SNode>() {
-      public SNode select(String it) {
-        return createGeneratorInternal_String_x583g4_a0a0a0a0n(it);
+    ModulePlugins modulePlugins = new ModulePlugins(SNodeOperations.getNodeAncestor(_context.getNode(), MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject"), false, false), _context);
+    Iterable<SNode> allModules = ((MPSModulesClosure) _context.getVariable("var:closure")).getAllModules();
+    List<SNode> additionalPlugins = ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, 0x3283ab1237cb7bddL, "requiredPlugin"))).select(new ISelector<SNode, SNode>() {
+      public SNode select(SNode it) {
+        return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x5b81705cdf7bc318L, 0x5b81705cdf7bc319L, "plugin"));
+      }
+    }).toListSequence();
+    modulePlugins.collect(allModules, additionalPlugins);
+    return ListSequence.fromList(modulePlugins.getPlugins()).select(new ISelector<Tuples._2<String, String>, SNode>() {
+      public SNode select(Tuples._2<String, String> it) {
+        return createGeneratorInternal_PluginExpanded_x583g4_a0a0a0e0o(it._0(), it._1());
       }
     });
+
   }
   public static Iterable<SNode> sourceNodesQuery_1_1(final SourceSubstituteMacroNodesContext _context) {
     return ModuleFinder.findModules(((Iterable<SNode>) _context.getVariable("var:libs")), _context, _context.getNode());
@@ -109,15 +123,9 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((MPSModulesClosure) _context.getVariable("var:closure")).getAllModules();
   }
   public static Object varMacro_Value_1_1(final TemplateVarContext _context) {
-    return new MPSModulesClosure(Sequence.<SNode>singleton(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, 0x54b085b5945c6691L, "solution"))), new MPSModulesClosure.ModuleDependenciesOptions().setTrackDevkits().setIncludeInitial()).runtimeClosure();
+    return new MPSModulesClosure(Sequence.<SNode>singleton(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, 0x54b085b5945c6691L, "solution"))), new MPSModulesClosure.ModuleDependenciesOptions().setTrackDevkits().setIncludeInitial()).designtimeClosure();
   }
   public static Object varMacro_Value_1_2(final TemplateVarContext _context) {
-    ModulePlugins modulePlugins = new ModulePlugins(SNodeOperations.getNodeAncestor(_context.getNode(), MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject"), false, false), _context);
-    Iterable<SNode> allModules = ((MPSModulesClosure) _context.getVariable("var:closure")).getAllModules();
-    modulePlugins.collect(allModules, new ArrayList<SNode>());
-    return modulePlugins.getPluginPaths();
-  }
-  public static Object varMacro_Value_1_3(final TemplateVarContext _context) {
     return SNodeOperations.as(SNodeOperations.getContainingRoot(_context.getNode()), MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject"));
   }
   private final Map<String, SourceNodesQuery> snsqMethods = new HashMap<String, SourceNodesQuery>();
@@ -160,6 +168,7 @@ public class QueriesGenerated extends QueryProviderBase {
     int i = 0;
     pvqMethods.put("3919210978214235100", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "starting code in MPS"));
     pvqMethods.put("3919210978214528739", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "plugin.jar"));
+    pvqMethods.put("3639941018583598671", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "id"));
     pvqMethods.put("3919210978214491514", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "lib.module.location.jar"));
     pvqMethods.put("3919210978214632530", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "name"));
     pvqMethods.put("3919210978214676894", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "value"));
@@ -210,6 +219,8 @@ public class QueriesGenerated extends QueryProviderBase {
           return QueriesGenerated.propertyMacro_GetValue_1_9(ctx);
         case 10:
           return QueriesGenerated.propertyMacro_GetValue_1_10(ctx);
+        case 11:
+          return QueriesGenerated.propertyMacro_GetValue_1_11(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -248,8 +259,7 @@ public class QueriesGenerated extends QueryProviderBase {
   {
     vvqMethods.put("3919210978214839181", new QueriesGenerated.VVQ(0));
     vvqMethods.put("3919210978213957547", new QueriesGenerated.VVQ(1));
-    vvqMethods.put("3919210978213965145", new QueriesGenerated.VVQ(2));
-    vvqMethods.put("3919210978214780327", new QueriesGenerated.VVQ(3));
+    vvqMethods.put("3919210978214780327", new QueriesGenerated.VVQ(2));
   }
   @NotNull
   @Override
@@ -274,17 +284,16 @@ public class QueriesGenerated extends QueryProviderBase {
           return QueriesGenerated.varMacro_Value_1_1(ctx);
         case 2:
           return QueriesGenerated.varMacro_Value_1_2(ctx);
-        case 3:
-          return QueriesGenerated.varMacro_Value_1_3(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
     }
   }
-  private static SNode createGeneratorInternal_String_x583g4_a0a0a0a0n(Object p0) {
+  private static SNode createGeneratorInternal_PluginExpanded_x583g4_a0a0a0e0o(Object p0, Object p1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0xd94b027412f0824L, "jetbrains.mps.build.mps.structure.GeneratorInternal_String"), null, null, false);
-    n1.setProperty(MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0xd94b027412f0824L, 0xd94b027412f0827L, "path"), p0 + "");
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3283ab1237f81c49L, "jetbrains.mps.build.mps.structure.GeneratorInternal_PluginExpanded"), null, null, false);
+    n1.setProperty(MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3283ab1237f81c49L, 0x3283ab1237f81c4aL, "path"), p0 + "");
+    n1.setProperty(MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3283ab1237f81c49L, 0x3283ab1237f81c4bL, "id"), p1 + "");
     return n1;
   }
   private static boolean isNotEmptyString(String str) {
