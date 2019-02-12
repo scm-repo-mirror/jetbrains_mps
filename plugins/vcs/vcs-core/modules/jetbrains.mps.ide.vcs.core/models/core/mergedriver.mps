@@ -1417,6 +1417,13 @@
             </node>
             <node concept="3clFbS" id="2TzypFyLI9z" role="3Kbo56" />
           </node>
+          <node concept="3KbdKl" id="6UaGVe534RI" role="3KbHQx">
+            <node concept="Rm8GO" id="6UaGVe535lG" role="3Kbmr1">
+              <ref role="Rm8GQ" node="6UaGVe52VpF" resolve="GENERATOR_DEPENDENCIES_V3" />
+              <ref role="1Px2BO" node="2TzypFyLPSe" resolve="FileType" />
+            </node>
+            <node concept="3clFbS" id="6UaGVe534RK" role="3Kbo56" />
+          </node>
           <node concept="3KbdKl" id="2TzypFyLI9$" role="3KbHQx">
             <node concept="Rm8GO" id="2TzypFyLI9_" role="3Kbmr1">
               <ref role="Rm8GQ" node="2TzypFyLPUU" resolve="GENERATOR_DEPENDENCIES" />
@@ -5208,6 +5215,16 @@
       </node>
       <node concept="Xl_RD" id="5YKGT2oZgOC" role="37wK5m">
         <property role="Xl_RC" value="dependencies" />
+      </node>
+    </node>
+    <node concept="QsSxf" id="6UaGVe52VpF" role="Qtgdg">
+      <property role="TrG5h" value="GENERATOR_DEPENDENCIES_V3" />
+      <ref role="37wK5l" node="2TzypFyLPV1" resolve="FileType" />
+      <node concept="Xl_RD" id="6UaGVe52Xgv" role="37wK5m">
+        <property role="Xl_RC" value="generated" />
+      </node>
+      <node concept="Xl_RD" id="6UaGVe52Xnk" role="37wK5m">
+        <property role="Xl_RC" value="product" />
       </node>
     </node>
     <node concept="QsSxf" id="2TzypFyLPUX" role="Qtgdg">
