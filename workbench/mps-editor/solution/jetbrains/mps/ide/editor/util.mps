@@ -52,6 +52,7 @@
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
     <import index="bd8o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application(MPS.IDEA/)" />
     <import index="zn9m" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util(MPS.IDEA/)" />
+    <import index="xcyp" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.actionSystem.impl(MPS.IDEA/)" />
     <import index="jkm4" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.ui(MPS.IDEA/)" implicit="true" />
     <import index="3ab" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.find(MPS.IDEA/)" implicit="true" />
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" implicit="true" />
@@ -3286,12 +3287,10 @@
           </node>
         </node>
         <node concept="3clFbJ" id="63HiSADANtP" role="3cqZAp">
-          <node concept="2ZW3vV" id="63HiSADANtQ" role="3clFbw">
-            <node concept="37vLTw" id="63HiSADANtR" role="2ZW6bz">
+          <node concept="1rXfSq" id="7zlhroN$Kcn" role="3clFbw">
+            <ref role="37wK5l" node="7zlhroN$vG$" resolve="isMouseEventNotfromContextMenu" />
+            <node concept="37vLTw" id="7zlhroN$Kco" role="37wK5m">
               <ref role="3cqZAo" node="63HiSADANtM" resolve="inputEvent" />
-            </node>
-            <node concept="3uibUv" id="63HiSADANtS" role="2ZW6by">
-              <ref role="3uigEE" to="hyam:~MouseEvent" resolve="MouseEvent" />
             </node>
           </node>
           <node concept="3clFbS" id="63HiSADANtT" role="3clFbx">
@@ -3300,14 +3299,12 @@
                 <node concept="2ShNRf" id="63HiSADB45f" role="37vLTx">
                   <node concept="1pGfFk" id="63HiSADB45g" role="2ShVmc">
                     <ref role="37wK5l" to="vmdq:~RelativePoint.&lt;init&gt;(java.awt.event.MouseEvent)" resolve="RelativePoint" />
-                    <node concept="1eOMI4" id="63HiSADB45h" role="37wK5m">
-                      <node concept="10QFUN" id="63HiSADB45i" role="1eOMHV">
-                        <node concept="37vLTw" id="63HiSADB45j" role="10QFUP">
-                          <ref role="3cqZAo" node="63HiSADANtM" resolve="inputEvent" />
-                        </node>
-                        <node concept="3uibUv" id="63HiSADB45k" role="10QFUM">
-                          <ref role="3uigEE" to="hyam:~MouseEvent" resolve="MouseEvent" />
-                        </node>
+                    <node concept="10QFUN" id="63HiSADB45i" role="37wK5m">
+                      <node concept="37vLTw" id="63HiSADB45j" role="10QFUP">
+                        <ref role="3cqZAo" node="63HiSADANtM" resolve="inputEvent" />
+                      </node>
+                      <node concept="3uibUv" id="63HiSADB45k" role="10QFUM">
+                        <ref role="3uigEE" to="hyam:~MouseEvent" resolve="MouseEvent" />
                       </node>
                     </node>
                   </node>
@@ -3396,6 +3393,70 @@
         </node>
       </node>
       <node concept="3Tm1VV" id="63HiSADANuh" role="1B3o_S" />
+    </node>
+    <node concept="2tJIrI" id="7zlhroN$sIk" role="jymVt" />
+    <node concept="2YIFZL" id="7zlhroN$vG$" role="jymVt">
+      <property role="TrG5h" value="isMouseEventNotfromContextMenu" />
+      <node concept="3clFbS" id="7zlhroN$vGB" role="3clF47">
+        <node concept="3clFbJ" id="7zlhroN$y1g" role="3cqZAp">
+          <node concept="3clFbS" id="7zlhroN$y1i" role="3clFbx">
+            <node concept="3cpWs8" id="7zlhroN$HPG" role="3cqZAp">
+              <node concept="3cpWsn" id="7zlhroN$HPH" role="3cpWs9">
+                <property role="TrG5h" value="mouseEvent" />
+                <node concept="3uibUv" id="7zlhroN$HPE" role="1tU5fm">
+                  <ref role="3uigEE" to="hyam:~MouseEvent" resolve="MouseEvent" />
+                </node>
+                <node concept="10QFUN" id="7zlhroN$HPJ" role="33vP2m">
+                  <node concept="3uibUv" id="7zlhroN$HPK" role="10QFUM">
+                    <ref role="3uigEE" to="hyam:~MouseEvent" resolve="MouseEvent" />
+                  </node>
+                  <node concept="37vLTw" id="7zlhroN$Ima" role="10QFUP">
+                    <ref role="3cqZAo" node="7zlhroN$wEb" resolve="event" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3cpWs6" id="7zlhroN$xAT" role="3cqZAp">
+              <node concept="3fqX7Q" id="7zlhroN$JEG" role="3cqZAk">
+                <node concept="1eOMI4" id="7zlhroN$K86" role="3fr31v">
+                  <node concept="2ZW3vV" id="7zlhroN$JEI" role="1eOMHV">
+                    <node concept="3uibUv" id="7zlhroN$JEJ" role="2ZW6by">
+                      <ref role="3uigEE" to="xcyp:~ActionMenuItem" resolve="ActionMenuItem" />
+                    </node>
+                    <node concept="2OqwBi" id="7zlhroN$JEK" role="2ZW6bz">
+                      <node concept="37vLTw" id="7zlhroN$JEL" role="2Oq$k0">
+                        <ref role="3cqZAo" node="7zlhroN$HPH" resolve="mouseEvent" />
+                      </node>
+                      <node concept="liA8E" id="7zlhroN$JEM" role="2OqNvi">
+                        <ref role="37wK5l" to="33ny:~EventObject.getSource():java.lang.Object" resolve="getSource" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="2ZW3vV" id="7zlhroN$zD0" role="3clFbw">
+            <node concept="3uibUv" id="7zlhroN$zYf" role="2ZW6by">
+              <ref role="3uigEE" to="hyam:~MouseEvent" resolve="MouseEvent" />
+            </node>
+            <node concept="37vLTw" id="7zlhroN$yrw" role="2ZW6bz">
+              <ref role="3cqZAo" node="7zlhroN$wEb" resolve="event" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="7zlhroN$HDf" role="3cqZAp">
+          <node concept="3clFbT" id="7zlhroN$HIw" role="3cqZAk" />
+        </node>
+      </node>
+      <node concept="3Tm6S6" id="7zlhroN$uB0" role="1B3o_S" />
+      <node concept="10P_77" id="7zlhroN$vAu" role="3clF45" />
+      <node concept="37vLTG" id="7zlhroN$wEb" role="3clF46">
+        <property role="TrG5h" value="event" />
+        <node concept="3uibUv" id="7zlhroN$wEa" role="1tU5fm">
+          <ref role="3uigEE" to="hyam:~InputEvent" resolve="InputEvent" />
+        </node>
+      </node>
     </node>
     <node concept="2tJIrI" id="63HiSADANgN" role="jymVt" />
     <node concept="3clFb_" id="63HiSADAbJc" role="jymVt">

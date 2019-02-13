@@ -7,6 +7,7 @@ import javax.swing.JList;
 import java.awt.Color;
 import com.intellij.ui.SimpleTextAttributes;
 import java.awt.Font;
+import com.intellij.ui.JBColor;
 import com.intellij.util.ui.UIUtil;
 import org.jetbrains.annotations.Nullable;
 import javax.swing.Icon;
@@ -24,7 +25,7 @@ public abstract class BaseRenderer<T> extends ColoredListCellRenderer<T> {
     setIcon(getIcon(element));
     String containerText = getContainerText(element, name);
     if (containerText != null) {
-      append(" " + containerText, new SimpleTextAttributes(Font.PLAIN, Color.GRAY));
+      append(" " + containerText, new SimpleTextAttributes(Font.PLAIN, JBColor.GRAY));
     }
     setPaintFocusBorder(false);
     setBackground((selected ? UIUtil.getListSelectionBackground() : UIUtil.getListBackground()));

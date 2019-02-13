@@ -182,6 +182,7 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
   </dependency>
   <dependency className="jetbrains.mps.ide.editor.util.PopupSettingsBuilder">
+    <classNode dependClassName="com.intellij.openapi.actionSystem.impl.ActionMenuItem" />
     <classNode dependClassName="com.intellij.ui.awt.RelativePoint" />
     <classNode dependClassName="com.intellij.util.Function" />
     <classNode dependClassName="java.awt.Point" />

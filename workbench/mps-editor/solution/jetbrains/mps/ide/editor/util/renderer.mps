@@ -875,8 +875,8 @@
                       <ref role="1PxDUh" to="z60i:~Font" resolve="Font" />
                     </node>
                     <node concept="10M0yZ" id="1pHoCUawreN" role="37wK5m">
-                      <ref role="3cqZAo" to="z60i:~Color.GRAY" resolve="GRAY" />
-                      <ref role="1PxDUh" to="z60i:~Color" resolve="Color" />
+                      <ref role="1PxDUh" to="lzb2:~JBColor" resolve="JBColor" />
+                      <ref role="3cqZAo" to="lzb2:~JBColor.GRAY" resolve="GRAY" />
                     </node>
                   </node>
                 </node>
