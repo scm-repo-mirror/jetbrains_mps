@@ -29,7 +29,6 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 
 public final class MpsStartupScript__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, "jetbrains.mps.build.startup.structure.MpsStartupScript");
@@ -89,7 +88,7 @@ public final class MpsStartupScript__BehaviorDescriptor extends BaseBHDescriptor
       }
     }).select(new ISelector<String, SNode>() {
       public SNode select(String it) {
-        return _quotation_createNode_p7akvg_a0a0a0a0e(it);
+        return createTextLine_p7akvg_a0a0a0a0e(it);
       }
     });
   }
@@ -100,7 +99,7 @@ public final class MpsStartupScript__BehaviorDescriptor extends BaseBHDescriptor
       }
     }).select(new ISelector<String, SNode>() {
       public SNode select(String it) {
-        return _quotation_createNode_p7akvg_a0a0a0a0f(it);
+        return createTextLine_p7akvg_a0a0a0a0f(it);
       }
     });
   }
@@ -183,19 +182,17 @@ public final class MpsStartupScript__BehaviorDescriptor extends BaseBHDescriptor
   public SAbstractConcept getConcept() {
     return CONCEPT;
   }
-  private static SNode _quotation_createNode_p7akvg_a0a0a0a0e(Object parameter_1) {
+  private static SNode createTextLine_p7akvg_a0a0a0a0e(Object p0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode quotedNode_2 = null;
-    quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, "jetbrains.mps.build.startup"), 0x180805c7b1d668a2L, "TextLine"), null, null, false);
-    SNodeAccessUtil.setProperty(quotedNode_2, MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text"), (String) parameter_1);
-    return quotedNode_2;
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, "jetbrains.mps.build.startup.structure.TextLine"), null, null, false);
+    n1.setProperty(MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text"), p0 + "");
+    return n1;
   }
-  private static SNode _quotation_createNode_p7akvg_a0a0a0a0f(Object parameter_1) {
+  private static SNode createTextLine_p7akvg_a0a0a0a0f(Object p0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode quotedNode_2 = null;
-    quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, "jetbrains.mps.build.startup"), 0x180805c7b1d668a2L, "TextLine"), null, null, false);
-    SNodeAccessUtil.setProperty(quotedNode_2, MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text"), (String) parameter_1);
-    return quotedNode_2;
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, "jetbrains.mps.build.startup.structure.TextLine"), null, null, false);
+    n1.setProperty(MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text"), p0 + "");
+    return n1;
   }
   public static String trim_9sggks_a0a0r(String str) {
     return (str == null ? null : str.trim());

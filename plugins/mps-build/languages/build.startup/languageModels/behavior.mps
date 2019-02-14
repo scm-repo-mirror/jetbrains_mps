@@ -3,12 +3,10 @@
   <persistence version="9" />
   <languages>
     <use id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior" version="-1" />
-    <use id="d5033cee-f632-44b6-b308-89d4fbde34ff" name="jetbrains.mps.build.startup" version="-1" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
     <import index="s7om" ref="r:a930f08c-5447-4203-8f2e-507bb76fab12(jetbrains.mps.build.startup.structure)" />
-    <import index="ncw5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util.annotation(MPS.Core/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
     <import index="kdzh" ref="r:0353b795-df17-4050-9687-ee47eeb7094f(jetbrains.mps.build.mps.structure)" implicit="true" />
     <import index="vbkb" ref="r:08f2b659-8469-4592-93bf-a6edb46ec86d(jetbrains.mps.build.behavior)" implicit="true" />
@@ -117,14 +115,19 @@
       </concept>
     </language>
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
-      <concept id="1196350785110" name="jetbrains.mps.lang.quotation.structure.AbstractAntiquotation" flags="ng" index="2c44t0">
-        <property id="6489343236075007666" name="label" index="3hQQBS" />
-        <child id="1196350785111" name="expression" index="2c44t1" />
+      <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
+        <reference id="5455284157993911078" name="property" index="2pJxcJ" />
       </concept>
-      <concept id="1196350785113" name="jetbrains.mps.lang.quotation.structure.Quotation" flags="nn" index="2c44tf">
-        <child id="1196350785114" name="quotedNode" index="2c44tc" />
+      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
+        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
       </concept>
-      <concept id="1196866233735" name="jetbrains.mps.lang.quotation.structure.PropertyAntiquotation" flags="ng" index="2EMmih" />
+      <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
+        <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
+      </concept>
+      <concept id="5455284157993863840" name="jetbrains.mps.lang.quotation.structure.NodeBuilderNode" flags="nn" index="2pJPED">
+        <reference id="5455284157993910961" name="concept" index="2pJxaS" />
+        <child id="5455284157993911099" name="values" index="2pJxcM" />
+      </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
@@ -149,19 +152,9 @@
       </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
-      <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
-        <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
-      </concept>
-      <concept id="3364660638048049750" name="jetbrains.mps.lang.core.structure.PropertyAttribute" flags="ng" index="A9Btg">
-        <property id="1757699476691236117" name="name_DebugInfo" index="2qtEX9" />
-        <property id="1341860900487648621" name="propertyId" index="P4ACc" />
-      </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
-    </language>
-    <language id="d5033cee-f632-44b6-b308-89d4fbde34ff" name="jetbrains.mps.build.startup">
-      <concept id="1731640411964205218" name="jetbrains.mps.build.startup.structure.TextLine" flags="ng" index="2DRAP_" />
     </language>
     <language id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections">
       <concept id="1204796164442" name="jetbrains.mps.baseLanguage.collections.structure.InternalSequenceOperation" flags="nn" index="23sCx2">
@@ -491,13 +484,12 @@
               <node concept="1bVj0M" id="2lwFGYOYbIV" role="23t8la">
                 <node concept="3clFbS" id="2lwFGYOYbIW" role="1bW5cS">
                   <node concept="3clFbF" id="2lwFGYOYbSK" role="3cqZAp">
-                    <node concept="2c44tf" id="1w81suM2tmD" role="3clFbG">
-                      <node concept="2DRAP_" id="1w81suM2tIq" role="2c44tc">
-                        <node concept="2EMmih" id="1w81suM2tUI" role="lGtFl">
-                          <property role="2qtEX9" value="text" />
-                          <property role="3hQQBS" value="GeneratorInternal_TextLine" />
-                          <property role="P4ACc" value="d5033cee-f632-44b6-b308-89d4fbde34ff/1731640411964205218/1731640411964798937" />
-                          <node concept="37vLTw" id="2lwFGYOYceb" role="2c44t1">
+                    <node concept="2pJPEk" id="7wjXRnK4HmM" role="3clFbG">
+                      <node concept="2pJPED" id="7wjXRnK4HmJ" role="2pJPEn">
+                        <ref role="2pJxaS" to="s7om:1w81suLPAyy" resolve="TextLine" />
+                        <node concept="2pJxcG" id="7wjXRnK4HmK" role="2pJxcM">
+                          <ref role="2pJxcJ" to="s7om:1w81suLRRvp" resolve="text" />
+                          <node concept="37vLTw" id="2lwFGYOYceb" role="2pJxcZ">
                             <ref role="3cqZAo" node="2lwFGYOYbIX" resolve="it" />
                           </node>
                         </node>
@@ -571,13 +563,12 @@
               <node concept="1bVj0M" id="31jVCtHhzvy" role="23t8la">
                 <node concept="3clFbS" id="31jVCtHhzvz" role="1bW5cS">
                   <node concept="3clFbF" id="31jVCtHhzv$" role="3cqZAp">
-                    <node concept="2c44tf" id="31jVCtHhzv_" role="3clFbG">
-                      <node concept="2DRAP_" id="31jVCtHhzvA" role="2c44tc">
-                        <node concept="2EMmih" id="31jVCtHhzvB" role="lGtFl">
-                          <property role="2qtEX9" value="text" />
-                          <property role="3hQQBS" value="GeneratorInternal_TextLine" />
-                          <property role="P4ACc" value="d5033cee-f632-44b6-b308-89d4fbde34ff/1731640411964205218/1731640411964798937" />
-                          <node concept="37vLTw" id="31jVCtHhzvC" role="2c44t1">
+                    <node concept="2pJPEk" id="7wjXRnK4HxU" role="3clFbG">
+                      <node concept="2pJPED" id="7wjXRnK4HxR" role="2pJPEn">
+                        <ref role="2pJxaS" to="s7om:1w81suLPAyy" resolve="TextLine" />
+                        <node concept="2pJxcG" id="7wjXRnK4HxS" role="2pJxcM">
+                          <ref role="2pJxcJ" to="s7om:1w81suLRRvp" resolve="text" />
+                          <node concept="37vLTw" id="31jVCtHhzvC" role="2pJxcZ">
                             <ref role="3cqZAo" node="31jVCtHhzvD" resolve="it" />
                           </node>
                         </node>
