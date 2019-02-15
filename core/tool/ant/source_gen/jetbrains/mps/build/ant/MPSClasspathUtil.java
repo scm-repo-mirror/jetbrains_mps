@@ -216,6 +216,9 @@ public class MPSClasspathUtil {
       return;
     }
     File[] children = dir.listFiles();
+    if (children == null) {
+      return;
+    }
     //  we do not want trove different from ours in $mps.home$/lib 
     String troveJar = "trove" + File.separator + "lib" + File.separator + "trove";
     //  to provide right order of class loading, 

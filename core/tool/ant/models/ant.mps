@@ -7626,6 +7626,17 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbJ" id="3Bnx5yGPevm" role="3cqZAp">
+          <node concept="3clFbS" id="3Bnx5yGPevo" role="3clFbx">
+            <node concept="3cpWs6" id="3Bnx5yGPkRe" role="3cqZAp" />
+          </node>
+          <node concept="3clFbC" id="3Bnx5yGPklT" role="3clFbw">
+            <node concept="10Nm6u" id="3Bnx5yGPkvx" role="3uHU7w" />
+            <node concept="37vLTw" id="3Bnx5yGPjRO" role="3uHU7B">
+              <ref role="3cqZAo" node="vAjk0V2aNn" resolve="children" />
+            </node>
+          </node>
+        </node>
         <node concept="3SKdUt" id="vAjk0V2aNt" role="3cqZAp">
           <node concept="3SKdUq" id="vAjk0V2aNu" role="3SKWNk">
             <property role="3SKdUp" value=" we do not want trove different from ours in $mps.home$/lib" />

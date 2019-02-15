@@ -318,7 +318,7 @@ public class ModelStorageProblemsListener extends SRepositoryContentAdapter {
   public static TestDialog setTestDialog(TestDialog newValue) {
     Application application = ApplicationManager.getApplication();
     if (application != null) {
-      assert application.isUnitTestMode() : "This method is available for tests only";
+      assert isApplicationInUnitTestOrHeadless() : "This method is available for test/headless mode only";
     }
     TestDialog oldValue = ourTestImplementation;
     ourTestImplementation = newValue;

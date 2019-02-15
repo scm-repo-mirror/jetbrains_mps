@@ -4,13 +4,13 @@ package jetbrains.mps.tool.environment;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
-import com.intellij.idea.IdeaTestApplication;
+import com.intellij.idea.CommandLineApplication;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.InternalFlag;
 import jetbrains.mps.ide.MPSCoreComponents;
-import java.io.File;
 import jetbrains.mps.util.PathManager;
+import java.io.File;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.RuntimeFlags;
@@ -19,9 +19,15 @@ import com.intellij.openapi.project.ProjectManagerAdapter;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.newvfs.impl.VfsRootAccess;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.idea.IdeaTestApplication;
+import com.intellij.util.PlatformUtils;
+import com.intellij.ide.plugins.PluginManagerCore;
+import com.intellij.openapi.application.ex.ApplicationManagerEx;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.project.MPSProject;
+import com.intellij.openapi.application.Application;
+import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.application.ModalityState;
 import jetbrains.mps.util.FileUtil;
 import com.intellij.openapi.project.ex.ProjectManagerEx;
@@ -44,14 +50,20 @@ public final class IdeaEnvironment extends EnvironmentBase {
   private static final Logger LOG = LogManager.getLogger(IdeaEnvironment.class);
   private static final String PLUGINS_PATH = "plugin.path";
 
-  private IdeaTestApplication myIdeaApplication;
+  private CommandLineApplication myIdeaApplication;
+  private final boolean myUnitTestMode;
 
   static {
     EnvironmentBase.initializeLog4j();
   }
 
   public IdeaEnvironment(@NotNull EnvironmentConfig config) {
+    this(config, true);
+  }
+
+  public IdeaEnvironment(@NotNull EnvironmentConfig config, boolean unitTestMode) {
     super(config);
+    myUnitTestMode = unitTestMode;
   }
 
   /**
@@ -114,17 +126,26 @@ public final class IdeaEnvironment extends EnvironmentBase {
   private void setPluginPathProperty() {
     // [MM]: why do we set ids from config, while path is not config-related? 
     StringBuilder pluginPath = new StringBuilder();
-    File pluginDir = new File(PathManager.getPreInstalledPluginsPath());
-    if (pluginDir.exists()) {
-      for (File pluginFolder : pluginDir.listFiles()) {
-        if (pluginPath.length() > 0) {
-          pluginPath.append(File.pathSeparator);
+    String preInstalledPluginsPath = PathManager.getPreInstalledPluginsPath();
+    if (myUnitTestMode) {
+      // PluginManagerCore.loadDescriptors loads plugin from preInstalledPluginsPath when in !unitTest 
+      // OTOH, with this code, it's easy to get duplicated plugins as aforementioned method loads plugins both 
+      // from this property and from classpath. If calling code adds plugins to cp (like MpsLoadTask does), AND PD.getPath 
+      // specifies proper location (not just plugin/-relative folder name like EnvironmentConfig.with* methods do), we may get into 
+      // trouble (IDEA complains about duplicated plugins) 
+      File pluginDir = new File(preInstalledPluginsPath);
+      if (pluginDir.exists()) {
+        for (File pluginFolder : pluginDir.listFiles()) {
+          if (pluginPath.length() > 0) {
+            pluginPath.append(File.pathSeparator);
+          }
+          pluginPath.append(pluginFolder.getPath());
         }
-        pluginPath.append(pluginFolder.getPath());
       }
     }
     for (PluginDescriptor pd : myConfig.getPlugins()) {
-      if (pd.getPath().startsWith(PathManager.getPreInstalledPluginsPath())) {
+      // see comment above regarding duplicated plugins in PLUGINS_PATH and in classpath 
+      if (pd.getPath().startsWith(preInstalledPluginsPath)) {
         continue;
       }
       if (pluginPath.length() > 0) {
@@ -132,6 +153,9 @@ public final class IdeaEnvironment extends EnvironmentBase {
       }
       pluginPath.append(pd.getPath());
     }
+    // IMPORTANT! "plugin.path" doesn't tell plugin's classpath, it points to location where to read plugin.xml from 
+    // I.e. for unit test mode, complete plugin's classpath has to be in global CP already, and therefore would be loaded by 
+    // PluginManagerCore.loadDescriptorsFromClassPath.  
     System.setProperty(PLUGINS_PATH, pluginPath.toString());
   }
 
@@ -167,11 +191,20 @@ public final class IdeaEnvironment extends EnvironmentBase {
     return ApplicationManager.getApplication().getComponent(MPSCoreComponents.class);
   }
 
-  private IdeaTestApplication createIdeaTestApp() {
+  private CommandLineApplication createIdeaTestApp() {
     if (LOG.isInfoEnabled()) {
       LOG.info("Creating IdeaTestApplication");
     }
-    return IdeaTestApplication.getInstance();
+    if (myUnitTestMode) {
+      return IdeaTestApplication.getInstance();
+    }
+    // copied from IdeaTestApplication.getInstance(String) 
+    // next line is shorthand for PlatformTestCase.doAutodetectPlatformPrefix() 
+    System.setProperty(PlatformUtils.PLATFORM_PREFIX_KEY, PlatformUtils.IDEA_CE_PREFIX);
+    CommandLineApplication rv = new CommandLineApplication(true, false, true) {};
+    PluginManagerCore.getPlugins();
+    ApplicationManagerEx.getApplicationEx().load(null);
+    return rv;
   }
 
   @Override
@@ -217,9 +250,16 @@ public final class IdeaEnvironment extends EnvironmentBase {
             });
           }
         }
-        ApplicationManager.getApplication().runWriteAction(new Runnable() {
+        final Application application = ApplicationManager.getApplication();
+        application.runWriteAction(new Runnable() {
           public void run() {
-            myIdeaApplication.dispose();
+            if (myUnitTestMode) {
+              ((IdeaTestApplication) myIdeaApplication).dispose();
+            } else {
+              // that's what IdeaTestApplication.dispose() does 
+              Disposer.dispose(application);
+            }
+            myIdeaApplication = null;
           }
         });
       }

@@ -3722,16 +3722,11 @@
           </node>
           <node concept="3clFbS" id="6_VtqYz09hS" role="3clFbx">
             <node concept="1gVbGN" id="6_VtqYz26p4" role="3cqZAp">
-              <node concept="2OqwBi" id="6_VtqYz2zl1" role="1gVkn0">
-                <node concept="37vLTw" id="6_VtqYz2zl2" role="2Oq$k0">
-                  <ref role="3cqZAo" node="6_VtqYz09hI" resolve="application" />
-                </node>
-                <node concept="liA8E" id="6_VtqYz2zl3" role="2OqNvi">
-                  <ref role="37wK5l" to="bd8o:~Application.isUnitTestMode():boolean" resolve="isUnitTestMode" />
-                </node>
+              <node concept="1rXfSq" id="3Bnx5yGQ5AI" role="1gVkn0">
+                <ref role="37wK5l" node="6_VtqYzhE9z" resolve="isApplicationInUnitTestOrHeadless" />
               </node>
               <node concept="Xl_RD" id="6_VtqYz3SF4" role="1gVpfI">
-                <property role="Xl_RC" value="This method is available for tests only" />
+                <property role="Xl_RC" value="This method is available for test/headless mode only" />
               </node>
             </node>
           </node>
