@@ -44,7 +44,7 @@ public class SEnumOperationInvocation_Constraints extends BaseConstraintsDescrip
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), true, MetaAdapterFactory.getInterfaceConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xeeb344f64a629e5L, "jetbrains.mps.lang.structure.structure.IEnumeration"));
+            return new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), true, MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, "jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration_Old"));
           }
         };
       }

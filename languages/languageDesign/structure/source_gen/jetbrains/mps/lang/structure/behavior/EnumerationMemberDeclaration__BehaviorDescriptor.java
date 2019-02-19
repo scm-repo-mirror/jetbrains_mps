@@ -17,6 +17,8 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -26,10 +28,10 @@ public final class EnumerationMemberDeclaration__BehaviorDescriptor extends Base
   private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIMiw").registry(REGISTRY).build();
-  public static final SMethod<String> getMemberName_idVFd4X$DGkG = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getMemberName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VFd4X$DGkG").registry(REGISTRY).build();
-  public static final SMethod<String> getMemberPresentation_idVFd4X$DBBV = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getMemberPresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VFd4X$DBBV").registry(REGISTRY).build();
+  public static final SMethod<String> getMemberPresentation_idVFd4X$DFGV = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getMemberPresentation").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VFd4X$DFGV").registry(REGISTRY).build();
+  public static final SMethod<Boolean> isDefault_idVFd4X$DLvk = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDefault").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VFd4X$DLvk").registry(REGISTRY).build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, getMemberName_idVFd4X$DGkG, getMemberPresentation_idVFd4X$DBBV);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, getMemberPresentation_idVFd4X$DFGV, isDefault_idVFd4X$DLvk);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -37,12 +39,12 @@ public final class EnumerationMemberDeclaration__BehaviorDescriptor extends Base
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
     return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
   }
-  /*package*/ static String getMemberName_idVFd4X$DGkG(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
-  }
-  /*package*/ static String getMemberPresentation_idVFd4X$DBBV(@NotNull SNode __thisNode__) {
+  /*package*/ static String getMemberPresentation_idVFd4X$DFGV(@NotNull SNode __thisNode__) {
     String presentation = SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, 0x9538e3a78561888L, "presentation"));
     return ((presentation == null || presentation.length() == 0) ? SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) : presentation);
+  }
+  /*package*/ static boolean isDefault_idVFd4X$DLvk(@NotNull SNode __thisNode__) {
+    return SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion")), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, 0xeeb344f63fe016cL, "defaultMember")) == __thisNode__;
   }
 
   /*package*/ EnumerationMemberDeclaration__BehaviorDescriptor() {
@@ -64,9 +66,9 @@ public final class EnumerationMemberDeclaration__BehaviorDescriptor extends Base
       case 0:
         return (T) ((String) getPresentation_idhEwIMiw(node));
       case 1:
-        return (T) ((String) getMemberName_idVFd4X$DGkG(node));
+        return (T) ((String) getMemberPresentation_idVFd4X$DFGV(node));
       case 2:
-        return (T) ((String) getMemberPresentation_idVFd4X$DBBV(node));
+        return (T) ((Boolean) isDefault_idVFd4X$DLvk(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

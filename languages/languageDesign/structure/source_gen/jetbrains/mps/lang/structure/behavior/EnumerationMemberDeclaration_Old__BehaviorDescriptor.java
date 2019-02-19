@@ -19,7 +19,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -31,10 +30,8 @@ public final class EnumerationMemberDeclaration_Old__BehaviorDescriptor extends 
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIMiw").registry(REGISTRY).build();
   public static final SMethod<String> getConstantName_idi2Z$rBf = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getConstantName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("i2Z$rBf").registry(REGISTRY).build();
   public static final SMethod<String> getName_idi2ZRO7Q = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("i2ZRO7Q").registry(REGISTRY).build();
-  public static final SMethod<String> getMemberName_idVFd4X$DGkG = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getMemberName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VFd4X$DGkG").registry(REGISTRY).build();
-  public static final SMethod<String> getMemberPresentation_idVFd4X$DBBV = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getMemberPresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VFd4X$DBBV").registry(REGISTRY).build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, getConstantName_idi2Z$rBf, getName_idi2ZRO7Q, getMemberName_idVFd4X$DGkG, getMemberPresentation_idVFd4X$DBBV);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, getConstantName_idi2Z$rBf, getName_idi2ZRO7Q);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -60,12 +57,6 @@ public final class EnumerationMemberDeclaration_Old__BehaviorDescriptor extends 
     }
     return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, 0x1158fb58479L, "javaIdentifier"));
   }
-  /*package*/ static String getMemberName_idVFd4X$DGkG(@NotNull SNode __thisNode__) {
-    return ((String) EnumerationMemberDeclaration_Old__BehaviorDescriptor.getName_idi2ZRO7Q.invoke(__thisNode__));
-  }
-  /*package*/ static String getMemberPresentation_idVFd4X$DBBV(@NotNull SNode __thisNode__) {
-    return ((String) BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(__thisNode__));
-  }
 
   /*package*/ EnumerationMemberDeclaration_Old__BehaviorDescriptor() {
     super(REGISTRY);
@@ -89,10 +80,6 @@ public final class EnumerationMemberDeclaration_Old__BehaviorDescriptor extends 
         return (T) ((String) getConstantName_idi2Z$rBf(node));
       case 2:
         return (T) ((String) getName_idi2ZRO7Q(node));
-      case 3:
-        return (T) ((String) getMemberName_idVFd4X$DGkG(node));
-      case 4:
-        return (T) ((String) getMemberPresentation_idVFd4X$DBBV(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

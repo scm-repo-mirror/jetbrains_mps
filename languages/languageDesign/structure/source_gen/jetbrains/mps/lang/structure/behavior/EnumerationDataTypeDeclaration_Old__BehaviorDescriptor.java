@@ -30,10 +30,8 @@ public final class EnumerationDataTypeDeclaration_Old__BehaviorDescriptor extend
 
   public static final SMethod<SNode> toBaseLanguageType_idhEwI9ym = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("toBaseLanguageType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwI9ym").registry(REGISTRY).build();
   public static final SMethod<SNode> getDefaultMember_idhEwIM$p = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getDefaultMember").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIM$p").registry(REGISTRY).build();
-  public static final SMethod<SNode> getDefaultMember_idVFd4X$DyCV = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getDefaultMember").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VFd4X$DyCV").registry(REGISTRY).build();
-  public static final SMethod<List<SNode>> getMembers_idVFd4X$DyC_ = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getMembers").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VFd4X$DyC_").registry(REGISTRY).build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(toBaseLanguageType_idhEwI9ym, getDefaultMember_idhEwIM$p, getDefaultMember_idVFd4X$DyCV, getMembers_idVFd4X$DyC_);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(toBaseLanguageType_idhEwI9ym, getDefaultMember_idhEwIM$p);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -51,12 +49,6 @@ public final class EnumerationDataTypeDeclaration_Old__BehaviorDescriptor extend
       return defaultMember;
     }
     return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0xfc32151efeL, "member"))).first();
-  }
-  /*package*/ static SNode getDefaultMember_idVFd4X$DyCV(@NotNull SNode __thisNode__) {
-    return ((SNode) EnumerationDataTypeDeclaration_Old__BehaviorDescriptor.getDefaultMember_idhEwIM$p.invoke(__thisNode__));
-  }
-  /*package*/ static List<SNode> getMembers_idVFd4X$DyC_(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0xfc32151efeL, "member"));
   }
 
   /*package*/ EnumerationDataTypeDeclaration_Old__BehaviorDescriptor() {
@@ -79,10 +71,6 @@ public final class EnumerationDataTypeDeclaration_Old__BehaviorDescriptor extend
         return (T) ((SNode) toBaseLanguageType_idhEwI9ym(node));
       case 1:
         return (T) ((SNode) getDefaultMember_idhEwIM$p(node));
-      case 2:
-        return (T) ((SNode) getDefaultMember_idVFd4X$DyCV(node));
-      case 3:
-        return (T) ((List<SNode>) getMembers_idVFd4X$DyC_(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

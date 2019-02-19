@@ -23,7 +23,7 @@ import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.editor.runtime.style.Padding;
 import jetbrains.mps.editor.runtime.style.Measure;
 import java.awt.Color;
-import jetbrains.mps.lang.structure.behavior.IEnumerationMember__BehaviorDescriptor;
+import jetbrains.mps.lang.structure.behavior.EnumerationMemberDeclaration__BehaviorDescriptor;
 import jetbrains.mps.nodeEditor.MPSColors;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -96,10 +96,10 @@ import jetbrains.mps.openapi.editor.update.AttributeKind;
     return editorCell;
   }
   private Color _StyleParameter_QueryFunction_n0n6wp_a1a0() {
-    return ((boolean) IEnumerationMember__BehaviorDescriptor.isDefault_idVFd4X$DLvk.invoke(getNode()) ? MPSColors.DARK_BLUE : MPSColors.GRAY);
+    return ((boolean) EnumerationMemberDeclaration__BehaviorDescriptor.isDefault_idVFd4X$DLvk.invoke(getNode()) ? MPSColors.DARK_BLUE : MPSColors.GRAY);
   }
   private boolean _StyleParameter_QueryFunction_n0n6wp_a4a0() {
-    return (boolean) IEnumerationMember__BehaviorDescriptor.isDefault_idVFd4X$DLvk.invoke(getNode());
+    return (boolean) EnumerationMemberDeclaration__BehaviorDescriptor.isDefault_idVFd4X$DLvk.invoke(getNode());
   }
   private EditorCell createProperty_0() {
     getCellFactory().pushCellContext();
@@ -135,7 +135,7 @@ import jetbrains.mps.openapi.editor.update.AttributeKind;
     }
   }
   private boolean _StyleParameter_QueryFunction_n0n6wp_a3b0() {
-    return (boolean) IEnumerationMember__BehaviorDescriptor.isDefault_idVFd4X$DLvk.invoke(getNode());
+    return (boolean) EnumerationMemberDeclaration__BehaviorDescriptor.isDefault_idVFd4X$DLvk.invoke(getNode());
   }
   private EditorCell createProperty_1() {
     getCellFactory().pushCellContext();

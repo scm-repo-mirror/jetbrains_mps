@@ -7293,60 +7293,60 @@
       </scope>
     </file>
     <file name="check_EnumSwitchExpression_NonTypesystemRule.java">
-      <node id="2453008993619574391" at="27,133,28,74" concept="7" />
-      <node id="2453008993619635307" at="29,403,30,193" concept="7" />
-      <node id="7852851563762820038" at="32,9,33,62" concept="7" />
-      <node id="7852851563762820038" at="33,62,34,260" concept="7" />
-      <node id="2453008993619908091" at="39,7,40,60" concept="7" />
-      <node id="2453008993619908091" at="40,60,41,252" concept="7" />
-      <node id="2453008993619574382" at="45,50,46,164" concept="8" />
-      <node id="2453008993619574382" at="48,68,49,102" concept="8" />
-      <node id="2453008993619574382" at="51,30,52,17" concept="8" />
-      <node id="2453008993619574382" at="25,0,27,0" concept="1" trace="check_EnumSwitchExpression_NonTypesystemRule#()V" />
-      <node id="2453008993619574382" at="45,0,48,0" concept="6" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="2453008993619574382" at="48,0,51,0" concept="6" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
-      <node id="2453008993619574382" at="51,0,54,0" concept="6" trace="overrides#()Z" />
-      <node id="7852851563762820038" at="31,63,35,9" concept="0" />
-      <node id="2453008993619908091" at="38,555,42,7" concept="0" />
-      <node id="2453008993619601172" at="30,193,36,7" concept="5" />
-      <node id="2453008993619913394" at="37,5,43,5" concept="5" />
-      <node id="2453008993619576913" at="28,74,37,5" concept="4" />
-      <node id="2453008993619574382" at="27,0,45,0" concept="6" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
-      <scope id="2453008993619574382" at="25,57,25,57" />
-      <scope id="2453008993619574382" at="45,50,46,164" />
-      <scope id="2453008993619574382" at="48,68,49,102" />
-      <scope id="2453008993619574382" at="51,30,52,17" />
-      <scope id="2453008993619574382" at="25,0,27,0" />
-      <scope id="7852851563762820038" at="32,9,34,260">
+      <node id="2453008993619574391" at="26,133,27,74" concept="7" />
+      <node id="2453008993619635307" at="28,403,29,193" concept="7" />
+      <node id="7852851563762820038" at="31,9,32,62" concept="7" />
+      <node id="7852851563762820038" at="32,62,33,260" concept="7" />
+      <node id="2453008993619908091" at="38,7,39,60" concept="7" />
+      <node id="2453008993619908091" at="39,60,40,252" concept="7" />
+      <node id="2453008993619574382" at="44,50,45,164" concept="8" />
+      <node id="2453008993619574382" at="47,68,48,102" concept="8" />
+      <node id="2453008993619574382" at="50,30,51,17" concept="8" />
+      <node id="2453008993619574382" at="24,0,26,0" concept="1" trace="check_EnumSwitchExpression_NonTypesystemRule#()V" />
+      <node id="2453008993619574382" at="44,0,47,0" concept="6" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="2453008993619574382" at="47,0,50,0" concept="6" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
+      <node id="2453008993619574382" at="50,0,53,0" concept="6" trace="overrides#()Z" />
+      <node id="7852851563762820038" at="30,63,34,9" concept="0" />
+      <node id="2453008993619908091" at="37,653,41,7" concept="0" />
+      <node id="2453008993619601172" at="29,193,35,7" concept="5" />
+      <node id="2453008993619913394" at="36,5,42,5" concept="5" />
+      <node id="2453008993619576913" at="27,74,36,5" concept="4" />
+      <node id="2453008993619574382" at="26,0,44,0" concept="6" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
+      <scope id="2453008993619574382" at="24,57,24,57" />
+      <scope id="2453008993619574382" at="44,50,45,164" />
+      <scope id="2453008993619574382" at="47,68,48,102" />
+      <scope id="2453008993619574382" at="50,30,51,17" />
+      <scope id="2453008993619574382" at="24,0,26,0" />
+      <scope id="7852851563762820038" at="31,9,33,260">
         <var name="_reporter_2309309498" id="7852851563762820038" />
         <var name="errorTarget" id="7852851563762820038" />
       </scope>
-      <scope id="2453008993619908091" at="39,7,41,252">
+      <scope id="2453008993619908091" at="38,7,40,252">
         <var name="_reporter_2309309498" id="2453008993619908091" />
         <var name="errorTarget" id="2453008993619908091" />
       </scope>
-      <scope id="2453008993619574382" at="45,0,48,0" />
-      <scope id="2453008993619574382" at="48,0,51,0">
+      <scope id="2453008993619574382" at="44,0,47,0" />
+      <scope id="2453008993619574382" at="47,0,50,0">
         <var name="argument" id="2453008993619574382" />
       </scope>
-      <scope id="2453008993619574382" at="51,0,54,0" />
-      <scope id="2453008993619601174" at="31,63,35,9" />
-      <scope id="2453008993619913396" at="38,555,42,7" />
-      <scope id="2453008993619576919" at="29,403,36,7">
+      <scope id="2453008993619574382" at="50,0,53,0" />
+      <scope id="2453008993619601174" at="30,63,34,9" />
+      <scope id="2453008993619913396" at="37,653,41,7" />
+      <scope id="2453008993619576919" at="28,403,35,7">
         <var name="member" id="2453008993619635308" />
       </scope>
-      <scope id="2453008993619576913" at="28,74,37,5">
+      <scope id="2453008993619576913" at="27,74,36,5">
         <var name="memberReference" id="2453008993619576915" />
       </scope>
-      <scope id="2453008993619574383" at="27,133,43,5">
+      <scope id="2453008993619574383" at="26,133,42,5">
         <var name="visitedMembers" id="2453008993619574394" />
       </scope>
-      <scope id="2453008993619574382" at="27,0,45,0">
+      <scope id="2453008993619574382" at="26,0,44,0">
         <var name="enumSwitchExpression" id="2453008993619574382" />
         <var name="status" id="2453008993619574382" />
         <var name="typeCheckingContext" id="2453008993619574382" />
       </scope>
-      <unit id="2453008993619574382" at="24,0,55,0" name="jetbrains.mps.lang.smodel.typesystem.check_EnumSwitchExpression_NonTypesystemRule" />
+      <unit id="2453008993619574382" at="23,0,54,0" name="jetbrains.mps.lang.smodel.typesystem.check_EnumSwitchExpression_NonTypesystemRule" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)/2520452989173340047">

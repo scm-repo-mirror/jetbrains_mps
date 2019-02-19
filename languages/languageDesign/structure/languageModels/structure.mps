@@ -231,9 +231,6 @@
     <node concept="PrWs8" id="1$21UiMc2k0" role="PzmwI">
       <ref role="PrY4T" to="tpck:19gBtYEAf4C" resolve="InterfacePart" />
     </node>
-    <node concept="PrWs8" id="VFd4X$DJPr" role="PzmwI">
-      <ref role="PrY4T" node="VFd4X$DyC0" resolve="IEnumerationMember" />
-    </node>
     <node concept="asaX9" id="VFd4X$dxFi" role="lGtFl">
       <property role="YLQ7P" value="Use EnumerationMemberDeclaration instead" />
       <property role="YLPcu" value="19.1" />
@@ -833,9 +830,6 @@
     <node concept="PrWs8" id="1ob16QT3iN4" role="PzmwI">
       <ref role="PrY4T" node="1ob16QT2yIl" resolve="INamedLanguageElement" />
     </node>
-    <node concept="PrWs8" id="VFd4X$DABJ" role="PzmwI">
-      <ref role="PrY4T" node="VFd4X$DyC0" resolve="IEnumerationMember" />
-    </node>
     <node concept="1TJgyi" id="_jzzDSlxy8" role="1TKVEl">
       <property role="IQ2nx" value="672037151186491528" />
       <property role="TrG5h" value="presentation" />
@@ -849,11 +843,10 @@
     <node concept="PrWs8" id="50Pb80HvPH9" role="PrDN$">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
-  </node>
-  <node concept="PlHQZ" id="VFd4X$DyC0">
-    <property role="EcuMT" value="1075010451653667328" />
-    <property role="3GE5qa" value="enums" />
-    <property role="TrG5h" value="IEnumerationMember" />
+    <node concept="asaX9" id="25DDrfqCETY" role="lGtFl">
+      <property role="YLPcu" value="19.1" />
+      <property role="YLQ7P" value="For internal usage only" />
+    </node>
   </node>
   <node concept="PlHQZ" id="1ob16QT2yIl">
     <property role="EcuMT" value="1588368162880629653" />

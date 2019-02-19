@@ -6692,7 +6692,7 @@
       <node id="2453008993616345620" at="34,0,35,0" concept="9" trace="evaluatesValue_id28aPEVwg1gU" />
       <node id="2453008993616345620" at="36,0,37,0" concept="9" trace="BH_METHODS" />
       <node id="2453008993616345925" at="41,88,42,16" concept="7" />
-      <node id="2453008993612595429" at="44,83,45,626" concept="7" />
+      <node id="2453008993612595429" at="44,83,45,805" concept="7" />
       <node id="2453008993631606009" at="47,88,48,59" concept="6" />
       <node id="2453008993631612935" at="49,195,50,275" concept="7" />
       <node id="2453008993631612303" at="51,5,52,16" concept="7" />
@@ -6726,7 +6726,7 @@
       <node id="2453008993616345620" at="64,0,81,0" concept="5" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
       <scope id="2453008993616345620" at="38,63,38,63" />
       <scope id="2453008993616345663" at="41,88,42,16" />
-      <scope id="2453008993612595415" at="44,83,45,626" />
+      <scope id="2453008993612595415" at="44,83,45,805" />
       <scope id="2453008993631607606" at="49,195,50,275" />
       <scope id="2453008993616345620" at="55,58,56,20" />
       <scope id="2453008993616345620" at="60,114,61,21" />

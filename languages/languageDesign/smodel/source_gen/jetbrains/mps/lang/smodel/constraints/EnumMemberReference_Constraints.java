@@ -24,7 +24,6 @@ import jetbrains.mps.lang.smodel.behavior.SNodeOperation__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.behavior.EnumMemberOperation__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.behavior.EnumSwitchExpression__BehaviorDescriptor;
 import jetbrains.mps.scope.ListScope;
-import jetbrains.mps.lang.structure.behavior.IEnumeration__BehaviorDescriptor;
 import jetbrains.mps.scope.EmptyScope;
 import jetbrains.mps.smodel.SNodePointer;
 
@@ -60,10 +59,11 @@ public class EnumMemberReference_Constraints extends BaseConstraintsDescriptor {
             } else if (SNodeOperations.isInstanceOf(container, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75e3L, "jetbrains.mps.lang.smodel.structure.EnumSwitchCase"))) {
               enumDelcaration = EnumSwitchExpression__BehaviorDescriptor.getEnumDecl_id28aPEVv7w3k.invoke(SNodeOperations.cast(SNodeOperations.getParent(container), MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, "jetbrains.mps.lang.smodel.structure.EnumSwitchExpression")));
             } else if (SNodeOperations.isInstanceOf(container, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, "jetbrains.mps.lang.smodel.structure.EnumSwitchExpression"))) {
+              // to make completion works 
               enumDelcaration = EnumSwitchExpression__BehaviorDescriptor.getEnumDecl_id28aPEVv7w3k.invoke(SNodeOperations.cast(container, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, "jetbrains.mps.lang.smodel.structure.EnumSwitchExpression")));
             }
             if (enumDelcaration != null) {
-              return ListScope.forNamedElements(IEnumeration__BehaviorDescriptor.getMembers_idVFd4X$DyC_.invoke(enumDelcaration));
+              return ListScope.forNamedElements(SLinkOperations.getChildren(enumDelcaration, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, 0x2e770ca32c607cc1L, "members")));
             }
             return new EmptyScope();
           }

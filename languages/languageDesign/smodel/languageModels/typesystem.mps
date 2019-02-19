@@ -14712,13 +14712,13 @@
           <property role="TrG5h" value="visitedMembers" />
           <node concept="2hMVRd" id="28aPEVvy7TP" role="1tU5fm">
             <node concept="3Tqbb2" id="28aPEVvy7Ui" role="2hN53Y">
-              <ref role="ehGHo" to="tpce:VFd4X$DyC0" resolve="IEnumerationMember" />
+              <ref role="ehGHo" to="tpce:2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
             </node>
           </node>
           <node concept="2ShNRf" id="28aPEVvy7V3" role="33vP2m">
             <node concept="2i4dXS" id="28aPEVvy8cS" role="2ShVmc">
               <node concept="3Tqbb2" id="28aPEVvy8mq" role="HW$YZ">
-                <ref role="ehGHo" to="tpce:VFd4X$DyC0" resolve="IEnumerationMember" />
+                <ref role="ehGHo" to="tpce:2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
               </node>
             </node>
           </node>
@@ -14746,7 +14746,7 @@
             <node concept="3cpWsn" id="28aPEVvymLG" role="3cpWs9">
               <property role="TrG5h" value="member" />
               <node concept="3Tqbb2" id="28aPEVvyncV" role="1tU5fm">
-                <ref role="ehGHo" to="tpce:VFd4X$DyC0" resolve="IEnumerationMember" />
+                <ref role="ehGHo" to="tpce:2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
               </node>
               <node concept="2OqwBi" id="28aPEVvymLH" role="33vP2m">
                 <node concept="2GrUjf" id="28aPEVvymLI" role="2Oq$k0">
@@ -14828,8 +14828,8 @@
                     <ref role="37wK5l" to="tpeu:28aPEVv7w3k" resolve="getEnumDecl" />
                   </node>
                 </node>
-                <node concept="2qgKlT" id="28aPEVvyAhI" role="2OqNvi">
-                  <ref role="37wK5l" to="tpcn:VFd4X$DyC_" resolve="getMembers" />
+                <node concept="3Tsc0h" id="25DDrfqgZPg" role="2OqNvi">
+                  <ref role="3TtcxE" to="tpce:2TR3acGo7N1" resolve="members" />
                 </node>
               </node>
               <node concept="34oBXx" id="28aPEVvyGh0" role="2OqNvi" />

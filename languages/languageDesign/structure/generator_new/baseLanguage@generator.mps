@@ -597,7 +597,6 @@
     <node concept="2rT7sh" id="744pC72_$eZ" role="2rTMjI">
       <property role="TrG5h" value="EnumerationMember" />
       <ref role="2rZz_L" to="tpee:fz12cDC" resolve="FieldDeclaration" />
-      <ref role="2rTdP9" to="tpce:VFd4X$DyC0" resolve="IEnumerationMember" />
     </node>
     <node concept="2VPoh5" id="4qsoKztiJiX" role="2VS0gm">
       <ref role="2VPoh2" node="4qsoKztinkA" resolve="StructureAspectDescriptor" />
@@ -7179,8 +7178,8 @@
                   <node concept="3clFbF" id="VFd4X$I804" role="3cqZAp">
                     <node concept="2OqwBi" id="VFd4X$I805" role="3clFbG">
                       <node concept="30H73N" id="VFd4X$I806" role="2Oq$k0" />
-                      <node concept="2qgKlT" id="1ob16QTkcOI" role="2OqNvi">
-                        <ref role="37wK5l" to="tpcn:VFd4X$DBBV" resolve="getMemberPresentation" />
+                      <node concept="2qgKlT" id="25DDrfqC3bb" role="2OqNvi">
+                        <ref role="37wK5l" to="tpcn:VFd4X$DFGV" resolve="getMemberPresentation" />
                       </node>
                     </node>
                   </node>

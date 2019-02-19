@@ -1861,7 +1861,7 @@
                   <property role="3clFbU" value="true" />
                 </node>
                 <node concept="35c_gC" id="7C6N2Upvc1p" role="37wK5m">
-                  <ref role="35c_gD" to="tpce:VFd4X$DyB_" resolve="IEnumeration" />
+                  <ref role="35c_gD" to="tpce:fKAxPRV" resolve="EnumerationDataTypeDeclaration_Old" />
                 </node>
               </node>
             </node>
@@ -3065,7 +3065,7 @@
             <node concept="3cpWsn" id="28aPEVvmKGY" role="3cpWs9">
               <property role="TrG5h" value="enumDelcaration" />
               <node concept="3Tqbb2" id="28aPEVvmKGT" role="1tU5fm">
-                <ref role="ehGHo" to="tpce:VFd4X$DyB_" resolve="IEnumeration" />
+                <ref role="ehGHo" to="tpce:2TR3acGo7Lv" resolve="EnumerationDeclartaion" />
               </node>
               <node concept="10Nm6u" id="28aPEVvmNLM" role="33vP2m" />
             </node>
@@ -3208,6 +3208,11 @@
                 </node>
               </node>
               <node concept="3clFbS" id="28aPEVvn9$z" role="3eOfB_">
+                <node concept="3SKdUt" id="25DDrfqgWhl" role="3cqZAp">
+                  <node concept="3SKdUq" id="25DDrfqgWhn" role="3SKWNk">
+                    <property role="3SKdUp" value="to make completion works" />
+                  </node>
+                </node>
                 <node concept="3clFbF" id="28aPEVvnfsy" role="3cqZAp">
                   <node concept="37vLTI" id="28aPEVvnfs$" role="3clFbG">
                     <node concept="37vLTw" id="28aPEVvnfs_" role="37vLTJ">
@@ -3238,8 +3243,8 @@
                   <ref role="37wK5l" to="o8zo:4IP40Bi3eAf" resolve="forNamedElements" />
                   <ref role="1Pybhc" to="o8zo:4IP40Bi3e_R" resolve="ListScope" />
                   <node concept="2OqwBi" id="28aPEVv7S$z" role="37wK5m">
-                    <node concept="2qgKlT" id="28aPEVv7UOg" role="2OqNvi">
-                      <ref role="37wK5l" to="tpcn:VFd4X$DyC_" resolve="getMembers" />
+                    <node concept="3Tsc0h" id="25DDrfqgXCT" role="2OqNvi">
+                      <ref role="3TtcxE" to="tpce:2TR3acGo7N1" resolve="members" />
                     </node>
                     <node concept="37vLTw" id="28aPEVvnmxc" role="2Oq$k0">
                       <ref role="3cqZAo" node="28aPEVvmKGY" resolve="enumDelcaration" />

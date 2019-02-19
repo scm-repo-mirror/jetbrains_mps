@@ -16,10 +16,10 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.typesystem.inference.TypeChecker;
 import jetbrains.mps.lang.typesystem.runtime.HUtil;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.behavior.ExpressionStatement__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -42,7 +42,7 @@ public final class EnumSwitchExpression__BehaviorDescriptor extends BaseBHDescri
     return true;
   }
   /*package*/ static SNode getEnumDecl_id28aPEVv7w3k(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(TypeChecker.getInstance().getRuntimeSupport().coerce_(TypeChecker.getInstance().getTypeOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf1d75e0L, "enumExpression"))), HUtil.createMatchingPatternByConcept(MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120bfe51421L, "jetbrains.mps.lang.smodel.structure.SEnumerationMemberType")), false), MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120bfe51421L, 0x120bff1303bL, "enum"));
+    return SNodeOperations.as(SLinkOperations.getTarget(TypeChecker.getInstance().getRuntimeSupport().coerce_(TypeChecker.getInstance().getTypeOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf1d75e0L, "enumExpression"))), HUtil.createMatchingPatternByConcept(MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120bfe51421L, "jetbrains.mps.lang.smodel.structure.SEnumerationMemberType")), false), MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120bfe51421L, 0x120bff1303bL, "enum")), MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion"));
   }
   /*package*/ static boolean evaluatesValue_id28aPEVwg1gU(@NotNull SNode __thisNode__) {
     SNode parent = SNodeOperations.getParent(__thisNode__);

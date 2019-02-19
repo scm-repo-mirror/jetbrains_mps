@@ -24,11 +24,8 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
   private final BHDescriptor myInterfaceConceptDeclaration__BehaviorDescriptor = new InterfaceConceptDeclaration__BehaviorDescriptor();
   private final BHDescriptor myDeprecatedNodeAnnotation__BehaviorDescriptor = new DeprecatedNodeAnnotation__BehaviorDescriptor();
   private final BHDescriptor myIStructureDeprecatable__BehaviorDescriptor = new IStructureDeprecatable__BehaviorDescriptor();
-  private final BHDescriptor myIEnumeration__BehaviorDescriptor = new IEnumeration__BehaviorDescriptor();
-  private final BHDescriptor myIEnumerationMember__BehaviorDescriptor = new IEnumerationMember__BehaviorDescriptor();
   private final BHDescriptor myIConceptAspect__BehaviorDescriptor = new IConceptAspect__BehaviorDescriptor();
   private final BHDescriptor myAttributeInfo__BehaviorDescriptor = new AttributeInfo__BehaviorDescriptor();
-  private final BHDescriptor myEnumerationDeclartaion__BehaviorDescriptor = new EnumerationDeclartaion__BehaviorDescriptor();
   private final BHDescriptor myEnumerationMemberDeclaration__BehaviorDescriptor = new EnumerationMemberDeclaration__BehaviorDescriptor();
 
   public BehaviorAspectDescriptor() {
@@ -53,30 +50,24 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
       case 6:
         return myEnumerationDataTypeDeclaration_Old__BehaviorDescriptor;
       case 7:
-        return myEnumerationDeclartaion__BehaviorDescriptor;
-      case 8:
         return myEnumerationMemberDeclaration__BehaviorDescriptor;
-      case 9:
+      case 8:
         return myEnumerationMemberDeclaration_Old__BehaviorDescriptor;
-      case 10:
+      case 9:
         return myIConceptAspect__BehaviorDescriptor;
-      case 11:
-        return myIEnumeration__BehaviorDescriptor;
-      case 12:
-        return myIEnumerationMember__BehaviorDescriptor;
-      case 13:
+      case 10:
         return myIStructureDeprecatable__BehaviorDescriptor;
-      case 14:
+      case 11:
         return myInterfaceConceptDeclaration__BehaviorDescriptor;
-      case 15:
+      case 12:
         return myLinkDeclaration__BehaviorDescriptor;
-      case 16:
+      case 13:
         return myPrimitiveDataTypeDeclaration__BehaviorDescriptor;
-      case 17:
+      case 14:
         return myPropertyDeclaration__BehaviorDescriptor;
       default:
     }
     return null;
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x29889a701b928195L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc268c7a37L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x11d0a70ae54L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x24614259e94f0c84L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xeeb344f64a629e5L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xeeb344f64a62a00L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x11d2ea63881L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc3652de27L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x29889a701b928195L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc268c7a37L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x11d0a70ae54L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x24614259e94f0c84L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x11d2ea63881L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc3652de27L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL)).seal();
 }
