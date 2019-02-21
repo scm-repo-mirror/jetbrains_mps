@@ -48,15 +48,6 @@
     <import index="ew8r" ref="r:579b6612-4f9e-4479-8e4c-5ef2ee0f9722(jetbrains.mps.ide.editor.popup)" />
   </imports>
   <registry>
-    <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
-      <concept id="1238852151516" name="jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleType" flags="in" index="1LlUBW">
-        <child id="1238852204892" name="componentType" index="1Lm7xW" />
-      </concept>
-      <concept id="1238857743184" name="jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleMemberAccessExpression" flags="nn" index="1LFfDK">
-        <child id="1238857764950" name="tuple" index="1LFl5Q" />
-        <child id="1238857834412" name="index" index="1LF_Uc" />
-      </concept>
-    </language>
     <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
       <concept id="8974276187400029895" name="jetbrains.mps.lang.resources.structure.OldIconReference" flags="nn" index="1QGGTy">
         <reference id="8974276187400029896" name="declaration" index="1QGGTH" />
@@ -767,14 +758,14 @@
             <property role="TrG5h" value="finder" />
             <node concept="2ShNRf" id="7k6J8c3tikp" role="33vP2m">
               <node concept="1pGfFk" id="7k6J8c3tikq" role="2ShVmc">
-                <ref role="37wK5l" to="pz2c:7k6J8c3tHYR" resolve="OverridingMethodsFinder" />
+                <ref role="37wK5l" to="pz2c:7k6J8c3tHYR" resolve="OverridingMethodsCalculator" />
                 <node concept="37vLTw" id="2BHiRxgm6pd" role="37wK5m">
                   <ref role="3cqZAo" node="7k6J8c3tike" resolve="container" />
                 </node>
               </node>
             </node>
             <node concept="3uibUv" id="7k6J8c3tiko" role="1tU5fm">
-              <ref role="3uigEE" to="pz2c:7k6J8c3tHRH" resolve="OverridingMethodsFinder" />
+              <ref role="3uigEE" to="pz2c:7k6J8c3tHRH" resolve="OverridingMethodsCalculator" />
             </node>
           </node>
         </node>
@@ -794,12 +785,12 @@
             <node concept="3cpWs8" id="7k6J8c3tiky" role="3cqZAp">
               <node concept="3cpWsn" id="7k6J8c3tikz" role="3cpWs9">
                 <property role="TrG5h" value="tooltip" />
-                <node concept="3uibUv" id="7k6J8c3tik$" role="1tU5fm">
-                  <ref role="3uigEE" to="wyt6:~StringBuffer" resolve="StringBuffer" />
+                <node concept="3uibUv" id="3_tZwMEoXO0" role="1tU5fm">
+                  <ref role="3uigEE" to="wyt6:~StringBuilder" resolve="StringBuilder" />
                 </node>
                 <node concept="2ShNRf" id="7k6J8c3tik_" role="33vP2m">
                   <node concept="1pGfFk" id="7k6J8c3tikA" role="2ShVmc">
-                    <ref role="37wK5l" to="wyt6:~StringBuffer.&lt;init&gt;()" resolve="StringBuffer" />
+                    <ref role="37wK5l" to="wyt6:~StringBuilder.&lt;init&gt;()" resolve="StringBuilder" />
                   </node>
                 </node>
               </node>
@@ -815,20 +806,15 @@
             </node>
             <node concept="3cpWs8" id="7k6J8c3tikF" role="3cqZAp">
               <node concept="3cpWsn" id="7k6J8c3tikG" role="3cpWs9">
-                <property role="TrG5h" value="overridenMethods" />
+                <property role="TrG5h" value="baseMethods" />
                 <node concept="2hMVRd" id="7k6J8c3tikH" role="1tU5fm">
-                  <node concept="1LlUBW" id="7k6J8c3tikI" role="2hN53Y">
-                    <node concept="3Tqbb2" id="7k6J8c3tikJ" role="1Lm7xW">
-                      <ref role="ehGHo" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
-                    </node>
-                    <node concept="3Tqbb2" id="7k6J8c3tikK" role="1Lm7xW">
-                      <ref role="ehGHo" to="tpee:g7pOWCK" resolve="Classifier" />
-                    </node>
+                  <node concept="3Tqbb2" id="7k6J8c3tikJ" role="2hN53Y">
+                    <ref role="ehGHo" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
                   </node>
                 </node>
                 <node concept="2OqwBi" id="7k6J8c3tikL" role="33vP2m">
                   <node concept="liA8E" id="7k6J8c3tikN" role="2OqNvi">
-                    <ref role="37wK5l" to="pz2c:7k6J8c3tHRT" resolve="getOverriddenMethods" />
+                    <ref role="37wK5l" to="pz2c:7k6J8c3tHRT" resolve="getBaseMethods" />
                     <node concept="2GrUjf" id="7k6J8c3tikO" role="37wK5m">
                       <ref role="2Gs0qQ" node="7k6J8c3tikt" resolve="overridingMethod" />
                     </node>
@@ -867,13 +853,8 @@
                                   <node concept="2qgKlT" id="4c$BrPwjSoF" role="2OqNvi">
                                     <ref role="37wK5l" to="tpek:28P2dHxCoRl" resolve="isAnAbstractMethod" />
                                   </node>
-                                  <node concept="1LFfDK" id="7k6J8c3til2" role="2Oq$k0">
-                                    <node concept="3cmrfG" id="7k6J8c3til3" role="1LF_Uc">
-                                      <property role="3cmrfH" value="0" />
-                                    </node>
-                                    <node concept="37vLTw" id="2BHiRxgmwTd" role="1LFl5Q">
-                                      <ref role="3cqZAo" node="7k6J8c3til6" resolve="it" />
-                                    </node>
+                                  <node concept="37vLTw" id="ZR$QSf$RPK" role="2Oq$k0">
+                                    <ref role="3cqZAo" node="7k6J8c3til6" resolve="it" />
                                   </node>
                                 </node>
                               </node>
@@ -882,7 +863,7 @@
                         </node>
                       </node>
                       <node concept="37vLTw" id="3GM_nagTutL" role="2Oq$k0">
-                        <ref role="3cqZAo" node="7k6J8c3tikG" resolve="overridenMethods" />
+                        <ref role="3cqZAo" node="7k6J8c3tikG" resolve="baseMethods" />
                       </node>
                     </node>
                   </node>
@@ -890,22 +871,26 @@
                 <node concept="10P_77" id="7k6J8c3tikR" role="1tU5fm" />
               </node>
             </node>
-            <node concept="1Dw8fO" id="7k6J8c3tilc" role="3cqZAp">
-              <node concept="3clFbS" id="7k6J8c3tild" role="2LFqv$">
+            <node concept="2Gpval" id="ZR$QSf$UZP" role="3cqZAp">
+              <node concept="2GrKxI" id="ZR$QSf$UZR" role="2Gsz3X">
+                <property role="TrG5h" value="baseMethod" />
+              </node>
+              <node concept="37vLTw" id="ZR$QSf$WCT" role="2GsD0m">
+                <ref role="3cqZAo" node="7k6J8c3tikG" resolve="baseMethods" />
+              </node>
+              <node concept="3clFbS" id="ZR$QSf$UZV" role="2LFqv$">
                 <node concept="3cpWs8" id="7k6J8c3tile" role="3cqZAp">
                   <node concept="3cpWsn" id="7k6J8c3tilf" role="3cpWs9">
-                    <property role="TrG5h" value="overridenClassifier" />
-                    <node concept="1LFfDK" id="7k6J8c3tilh" role="33vP2m">
-                      <node concept="2OqwBi" id="7k6J8c3tili" role="1LFl5Q">
-                        <node concept="37vLTw" id="3GM_nagTxsu" role="2Oq$k0">
-                          <ref role="3cqZAo" node="7k6J8c3tim4" resolve="it" />
-                        </node>
-                        <node concept="liA8E" id="7k6J8c3tilk" role="2OqNvi">
-                          <ref role="37wK5l" to="33ny:~Iterator.next():java.lang.Object" resolve="next" />
-                        </node>
+                    <property role="TrG5h" value="baseClassifier" />
+                    <node concept="1PxgMI" id="ZR$QSfCZbf" role="33vP2m">
+                      <node concept="chp4Y" id="ZR$QSfCZRv" role="3oSUPX">
+                        <ref role="cht4Q" to="tpee:g7pOWCK" resolve="Classifier" />
                       </node>
-                      <node concept="3cmrfG" id="7k6J8c3till" role="1LF_Uc">
-                        <property role="3cmrfH" value="1" />
+                      <node concept="2OqwBi" id="ZR$QSf_Te7" role="1m5AlR">
+                        <node concept="2GrUjf" id="ZR$QSf_SL0" role="2Oq$k0">
+                          <ref role="2Gs0qQ" node="ZR$QSf$UZR" resolve="baseMethod" />
+                        </node>
+                        <node concept="1mfA1w" id="ZR$QSfBoKO" role="2OqNvi" />
                       </node>
                     </node>
                     <node concept="3Tqbb2" id="7k6J8c3tilg" role="1tU5fm">
@@ -916,7 +901,7 @@
                 <node concept="3clFbF" id="7k6J8c3tilm" role="3cqZAp">
                   <node concept="2OqwBi" id="7k6J8c3tiln" role="3clFbG">
                     <node concept="liA8E" id="7k6J8c3tilp" role="2OqNvi">
-                      <ref role="37wK5l" to="wyt6:~StringBuffer.append(java.lang.String):java.lang.StringBuffer" resolve="append" />
+                      <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String):java.lang.StringBuilder" resolve="append" />
                       <node concept="3K4zz7" id="7k6J8c3tilq" role="37wK5m">
                         <node concept="Xl_RD" id="7k6J8c3tilr" role="3K4E3e">
                           <property role="Xl_RC" value="Overrides" />
@@ -940,7 +925,7 @@
                       <ref role="3cqZAo" node="7k6J8c3tikz" resolve="tooltip" />
                     </node>
                     <node concept="liA8E" id="7k6J8c3tilx" role="2OqNvi">
-                      <ref role="37wK5l" to="wyt6:~StringBuffer.append(java.lang.String):java.lang.StringBuffer" resolve="append" />
+                      <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String):java.lang.StringBuilder" resolve="append" />
                       <node concept="Xl_RD" id="7k6J8c3tily" role="37wK5m">
                         <property role="Xl_RC" value=" method in '" />
                       </node>
@@ -950,11 +935,11 @@
                 <node concept="3clFbF" id="7k6J8c3tilz" role="3cqZAp">
                   <node concept="2OqwBi" id="7k6J8c3til$" role="3clFbG">
                     <node concept="liA8E" id="7k6J8c3tilA" role="2OqNvi">
-                      <ref role="37wK5l" to="wyt6:~StringBuffer.append(java.lang.String):java.lang.StringBuffer" resolve="append" />
+                      <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String):java.lang.StringBuilder" resolve="append" />
                       <node concept="1rXfSq" id="4hiugqyyIht" role="37wK5m">
                         <ref role="37wK5l" node="7k6J8c3tix6" resolve="getClassifierPresentation" />
                         <node concept="37vLTw" id="3GM_nagTy9y" role="37wK5m">
-                          <ref role="3cqZAo" node="7k6J8c3tilf" resolve="overridenClassifier" />
+                          <ref role="3cqZAo" node="7k6J8c3tilf" resolve="baseClassifier" />
                         </node>
                       </node>
                     </node>
@@ -969,93 +954,53 @@
                       <ref role="3cqZAo" node="7k6J8c3tikz" resolve="tooltip" />
                     </node>
                     <node concept="liA8E" id="7k6J8c3tilG" role="2OqNvi">
-                      <ref role="37wK5l" to="wyt6:~StringBuffer.append(java.lang.String):java.lang.StringBuffer" resolve="append" />
+                      <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String):java.lang.StringBuilder" resolve="append" />
                       <node concept="Xl_RD" id="7k6J8c3tilH" role="37wK5m">
                         <property role="Xl_RC" value="'" />
                       </node>
                     </node>
                   </node>
                 </node>
-                <node concept="3clFbJ" id="7k6J8c3tilI" role="3cqZAp">
-                  <node concept="3clFbS" id="7k6J8c3tilJ" role="3clFbx">
-                    <node concept="3clFbF" id="7k6J8c3tilK" role="3cqZAp">
-                      <node concept="2OqwBi" id="7k6J8c3tilL" role="3clFbG">
-                        <node concept="liA8E" id="7k6J8c3tilN" role="2OqNvi">
-                          <ref role="37wK5l" to="wyt6:~StringBuffer.append(java.lang.String):java.lang.StringBuffer" resolve="append" />
-                          <node concept="37vLTw" id="2BHiRxeofxU" role="37wK5m">
-                            <ref role="3cqZAo" node="7k6J8c3tiik" resolve="LF" />
+                <node concept="3clFbF" id="7k6J8c3tilK" role="3cqZAp">
+                  <node concept="2OqwBi" id="7k6J8c3tilL" role="3clFbG">
+                    <node concept="liA8E" id="7k6J8c3tilN" role="2OqNvi">
+                      <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String):java.lang.StringBuilder" resolve="append" />
+                      <node concept="37vLTw" id="2BHiRxeofxU" role="37wK5m">
+                        <ref role="3cqZAo" node="7k6J8c3tiik" resolve="LF" />
+                      </node>
+                    </node>
+                    <node concept="37vLTw" id="3GM_nagTy29" role="2Oq$k0">
+                      <ref role="3cqZAo" node="7k6J8c3tikz" resolve="tooltip" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="3clFbJ" id="7k6J8c3tilP" role="3cqZAp">
+                  <node concept="3clFbC" id="7k6J8c3tilX" role="3clFbw">
+                    <node concept="2$rviw" id="7k6J8c3tilY" role="3uHU7B">
+                      <node concept="37vLTw" id="3GM_nagT$kp" role="2$L3a6">
+                        <ref role="3cqZAo" node="7k6J8c3tikC" resolve="messageCounter" />
+                      </node>
+                    </node>
+                    <node concept="37vLTw" id="2BHiRxeoeiN" role="3uHU7w">
+                      <ref role="3cqZAo" node="7k6J8c3tiig" resolve="MAX_MESSAGE_NUMBER" />
+                    </node>
+                  </node>
+                  <node concept="3clFbS" id="7k6J8c3tilQ" role="3clFbx">
+                    <node concept="3clFbF" id="7k6J8c3tilR" role="3cqZAp">
+                      <node concept="2OqwBi" id="7k6J8c3tilS" role="3clFbG">
+                        <node concept="liA8E" id="7k6J8c3tilU" role="2OqNvi">
+                          <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String):java.lang.StringBuilder" resolve="append" />
+                          <node concept="Xl_RD" id="7k6J8c3tilV" role="37wK5m">
+                            <property role="Xl_RC" value="..." />
                           </node>
                         </node>
-                        <node concept="37vLTw" id="3GM_nagTy29" role="2Oq$k0">
+                        <node concept="37vLTw" id="3GM_nagT$3J" role="2Oq$k0">
                           <ref role="3cqZAo" node="7k6J8c3tikz" resolve="tooltip" />
                         </node>
                       </node>
                     </node>
-                    <node concept="3clFbJ" id="7k6J8c3tilP" role="3cqZAp">
-                      <node concept="3clFbC" id="7k6J8c3tilX" role="3clFbw">
-                        <node concept="2$rviw" id="7k6J8c3tilY" role="3uHU7B">
-                          <node concept="37vLTw" id="3GM_nagT$kp" role="2$L3a6">
-                            <ref role="3cqZAo" node="7k6J8c3tikC" resolve="messageCounter" />
-                          </node>
-                        </node>
-                        <node concept="37vLTw" id="2BHiRxeoeiN" role="3uHU7w">
-                          <ref role="3cqZAo" node="7k6J8c3tiig" resolve="MAX_MESSAGE_NUMBER" />
-                        </node>
-                      </node>
-                      <node concept="3clFbS" id="7k6J8c3tilQ" role="3clFbx">
-                        <node concept="3clFbF" id="7k6J8c3tilR" role="3cqZAp">
-                          <node concept="2OqwBi" id="7k6J8c3tilS" role="3clFbG">
-                            <node concept="liA8E" id="7k6J8c3tilU" role="2OqNvi">
-                              <ref role="37wK5l" to="wyt6:~StringBuffer.append(java.lang.String):java.lang.StringBuffer" resolve="append" />
-                              <node concept="Xl_RD" id="7k6J8c3tilV" role="37wK5m">
-                                <property role="Xl_RC" value="..." />
-                              </node>
-                            </node>
-                            <node concept="37vLTw" id="3GM_nagT$3J" role="2Oq$k0">
-                              <ref role="3cqZAo" node="7k6J8c3tikz" resolve="tooltip" />
-                            </node>
-                          </node>
-                        </node>
-                        <node concept="3zACq4" id="7k6J8c3tilW" role="3cqZAp" />
-                      </node>
-                    </node>
+                    <node concept="3zACq4" id="7k6J8c3tilW" role="3cqZAp" />
                   </node>
-                  <node concept="2OqwBi" id="7k6J8c3tim1" role="3clFbw">
-                    <node concept="liA8E" id="7k6J8c3tim3" role="2OqNvi">
-                      <ref role="37wK5l" to="33ny:~Iterator.hasNext():boolean" resolve="hasNext" />
-                    </node>
-                    <node concept="37vLTw" id="3GM_nagTsGl" role="2Oq$k0">
-                      <ref role="3cqZAo" node="7k6J8c3tim4" resolve="it" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-              <node concept="3cpWsn" id="7k6J8c3tim4" role="1Duv9x">
-                <property role="TrG5h" value="it" />
-                <node concept="3uibUv" id="7k6J8c3tim5" role="1tU5fm">
-                  <ref role="3uigEE" to="33ny:~Iterator" resolve="Iterator" />
-                  <node concept="1LlUBW" id="7k6J8c3tim6" role="11_B2D">
-                    <node concept="3Tqbb2" id="7k6J8c3tim7" role="1Lm7xW">
-                      <ref role="ehGHo" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
-                    </node>
-                    <node concept="3Tqbb2" id="7k6J8c3tim8" role="1Lm7xW">
-                      <ref role="ehGHo" to="tpee:g7pOWCK" resolve="Classifier" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="2OqwBi" id="7k6J8c3tim9" role="33vP2m">
-                  <node concept="uNJiE" id="7k6J8c3timb" role="2OqNvi" />
-                  <node concept="37vLTw" id="3GM_nagTAfj" role="2Oq$k0">
-                    <ref role="3cqZAo" node="7k6J8c3tikG" resolve="overridenMethods" />
-                  </node>
-                </node>
-              </node>
-              <node concept="2OqwBi" id="7k6J8c3timc" role="1Dwp0S">
-                <node concept="37vLTw" id="3GM_nagTxH6" role="2Oq$k0">
-                  <ref role="3cqZAo" node="7k6J8c3tim4" resolve="it" />
-                </node>
-                <node concept="liA8E" id="7k6J8c3time" role="2OqNvi">
-                  <ref role="37wK5l" to="33ny:~Iterator.hasNext():boolean" resolve="hasNext" />
                 </node>
               </node>
             </node>
@@ -1077,7 +1022,7 @@
                           <ref role="3cqZAo" node="7k6J8c3tikz" resolve="tooltip" />
                         </node>
                         <node concept="liA8E" id="7k6J8c3timp" role="2OqNvi">
-                          <ref role="37wK5l" to="wyt6:~StringBuffer.toString():java.lang.String" resolve="toString" />
+                          <ref role="37wK5l" to="wyt6:~StringBuilder.toString():java.lang.String" resolve="toString" />
                         </node>
                       </node>
                       <node concept="37vLTw" id="3GM_nagTAnB" role="37wK5m">
@@ -1398,7 +1343,7 @@
               <node concept="2OqwBi" id="7k6J8c3tioA" role="3clFbG">
                 <node concept="2YIFZM" id="7k6J8c3tioB" role="2Oq$k0">
                   <ref role="37wK5l" to="pz2c:7k6J8c3tHXH" resolve="safeGet" />
-                  <ref role="1Pybhc" to="pz2c:7k6J8c3tHRH" resolve="OverridingMethodsFinder" />
+                  <ref role="1Pybhc" to="pz2c:7k6J8c3tHRH" resolve="OverridingMethodsCalculator" />
                   <node concept="37vLTw" id="3GM_nagTrDp" role="37wK5m">
                     <ref role="3cqZAo" node="7k6J8c3tioc" resolve="nameToMethodsMap" />
                   </node>
@@ -1437,8 +1382,8 @@
                 <node concept="3clFbS" id="7k6J8c3tiou" role="1bW5cS">
                   <node concept="3clFbF" id="7k6J8c3tiov" role="3cqZAp">
                     <node concept="2YIFZM" id="7k6J8c3tiow" role="3clFbG">
-                      <ref role="37wK5l" to="pz2c:7k6J8c3tHXv" resolve="canBeOverriden" />
-                      <ref role="1Pybhc" to="pz2c:7k6J8c3tHRH" resolve="OverridingMethodsFinder" />
+                      <ref role="37wK5l" to="pz2c:7k6J8c3tHXv" resolve="canBeOverridden" />
+                      <ref role="1Pybhc" to="pz2c:7k6J8c3tHRH" resolve="OverridingMethodsCalculator" />
                       <node concept="37vLTw" id="2BHiRxgmGTO" role="37wK5m">
                         <ref role="3cqZAo" node="7k6J8c3tioy" resolve="it" />
                       </node>
@@ -1808,7 +1753,7 @@
               <node concept="2OqwBi" id="7k6J8c3tisn" role="2GsD0m">
                 <node concept="2YIFZM" id="7k6J8c3tiso" role="2Oq$k0">
                   <ref role="37wK5l" to="pz2c:7k6J8c3tHW_" resolve="getInstanceMethods" />
-                  <ref role="1Pybhc" to="pz2c:7k6J8c3tHRH" resolve="OverridingMethodsFinder" />
+                  <ref role="1Pybhc" to="pz2c:7k6J8c3tHRH" resolve="OverridingMethodsCalculator" />
                   <node concept="2GrUjf" id="7k6J8c3tisp" role="37wK5m">
                     <ref role="2Gs0qQ" node="7k6J8c3tir3" resolve="derivedClassifier" />
                   </node>
@@ -1823,7 +1768,7 @@
                       <node concept="3clFbF" id="7k6J8c3tist" role="3cqZAp">
                         <node concept="2YIFZM" id="7k6J8c3tisu" role="3clFbG">
                           <ref role="37wK5l" to="pz2c:7k6J8c3tHXh" resolve="canOverride" />
-                          <ref role="1Pybhc" to="pz2c:7k6J8c3tHRH" resolve="OverridingMethodsFinder" />
+                          <ref role="1Pybhc" to="pz2c:7k6J8c3tHRH" resolve="OverridingMethodsCalculator" />
                           <node concept="37vLTw" id="2BHiRxgkYZW" role="37wK5m">
                             <ref role="3cqZAo" node="7k6J8c3tisw" resolve="it" />
                           </node>
@@ -1920,7 +1865,7 @@
                         <property role="TrG5h" value="overridingMethods" />
                         <node concept="2YIFZM" id="7k6J8c3tirH" role="33vP2m">
                           <ref role="37wK5l" to="pz2c:7k6J8c3tHXH" resolve="safeGet" />
-                          <ref role="1Pybhc" to="pz2c:7k6J8c3tHRH" resolve="OverridingMethodsFinder" />
+                          <ref role="1Pybhc" to="pz2c:7k6J8c3tHRH" resolve="OverridingMethodsCalculator" />
                           <node concept="37vLTw" id="3GM_nagTBZ$" role="37wK5m">
                             <ref role="3cqZAo" node="7k6J8c3tiqS" resolve="result" />
                           </node>

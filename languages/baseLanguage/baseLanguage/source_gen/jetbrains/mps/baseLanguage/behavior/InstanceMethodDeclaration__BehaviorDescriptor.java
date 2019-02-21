@@ -146,8 +146,8 @@ public final class InstanceMethodDeclaration__BehaviorDescriptor extends BaseBHD
       return;
     }
     MethodSignature signature = new MethodSignature(__thisNode__, context.getTypeByTypeVariableMapping());
-    context.addMember(__thisNode__, signature);
-    context.hideMembers(signature);
+    context.exposeMember(__thisNode__, signature);
+    context.hideMembersForAncestors(signature);
   }
   /*package*/ static String getFqName_idhEwIO9y(@NotNull SNode __thisNode__) {
     SNode containingClassifier = SNodeOperations.getNodeAncestor(__thisNode__, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier"), false, false);

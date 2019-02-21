@@ -72,8 +72,8 @@ public class ClassifierScopeUtils {
       classifiers = SetSequence.fromSet(new LinkedHashSet<SNode>());
       isCyclic = collectImplementedAndExtended(topClassifier, SetSequence.fromSet(new HashSet<SNode>()), null);
     }
+
     /**
-     * 
      * 
      * @param classifier classifier
      * @param subClassifiers subClassifiers

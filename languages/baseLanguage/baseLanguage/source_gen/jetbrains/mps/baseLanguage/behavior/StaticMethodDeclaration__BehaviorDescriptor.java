@@ -91,8 +91,8 @@ public final class StaticMethodDeclaration__BehaviorDescriptor extends BaseBHDes
       return;
     }
     Signature signature = new MethodSignature(__thisNode__, context.getTypeByTypeVariableMapping());
-    context.addMember(__thisNode__, signature);
-    context.hideMembers(signature);
+    context.exposeMember(__thisNode__, signature);
+    context.hideMembersForAncestors(signature);
   }
   @Deprecated
   /*package*/ static boolean isAbstract_idhWjv7RO(@NotNull SNode __thisNode__) {

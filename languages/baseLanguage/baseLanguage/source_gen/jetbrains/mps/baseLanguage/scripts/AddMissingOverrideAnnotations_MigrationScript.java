@@ -9,7 +9,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.baseLanguage.util.OverridingMethodsFinder;
+import jetbrains.mps.baseLanguage.util.OverridingMethodsCalculator;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -39,9 +39,9 @@ public final class AddMissingOverrideAnnotations_MigrationScript extends BaseMig
       }
       @Override
       public boolean isApplicableInstanceNode(SNode node) {
-        List<SNode> instanceMethods = Sequence.fromIterable(OverridingMethodsFinder.getInstanceMethods(node)).where(new IWhereFilter<SNode>() {
+        List<SNode> instanceMethods = Sequence.fromIterable(OverridingMethodsCalculator.getInstanceMethods(node)).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return OverridingMethodsFinder.canOverride(it) && ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation"))).all(new IWhereFilter<SNode>() {
+            return OverridingMethodsCalculator.canOverride(it) && ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation"))).all(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
                 return !("java.lang.Override".equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation")))));
               }
@@ -51,21 +51,21 @@ public final class AddMissingOverrideAnnotations_MigrationScript extends BaseMig
         if (ListSequence.fromList(instanceMethods).isEmpty()) {
           return false;
         }
-        OverridingMethodsFinder finder = new OverridingMethodsFinder(node, instanceMethods);
+        OverridingMethodsCalculator finder = new OverridingMethodsCalculator(node, instanceMethods);
         return SetSequence.fromSet(finder.getOverridingMethods()).isNotEmpty();
       }
       @Override
       public void doUpdateInstanceNode(SNode node) {
-        List<SNode> instanceMethods = Sequence.fromIterable(OverridingMethodsFinder.getInstanceMethods(node)).where(new IWhereFilter<SNode>() {
+        List<SNode> instanceMethods = Sequence.fromIterable(OverridingMethodsCalculator.getInstanceMethods(node)).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return OverridingMethodsFinder.canOverride(it) && ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation"))).all(new IWhereFilter<SNode>() {
+            return OverridingMethodsCalculator.canOverride(it) && ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation"))).all(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
                 return !("java.lang.Override".equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation")))));
               }
             });
           }
         }).toListSequence();
-        OverridingMethodsFinder finder = new OverridingMethodsFinder(node, instanceMethods);
+        OverridingMethodsCalculator finder = new OverridingMethodsCalculator(node, instanceMethods);
         for (SNode meth : SetSequence.fromSet(finder.getOverridingMethods())) {
           ListSequence.fromList(SLinkOperations.getChildren(meth, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation"))).addElement(createAnnotationInstance_eltaeh_a0a0a2a0a());
         }

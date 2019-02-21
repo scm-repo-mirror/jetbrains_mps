@@ -161,7 +161,7 @@ public final class ConstructorDeclaration__BehaviorDescriptor extends BaseBHDesc
   }
   /*package*/ static void populateMember_id6r77ob2UW9O(@NotNull SNode __thisNode__, MembersPopulatingContext context, SNode classifierType) {
     if (SNodeOperations.getParent(__thisNode__) == IClassifierType__BehaviorDescriptor.getClassifier_id6r77ob2URY9.invoke(classifierType)) {
-      context.addMember(__thisNode__, null);
+      context.exposeMember(__thisNode__, null);
     }
   }
 

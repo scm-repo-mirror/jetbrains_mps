@@ -994,13 +994,11 @@
           </node>
         </node>
       </node>
+      <node concept="2tJIrI" id="ZR$QSfSN$j" role="jymVt" />
       <node concept="3clFb_" id="6JWYDDO0e6l" role="jymVt">
         <property role="TrG5h" value="collectImplementedAndExtended" />
         <property role="DiZV1" value="false" />
         <node concept="P$JXv" id="1zNL$bX4aZ1" role="lGtFl">
-          <node concept="TZ5HA" id="1zNL$bX4aZ2" role="TZ5H$">
-            <node concept="1dT_AC" id="1zNL$bX4aZ3" role="1dT_Ay" />
-          </node>
           <node concept="TUZQ0" id="1zNL$bX4aZ4" role="3nqlJM">
             <property role="TUZQ4" value="classifier" />
             <node concept="zr_55" id="1zNL$bX4aZ5" role="zr_5Q">
@@ -16065,7 +16063,7 @@
     <node concept="312cEg" id="gc_S9Pbjwg" role="jymVt">
       <property role="34CwA1" value="false" />
       <property role="eg7rD" value="false" />
-      <property role="TrG5h" value="myVisited" />
+      <property role="TrG5h" value="visited" />
       <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="gc_S9PbgGt" role="1B3o_S" />
       <node concept="3uibUv" id="gc_S9Pbjuq" role="1tU5fm">
@@ -16113,7 +16111,7 @@
     <node concept="312cEg" id="20r46oYgaME" role="jymVt">
       <property role="34CwA1" value="false" />
       <property role="eg7rD" value="false" />
-      <property role="TrG5h" value="addedSignatures" />
+      <property role="TrG5h" value="foundSignatures2Classifier" />
       <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="20r46oYg450" role="1B3o_S" />
       <node concept="3uibUv" id="20r46oYgaJU" role="1tU5fm">
@@ -16173,8 +16171,9 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="ZR$QSfLhhX" role="jymVt" />
     <node concept="3clFb_" id="5U4HErzRY$g" role="jymVt">
-      <property role="TrG5h" value="hideMembers" />
+      <property role="TrG5h" value="hideMembersForAncestors" />
       <node concept="3cqZAl" id="5U4HErzRY$h" role="3clF45" />
       <node concept="3Tm1VV" id="5U4HErzRY$i" role="1B3o_S" />
       <node concept="3clFbS" id="5U4HErzRY$j" role="3clF47">
@@ -16183,7 +16182,7 @@
             <node concept="3clFbF" id="20r46oYhJi6" role="3cqZAp">
               <node concept="2OqwBi" id="20r46oYhJwb" role="3clFbG">
                 <node concept="37vLTw" id="20r46oYhJi4" role="2Oq$k0">
-                  <ref role="3cqZAo" node="20r46oYgaME" resolve="addedSignatures" />
+                  <ref role="3cqZAo" node="20r46oYgaME" resolve="foundSignatures2Classifier" />
                 </node>
                 <node concept="liA8E" id="20r46oYhJNc" role="2OqNvi">
                   <ref role="37wK5l" to="33ny:~Map.put(java.lang.Object,java.lang.Object):java.lang.Object" resolve="put" />
@@ -16200,7 +16199,7 @@
           <node concept="3fqX7Q" id="20r46oYhJ4u" role="3clFbw">
             <node concept="2OqwBi" id="20r46oYhJ4w" role="3fr31v">
               <node concept="37vLTw" id="20r46oYhJ4x" role="2Oq$k0">
-                <ref role="3cqZAo" node="20r46oYgaME" resolve="addedSignatures" />
+                <ref role="3cqZAo" node="20r46oYgaME" resolve="foundSignatures2Classifier" />
               </node>
               <node concept="liA8E" id="20r46oYhJ4y" role="2OqNvi">
                 <ref role="37wK5l" to="33ny:~Map.containsKey(java.lang.Object):boolean" resolve="containsKey" />
@@ -16218,9 +16217,27 @@
           <ref role="3uigEE" node="6OATPVCTT7b" resolve="Signature" />
         </node>
       </node>
+      <node concept="P$JXv" id="ZR$QSfOb3q" role="lGtFl">
+        <node concept="TZ5HA" id="ZR$QSfOb3r" role="TZ5H$">
+          <node concept="1dT_AC" id="ZR$QSfOb3s" role="1dT_Ay">
+            <property role="1dT_AB" value="the idea is to traverse the classifier hierarchy upwards (from sub to super)" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="3rj45ZU58Qw" role="TZ5H$">
+          <node concept="1dT_AC" id="3rj45ZU58Qx" role="1dT_Ay">
+            <property role="1dT_AB" value="#getMembers will not return any *new* member with the given signature after this method invoked" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="ZR$QSfOee8" role="TZ5H$">
+          <node concept="1dT_AC" id="ZR$QSfOee9" role="1dT_Ay">
+            <property role="1dT_AB" value="new means = not registered before" />
+          </node>
+        </node>
+      </node>
     </node>
+    <node concept="2tJIrI" id="ZR$QSfLhhY" role="jymVt" />
     <node concept="3clFb_" id="5U4HErzRY$m" role="jymVt">
-      <property role="TrG5h" value="addMember" />
+      <property role="TrG5h" value="exposeMember" />
       <node concept="3cqZAl" id="5U4HErzRY$n" role="3clF45" />
       <node concept="3Tm1VV" id="5U4HErzRY$o" role="1B3o_S" />
       <node concept="3clFbS" id="5U4HErzRY$p" role="3clF47">
@@ -16232,7 +16249,7 @@
             </node>
             <node concept="2OqwBi" id="20r46oYhO_z" role="33vP2m">
               <node concept="37vLTw" id="20r46oYhO_$" role="2Oq$k0">
-                <ref role="3cqZAo" node="20r46oYgaME" resolve="addedSignatures" />
+                <ref role="3cqZAo" node="20r46oYgaME" resolve="foundSignatures2Classifier" />
               </node>
               <node concept="liA8E" id="20r46oYhO__" role="2OqNvi">
                 <ref role="37wK5l" to="33ny:~Map.get(java.lang.Object):java.lang.Object" resolve="get" />
@@ -16305,6 +16322,7 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="ZR$QSfLhhZ" role="jymVt" />
     <node concept="3clFb_" id="5U4HErzRY$9" role="jymVt">
       <property role="TrG5h" value="getMembers" />
       <node concept="3Tm1VV" id="5U4HErzRY$b" role="1B3o_S" />
@@ -16400,7 +16418,7 @@
           <node concept="3fqX7Q" id="gc_S9Pb$Mo" role="3clFbw">
             <node concept="2OqwBi" id="gc_S9Pb$Mq" role="3fr31v">
               <node concept="37vLTw" id="gc_S9Pb$Mr" role="2Oq$k0">
-                <ref role="3cqZAo" node="gc_S9Pbjwg" resolve="myVisited" />
+                <ref role="3cqZAo" node="gc_S9Pbjwg" resolve="visited" />
               </node>
               <node concept="liA8E" id="gc_S9Pb$Ms" role="2OqNvi">
                 <ref role="37wK5l" to="33ny:~Set.add(java.lang.Object):boolean" resolve="add" />
@@ -16634,6 +16652,7 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="ZR$QSfLhi0" role="jymVt" />
     <node concept="3clFb_" id="7vq1qYNI3Uf" role="jymVt">
       <property role="TrG5h" value="retrievePackageName" />
       <node concept="3Tm6S6" id="7vq1qYNI3Ug" role="1B3o_S" />
@@ -16665,6 +16684,7 @@
         <node concept="H_c77" id="7vq1qYNI6Cx" role="1tU5fm" />
       </node>
     </node>
+    <node concept="2tJIrI" id="ZR$QSfLhi1" role="jymVt" />
     <node concept="3clFb_" id="6OATPVCUo1p" role="jymVt">
       <property role="TrG5h" value="exitClassifierInternal" />
       <node concept="3cqZAl" id="6OATPVCUo1q" role="3clF45" />
@@ -16698,6 +16718,7 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="ZR$QSfLhi2" role="jymVt" />
     <node concept="3clFb_" id="20r46oYgMDr" role="jymVt">
       <property role="1EzhhJ" value="false" />
       <property role="TrG5h" value="getCurrentClassifier" />
@@ -16721,6 +16742,7 @@
         <ref role="ehGHo" to="tpee:6r77ob2UL4X" resolve="IClassifier" />
       </node>
     </node>
+    <node concept="2tJIrI" id="ZR$QSfLhi3" role="jymVt" />
     <node concept="3clFb_" id="1FNJAreaTVe" role="jymVt">
       <property role="TrG5h" value="isPackageProtectedVisible" />
       <node concept="10P_77" id="1FNJAreaTVj" role="3clF45" />
@@ -16733,6 +16755,7 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="ZR$QSfLhi4" role="jymVt" />
     <node concept="3clFb_" id="4wi8xvc$NNE" role="jymVt">
       <property role="TrG5h" value="isPrivateVisible" />
       <node concept="10P_77" id="4wi8xvc$NNI" role="3clF45" />
@@ -16755,6 +16778,7 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="ZR$QSfLhi5" role="jymVt" />
     <node concept="3clFb_" id="4wi8xvc$OpI" role="jymVt">
       <property role="TrG5h" value="isElementVisible" />
       <node concept="10P_77" id="4wi8xvc$OpM" role="3clF45" />
@@ -16817,6 +16841,7 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="ZR$QSfLhi6" role="jymVt" />
     <node concept="3clFb_" id="2tCFvtZOJhj" role="jymVt">
       <property role="TrG5h" value="getTypeByTypeVariableMapping" />
       <node concept="3Tm1VV" id="2tCFvtZOJhl" role="1B3o_S" />

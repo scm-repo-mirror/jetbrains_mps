@@ -5234,9 +5234,6 @@
       <node concept="3F0ifn" id="fMVQ5Oh" role="3EZMnx">
         <property role="3F0ifm" value="enum" />
         <ref role="1k5W1q" node="hgVS8CF" resolve="KeyWord" />
-        <node concept="VPM3Z" id="hEU$PWd" role="3F10Kt">
-          <property role="VOm3f" value="false" />
-        </node>
         <node concept="VechU" id="hEZR8ze" role="3F10Kt">
           <property role="Vb096" value="DARK_BLUE" />
         </node>
