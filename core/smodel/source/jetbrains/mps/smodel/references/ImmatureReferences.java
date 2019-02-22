@@ -1,5 +1,6 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +22,7 @@ import jetbrains.mps.project.structure.modules.ModuleReference;
 import jetbrains.mps.smodel.RepoListenerRegistrar;
 import jetbrains.mps.smodel.SModelId;
 import jetbrains.mps.smodel.SReferenceBase;
+import jetbrains.mps.smodel.StaticReference;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -34,6 +36,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ConcurrentMap;
 
+
+// FIXME given the fact it's MA with its command start/finish events to turn it on/off, and there's only 1 command thread, do we really need a pool of
+//       ConcurrentMap here? Seems like thread-local, initialized on command start and disposed on command finish, could be enough
 
 public class ImmatureReferences implements CoreComponent {
   // How many threads _simultaneously_ accessing the pool are allowed to succeed without congestion
@@ -54,10 +59,9 @@ public class ImmatureReferences implements CoreComponent {
   private final SRepository myRepository;
   private final SRepositoryContentAdapter myReposListener = new MyRepositoryAdapter();
 
-  private final ConcurrentMap<SModelReference, ConcurrentMap<SReferenceBase, Object>> myReferences =
-      new ConcurrentHashMap<>();
+  private final ConcurrentMap<SModelReference, ConcurrentMap<StaticReference, Object>> myReferences = new ConcurrentHashMap<>();
 
-  private ConcurrentLinkedQueue<ConcurrentMap<SReferenceBase, Object>> myReferencesSetPool = new ConcurrentLinkedQueue<>();
+  private ConcurrentLinkedQueue<ConcurrentMap<StaticReference, Object>> myReferencesSetPool = new ConcurrentLinkedQueue<>();
 
   private boolean myDisabled = true;
 
@@ -95,19 +99,19 @@ public class ImmatureReferences implements CoreComponent {
   }
 
   public void cleanup() {
-    for (Entry<SModelReference, ConcurrentMap<SReferenceBase, Object>> entry : myReferences.entrySet()) {
-      for (SReferenceBase r : entry.getValue().keySet()) {
+    for (Entry<SModelReference, ConcurrentMap<StaticReference, Object>> entry : myReferences.entrySet()) {
+      for (StaticReference r : entry.getValue().keySet()) {
         r.makeIndirect(true);
       }
     }
     myReferences.clear();
   }
 
-  public void add(SReferenceBase ref) {
+  public void add(StaticReference ref) {
     if (myDisabled) return;
     SModel model = ref.getSourceNode().getModel();
     SModelReference modelRef = model == null ? myVirtualRef : model.getReference();
-    ConcurrentMap<SReferenceBase, Object> refSet = getOrCreateRefSet(modelRef);
+    ConcurrentMap<StaticReference, Object> refSet = getOrCreateRefSet(modelRef);
     refSet.put(ref, PRESENT);
   }
 
@@ -117,20 +121,20 @@ public class ImmatureReferences implements CoreComponent {
     SModel model = ref.getSourceNode().getModel();
 
     SModelReference modelRef = model == null ? myVirtualRef : model.getReference();
-    ConcurrentMap<SReferenceBase, Object> refSet = myReferences.get(modelRef);
+    ConcurrentMap<StaticReference, Object> refSet = myReferences.get(modelRef);
     if (refSet != null) {
       refSet.remove(ref);
     }
   }
 
-  private ConcurrentMap<SReferenceBase, Object> getOrCreateRefSet(SModelReference modelRef) {
-    ConcurrentMap<SReferenceBase, Object> pooledSet;
+  private ConcurrentMap<StaticReference, Object> getOrCreateRefSet(SModelReference modelRef) {
+    ConcurrentMap<StaticReference, Object> pooledSet;
     try {
       pooledSet = myReferencesSetPool.remove();
     } catch (NoSuchElementException e) {
       pooledSet = new ConcurrentHashMap<>();
     }
-    ConcurrentMap<SReferenceBase, Object> usedSet = myReferences.putIfAbsent(modelRef, pooledSet);
+    ConcurrentMap<StaticReference, Object> usedSet = myReferences.putIfAbsent(modelRef, pooledSet);
     if (usedSet == null) {
       usedSet = pooledSet;
       pooledSet = new ConcurrentHashMap<>();
@@ -143,7 +147,7 @@ public class ImmatureReferences implements CoreComponent {
     @Override
     public void beforeModelRemoved(SModule module, SModel model) {
       super.beforeModelRemoved(module, model);
-      ConcurrentMap<SReferenceBase, Object> refSet = myReferences.remove(model.getReference());
+      ConcurrentMap<StaticReference, Object> refSet = myReferences.remove(model.getReference());
       if (refSet != null) {
         refSet.clear();
       }

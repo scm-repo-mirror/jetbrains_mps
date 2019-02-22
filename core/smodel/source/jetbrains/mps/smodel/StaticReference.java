@@ -44,6 +44,8 @@ public final class StaticReference extends SReferenceBase {
   public StaticReference(@NotNull SReferenceLink role, @NotNull SNode sourceNode, @NotNull SNode immatureTargetNode) {
     super(role, sourceNode, immatureTargetNode);
     myTargetModelReference = null;
+    // 'young' reference
+    ImmatureReferences.getInstance().add(this);
   }
 
   /**

@@ -33,11 +33,6 @@ public abstract class SReferenceBase extends SReference {
 
   protected SReferenceBase(SReferenceLink role, SNode sourceNode, @Nullable SNode immatureTargetNode) {
     super(role, sourceNode);
-
-    // 'young' reference
-    if (immatureTargetNode != null) {
-      ImmatureReferences.getInstance().add(this);
-    }
     myImmatureTargetNode = immatureTargetNode;
   }
 
