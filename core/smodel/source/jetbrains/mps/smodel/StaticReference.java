@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ package jetbrains.mps.smodel;
 import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.extapi.model.ModelWithDisposeInfo;
 import jetbrains.mps.logging.Logger;
+import jetbrains.mps.smodel.legacy.ConceptMetaInfoConverter;
 import jetbrains.mps.smodel.references.ImmatureReferences;
 import jetbrains.mps.smodel.references.UnregisteredNodes;
 import jetbrains.mps.util.annotation.ToRemove;
@@ -35,12 +36,14 @@ import org.jetbrains.mps.openapi.module.SRepository;
 //final used by find usages
 public final class StaticReference extends SReferenceBase {
   private SNodeId myTargetNodeId;    // mature
+  private volatile SModelReference myTargetModelReference;  // mature
 
   /**
    * create 'young' reference
    */
   public StaticReference(@NotNull SReferenceLink role, @NotNull SNode sourceNode, @NotNull SNode immatureTargetNode) {
-    super(role, sourceNode, null, immatureTargetNode);
+    super(role, sourceNode, immatureTargetNode);
+    myTargetModelReference = null;
   }
 
   /**
@@ -49,7 +52,9 @@ public final class StaticReference extends SReferenceBase {
   public StaticReference(@NotNull SReferenceLink role, @NotNull SNode sourceNode, @Nullable SModelReference targetModelReference, @Nullable SNodeId nodeId,
       @Nullable String resolveInfo) {
     // 'targetModelReference' can be null only if it is broken external reference
-    super(role, sourceNode, targetModelReference, null);
+    super(role, sourceNode, null);
+    // if ref is 'mature' then 'targetModelReference' is either NOT NULL, or it is broken external reference, or it is dynamic reference
+    myTargetModelReference = targetModelReference;
     setResolveInfo(resolveInfo);
     myTargetNodeId = nodeId;
   }
@@ -59,7 +64,7 @@ public final class StaticReference extends SReferenceBase {
    */
   @Deprecated
   public StaticReference(@NotNull String role, @NotNull SNode sourceNode, @NotNull SNode immatureTargetNode) {
-    super(role, sourceNode, null, immatureTargetNode);
+    this(((ConceptMetaInfoConverter) sourceNode.getConcept()).convertAssociation(role), sourceNode, immatureTargetNode);
   }
 
   /**
@@ -69,9 +74,17 @@ public final class StaticReference extends SReferenceBase {
   public StaticReference(@NotNull String role, @NotNull SNode sourceNode, @Nullable SModelReference targetModelReference, @Nullable SNodeId nodeId,
       @Nullable String resolveInfo) {
     // 'targetModelReference' can be null only if it is broken external reference
-    super(role, sourceNode, targetModelReference, null);
-    setResolveInfo(resolveInfo);
-    myTargetNodeId = nodeId;
+    this(((ConceptMetaInfoConverter) sourceNode.getConcept()).convertAssociation(role), sourceNode, targetModelReference, nodeId, resolveInfo);
+  }
+
+  @Override
+  public SModelReference getTargetSModelReference() {
+    SNode immatureNode = myImmatureTargetNode;
+    if (immatureNode == null || makeIndirect()) {
+      return myTargetModelReference;
+    }
+    SModel model = immatureNode.getModel();
+    return model == null ? null : model.getReference();
   }
 
   @Override
@@ -92,6 +105,13 @@ public final class StaticReference extends SReferenceBase {
            "model:" + getTargetSModelReference() + ";" +
            "nodeid:" + getTargetNodeId() +
            "]";
+  }
+
+  public synchronized void setTargetSModelReference(@NotNull SModelReference modelReference) {
+    if (!makeIndirect()) {
+      makeMature(); // hack: make mature anyway: only can store ref to target model in 'mature' ref.
+    }
+    myTargetModelReference = modelReference;
   }
 
   public synchronized void setTargetNodeId(SNodeId nodeId) {
