@@ -222,6 +222,10 @@ public class SModel implements SModelData, UpdateModeSupport {
       myNodeOwner.performUndoableAction(node, new RemoveRootUndoableAction(node, myModelDescriptor));
       myRoots.remove(node);
       SNode sn = (SNode) node;
+      if (!isUpdateMode()) {
+        // see SNode.removeChild for rant about isUpdateMode()
+        sn.makeReferencesDirect();
+      }
       sn.detach(new DetachedNodeOwner(this));
       myNodeOwner.fireNodeRemove(null, null, sn, null);
     }
@@ -624,12 +628,7 @@ public class SModel implements SModelData, UpdateModeSupport {
     myIdToNodeMap.put(id, node);
   }
 
-  //---------imports manipulation--------
-
   void unregisterNode(@NotNull SNode node) {
-    checkNotDisposed();
-
-    enforceFullLoad(); // FIXME see registerNode. What's the purpose?
     org.jetbrains.mps.openapi.model.SNodeId id = node.getNodeId();
     if (myDisposed || id == null) {
       return;
