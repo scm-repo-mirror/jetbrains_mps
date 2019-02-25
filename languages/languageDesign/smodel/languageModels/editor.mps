@@ -7035,6 +7035,43 @@
                 </node>
               </node>
             </node>
+            <node concept="3SKdUt" id="20cGABo_zv7" role="3cqZAp">
+              <node concept="3SKdUq" id="20cGABo_zv9" role="3SKWNk">
+                <property role="3SKdUp" value="is enum member ?" />
+              </node>
+            </node>
+            <node concept="3clFbJ" id="20cGABo_$EC" role="3cqZAp">
+              <node concept="3clFbS" id="20cGABo_$EE" role="3clFbx">
+                <node concept="3cpWs6" id="20cGABo_Fv5" role="3cqZAp">
+                  <node concept="22lmx$" id="20cGABo_Jqy" role="3cqZAk">
+                    <node concept="2OqwBi" id="20cGABo_Krp" role="3uHU7w">
+                      <node concept="1GpqW3" id="20cGABo_JZe" role="2Oq$k0" />
+                      <node concept="3O6GUB" id="20cGABo_Lxx" role="2OqNvi">
+                        <node concept="chp4Y" id="20cGABo_M5o" role="3QVz_e">
+                          <ref role="cht4Q" to="tp25:h3x8VNB" resolve="Node_IsNotNullOperation" />
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="2OqwBi" id="20cGABo_GXv" role="3uHU7B">
+                      <node concept="1GpqW3" id="20cGABo_FZQ" role="2Oq$k0" />
+                      <node concept="3O6GUB" id="20cGABo_I0D" role="2OqNvi">
+                        <node concept="chp4Y" id="20cGABo_I$g" role="3QVz_e">
+                          <ref role="cht4Q" to="tp25:h3w_OT6" resolve="Node_IsNullOperation" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="2OqwBi" id="20cGABo_El6" role="3clFbw">
+                <node concept="23wRSc" id="20cGABo_DGh" role="2Oq$k0">
+                  <ref role="3cqZAo" node="1wEcoXjJgpQ" resolve="appTypesInfo" />
+                </node>
+                <node concept="2OwXpG" id="20cGABo_EY4" role="2OqNvi">
+                  <ref role="2Oxat5" to="tpet:20cGABo_BAw" resolve="myToEnumMember" />
+                </node>
+              </node>
+            </node>
             <node concept="3cpWs6" id="hbpsC3v" role="3cqZAp">
               <node concept="3clFbT" id="hbpsCHu" role="3cqZAk" />
             </node>
@@ -7346,6 +7383,37 @@
                   <node concept="1YaCAy" id="1wEcoXjJgrH" role="1Ub_4A">
                     <property role="TrG5h" value="v" />
                     <ref role="1YaFvo" to="tp25:gCH_c3d" resolve="SModelType" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbJ" id="20cGABo_Cm6" role="3cqZAp">
+              <node concept="3clFbS" id="20cGABo_Cm7" role="3clFbx">
+                <node concept="3clFbF" id="20cGABo_Cm8" role="3cqZAp">
+                  <node concept="37vLTI" id="20cGABo_Cm9" role="3clFbG">
+                    <node concept="3clFbT" id="20cGABo_Cma" role="37vLTx">
+                      <property role="3clFbU" value="true" />
+                    </node>
+                    <node concept="2OqwBi" id="20cGABo_Cmb" role="37vLTJ">
+                      <node concept="37vLTw" id="20cGABo_Cmc" role="2Oq$k0">
+                        <ref role="3cqZAo" node="1wEcoXjJgpV" resolve="result" />
+                      </node>
+                      <node concept="2OwXpG" id="20cGABo_D1P" role="2OqNvi">
+                        <ref role="2Oxat5" to="tpet:20cGABo_BAw" resolve="myToEnumMember" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3y3z36" id="20cGABo_Cme" role="3clFbw">
+                <node concept="10Nm6u" id="20cGABo_Cmf" role="3uHU7w" />
+                <node concept="1UdQGJ" id="20cGABo_Cmg" role="3uHU7B">
+                  <node concept="37vLTw" id="20cGABo_Cmh" role="1Ub_4B">
+                    <ref role="3cqZAo" node="1wEcoXjJgq7" resolve="leftType" />
+                  </node>
+                  <node concept="1YaCAy" id="20cGABo_Cmi" role="1Ub_4A">
+                    <property role="TrG5h" value="v" />
+                    <ref role="1YaFvo" to="tp25:i2ZThgx" resolve="SEnumerationMemberType" />
                   </node>
                 </node>
               </node>

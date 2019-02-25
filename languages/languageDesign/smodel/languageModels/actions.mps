@@ -1262,6 +1262,12 @@
       </node>
       <node concept="10P_77" id="h$JTv_w" role="1tU5fm" />
     </node>
+    <node concept="312cEg" id="20cGABo_BAw" role="jymVt">
+      <property role="TrG5h" value="myToEnumMember" />
+      <node concept="3Tm1VV" id="20cGABo_B_N" role="1B3o_S" />
+      <node concept="10P_77" id="20cGABo_BAr" role="1tU5fm" />
+      <node concept="3clFbT" id="20cGABo_BBn" role="33vP2m" />
+    </node>
     <node concept="2tJIrI" id="6oIFCQ2$mPt" role="jymVt" />
     <node concept="3clFbW" id="hzxISg2" role="jymVt">
       <node concept="3Tm1VV" id="hzxISg4" role="1B3o_S" />

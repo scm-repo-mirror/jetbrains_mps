@@ -152,6 +152,7 @@
         <child id="1081773367579" name="rightExpression" index="3uHU7w" />
         <child id="1081773367580" name="leftExpression" index="3uHU7B" />
       </concept>
+      <concept id="7024111702304501416" name="jetbrains.mps.baseLanguage.structure.OrAssignmentExpression" flags="nn" index="3vZ8r8" />
       <concept id="1073239437375" name="jetbrains.mps.baseLanguage.structure.NotEqualsExpression" flags="nn" index="3y3z36" />
       <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
@@ -3368,6 +3369,68 @@
               <ref role="3cqZAo" node="45eRmv01C$r" resolve="datatype" />
             </node>
             <node concept="10Nm6u" id="45eRmv01JFI" role="3uHU7w" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="20cGABo$LSs" role="3cqZAp">
+          <node concept="3SKdUq" id="20cGABo$LSu" role="3SKWNk">
+            <property role="3SKdUp" value="===========" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="20cGABo$Y3n" role="3cqZAp">
+          <node concept="3SKdUq" id="20cGABo$Y3p" role="3SKWNk">
+            <property role="3SKdUp" value="hack to make null check operations works for enums" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="20cGABo$Zwy" role="3cqZAp">
+          <node concept="3SKdUq" id="20cGABo$Zw$" role="3SKWNk">
+            <property role="3SKdUp" value="do not wont to introduce enum related stuff to SNodeOperation concept, since it is already overwhelmed" />
+          </node>
+        </node>
+        <node concept="3clFbJ" id="20cGABo$Nba" role="3cqZAp">
+          <node concept="3clFbS" id="20cGABo$Nbc" role="3clFbx">
+            <node concept="3clFbF" id="20cGABo$WAo" role="3cqZAp">
+              <node concept="3vZ8r8" id="20cGABo$WWR" role="3clFbG">
+                <node concept="37vLTw" id="20cGABo$WAm" role="37vLTJ">
+                  <ref role="3cqZAo" node="hgB6VWD" resolve="isGood" />
+                </node>
+                <node concept="3JuTUA" id="20cGABo$WdF" role="37vLTx">
+                  <node concept="37vLTw" id="20cGABo$WkK" role="3JuY14">
+                    <ref role="3cqZAo" node="hPRL3Qu" resolve="LeftType" />
+                  </node>
+                  <node concept="2c44tf" id="20cGABo$Ww8" role="3JuZjQ">
+                    <node concept="2ZThk1" id="20cGABo$Wxx" role="2c44tc" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="22lmx$" id="20cGABo$TLi" role="3clFbw">
+            <node concept="2OqwBi" id="20cGABo$PPz" role="3uHU7B">
+              <node concept="2OqwBi" id="20cGABo$Oeh" role="2Oq$k0">
+                <node concept="37vLTw" id="20cGABo$NP$" role="2Oq$k0">
+                  <ref role="3cqZAo" node="h9nIkZ3" resolve="op" />
+                </node>
+                <node concept="2yIwOk" id="20cGABo$PpQ" role="2OqNvi" />
+              </node>
+              <node concept="3O6GUB" id="20cGABo$Rbj" role="2OqNvi">
+                <node concept="chp4Y" id="20cGABo$R_j" role="3QVz_e">
+                  <ref role="cht4Q" to="tp25:h3x8VNB" resolve="Node_IsNotNullOperation" />
+                </node>
+              </node>
+            </node>
+            <node concept="2OqwBi" id="20cGABo$U$9" role="3uHU7w">
+              <node concept="2OqwBi" id="20cGABo$U$a" role="2Oq$k0">
+                <node concept="37vLTw" id="20cGABo$U$b" role="2Oq$k0">
+                  <ref role="3cqZAo" node="h9nIkZ3" resolve="op" />
+                </node>
+                <node concept="2yIwOk" id="20cGABo$U$c" role="2OqNvi" />
+              </node>
+              <node concept="3O6GUB" id="20cGABo$U$d" role="2OqNvi">
+                <node concept="chp4Y" id="20cGABo$UUQ" role="3QVz_e">
+                  <ref role="cht4Q" to="tp25:h3w_OT6" resolve="Node_IsNullOperation" />
+                </node>
+              </node>
+            </node>
           </node>
         </node>
         <node concept="2Mj0R9" id="hgB88vu" role="3cqZAp">
