@@ -6,6 +6,7 @@ package jetbrains.mps.baseLanguage.typesystem;
 public enum MessageTypes {
   NOT_IMPLEMENTED_METHODS(),
   UNRELATED_DEFAULTS(),
+  CYCLIC_HIERARCHY(),
   WEAKER_PRIVILEGES(),
   OVERRIDEN_FINAL();
 

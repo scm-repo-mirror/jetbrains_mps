@@ -13,6 +13,7 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
+import java.text.MessageFormat;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -27,12 +28,12 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
    * for enum dummy anonymous class hack (report != tocheck)
    */
   private final SNode myNodeToReport;
-  private final MethodInheritanceCheckingCallback myCallback;
+  private final InheritanceCheckingCallback myCallback;
 
   /*package*/ ClassifierMethodsHierarchyChecker(@NotNull SNode classifier, @NotNull SNode nodeToReport) {
     myClassifier = classifier;
     myNodeToReport = nodeToReport;
-    myCallback = new MethodInheritanceCheckingCallback(classifier, myNodeToReport);
+    myCallback = new InheritanceCheckingCallback(classifier, myNodeToReport);
   }
 
   public List<ErrorReportingItem> check() {
@@ -55,9 +56,10 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
           @Override
           @CheckingMethod
           public void report(final TypeCheckingContext typeCheckingContext) {
+            String msg = "The classifier ''{0}'' must be declared abstract or implement abstract method ''{1}'' in ''{2}''";
             {
               MessageTarget errorTarget = new NodeMessageTarget();
-              IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(myNodeToReport, "The classifier '" + SPropertyOperations.getString(SNodeOperations.cast(myNodeToReport, MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "' must be declared abstract or implement abstract method '" + SPropertyOperations.getString(abstractMethod, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "' in '" + SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(abstractMethod), MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "'", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "3950519302598376496", null, errorTarget);
+              IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(myNodeToReport, MessageFormat.format(msg, SPropertyOperations.getString(SNodeOperations.cast(myNodeToReport, MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), SPropertyOperations.getString(abstractMethod, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(abstractMethod), MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))), "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "7861981782410371482", null, errorTarget);
               {
                 BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.typesystem.MakeClassAbstract_QuickFix", false);
                 _reporter_2309309498.addIntentionProvider(intentionProvider);
@@ -105,7 +107,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
           }
         }
       }
-
     };
     if (SPropertyOperations.getBoolean(baseMethod, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x113294bffd2L, "isFinal"))) {
       return item;
