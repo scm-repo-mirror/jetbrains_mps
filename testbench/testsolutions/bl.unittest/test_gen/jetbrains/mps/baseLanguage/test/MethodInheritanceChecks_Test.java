@@ -80,6 +80,10 @@ public class MethodInheritanceChecks_Test extends BaseTransformationTest {
     new MethodInheritanceChecks_Test.TestBody(this).test_ErrorMessagesCheck1189636919893848979();
   }
   @Test
+  public void test_NodeFieldIsNeverUsedCheck4494124129037133172() throws Throwable {
+    new MethodInheritanceChecks_Test.TestBody(this).test_NodeFieldIsNeverUsedCheck4494124129037133172();
+  }
+  @Test
   public void test_ErrorMessagesCheck1189636919893869562() throws Throwable {
     new MethodInheritanceChecks_Test.TestBody(this).test_ErrorMessagesCheck1189636919893869562();
   }
@@ -238,6 +242,10 @@ public class MethodInheritanceChecks_Test extends BaseTransformationTest {
     public void test_ErrorMessagesCheck1189636919893848979() throws Exception {
       SNode operation = SNodeOperations.cast(getRealNodeById("1189636919893848979"), MetaAdapterFactory.getInterfaceConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1510445f8a2c272dL, "jetbrains.mps.lang.test.structure.INodesTestMethod"));
       INodesTestMethod__BehaviorDescriptor.perform_id1kgh5YabdhC.invoke(operation, getRealNodeById("1189636919893848952"));
+    }
+    public void test_NodeFieldIsNeverUsedCheck4494124129037133172() throws Exception {
+      SNode operation = SNodeOperations.cast(getRealNodeById("4494124129037133172"), MetaAdapterFactory.getInterfaceConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1510445f8a2c272dL, "jetbrains.mps.lang.test.structure.INodesTestMethod"));
+      INodesTestMethod__BehaviorDescriptor.perform_id1kgh5YabdhC.invoke(operation, getRealNodeById("7855525289154364258"));
     }
     public void test_ErrorMessagesCheck1189636919893869562() throws Exception {
       SNode operation = SNodeOperations.cast(getRealNodeById("1189636919893869562"), MetaAdapterFactory.getInterfaceConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1510445f8a2c272dL, "jetbrains.mps.lang.test.structure.INodesTestMethod"));

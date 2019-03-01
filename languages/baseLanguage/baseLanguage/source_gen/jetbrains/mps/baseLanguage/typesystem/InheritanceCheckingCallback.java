@@ -175,7 +175,7 @@ public class InheritanceCheckingCallback implements ClassifierTraversalCallback 
     for (SNode clMethod : Sequence.fromIterable(Classifier__BehaviorDescriptor.methods_id4_LVZ3pBKCn.invoke(current))) {
       if (trackMethod(clMethod)) {
         Signature signature = createSignature(clMethod);
-        SNode oldImpl = record.getTopMostImplementation(signature);
+        SNode oldImpl = (record != null ? record.getTopMostImplementation(signature) : null);
         if (oldImpl == null || !((boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(clMethod))) {
           updateSignatureForClassifier(current, signature, clMethod);
         }

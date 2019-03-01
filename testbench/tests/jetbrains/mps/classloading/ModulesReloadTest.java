@@ -80,6 +80,10 @@ public class ModulesReloadTest extends ModuleMpsTest {
     }
   }
 
+  private static ClassLoader defaultCL() {
+    return ClassLoaderManager.DEFAULT_DELEGATING_TO_SYSTEM_CL;
+  }
+
   @BeforeClass
   public static void setUp() {
     new TestClassFileCreator(CLASS_TO_LOAD, TEMP_DIR_PATH).create();
@@ -117,7 +121,7 @@ public class ModulesReloadTest extends ModuleMpsTest {
   @Test
   public void testLanguageIsLoadable() {
     final Language language = createLanguage();
-    Assert.assertTrue(safeGetClass(language, CLASS_TO_LOAD) == null);
+    Assert.assertNull(safeGetClass(language, CLASS_TO_LOAD));
     addClassTo(language);
     getModelAccess().runWriteAction(() -> {
       language.reload();
@@ -128,7 +132,7 @@ public class ModulesReloadTest extends ModuleMpsTest {
   @Test
   public void testGeneratorIsLoadable() {
     final Generator generator = createGenerator();
-    Assert.assertTrue(safeGetClass(generator, CLASS_TO_LOAD) == null);
+    Assert.assertNull(safeGetClass(generator, CLASS_TO_LOAD));
     addClassTo(generator);
     getModelAccess().runWriteAction(() -> {
       generator.reload();
@@ -164,7 +168,6 @@ public class ModulesReloadTest extends ModuleMpsTest {
       }
     });
   }
-
   @Test
   public void testNonPluginSolutionIsNotLoadable() {
     final Solution solution = createSolution(SolutionKind.NONE);
@@ -178,6 +181,7 @@ public class ModulesReloadTest extends ModuleMpsTest {
     });
 //    Assert.assertFalse(classIsLoadableFromModule(solution));
   }
+
   @Test
   public void testReloadNonLoadableSolution() {
     final Solution solution = createSolution(SolutionKind.NONE);
@@ -241,7 +245,6 @@ public class ModulesReloadTest extends ModuleMpsTest {
         l.addDependency(s.getModuleReference(), false);
 //        Assert.assertFalse(classIsLoadableFromModule(l)); FIXME turn on after 3.2
         SolutionDescriptor moduleDescriptor = s.getModuleDescriptor();
-        assert moduleDescriptor != null;
         moduleDescriptor.setKind(SolutionKind.PLUGIN_CORE);
         s.reload();
         Assert.assertTrue(classIsLoadableFromModule(l)); // the class must be available already here
@@ -303,11 +306,12 @@ public class ModulesReloadTest extends ModuleMpsTest {
       @Override
       public void run() {
         removeModule(l1);
-        Assert.assertTrue(l1.getClassLoader() == null);
+        Assert.assertSame(l1.getClassLoader(),
+                          defaultCL());
         Assert.assertTrue(!myManager.getModulesWatcher().isModuleWatched(l1));
       }
     });
-    Assert.assertTrue(l1.getClassLoader() == null);
+    Assert.assertSame(l1.getClassLoader(), defaultCL());
   }
 
   @Test
@@ -343,10 +347,10 @@ public class ModulesReloadTest extends ModuleMpsTest {
         Assert.assertTrue(classIsLoadableFromModule(l1));
         removeModule(l1);
         l2[0] = createLanguage(l1.getModuleDescriptor().getId(), l1.getModuleName()); // the same
-        Assert.assertTrue(l2[0].getClassLoader() != null);
+        Assert.assertNotSame(l2[0].getClassLoader(), defaultCL());
       }
     });
-    Assert.assertTrue(l2[0].getClassLoader() != null);
+    Assert.assertNotSame(l2[0].getClassLoader(), defaultCL());
   }
 
   @Test
@@ -362,7 +366,7 @@ public class ModulesReloadTest extends ModuleMpsTest {
         removeModule(l[0]);
       }
     });
-    Assert.assertTrue(l[0].getClassLoader() == null);
+    Assert.assertSame(l[0].getClassLoader(), defaultCL());
   }
 
   @Test

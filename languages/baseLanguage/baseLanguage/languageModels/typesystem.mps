@@ -62469,7 +62469,7 @@
                     <ref role="cht4Q" to="tpee:fKQs72_" resolve="EnumClass" />
                   </node>
                   <node concept="37vLTw" id="3rj45ZWw$Dl" role="1m5AlR">
-                    <ref role="3cqZAo" node="3rj45ZUPjDG" />
+                    <ref role="3cqZAo" node="3rj45ZUPjDG" resolve="myClassifier" />
                   </node>
                 </node>
                 <node concept="3Tsc0h" id="1GWLid2u$0E" role="2OqNvi">
@@ -62485,7 +62485,7 @@
                 </node>
               </node>
               <node concept="37vLTw" id="3rj45ZWw$lf" role="2Oq$k0">
-                <ref role="3cqZAo" node="3rj45ZUPjDG" />
+                <ref role="3cqZAo" node="3rj45ZUPjDG" resolve="myClassifier" />
               </node>
             </node>
           </node>
@@ -64454,14 +64454,23 @@
                     <node concept="3Tqbb2" id="6O4rE5goLxa" role="1tU5fm">
                       <ref role="ehGHo" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
                     </node>
-                    <node concept="2OqwBi" id="6O4rE5goLxh" role="33vP2m">
-                      <node concept="37vLTw" id="6O4rE5goLxi" role="2Oq$k0">
-                        <ref role="3cqZAo" node="6O4rE5goEku" resolve="record" />
+                    <node concept="3K4zz7" id="5z580Vl$1Tf" role="33vP2m">
+                      <node concept="10Nm6u" id="5z580Vl$2mH" role="3K4GZi" />
+                      <node concept="3y3z36" id="5z580Vl$296" role="3K4Cdx">
+                        <node concept="37vLTw" id="5z580Vl$1fM" role="3uHU7B">
+                          <ref role="3cqZAo" node="6O4rE5goEku" resolve="record" />
+                        </node>
+                        <node concept="10Nm6u" id="5z580Vl$1D5" role="3uHU7w" />
                       </node>
-                      <node concept="liA8E" id="6O4rE5goLxj" role="2OqNvi">
-                        <ref role="37wK5l" node="3rj45ZVX39o" resolve="getTopMostImplementation" />
-                        <node concept="37vLTw" id="6O4rE5goLxk" role="37wK5m">
-                          <ref role="3cqZAo" node="3rj45ZXq6_9" resolve="signature" />
+                      <node concept="2OqwBi" id="6O4rE5goLxh" role="3K4E3e">
+                        <node concept="37vLTw" id="6O4rE5goLxi" role="2Oq$k0">
+                          <ref role="3cqZAo" node="6O4rE5goEku" resolve="record" />
+                        </node>
+                        <node concept="liA8E" id="6O4rE5goLxj" role="2OqNvi">
+                          <ref role="37wK5l" node="3rj45ZVX39o" resolve="getTopMostImplementation" />
+                          <node concept="37vLTw" id="6O4rE5goLxk" role="37wK5m">
+                            <ref role="3cqZAo" node="3rj45ZXq6_9" resolve="signature" />
+                          </node>
                         </node>
                       </node>
                     </node>
