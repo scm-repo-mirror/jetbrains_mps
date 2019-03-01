@@ -19,8 +19,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
-import jetbrains.mps.baseLanguage.search.VisibilityUtil;
+import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.baseLanguage.search.VisibilityUtil;
 import java.util.LinkedHashSet;
 
 /**
@@ -120,15 +121,15 @@ public final class OverridingMethodsCalculator {
       if (methodsWithNameOfSuperMethod == null) {
         continue;
       }
-      Iterable<SNode> overridingMethods = SetSequence.fromSet(methodsWithNameOfSuperMethod).where(new IWhereFilter<SNode>() {
+      List<SNode> overridingMethods = SetSequence.fromSet(methodsWithNameOfSuperMethod).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return ((boolean) (Boolean) BHReflection.invoke0(superClassifierMethod, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration"), SMethodTrimmedId.create("hasSameSignature", MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration"), "hEwIB0z"), it));
         }
-      });
-      for (SNode overridingMethod : Sequence.fromIterable(overridingMethods)) {
+      }).toListSequence();
+      for (SNode overridingMethod : ListSequence.fromList(overridingMethods)) {
         SetSequence.fromSet(safeGet(myOverriding2BaseMethodsMap, overridingMethod)).addElement(superClassifierMethod);
       }
-      SetSequence.fromSet(methodsWithNameOfSuperMethod).removeSequence(Sequence.fromIterable(overridingMethods));
+      SetSequence.fromSet(methodsWithNameOfSuperMethod).removeSequence(ListSequence.fromList(overridingMethods));
       if (SetSequence.fromSet(methodsWithNameOfSuperMethod).isEmpty()) {
         MapSequence.fromMap(methodNameToMethodMapCopy).removeKey(SPropertyOperations.getString(superClassifierMethod, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
       }

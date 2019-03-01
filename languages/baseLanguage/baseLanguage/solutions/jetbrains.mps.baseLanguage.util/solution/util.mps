@@ -266,9 +266,13 @@
       <concept id="1207233427108" name="jetbrains.mps.baseLanguage.collections.structure.MapRemoveOperation" flags="nn" index="kI3uX">
         <child id="1207233489861" name="key" index="kIiFs" />
       </concept>
+      <concept id="1151688443754" name="jetbrains.mps.baseLanguage.collections.structure.ListType" flags="in" index="_YKpA">
+        <child id="1151688676805" name="elementType" index="_ZDj9" />
+      </concept>
       <concept id="1151689724996" name="jetbrains.mps.baseLanguage.collections.structure.SequenceType" flags="in" index="A3Dl8">
         <child id="1151689745422" name="elementType" index="A3Ik2" />
       </concept>
+      <concept id="1151702311717" name="jetbrains.mps.baseLanguage.collections.structure.ToListOperation" flags="nn" index="ANE8D" />
       <concept id="1153943597977" name="jetbrains.mps.baseLanguage.collections.structure.ForEachStatement" flags="nn" index="2Gpval">
         <child id="1153944400369" name="variable" index="2Gsz3X" />
         <child id="1153944424730" name="inputSequence" index="2GsD0m" />
@@ -1479,37 +1483,40 @@
             <node concept="3cpWs8" id="7k6J8c3tHVo" role="3cqZAp">
               <node concept="3cpWsn" id="7k6J8c3tHVp" role="3cpWs9">
                 <property role="TrG5h" value="overridingMethods" />
-                <node concept="A3Dl8" id="3rj45ZUmBkI" role="1tU5fm">
-                  <node concept="3Tqbb2" id="3rj45ZUmHgW" role="A3Ik2">
-                    <ref role="ehGHo" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
-                  </node>
-                </node>
-                <node concept="2OqwBi" id="7k6J8c3tHVL" role="33vP2m">
-                  <node concept="37vLTw" id="3GM_nagTz7S" role="2Oq$k0">
-                    <ref role="3cqZAo" node="7k6J8c3tHVa" resolve="methodsWithNameOfSuperMethod" />
-                  </node>
-                  <node concept="3zZkjj" id="7k6J8c3tHVN" role="2OqNvi">
-                    <node concept="1bVj0M" id="7k6J8c3tHVO" role="23t8la">
-                      <node concept="Rh6nW" id="7k6J8c3tHVV" role="1bW2Oz">
-                        <property role="TrG5h" value="it" />
-                        <node concept="2jxLKc" id="7k6J8c3tHVW" role="1tU5fm" />
-                      </node>
-                      <node concept="3clFbS" id="7k6J8c3tHVP" role="1bW5cS">
-                        <node concept="3clFbF" id="7k6J8c3tHVQ" role="3cqZAp">
-                          <node concept="2OqwBi" id="7k6J8c3tHVR" role="3clFbG">
-                            <node concept="2GrUjf" id="7k6J8c3tHVS" role="2Oq$k0">
-                              <ref role="2Gs0qQ" node="7k6J8c3tHV7" resolve="superClassifierMethod" />
-                            </node>
-                            <node concept="2qgKlT" id="7k6J8c3tHVT" role="2OqNvi">
-                              <ref role="37wK5l" to="tpek:hEwIB0z" resolve="hasSameSignature" />
-                              <node concept="37vLTw" id="2BHiRxgmyww" role="37wK5m">
-                                <ref role="3cqZAo" node="7k6J8c3tHVV" resolve="it" />
+                <node concept="2OqwBi" id="4TgpkoyKqMF" role="33vP2m">
+                  <node concept="2OqwBi" id="7k6J8c3tHVL" role="2Oq$k0">
+                    <node concept="37vLTw" id="3GM_nagTz7S" role="2Oq$k0">
+                      <ref role="3cqZAo" node="7k6J8c3tHVa" resolve="methodsWithNameOfSuperMethod" />
+                    </node>
+                    <node concept="3zZkjj" id="7k6J8c3tHVN" role="2OqNvi">
+                      <node concept="1bVj0M" id="7k6J8c3tHVO" role="23t8la">
+                        <node concept="Rh6nW" id="7k6J8c3tHVV" role="1bW2Oz">
+                          <property role="TrG5h" value="it" />
+                          <node concept="2jxLKc" id="7k6J8c3tHVW" role="1tU5fm" />
+                        </node>
+                        <node concept="3clFbS" id="7k6J8c3tHVP" role="1bW5cS">
+                          <node concept="3clFbF" id="7k6J8c3tHVQ" role="3cqZAp">
+                            <node concept="2OqwBi" id="7k6J8c3tHVR" role="3clFbG">
+                              <node concept="2GrUjf" id="7k6J8c3tHVS" role="2Oq$k0">
+                                <ref role="2Gs0qQ" node="7k6J8c3tHV7" resolve="superClassifierMethod" />
+                              </node>
+                              <node concept="2qgKlT" id="7k6J8c3tHVT" role="2OqNvi">
+                                <ref role="37wK5l" to="tpek:hEwIB0z" resolve="hasSameSignature" />
+                                <node concept="37vLTw" id="2BHiRxgmyww" role="37wK5m">
+                                  <ref role="3cqZAo" node="7k6J8c3tHVV" resolve="it" />
+                                </node>
                               </node>
                             </node>
                           </node>
                         </node>
                       </node>
                     </node>
+                  </node>
+                  <node concept="ANE8D" id="4TgpkoyP2nU" role="2OqNvi" />
+                </node>
+                <node concept="_YKpA" id="4TgpkoyPb_4" role="1tU5fm">
+                  <node concept="3Tqbb2" id="3rj45ZUmHgW" role="_ZDj9">
+                    <ref role="ehGHo" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
                   </node>
                 </node>
               </node>
