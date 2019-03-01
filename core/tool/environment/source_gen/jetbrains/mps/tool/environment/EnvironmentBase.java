@@ -23,11 +23,6 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import org.jetbrains.annotations.Nullable;
-import java.net.URL;
-import java.net.MalformedURLException;
-import org.apache.log4j.Level;
-import jetbrains.mps.util.PathManager;
-import jetbrains.mps.core.tool.environment.classloading.UrlClassLoader;
 import jetbrains.mps.project.Project;
 
 /**
@@ -122,40 +117,11 @@ public abstract class EnvironmentBase implements Environment {
 
   @Nullable
   protected ClassLoader createRootClassLoader() {
-    List<URL> classpath = ListSequence.fromList(new ArrayList<URL>());
-    for (String cp : myConfig.getPluginClassPath()) {
-      File libJar = new File(cp);
-      if (!(libJar.exists())) {
-        continue;
-      }
-
-      if (libJar.isFile()) {
-        try {
-          ListSequence.fromList(classpath).addElement(libJar.toURI().toURL());
-        } catch (MalformedURLException e) {
-          if (LOG.isEnabledFor(Level.ERROR)) {
-            LOG.error("", e);
-          }
-        }
-      } else {
-        File lib = new File(cp + File.separator + "lib");
-        if (!(lib.exists()) || !(lib.isDirectory())) {
-          continue;
-        }
-
-        for (File f : lib.listFiles(PathManager.JAR_FILE_FILTER)) {
-          try {
-            ListSequence.fromList(classpath).addElement(f.toURI().toURL());
-          } catch (MalformedURLException e) {
-            if (LOG.isEnabledFor(Level.ERROR)) {
-              LOG.error("", e);
-            }
-          }
-        }
-      }
-    }
-
-    return new UrlClassLoader(classpath, LibraryInitializer.class.getClassLoader());
+    // with idea plugins in actual (global, shared) classpath (both for Mps and Idea env), we don't need yet another CL 
+    // however, it doesn't look right to use same CL for DumbIdeaPluginFacet (supposed to load classes from any idea plugin) 
+    // and for languages/solutions referenced from <library> tag (these shall not get CP with idea plugins). With a single  
+    // global CP we have at the moment, it's hard to make a distinction, though. 
+    return LibraryInitializer.class.getClassLoader();
   }
 
   @Override

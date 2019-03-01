@@ -16,7 +16,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.net.MalformedURLException;
 import jetbrains.mps.core.tool.environment.classloading.UrlClassLoader;
-import jetbrains.mps.library.LibraryInitializer;
 import jetbrains.mps.library.contributor.LibraryContributor;
 import jetbrains.mps.core.tool.environment.util.SetLibraryContributor;
 import java.util.Map;
@@ -27,6 +26,11 @@ import java.util.LinkedHashMap;
   private final EnvironmentConfig myConfig;
   private final ClassLoader myRootClassLoader;
 
+  /**
+   * 
+   * @param config configuration
+   * @param rootCLForLibraries fallback classloader for modules specified in config.getLibs() and plugins from config.getPlugins()
+   */
   public LibraryContributorHelper(@NotNull EnvironmentConfig config, @Nullable ClassLoader rootCLForLibraries) {
     myConfig = config;
     myRootClassLoader = rootCLForLibraries;
@@ -78,7 +82,7 @@ import java.util.LinkedHashMap;
     return Collections.unmodifiableSet(paths);
   }
 
-  private static ClassLoader createPluginClassLoader(File lib) {
+  private ClassLoader createPluginClassLoader(File lib) {
     List<URL> urls = new ArrayList<URL>();
     File[] files = lib.listFiles(jetbrains.mps.util.PathManager.JAR_FILE_FILTER);
     if (files == null) {
@@ -90,9 +94,24 @@ import java.util.LinkedHashMap;
       } catch (MalformedURLException ignored) {
       }
     }
-    // XXX why don't we use myRootClassLoader as a parent CL here? <mps-home>/lib seems to be proper parent CL for a plugin. 
-    //     HOWEVER, the judgement above is just a guess, see EnvironmentBase.createRootClassLoader 
-    return new UrlClassLoader(urls, LibraryInitializer.class.getClassLoader());
+    // XXX classloader relations are tricky, given that there might be few <plugin> tags along with few <library> tags 
+    //     in a single task: without IDEA, how does dependencies between two different <plugin> work? If there's shared  
+    //     classloader (global classpath), then myRootClassLoader has to represent one. If classloader is distinct per plugin, 
+    //     we would need to manage dependencies here, take them into account and do not use myRootClassLoader here. 
+    //     As for <library>-specified modules, what if it points to a module coming from a plugin with a dependency to the 
+    //     sibling <plugin>? This is not necessarily 'proper' scenario, as we should use <plugin> rather than <library> in this case, 
+    //     but alas mps.build language has its own perspective (the point is, can not control that). Again, for shared classpath 
+    //     it's ok to reference this global CL here with myRootClassLoader. If one day plugins get distinct CL, then we would need to 
+    //     decide whether a <library> specified module may depend on classes available from <plugin> (note, dependency on a module  
+    //     distributed with <plugin> is fine, as the latter would get proper plugin CL as a fallback. Does scenario that concerns me  
+    //     here, with <library> dependency on <plugin> CLASSPATH, relevant at all?) 
+    // FIXME the funny thing about plugin CL here is that at the moment we collect plugin CP with all the libraries into global  
+    //       classpath and we could use myRootClassLoader right away. Moreover, CL built here is plain wrong for IdeaEnvironment case 
+    //       as <plugin>/lib/ classses are already available in the global CP and it's odd to expose them again for SLibrary's fallback CL. 
+    //       What saves us here is the fact ClassLoader consults parent CL first and finds the classes there. 
+    //       I keep it this way just for the record, and as a reference for future implementation if I decide to use distinct plugin  
+    //       classloaders after all. 
+    return new UrlClassLoader(urls, myRootClassLoader);
   }
 
   public LibraryContributor createLibContributorForPlugins() {

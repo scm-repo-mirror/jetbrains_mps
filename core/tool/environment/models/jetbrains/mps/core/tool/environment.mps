@@ -37,7 +37,6 @@
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
-      <concept id="1080223426719" name="jetbrains.mps.baseLanguage.structure.OrExpression" flags="nn" index="22lmx$" />
       <concept id="1219920932475" name="jetbrains.mps.baseLanguage.structure.VariableArityType" flags="in" index="8X2XB">
         <child id="1219921048460" name="componentType" index="8Xvag" />
       </concept>
@@ -1001,6 +1000,27 @@
     <node concept="2tJIrI" id="3YQ3dO9ly4R" role="jymVt" />
     <node concept="3clFb_" id="3x_lgCAhI6G" role="jymVt">
       <property role="TrG5h" value="getPluginClassPath" />
+      <node concept="P$JXv" id="4142FbgViFt" role="lGtFl">
+        <node concept="TZ5HI" id="4142FbgViFu" role="3nqlJM">
+          <node concept="TZ5HA" id="4142FbgViFv" role="3HnX3l">
+            <node concept="1dT_AC" id="4142FbgVjCu" role="1dT_Ay">
+              <property role="1dT_AB" value="unused, no reason to keep" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="4142FbgViFw" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
+      </node>
+      <node concept="2AHcQZ" id="4142FbgVjCw" role="2AJF6D">
+        <ref role="2AI5Lk" to="ncw5:~ToRemove" resolve="ToRemove" />
+        <node concept="2B6LJw" id="4142FbgVlBj" role="2B76xF">
+          <ref role="2B6OnR" to="ncw5:~ToRemove.version()" resolve="version" />
+          <node concept="3b6qkQ" id="4142FbgVlLv" role="2B70Vg">
+            <property role="$nhwW" value="2019.1" />
+          </node>
+        </node>
+      </node>
       <node concept="2hMVRd" id="3x_lgCAhI6H" role="3clF45">
         <node concept="17QB3L" id="3x_lgCAhI6I" role="2hN53Y" />
       </node>
@@ -1133,6 +1153,27 @@
     <node concept="2tJIrI" id="3x_lgCAhpx_" role="jymVt" />
     <node concept="3clFb_" id="3x_lgCAhs48" role="jymVt">
       <property role="TrG5h" value="addPluginClassPath" />
+      <node concept="P$JXv" id="4142FbgVlOj" role="lGtFl">
+        <node concept="TZ5HI" id="4142FbgVlOk" role="3nqlJM">
+          <node concept="TZ5HA" id="4142FbgVlOl" role="3HnX3l">
+            <node concept="1dT_AC" id="4142FbgVoMF" role="1dT_Ay">
+              <property role="1dT_AB" value="unused value, just drop uses" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="4142FbgVlOm" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
+      </node>
+      <node concept="2AHcQZ" id="4142FbgVmLo" role="2AJF6D">
+        <ref role="2AI5Lk" to="ncw5:~ToRemove" resolve="ToRemove" />
+        <node concept="2B6LJw" id="4142FbgVoGj" role="2B76xF">
+          <ref role="2B6OnR" to="ncw5:~ToRemove.version()" resolve="version" />
+          <node concept="3b6qkQ" id="4142FbgVoM2" role="2B70Vg">
+            <property role="$nhwW" value="2019.1" />
+          </node>
+        </node>
+      </node>
       <node concept="3cqZAl" id="3x_lgCAhs4a" role="3clF45" />
       <node concept="3Tm1VV" id="3x_lgCAhs4b" role="1B3o_S" />
       <node concept="3clFbS" id="3x_lgCAhs4c" role="3clF47">
@@ -1379,14 +1420,30 @@
       <property role="DiZV1" value="false" />
       <property role="od$2w" value="false" />
       <node concept="3clFbS" id="4asrSzSFl5R" role="3clF47">
+        <node concept="3SKdUt" id="4142FbgXL4Y" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgXN_7" role="3SKWNk">
+            <property role="3SKdUp" value="migration plugin depends on modelchecker, add both" />
+          </node>
+        </node>
         <node concept="3cpWs6" id="4asrSzSFl5S" role="3cqZAp">
-          <node concept="1rXfSq" id="4asrSzSFl5T" role="3cqZAk">
-            <ref role="37wK5l" node="6rx4kZDk6GC" resolve="addPlugin" />
-            <node concept="Xl_RD" id="4asrSzSFl5U" role="37wK5m">
-              <property role="Xl_RC" value="migration" />
+          <node concept="2OqwBi" id="4142FbgXEl9" role="3cqZAk">
+            <node concept="liA8E" id="4142FbgXElc" role="2OqNvi">
+              <ref role="37wK5l" node="6rx4kZDk6GC" resolve="addPlugin" />
+              <node concept="Xl_RD" id="4asrSzSFl5U" role="37wK5m">
+                <property role="Xl_RC" value="migration" />
+              </node>
+              <node concept="Xl_RD" id="4asrSzSFl5V" role="37wK5m">
+                <property role="Xl_RC" value="jetbrains.mps.ide.migration.workbench" />
+              </node>
             </node>
-            <node concept="Xl_RD" id="4asrSzSFl5V" role="37wK5m">
-              <property role="Xl_RC" value="jetbrains.mps.ide.migration.workbench" />
+            <node concept="1rXfSq" id="4142FbgXCbQ" role="2Oq$k0">
+              <ref role="37wK5l" node="6rx4kZDk6GC" resolve="addPlugin" />
+              <node concept="Xl_RD" id="4142FbgXDSz" role="37wK5m">
+                <property role="Xl_RC" value="modelchecker" />
+              </node>
+              <node concept="Xl_RD" id="4142FbgXDnC" role="37wK5m">
+                <property role="Xl_RC" value="jetbrains.mps.ide.modelchecker" />
+              </node>
             </node>
           </node>
         </node>
@@ -3503,265 +3560,33 @@
       </node>
       <node concept="3Tmbuc" id="3x_lgCAcmHR" role="1B3o_S" />
       <node concept="3clFbS" id="3x_lgCAcjr3" role="3clF47">
-        <node concept="3cpWs8" id="3x_lgCAfrIs" role="3cqZAp">
-          <node concept="3cpWsn" id="3x_lgCAfrIy" role="3cpWs9">
-            <property role="TrG5h" value="classpath" />
-            <node concept="_YKpA" id="3x_lgCAfuFW" role="1tU5fm">
-              <node concept="3uibUv" id="3x_lgCAfQtb" role="_ZDj9">
-                <ref role="3uigEE" to="zf81:~URL" resolve="URL" />
-              </node>
-            </node>
-            <node concept="2ShNRf" id="3x_lgCAfub9" role="33vP2m">
-              <node concept="Tc6Ow" id="3x_lgCAfvNZ" role="2ShVmc">
-                <node concept="3uibUv" id="3x_lgCAfS7v" role="HW$YZ">
-                  <ref role="3uigEE" to="zf81:~URL" resolve="URL" />
-                </node>
-              </node>
-            </node>
+        <node concept="3SKdUt" id="4142FbgUAAL" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgUAAN" role="3SKWNk">
+            <property role="3SKdUp" value="with idea plugins in actual (global, shared) classpath (both for Mps and Idea env), we don't need yet another CL" />
           </node>
         </node>
-        <node concept="1DcWWT" id="3x_lgCAfmCm" role="3cqZAp">
-          <node concept="2OqwBi" id="3x_lgCAiuXt" role="1DdaDG">
-            <node concept="37vLTw" id="3x_lgCAiuq3" role="2Oq$k0">
-              <ref role="3cqZAo" node="3eUNqOk7wUa" resolve="myConfig" />
-            </node>
-            <node concept="liA8E" id="3x_lgCAivRc" role="2OqNvi">
-              <ref role="37wK5l" node="3x_lgCAhI6G" resolve="getPluginClassPath" />
-            </node>
-          </node>
-          <node concept="3cpWsn" id="3x_lgCAfmCr" role="1Duv9x">
-            <property role="TrG5h" value="cp" />
-            <property role="3TUv4t" value="false" />
-            <node concept="17QB3L" id="3x_lgCAfmCs" role="1tU5fm" />
-          </node>
-          <node concept="3clFbS" id="3x_lgCAfmCt" role="2LFqv$">
-            <node concept="3cpWs8" id="3x_lgCAk0G6" role="3cqZAp">
-              <node concept="3cpWsn" id="3x_lgCAk0G7" role="3cpWs9">
-                <property role="TrG5h" value="libJar" />
-                <node concept="3uibUv" id="3x_lgCAk0G8" role="1tU5fm">
-                  <ref role="3uigEE" to="guwi:~File" resolve="File" />
-                </node>
-                <node concept="2ShNRf" id="3x_lgCAk121" role="33vP2m">
-                  <node concept="1pGfFk" id="3x_lgCAk11x" role="2ShVmc">
-                    <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String)" resolve="File" />
-                    <node concept="37vLTw" id="3x_lgCAk14J" role="37wK5m">
-                      <ref role="3cqZAo" node="3x_lgCAfmCr" resolve="cp" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="3clFbJ" id="3x_lgCAk1hf" role="3cqZAp">
-              <node concept="3clFbS" id="3x_lgCAk1hh" role="3clFbx">
-                <node concept="3N13vt" id="3x_lgCAk2pH" role="3cqZAp" />
-              </node>
-              <node concept="3fqX7Q" id="3x_lgCAk2lm" role="3clFbw">
-                <node concept="2OqwBi" id="3x_lgCAk2lo" role="3fr31v">
-                  <node concept="37vLTw" id="3x_lgCAk2lp" role="2Oq$k0">
-                    <ref role="3cqZAo" node="3x_lgCAk0G7" resolve="libJar" />
-                  </node>
-                  <node concept="liA8E" id="3x_lgCAk2lq" role="2OqNvi">
-                    <ref role="37wK5l" to="guwi:~File.exists():boolean" resolve="exists" />
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="3clFbH" id="3x_lgCAk2ra" role="3cqZAp" />
-            <node concept="3clFbJ" id="3x_lgCAk2_g" role="3cqZAp">
-              <node concept="3clFbS" id="3x_lgCAk2_i" role="3clFbx">
-                <node concept="SfApY" id="3x_lgCAk3vT" role="3cqZAp">
-                  <node concept="3clFbS" id="3x_lgCAk3vU" role="SfCbr">
-                    <node concept="3clFbF" id="3x_lgCAk3vV" role="3cqZAp">
-                      <node concept="2OqwBi" id="3x_lgCAk3vW" role="3clFbG">
-                        <node concept="37vLTw" id="3x_lgCAk3vX" role="2Oq$k0">
-                          <ref role="3cqZAo" node="3x_lgCAfrIy" resolve="classpath" />
-                        </node>
-                        <node concept="TSZUe" id="3x_lgCAk3vY" role="2OqNvi">
-                          <node concept="2OqwBi" id="3x_lgCAk3vZ" role="25WWJ7">
-                            <node concept="2OqwBi" id="3x_lgCAk3w0" role="2Oq$k0">
-                              <node concept="liA8E" id="3x_lgCAk3w2" role="2OqNvi">
-                                <ref role="37wK5l" to="guwi:~File.toURI():java.net.URI" resolve="toURI" />
-                              </node>
-                              <node concept="37vLTw" id="3x_lgCAk4v4" role="2Oq$k0">
-                                <ref role="3cqZAo" node="3x_lgCAk0G7" resolve="libJar" />
-                              </node>
-                            </node>
-                            <node concept="liA8E" id="3x_lgCAk3w3" role="2OqNvi">
-                              <ref role="37wK5l" to="zf81:~URI.toURL():java.net.URL" resolve="toURL" />
-                            </node>
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="TDmWw" id="3x_lgCAk3w4" role="TEbGg">
-                    <node concept="3clFbS" id="3x_lgCAk3w5" role="TDEfX">
-                      <node concept="RRSsy" id="4v8fy9OER9r" role="3cqZAp">
-                        <property role="RRSoG" value="error" />
-                        <node concept="Xl_RD" id="4v8fy9OER9s" role="RRSoy" />
-                        <node concept="37vLTw" id="4v8fy9OER9t" role="RRSow">
-                          <ref role="3cqZAo" node="3x_lgCAk3w9" resolve="e" />
-                        </node>
-                      </node>
-                    </node>
-                    <node concept="3cpWsn" id="3x_lgCAk3w9" role="TDEfY">
-                      <property role="TrG5h" value="e" />
-                      <node concept="3uibUv" id="3x_lgCAk3wa" role="1tU5fm">
-                        <ref role="3uigEE" to="zf81:~MalformedURLException" resolve="MalformedURLException" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-              <node concept="2OqwBi" id="3x_lgCAk2Yw" role="3clFbw">
-                <node concept="37vLTw" id="3x_lgCAk2ET" role="2Oq$k0">
-                  <ref role="3cqZAo" node="3x_lgCAk0G7" resolve="libJar" />
-                </node>
-                <node concept="liA8E" id="3x_lgCAk3t2" role="2OqNvi">
-                  <ref role="37wK5l" to="guwi:~File.isFile():boolean" resolve="isFile" />
-                </node>
-              </node>
-              <node concept="9aQIb" id="3x_lgCAk4Dn" role="9aQIa">
-                <node concept="3clFbS" id="3x_lgCAk4Do" role="9aQI4">
-                  <node concept="3cpWs8" id="3x_lgCAfmCu" role="3cqZAp">
-                    <node concept="3cpWsn" id="3x_lgCAfmCv" role="3cpWs9">
-                      <property role="TrG5h" value="lib" />
-                      <property role="3TUv4t" value="false" />
-                      <node concept="3uibUv" id="3x_lgCAfmCw" role="1tU5fm">
-                        <ref role="3uigEE" to="guwi:~File" resolve="File" />
-                      </node>
-                      <node concept="2ShNRf" id="3x_lgCAfmCx" role="33vP2m">
-                        <node concept="1pGfFk" id="3x_lgCAfmCy" role="2ShVmc">
-                          <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String)" resolve="File" />
-                          <node concept="3cpWs3" id="3x_lgCAfmCz" role="37wK5m">
-                            <node concept="3cpWs3" id="3x_lgCAfmC$" role="3uHU7B">
-                              <node concept="37vLTw" id="3x_lgCAfmC_" role="3uHU7B">
-                                <ref role="3cqZAo" node="3x_lgCAfmCr" resolve="cp" />
-                              </node>
-                              <node concept="10M0yZ" id="3x_lgCAfmCA" role="3uHU7w">
-                                <ref role="1PxDUh" to="guwi:~File" resolve="File" />
-                                <ref role="3cqZAo" to="guwi:~File.separator" resolve="separator" />
-                              </node>
-                            </node>
-                            <node concept="Xl_RD" id="3x_lgCAfmCB" role="3uHU7w">
-                              <property role="Xl_RC" value="lib" />
-                            </node>
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="3clFbJ" id="3x_lgCAfmCC" role="3cqZAp">
-                    <node concept="22lmx$" id="3x_lgCAfH0p" role="3clFbw">
-                      <node concept="3fqX7Q" id="3x_lgCAfGF_" role="3uHU7B">
-                        <node concept="2OqwBi" id="3x_lgCAfGFB" role="3fr31v">
-                          <node concept="37vLTw" id="3x_lgCAfGFC" role="2Oq$k0">
-                            <ref role="3cqZAo" node="3x_lgCAfmCv" resolve="lib" />
-                          </node>
-                          <node concept="liA8E" id="3x_lgCAfGFD" role="2OqNvi">
-                            <ref role="37wK5l" to="guwi:~File.exists():boolean" resolve="exists" />
-                          </node>
-                        </node>
-                      </node>
-                      <node concept="3fqX7Q" id="3x_lgCAfIMD" role="3uHU7w">
-                        <node concept="2OqwBi" id="3x_lgCAfIMF" role="3fr31v">
-                          <node concept="37vLTw" id="3x_lgCAfIMG" role="2Oq$k0">
-                            <ref role="3cqZAo" node="3x_lgCAfmCv" resolve="lib" />
-                          </node>
-                          <node concept="liA8E" id="3x_lgCAfIMH" role="2OqNvi">
-                            <ref role="37wK5l" to="guwi:~File.isDirectory():boolean" resolve="isDirectory" />
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                    <node concept="3clFbS" id="3x_lgCAfmCK" role="3clFbx">
-                      <node concept="3N13vt" id="3x_lgCAfJRy" role="3cqZAp" />
-                    </node>
-                  </node>
-                  <node concept="3clFbH" id="3x_lgCAfK6L" role="3cqZAp" />
-                  <node concept="2Gpval" id="3x_lgCAfLwo" role="3cqZAp">
-                    <node concept="2GrKxI" id="3x_lgCAfLwq" role="2Gsz3X">
-                      <property role="TrG5h" value="f" />
-                    </node>
-                    <node concept="3clFbS" id="3x_lgCAfLwu" role="2LFqv$">
-                      <node concept="SfApY" id="3x_lgCAfTIF" role="3cqZAp">
-                        <node concept="3clFbS" id="3x_lgCAfTIG" role="SfCbr">
-                          <node concept="3clFbF" id="3x_lgCAfMDu" role="3cqZAp">
-                            <node concept="2OqwBi" id="3x_lgCAfyAd" role="3clFbG">
-                              <node concept="37vLTw" id="3x_lgCAfxg6" role="2Oq$k0">
-                                <ref role="3cqZAo" node="3x_lgCAfrIy" resolve="classpath" />
-                              </node>
-                              <node concept="TSZUe" id="3x_lgCAfzDu" role="2OqNvi">
-                                <node concept="2OqwBi" id="3x_lgCAfOjy" role="25WWJ7">
-                                  <node concept="2OqwBi" id="3x_lgCAfN2Z" role="2Oq$k0">
-                                    <node concept="2GrUjf" id="3x_lgCAfMNP" role="2Oq$k0">
-                                      <ref role="2Gs0qQ" node="3x_lgCAfLwq" resolve="f" />
-                                    </node>
-                                    <node concept="liA8E" id="3x_lgCAfNCK" role="2OqNvi">
-                                      <ref role="37wK5l" to="guwi:~File.toURI():java.net.URI" resolve="toURI" />
-                                    </node>
-                                  </node>
-                                  <node concept="liA8E" id="3x_lgCAfPYX" role="2OqNvi">
-                                    <ref role="37wK5l" to="zf81:~URI.toURL():java.net.URL" resolve="toURL" />
-                                  </node>
-                                </node>
-                              </node>
-                            </node>
-                          </node>
-                        </node>
-                        <node concept="TDmWw" id="3x_lgCAfTIB" role="TEbGg">
-                          <node concept="3clFbS" id="3x_lgCAfTIC" role="TDEfX">
-                            <node concept="RRSsy" id="4v8fy9OEQYW" role="3cqZAp">
-                              <property role="RRSoG" value="error" />
-                              <node concept="Xl_RD" id="4v8fy9OEQYY" role="RRSoy" />
-                              <node concept="37vLTw" id="4v8fy9OEQZ0" role="RRSow">
-                                <ref role="3cqZAo" node="3x_lgCAfTID" resolve="e" />
-                              </node>
-                            </node>
-                          </node>
-                          <node concept="3cpWsn" id="3x_lgCAfTID" role="TDEfY">
-                            <property role="TrG5h" value="e" />
-                            <node concept="3uibUv" id="3x_lgCAfTIE" role="1tU5fm">
-                              <ref role="3uigEE" to="zf81:~MalformedURLException" resolve="MalformedURLException" />
-                            </node>
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                    <node concept="2OqwBi" id="3x_lgCAf$JL" role="2GsD0m">
-                      <node concept="37vLTw" id="3x_lgCAf$JM" role="2Oq$k0">
-                        <ref role="3cqZAo" node="3x_lgCAfmCv" resolve="lib" />
-                      </node>
-                      <node concept="liA8E" id="3x_lgCAf$JN" role="2OqNvi">
-                        <ref role="37wK5l" to="guwi:~File.listFiles(java.io.FilenameFilter):java.io.File[]" resolve="listFiles" />
-                        <node concept="10M0yZ" id="3x_lgCAf$JO" role="37wK5m">
-                          <ref role="1PxDUh" to="18ew:~PathManager" resolve="PathManager" />
-                          <ref role="3cqZAo" to="18ew:~PathManager.JAR_FILE_FILTER" resolve="JAR_FILE_FILTER" />
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
+        <node concept="3SKdUt" id="4142FbgUDDc" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgUDDe" role="3SKWNk">
+            <property role="3SKdUp" value="however, it doesn't look right to use same CL for DumbIdeaPluginFacet (supposed to load classes from any idea plugin)" />
           </node>
         </node>
-        <node concept="3clFbH" id="3x_lgCAfkvB" role="3cqZAp" />
-        <node concept="3clFbF" id="2hWPXztVlr2" role="3cqZAp">
-          <node concept="2ShNRf" id="2hWPXztVlr3" role="3clFbG">
-            <node concept="1pGfFk" id="2hWPXztVlr4" role="2ShVmc">
-              <ref role="37wK5l" to="d6hn:5QbKaIbm7lF" resolve="UrlClassLoader" />
-              <node concept="37vLTw" id="3x_lgCAih9u" role="37wK5m">
-                <ref role="3cqZAo" node="3x_lgCAfrIy" resolve="classpath" />
-              </node>
-              <node concept="2OqwBi" id="2hWPXztVlrA" role="37wK5m">
-                <node concept="3VsKOn" id="2hWPXztVlrB" role="2Oq$k0">
-                  <ref role="3VsUkX" to="32g5:~LibraryInitializer" resolve="LibraryInitializer" />
-                </node>
-                <node concept="liA8E" id="2hWPXztVlrC" role="2OqNvi">
-                  <ref role="37wK5l" to="wyt6:~Class.getClassLoader():java.lang.ClassLoader" resolve="getClassLoader" />
-                </node>
-              </node>
+        <node concept="3SKdUt" id="4142FbgUG3i" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgUG3k" role="3SKWNk">
+            <property role="3SKdUp" value="and for languages/solutions referenced from &lt;library&gt; tag (these shall not get CP with idea plugins). With a single " />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4142FbgUH$0" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgUH$1" role="3SKWNk">
+            <property role="3SKdUp" value="global CP we have at the moment, it's hard to make a distinction, though." />
+          </node>
+        </node>
+        <node concept="3cpWs6" id="4142FbgUtfw" role="3cqZAp">
+          <node concept="2OqwBi" id="2hWPXztVlrA" role="3cqZAk">
+            <node concept="3VsKOn" id="2hWPXztVlrB" role="2Oq$k0">
+              <ref role="3VsUkX" to="32g5:~LibraryInitializer" resolve="LibraryInitializer" />
+            </node>
+            <node concept="liA8E" id="2hWPXztVlrC" role="2OqNvi">
+              <ref role="37wK5l" to="wyt6:~Class.getClassLoader():java.lang.ClassLoader" resolve="getClassLoader" />
             </node>
           </node>
         </node>
@@ -4327,6 +4152,20 @@
     </node>
     <node concept="2tJIrI" id="3eUNqOk8r$e" role="jymVt" />
     <node concept="3clFbW" id="3eUNqOk8rbd" role="jymVt">
+      <node concept="P$JXv" id="4142FbgUKWd" role="lGtFl">
+        <node concept="TUZQ0" id="4142FbgUKWg" role="3nqlJM">
+          <property role="TUZQ4" value="configuration" />
+          <node concept="zr_55" id="4142FbgUKWi" role="zr_5Q">
+            <ref role="zr_51" node="3eUNqOk8rbq" resolve="config" />
+          </node>
+        </node>
+        <node concept="TUZQ0" id="4142FbgUKWj" role="3nqlJM">
+          <property role="TUZQ4" value="fallback classloader for modules specified in config.getLibs() and plugins from config.getPlugins()" />
+          <node concept="zr_55" id="4142FbgUKWl" role="zr_5Q">
+            <ref role="zr_51" node="3eUNqOk8rb$" resolve="rootCLForLibraries" />
+          </node>
+        </node>
+      </node>
       <node concept="3cqZAl" id="3eUNqOk8rbe" role="3clF45" />
       <node concept="3clFbS" id="3eUNqOk8rbg" role="3clF47">
         <node concept="3clFbF" id="3eUNqOk90DH" role="3cqZAp">
@@ -4629,7 +4468,7 @@
                       <ref role="3cqZAo" node="4937uxYQns1" resolve="pluginCL" />
                     </node>
                     <node concept="1rXfSq" id="3eUNqOk8Pig" role="37vLTx">
-                      <ref role="37wK5l" node="4937uxYQntl" resolve="createPluginClassLoader" />
+                      <ref role="37wK5l" node="4142FbgULQi" resolve="createPluginClassLoader" />
                       <node concept="37vLTw" id="3eUNqOk8Pjs" role="37wK5m">
                         <ref role="3cqZAo" node="4937uxYQnrR" resolve="libFolder" />
                       </node>
@@ -4894,46 +4733,45 @@
       </node>
     </node>
     <node concept="2tJIrI" id="3eUNqOk8ZnD" role="jymVt" />
-    <node concept="2YIFZL" id="4937uxYQntl" role="jymVt">
+    <node concept="3clFb_" id="4142FbgULQi" role="jymVt">
       <property role="TrG5h" value="createPluginClassLoader" />
-      <node concept="3Tm6S6" id="4937uxYQntm" role="1B3o_S" />
-      <node concept="3clFbS" id="4937uxYQntn" role="3clF47">
-        <node concept="3cpWs8" id="4937uxYQnto" role="3cqZAp">
-          <node concept="3cpWsn" id="4937uxYQntp" role="3cpWs9">
+      <node concept="3clFbS" id="4142FbgULQl" role="3clF47">
+        <node concept="3cpWs8" id="4142FbgULQm" role="3cqZAp">
+          <node concept="3cpWsn" id="4142FbgULQn" role="3cpWs9">
             <property role="TrG5h" value="urls" />
             <property role="3TUv4t" value="false" />
-            <node concept="3uibUv" id="4937uxYQntq" role="1tU5fm">
+            <node concept="3uibUv" id="4142FbgULQo" role="1tU5fm">
               <ref role="3uigEE" to="33ny:~List" resolve="List" />
-              <node concept="3uibUv" id="4937uxYQntr" role="11_B2D">
+              <node concept="3uibUv" id="4142FbgULQp" role="11_B2D">
                 <ref role="3uigEE" to="zf81:~URL" resolve="URL" />
               </node>
             </node>
-            <node concept="2ShNRf" id="4937uxYQnts" role="33vP2m">
-              <node concept="1pGfFk" id="4937uxYQntt" role="2ShVmc">
+            <node concept="2ShNRf" id="4142FbgULQq" role="33vP2m">
+              <node concept="1pGfFk" id="4142FbgULQr" role="2ShVmc">
                 <ref role="37wK5l" to="33ny:~ArrayList.&lt;init&gt;()" resolve="ArrayList" />
-                <node concept="3uibUv" id="4937uxYQntu" role="1pMfVU">
+                <node concept="3uibUv" id="4142FbgULQs" role="1pMfVU">
                   <ref role="3uigEE" to="zf81:~URL" resolve="URL" />
                 </node>
               </node>
             </node>
           </node>
         </node>
-        <node concept="3cpWs8" id="4937uxYQntv" role="3cqZAp">
-          <node concept="3cpWsn" id="4937uxYQntw" role="3cpWs9">
+        <node concept="3cpWs8" id="4142FbgULQt" role="3cqZAp">
+          <node concept="3cpWsn" id="4142FbgULQu" role="3cpWs9">
             <property role="TrG5h" value="files" />
             <property role="3TUv4t" value="false" />
-            <node concept="10Q1$e" id="4937uxYQntx" role="1tU5fm">
-              <node concept="3uibUv" id="4937uxYQnty" role="10Q1$1">
+            <node concept="10Q1$e" id="4142FbgULQv" role="1tU5fm">
+              <node concept="3uibUv" id="4142FbgULQw" role="10Q1$1">
                 <ref role="3uigEE" to="guwi:~File" resolve="File" />
               </node>
             </node>
-            <node concept="2OqwBi" id="4937uxYQntz" role="33vP2m">
-              <node concept="37vLTw" id="2BHiRxghfxu" role="2Oq$k0">
-                <ref role="3cqZAo" node="4937uxYQnua" resolve="lib" />
+            <node concept="2OqwBi" id="4142FbgULQx" role="33vP2m">
+              <node concept="37vLTw" id="4142FbgULQy" role="2Oq$k0">
+                <ref role="3cqZAo" node="4142FbgULR9" resolve="lib" />
               </node>
-              <node concept="liA8E" id="4937uxYQnt_" role="2OqNvi">
+              <node concept="liA8E" id="4142FbgULQz" role="2OqNvi">
                 <ref role="37wK5l" to="guwi:~File.listFiles(java.io.FilenameFilter):java.io.File[]" resolve="listFiles" />
-                <node concept="10M0yZ" id="2Koq9V0q71N" role="37wK5m">
+                <node concept="10M0yZ" id="4142FbgULQ$" role="37wK5m">
                   <ref role="3cqZAo" to="18ew:~PathManager.JAR_FILE_FILTER" resolve="JAR_FILE_FILTER" />
                   <ref role="1PxDUh" to="18ew:~PathManager" resolve="PathManager" />
                 </node>
@@ -4941,60 +4779,60 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbJ" id="4937uxYQntB" role="3cqZAp">
-          <node concept="3clFbC" id="4937uxYQntC" role="3clFbw">
-            <node concept="37vLTw" id="3GM_nagTxar" role="3uHU7B">
-              <ref role="3cqZAo" node="4937uxYQntw" resolve="files" />
+        <node concept="3clFbJ" id="4142FbgULQ_" role="3cqZAp">
+          <node concept="3clFbC" id="4142FbgULQA" role="3clFbw">
+            <node concept="37vLTw" id="4142FbgULQB" role="3uHU7B">
+              <ref role="3cqZAo" node="4142FbgULQu" resolve="files" />
             </node>
-            <node concept="10Nm6u" id="4937uxYQntE" role="3uHU7w" />
+            <node concept="10Nm6u" id="4142FbgULQC" role="3uHU7w" />
           </node>
-          <node concept="3clFbS" id="4937uxYQntF" role="3clFbx">
-            <node concept="3cpWs6" id="4937uxYQntG" role="3cqZAp">
-              <node concept="10Nm6u" id="4937uxYQntH" role="3cqZAk" />
+          <node concept="3clFbS" id="4142FbgULQD" role="3clFbx">
+            <node concept="3cpWs6" id="4142FbgULQE" role="3cqZAp">
+              <node concept="10Nm6u" id="4142FbgULQF" role="3cqZAk" />
             </node>
           </node>
         </node>
-        <node concept="1DcWWT" id="4937uxYQntI" role="3cqZAp">
-          <node concept="37vLTw" id="3GM_nagTzjp" role="1DdaDG">
-            <ref role="3cqZAo" node="4937uxYQntw" resolve="files" />
+        <node concept="1DcWWT" id="4142FbgULQG" role="3cqZAp">
+          <node concept="37vLTw" id="4142FbgULQH" role="1DdaDG">
+            <ref role="3cqZAo" node="4142FbgULQu" resolve="files" />
           </node>
-          <node concept="3cpWsn" id="4937uxYQntK" role="1Duv9x">
+          <node concept="3cpWsn" id="4142FbgULQI" role="1Duv9x">
             <property role="TrG5h" value="libjar" />
             <property role="3TUv4t" value="false" />
-            <node concept="3uibUv" id="4937uxYQntL" role="1tU5fm">
+            <node concept="3uibUv" id="4142FbgULQJ" role="1tU5fm">
               <ref role="3uigEE" to="guwi:~File" resolve="File" />
             </node>
           </node>
-          <node concept="3clFbS" id="4937uxYQntM" role="2LFqv$">
-            <node concept="SfApY" id="4937uxYQntN" role="3cqZAp">
-              <node concept="TDmWw" id="4937uxYQntO" role="TEbGg">
-                <node concept="3clFbS" id="4937uxYQntP" role="TDEfX" />
-                <node concept="3cpWsn" id="4937uxYQntQ" role="TDEfY">
+          <node concept="3clFbS" id="4142FbgULQK" role="2LFqv$">
+            <node concept="SfApY" id="4142FbgULQL" role="3cqZAp">
+              <node concept="TDmWw" id="4142FbgULQM" role="TEbGg">
+                <node concept="3clFbS" id="4142FbgULQN" role="TDEfX" />
+                <node concept="3cpWsn" id="4142FbgULQO" role="TDEfY">
                   <property role="TrG5h" value="ignored" />
                   <property role="3TUv4t" value="false" />
-                  <node concept="3uibUv" id="4937uxYQntR" role="1tU5fm">
+                  <node concept="3uibUv" id="4142FbgULQP" role="1tU5fm">
                     <ref role="3uigEE" to="zf81:~MalformedURLException" resolve="MalformedURLException" />
                   </node>
                 </node>
               </node>
-              <node concept="3clFbS" id="4937uxYQntS" role="SfCbr">
-                <node concept="3clFbF" id="4937uxYQntT" role="3cqZAp">
-                  <node concept="2OqwBi" id="4937uxYQntU" role="3clFbG">
-                    <node concept="37vLTw" id="3GM_nagTzky" role="2Oq$k0">
-                      <ref role="3cqZAo" node="4937uxYQntp" resolve="urls" />
+              <node concept="3clFbS" id="4142FbgULQQ" role="SfCbr">
+                <node concept="3clFbF" id="4142FbgULQR" role="3cqZAp">
+                  <node concept="2OqwBi" id="4142FbgULQS" role="3clFbG">
+                    <node concept="37vLTw" id="4142FbgULQT" role="2Oq$k0">
+                      <ref role="3cqZAo" node="4142FbgULQn" resolve="urls" />
                     </node>
-                    <node concept="liA8E" id="4937uxYQntW" role="2OqNvi">
+                    <node concept="liA8E" id="4142FbgULQU" role="2OqNvi">
                       <ref role="37wK5l" to="33ny:~List.add(java.lang.Object):boolean" resolve="add" />
-                      <node concept="2OqwBi" id="4937uxYQntX" role="37wK5m">
-                        <node concept="2OqwBi" id="4937uxYQntY" role="2Oq$k0">
-                          <node concept="37vLTw" id="3GM_nagTzf3" role="2Oq$k0">
-                            <ref role="3cqZAo" node="4937uxYQntK" resolve="libjar" />
+                      <node concept="2OqwBi" id="4142FbgULQV" role="37wK5m">
+                        <node concept="2OqwBi" id="4142FbgULQW" role="2Oq$k0">
+                          <node concept="37vLTw" id="4142FbgULQX" role="2Oq$k0">
+                            <ref role="3cqZAo" node="4142FbgULQI" resolve="libjar" />
                           </node>
-                          <node concept="liA8E" id="4937uxYQnu0" role="2OqNvi">
+                          <node concept="liA8E" id="4142FbgULQY" role="2OqNvi">
                             <ref role="37wK5l" to="guwi:~File.toURI():java.net.URI" resolve="toURI" />
                           </node>
                         </node>
-                        <node concept="liA8E" id="4937uxYQnu1" role="2OqNvi">
+                        <node concept="liA8E" id="4142FbgULQZ" role="2OqNvi">
                           <ref role="37wK5l" to="zf81:~URI.toURL():java.net.URL" resolve="toURL" />
                         </node>
                       </node>
@@ -5005,44 +4843,115 @@
             </node>
           </node>
         </node>
-        <node concept="3SKdUt" id="7F6rovmpCRd" role="3cqZAp">
-          <node concept="3SKdUq" id="7F6rovmpCRf" role="3SKWNk">
-            <property role="3SKdUp" value="XXX why don't we use myRootClassLoader as a parent CL here? &lt;mps-home&gt;/lib seems to be proper parent CL for a plugin." />
+        <node concept="3SKdUt" id="4142FbgULR0" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgULR1" role="3SKWNk">
+            <property role="3SKdUp" value="XXX classloader relations are tricky, given that there might be few &lt;plugin&gt; tags along with few &lt;library&gt; tags" />
           </node>
         </node>
-        <node concept="3SKdUt" id="7F6rovmpHJX" role="3cqZAp">
-          <node concept="3SKdUq" id="7F6rovmpHJZ" role="3SKWNk">
-            <property role="3SKdUp" value="    HOWEVER, the judgement above is just a guess, see EnvironmentBase.createRootClassLoader" />
+        <node concept="3SKdUt" id="4142FbgUOAG" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgUOAI" role="3SKWNk">
+            <property role="3SKdUp" value="    in a single task: without IDEA, how does dependencies between two different &lt;plugin&gt; work? If there's shared " />
           </node>
         </node>
-        <node concept="3cpWs6" id="4937uxYQnu2" role="3cqZAp">
-          <node concept="2ShNRf" id="4937uxYQnu3" role="3cqZAk">
-            <node concept="1pGfFk" id="4937uxYQnu4" role="2ShVmc">
+        <node concept="3SKdUt" id="4142FbgUPrn" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgUPro" role="3SKWNk">
+            <property role="3SKdUp" value="    classloader (global classpath), then myRootClassLoader has to represent one. If classloader is distinct per plugin," />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4142FbgUR4Y" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgUR50" role="3SKWNk">
+            <property role="3SKdUp" value="    we would need to manage dependencies here, take them into account and do not use myRootClassLoader here." />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4142FbgUS$P" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgUS$R" role="3SKWNk">
+            <property role="3SKdUp" value="    As for &lt;library&gt;-specified modules, what if it points to a module coming from a plugin with a dependency to the" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4142FbgUTpA" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgUTpB" role="3SKWNk">
+            <property role="3SKdUp" value="    sibling &lt;plugin&gt;? This is not necessarily 'proper' scenario, as we should use &lt;plugin&gt; rather than &lt;library&gt; in this case," />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4142FbgUUep" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgUUeq" role="3SKWNk">
+            <property role="3SKdUp" value="    but alas mps.build language has its own perspective (the point is, can not control that). Again, for shared classpath" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4142FbgUVSg" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgUVSi" role="3SKWNk">
+            <property role="3SKdUp" value="    it's ok to reference this global CL here with myRootClassLoader. If one day plugins get distinct CL, then we would need to" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4142FbgUXyb" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgUXyd" role="3SKWNk">
+            <property role="3SKdUp" value="    decide whether a &lt;library&gt; specified module may depend on classes available from &lt;plugin&gt; (note, dependency on a module " />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4142FbgUYdx" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgUYdy" role="3SKWNk">
+            <property role="3SKdUp" value="    distributed with &lt;plugin&gt; is fine, as the latter would get proper plugin CL as a fallback. Does scenario that concerns me " />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4142FbgUZRp" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgUZRq" role="3SKWNk">
+            <property role="3SKdUp" value="    here, with &lt;library&gt; dependency on &lt;plugin&gt; CLASSPATH, relevant at all?)" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4142FbgV2mo" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgV2mq" role="3SKWNk">
+            <property role="3SKdUp" value="FIXME the funny thing about plugin CL here is that at the moment we collect plugin CP with all the libraries into global " />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4142FbgV7zq" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgV7zr" role="3SKWNk">
+            <property role="3SKdUp" value="      classpath and we could use myRootClassLoader right away. Moreover, CL built here is plain wrong for IdeaEnvironment case" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4142FbgVaWV" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgVaWX" role="3SKWNk">
+            <property role="3SKdUp" value="      as &lt;plugin&gt;/lib/ classses are already available in the global CP and it's odd to expose them again for SLibrary's fallback CL." />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4142FbgVfkL" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgVfkN" role="3SKWNk">
+            <property role="3SKdUp" value="      What saves us here is the fact ClassLoader consults parent CL first and finds the classes there." />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4142FbgV9hZ" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgV9i0" role="3SKWNk">
+            <property role="3SKdUp" value="      I keep it this way just for the record, and as a reference for future implementation if I decide to use distinct plugin " />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="4142FbgVg9Q" role="3cqZAp">
+          <node concept="3SKdUq" id="4142FbgVg9R" role="3SKWNk">
+            <property role="3SKdUp" value="      classloaders after all." />
+          </node>
+        </node>
+        <node concept="3cpWs6" id="4142FbgULR4" role="3cqZAp">
+          <node concept="2ShNRf" id="4142FbgULR5" role="3cqZAk">
+            <node concept="1pGfFk" id="4142FbgULR6" role="2ShVmc">
               <ref role="37wK5l" to="d6hn:5QbKaIbm7lF" resolve="UrlClassLoader" />
-              <node concept="37vLTw" id="3GM_nagTtf7" role="37wK5m">
-                <ref role="3cqZAo" node="4937uxYQntp" resolve="urls" />
+              <node concept="37vLTw" id="4142FbgULR7" role="37wK5m">
+                <ref role="3cqZAo" node="4142FbgULQn" resolve="urls" />
               </node>
-              <node concept="2OqwBi" id="4937uxYQnu6" role="37wK5m">
-                <node concept="3VsKOn" id="4937uxYQnu7" role="2Oq$k0">
-                  <ref role="3VsUkX" to="32g5:~LibraryInitializer" resolve="LibraryInitializer" />
-                </node>
-                <node concept="liA8E" id="4937uxYQnu8" role="2OqNvi">
-                  <ref role="37wK5l" to="wyt6:~Class.getClassLoader():java.lang.ClassLoader" resolve="getClassLoader" />
-                </node>
+              <node concept="37vLTw" id="4142FbgUMXV" role="37wK5m">
+                <ref role="3cqZAo" node="3eUNqOk8ZZi" resolve="myRootClassLoader" />
               </node>
             </node>
           </node>
         </node>
       </node>
-      <node concept="3uibUv" id="7F6rovmp$mH" role="3clF45">
+      <node concept="3uibUv" id="4142FbgULRb" role="3clF45">
         <ref role="3uigEE" to="wyt6:~ClassLoader" resolve="ClassLoader" />
       </node>
-      <node concept="37vLTG" id="4937uxYQnua" role="3clF46">
+      <node concept="37vLTG" id="4142FbgULR9" role="3clF46">
         <property role="TrG5h" value="lib" />
-        <node concept="3uibUv" id="4937uxYQnub" role="1tU5fm">
+        <node concept="3uibUv" id="4142FbgULRa" role="1tU5fm">
           <ref role="3uigEE" to="guwi:~File" resolve="File" />
         </node>
       </node>
+      <node concept="3Tm6S6" id="4142FbgULQk" role="1B3o_S" />
     </node>
     <node concept="2tJIrI" id="3eUNqOk8ZeV" role="jymVt" />
     <node concept="3clFb_" id="3eUNqOk8kWA" role="jymVt">

@@ -18,8 +18,6 @@ import jetbrains.mps.tool.common.RepositoryDescriptor;
 import java.io.File;
 import jetbrains.mps.internal.collections.runtime.IMapping;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
-import jetbrains.mps.tool.common.PluginData;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.smodel.MPSModuleRepository;
@@ -126,10 +124,6 @@ public abstract class MpsWorker {
       }
       config = config.addLib(jar);
     }
-    for (PluginData pd : ListSequence.fromList(whatToDo.getPlugins())) {
-      config.addPluginClassPath(pd.path);
-    }
-
     return config;
   }
 

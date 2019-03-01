@@ -11,6 +11,7 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.LinkedHashMap;
 import org.jetbrains.annotations.Nullable;
 import java.util.Collections;
+import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.util.PathManager;
 
 /**
@@ -50,6 +51,12 @@ public class EnvironmentConfig {
     return SetSequence.fromSet(myLibs).asUnmodifiable();
   }
 
+  /**
+   * 
+   * @deprecated unused, no reason to keep
+   */
+  @Deprecated
+  @ToRemove(version = 2019.1)
   public Set<String> getPluginClassPath() {
     return myPluginClassPath;
   }
@@ -69,6 +76,12 @@ public class EnvironmentConfig {
     return this;
   }
 
+  /**
+   * 
+   * @deprecated unused value, just drop uses
+   */
+  @Deprecated
+  @ToRemove(version = 2019.1)
   public void addPluginClassPath(String cp) {
     SetSequence.fromSet(myPluginClassPath).addElement(cp);
   }
@@ -104,7 +117,8 @@ public class EnvironmentConfig {
   }
 
   public EnvironmentConfig withMigrationPlugin() {
-    return addPlugin("migration", "jetbrains.mps.ide.migration.workbench");
+    // migration plugin depends on modelchecker, add both 
+    return addPlugin("modelchecker", "jetbrains.mps.ide.modelchecker").addPlugin("migration", "jetbrains.mps.ide.migration.workbench");
   }
 
   public EnvironmentConfig withBootstrapLibraries() {

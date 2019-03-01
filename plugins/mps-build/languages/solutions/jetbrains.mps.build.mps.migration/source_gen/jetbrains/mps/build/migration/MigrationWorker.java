@@ -22,7 +22,6 @@ import java.lang.reflect.Method;
 import com.intellij.openapi.project.ProjectManager;
 import com.intellij.ide.impl.ProjectUtil;
 import com.intellij.openapi.application.ModalityState;
-import jetbrains.mps.util.PathManager;
 import jetbrains.mps.tool.common.PluginData;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 
@@ -37,9 +36,9 @@ public class MigrationWorker extends MpsWorker {
   @Override
   protected Environment createEnvironment() {
     EnvironmentConfig cfg = createEnvironmentConfig(myWhatToDo);
-    cfg.addPlugin("migration", MigrationWorker.MIGRATION_PLUGIN);
-    // todo: be more precise with the classpath 
-    addPluginsToClassPath(cfg);
+    // adding migration plugin here seems to be useless as it has to be in CP already to work properly. 
+    // Looks like we have to specify 'migration' plugin in myWhatToDo in MigrationTask instead. 
+    cfg.withMigrationPlugin();
     addCustomPluginsToLoad(cfg);
 
     IdeaEnvironment environment = new IdeaEnvironment(cfg);
@@ -73,6 +72,8 @@ public class MigrationWorker extends MpsWorker {
       ApplicationManager.getApplication().invokeAndWait(new Runnable() {
         public void run() {
           try {
+            // XXX instead of explicit IDEA's PluginManager, we could use CL of "j.m.migration.component" MPS module to load desired class 
+            // MPS would resort to proper plugin CL to perform the task. 
             Class<?> euClass = PluginManager.getPlugin(PluginId.getId(MIGRATION_PLUGIN)).getPluginClassLoader().loadClass(TASK_EXEC_CLASS);
             Method method = euClass.getMethod("migrate", Project.class);
             method.invoke(null, p);
@@ -87,22 +88,6 @@ public class MigrationWorker extends MpsWorker {
 
       p.dispose();
       myEnvironment.flushAllEvents();
-    }
-  }
-
-  private void addPluginsToClassPath(EnvironmentConfig cfg) {
-    File pluginDir = new File(PathManager.getPreInstalledPluginsPath());
-    for (File plugin : pluginDir.listFiles()) {
-      if (plugin.isFile()) {
-        cfg.addPluginClassPath(plugin.getAbsolutePath());
-      } else {
-        File lib = new File(plugin + File.separator + "lib");
-        if (lib.exists() && lib.isDirectory()) {
-          for (File libJar : lib.listFiles(PathManager.JAR_FILE_FILTER)) {
-            cfg.addPluginClassPath(libJar.getAbsolutePath());
-          }
-        }
-      }
     }
   }
 

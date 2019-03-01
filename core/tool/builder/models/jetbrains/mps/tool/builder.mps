@@ -1021,40 +1021,6 @@
             </node>
           </node>
         </node>
-        <node concept="2Gpval" id="r$A3E5wBtN" role="3cqZAp">
-          <node concept="2GrKxI" id="r$A3E5wBtP" role="2Gsz3X">
-            <property role="TrG5h" value="pd" />
-          </node>
-          <node concept="3clFbS" id="r$A3E5wBtT" role="2LFqv$">
-            <node concept="3clFbF" id="r$A3E5wGfI" role="3cqZAp">
-              <node concept="2OqwBi" id="3x_lgCAjngU" role="3clFbG">
-                <node concept="37vLTw" id="3x_lgCAjmtF" role="2Oq$k0">
-                  <ref role="3cqZAo" node="63P3E8$mb3r" resolve="config" />
-                </node>
-                <node concept="liA8E" id="3x_lgCAjo0H" role="2OqNvi">
-                  <ref role="37wK5l" to="79ha:3x_lgCAhs48" resolve="addPluginClassPath" />
-                  <node concept="2OqwBi" id="r$A3E5wJr5" role="37wK5m">
-                    <node concept="2GrUjf" id="r$A3E5wJnz" role="2Oq$k0">
-                      <ref role="2Gs0qQ" node="r$A3E5wBtP" resolve="pd" />
-                    </node>
-                    <node concept="2OwXpG" id="r$A3E5wKw9" role="2OqNvi">
-                      <ref role="2Oxat5" to="asz6:QkG2t1bxbe" resolve="path" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="2OqwBi" id="3x_lgCAfj4g" role="2GsD0m">
-            <node concept="37vLTw" id="3x_lgCAjjrL" role="2Oq$k0">
-              <ref role="3cqZAo" node="63P3E8$mb5C" resolve="whatToDo" />
-            </node>
-            <node concept="liA8E" id="3x_lgCAfj4i" role="2OqNvi">
-              <ref role="37wK5l" to="asz6:r$A3E5tFQj" resolve="getPlugins" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbH" id="r$A3E5wHr4" role="3cqZAp" />
         <node concept="3clFbF" id="63P3E8$mb5A" role="3cqZAp">
           <node concept="37vLTw" id="63P3E8$mb5B" role="3clFbG">
             <ref role="3cqZAo" node="63P3E8$mb3r" resolve="config" />
