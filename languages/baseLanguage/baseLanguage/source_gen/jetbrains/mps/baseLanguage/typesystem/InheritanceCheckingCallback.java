@@ -171,10 +171,14 @@ public class InheritanceCheckingCallback implements ClassifierTraversalCallback 
   }
 
   private void mergeOwnSignatures(SNode current) {
+    InheritanceCheckingCallback.SignatureRecord record = MapSequence.fromMap(myClassifier2Signatures).get(current);
     for (SNode clMethod : Sequence.fromIterable(Classifier__BehaviorDescriptor.methods_id4_LVZ3pBKCn.invoke(current))) {
       if (trackMethod(clMethod)) {
         Signature signature = createSignature(clMethod);
-        updateSignatureForClassifier(current, signature, clMethod);
+        SNode oldImpl = record.getTopMostImplementation(signature);
+        if (oldImpl == null || !((boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(clMethod))) {
+          updateSignatureForClassifier(current, signature, clMethod);
+        }
       }
     }
   }

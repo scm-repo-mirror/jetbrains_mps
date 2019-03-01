@@ -64389,6 +64389,22 @@
         </node>
       </node>
       <node concept="3clFbS" id="3rj45ZViS34" role="3clF47">
+        <node concept="3cpWs8" id="6O4rE5goEkt" role="3cqZAp">
+          <node concept="3cpWsn" id="6O4rE5goEku" role="3cpWs9">
+            <property role="TrG5h" value="record" />
+            <node concept="3uibUv" id="6O4rE5goEkr" role="1tU5fm">
+              <ref role="3uigEE" node="3rj45ZUQIrK" resolve="InheritanceCheckingCallback.SignatureRecord" />
+            </node>
+            <node concept="3EllGN" id="6O4rE5goEkv" role="33vP2m">
+              <node concept="37vLTw" id="6O4rE5goEkw" role="3ElVtu">
+                <ref role="3cqZAo" node="3rj45ZViS3w" resolve="current" />
+              </node>
+              <node concept="37vLTw" id="6O4rE5goEkx" role="3ElQJh">
+                <ref role="3cqZAo" node="3rj45ZUQMHg" resolve="myClassifier2Signatures" />
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="2Gpval" id="3rj45ZViS35" role="3cqZAp">
           <node concept="2GrKxI" id="3rj45ZViS36" role="2Gsz3X">
             <property role="TrG5h" value="clMethod" />
@@ -64418,17 +64434,58 @@
                     </node>
                   </node>
                 </node>
-                <node concept="3clFbF" id="3rj45ZXuDoc" role="3cqZAp">
-                  <node concept="1rXfSq" id="3rj45ZViS3m" role="3clFbG">
-                    <ref role="37wK5l" node="3rj45ZVf1Bg" resolve="updateSignatureForClassifier" />
-                    <node concept="37vLTw" id="3rj45ZViS3y" role="37wK5m">
-                      <ref role="3cqZAo" node="3rj45ZViS3w" resolve="current" />
+                <node concept="3cpWs8" id="6O4rE5goLxf" role="3cqZAp">
+                  <node concept="3cpWsn" id="6O4rE5goLxg" role="3cpWs9">
+                    <property role="TrG5h" value="oldImpl" />
+                    <node concept="3Tqbb2" id="6O4rE5goLxa" role="1tU5fm">
+                      <ref role="ehGHo" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
                     </node>
-                    <node concept="37vLTw" id="3rj45ZVO33A" role="37wK5m">
-                      <ref role="3cqZAo" node="3rj45ZXq6_9" resolve="signature" />
+                    <node concept="2OqwBi" id="6O4rE5goLxh" role="33vP2m">
+                      <node concept="37vLTw" id="6O4rE5goLxi" role="2Oq$k0">
+                        <ref role="3cqZAo" node="6O4rE5goEku" resolve="record" />
+                      </node>
+                      <node concept="liA8E" id="6O4rE5goLxj" role="2OqNvi">
+                        <ref role="37wK5l" node="3rj45ZVX39o" resolve="getTopMostImplementation" />
+                        <node concept="37vLTw" id="6O4rE5goLxk" role="37wK5m">
+                          <ref role="3cqZAo" node="3rj45ZXq6_9" resolve="signature" />
+                        </node>
+                      </node>
                     </node>
-                    <node concept="2GrUjf" id="3rj45ZViS3p" role="37wK5m">
-                      <ref role="2Gs0qQ" node="3rj45ZViS36" resolve="clMethod" />
+                  </node>
+                </node>
+                <node concept="3clFbJ" id="6O4rE5goG$L" role="3cqZAp">
+                  <node concept="3clFbS" id="6O4rE5goG$N" role="3clFbx">
+                    <node concept="3clFbF" id="3rj45ZXuDoc" role="3cqZAp">
+                      <node concept="1rXfSq" id="3rj45ZViS3m" role="3clFbG">
+                        <ref role="37wK5l" node="3rj45ZVf1Bg" resolve="updateSignatureForClassifier" />
+                        <node concept="37vLTw" id="3rj45ZViS3y" role="37wK5m">
+                          <ref role="3cqZAo" node="3rj45ZViS3w" resolve="current" />
+                        </node>
+                        <node concept="37vLTw" id="3rj45ZVO33A" role="37wK5m">
+                          <ref role="3cqZAo" node="3rj45ZXq6_9" resolve="signature" />
+                        </node>
+                        <node concept="2GrUjf" id="3rj45ZViS3p" role="37wK5m">
+                          <ref role="2Gs0qQ" node="3rj45ZViS36" resolve="clMethod" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="22lmx$" id="6O4rE5gpR2U" role="3clFbw">
+                    <node concept="3clFbC" id="6O4rE5goMw5" role="3uHU7B">
+                      <node concept="37vLTw" id="6O4rE5goM1q" role="3uHU7B">
+                        <ref role="3cqZAo" node="6O4rE5goLxg" resolve="oldImpl" />
+                      </node>
+                      <node concept="10Nm6u" id="6O4rE5goMxv" role="3uHU7w" />
+                    </node>
+                    <node concept="3fqX7Q" id="6O4rE5gpSoG" role="3uHU7w">
+                      <node concept="2OqwBi" id="6O4rE5gpSoI" role="3fr31v">
+                        <node concept="2GrUjf" id="6O4rE5gpSoJ" role="2Oq$k0">
+                          <ref role="2Gs0qQ" node="3rj45ZViS36" resolve="clMethod" />
+                        </node>
+                        <node concept="2qgKlT" id="6O4rE5gpSoK" role="2OqNvi">
+                          <ref role="37wK5l" to="tpek:28P2dHxCoRl" resolve="isAnAbstractMethod" />
+                        </node>
+                      </node>
                     </node>
                   </node>
                 </node>
