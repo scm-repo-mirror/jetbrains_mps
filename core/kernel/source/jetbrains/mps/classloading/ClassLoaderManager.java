@@ -263,7 +263,7 @@ public class ClassLoaderManager implements CoreComponent {
    */
   @Internal
   @NotNull
-  MPSModuleClassLoader getClassLoader(final SModule module) {
+  public MPSModuleClassLoader getClassLoader(final SModule module) {
     if (!myLoadableCondition.met(module)) {
       return DEFAULT_DELEGATING_TO_SYSTEM_CL;
     }
@@ -500,7 +500,8 @@ public class ClassLoaderManager implements CoreComponent {
    * @internal use module-specific method {@link jetbrains.mps.module.ReloadableModule#reload()}
    * @see jetbrains.mps.module.ReloadableModule
    */
-  void reloadModule(SModule module) {
+  @Internal
+  public void reloadModule(SModule module) {
     reloadModules(Collections.singleton(module), new EmptyProgressMonitor());
   }
 

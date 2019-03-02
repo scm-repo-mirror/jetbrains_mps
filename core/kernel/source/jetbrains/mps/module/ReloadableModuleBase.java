@@ -13,13 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package jetbrains.mps.classloading;
+package jetbrains.mps.module;
 
-import jetbrains.mps.module.LoadedClassIsNullException;
-import jetbrains.mps.module.ModuleClassLoaderIsNullException;
-import jetbrains.mps.module.ReloadableModule;
+import jetbrains.mps.classloading.ClassLoaderManager;
+import jetbrains.mps.classloading.MPSModuleClassLoader;
+import jetbrains.mps.classloading.ModuleClassLoader;
 import jetbrains.mps.project.AbstractModule;
-import jetbrains.mps.util.InternUtil;
 import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.IFile;
 import org.apache.log4j.LogManager;

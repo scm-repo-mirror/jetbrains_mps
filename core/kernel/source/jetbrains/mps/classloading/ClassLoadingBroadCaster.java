@@ -19,6 +19,7 @@ import jetbrains.mps.classloading.DeployListener.ResourceTrackerCallback;
 import jetbrains.mps.classloading.MPSClassLoadersRegistry.ModuleClassLoaderDisposer;
 import jetbrains.mps.classloading.MPSClassLoadersRegistry.ModuleClassLoaderDisposer.DisposeSession;
 import jetbrains.mps.module.ReloadableModule;
+import jetbrains.mps.module.ReloadableModuleBase;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;

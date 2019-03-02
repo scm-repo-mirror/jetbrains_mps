@@ -15,8 +15,7 @@
  */
 package jetbrains.mps.smodel.tempmodel;
 
-import jetbrains.mps.classloading.ClassLoaderManager;
-import jetbrains.mps.classloading.ReloadableModuleBase;
+import jetbrains.mps.module.ReloadableModuleBase;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.project.facets.JavaModuleFacet;
 import jetbrains.mps.project.structure.model.ModelRootDescriptor;
