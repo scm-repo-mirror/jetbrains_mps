@@ -130,15 +130,32 @@ public class Script {
   public Map<String, String> getMacro() {
     return Collections.unmodifiableMap(myStartupData.getMacros());
   }
+  public void updateMacro(Map<String, String> macro) {
+    myStartupData.getMacros().putAll(macro);
+  }
+
   public void addPlugin(PluginData p) {
     myStartupData.addPlugin(p);
   }
   public List<PluginData> getPlugins() {
     return Collections.unmodifiableList(myStartupData.getPlugins());
   }
-  public void updateMacro(Map<String, String> macro) {
-    myStartupData.getMacros().putAll(macro);
+
+  public void classpathWithPlugins(boolean pluginsInClasspath) {
+    myStartupData.addProperty("classpathWithPlugins", Boolean.toString(pluginsInClasspath));
   }
+  /**
+   * 
+   * @return true if Task builds worker's classpath with plugin locations, and worker may rely on this when deciding whether it needs to build custom plugin classpath or shall assume classes global availability
+   */
+  public boolean isClasspathWithPlugins() {
+    String value = myStartupData.getProperties().get("classpathWithPlugins");
+    // FIXME MPS though it's only 2018.3 that started to add plugins to classpath, I decided to go with 'true' as fallback value 
+    //       while I work on headless IdeaEnvironment. Likely shall become 'false'  
+    final boolean legacyDefaultValue = true;
+    return (value == null ? legacyDefaultValue : Boolean.parseBoolean(value));
+  }
+
 
   public void updateLogLevel(Level level) {
     myStartupData.setLogLevel(level);

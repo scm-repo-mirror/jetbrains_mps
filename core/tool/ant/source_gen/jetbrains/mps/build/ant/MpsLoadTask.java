@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.Hashtable;
 import java.util.HashSet;
 import jetbrains.mps.tool.common.PluginData;
+import java.util.Collections;
 import org.apache.tools.ant.util.JavaEnvUtils;
 import java.io.IOException;
 import org.apache.tools.ant.taskdefs.Execute;
@@ -26,7 +27,6 @@ import java.io.PrintWriter;
 import java.lang.reflect.Constructor;
 import org.apache.tools.ant.ProjectComponent;
 import java.lang.reflect.Method;
-import java.util.Collections;
 import java.io.FileInputStream;
 import org.jetbrains.annotations.Nullable;
 import java.util.LinkedHashSet;
@@ -175,9 +175,17 @@ public class MpsLoadTask extends Task {
         myWhatToDo.addMacro((String) name, (String) value);
       }
     }
-    Set<File> pluginsClassPath = new HashSet<File>();
-    for (PluginData pd : myWhatToDo.getPlugins()) {
-      MPSClasspathUtil.gatherAllClassesAndJarsUnder(new File(pd.path), pluginsClassPath);
+    final Set<File> pluginsClassPath;
+    if (myWhatToDo.isClasspathWithPlugins()) {
+      // perhaps, plugin classpath logic shall be part of calculateClassPath(boolean) method 
+      // but for the time being, keep it here (it's supplied through independent file, not through -classpath arg) 
+      // FIXME once there's jar/manifest.mf trick to build long classpath, and no AntBootstrap mediator, this logic shall move to calculateClassPath 
+      pluginsClassPath = new HashSet<File>();
+      for (PluginData pd : myWhatToDo.getPlugins()) {
+        MPSClasspathUtil.gatherAllClassesAndJarsUnder(new File(pd.path), pluginsClassPath);
+      }
+    } else {
+      pluginsClassPath = Collections.emptySet();
     }
     if (myFork) {
       String currentClassPathString = System.getProperty("java.class.path");

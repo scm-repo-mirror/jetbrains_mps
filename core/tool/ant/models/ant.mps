@@ -2304,60 +2304,109 @@
         <node concept="3cpWs8" id="5JXeQM0uHun" role="3cqZAp">
           <node concept="3cpWsn" id="5JXeQM0uHuo" role="3cpWs9">
             <property role="TrG5h" value="pluginsClassPath" />
-            <property role="3TUv4t" value="false" />
+            <property role="3TUv4t" value="true" />
             <node concept="3uibUv" id="5JXeQM0uHup" role="1tU5fm">
               <ref role="3uigEE" to="33ny:~Set" resolve="Set" />
               <node concept="3uibUv" id="5JXeQM0uHuq" role="11_B2D">
                 <ref role="3uigEE" to="guwi:~File" resolve="File" />
               </node>
             </node>
-            <node concept="2ShNRf" id="5JXeQM0uZKN" role="33vP2m">
-              <node concept="1pGfFk" id="5JXeQM0v0s6" role="2ShVmc">
-                <ref role="37wK5l" to="33ny:~HashSet.&lt;init&gt;()" resolve="HashSet" />
-                <node concept="3uibUv" id="5JXeQM0v1q2" role="1pMfVU">
-                  <ref role="3uigEE" to="guwi:~File" resolve="File" />
-                </node>
-              </node>
-            </node>
           </node>
         </node>
-        <node concept="1DcWWT" id="5YX6lGsJdKO" role="3cqZAp">
-          <node concept="3clFbS" id="5YX6lGsJdKQ" role="2LFqv$">
-            <node concept="3clFbF" id="5YX6lGsJs14" role="3cqZAp">
-              <node concept="2YIFZM" id="5YX6lGsJs15" role="3clFbG">
-                <ref role="37wK5l" node="vAjk0V2aML" resolve="gatherAllClassesAndJarsUnder" />
-                <ref role="1Pybhc" node="3t7WP23N$8C" resolve="MPSClasspathUtil" />
-                <node concept="2ShNRf" id="5YX6lGsJu1q" role="37wK5m">
-                  <node concept="1pGfFk" id="5YX6lGsJuE2" role="2ShVmc">
-                    <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String)" resolve="File" />
-                    <node concept="2OqwBi" id="5YX6lGsJuWZ" role="37wK5m">
-                      <node concept="37vLTw" id="5YX6lGsJuSm" role="2Oq$k0">
-                        <ref role="3cqZAo" node="5YX6lGsJdKR" resolve="pd" />
-                      </node>
-                      <node concept="2OwXpG" id="5YX6lGsJvam" role="2OqNvi">
-                        <ref role="2Oxat5" to="asz6:QkG2t1bxbe" resolve="path" />
-                      </node>
+        <node concept="3clFbJ" id="28$8eDn7xtP" role="3cqZAp">
+          <node concept="3clFbS" id="28$8eDn7xtR" role="3clFbx">
+            <node concept="3SKdUt" id="28$8eDn81cY" role="3cqZAp">
+              <node concept="3SKdUq" id="28$8eDn81d0" role="3SKWNk">
+                <property role="3SKdUp" value="perhaps, plugin classpath logic shall be part of calculateClassPath(boolean) method" />
+              </node>
+            </node>
+            <node concept="3SKdUt" id="28$8eDn82YE" role="3cqZAp">
+              <node concept="3SKdUq" id="28$8eDn82YG" role="3SKWNk">
+                <property role="3SKdUp" value="but for the time being, keep it here (it's supplied through independent file, not through -classpath arg)" />
+              </node>
+            </node>
+            <node concept="3SKdUt" id="28$8eDn85eY" role="3cqZAp">
+              <node concept="3SKdUq" id="28$8eDn85f0" role="3SKWNk">
+                <property role="3SKdUp" value="FIXME once there's jar/manifest.mf trick to build long classpath, and no AntBootstrap mediator, this logic shall move to calculateClassPath" />
+              </node>
+            </node>
+            <node concept="3clFbF" id="28$8eDn7Lsb" role="3cqZAp">
+              <node concept="37vLTI" id="28$8eDn7Lsd" role="3clFbG">
+                <node concept="2ShNRf" id="5JXeQM0uZKN" role="37vLTx">
+                  <node concept="1pGfFk" id="5JXeQM0v0s6" role="2ShVmc">
+                    <ref role="37wK5l" to="33ny:~HashSet.&lt;init&gt;()" resolve="HashSet" />
+                    <node concept="3uibUv" id="5JXeQM0v1q2" role="1pMfVU">
+                      <ref role="3uigEE" to="guwi:~File" resolve="File" />
                     </node>
                   </node>
                 </node>
-                <node concept="37vLTw" id="5YX6lGsJtPd" role="37wK5m">
+                <node concept="37vLTw" id="28$8eDn7Lsh" role="37vLTJ">
                   <ref role="3cqZAo" node="5JXeQM0uHuo" resolve="pluginsClassPath" />
                 </node>
               </node>
             </node>
-          </node>
-          <node concept="3cpWsn" id="5YX6lGsJdKR" role="1Duv9x">
-            <property role="TrG5h" value="pd" />
-            <node concept="3uibUv" id="5YX6lGsJhvc" role="1tU5fm">
-              <ref role="3uigEE" to="asz6:r$A3E5vV_o" resolve="PluginData" />
+            <node concept="1DcWWT" id="5YX6lGsJdKO" role="3cqZAp">
+              <node concept="3clFbS" id="5YX6lGsJdKQ" role="2LFqv$">
+                <node concept="3clFbF" id="5YX6lGsJs14" role="3cqZAp">
+                  <node concept="2YIFZM" id="5YX6lGsJs15" role="3clFbG">
+                    <ref role="37wK5l" node="vAjk0V2aML" resolve="gatherAllClassesAndJarsUnder" />
+                    <ref role="1Pybhc" node="3t7WP23N$8C" resolve="MPSClasspathUtil" />
+                    <node concept="2ShNRf" id="5YX6lGsJu1q" role="37wK5m">
+                      <node concept="1pGfFk" id="5YX6lGsJuE2" role="2ShVmc">
+                        <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String)" resolve="File" />
+                        <node concept="2OqwBi" id="5YX6lGsJuWZ" role="37wK5m">
+                          <node concept="37vLTw" id="5YX6lGsJuSm" role="2Oq$k0">
+                            <ref role="3cqZAo" node="5YX6lGsJdKR" resolve="pd" />
+                          </node>
+                          <node concept="2OwXpG" id="5YX6lGsJvam" role="2OqNvi">
+                            <ref role="2Oxat5" to="asz6:QkG2t1bxbe" resolve="path" />
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="37vLTw" id="5YX6lGsJtPd" role="37wK5m">
+                      <ref role="3cqZAo" node="5JXeQM0uHuo" resolve="pluginsClassPath" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3cpWsn" id="5YX6lGsJdKR" role="1Duv9x">
+                <property role="TrG5h" value="pd" />
+                <node concept="3uibUv" id="5YX6lGsJhvc" role="1tU5fm">
+                  <ref role="3uigEE" to="asz6:r$A3E5vV_o" resolve="PluginData" />
+                </node>
+              </node>
+              <node concept="2OqwBi" id="5YX6lGsJkZH" role="1DdaDG">
+                <node concept="37vLTw" id="5YX6lGsJi0X" role="2Oq$k0">
+                  <ref role="3cqZAo" node="3ufQioQQtje" resolve="myWhatToDo" />
+                </node>
+                <node concept="liA8E" id="5YX6lGsJo4E" role="2OqNvi">
+                  <ref role="37wK5l" to="asz6:r$A3E5tFQj" resolve="getPlugins" />
+                </node>
+              </node>
             </node>
           </node>
-          <node concept="2OqwBi" id="5YX6lGsJkZH" role="1DdaDG">
-            <node concept="37vLTw" id="5YX6lGsJi0X" role="2Oq$k0">
+          <node concept="2OqwBi" id="28$8eDn7CRd" role="3clFbw">
+            <node concept="37vLTw" id="28$8eDn7_y4" role="2Oq$k0">
               <ref role="3cqZAo" node="3ufQioQQtje" resolve="myWhatToDo" />
             </node>
-            <node concept="liA8E" id="5YX6lGsJo4E" role="2OqNvi">
-              <ref role="37wK5l" to="asz6:r$A3E5tFQj" resolve="getPlugins" />
+            <node concept="liA8E" id="28$8eDn7Ge1" role="2OqNvi">
+              <ref role="37wK5l" to="asz6:28$8eDn6Inb" resolve="isClasspathWithPlugins" />
+            </node>
+          </node>
+          <node concept="9aQIb" id="28$8eDn7Vrg" role="9aQIa">
+            <node concept="3clFbS" id="28$8eDn7Vrh" role="9aQI4">
+              <node concept="3clFbF" id="28$8eDn7Zcl" role="3cqZAp">
+                <node concept="37vLTI" id="28$8eDn7ZYL" role="3clFbG">
+                  <node concept="2YIFZM" id="28$8eDn80rT" role="37vLTx">
+                    <ref role="37wK5l" to="33ny:~Collections.emptySet():java.util.Set" resolve="emptySet" />
+                    <ref role="1Pybhc" to="33ny:~Collections" resolve="Collections" />
+                  </node>
+                  <node concept="37vLTw" id="28$8eDn7Zck" role="37vLTJ">
+                    <ref role="3cqZAo" node="5JXeQM0uHuo" resolve="pluginsClassPath" />
+                  </node>
+                </node>
+              </node>
             </node>
           </node>
         </node>

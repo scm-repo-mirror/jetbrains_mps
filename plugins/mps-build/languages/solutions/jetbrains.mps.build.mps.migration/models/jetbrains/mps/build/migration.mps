@@ -116,6 +116,7 @@
       <concept id="1068580123136" name="jetbrains.mps.baseLanguage.structure.StatementList" flags="sn" stub="5293379017992965193" index="3clFbS">
         <child id="1068581517665" name="statement" index="3cqZAp" />
       </concept>
+      <concept id="1068580123137" name="jetbrains.mps.baseLanguage.structure.BooleanConstant" flags="nn" index="3clFbT" />
       <concept id="1068580123140" name="jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" flags="ig" index="3clFbW" />
       <concept id="1068580320020" name="jetbrains.mps.baseLanguage.structure.IntegerConstant" flags="nn" index="3cmrfG">
         <property id="1068580320021" name="value" index="3cmrfH" />
@@ -265,13 +266,14 @@
             </node>
             <node concept="2ShNRf" id="5kpQnuAv7PE" role="33vP2m">
               <node concept="1pGfFk" id="1oo0A63GGet" role="2ShVmc">
-                <ref role="37wK5l" to="cky9:6rx4kZDkRjb" resolve="IdeaEnvironment" />
+                <ref role="37wK5l" to="cky9:4OPNMy2crcG" resolve="IdeaEnvironment" />
                 <node concept="1rXfSq" id="28$8eDmXY8e" role="37wK5m">
                   <ref role="37wK5l" to="jo3e:63P3E8$mb3n" resolve="createEnvironmentConfig" />
                   <node concept="37vLTw" id="28$8eDmXY8f" role="37wK5m">
                     <ref role="3cqZAo" to="jo3e:KL8Aqlj5lG" resolve="myWhatToDo" />
                   </node>
                 </node>
+                <node concept="3clFbT" id="28$8eDn9YZ9" role="37wK5m" />
               </node>
             </node>
           </node>
