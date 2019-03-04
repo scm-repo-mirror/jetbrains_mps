@@ -15,8 +15,6 @@ import java.util.LinkedHashSet;
 import java.io.File;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
-import jetbrains.mps.tool.environment.Environment;
-import jetbrains.mps.tool.environment.MpsEnvironment;
 
 public class GeneratorWorker extends BaseGeneratorWorker {
   public GeneratorWorker(Script whatToDo, MpsWorker.AntLogger logger) {
@@ -67,13 +65,6 @@ public class GeneratorWorker extends BaseGeneratorWorker {
     });
 
     showStatistic();
-  }
-
-  @Override
-  protected Environment createEnvironment() {
-    MpsEnvironment environment = new MpsEnvironment(createEnvironmentConfig(myWhatToDo));
-    environment.init();
-    return environment;
   }
 
   public static void main(String[] args) {

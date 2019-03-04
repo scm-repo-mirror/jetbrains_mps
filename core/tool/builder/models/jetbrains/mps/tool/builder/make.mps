@@ -170,7 +170,6 @@
         <child id="5680397130376446158" name="type" index="1tU5fm" />
       </concept>
       <concept id="1068580123132" name="jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration" flags="ng" index="3clF44">
-        <property id="4276006055363816570" name="isSynchronized" index="od$2w" />
         <property id="1181808852946" name="isFinal" index="DiZV1" />
         <child id="1068580123133" name="returnType" index="3clF45" />
         <child id="1068580123134" name="parameter" index="3clF46" />
@@ -2057,56 +2056,6 @@
       </node>
     </node>
     <node concept="2tJIrI" id="4Ncgb9xKHmm" role="jymVt" />
-    <node concept="3clFb_" id="3tCNlYuECO8" role="jymVt">
-      <property role="1EzhhJ" value="false" />
-      <property role="TrG5h" value="createEnvironment" />
-      <property role="od$2w" value="false" />
-      <property role="DiZV1" value="false" />
-      <node concept="3uibUv" id="3tCNlYuECO9" role="3clF45">
-        <ref role="3uigEE" to="79ha:HKKzfMjqRV" resolve="Environment" />
-      </node>
-      <node concept="3Tmbuc" id="3tCNlYuECOq" role="1B3o_S" />
-      <node concept="3clFbS" id="3tCNlYuECOs" role="3clF47">
-        <node concept="3cpWs8" id="4Ncgb9xKDUx" role="3cqZAp">
-          <node concept="3cpWsn" id="4Ncgb9xKDUy" role="3cpWs9">
-            <property role="TrG5h" value="environment" />
-            <node concept="3uibUv" id="2Lhbskiz2B$" role="1tU5fm">
-              <ref role="3uigEE" to="79ha:6rx4kZDk6yp" resolve="MpsEnvironment" />
-            </node>
-            <node concept="2ShNRf" id="4Ncgb9xKDU$" role="33vP2m">
-              <node concept="1pGfFk" id="4Ncgb9xKDU_" role="2ShVmc">
-                <ref role="37wK5l" to="79ha:6rx4kZDkRyV" resolve="MpsEnvironment" />
-                <node concept="1rXfSq" id="63P3E8$mG2f" role="37wK5m">
-                  <ref role="37wK5l" to="jo3e:63P3E8$mb3n" resolve="createEnvironmentConfig" />
-                  <node concept="37vLTw" id="63P3E8$mHNi" role="37wK5m">
-                    <ref role="3cqZAo" to="jo3e:KL8Aqlj5lG" resolve="myWhatToDo" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="4Ncgb9xKDUB" role="3cqZAp">
-          <node concept="2OqwBi" id="4Ncgb9xKDUC" role="3clFbG">
-            <node concept="37vLTw" id="4Ncgb9xKDUD" role="2Oq$k0">
-              <ref role="3cqZAo" node="4Ncgb9xKDUy" resolve="environment" />
-            </node>
-            <node concept="liA8E" id="4Ncgb9xKDUE" role="2OqNvi">
-              <ref role="37wK5l" to="79ha:3eUNqOk7hpY" resolve="init" />
-            </node>
-          </node>
-        </node>
-        <node concept="3cpWs6" id="3tCNlYuENrN" role="3cqZAp">
-          <node concept="37vLTw" id="3tCNlYuEOxI" role="3cqZAk">
-            <ref role="3cqZAo" node="4Ncgb9xKDUy" resolve="environment" />
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="3tCNlYuECOt" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="2tJIrI" id="5A5jZrz133X" role="jymVt" />
     <node concept="2YIFZL" id="3GGnItM97oW" role="jymVt">
       <property role="TrG5h" value="main" />
       <node concept="37vLTG" id="3GGnItM97oZ" role="3clF46">
