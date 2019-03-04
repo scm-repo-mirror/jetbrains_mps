@@ -8539,6 +8539,16 @@
             <property role="3SKdUp" value=" migration plugin depends on modelchecker" />
           </node>
         </node>
+        <node concept="3SKdUt" id="28$8eDna1$c" role="3cqZAp">
+          <node concept="3SKdUq" id="28$8eDna1$e" role="3SKWNk">
+            <property role="3SKdUp" value="we don't care about proper plugin path as these are pre-installed MPS plugins and get loaded by native IDEA code from PathManager.getPreInstalledPluginsPath()" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="28$8eDna4sg" role="3cqZAp">
+          <node concept="3SKdUq" id="28$8eDna4si" role="3SKWNk">
+            <property role="3SKdUp" value="as long as headless IdeaApplication doesn't start in unittest mode." />
+          </node>
+        </node>
         <node concept="3clFbF" id="4OPNMy23jjR" role="3cqZAp">
           <node concept="2OqwBi" id="4OPNMy23kl4" role="3clFbG">
             <node concept="37vLTw" id="4OPNMy23jjO" role="2Oq$k0">
@@ -8578,6 +8588,27 @@
                   </node>
                 </node>
               </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="28$8eDn9QSN" role="3cqZAp">
+          <node concept="3SKdUq" id="28$8eDn9QSP" role="3SKWNk">
+            <property role="3SKdUp" value="MigrationWorker starts headless IdeaEnvironment, not IdeaTestApplication (the one with unittest mode == true), which loads idea plugins properly, using native idea mechanism" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="28$8eDn9Tls" role="3cqZAp">
+          <node concept="3SKdUq" id="28$8eDn9Tlu" role="3SKWNk">
+            <property role="3SKdUp" value="hence no need to fill global CP with plugin locations." />
+          </node>
+        </node>
+        <node concept="3clFbF" id="28$8eDn9OhX" role="3cqZAp">
+          <node concept="2OqwBi" id="28$8eDn9PhZ" role="3clFbG">
+            <node concept="37vLTw" id="28$8eDn9OhV" role="2Oq$k0">
+              <ref role="3cqZAo" node="3ufQioQQtje" resolve="myWhatToDo" />
+            </node>
+            <node concept="liA8E" id="28$8eDn9QtU" role="2OqNvi">
+              <ref role="37wK5l" to="asz6:28$8eDn5Luf" resolve="classpathWithPlugins" />
+              <node concept="3clFbT" id="28$8eDn9QzA" role="37wK5m" />
             </node>
           </node>
         </node>

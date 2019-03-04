@@ -36,9 +36,11 @@
     <import index="ncw5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util.annotation(MPS.Core/)" />
     <import index="7nyy" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs.refresh(MPS.Core/)" />
     <import index="9w4s" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util(MPS.IDEA/)" />
-    <import index="f061" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application.ex(MPS.IDEA/)" />
     <import index="ctgy" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ide.plugins(MPS.IDEA/)" />
+    <import index="f061" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.application.ex(MPS.IDEA/)" />
     <import index="zn9m" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util(MPS.IDEA/)" />
+    <import index="je6q" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.library.contributor(MPS.Core/)" />
+    <import index="32g5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.library(MPS.Core/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -233,6 +235,7 @@
       </concept>
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
+      <concept id="1146644641414" name="jetbrains.mps.baseLanguage.structure.ProtectedVisibility" flags="nn" index="3Tmbuc" />
       <concept id="1116615150612" name="jetbrains.mps.baseLanguage.structure.ClassifierClassExpression" flags="nn" index="3VsKOn">
         <reference id="1116615189566" name="classifier" index="3VsUkX" />
       </concept>
@@ -289,6 +292,7 @@
       <concept id="1153944233411" name="jetbrains.mps.baseLanguage.collections.structure.ForEachVariableReference" flags="nn" index="2GrUjf">
         <reference id="1153944258490" name="variable" index="2Gs0qQ" />
       </concept>
+      <concept id="1176501494711" name="jetbrains.mps.baseLanguage.collections.structure.IsNotEmptyOperation" flags="nn" index="3GX2aA" />
     </language>
   </registry>
   <node concept="312cEu" id="6rx4kZDk5Br">
@@ -323,10 +327,10 @@
       <property role="eg7rD" value="false" />
       <property role="TrG5h" value="myIdeaApplication" />
       <property role="3TUv4t" value="false" />
+      <node concept="3Tm6S6" id="2jln2VraAlF" role="1B3o_S" />
       <node concept="3uibUv" id="4OPNMy2cAkl" role="1tU5fm">
         <ref role="3uigEE" to="1wbl:~CommandLineApplication" resolve="CommandLineApplication" />
       </node>
-      <node concept="3Tm6S6" id="2jln2VraAlF" role="1B3o_S" />
     </node>
     <node concept="312cEg" id="4OPNMy2cxpb" role="jymVt">
       <property role="TrG5h" value="myUnitTestMode" />
@@ -1305,9 +1309,6 @@
       <property role="TrG5h" value="createIdeaTestApp" />
       <property role="od$2w" value="false" />
       <property role="DiZV1" value="false" />
-      <node concept="3uibUv" id="4OPNMy2cFrB" role="3clF45">
-        <ref role="3uigEE" to="1wbl:~CommandLineApplication" resolve="CommandLineApplication" />
-      </node>
       <node concept="3clFbS" id="6z7xhWku8L4" role="3clF47">
         <node concept="RRSsy" id="3jYQuSB36Wa" role="3cqZAp">
           <property role="RRSoG" value="info" />
@@ -1402,6 +1403,9 @@
         </node>
       </node>
       <node concept="3Tm6S6" id="6z7xhWku6$B" role="1B3o_S" />
+      <node concept="3uibUv" id="4OPNMy2cFrB" role="3clF45">
+        <ref role="3uigEE" to="1wbl:~CommandLineApplication" resolve="CommandLineApplication" />
+      </node>
     </node>
     <node concept="2tJIrI" id="3YQ3dO9l$od" role="jymVt" />
     <node concept="3Tm1VV" id="6rx4kZDk5Bs" role="1B3o_S" />
@@ -1702,9 +1706,6 @@
                         </node>
                         <node concept="3clFbF" id="2LK9TYv$UsL" role="3cqZAp">
                           <node concept="2OqwBi" id="2LK9TYv$UsM" role="3clFbG">
-                            <node concept="37vLTw" id="4OPNMy2dVVt" role="2Oq$k0">
-                              <ref role="3cqZAo" node="4OPNMy2dVVr" resolve="application" />
-                            </node>
                             <node concept="liA8E" id="2LK9TYv$UsN" role="2OqNvi">
                               <ref role="37wK5l" to="bd8o:~Application.runWriteAction(java.lang.Runnable):void" resolve="runWriteAction" />
                               <node concept="2ShNRf" id="2LK9TYv$UsO" role="37wK5m">
@@ -1777,6 +1778,9 @@
                                 </node>
                               </node>
                             </node>
+                            <node concept="37vLTw" id="4OPNMy2dVVt" role="2Oq$k0">
+                              <ref role="3cqZAo" node="4OPNMy2dVVr" resolve="application" />
+                            </node>
                           </node>
                         </node>
                       </node>
@@ -1793,6 +1797,100 @@
             </node>
           </node>
         </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="28$8eDnaekl" role="jymVt" />
+    <node concept="2tJIrI" id="28$8eDnae_4" role="jymVt" />
+    <node concept="3clFb_" id="28$8eDnahaU" role="jymVt">
+      <property role="TrG5h" value="initLibraries" />
+      <property role="od$2w" value="false" />
+      <property role="DiZV1" value="false" />
+      <node concept="37vLTG" id="28$8eDnahaV" role="3clF46">
+        <property role="TrG5h" value="libInitializer" />
+        <node concept="3uibUv" id="28$8eDnajYH" role="1tU5fm">
+          <ref role="3uigEE" to="32g5:~LibraryInitializer" resolve="LibraryInitializer" />
+        </node>
+        <node concept="2AHcQZ" id="28$8eDnahaX" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="3Tmbuc" id="28$8eDnahbS" role="1B3o_S" />
+      <node concept="3cqZAl" id="28$8eDnahbT" role="3clF45" />
+      <node concept="3clFbS" id="28$8eDnahbU" role="3clF47">
+        <node concept="3SKdUt" id="28$8eDnaryi" role="3cqZAp">
+          <node concept="3SKdUq" id="28$8eDnaryk" role="3SKWNk">
+            <property role="3SKdUp" value=" FIXME refactor super (a) not to deal with plugins (has to be left to MpsEnvironment or thrown away altogether, global CP seems to be sufficient)" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="28$8eDnasYF" role="3cqZAp">
+          <node concept="3SKdUq" id="28$8eDnasYH" role="3SKWNk">
+            <property role="3SKdUp" value="       (b) build a list of LibraryContributor, instead, as it's easier to modify the list than to deal with whole mighty LibraryInitializer." />
+          </node>
+        </node>
+        <node concept="3clFbJ" id="74F5dZ_1JI4" role="3cqZAp">
+          <node concept="3clFbS" id="74F5dZ_1JI6" role="3clFbx">
+            <node concept="3cpWs8" id="3eUNqOk96xr" role="3cqZAp">
+              <node concept="3cpWsn" id="3eUNqOk96xs" role="3cpWs9">
+                <property role="TrG5h" value="helper" />
+                <node concept="3uibUv" id="3eUNqOk96xp" role="1tU5fm">
+                  <ref role="3uigEE" to="79ha:3eUNqOk8qK6" resolve="LibraryContributorHelper" />
+                </node>
+                <node concept="2ShNRf" id="3eUNqOk96xt" role="33vP2m">
+                  <node concept="1pGfFk" id="3eUNqOk96xu" role="2ShVmc">
+                    <ref role="37wK5l" to="79ha:3eUNqOk8rbd" resolve="LibraryContributorHelper" />
+                    <node concept="37vLTw" id="3eUNqOk96xv" role="37wK5m">
+                      <ref role="3cqZAo" to="79ha:3eUNqOk7wUa" resolve="myConfig" />
+                    </node>
+                    <node concept="1rXfSq" id="28$8eDnamEd" role="37wK5m">
+                      <ref role="37wK5l" to="79ha:5mffBJ2WBJ9" resolve="getRootClassLoader" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="28$8eDnaoc6" role="3cqZAp">
+              <node concept="2OqwBi" id="28$8eDnaoyI" role="3clFbG">
+                <node concept="37vLTw" id="28$8eDnaoc4" role="2Oq$k0">
+                  <ref role="3cqZAo" node="28$8eDnahaV" resolve="libInitializer" />
+                </node>
+                <node concept="liA8E" id="28$8eDnap6N" role="2OqNvi">
+                  <ref role="37wK5l" to="32g5:~LibraryInitializer.load(java.util.List):void" resolve="load" />
+                  <node concept="2YIFZM" id="28$8eDnar4v" role="37wK5m">
+                    <ref role="37wK5l" to="33ny:~Collections.singletonList(java.lang.Object):java.util.List" resolve="singletonList" />
+                    <ref role="1Pybhc" to="33ny:~Collections" resolve="Collections" />
+                    <node concept="2OqwBi" id="28$8eDnar4w" role="37wK5m">
+                      <node concept="37vLTw" id="28$8eDnar4x" role="2Oq$k0">
+                        <ref role="3cqZAo" node="3eUNqOk96xs" resolve="helper" />
+                      </node>
+                      <node concept="liA8E" id="28$8eDnar4y" role="2OqNvi">
+                        <ref role="37wK5l" to="79ha:3eUNqOk8lkP" resolve="createLibContributorForLibs" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="2OqwBi" id="74F5dZ_1KhG" role="3clFbw">
+            <node concept="2OqwBi" id="74F5dZ_1K2b" role="2Oq$k0">
+              <node concept="37vLTw" id="74F5dZ_1JXh" role="2Oq$k0">
+                <ref role="3cqZAo" to="79ha:3eUNqOk7wUa" resolve="myConfig" />
+              </node>
+              <node concept="liA8E" id="74F5dZ_1K8T" role="2OqNvi">
+                <ref role="37wK5l" to="79ha:5UWB9tkma7" resolve="getLibs" />
+              </node>
+            </node>
+            <node concept="3GX2aA" id="74F5dZ_1KLQ" role="2OqNvi" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="28$8eDnawaY" role="3cqZAp">
+          <node concept="3SKdUq" id="28$8eDnawb0" role="3SKWNk">
+            <property role="3SKdUp" value="modules from IDEA plugins are loaded with regular plafrom component mechanism (ext points, PluginLibraryContributor and RepositoryInitializingComponent)" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="28$8eDnahbV" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="4J9cha2cxg8" role="jymVt" />

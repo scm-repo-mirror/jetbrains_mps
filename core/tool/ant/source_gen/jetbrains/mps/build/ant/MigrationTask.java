@@ -27,8 +27,13 @@ public class MigrationTask extends MpsLoadTask {
     super("jetbrains.mps.build.migration.MigrationWorker");
     setFailOnError(true);
     //  migration plugin depends on modelchecker 
+    // we don't care about proper plugin path as these are pre-installed MPS plugins and get loaded by native IDEA code from PathManager.getPreInstalledPluginsPath() 
+    // as long as headless IdeaApplication doesn't start in unittest mode. 
     myWhatToDo.addPlugin(new PluginData("modelchecker", "jetbrains.mps.ide.modelchecker"));
     myWhatToDo.addPlugin(new PluginData("migration", "jetbrains.mps.ide.migration.workbench"));
+    // MigrationWorker starts headless IdeaEnvironment, not IdeaTestApplication (the one with unittest mode == true), which loads idea plugins properly, using native idea mechanism 
+    // hence no need to fill global CP with plugin locations. 
+    myWhatToDo.classpathWithPlugins(false);
   }
 
   public void setProject(String project) {
