@@ -223,14 +223,14 @@ public class SPropertyOperations {
     }
     return propertyValue;
   }
-  private static Object downgradeFromEnumMember(SProperty property, Object propertyValue) {
+  public static Object downgradeFromEnumMember(SProperty property, Object propertyValue) {
     SDataType type = property.getType();
     if (propertyValue instanceof SEnumerationLiteral && type instanceof SEnumerationAdapter) {
       return ((SEnumerationAdapter) type).getRawValueFromLiteral((SEnumerationLiteral) propertyValue);
     }
     return propertyValue;
   }
-  private static Object deserializeIfNeeded(String string, SProperty property) {
+  public static Object deserializeIfNeeded(String string, SProperty property) {
     // While regenerated smodel code calls proper `assign` and `set` methods (by respecting type of a property) 
     // old code serialize properties and then invokes `assign` and `set` with `String propertyValue` argument 
     // To handle not-regenerated code we have this compatiblity aux until 18.3 will be released 

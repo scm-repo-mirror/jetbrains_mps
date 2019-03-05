@@ -29,6 +29,8 @@ import jetbrains.mps.smodel.runtime.PropertyDescriptor;
 import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SDataType;
+import org.jetbrains.mps.openapi.language.SEnumeration;
 import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -178,6 +180,8 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDis
   }
 
   @Override
+  @Deprecated
+  @ToRemove(version = 19.1)
   public void setValue(SNode node, String value) {
     if (!isSetterDefault()) {
       setterDescriptor.setValue(node, value);
@@ -187,12 +191,52 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDis
   }
 
   @Override
+  public void setPropertyValue(SNode node, Object value) {
+    if (!isSetterDefault()) {
+      if (setterDescriptor == this) {
+        // TODO remove clause after 19.1
+        setValue(node, passAsRawValue(value));
+        return;
+      }
+      setterDescriptor.setPropertyValue(node, value);
+    } else {
+      node.setProperty(myProperty, myProperty.getType().toString(value));
+    }
+  }
+
+  @Deprecated
+  @ToRemove(version = 19.1)
+  @Override
   public boolean validateValue(SNode node, String value) {
     if (!isValidatorDefault()) {
       return validatorDescriptor.validateValue(node, value);
     } else {
       return true;
     }
+  }
+
+  @Override
+  public boolean validateValue(SNode node, Object value) {
+    if (!isValidatorDefault()) {
+      if (validatorDescriptor == this) {
+        // TODO remove clause after 19.1
+        return validateValue(node, passAsRawValue(value));
+      }
+      return validatorDescriptor.validateValue(node, value);
+    } else {
+      return true;
+    }
+  }
+
+  private String passAsRawValue(Object value) {
+    SDataType type = myProperty.getType();
+    if (type instanceof SEnumeration && value instanceof SEnumerationLiteral) {
+      SEnumerationLiteral literal = (SEnumerationLiteral) value;
+      if (type.equals(literal.getEnumeration())) {
+        return literal.getName();
+      }
+    }
+    return type.toString(value);
   }
 
   @Override

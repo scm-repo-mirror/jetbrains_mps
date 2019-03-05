@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.smodel.runtime;
 
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -27,17 +28,17 @@ public interface PropertyConstraintsDescriptor {
 
   Object getValue(SNode node);
 
+  @Deprecated
+  @ToRemove(version = 19.1)
   void setValue(SNode node, String value);
 
-  default void setPropertyValue(SNode node, Object value) {
-    setValue(node, getSProperty().getType().toString(value));
-  }
+  void setPropertyValue(SNode node, Object value);
 
+  @Deprecated
+  @ToRemove(version = 19.1)
   boolean validateValue(SNode node, String value);
 
-  default boolean validateValue(SNode node, Object value) {
-    return validateValue(node, getSProperty().getType().toString(value));
-  }
+  boolean validateValue(SNode node, Object value);
 
   boolean isReadOnly();
 }
