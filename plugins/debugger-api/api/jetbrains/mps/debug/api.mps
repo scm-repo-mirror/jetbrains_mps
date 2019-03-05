@@ -2964,7 +2964,7 @@
       <ref role="3uigEE" node="3SnNvqCaJgQ" resolve="IDebuggerSettings" />
     </node>
     <node concept="Wx3nA" id="3SnNvqCaJwQ" role="jymVt">
-      <property role="TrG5h" value="myInstance" />
+      <property role="TrG5h" value="INSTANCE" />
       <property role="3TUv4t" value="true" />
       <node concept="3uibUv" id="3SnNvqCaJwR" role="1tU5fm">
         <ref role="3uigEE" node="3SnNvqCaJfN" resolve="EmptyDebuggerSettings" />
@@ -2976,11 +2976,13 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="4rbJdZOzNBU" role="jymVt" />
     <node concept="3clFbW" id="3SnNvqCaJx1" role="jymVt">
       <node concept="3Tm6S6" id="3SnNvqCaJx2" role="1B3o_S" />
       <node concept="3cqZAl" id="3SnNvqCaJx3" role="3clF45" />
       <node concept="3clFbS" id="3SnNvqCaJx4" role="3clF47" />
     </node>
+    <node concept="2tJIrI" id="4rbJdZOzNb7" role="jymVt" />
     <node concept="3clFb_" id="3SnNvqCaJx5" role="jymVt">
       <property role="1EzhhJ" value="false" />
       <property role="TrG5h" value="getCommandLine" />
@@ -3008,6 +3010,7 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="2tJIrI" id="4rbJdZOzNb8" role="jymVt" />
     <node concept="3clFb_" id="3SnNvqCaJxf" role="jymVt">
       <property role="1EzhhJ" value="false" />
       <property role="TrG5h" value="isEmpty" />
@@ -3025,6 +3028,7 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="2tJIrI" id="4rbJdZOzNb9" role="jymVt" />
     <node concept="2YIFZL" id="3SnNvqCaJwV" role="jymVt">
       <property role="TrG5h" value="getInstance" />
       <property role="DiZV1" value="false" />
@@ -3035,7 +3039,7 @@
       <node concept="3clFbS" id="3SnNvqCaJwY" role="3clF47">
         <node concept="3cpWs6" id="3SnNvqCaJwZ" role="3cqZAp">
           <node concept="37vLTw" id="2BHiRxeop1s" role="3cqZAk">
-            <ref role="3cqZAo" node="3SnNvqCaJwQ" resolve="myInstance" />
+            <ref role="3cqZAo" node="3SnNvqCaJwQ" resolve="INSTANCE" />
           </node>
         </node>
       </node>

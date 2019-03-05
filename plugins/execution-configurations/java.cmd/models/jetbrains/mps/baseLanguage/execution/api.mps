@@ -3596,7 +3596,7 @@
                 <node concept="2OqwBi" id="6woObKLBCka" role="37wK5m">
                   <node concept="yHkzx" id="6woObKLBCkb" role="2Oq$k0" />
                   <node concept="yHkDZ" id="6woObKLBCkc" role="2OqNvi">
-                    <ref role="yHkDY" node="6woObKLBCks" resolve="myJavaRunParameters" />
+                    <ref role="yHkDY" node="6woObKLBCks" resolve="myJavaParameters" />
                   </node>
                 </node>
               </node>
@@ -3616,7 +3616,7 @@
                 <node concept="2OqwBi" id="6woObKLBCkj" role="37wK5m">
                   <node concept="yHkzx" id="6woObKLBCkk" role="2Oq$k0" />
                   <node concept="yHkDZ" id="6woObKLBCkl" role="2OqNvi">
-                    <ref role="yHkDY" node="6woObKLBCks" resolve="myJavaRunParameters" />
+                    <ref role="yHkDY" node="6woObKLBCks" resolve="myJavaParameters" />
                   </node>
                 </node>
               </node>
@@ -3640,8 +3640,8 @@
       </node>
     </node>
     <node concept="yHkDC" id="6woObKLBCks" role="yHkDi">
-      <property role="TrG5h" value="myJavaRunParameters" />
-      <node concept="2pR195" id="6woObKLBCkt" role="1tU5fm">
+      <property role="TrG5h" value="myJavaParameters" />
+      <node concept="3uibUv" id="4rbJdZOH3Xd" role="1tU5fm">
         <ref role="3uigEE" node="14R2qyOCsUf" resolve="JavaRunParameters" />
       </node>
       <node concept="2ry78W" id="6woObKLBCku" role="33vP2m">

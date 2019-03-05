@@ -10,6 +10,7 @@
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="13" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="8" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="-1" />
+    <use id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples" version="0" />
   </languages>
   <imports>
     <import index="xk9i" ref="r:49e49752-a85e-4d81-811e-1dc850a8e4cd(jetbrains.mps.execution.lib.ui)" />
@@ -52,6 +53,27 @@
     <import index="yctd" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.findUsages(MPS.Core/)" />
   </imports>
   <registry>
+    <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
+      <concept id="1239360506533" name="jetbrains.mps.baseLanguage.tuples.structure.NamedTupleDeclaration" flags="ng" index="2fD8I5">
+        <child id="1239529553065" name="component" index="2pHZQ9" />
+      </concept>
+      <concept id="1239462176079" name="jetbrains.mps.baseLanguage.tuples.structure.NamedTupleComponentDeclaration" flags="ng" index="2lGYhJ">
+        <property id="1240400839614" name="final" index="3dDGau" />
+        <child id="1239462974287" name="type" index="2lK19J" />
+      </concept>
+      <concept id="1239531918181" name="jetbrains.mps.baseLanguage.tuples.structure.NamedTupleType" flags="in" index="2pR195" />
+      <concept id="1239559992092" name="jetbrains.mps.baseLanguage.tuples.structure.NamedTupleLiteral" flags="nn" index="2ry78W">
+        <reference id="1239560008022" name="tupleDeclaration" index="2ryb1Q" />
+        <child id="1239560910577" name="componentRef" index="2r_Bvh" />
+      </concept>
+      <concept id="1239560581441" name="jetbrains.mps.baseLanguage.tuples.structure.NamedTupleComponentReference" flags="ng" index="2r$n1x">
+        <reference id="1239560595302" name="componentDeclaration" index="2r$qp6" />
+        <child id="1239560837729" name="value" index="2r_lH1" />
+      </concept>
+      <concept id="1239576519914" name="jetbrains.mps.baseLanguage.tuples.structure.NamedTupleComponentAccessOperation" flags="nn" index="2sxana">
+        <reference id="1239576542472" name="component" index="2sxfKC" />
+      </concept>
+    </language>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
       <concept id="1080223426719" name="jetbrains.mps.baseLanguage.structure.OrExpression" flags="nn" index="22lmx$" />
       <concept id="1082485599095" name="jetbrains.mps.baseLanguage.structure.BlockStatement" flags="nn" index="9aQIb">
@@ -228,6 +250,7 @@
       <concept id="1107461130800" name="jetbrains.mps.baseLanguage.structure.Classifier" flags="ng" index="3pOWGL">
         <property id="521412098689998745" name="nonStatic" index="2bfB8j" />
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
+        <child id="1107880067339" name="method" index="3MN40a" />
       </concept>
       <concept id="7812454656619025416" name="jetbrains.mps.baseLanguage.structure.MethodDeclaration" flags="ng" index="1rXfSm">
         <property id="8355037393041754995" name="isNative" index="2aFKle" />
@@ -1311,6 +1334,91 @@
   </node>
   <node concept="yHkDy" id="5gyVhZ1bm9a">
     <property role="TrG5h" value="JUnitSettings" />
+    <node concept="yHkDC" id="5gyVhZ1bmch" role="yHkDi">
+      <property role="TrG5h" value="myModelRef" />
+      <node concept="17QB3L" id="5gyVhZ1bmci" role="1tU5fm" />
+    </node>
+    <node concept="yHkDC" id="5gyVhZ1bmcj" role="yHkDi">
+      <property role="TrG5h" value="myModuleRef" />
+      <node concept="17QB3L" id="4Zh$Fg2VfUN" role="1tU5fm" />
+    </node>
+    <node concept="yHkDC" id="1hvQXBo5kdH" role="yHkDi">
+      <property role="TrG5h" value="myInProcess" />
+      <node concept="10P_77" id="1hvQXBo5l5z" role="1tU5fm" />
+      <node concept="3clFbT" id="1hvQXBo5nSb" role="33vP2m">
+        <property role="3clFbU" value="true" />
+      </node>
+    </node>
+    <node concept="yHkDC" id="78pvOus4b8w" role="yHkDi">
+      <property role="TrG5h" value="myReuseCaches" />
+      <node concept="10P_77" id="78pvOus4d9F" role="1tU5fm" />
+      <node concept="3clFbT" id="25_S60VA_Ld" role="33vP2m">
+        <property role="3clFbU" value="true" />
+      </node>
+    </node>
+    <node concept="yHkDC" id="5X1zr0$Iwjq" role="yHkDi">
+      <property role="TrG5h" value="myOverrideCachesLocation" />
+      <node concept="10P_77" id="5X1zr0$Ix88" role="1tU5fm" />
+      <node concept="3clFbT" id="5X1zr0$Ixl9" role="33vP2m">
+        <property role="3clFbU" value="false" />
+      </node>
+    </node>
+    <node concept="yHkDC" id="a4sarQXDI6" role="yHkDi">
+      <property role="TrG5h" value="myDebug" />
+      <node concept="10P_77" id="a4sarQXGb8" role="1tU5fm" />
+      <node concept="3clFbT" id="a4sarQXIz$" role="33vP2m">
+        <property role="3clFbU" value="false" />
+      </node>
+    </node>
+    <node concept="yHkDC" id="29IGCqrBT0S" role="yHkDi">
+      <property role="TrG5h" value="myCachesPath" />
+      <node concept="17QB3L" id="29IGCqrBTNB" role="1tU5fm" />
+      <node concept="2OqwBi" id="2ID7c2zTnwM" role="33vP2m">
+        <node concept="2WthIp" id="2ID7c2zTnwP" role="2Oq$k0" />
+        <node concept="2XshWL" id="2ID7c2zTnwR" role="2OqNvi">
+          <ref role="2WH_rO" node="29IGCqr_3Cy" resolve="getDefaultPathForCaches" />
+        </node>
+      </node>
+    </node>
+    <node concept="yHkDC" id="5gyVhZ1bmcl" role="yHkDi">
+      <property role="TrG5h" value="myTestCases" />
+      <node concept="3uibUv" id="5gyVhZ1bmcm" role="1tU5fm">
+        <ref role="3uigEE" to="awpe:4sYvxkKOO0G" resolve="ClonableList" />
+        <node concept="17QB3L" id="5gyVhZ1bmcn" role="11_B2D" />
+      </node>
+      <node concept="2ShNRf" id="5gyVhZ1bmco" role="33vP2m">
+        <node concept="1pGfFk" id="5gyVhZ1bmcp" role="2ShVmc">
+          <ref role="37wK5l" to="awpe:4sYvxkKOO0L" resolve="ClonableList" />
+          <node concept="17QB3L" id="5gyVhZ1bmcq" role="1pMfVU" />
+        </node>
+      </node>
+    </node>
+    <node concept="yHkDC" id="5gyVhZ1bmcr" role="yHkDi">
+      <property role="TrG5h" value="myTestMethods" />
+      <node concept="3uibUv" id="5gyVhZ1bmcs" role="1tU5fm">
+        <ref role="3uigEE" to="awpe:4sYvxkKOO0G" resolve="ClonableList" />
+        <node concept="17QB3L" id="5gyVhZ1bmct" role="11_B2D" />
+      </node>
+      <node concept="2ShNRf" id="5gyVhZ1bmcu" role="33vP2m">
+        <node concept="1pGfFk" id="5gyVhZ1bmcv" role="2ShVmc">
+          <ref role="37wK5l" to="awpe:4sYvxkKOO0L" resolve="ClonableList" />
+          <node concept="17QB3L" id="5gyVhZ1bmcw" role="1pMfVU" />
+        </node>
+      </node>
+    </node>
+    <node concept="yHkDC" id="5gyVhZ1bmcx" role="yHkDi">
+      <property role="TrG5h" value="myRunType" />
+      <node concept="2OqwBi" id="2h1wjLbYve_" role="33vP2m">
+        <node concept="Rm8GO" id="t4Oe5vJvm4" role="2Oq$k0">
+          <ref role="1Px2BO" node="5gyVhZ1bmkR" resolve="JUnitRunTypes" />
+          <ref role="Rm8GQ" node="5gyVhZ1bmql" resolve="PROJECT" />
+        </node>
+        <node concept="liA8E" id="2h1wjLbY_wM" role="2OqNvi">
+          <ref role="37wK5l" to="wyt6:~Enum.ordinal():int" resolve="ordinal" />
+        </node>
+      </node>
+      <node concept="10Oyi0" id="2h1wjLbYpqv" role="1tU5fm" />
+    </node>
     <node concept="yHkHE" id="29IGCqr_3Cy" role="yHkHi">
       <property role="TrG5h" value="getDefaultPathForCaches" />
       <node concept="17QB3L" id="29IGCqr_4sV" role="3clF45" />
@@ -1966,91 +2074,6 @@
         </node>
       </node>
       <node concept="3Tm6S6" id="3xoR9RibcKm" role="1B3o_S" />
-    </node>
-    <node concept="yHkDC" id="5gyVhZ1bmch" role="yHkDi">
-      <property role="TrG5h" value="myModelRef" />
-      <node concept="17QB3L" id="5gyVhZ1bmci" role="1tU5fm" />
-    </node>
-    <node concept="yHkDC" id="5gyVhZ1bmcj" role="yHkDi">
-      <property role="TrG5h" value="myModuleRef" />
-      <node concept="17QB3L" id="4Zh$Fg2VfUN" role="1tU5fm" />
-    </node>
-    <node concept="yHkDC" id="1hvQXBo5kdH" role="yHkDi">
-      <property role="TrG5h" value="myInProcess" />
-      <node concept="10P_77" id="1hvQXBo5l5z" role="1tU5fm" />
-      <node concept="3clFbT" id="1hvQXBo5nSb" role="33vP2m">
-        <property role="3clFbU" value="true" />
-      </node>
-    </node>
-    <node concept="yHkDC" id="78pvOus4b8w" role="yHkDi">
-      <property role="TrG5h" value="myReuseCaches" />
-      <node concept="10P_77" id="78pvOus4d9F" role="1tU5fm" />
-      <node concept="3clFbT" id="25_S60VA_Ld" role="33vP2m">
-        <property role="3clFbU" value="true" />
-      </node>
-    </node>
-    <node concept="yHkDC" id="5X1zr0$Iwjq" role="yHkDi">
-      <property role="TrG5h" value="myOverrideCachesLocation" />
-      <node concept="10P_77" id="5X1zr0$Ix88" role="1tU5fm" />
-      <node concept="3clFbT" id="5X1zr0$Ixl9" role="33vP2m">
-        <property role="3clFbU" value="false" />
-      </node>
-    </node>
-    <node concept="yHkDC" id="a4sarQXDI6" role="yHkDi">
-      <property role="TrG5h" value="myDebug" />
-      <node concept="10P_77" id="a4sarQXGb8" role="1tU5fm" />
-      <node concept="3clFbT" id="a4sarQXIz$" role="33vP2m">
-        <property role="3clFbU" value="false" />
-      </node>
-    </node>
-    <node concept="yHkDC" id="29IGCqrBT0S" role="yHkDi">
-      <property role="TrG5h" value="myCachesPath" />
-      <node concept="17QB3L" id="29IGCqrBTNB" role="1tU5fm" />
-      <node concept="2OqwBi" id="2ID7c2zTnwM" role="33vP2m">
-        <node concept="2WthIp" id="2ID7c2zTnwP" role="2Oq$k0" />
-        <node concept="2XshWL" id="2ID7c2zTnwR" role="2OqNvi">
-          <ref role="2WH_rO" node="29IGCqr_3Cy" resolve="getDefaultPathForCaches" />
-        </node>
-      </node>
-    </node>
-    <node concept="yHkDC" id="5gyVhZ1bmcl" role="yHkDi">
-      <property role="TrG5h" value="myTestCases" />
-      <node concept="3uibUv" id="5gyVhZ1bmcm" role="1tU5fm">
-        <ref role="3uigEE" to="awpe:4sYvxkKOO0G" resolve="ClonableList" />
-        <node concept="17QB3L" id="5gyVhZ1bmcn" role="11_B2D" />
-      </node>
-      <node concept="2ShNRf" id="5gyVhZ1bmco" role="33vP2m">
-        <node concept="1pGfFk" id="5gyVhZ1bmcp" role="2ShVmc">
-          <ref role="37wK5l" to="awpe:4sYvxkKOO0L" resolve="ClonableList" />
-          <node concept="17QB3L" id="5gyVhZ1bmcq" role="1pMfVU" />
-        </node>
-      </node>
-    </node>
-    <node concept="yHkDC" id="5gyVhZ1bmcr" role="yHkDi">
-      <property role="TrG5h" value="myTestMethods" />
-      <node concept="3uibUv" id="5gyVhZ1bmcs" role="1tU5fm">
-        <ref role="3uigEE" to="awpe:4sYvxkKOO0G" resolve="ClonableList" />
-        <node concept="17QB3L" id="5gyVhZ1bmct" role="11_B2D" />
-      </node>
-      <node concept="2ShNRf" id="5gyVhZ1bmcu" role="33vP2m">
-        <node concept="1pGfFk" id="5gyVhZ1bmcv" role="2ShVmc">
-          <ref role="37wK5l" to="awpe:4sYvxkKOO0L" resolve="ClonableList" />
-          <node concept="17QB3L" id="5gyVhZ1bmcw" role="1pMfVU" />
-        </node>
-      </node>
-    </node>
-    <node concept="yHkDC" id="5gyVhZ1bmcx" role="yHkDi">
-      <property role="TrG5h" value="myRunType" />
-      <node concept="2OqwBi" id="2h1wjLbYve_" role="33vP2m">
-        <node concept="Rm8GO" id="t4Oe5vJvm4" role="2Oq$k0">
-          <ref role="Rm8GQ" node="5gyVhZ1bmql" resolve="PROJECT" />
-          <ref role="1Px2BO" node="5gyVhZ1bmkR" resolve="JUnitRunTypes" />
-        </node>
-        <node concept="liA8E" id="2h1wjLbY_wM" role="2OqNvi">
-          <ref role="37wK5l" to="wyt6:~Enum.ordinal():int" resolve="ordinal" />
-        </node>
-      </node>
-      <node concept="10Oyi0" id="2h1wjLbYpqv" role="1tU5fm" />
     </node>
     <node concept="yHkDc" id="5gyVhZ1bmcz" role="yHkHg">
       <node concept="yHkD3" id="5gyVhZ1bmc$" role="yHkCN">
@@ -9113,6 +9136,78 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+  </node>
+  <node concept="2fD8I5" id="14R2qyOCsUf">
+    <property role="TrG5h" value="JUnitParamsTuple" />
+    <node concept="3clFb_" id="14R2qyOCsUg" role="3MN40a">
+      <property role="TrG5h" value="clone" />
+      <node concept="2pR195" id="14R2qyOCsUh" role="3clF45">
+        <ref role="3uigEE" node="14R2qyOCsUf" resolve="JUnitParamsTuple" />
+      </node>
+      <node concept="3Tm1VV" id="14R2qyOCsUi" role="1B3o_S" />
+      <node concept="3clFbS" id="14R2qyOCsUj" role="3clF47">
+        <node concept="3clFbF" id="14R2qyOCsUk" role="3cqZAp">
+          <node concept="2ry78W" id="14R2qyOCsUl" role="3clFbG">
+            <ref role="2ryb1Q" node="14R2qyOCsUf" resolve="JUnitParamsTuple" />
+            <node concept="2r$n1x" id="14R2qyOCsUm" role="2r_Bvh">
+              <ref role="2r$qp6" node="14R2qyOCsWC" resolve="myInProcess" />
+              <node concept="2OqwBi" id="14R2qyOCsUn" role="2r_lH1">
+                <node concept="Xjq3P" id="14R2qyOCsUo" role="2Oq$k0" />
+                <node concept="2sxana" id="14R2qyOCsUp" role="2OqNvi">
+                  <ref role="2sxfKC" node="14R2qyOCsWC" resolve="myInProcess" />
+                </node>
+              </node>
+            </node>
+            <node concept="2r$n1x" id="14R2qyOCsUq" role="2r_Bvh">
+              <ref role="2r$qp6" to=":14R2qyOCsWE" resolve="vmOptions" />
+              <node concept="2OqwBi" id="14R2qyOCsUr" role="2r_lH1">
+                <node concept="Xjq3P" id="14R2qyOCsUs" role="2Oq$k0" />
+                <node concept="2sxana" id="14R2qyOCsUt" role="2OqNvi">
+                  <ref role="2sxfKC" to=":14R2qyOCsWE" resolve="vmOptions" />
+                </node>
+              </node>
+            </node>
+            <node concept="2r$n1x" id="14R2qyOCsUu" role="2r_Bvh">
+              <ref role="2r$qp6" to=":14R2qyOCsWG" resolve="jrePath" />
+              <node concept="2OqwBi" id="14R2qyOCsUv" role="2r_lH1">
+                <node concept="Xjq3P" id="14R2qyOCsUw" role="2Oq$k0" />
+                <node concept="2sxana" id="14R2qyOCsUx" role="2OqNvi">
+                  <ref role="2sxfKC" to=":14R2qyOCsWG" resolve="jrePath" />
+                </node>
+              </node>
+            </node>
+            <node concept="2r$n1x" id="14R2qyOCsUy" role="2r_Bvh">
+              <ref role="2r$qp6" to=":14R2qyOCsWI" resolve="workingDirectory" />
+              <node concept="2OqwBi" id="14R2qyOCsUz" role="2r_lH1">
+                <node concept="Xjq3P" id="14R2qyOCsU$" role="2Oq$k0" />
+                <node concept="2sxana" id="14R2qyOCsU_" role="2OqNvi">
+                  <ref role="2sxfKC" to=":14R2qyOCsWI" resolve="workingDirectory" />
+                </node>
+              </node>
+            </node>
+            <node concept="2r$n1x" id="14R2qyOCsUA" role="2r_Bvh">
+              <ref role="2r$qp6" to=":14R2qyOCsWK" resolve="useAlternativeJre" />
+              <node concept="2OqwBi" id="14R2qyOCsUB" role="2r_lH1">
+                <node concept="Xjq3P" id="14R2qyOCsUC" role="2Oq$k0" />
+                <node concept="2sxana" id="14R2qyOCsUD" role="2OqNvi">
+                  <ref role="2sxfKC" to=":14R2qyOCsWK" resolve="useAlternativeJre" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2lGYhJ" id="14R2qyOCsWC" role="2pHZQ9">
+      <property role="3dDGau" value="false" />
+      <property role="TrG5h" value="myInProcess" />
+      <node concept="10P_77" id="4rbJdZOMbS2" role="2lK19J" />
+    </node>
+    <node concept="2lGYhJ" id="4rbJdZOMiQ0" role="2pHZQ9">
+      <property role="TrG5h" value="myReuseCaches" />
+      <node concept="10P_77" id="4rbJdZOMkBB" role="2lK19J" />
+    </node>
+    <node concept="3Tm1VV" id="14R2qyOCsWM" role="1B3o_S" />
   </node>
 </model>
 

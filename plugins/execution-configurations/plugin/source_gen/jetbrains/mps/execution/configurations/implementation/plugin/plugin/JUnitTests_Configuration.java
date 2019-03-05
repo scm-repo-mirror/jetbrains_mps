@@ -41,8 +41,10 @@ public class JUnitTests_Configuration extends BaseMpsRunConfiguration implements
   private static final Logger LOG = LogManager.getLogger(JUnitTests_Configuration.class);
   private JUnitSettings_Configuration myJUnitSettings = new JUnitSettings_Configuration(this.getProject());
   private JavaRunParameters_Configuration myJavaRunParameters = new JavaRunParameters_Configuration(this.getProject());
+  private DeployPluginsSettings_Configuration myPluginsSettings = new DeployPluginsSettings_Configuration(this.getProject());
   public void checkConfiguration(final PersistentConfigurationContext context) throws RuntimeConfigurationException {
     this.getJUnitSettings().checkConfiguration(context);
+    this.getPluginsSettings().checkConfiguration(context);
   }
   @Override
   public void writeExternal(Element element) throws WriteExternalException {
@@ -54,6 +56,11 @@ public class JUnitTests_Configuration extends BaseMpsRunConfiguration implements
     {
       Element fieldElement = new Element("myJavaRunParameters");
       myJavaRunParameters.writeExternal(fieldElement);
+      element.addContent(fieldElement);
+    }
+    {
+      Element fieldElement = new Element("myPluginsSettings");
+      myPluginsSettings.writeExternal(fieldElement);
       element.addContent(fieldElement);
     }
   }
@@ -82,12 +89,25 @@ public class JUnitTests_Configuration extends BaseMpsRunConfiguration implements
         }
       }
     }
+    {
+      Element fieldElement = element.getChild("myPluginsSettings");
+      if (fieldElement != null) {
+        myPluginsSettings.readExternal(fieldElement);
+      } else {
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("Element " + "myPluginsSettings" + " in " + this.getClass().getName() + " was null.");
+        }
+      }
+    }
   }
   public JUnitSettings_Configuration getJUnitSettings() {
     return myJUnitSettings;
   }
   public JavaRunParameters_Configuration getJavaRunParameters() {
     return myJavaRunParameters;
+  }
+  public DeployPluginsSettings_Configuration getPluginsSettings() {
+    return myPluginsSettings;
   }
   public List<SNodeReference> getTestsToMake() {
     return this.getJUnitSettings().getTestsToMake(ProjectHelper.fromIdeaProject(this.getProject()));
@@ -108,6 +128,7 @@ public class JUnitTests_Configuration extends BaseMpsRunConfiguration implements
     JUnitTests_Configuration clone = createCloneTemplate();
     clone.myJUnitSettings = (JUnitSettings_Configuration) myJUnitSettings.clone();
     clone.myJavaRunParameters = (JavaRunParameters_Configuration) myJavaRunParameters.clone();
+    clone.myPluginsSettings = (DeployPluginsSettings_Configuration) myPluginsSettings.clone();
     return clone;
   }
   public JUnitTests_Configuration(Project project, ConfigurationFactory factory, String name) {
@@ -131,7 +152,7 @@ public class JUnitTests_Configuration extends BaseMpsRunConfiguration implements
     return (JUnitTests_Configuration) super.clone();
   }
   public SettingsEditorEx<? extends IPersistentConfiguration> getEditor() {
-    return new JUnitTests_Configuration_Editor(myJUnitSettings.getEditor(), myJavaRunParameters.getEditor());
+    return new JUnitTests_Configuration_Editor(myJUnitSettings.getEditor(), myJavaRunParameters.getEditor(), myPluginsSettings.getEditor());
   }
   @Override
   public void checkConfiguration() throws RuntimeConfigurationException {

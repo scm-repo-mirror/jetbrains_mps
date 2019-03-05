@@ -12,37 +12,46 @@ import java.awt.GridBagLayout;
 import jetbrains.mps.baseLanguage.execution.api.JavaConfigurationEditorComponent;
 import jetbrains.mps.baseLanguage.unitTest.execution.settings.JUnitConfigurationEditorComponent;
 import jetbrains.mps.ide.common.LayoutUtil;
+import javax.swing.border.EmptyBorder;
 import com.intellij.openapi.options.ConfigurationException;
 
 public class JUnitTests_Configuration_Editor extends SettingsEditorEx<JUnitTests_Configuration> {
   private JUnitSettings_Configuration_Editor myJUnitSettings;
   private JavaRunParameters_Configuration_Editor myJavaRunParameters;
+  private DeployPluginsSettings_Configuration_Editor myPluginsSettings;
   public void disposeEditor() {
     myJUnitSettings.dispose();
     Disposer.dispose(myJUnitSettings);
     Disposer.dispose(myJavaRunParameters);
+    Disposer.dispose(myPluginsSettings);
   }
   @NotNull
   public JPanel createEditor() {
-    JPanel panel = new JPanel(new GridBagLayout());
+    JPanel resultPanel = new JPanel(new GridBagLayout());
 
     JavaConfigurationEditorComponent javaEditorComponent = myJavaRunParameters.createEditor();
     JUnitConfigurationEditorComponent junitEditorComponent = myJUnitSettings.createEditor();
+    JPanel pluginsEditor = myPluginsSettings.createEditor();
     junitEditorComponent.attachJavaComponentsAndUpdateInProcessFlag(javaEditorComponent);
-    panel.add(junitEditorComponent, LayoutUtil.createPanelConstraints(0));
-    panel.add(javaEditorComponent, LayoutUtil.createPanelConstraints(1));
-    return panel;
+    resultPanel.add(junitEditorComponent, LayoutUtil.createPanelConstraints(0));
+    resultPanel.add(javaEditorComponent, LayoutUtil.createPanelConstraints(1));
+    pluginsEditor.setBorder(new EmptyBorder(5, 0, 0, 0));
+    resultPanel.add(pluginsEditor, LayoutUtil.createPanelConstraints(2));
+    return resultPanel;
   }
   public void applyEditorTo(final JUnitTests_Configuration configuration) throws ConfigurationException {
     myJavaRunParameters.applyEditorTo(configuration.getJavaRunParameters());
     myJUnitSettings.applyEditorTo(configuration.getJUnitSettings());
+    myPluginsSettings.applyEditorTo(configuration.getPluginsSettings());
   }
   public void resetEditorFrom(final JUnitTests_Configuration configuration) {
     myJavaRunParameters.resetEditorFrom(configuration.getJavaRunParameters());
     myJUnitSettings.resetEditorFrom(configuration.getJUnitSettings());
+    myPluginsSettings.resetEditorFrom(configuration.getPluginsSettings());
   }
-  public JUnitTests_Configuration_Editor(JUnitSettings_Configuration_Editor jUnitSettings, JavaRunParameters_Configuration_Editor javaRunParameters) {
+  public JUnitTests_Configuration_Editor(JUnitSettings_Configuration_Editor jUnitSettings, JavaRunParameters_Configuration_Editor javaRunParameters, DeployPluginsSettings_Configuration_Editor pluginsSettings) {
     myJUnitSettings = jUnitSettings;
     myJavaRunParameters = javaRunParameters;
+    myPluginsSettings = pluginsSettings;
   }
 }

@@ -5903,27 +5903,62 @@
         </node>
         <node concept="TZ5HA" id="71jmdPUu_HI" role="TZ5H$">
           <node concept="1dT_AC" id="71jmdPUu_HJ" role="1dT_Ay">
-            <property role="1dT_AB" value="Subclasses of BaseTransformationTest may use own @Rule, and their statement would wrap not only test method itself, but also @Before and @After methods as well (see BlockJUnit4ClassRunner#methodBlock)." />
+            <property role="1dT_AB" value="Subclasses of BaseTransformationTest may use own @Rule, and their statement would wrap not only test method itself," />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="5dZuAAftJeA" role="TZ5H$">
+          <node concept="1dT_AC" id="5dZuAAftJeB" role="1dT_Ay">
+            <property role="1dT_AB" value="but also @Before and @After methods as well (see BlockJUnit4ClassRunner#methodBlock)." />
           </node>
         </node>
         <node concept="TZ5HA" id="71jmdPUu_HX" role="TZ5H$">
           <node concept="1dT_AC" id="71jmdPUu_HO" role="1dT_Ay">
-            <property role="1dT_AB" value="Therefore, if we place initialization code in @Before method of this class, it's invoked from inside a statement created by TestRule of a subclass. If that TestRule uses any facilities of the base class" />
+            <property role="1dT_AB" value="Therefore, if we place initialization code in @Before method of this class," />
           </node>
         </node>
-        <node concept="TZ5HA" id="71jmdPUu_Ia" role="TZ5H$">
-          <node concept="1dT_AC" id="71jmdPUu_Ib" role="1dT_Ay">
-            <property role="1dT_AB" value="(e.g. project/transient model), it fails as these are not yet initialized. With AlternativeBefore rule, we get into regular @Rule sequence. Rules are processed from child to parent (see TestClass#scanAnnotatedMembers())" />
+        <node concept="TZ5HA" id="5dZuAAftJeS" role="TZ5H$">
+          <node concept="1dT_AC" id="5dZuAAftJeT" role="1dT_Ay">
+            <property role="1dT_AB" value="it's invoked from inside a statement created by TestRule of a subclass." />
           </node>
         </node>
-        <node concept="TZ5HA" id="71jmdPUu_Ik" role="TZ5H$">
-          <node concept="1dT_AC" id="71jmdPUu_Il" role="1dT_Ay">
-            <property role="1dT_AB" value="therefore @Rule from superclass gives outer Statement and is executed first. Therefore, AlternativeBefore from BTT is executed sooner than any rule from test subclass and initialize the test properly." />
+        <node concept="TZ5HA" id="5dZuAAftJgK" role="TZ5H$">
+          <node concept="1dT_AC" id="5dZuAAftJgL" role="1dT_Ay">
+            <property role="1dT_AB" value="If that TestRule uses any facilities of the base class (e.g. project/transient model)," />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="5dZuAAftJjr" role="TZ5H$">
+          <node concept="1dT_AC" id="5dZuAAftJjs" role="1dT_Ay">
+            <property role="1dT_AB" value="it fails as these are not yet initialized." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="5dZuAAftJgk" role="TZ5H$">
+          <node concept="1dT_AC" id="5dZuAAftJgl" role="1dT_Ay">
+            <property role="1dT_AB" value="With AlternativeBefore rule, we get into regular @Rule sequence." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="5dZuAAftJhD" role="TZ5H$">
+          <node concept="1dT_AC" id="5dZuAAftJhE" role="1dT_Ay">
+            <property role="1dT_AB" value="Rules are processed from child to parent (see TestClass#scanAnnotatedMembers()) therefore @Rule from superclass" />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="5dZuAAftJiy" role="TZ5H$">
+          <node concept="1dT_AC" id="5dZuAAftJiz" role="1dT_Ay">
+            <property role="1dT_AB" value="gives outer Statement and is executed first." />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="5dZuAAftJfy" role="TZ5H$">
+          <node concept="1dT_AC" id="5dZuAAftJfz" role="1dT_Ay">
+            <property role="1dT_AB" value="Therefore, AlternativeBefore from BTT is executed sooner than any rule from test subclass and initialize the test properly." />
           </node>
         </node>
         <node concept="TZ5HA" id="71jmdPUu_Iw" role="TZ5H$">
           <node concept="1dT_AC" id="71jmdPUu_Ix" role="1dT_Ay">
-            <property role="1dT_AB" value="NOTE, we have to use field with @Rule, not method with @Rule annotation as BlockJUnit4ClassRunner#getTestRules() adds methods with @Rule first, therefore placing their Statements in the end of execution chain." />
+            <property role="1dT_AB" value="NOTE, we have to use field with @Rule, not method with @Rule annotation as BlockJUnit4ClassRunner#getTestRules() " />
+          </node>
+        </node>
+        <node concept="TZ5HA" id="5dZuAAftJfU" role="TZ5H$">
+          <node concept="1dT_AC" id="5dZuAAftJfV" role="1dT_Ay">
+            <property role="1dT_AB" value="adds methods with @Rule first, therefore placing their Statements in the end of execution chain." />
           </node>
         </node>
       </node>

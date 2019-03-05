@@ -29,6 +29,9 @@
         <child id="1164903359218" name="catchBody" index="TDEfX" />
         <child id="1164903359217" name="throwable" index="TDEfY" />
       </concept>
+      <concept id="1070475926800" name="jetbrains.mps.baseLanguage.structure.StringLiteral" flags="nn" index="Xl_RD">
+        <property id="1070475926801" name="value" index="Xl_RC" />
+      </concept>
       <concept id="1081236700937" name="jetbrains.mps.baseLanguage.structure.StaticMethodCall" flags="nn" index="2YIFZM">
         <reference id="1144433194310" name="classConcept" index="1Pybhc" />
       </concept>
@@ -62,6 +65,11 @@
       </concept>
     </language>
     <language id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest">
+      <concept id="8427750732757990717" name="jetbrains.mps.baseLanguage.unitTest.structure.BinaryAssert" flags="nn" index="3tpDYu">
+        <child id="8427750732757990725" name="actual" index="3tpDZA" />
+        <child id="8427750732757990724" name="expected" index="3tpDZB" />
+      </concept>
+      <concept id="1171978097730" name="jetbrains.mps.baseLanguage.unitTest.structure.AssertEquals" flags="nn" index="3vlDli" />
       <concept id="1171983834376" name="jetbrains.mps.baseLanguage.unitTest.structure.AssertFalse" flags="nn" index="3vFxKo">
         <child id="1171983854940" name="condition" index="3vFALc" />
       </concept>
@@ -137,6 +145,27 @@
   </node>
   <node concept="2XOHcx" id="6fAlldOEavU">
     <property role="2XOHcw" value="${mps_home}" />
+  </node>
+  <node concept="1lH9Xt" id="4rbJdZOxa1h">
+    <property role="TrG5h" value="PropertyIsAvailaibleInMPSTestCase" />
+    <node concept="1LZb2c" id="4rbJdZOxa1i" role="1SL9yI">
+      <property role="TrG5h" value="test1" />
+      <node concept="3cqZAl" id="4rbJdZOxa1j" role="3clF45" />
+      <node concept="3clFbS" id="4rbJdZOxa1k" role="3clF47">
+        <node concept="3vlDli" id="4rbJdZOxa40" role="3cqZAp">
+          <node concept="2YIFZM" id="4rbJdZOuyd5" role="3tpDZA">
+            <ref role="1Pybhc" to="wyt6:~System" resolve="System" />
+            <ref role="37wK5l" to="wyt6:~System.getProperty(java.lang.String):java.lang.String" resolve="getProperty" />
+            <node concept="Xl_RD" id="4rbJdZOxa5E" role="37wK5m">
+              <property role="Xl_RC" value="MyProp" />
+            </node>
+          </node>
+          <node concept="Xl_RD" id="4rbJdZOxa6M" role="3tpDZB">
+            <property role="Xl_RC" value="TRUE" />
+          </node>
+        </node>
+      </node>
+    </node>
   </node>
 </model>
 

@@ -35,11 +35,11 @@ public class JavaRunParameters_Configuration implements IPersistentConfiguration
     }
     XmlSerializer.deserializeInto(myState, (Element) element.getChildren().get(0));
   }
-  public JavaRunParameters getJavaRunParameters() {
-    return myState.myJavaRunParameters;
+  public JavaRunParameters getJavaParameters() {
+    return myState.myJavaParameters;
   }
-  public void setJavaRunParameters(JavaRunParameters value) {
-    myState.myJavaRunParameters = value;
+  public void setJavaParameters(JavaRunParameters value) {
+    myState.myJavaParameters = value;
   }
   /*package*/ String getDefaultWorkingDir() {
     String userDir = PathManager.getUserDir();
@@ -67,14 +67,14 @@ public class JavaRunParameters_Configuration implements IPersistentConfiguration
     return clone;
   }
   public final class MyState {
-    public JavaRunParameters myJavaRunParameters = new JavaRunParameters(null, null, null, getDefaultWorkingDir(), false);
+    public JavaRunParameters myJavaParameters = new JavaRunParameters(null, null, null, getDefaultWorkingDir(), false);
     public MyState() {
     }
     @Override
     public Object clone() throws CloneNotSupportedException {
       JavaRunParameters_Configuration.MyState state = new JavaRunParameters_Configuration.MyState();
-      if (myJavaRunParameters != null) {
-        state.myJavaRunParameters = myJavaRunParameters.clone();
+      if (myJavaParameters != null) {
+        state.myJavaParameters = myJavaParameters.clone();
       }
       return state;
     }

@@ -35,6 +35,9 @@
         <property id="1070475926801" name="value" index="Xl_RC" />
       </concept>
       <concept id="1081236700938" name="jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" flags="ig" index="2YIFZL" />
+      <concept id="1081236700937" name="jetbrains.mps.baseLanguage.structure.StaticMethodCall" flags="nn" index="2YIFZM">
+        <reference id="1144433194310" name="classConcept" index="1Pybhc" />
+      </concept>
       <concept id="1070533707846" name="jetbrains.mps.baseLanguage.structure.StaticFieldReference" flags="nn" index="10M0yZ">
         <reference id="1144433057691" name="classifier" index="1PxDUh" />
       </concept>
@@ -51,6 +54,7 @@
       </concept>
       <concept id="1068498886292" name="jetbrains.mps.baseLanguage.structure.ParameterDeclaration" flags="ir" index="37vLTG" />
       <concept id="1225271177708" name="jetbrains.mps.baseLanguage.structure.StringType" flags="in" index="17QB3L" />
+      <concept id="1225271283259" name="jetbrains.mps.baseLanguage.structure.NPEEqualsExpression" flags="nn" index="17R0WA" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
       </concept>
@@ -74,6 +78,13 @@
       <concept id="1107461130800" name="jetbrains.mps.baseLanguage.structure.Classifier" flags="ng" index="3pOWGL">
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
       </concept>
+      <concept id="1107535904670" name="jetbrains.mps.baseLanguage.structure.ClassifierType" flags="in" index="3uibUv">
+        <reference id="1107535924139" name="classifier" index="3uigEE" />
+      </concept>
+      <concept id="1081773326031" name="jetbrains.mps.baseLanguage.structure.BinaryOperation" flags="nn" index="3uHJSO">
+        <child id="1081773367579" name="rightExpression" index="3uHU7w" />
+        <child id="1081773367580" name="leftExpression" index="3uHU7B" />
+      </concept>
       <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
@@ -89,6 +100,9 @@
       </concept>
       <concept id="1171931858461" name="jetbrains.mps.baseLanguage.unitTest.structure.TestMethodList" flags="ng" index="3s_gsd">
         <child id="1171931858462" name="testMethod" index="3s_gse" />
+      </concept>
+      <concept id="1171981022339" name="jetbrains.mps.baseLanguage.unitTest.structure.AssertTrue" flags="nn" index="3vwNmj">
+        <child id="1171981057159" name="condition" index="3vwVQn" />
       </concept>
       <concept id="1171983834376" name="jetbrains.mps.baseLanguage.unitTest.structure.AssertFalse" flags="nn" index="3vFxKo">
         <child id="1171983854940" name="condition" index="3vFALc" />
@@ -177,6 +191,104 @@
             <node concept="3_1$Yv" id="6bfDvj8bDyY" role="3_9lra">
               <node concept="Xl_RD" id="6bfDvj8bDyZ" role="3_1BAH">
                 <property role="Xl_RC" value="fail!" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="3s_ewN" id="4rbJdZOuxYR">
+    <property role="3s_ewP" value="ReadingPropertyBTestCase" />
+    <node concept="Wx3nA" id="4rbJdZOuy6t" role="jymVt">
+      <property role="TrG5h" value="SYS_PROPERTY" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm1VV" id="4rbJdZOuy3r" role="1B3o_S" />
+      <node concept="3uibUv" id="4rbJdZOuy5R" role="1tU5fm">
+        <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+      </node>
+      <node concept="Xl_RD" id="4rbJdZOvA76" role="33vP2m">
+        <property role="Xl_RC" value="MyProp" />
+      </node>
+    </node>
+    <node concept="Wx3nA" id="4rbJdZOvA9R" role="jymVt">
+      <property role="TrG5h" value="SYS_PROPERTY_EXPECTED_VALUE" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm1VV" id="4rbJdZOvA9S" role="1B3o_S" />
+      <node concept="3uibUv" id="4rbJdZOvA9T" role="1tU5fm">
+        <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+      </node>
+      <node concept="Xl_RD" id="4rbJdZOvA9U" role="33vP2m">
+        <property role="Xl_RC" value="TRUE" />
+      </node>
+    </node>
+    <node concept="3Tm1VV" id="4rbJdZOuxYS" role="1B3o_S" />
+    <node concept="3s_gsd" id="4rbJdZOuxYT" role="3s_ewO">
+      <node concept="3s$Bmu" id="4rbJdZOuxYU" role="3s_gse">
+        <property role="3s$Bm0" value="test1" />
+        <node concept="3Tm1VV" id="4rbJdZOuxYV" role="1B3o_S" />
+        <node concept="3cqZAl" id="4rbJdZOuxYW" role="3clF45" />
+        <node concept="3clFbS" id="4rbJdZOuxYX" role="3clF47">
+          <node concept="3vwNmj" id="4rbJdZOuybc" role="3cqZAp">
+            <node concept="17R0WA" id="4rbJdZOvAE1" role="3vwVQn">
+              <node concept="37vLTw" id="4rbJdZOvAGP" role="3uHU7w">
+                <ref role="3cqZAo" node="4rbJdZOvA9R" resolve="SYS_PROPERTY_EXPECTED_VALUE" />
+              </node>
+              <node concept="2YIFZM" id="4rbJdZOuyd5" role="3uHU7B">
+                <ref role="37wK5l" to="wyt6:~System.getProperty(java.lang.String):java.lang.String" resolve="getProperty" />
+                <ref role="1Pybhc" to="wyt6:~System" resolve="System" />
+                <node concept="37vLTw" id="4rbJdZOuye2" role="37wK5m">
+                  <ref role="3cqZAo" node="4rbJdZOuy6t" resolve="SYS_PROPERTY" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="3s_ewN" id="4rbJdZOvDP6">
+    <property role="3s_ewP" value="ReadingPropertyWithSpacesBTestCase" />
+    <node concept="Wx3nA" id="4rbJdZOvDP7" role="jymVt">
+      <property role="TrG5h" value="SYS_PROPERTY" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm1VV" id="4rbJdZOvDP8" role="1B3o_S" />
+      <node concept="3uibUv" id="4rbJdZOvDP9" role="1tU5fm">
+        <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+      </node>
+      <node concept="Xl_RD" id="4rbJdZOvDPa" role="33vP2m">
+        <property role="Xl_RC" value="MyProp" />
+      </node>
+    </node>
+    <node concept="Wx3nA" id="4rbJdZOvDPf" role="jymVt">
+      <property role="TrG5h" value="SYS_PROPERTY_EXPECTED_VALUE_WITH_SPACES" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm1VV" id="4rbJdZOvDPg" role="1B3o_S" />
+      <node concept="3uibUv" id="4rbJdZOvDPh" role="1tU5fm">
+        <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+      </node>
+      <node concept="Xl_RD" id="4rbJdZOvDPi" role="33vP2m">
+        <property role="Xl_RC" value="TRUE OH TRUE" />
+      </node>
+    </node>
+    <node concept="3Tm1VV" id="4rbJdZOvDPj" role="1B3o_S" />
+    <node concept="3s_gsd" id="4rbJdZOvDPk" role="3s_ewO">
+      <node concept="3s$Bmu" id="4rbJdZOvDPu" role="3s_gse">
+        <property role="3s$Bm0" value="test1" />
+        <node concept="3Tm1VV" id="4rbJdZOvDPv" role="1B3o_S" />
+        <node concept="3cqZAl" id="4rbJdZOvDPw" role="3clF45" />
+        <node concept="3clFbS" id="4rbJdZOvDPx" role="3clF47">
+          <node concept="3vwNmj" id="4rbJdZOvDPy" role="3cqZAp">
+            <node concept="17R0WA" id="4rbJdZOvDPz" role="3vwVQn">
+              <node concept="37vLTw" id="4rbJdZOvDP$" role="3uHU7w">
+                <ref role="3cqZAo" node="4rbJdZOvDPf" resolve="SYS_PROPERTY_EXPECTED_VALUE_WITH_SPACES" />
+              </node>
+              <node concept="2YIFZM" id="4rbJdZOvDP_" role="3uHU7B">
+                <ref role="37wK5l" to="wyt6:~System.getProperty(java.lang.String):java.lang.String" resolve="getProperty" />
+                <ref role="1Pybhc" to="wyt6:~System" resolve="System" />
+                <node concept="37vLTw" id="4rbJdZOvDPA" role="37wK5m">
+                  <ref role="3cqZAo" node="4rbJdZOvDP7" resolve="SYS_PROPERTY" />
+                </node>
               </node>
             </node>
           </node>

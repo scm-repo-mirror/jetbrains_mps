@@ -11,12 +11,15 @@ import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
+import java.util.List;
+import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import jetbrains.mps.execution.impl.configurations.util.TestNodeWrapHelper;
 import jetbrains.mps.smodel.SNodePointer;
+import jetbrains.mps.execution.impl.configurations.tests.commands.sandbox.ReadingPropertyBTestCase_Test;
+import jetbrains.mps.execution.impl.configurations.tests.commands.sandbox.ReadingPropertyWithSpacesBTestCase_Test;
+import org.jetbrains.annotations.Nullable;
+import java.io.File;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import java.util.ArrayList;
-import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
-import java.util.List;
 import com.intellij.execution.process.ProcessHandler;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.JUnit_Command;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState;
@@ -24,6 +27,7 @@ import jetbrains.mps.baseLanguage.unitTest.execution.client.UnitTestProcessListe
 import jetbrains.mps.execution.api.commands.ProcessHandlerBuilder;
 import junit.framework.Assert;
 import com.intellij.execution.ExecutionException;
+import java.util.Collections;
 
 @MPSLaunch
 public class JUnitCommand_Test extends BaseTransformationTest {
@@ -41,8 +45,20 @@ public class JUnitCommand_Test extends BaseTransformationTest {
     new JUnitCommand_Test.TestBody(this).test_startSimpleBTestCase();
   }
   @Test
+  public void test_startSimpleNodesTestCase() throws Throwable {
+    new JUnitCommand_Test.TestBody(this).test_startSimpleNodesTestCase();
+  }
+  @Test
   public void test_startFailedBTestCase() throws Throwable {
     new JUnitCommand_Test.TestBody(this).test_startFailedBTestCase();
+  }
+  @Test
+  public void test_programParametersArePassedToTheTest() throws Throwable {
+    new JUnitCommand_Test.TestBody(this).test_programParametersArePassedToTheTest();
+  }
+  @Test
+  public void test_programParametersWithSpacesArePassedToTheTest() throws Throwable {
+    new JUnitCommand_Test.TestBody(this).test_programParametersWithSpacesArePassedToTheTest();
   }
 
   /*package*/ static class TestBody extends BaseTestBody {
@@ -52,24 +68,39 @@ public class JUnitCommand_Test extends BaseTransformationTest {
     }
 
     public void test_startSimpleBTestCase() throws Exception {
-      this.checkTests(new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "8128243960970299078")), ListSequence.fromList(new ArrayList<ITestNodeWrapper>()));
+      List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "8128243960970299078"));
+      this.checkTests(null, null, testsToSucceed, this.emptyList());
+    }
+    public void test_startSimpleNodesTestCase() throws Exception {
+      List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "6937584626643047380"));
+      this.checkTests(null, null, testsToSucceed, this.emptyList());
     }
     public void test_startFailedBTestCase() throws Exception {
-      this.checkTests(ListSequence.fromList(new ArrayList<ITestNodeWrapper>()), new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "7120092006645143730")));
+      this.checkTests(null, null, this.emptyList(), new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "7120092006645143730")));
+    }
+    public void test_programParametersArePassedToTheTest() throws Exception {
+      List<ITestNodeWrapper> testToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "5101378672992591799"));
+      String vmParams = "-D" + ReadingPropertyBTestCase_Test.SYS_PROPERTY + "=" + ReadingPropertyBTestCase_Test.SYS_PROPERTY_EXPECTED_VALUE;
+      this.checkTests(vmParams, null, testToSucceed, this.emptyList());
+    }
+    public void test_programParametersWithSpacesArePassedToTheTest() throws Exception {
+      List<ITestNodeWrapper> testToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "5101378672992886086"));
+      String string = "-D" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY + "=" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY_EXPECTED_VALUE_WITH_SPACES;
+      this.checkTests(string, null, testToSucceed, this.emptyList());
     }
 
 
-    public void checkTests(List<ITestNodeWrapper> success, List<ITestNodeWrapper> failure) {
+    public void checkTests(@Nullable String vmParams, @Nullable File workingDir, List<ITestNodeWrapper> testsToSucceed, List<ITestNodeWrapper> testsToFail) {
       try {
-        List<ITestNodeWrapper> allTests = ListSequence.fromList(success).union(ListSequence.fromList(failure)).toListSequence();
-        ProcessHandler process = new JUnit_Command().setProject_Project(myProject).createProcess(allTests);
+        List<ITestNodeWrapper> allTests = ListSequence.fromList(testsToSucceed).union(ListSequence.fromList(testsToFail)).toListSequence();
+        ProcessHandler process = new JUnit_Command().setProject_Project(myProject).setVirtualMachineParameter_String(vmParams).setWorkingDirectory_File(workingDir).createProcess(allTests);
+        CheckTestStateListener checkListener = new CheckTestStateListener(testsToSucceed, testsToFail);
         TestRunState runState = new TestRunState(allTests);
-        CheckTestStateListener checkListener = new CheckTestStateListener(success, failure);
         runState.addListener(checkListener);
         process.addProcessListener(new UnitTestProcessListener(runState));
         int exitcode = ProcessHandlerBuilder.startAndWait(process, 30 * 1000);
-        if (exitcode != ListSequence.fromList(failure).count()) {
-          Assert.fail("Exit code must be equal to " + ListSequence.fromList(failure).count() + ", but " + exitcode);
+        if (exitcode != ListSequence.fromList(testsToFail).count()) {
+          Assert.fail("Exit code must be equal to " + ListSequence.fromList(testsToFail).count() + ", but " + exitcode);
         } else if (exitcode < 0) {
           Assert.fail("Process is running for too long");
         }
@@ -77,8 +108,11 @@ public class JUnitCommand_Test extends BaseTransformationTest {
           Assert.fail(checkListener.getMessages());
         }
       } catch (ExecutionException e) {
-        Assert.fail();
+        Assert.fail(e.getMessage());
       }
+    }
+    public List<ITestNodeWrapper> emptyList() {
+      return Collections.<ITestNodeWrapper>emptyList();
     }
     private static boolean isNotEmptyString(String str) {
       return str != null && str.length() > 0;
