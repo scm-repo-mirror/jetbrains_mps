@@ -22,6 +22,10 @@ package jetbrains.mps.classloading;
  * @author apyshkin
  */
 public final class IDEADelegatingModuleClassLoader extends MPSModuleClassLoader {
+  static {
+    registerAsParallelCapable();
+  }
+
   public IDEADelegatingModuleClassLoader(ClassLoader delegate) {
     super(delegate);
   }
