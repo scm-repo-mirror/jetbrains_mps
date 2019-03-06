@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import jetbrains.mps.core.tool.environment.common.StringUtil;
 import java.net.URL;
 import java.net.MalformedURLException;
-import jetbrains.mps.core.tool.environment.classloading.UrlClassLoader;
+import java.net.URLClassLoader;
 
 /**
  * Deals with (idea) platform plugins for the purposes of MpsEnvironment.
@@ -213,8 +213,10 @@ import jetbrains.mps.core.tool.environment.classloading.UrlClassLoader;
     //       What saves us here is the fact ClassLoader consults parent CL first and finds the classes there. 
     //       I keep it this way just for the record, and as a reference for future implementation if I decide to use distinct plugin  
     //       classloaders after all. 
-    //  FIXME replace with java.net.URLClassLoader, I'm not aware of any reason to use outdated copy of IDEA's 
-    return new UrlClassLoader(urls, rootCL);
+    // Here used to be outdated copy of IDEA's UrlClassLoader, with uncertain benefits over standard Java's one. 
+    // I don't think there's anything wrong with java.net counterpart. The only issue I'm aware of, http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=5041014 
+    // is not important in a scenario we use MpsEnvironment for. Besides, there's #close() method now we may use to address the issue in case we ever face it. 
+    return new URLClassLoader(urls.toArray(new URL[urls.size()]), rootCL);
   }
 
   /**

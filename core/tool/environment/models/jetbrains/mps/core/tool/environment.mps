@@ -37,7 +37,6 @@
     <import index="3ju5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs(MPS.Core/)" />
     <import index="zfbc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.nio(JDK/)" />
     <import index="ni5j" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.regex(JDK/)" />
-    <import index="d6hn" ref="r:f9ad0653-f934-4037-8035-de5d2e74cf22(jetbrains.mps.core.tool.environment.classloading)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -235,6 +234,13 @@
         <child id="1081773367580" name="leftExpression" index="3uHU7B" />
       </concept>
       <concept id="1073239437375" name="jetbrains.mps.baseLanguage.structure.NotEqualsExpression" flags="nn" index="3y3z36" />
+      <concept id="1184950988562" name="jetbrains.mps.baseLanguage.structure.ArrayCreator" flags="nn" index="3$_iS1">
+        <child id="1184951007469" name="componentType" index="3$_nBY" />
+        <child id="1184952969026" name="dimensionExpression" index="3$GQph" />
+      </concept>
+      <concept id="1184952934362" name="jetbrains.mps.baseLanguage.structure.DimensionExpression" flags="nn" index="3$GHV9">
+        <child id="1184953288404" name="expression" index="3$I4v7" />
+      </concept>
       <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
@@ -7460,17 +7466,49 @@
             <property role="3SKdUp" value="      classloaders after all." />
           </node>
         </node>
-        <node concept="3SKdUt" id="1ROuiHYecy" role="3cqZAp">
-          <node concept="3SKdUq" id="1ROuiHYec$" role="3SKWNk">
-            <property role="3SKdUp" value=" FIXME replace with java.net.URLClassLoader, I'm not aware of any reason to use outdated copy of IDEA's" />
+        <node concept="3SKdUt" id="1ROuiI1Jcj" role="3cqZAp">
+          <node concept="3SKdUq" id="1ROuiI1Jcl" role="3SKWNk">
+            <property role="3SKdUp" value="Here used to be outdated copy of IDEA's UrlClassLoader, with uncertain benefits over standard Java's one." />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="1ROuiI1MVy" role="3cqZAp">
+          <node concept="3SKdUq" id="1ROuiI1MV$" role="3SKWNk">
+            <property role="3SKdUp" value="I don't think there's anything wrong with java.net counterpart. The only issue I'm aware of, http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=5041014" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="1ROuiI1NJW" role="3cqZAp">
+          <node concept="3SKdUq" id="1ROuiI1NJY" role="3SKWNk">
+            <property role="3SKdUp" value="is not important in a scenario we use MpsEnvironment for. Besides, there's #close() method now we may use to address the issue in case we ever face it." />
           </node>
         </node>
         <node concept="3cpWs6" id="4142FbgULR4" role="3cqZAp">
           <node concept="2ShNRf" id="4142FbgULR5" role="3cqZAk">
             <node concept="1pGfFk" id="4142FbgULR6" role="2ShVmc">
-              <ref role="37wK5l" to="d6hn:5QbKaIbm7lF" resolve="UrlClassLoader" />
-              <node concept="37vLTw" id="4142FbgULR7" role="37wK5m">
-                <ref role="3cqZAo" node="4142FbgULQn" resolve="urls" />
+              <ref role="37wK5l" to="zf81:~URLClassLoader.&lt;init&gt;(java.net.URL[],java.lang.ClassLoader)" resolve="URLClassLoader" />
+              <node concept="2OqwBi" id="1ROuiI1S2N" role="37wK5m">
+                <node concept="37vLTw" id="4142FbgULR7" role="2Oq$k0">
+                  <ref role="3cqZAo" node="4142FbgULQn" resolve="urls" />
+                </node>
+                <node concept="liA8E" id="1ROuiI2fPF" role="2OqNvi">
+                  <ref role="37wK5l" to="33ny:~List.toArray(java.lang.Object[]):java.lang.Object[]" resolve="toArray" />
+                  <node concept="2ShNRf" id="1ROuiI2glI" role="37wK5m">
+                    <node concept="3$_iS1" id="1ROuiI2hGq" role="2ShVmc">
+                      <node concept="3$GHV9" id="1ROuiI2hGs" role="3$GQph">
+                        <node concept="2OqwBi" id="1ROuiI2jNc" role="3$I4v7">
+                          <node concept="37vLTw" id="1ROuiI2iTh" role="2Oq$k0">
+                            <ref role="3cqZAo" node="4142FbgULQn" resolve="urls" />
+                          </node>
+                          <node concept="liA8E" id="1ROuiI2F1D" role="2OqNvi">
+                            <ref role="37wK5l" to="33ny:~List.size():int" resolve="size" />
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="3uibUv" id="1ROuiI2he6" role="3$_nBY">
+                        <ref role="3uigEE" to="zf81:~URL" resolve="URL" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
               </node>
               <node concept="37vLTw" id="1ROuiHYabp" role="37wK5m">
                 <ref role="3cqZAo" node="1ROuiHY5QV" resolve="rootCL" />
