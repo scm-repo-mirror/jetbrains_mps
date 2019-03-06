@@ -90,7 +90,8 @@ public class InheritanceCheckingCallback implements ClassifierTraversalCallback 
   @Nullable
   public SNode firstAbstractMethodWithoutImplementation() {
     @NotNull InheritanceCheckingCallback.SignatureRecord record = MapSequence.fromMap(myClassifier2Signatures).get(myClassifier);
-    IMapping<Signature, SNode> firstAbstract = MapSequence.fromMap(record.mySignature2TopMostImpl).where(new IWhereFilter<IMapping<Signature, SNode>>() {
+    @NotNull Map<Signature, SNode> mySignature2TopMostImpl = record.mySignature2TopMostImpl;
+    IMapping<Signature, SNode> firstAbstract = MapSequence.fromMap(mySignature2TopMostImpl).where(new IWhereFilter<IMapping<Signature, SNode>>() {
       public boolean accept(IMapping<Signature, SNode> it) {
         return (boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(it.value());
       }
