@@ -41,6 +41,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_RunConfigurationProducer;
   private ConceptPresentation props_RunConfigurationProducerPart;
   private ConceptPresentation props_RunConfigurationSource;
+  private ConceptPresentation props_RunConfigurationType;
   private ConceptPresentation props_SModelSource;
   private ConceptPresentation props_SModuleSource;
   private ConceptPresentation props_Source_ConceptFunctionParameter;
@@ -232,7 +233,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_RunConfiguration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a52b0lb);
+          cpb.icon(IconContainer.RESOURCE_a0a2a0a52b0mb);
           props_RunConfiguration = cpb.create();
         }
         return props_RunConfiguration;
@@ -277,6 +278,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_RunConfigurationSource = cpb.create();
         }
         return props_RunConfigurationSource;
+      case LanguageConceptSwitch.RunConfigurationType:
+        if (props_RunConfigurationType == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("run configuration type");
+          cpb.rawPresentation("run configuration");
+          props_RunConfigurationType = cpb.create();
+        }
+        return props_RunConfigurationType;
       case LanguageConceptSwitch.SModelSource:
         if (props_SModelSource == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

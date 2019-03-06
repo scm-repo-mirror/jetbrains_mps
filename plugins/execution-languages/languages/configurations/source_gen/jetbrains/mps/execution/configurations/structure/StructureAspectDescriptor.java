@@ -48,6 +48,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptRunConfigurationProducer = createDescriptorForRunConfigurationProducer();
   /*package*/ final ConceptDescriptor myConceptRunConfigurationProducerPart = createDescriptorForRunConfigurationProducerPart();
   /*package*/ final ConceptDescriptor myConceptRunConfigurationSource = createDescriptorForRunConfigurationSource();
+  /*package*/ final ConceptDescriptor myConceptRunConfigurationType = createDescriptorForRunConfigurationType();
   /*package*/ final ConceptDescriptor myConceptSModelSource = createDescriptorForSModelSource();
   /*package*/ final ConceptDescriptor myConceptSModuleSource = createDescriptorForSModuleSource();
   /*package*/ final ConceptDescriptor myConceptSource_ConceptFunctionParameter = createDescriptorForSource_ConceptFunctionParameter();
@@ -72,7 +73,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAbstractRunConfigurationExecutor, myConceptBeforeTask, myConceptBeforeTaskCall, myConceptBeforeTaskParameter, myConceptBeforeTaskParameterReference, myConceptConfigurationFromExecutorReference, myConceptConfiguration_Parameter, myConceptConsoleCreator, myConceptConsoleType, myConceptContextConfiguration_Parameter, myConceptContextExpression, myConceptCreate_ConceptFunction, myConceptDebuggerSettings_Parameter, myConceptEnvironmentExpression, myConceptExecuteBeforeTask_ConceptFunction, myConceptExecuteConfiguration_Function, myConceptExecutor_Parameter, myConceptGetProjectOperation, myConceptIsConfigurationFromContext_ConceptFunction, myConceptModelSource, myConceptModuleSource, myConceptNodeListSource, myConceptNodeSource, myConceptProjectSource, myConceptProject_Parameter, myConceptRunConfiguration, myConceptRunConfigurationCreator, myConceptRunConfigurationExecutor, myConceptRunConfigurationKind, myConceptRunConfigurationProducer, myConceptRunConfigurationProducerPart, myConceptRunConfigurationSource, myConceptSModelSource, myConceptSModuleSource, myConceptSource_ConceptFunctionParameter, myConceptStartProcessHandlerStatement);
+    return Arrays.asList(myConceptAbstractRunConfigurationExecutor, myConceptBeforeTask, myConceptBeforeTaskCall, myConceptBeforeTaskParameter, myConceptBeforeTaskParameterReference, myConceptConfigurationFromExecutorReference, myConceptConfiguration_Parameter, myConceptConsoleCreator, myConceptConsoleType, myConceptContextConfiguration_Parameter, myConceptContextExpression, myConceptCreate_ConceptFunction, myConceptDebuggerSettings_Parameter, myConceptEnvironmentExpression, myConceptExecuteBeforeTask_ConceptFunction, myConceptExecuteConfiguration_Function, myConceptExecutor_Parameter, myConceptGetProjectOperation, myConceptIsConfigurationFromContext_ConceptFunction, myConceptModelSource, myConceptModuleSource, myConceptNodeListSource, myConceptNodeSource, myConceptProjectSource, myConceptProject_Parameter, myConceptRunConfiguration, myConceptRunConfigurationCreator, myConceptRunConfigurationExecutor, myConceptRunConfigurationKind, myConceptRunConfigurationProducer, myConceptRunConfigurationProducerPart, myConceptRunConfigurationSource, myConceptRunConfigurationType, myConceptSModelSource, myConceptSModuleSource, myConceptSource_ConceptFunctionParameter, myConceptStartProcessHandlerStatement);
   }
 
   @Override
@@ -143,6 +144,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptRunConfigurationProducerPart;
       case LanguageConceptSwitch.RunConfigurationSource:
         return myConceptRunConfigurationSource;
+      case LanguageConceptSwitch.RunConfigurationType:
+        return myConceptRunConfigurationType;
       case LanguageConceptSwitch.SModelSource:
         return myConceptSModelSource;
       case LanguageConceptSwitch.SModuleSource:
@@ -491,6 +494,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:f3383ae6-205a-4e7c-8dd9-c29966e29e49(jetbrains.mps.execution.configurations.structure)/4366236229294141334");
     b.version(2);
     b.alias("source");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForRunConfigurationType() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.execution.configurations", "RunConfigurationType", 0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x3d4448ebeaf86568L);
+    b.class_(false, false, false);
+    b.super_("jetbrains.mps.execution.settings.structure.PersistentConfigurationType", 0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL);
+    b.origin("r:f3383ae6-205a-4e7c-8dd9-c29966e29e49(jetbrains.mps.execution.configurations.structure)/4414733712826590568");
+    b.version(2);
+    b.kind(ConceptKind.INTERFACE, StaticScope.GLOBAL);
+    b.alias("run configuration");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForSModelSource() {

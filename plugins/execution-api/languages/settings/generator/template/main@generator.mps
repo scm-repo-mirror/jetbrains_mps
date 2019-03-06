@@ -535,25 +535,6 @@
       <node concept="j$656" id="5gyVhZ1aCI9" role="1lVwrX">
         <ref role="v9R2y" node="4nPCR7KFTQE" resolve="reduce_TemplatePersistentconfiguration" />
       </node>
-      <node concept="30G5F_" id="5gyVhZ1aCHS" role="30HLyM">
-        <node concept="3clFbS" id="5gyVhZ1aCHT" role="2VODD2">
-          <node concept="3clFbF" id="5gyVhZ1aCHU" role="3cqZAp">
-            <node concept="2OqwBi" id="5gyVhZ1aCI1" role="3clFbG">
-              <node concept="2OqwBi" id="5gyVhZ1aCHW" role="2Oq$k0">
-                <node concept="30H73N" id="5gyVhZ1aCHV" role="2Oq$k0" />
-                <node concept="3TrEf2" id="5gyVhZ1aCI0" role="2OqNvi">
-                  <ref role="3Tt5mk" to="fb9u:O$iR4J$g0t" resolve="persistentConfiguration" />
-                </node>
-              </node>
-              <node concept="1mIQ4w" id="5gyVhZ1aCI5" role="2OqNvi">
-                <node concept="chp4Y" id="5gyVhZ1aCI7" role="cj9EA">
-                  <ref role="cht4Q" to="fb9u:O$iR4J$g4j" resolve="PersistentConfigurationTemplate" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
     </node>
     <node concept="3aamgX" id="4nPCR7KGnwH" role="3acgRq">
       <ref role="30HIoZ" to="fb9u:O$iR4J$g43" resolve="ReportConfigurationErrorStatement" />

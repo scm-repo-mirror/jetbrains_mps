@@ -41,10 +41,11 @@ public final class LanguageConceptSwitch {
   public static final int RunConfigurationProducer = 29;
   public static final int RunConfigurationProducerPart = 30;
   public static final int RunConfigurationSource = 31;
-  public static final int SModelSource = 32;
-  public static final int SModuleSource = 33;
-  public static final int Source_ConceptFunctionParameter = 34;
-  public static final int StartProcessHandlerStatement = 35;
+  public static final int RunConfigurationType = 32;
+  public static final int SModelSource = 33;
+  public static final int SModuleSource = 34;
+  public static final int Source_ConceptFunctionParameter = 35;
+  public static final int StartProcessHandlerStatement = 36;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0x22e72e4c0f6946ceL, 0x84036750153aa615L);
@@ -80,6 +81,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x3c97fcb79c842305L, RunConfigurationProducer);
     builder.put(0x3c97fcb79c84cda6L, RunConfigurationProducerPart);
     builder.put(0x3c97fcb79c84af96L, RunConfigurationSource);
+    builder.put(0x3d4448ebeaf86568L, RunConfigurationType);
     builder.put(0x3e34888186184223L, SModelSource);
     builder.put(0x3e34888186187479L, SModuleSource);
     builder.put(0x328e81d9f2097e87L, Source_ConceptFunctionParameter);

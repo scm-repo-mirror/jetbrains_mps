@@ -618,7 +618,7 @@
         </node>
       </node>
       <node concept="j$656" id="_0hjroTa4m" role="1fOSGc">
-        <ref role="v9R2y" node="_0hjroTa4k" resolve="weave_RunConfigurationExtendsRunConfigurationBase" />
+        <ref role="v9R2y" node="_0hjroTa4k" resolve="weave_RunConfigurationExtendsBaseMpsRunConfiguration" />
       </node>
     </node>
     <node concept="30QchW" id="1xo$tfixEGR" role="30SoJX">
@@ -1167,6 +1167,36 @@
               <node concept="1mIQ4w" id="toP3SpHw3P" role="2OqNvi">
                 <node concept="chp4Y" id="toP3SpHw3R" role="cj9EA">
                   <ref role="cht4Q" to="uhxm:25jQf71X6T9" resolve="RunConfiguration" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3aamgX" id="3P4ieJEYhqN" role="3acgRq">
+      <ref role="30HIoZ" to="uhxm:3P4ieJEY6lC" resolve="RunConfigurationType" />
+      <node concept="gft3U" id="3P4ieJEYhqO" role="1lVwrX">
+        <node concept="2eloPW" id="3P4ieJEYhqP" role="gfFT$">
+          <property role="2ely0U" value="class.fq.name" />
+          <ref role="3uigEE" to="eibu:3oW7HLfqDgM" resolve="BaseMpsRunConfiguration" />
+          <node concept="17Uvod" id="3P4ieJEYhqQ" role="lGtFl">
+            <property role="2qtEX9" value="fqClassName" />
+            <property role="P4ACc" value="df345b11-b8c7-4213-ac66-48d2a9b75d88/1174914042989/1174914081067" />
+            <node concept="3zFVjK" id="3P4ieJEYhqR" role="3zH0cK">
+              <node concept="3clFbS" id="3P4ieJEYhqS" role="2VODD2">
+                <node concept="3clFbF" id="3P4ieJEYhqT" role="3cqZAp">
+                  <node concept="2OqwBi" id="3P4ieJEYhqU" role="3clFbG">
+                    <node concept="2OqwBi" id="3P4ieJEYhqV" role="2Oq$k0">
+                      <node concept="30H73N" id="3P4ieJEYhqW" role="2Oq$k0" />
+                      <node concept="3TrEf2" id="3P4ieJEYnIa" role="2OqNvi">
+                        <ref role="3Tt5mk" to="uhxm:O$iR4J$g3Y" resolve="runConfiguration" />
+                      </node>
+                    </node>
+                    <node concept="2qgKlT" id="3P4ieJEYhqY" role="2OqNvi">
+                      <ref role="37wK5l" to="i1mc:O$iR4JBsSv" resolve="getFullName" />
+                    </node>
+                  </node>
                 </node>
               </node>
             </node>
@@ -2792,7 +2822,7 @@
     </node>
   </node>
   <node concept="13MO4I" id="_0hjroTa4k">
-    <property role="TrG5h" value="weave_RunConfigurationExtendsRunConfigurationBase" />
+    <property role="TrG5h" value="weave_RunConfigurationExtendsBaseMpsRunConfiguration" />
     <ref role="3gUMe" to="uhxm:25jQf71X6T9" resolve="RunConfiguration" />
     <node concept="312cEu" id="_0hjroTa4s" role="13RCb5">
       <property role="TrG5h" value="RunConfigurationTemplateWeave" />

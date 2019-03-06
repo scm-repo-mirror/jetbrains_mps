@@ -632,5 +632,20 @@
     <property role="34LRSv" value="context" />
     <ref role="1TJDcQ" to="tpee:g76ryKb" resolve="ConceptFunctionParameter" />
   </node>
+  <node concept="1TIwiD" id="3P4ieJEY6lC">
+    <property role="EcuMT" value="4414733712826590568" />
+    <property role="TrG5h" value="RunConfigurationType" />
+    <property role="34LRSv" value="run configuration" />
+    <property role="R4oN_" value="run configuration type" />
+    <ref role="1TJDcQ" to="fb9u:O$iR4J$g0s" resolve="PersistentConfigurationType" />
+    <node concept="1TJgyj" id="O$iR4J$g3Y" role="1TKVEi">
+      <property role="20lmBu" value="reference" />
+      <property role="20kJfa" value="runConfiguration" />
+      <property role="20lbJX" value="0..1" />
+      <property role="IQ2ns" value="946964771156066558" />
+      <ref role="20ksaX" to="fb9u:O$iR4J$g0t" resolve="persistentConfiguration" />
+      <ref role="20lvS9" node="25jQf71X6T9" resolve="RunConfiguration" />
+    </node>
+  </node>
 </model>
 
