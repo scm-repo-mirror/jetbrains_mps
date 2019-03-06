@@ -20,9 +20,9 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.unitTest.execution.client.UnitTestProcessListener" />
-    <classNode dependClassName="jetbrains.mps.execution.configurations.implementation.plugin.plugin.Executor" />
     <classNode dependClassName="jetbrains.mps.execution.configurations.implementation.plugin.plugin.FakeProcess" />
-    <classNode dependClassName="jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitInProcessExecutor" />
+    <classNode dependClassName="jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitInProcessRunStarter" />
+    <classNode dependClassName="jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitProcessStarter" />
     <classNode dependClassName="jetbrains.mps.execution.impl.configurations.tests.commands.CheckTestStateListener" />
     <classNode dependClassName="jetbrains.mps.execution.impl.configurations.util.TestNodeWrapHelper" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
@@ -52,8 +52,8 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.unitTest.execution.client.UnitTestProcessListener" />
     <classNode dependClassName="jetbrains.mps.execution.api.commands.ProcessHandlerBuilder" />
-    <classNode dependClassName="jetbrains.mps.execution.configurations.implementation.plugin.plugin.Executor" />
-    <classNode dependClassName="jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitInProcessExecutor" />
+    <classNode dependClassName="jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitInProcessRunStarter" />
+    <classNode dependClassName="jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitProcessStarter" />
     <classNode dependClassName="jetbrains.mps.execution.impl.configurations.tests.commands.CheckTestStateListener" />
     <classNode dependClassName="jetbrains.mps.execution.impl.configurations.util.TestNodeWrapHelper" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
@@ -84,8 +84,8 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.unitTest.execution.client.UnitTestProcessListener" />
     <classNode dependClassName="jetbrains.mps.execution.api.commands.ProcessHandlerBuilder" />
-    <classNode dependClassName="jetbrains.mps.execution.configurations.implementation.plugin.plugin.Executor" />
-    <classNode dependClassName="jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitInProcessExecutor" />
+    <classNode dependClassName="jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitInProcessRunStarter" />
+    <classNode dependClassName="jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitProcessStarter" />
     <classNode dependClassName="jetbrains.mps.execution.impl.configurations.tests.commands.CheckTestStateListener" />
     <classNode dependClassName="jetbrains.mps.execution.impl.configurations.util.TestNodeWrapHelper" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />

@@ -30,35 +30,31 @@ import com.intellij.execution.ExecutionException;
 import java.util.Collections;
 
 @MPSLaunch
-public class JUnitCommand_Test extends BaseTransformationTest {
+public class JUnitBTestCase_Test extends BaseTransformationTest {
   @ClassRule
-  public static final TestParametersCache ourParamCache = new TestParametersCache(JUnitCommand_Test.class, "${mps_home}", "r:e2bad6d6-3029-4bc3-b44d-49863f32d863(jetbrains.mps.execution.impl.configurations.tests.commands@tests)", false);
+  public static final TestParametersCache ourParamCache = new TestParametersCache(JUnitBTestCase_Test.class, "${mps_home}", "r:e2bad6d6-3029-4bc3-b44d-49863f32d863(jetbrains.mps.execution.impl.configurations.tests.commands@tests)", false);
   @Rule
   public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
-  public JUnitCommand_Test() {
+  public JUnitBTestCase_Test() {
     super(ourParamCache);
   }
 
   @Test
   public void test_startSimpleBTestCase() throws Throwable {
-    new JUnitCommand_Test.TestBody(this).test_startSimpleBTestCase();
-  }
-  @Test
-  public void test_startSimpleNodesTestCase() throws Throwable {
-    new JUnitCommand_Test.TestBody(this).test_startSimpleNodesTestCase();
+    new JUnitBTestCase_Test.TestBody(this).test_startSimpleBTestCase();
   }
   @Test
   public void test_startFailedBTestCase() throws Throwable {
-    new JUnitCommand_Test.TestBody(this).test_startFailedBTestCase();
+    new JUnitBTestCase_Test.TestBody(this).test_startFailedBTestCase();
   }
   @Test
   public void test_programParametersArePassedToTheTest() throws Throwable {
-    new JUnitCommand_Test.TestBody(this).test_programParametersArePassedToTheTest();
+    new JUnitBTestCase_Test.TestBody(this).test_programParametersArePassedToTheTest();
   }
   @Test
   public void test_programParametersWithSpacesArePassedToTheTest() throws Throwable {
-    new JUnitCommand_Test.TestBody(this).test_programParametersWithSpacesArePassedToTheTest();
+    new JUnitBTestCase_Test.TestBody(this).test_programParametersWithSpacesArePassedToTheTest();
   }
 
   /*package*/ static class TestBody extends BaseTestBody {
@@ -69,10 +65,6 @@ public class JUnitCommand_Test extends BaseTransformationTest {
 
     public void test_startSimpleBTestCase() throws Exception {
       List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "8128243960970299078"));
-      this.checkTests(null, null, testsToSucceed, this.emptyList());
-    }
-    public void test_startSimpleNodesTestCase() throws Exception {
-      List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "6937584626643047380"));
       this.checkTests(null, null, testsToSucceed, this.emptyList());
     }
     public void test_startFailedBTestCase() throws Exception {

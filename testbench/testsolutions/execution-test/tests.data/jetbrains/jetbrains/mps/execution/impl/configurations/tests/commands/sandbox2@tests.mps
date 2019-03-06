@@ -7,6 +7,7 @@
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="8" />
   </languages>
   <imports>
+    <import index="u9u1" ref="r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -35,6 +36,13 @@
       <concept id="1081236700937" name="jetbrains.mps.baseLanguage.structure.StaticMethodCall" flags="nn" index="2YIFZM">
         <reference id="1144433194310" name="classConcept" index="1Pybhc" />
       </concept>
+      <concept id="1070533707846" name="jetbrains.mps.baseLanguage.structure.StaticFieldReference" flags="nn" index="10M0yZ">
+        <reference id="1144433057691" name="classifier" index="1PxDUh" />
+      </concept>
+      <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
+        <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
+      </concept>
+      <concept id="1225271283259" name="jetbrains.mps.baseLanguage.structure.NPEEqualsExpression" flags="nn" index="17R0WA" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
       </concept>
@@ -63,6 +71,10 @@
       <concept id="1107535904670" name="jetbrains.mps.baseLanguage.structure.ClassifierType" flags="in" index="3uibUv">
         <reference id="1107535924139" name="classifier" index="3uigEE" />
       </concept>
+      <concept id="1081773326031" name="jetbrains.mps.baseLanguage.structure.BinaryOperation" flags="nn" index="3uHJSO">
+        <child id="1081773367579" name="rightExpression" index="3uHU7w" />
+        <child id="1081773367580" name="leftExpression" index="3uHU7B" />
+      </concept>
     </language>
     <language id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest">
       <concept id="8427750732757990717" name="jetbrains.mps.baseLanguage.unitTest.structure.BinaryAssert" flags="nn" index="3tpDYu">
@@ -70,6 +82,9 @@
         <child id="8427750732757990724" name="expected" index="3tpDZB" />
       </concept>
       <concept id="1171978097730" name="jetbrains.mps.baseLanguage.unitTest.structure.AssertEquals" flags="nn" index="3vlDli" />
+      <concept id="1171981022339" name="jetbrains.mps.baseLanguage.unitTest.structure.AssertTrue" flags="nn" index="3vwNmj">
+        <child id="1171981057159" name="condition" index="3vwVQn" />
+      </concept>
       <concept id="1171983834376" name="jetbrains.mps.baseLanguage.unitTest.structure.AssertFalse" flags="nn" index="3vFxKo">
         <child id="1171983854940" name="condition" index="3vFALc" />
       </concept>
@@ -163,6 +178,34 @@
           <node concept="Xl_RD" id="4rbJdZOxa6M" role="3tpDZB">
             <property role="Xl_RC" value="TRUE" />
           </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="1lH9Xt" id="3P4ieJEE8Pu">
+    <property role="TrG5h" value="ReadingPropertyTestCase_Test" />
+    <node concept="1LZb2c" id="3P4ieJEE8Pv" role="1SL9yI">
+      <property role="TrG5h" value="test1" />
+      <node concept="3cqZAl" id="3P4ieJEE8Pw" role="3clF45" />
+      <node concept="3clFbS" id="3P4ieJEE8Px" role="3clF47">
+        <node concept="3vwNmj" id="4rbJdZOuybc" role="3cqZAp">
+          <node concept="17R0WA" id="4rbJdZOvAE1" role="3vwVQn">
+            <node concept="10M0yZ" id="3P4ieJEE8QR" role="3uHU7w">
+              <ref role="3cqZAo" to="u9u1:4rbJdZOvA9R" resolve="SYS_PROPERTY_EXPECTED_VALUE" />
+              <ref role="1PxDUh" to="u9u1:4rbJdZOuxYR" resolve="ReadingPropertyBTestCase_Test" />
+            </node>
+            <node concept="2YIFZM" id="3P4ieJEE8RQ" role="3uHU7B">
+              <ref role="1Pybhc" to="wyt6:~System" resolve="System" />
+              <ref role="37wK5l" to="wyt6:~System.getProperty(java.lang.String):java.lang.String" resolve="getProperty" />
+              <node concept="10M0yZ" id="3P4ieJEE8QS" role="37wK5m">
+                <ref role="1PxDUh" to="u9u1:4rbJdZOuxYR" resolve="ReadingPropertyBTestCase_Test" />
+                <ref role="3cqZAo" to="u9u1:4rbJdZOuy6t" resolve="SYS_PROPERTY" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3vFxKo" id="3P4ieJEE8Py" role="3cqZAp">
+          <node concept="3clFbT" id="3P4ieJEE8Pz" role="3vFALc" />
         </node>
       </node>
     </node>

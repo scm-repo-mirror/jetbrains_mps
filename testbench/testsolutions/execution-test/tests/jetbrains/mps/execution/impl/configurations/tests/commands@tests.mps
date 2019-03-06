@@ -155,6 +155,7 @@
       <concept id="1068580123165" name="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" flags="ig" index="3clFb_">
         <property id="1178608670077" name="isAbstract" index="1EzhhJ" />
       </concept>
+      <concept id="1068580123152" name="jetbrains.mps.baseLanguage.structure.EqualsExpression" flags="nn" index="3clFbC" />
       <concept id="1068580123155" name="jetbrains.mps.baseLanguage.structure.ExpressionStatement" flags="nn" index="3clFbF">
         <child id="1068580123156" name="expression" index="3clFbG" />
       </concept>
@@ -204,6 +205,9 @@
       <concept id="1107461130800" name="jetbrains.mps.baseLanguage.structure.Classifier" flags="ng" index="3pOWGL">
         <property id="521412098689998745" name="nonStatic" index="2bfB8j" />
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
+      </concept>
+      <concept id="7812454656619025416" name="jetbrains.mps.baseLanguage.structure.MethodDeclaration" flags="ng" index="1rXfSm">
+        <property id="8355037393041754995" name="isNative" index="2aFKle" />
       </concept>
       <concept id="7812454656619025412" name="jetbrains.mps.baseLanguage.structure.LocalMethodCall" flags="nn" index="1rXfSq" />
       <concept id="1107535904670" name="jetbrains.mps.baseLanguage.structure.ClassifierType" flags="in" index="3uibUv">
@@ -364,7 +368,7 @@
     </language>
   </registry>
   <node concept="1lH9Xt" id="73dkH4PmkdK">
-    <property role="TrG5h" value="JUnitCommand" />
+    <property role="TrG5h" value="JUnitBTestCase" />
     <property role="3OwPAg" value="false" />
     <property role="26Nn1l" value="false" />
     <node concept="2XrIbr" id="6bfDvj8bCm1" role="1qtyYc">
@@ -2332,6 +2336,101 @@
       </node>
       <node concept="2AHcQZ" id="3tYsUK_ScEC" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="4rbJdZOX5B7" role="jymVt">
+      <property role="2aFKle" value="false" />
+      <property role="TrG5h" value="onTextAvailable" />
+      <node concept="3Tm1VV" id="4rbJdZOX5B8" role="1B3o_S" />
+      <node concept="3cqZAl" id="4rbJdZOX5B9" role="3clF45" />
+      <node concept="37vLTG" id="4rbJdZOX5Ba" role="3clF46">
+        <property role="TrG5h" value="event" />
+        <node concept="3uibUv" id="4rbJdZOX5Bb" role="1tU5fm">
+          <ref role="3uigEE" to="tpnd:4e85Rl_qXym" resolve="TextTestEvent" />
+        </node>
+        <node concept="2AHcQZ" id="4rbJdZOX5Bc" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="4rbJdZOX5Be" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+      <node concept="3clFbS" id="4rbJdZOX5Bf" role="3clF47">
+        <node concept="3SKdUt" id="4rbJdZOYfTB" role="3cqZAp">
+          <node concept="3SKdUq" id="4rbJdZOYfTD" role="3SKWNk">
+            <property role="3SKdUp" value="the text comes in lines" />
+          </node>
+        </node>
+        <node concept="3clFbJ" id="4rbJdZOXfiS" role="3cqZAp">
+          <node concept="3clFbS" id="4rbJdZOXfiU" role="3clFbx">
+            <node concept="3clFbF" id="4rbJdZOXqB$" role="3cqZAp">
+              <node concept="2OqwBi" id="4rbJdZOXqBx" role="3clFbG">
+                <node concept="10M0yZ" id="3P4ieJEEP5X" role="2Oq$k0">
+                  <ref role="3cqZAo" to="wyt6:~System.out" resolve="out" />
+                  <ref role="1PxDUh" to="wyt6:~System" resolve="System" />
+                </node>
+                <node concept="liA8E" id="4rbJdZOXqBz" role="2OqNvi">
+                  <ref role="37wK5l" to="guwi:~PrintStream.print(java.lang.String):void" resolve="print" />
+                  <node concept="3cpWs3" id="4rbJdZOXJit" role="37wK5m">
+                    <node concept="Xl_RD" id="4rbJdZOXJwx" role="3uHU7B">
+                      <property role="Xl_RC" value="test error output &gt;&gt;&gt; " />
+                    </node>
+                    <node concept="2OqwBi" id="4rbJdZOXqMF" role="3uHU7w">
+                      <node concept="37vLTw" id="4rbJdZOXqE2" role="2Oq$k0">
+                        <ref role="3cqZAo" node="4rbJdZOX5Ba" resolve="event" />
+                      </node>
+                      <node concept="liA8E" id="4rbJdZOXv7M" role="2OqNvi">
+                        <ref role="37wK5l" to="tpnd:4e85Rl_qXyX" resolve="getText" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbC" id="4rbJdZOXjEr" role="3clFbw">
+            <node concept="10M0yZ" id="4rbJdZOXn2h" role="3uHU7w">
+              <ref role="3cqZAo" to="uu3z:~ProcessOutputTypes.STDERR" resolve="STDERR" />
+              <ref role="1PxDUh" to="uu3z:~ProcessOutputTypes" resolve="ProcessOutputTypes" />
+            </node>
+            <node concept="2OqwBi" id="4rbJdZOXjgz" role="3uHU7B">
+              <node concept="37vLTw" id="4rbJdZOXj8_" role="2Oq$k0">
+                <ref role="3cqZAo" node="4rbJdZOX5Ba" resolve="event" />
+              </node>
+              <node concept="liA8E" id="4rbJdZOXjyX" role="2OqNvi">
+                <ref role="37wK5l" to="tpnd:4e85Rl_qXz5" resolve="getKey" />
+              </node>
+            </node>
+          </node>
+          <node concept="9aQIb" id="4rbJdZOXvjE" role="9aQIa">
+            <node concept="3clFbS" id="4rbJdZOXvjF" role="9aQI4">
+              <node concept="3clFbF" id="4rbJdZOXf8_" role="3cqZAp">
+                <node concept="2OqwBi" id="4rbJdZOXf8y" role="3clFbG">
+                  <node concept="10M0yZ" id="4rbJdZOXf8z" role="2Oq$k0">
+                    <ref role="1PxDUh" to="wyt6:~System" resolve="System" />
+                    <ref role="3cqZAo" to="wyt6:~System.out" resolve="out" />
+                  </node>
+                  <node concept="liA8E" id="4rbJdZOXf8$" role="2OqNvi">
+                    <ref role="37wK5l" to="guwi:~PrintStream.print(java.lang.String):void" resolve="print" />
+                    <node concept="3cpWs3" id="4rbJdZOXL8V" role="37wK5m">
+                      <node concept="Xl_RD" id="4rbJdZOXLry" role="3uHU7B">
+                        <property role="Xl_RC" value="test output &gt;&gt;&gt; " />
+                      </node>
+                      <node concept="2OqwBi" id="4rbJdZOXy_S" role="3uHU7w">
+                        <node concept="37vLTw" id="4rbJdZOXy_T" role="2Oq$k0">
+                          <ref role="3cqZAo" node="4rbJdZOX5Ba" resolve="event" />
+                        </node>
+                        <node concept="liA8E" id="4rbJdZOXy_U" role="2OqNvi">
+                          <ref role="37wK5l" to="tpnd:4e85Rl_qXyX" resolve="getText" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
       </node>
     </node>
     <node concept="2tJIrI" id="2_AUN5GsWEc" role="jymVt" />

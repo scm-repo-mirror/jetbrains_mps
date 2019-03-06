@@ -25,14 +25,14 @@ import org.jetbrains.annotations.Nullable;
 import java.io.OutputStream;
 import com.intellij.execution.process.ProcessOutputTypes;
 
-public class JUnitInProcessExecutor implements Executor {
-  private static final Logger LOG = LogManager.getLogger(JUnitInProcessExecutor.class);
+public class JUnitInProcessRunStarter implements JUnitProcessStarter {
+  private static final Logger LOG = LogManager.getLogger(JUnitInProcessRunStarter.class);
   private static final int MSECS_TO_WAIT_FOR_START = 50 * 1000;
   private final NodeWrappersTestsContributor myTestsContributor;
   private final FakeProcess myFakeProcess = new FakeProcess();
   private final TestInProcessRunState myTestRunState;
 
-  public JUnitInProcessExecutor(@NotNull Project mpsProject, @NotNull String runConfigurationName, Iterable<ITestNodeWrapper> testNodeWrappers) {
+  public JUnitInProcessRunStarter(@NotNull Project mpsProject, @NotNull String runConfigurationName, Iterable<ITestNodeWrapper> testNodeWrappers) {
     myTestsContributor = new NodeWrappersTestsContributor((MPSProject) mpsProject, runConfigurationName, testNodeWrappers);
     myTestRunState = TestInProcessRunState.getInstance();
   }
@@ -45,7 +45,7 @@ public class JUnitInProcessExecutor implements Executor {
   @Override
   public ProcessHandler execute() throws ExecutionException {
     if (!(checkExecutionIsPossible())) {
-      return new JUnitInProcessExecutor.EmptyProcessHandler();
+      return new JUnitInProcessRunStarter.EmptyProcessHandler();
     }
     final JUnitTestExecutor executor = new JUnitTestExecutor(myTestsContributor);
     final Future<?> future = doExecute(executor);
@@ -115,7 +115,7 @@ public class JUnitInProcessExecutor implements Executor {
           RuntimeFlags.setTestMode(oldTestMode);
           executor.dispose();
           myTestRunState.set(RunStateEnum.TERMINATED);
-          JUnitInProcessExecutor.this.dispose();
+          JUnitInProcessRunStarter.this.dispose();
         }
       }
     });

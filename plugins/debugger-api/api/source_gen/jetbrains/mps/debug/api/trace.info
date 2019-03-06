@@ -336,25 +336,25 @@
   </root>
   <root nodeRef="r:c02662c0-67c5-4c3a-8d3a-cd7ffe189340(jetbrains.mps.debug.api)/4474271214082913267">
     <file name="EmptyDebuggerSettings.java">
-      <node id="4474271214082914358" at="8,0,9,0" concept="14" trace="myInstance" />
-      <node id="4474271214082914379" at="13,53,14,14" concept="11" />
-      <node id="4474271214082914387" at="17,28,18,16" concept="11" />
-      <node id="4474271214082914367" at="20,53,21,22" concept="11" />
-      <node id="4474271214082914369" at="9,0,11,0" concept="3" trace="EmptyDebuggerSettings#()V" />
-      <node id="4474271214082914363" at="20,0,23,0" concept="15" trace="getInstance#()Ljetbrains/mps/debug/api/EmptyDebuggerSettings;" />
-      <node id="4474271214082914383" at="16,0,20,0" concept="9" trace="isEmpty#()Z" />
-      <node id="4474271214082914373" at="11,0,16,0" concept="9" trace="getCommandLine#(Z)Ljava/lang/String;" />
-      <scope id="4474271214082914372" at="9,35,9,35" />
-      <scope id="4474271214082914378" at="13,53,14,14" />
-      <scope id="4474271214082914386" at="17,28,18,16" />
-      <scope id="4474271214082914366" at="20,53,21,22" />
-      <scope id="4474271214082914369" at="9,0,11,0" />
-      <scope id="4474271214082914363" at="20,0,23,0" />
-      <scope id="4474271214082914383" at="16,0,20,0" />
-      <scope id="4474271214082914373" at="11,0,16,0">
+      <node id="4474271214082914358" at="8,0,9,0" concept="14" trace="INSTANCE" />
+      <node id="4474271214082914379" at="15,53,16,14" concept="11" />
+      <node id="4474271214082914387" at="20,28,21,16" concept="11" />
+      <node id="4474271214082914367" at="24,53,25,20" concept="11" />
+      <node id="4474271214082914369" at="10,0,12,0" concept="3" trace="EmptyDebuggerSettings#()V" />
+      <node id="4474271214082914363" at="24,0,27,0" concept="15" trace="getInstance#()Ljetbrains/mps/debug/api/EmptyDebuggerSettings;" />
+      <node id="4474271214082914383" at="19,0,23,0" concept="9" trace="isEmpty#()Z" />
+      <node id="4474271214082914373" at="13,0,18,0" concept="9" trace="getCommandLine#(Z)Ljava/lang/String;" />
+      <scope id="4474271214082914372" at="10,35,10,35" />
+      <scope id="4474271214082914378" at="15,53,16,14" />
+      <scope id="4474271214082914386" at="20,28,21,16" />
+      <scope id="4474271214082914366" at="24,53,25,20" />
+      <scope id="4474271214082914369" at="10,0,12,0" />
+      <scope id="4474271214082914363" at="24,0,27,0" />
+      <scope id="4474271214082914383" at="19,0,23,0" />
+      <scope id="4474271214082914373" at="13,0,18,0">
         <var name="application" id="4474271214082914376" />
       </scope>
-      <unit id="4474271214082913267" at="7,0,24,0" name="jetbrains.mps.debug.api.EmptyDebuggerSettings" />
+      <unit id="4474271214082913267" at="7,0,28,0" name="jetbrains.mps.debug.api.EmptyDebuggerSettings" />
     </file>
   </root>
   <root nodeRef="r:c02662c0-67c5-4c3a-8d3a-cd7ffe189340(jetbrains.mps.debug.api)/4474271214082913334">

@@ -5,6 +5,9 @@ package jetbrains.mps.execution.configurations.implementation.plugin.plugin;
 import com.intellij.execution.process.ProcessHandler;
 import com.intellij.execution.ExecutionException;
 
-public interface Executor {
+/**
+ * test server-side ProcessHandler factory
+ */
+public interface JUnitProcessStarter {
   ProcessHandler execute() throws ExecutionException;
 }

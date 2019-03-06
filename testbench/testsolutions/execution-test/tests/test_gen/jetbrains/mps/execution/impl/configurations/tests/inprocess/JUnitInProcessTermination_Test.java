@@ -16,8 +16,8 @@ import jetbrains.mps.smodel.SNodePointer;
 import java.util.List;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState;
-import jetbrains.mps.execution.configurations.implementation.plugin.plugin.Executor;
-import jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitInProcessExecutor;
+import jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitProcessStarter;
+import jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitInProcessRunStarter;
 import jetbrains.mps.lang.test.util.TestInProcessRunState;
 import com.intellij.execution.process.ProcessHandler;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
@@ -64,7 +64,7 @@ public class JUnitInProcessTermination_Test extends BaseTransformationTest {
       try {
         final TestRunState runState = new TestRunState(testNodes);
 
-        Executor processExecutor = new JUnitInProcessExecutor(myProject, "testtest", testNodes);
+        JUnitProcessStarter processExecutor = new JUnitInProcessRunStarter(myProject, "testtest", testNodes);
         final TestInProcessRunState lightState = TestInProcessRunState.getInstance();
         if (LOG.isInfoEnabled()) {
           LOG.info("Starting in-process-execution");

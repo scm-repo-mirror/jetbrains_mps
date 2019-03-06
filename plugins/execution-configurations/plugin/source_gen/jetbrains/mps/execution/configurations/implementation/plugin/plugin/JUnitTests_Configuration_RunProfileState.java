@@ -55,21 +55,21 @@ public class JUnitTests_Configuration_RunProfileState extends DebuggerRunProfile
   @Nullable
   public ExecutionResult execute(Executor executor, @NotNull ProgramRunner runner) throws ExecutionException {
     Project project = myEnvironment.getProject();
-    JUnitSettings_Configuration settings = myRunConfiguration.getJUnitSettings();
+    JUnitSettings_Configuration junitParams = myRunConfiguration.getJUnitSettings();
     boolean debugExecutor = executor.getId().equals(DefaultDebugExecutor.EXECUTOR_ID);
-    settings.setDebug(debugExecutor);
+    junitParams.setDebug(debugExecutor);
     MPSProject mpsProject = ProjectHelper.fromIdeaProject(project);
-    List<ITestNodeWrapper> testNodes = settings.getTests(mpsProject);
+    List<ITestNodeWrapper> testNodes = junitParams.getTests(mpsProject);
     if (testNodes == null || ListSequence.fromList(testNodes).isEmpty()) {
       throw new ExecutionException("Could not find tests to run. Please check the run configuration for errors.");
     }
     TestRunState runState = new TestRunState(testNodes);
-    jetbrains.mps.execution.configurations.implementation.plugin.plugin.Executor processExecutor;
-    if (settings.canExecuteInProcess(testNodes)) {
+    JUnitProcessStarter processExecutor;
+    if (junitParams.canExecuteInProcess(testNodes)) {
       JUnitTests_Configuration configuration = myRunConfiguration;
-      processExecutor = new JUnitInProcessExecutor(mpsProject, ((BaseMpsRunConfiguration) configuration).getName(), testNodes);
+      processExecutor = new JUnitInProcessRunStarter(mpsProject, ((BaseMpsRunConfiguration) configuration).getName(), testNodes);
     } else {
-      processExecutor = new JUnitExecutor(mpsProject, executor, settings, myDebuggerSettings, myRunConfiguration.getJavaRunParameters(), testNodes);
+      processExecutor = new JUnitOutOfProcessStarter(mpsProject, testNodes, junitParams, myRunConfiguration.getJavaRunParameters(), executor.getId(), myDebuggerSettings);
     }
     ProcessHandler process = processExecutor.execute();
     final UnitTestViewComponent testViewComponent = myRunConfiguration.createTestViewComponent(runState, process);

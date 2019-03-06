@@ -2756,7 +2756,7 @@
       <node concept="3clFbS" id="5gyVhZ1884m" role="2VODD2">
         <node concept="3cpWs8" id="78pvOus40yh" role="3cqZAp">
           <node concept="3cpWsn" id="78pvOus40yi" role="3cpWs9">
-            <property role="TrG5h" value="settings" />
+            <property role="TrG5h" value="junitParams" />
             <node concept="yHkIc" id="78pvOus40yf" role="1tU5fm">
               <ref role="yHkHG" to="tty3:5gyVhZ1bm9a" resolve="JUnitSettings" />
             </node>
@@ -2796,7 +2796,7 @@
             </node>
             <node concept="2OqwBi" id="a4sarQY1h5" role="37vLTJ">
               <node concept="37vLTw" id="a4sarQY0Gb" role="2Oq$k0">
-                <ref role="3cqZAo" node="78pvOus40yi" resolve="settings" />
+                <ref role="3cqZAo" node="78pvOus40yi" resolve="junitParams" />
               </node>
               <node concept="yHkDZ" id="a4sarQY2J9" role="2OqNvi">
                 <ref role="yHkDY" to="tty3:a4sarQXDI6" resolve="myDebug" />
@@ -2822,7 +2822,7 @@
             <property role="TrG5h" value="testNodes" />
             <node concept="2OqwBi" id="5gyVhZ1884s" role="33vP2m">
               <node concept="37vLTw" id="78pvOus40ym" role="2Oq$k0">
-                <ref role="3cqZAo" node="78pvOus40yi" resolve="settings" />
+                <ref role="3cqZAo" node="78pvOus40yi" resolve="junitParams" />
               </node>
               <node concept="2XshWL" id="5gyVhZ1884u" role="2OqNvi">
                 <ref role="2WH_rO" to="tty3:5gyVhZ1bm9b" resolve="getTests" />
@@ -2941,7 +2941,7 @@
           </node>
           <node concept="2OqwBi" id="6Aw2OSzltYR" role="3clFbw">
             <node concept="37vLTw" id="6Aw2OSzltnl" role="2Oq$k0">
-              <ref role="3cqZAo" node="78pvOus40yi" resolve="settings" />
+              <ref role="3cqZAo" node="78pvOus40yi" resolve="junitParams" />
             </node>
             <node concept="2XshWL" id="6Aw2OSzluXn" role="2OqNvi">
               <ref role="2WH_rO" to="tty3:1b7CZFPJVXT" resolve="canExecuteInProcess" />
@@ -2964,17 +2964,12 @@
                         <ref role="3cqZAo" node="5gyVhZ1884o" resolve="testNodes" />
                       </node>
                       <node concept="37vLTw" id="78pvOus8DVE" role="37wK5m">
-                        <ref role="3cqZAo" node="78pvOus40yi" resolve="settings" />
+                        <ref role="3cqZAo" node="78pvOus40yi" resolve="junitParams" />
                       </node>
-                      <node concept="2OqwBi" id="4rbJdZOM3AP" role="37wK5m">
-                        <node concept="2OqwBi" id="1b7CZFPTcwC" role="2Oq$k0">
-                          <node concept="RBKsg" id="1b7CZFPTc32" role="2Oq$k0" />
-                          <node concept="yHkDZ" id="6oDdG_Xxsqw" role="2OqNvi">
-                            <ref role="yHkDY" node="6woObKLCiTr" resolve="myJavaRunParameters" />
-                          </node>
-                        </node>
-                        <node concept="yHkDZ" id="4rbJdZOM4xh" role="2OqNvi">
-                          <ref role="yHkDY" to="go48:6woObKLBCks" resolve="myJavaParameters" />
+                      <node concept="2OqwBi" id="1b7CZFPTcwC" role="37wK5m">
+                        <node concept="RBKsg" id="1b7CZFPTc32" role="2Oq$k0" />
+                        <node concept="yHkDZ" id="6oDdG_Xxsqw" role="2OqNvi">
+                          <ref role="yHkDY" node="6woObKLCiTr" resolve="myJavaRunParameters" />
                         </node>
                       </node>
                       <node concept="2OqwBi" id="4rbJdZOzcHd" role="37wK5m">
@@ -12535,27 +12530,11 @@
                 <node concept="37vLTw" id="4rbJdZOGuLI" role="37wK5m">
                   <ref role="3cqZAo" node="1b7CZFPPjpY" resolve="testNodes" />
                 </node>
-                <node concept="3K4zz7" id="4rbJdZOKZgW" role="37wK5m">
-                  <node concept="10Nm6u" id="4rbJdZOL0Z$" role="3K4GZi" />
-                  <node concept="2OqwBi" id="4rbJdZOGuO$" role="3K4Cdx">
-                    <node concept="37vLTw" id="4rbJdZOJvYp" role="2Oq$k0">
-                      <ref role="3cqZAo" node="78pvOus43SA" resolve="jUnitSettings" />
-                    </node>
-                    <node concept="yHkDZ" id="4rbJdZOL34x" role="2OqNvi">
-                      <ref role="yHkDY" to="tty3:78pvOus4b8w" resolve="myReuseCaches" />
-                    </node>
-                  </node>
-                  <node concept="2OqwBi" id="4rbJdZOL01V" role="3K4E3e">
-                    <node concept="37vLTw" id="4rbJdZOL01W" role="2Oq$k0">
-                      <ref role="3cqZAo" node="78pvOus43SA" resolve="jUnitSettings" />
-                    </node>
-                    <node concept="2XshWL" id="4rbJdZOL01X" role="2OqNvi">
-                      <ref role="2WH_rO" to="tty3:5dbgjInbZ3$" resolve="getCachesLocation" />
-                    </node>
-                  </node>
+                <node concept="37vLTw" id="4rbJdZOUeoN" role="37wK5m">
+                  <ref role="3cqZAo" node="78pvOus43SA" resolve="jUnitSettings" />
                 </node>
                 <node concept="37vLTw" id="4rbJdZOJ84u" role="37wK5m">
-                  <ref role="3cqZAo" node="1b7CZFPP8gS" resolve="javaParamsTuple" />
+                  <ref role="3cqZAo" node="1b7CZFPP8gS" resolve="javaParams" />
                 </node>
                 <node concept="37vLTw" id="4rbJdZOLMPa" role="37wK5m">
                   <ref role="3cqZAo" node="7EXMnFkVWor" resolve="toolWindowIdToShowNotifications" />
@@ -12593,9 +12572,9 @@
         </node>
       </node>
       <node concept="37vLTG" id="1b7CZFPP8gS" role="3clF46">
-        <property role="TrG5h" value="javaParamsTuple" />
-        <node concept="3uibUv" id="4rbJdZOGWgV" role="1tU5fm">
-          <ref role="3uigEE" to="go48:14R2qyOCsUf" resolve="JavaRunParameters" />
+        <property role="TrG5h" value="javaParams" />
+        <node concept="yHkHH" id="4rbJdZOS9PQ" role="1tU5fm">
+          <ref role="yHkHG" to="go48:6woObKLBCjU" resolve="JavaRunParameters" />
         </node>
       </node>
       <node concept="37vLTG" id="7EXMnFkVWor" role="3clF46">
@@ -12672,22 +12651,24 @@
       <node concept="312cEg" id="4rbJdZOFXvQ" role="jymVt">
         <property role="34CwA1" value="false" />
         <property role="eg7rD" value="false" />
-        <property role="TrG5h" value="myCachesLocation" />
+        <property role="TrG5h" value="myJUnitSettings" />
         <property role="3TUv4t" value="true" />
         <node concept="3Tm6S6" id="4rbJdZOFXvR" role="1B3o_S" />
-        <node concept="17QB3L" id="4rbJdZOGv77" role="1tU5fm" />
+        <node concept="yHkHH" id="4rbJdZOSllX" role="1tU5fm">
+          <ref role="yHkHG" to="tty3:5gyVhZ1bm9a" resolve="JUnitSettings" />
+        </node>
         <node concept="2AHcQZ" id="4rbJdZOL8hG" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
         </node>
       </node>
       <node concept="312cEg" id="4rbJdZOFXvW" role="jymVt">
         <property role="34CwA1" value="false" />
         <property role="eg7rD" value="false" />
-        <property role="TrG5h" value="myJavaParamsTuple" />
+        <property role="TrG5h" value="myJavaParams" />
         <property role="3TUv4t" value="true" />
         <node concept="3Tm6S6" id="4rbJdZOFXvX" role="1B3o_S" />
-        <node concept="3uibUv" id="4rbJdZOLbej" role="1tU5fm">
-          <ref role="3uigEE" to="go48:14R2qyOCsUf" resolve="JavaRunParameters" />
+        <node concept="yHkHH" id="4rbJdZOSbd6" role="1tU5fm">
+          <ref role="yHkHG" to="go48:6woObKLBCjU" resolve="JavaRunParameters" />
         </node>
       </node>
       <node concept="312cEg" id="4rbJdZOFXvT" role="jymVt">
@@ -12727,10 +12708,10 @@
           <node concept="3clFbF" id="4rbJdZOFutq" role="3cqZAp">
             <node concept="37vLTI" id="4rbJdZOFutr" role="3clFbG">
               <node concept="37vLTw" id="4rbJdZOFuts" role="37vLTx">
-                <ref role="3cqZAo" node="4rbJdZOFutK" resolve="cachesLocation" />
+                <ref role="3cqZAo" node="4rbJdZOFutK" resolve="settings" />
               </node>
               <node concept="37vLTw" id="4rbJdZOFutt" role="37vLTJ">
-                <ref role="3cqZAo" node="4rbJdZOFXvQ" resolve="myCachesLocation" />
+                <ref role="3cqZAo" node="4rbJdZOFXvQ" resolve="myJUnitSettings" />
               </node>
             </node>
           </node>
@@ -12747,10 +12728,10 @@
           <node concept="3clFbF" id="4rbJdZOFuty" role="3cqZAp">
             <node concept="37vLTI" id="4rbJdZOFutz" role="3clFbG">
               <node concept="37vLTw" id="4rbJdZOFut$" role="37vLTx">
-                <ref role="3cqZAo" node="4rbJdZOFutM" resolve="javaTuple" />
+                <ref role="3cqZAo" node="4rbJdZOFutM" resolve="javaParams" />
               </node>
               <node concept="37vLTw" id="4rbJdZOFut_" role="37vLTJ">
-                <ref role="3cqZAo" node="4rbJdZOFXvW" resolve="myJavaParamsTuple" />
+                <ref role="3cqZAo" node="4rbJdZOFXvW" resolve="myJavaParams" />
               </node>
             </node>
           </node>
@@ -12781,16 +12762,15 @@
           </node>
         </node>
         <node concept="37vLTG" id="4rbJdZOFutK" role="3clF46">
-          <property role="TrG5h" value="cachesLocation" />
-          <node concept="17QB3L" id="4rbJdZOFPMW" role="1tU5fm" />
-          <node concept="2AHcQZ" id="4rbJdZOKUN$" role="2AJF6D">
-            <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+          <property role="TrG5h" value="settings" />
+          <node concept="yHkHH" id="4rbJdZOSj2s" role="1tU5fm">
+            <ref role="yHkHG" to="tty3:5gyVhZ1bm9a" resolve="JUnitSettings" />
           </node>
         </node>
         <node concept="37vLTG" id="4rbJdZOFutM" role="3clF46">
-          <property role="TrG5h" value="javaTuple" />
-          <node concept="3uibUv" id="4rbJdZOL5Y_" role="1tU5fm">
-            <ref role="3uigEE" to="go48:14R2qyOCsUf" resolve="JavaRunParameters" />
+          <property role="TrG5h" value="javaParams" />
+          <node concept="yHkHH" id="4rbJdZOSdHN" role="1tU5fm">
+            <ref role="yHkHG" to="go48:6woObKLBCjU" resolve="JavaRunParameters" />
           </node>
         </node>
         <node concept="37vLTG" id="4rbJdZOFutO" role="3clF46">
@@ -12816,11 +12796,11 @@
             <node concept="37vLTw" id="4rbJdZOLmqW" role="37wK5m">
               <ref role="3cqZAo" node="4rbJdZOGwdE" resolve="testNodes" />
             </node>
-            <node concept="37vLTw" id="4rbJdZOLnEx" role="37wK5m">
-              <ref role="3cqZAo" node="4rbJdZOGwdH" resolve="cachesLocation" />
+            <node concept="37vLTw" id="4rbJdZOSnTx" role="37wK5m">
+              <ref role="3cqZAo" node="4rbJdZOSnzz" resolve="settings" />
             </node>
             <node concept="37vLTw" id="4rbJdZOLoDe" role="37wK5m">
-              <ref role="3cqZAo" node="4rbJdZOLhMD" resolve="javaTuple" />
+              <ref role="3cqZAo" node="4rbJdZOLhMD" resolve="javaParams" />
             </node>
             <node concept="10Nm6u" id="4rbJdZOLs9M" role="37wK5m" />
             <node concept="2YIFZM" id="4rbJdZOG_wY" role="37wK5m">
@@ -12844,17 +12824,16 @@
             </node>
           </node>
         </node>
-        <node concept="37vLTG" id="4rbJdZOGwdH" role="3clF46">
-          <property role="TrG5h" value="cachesLocation" />
-          <node concept="17QB3L" id="4rbJdZOGwdI" role="1tU5fm" />
-          <node concept="2AHcQZ" id="4rbJdZOKr$k" role="2AJF6D">
-            <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+        <node concept="37vLTG" id="4rbJdZOSnzz" role="3clF46">
+          <property role="TrG5h" value="settings" />
+          <node concept="yHkHH" id="4rbJdZOSnz$" role="1tU5fm">
+            <ref role="yHkHG" to="tty3:5gyVhZ1bm9a" resolve="JUnitSettings" />
           </node>
         </node>
         <node concept="37vLTG" id="4rbJdZOLhMD" role="3clF46">
-          <property role="TrG5h" value="javaTuple" />
-          <node concept="3uibUv" id="4rbJdZOLhME" role="1tU5fm">
-            <ref role="3uigEE" to="go48:14R2qyOCsUf" resolve="JavaRunParameters" />
+          <property role="TrG5h" value="javaParams" />
+          <node concept="yHkHH" id="4rbJdZOSeGJ" role="1tU5fm">
+            <ref role="yHkHG" to="go48:6woObKLBCjU" resolve="JavaRunParameters" />
           </node>
         </node>
       </node>
@@ -12873,8 +12852,13 @@
               <node concept="2YIFZM" id="4rbJdZOFxpI" role="33vP2m">
                 <ref role="37wK5l" to="sfqd:78pvOus5QBL" resolve="acquireLock" />
                 <ref role="1Pybhc" to="sfqd:1yMd$64tgFd" resolve="RunCachesManager" />
-                <node concept="37vLTw" id="4rbJdZOGvFd" role="37wK5m">
-                  <ref role="3cqZAo" node="4rbJdZOFXvQ" resolve="myCachesLocation" />
+                <node concept="2OqwBi" id="4rbJdZOSoih" role="37wK5m">
+                  <node concept="37vLTw" id="4rbJdZOGvFd" role="2Oq$k0">
+                    <ref role="3cqZAo" node="4rbJdZOFXvQ" resolve="myJUnitSettings" />
+                  </node>
+                  <node concept="yHkDZ" id="4rbJdZOSoUG" role="2OqNvi">
+                    <ref role="yHkDY" to="tty3:29IGCqrBT0S" resolve="myCachesPath" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -12891,9 +12875,6 @@
                   <ref role="37wK5l" node="1b7CZFPP7HJ" resolve="prepareJavaParamsForTests" />
                   <node concept="37vLTw" id="4rbJdZOGRlg" role="37wK5m">
                     <ref role="3cqZAo" node="4rbJdZOFxpG" resolve="dirLock" />
-                  </node>
-                  <node concept="37vLTw" id="4rbJdZOGRlh" role="37wK5m">
-                    <ref role="3cqZAo" node="4rbJdZOFXvQ" resolve="myCachesLocation" />
                   </node>
                 </node>
               </node>
@@ -12976,8 +12957,13 @@
                                 <node concept="2YIFZM" id="4rbJdZOFxqk" role="3clFbG">
                                   <ref role="37wK5l" to="sfqd:78pvOus5QCv" resolve="releaseLock" />
                                   <ref role="1Pybhc" to="sfqd:1yMd$64tgFd" resolve="RunCachesManager" />
-                                  <node concept="37vLTw" id="4rbJdZOGvFc" role="37wK5m">
-                                    <ref role="3cqZAo" node="4rbJdZOFXvQ" resolve="myCachesLocation" />
+                                  <node concept="2OqwBi" id="4rbJdZOSs9_" role="37wK5m">
+                                    <node concept="37vLTw" id="4rbJdZOGvFc" role="2Oq$k0">
+                                      <ref role="3cqZAo" node="4rbJdZOFXvQ" resolve="myJUnitSettings" />
+                                    </node>
+                                    <node concept="yHkDZ" id="4rbJdZOSu3W" role="2OqNvi">
+                                      <ref role="yHkDY" to="tty3:29IGCqrBT0S" resolve="myCachesPath" />
+                                    </node>
                                   </node>
                                 </node>
                               </node>
@@ -13028,8 +13014,13 @@
                 <ref role="3uigEE" to="go48:14R2qyOCsUf" resolve="JavaRunParameters" />
               </node>
               <node concept="2OqwBi" id="1b7CZFPP7I9" role="33vP2m">
-                <node concept="37vLTw" id="4rbJdZOLBPZ" role="2Oq$k0">
-                  <ref role="3cqZAo" node="4rbJdZOFXvW" resolve="myJavaParamsTuple" />
+                <node concept="2OqwBi" id="4rbJdZOSf7v" role="2Oq$k0">
+                  <node concept="37vLTw" id="4rbJdZOLBPZ" role="2Oq$k0">
+                    <ref role="3cqZAo" node="4rbJdZOFXvW" resolve="myJavaParams" />
+                  </node>
+                  <node concept="yHkDZ" id="4rbJdZOSggr" role="2OqNvi">
+                    <ref role="yHkDY" to="go48:6woObKLBCks" resolve="myJavaParameters" />
+                  </node>
                 </node>
                 <node concept="liA8E" id="1b7CZFPP7Id" role="2OqNvi">
                   <ref role="37wK5l" to="go48:14R2qyOCsUg" resolve="clone" />
@@ -13042,8 +13033,8 @@
               <property role="TrG5h" value="vmFromJava" />
               <node concept="17QB3L" id="1b7CZFPP7Ig" role="1tU5fm" />
               <node concept="2OqwBi" id="1b7CZFPP7Ih" role="33vP2m">
-                <node concept="37vLTw" id="4rbJdZOLGFG" role="2Oq$k0">
-                  <ref role="3cqZAo" node="4rbJdZOFXvW" resolve="myJavaParamsTuple" />
+                <node concept="37vLTw" id="4rbJdZOSinB" role="2Oq$k0">
+                  <ref role="3cqZAo" node="1b7CZFPP7I7" resolve="parameters" />
                 </node>
                 <node concept="liA8E" id="1b7CZFPP7Il" role="2OqNvi">
                   <ref role="37wK5l" to="go48:14R2qyOCsVI" resolve="getVmOptions" />
@@ -13077,34 +13068,48 @@
               <node concept="17QB3L" id="1b7CZFPP7HR" role="1tU5fm" />
             </node>
           </node>
+          <node concept="3cpWs8" id="4rbJdZOSAIw" role="3cqZAp">
+            <node concept="3cpWsn" id="4rbJdZOSAIx" role="3cpWs9">
+              <property role="TrG5h" value="cachesString" />
+              <node concept="17QB3L" id="4rbJdZOSAIv" role="1tU5fm" />
+              <node concept="3cpWs3" id="4rbJdZOSAIz" role="33vP2m">
+                <node concept="3cpWs3" id="4rbJdZOSAI$" role="3uHU7B">
+                  <node concept="2OqwBi" id="4rbJdZOSAI_" role="3uHU7w">
+                    <node concept="37vLTw" id="4rbJdZOSAIA" role="2Oq$k0">
+                      <ref role="3cqZAo" node="4rbJdZOFXvQ" resolve="myJUnitSettings" />
+                    </node>
+                    <node concept="yHkDZ" id="4rbJdZOSAIB" role="2OqNvi">
+                      <ref role="yHkDY" to="tty3:29IGCqrBT0S" resolve="myCachesPath" />
+                    </node>
+                  </node>
+                  <node concept="Xl_RD" id="4rbJdZOSAIC" role="3uHU7B">
+                    <property role="Xl_RC" value="=\&quot;" />
+                  </node>
+                </node>
+                <node concept="Xl_RD" id="4rbJdZOSAID" role="3uHU7w">
+                  <property role="Xl_RC" value="\&quot;" />
+                </node>
+              </node>
+            </node>
+          </node>
           <node concept="3clFbJ" id="4eCVXiE1twD" role="3cqZAp">
             <node concept="3clFbS" id="4eCVXiE1twG" role="3clFbx">
               <node concept="3clFbJ" id="4eCVXiE1uVO" role="3cqZAp">
                 <node concept="3clFbS" id="4eCVXiE1uVP" role="3clFbx">
                   <node concept="3clFbF" id="52x4_ZzMpe3" role="3cqZAp">
                     <node concept="37vLTI" id="52x4_ZzMpe5" role="3clFbG">
-                      <node concept="3cpWs3" id="29IGCqrCp5h" role="37vLTx">
-                        <node concept="Xl_RD" id="1b7CZFPP7HT" role="3uHU7w">
-                          <property role="Xl_RC" value="\&quot;" />
+                      <node concept="3cpWs3" id="4rbJdZOS_Ih" role="37vLTx">
+                        <node concept="3cpWs3" id="1b7CZFPP7HW" role="3uHU7B">
+                          <node concept="Xl_RD" id="1b7CZFPP7HX" role="3uHU7B">
+                            <property role="Xl_RC" value="-D" />
+                          </node>
+                          <node concept="10M0yZ" id="1b7CZFPP7HY" role="3uHU7w">
+                            <ref role="3cqZAo" to="hazs:~CachesUtil.REUSE_CACHES_DIR" resolve="REUSE_CACHES_DIR" />
+                            <ref role="1PxDUh" to="hazs:~CachesUtil" resolve="CachesUtil" />
+                          </node>
                         </node>
-                        <node concept="3cpWs3" id="1b7CZFPP7HS" role="3uHU7B">
-                          <node concept="3cpWs3" id="1b7CZFPP7HV" role="3uHU7B">
-                            <node concept="3cpWs3" id="1b7CZFPP7HW" role="3uHU7B">
-                              <node concept="Xl_RD" id="1b7CZFPP7HX" role="3uHU7B">
-                                <property role="Xl_RC" value="-D" />
-                              </node>
-                              <node concept="10M0yZ" id="1b7CZFPP7HY" role="3uHU7w">
-                                <ref role="3cqZAo" to="hazs:~CachesUtil.REUSE_CACHES_DIR" resolve="REUSE_CACHES_DIR" />
-                                <ref role="1PxDUh" to="hazs:~CachesUtil" resolve="CachesUtil" />
-                              </node>
-                            </node>
-                            <node concept="Xl_RD" id="1b7CZFPP7HZ" role="3uHU7w">
-                              <property role="Xl_RC" value="=\&quot;" />
-                            </node>
-                          </node>
-                          <node concept="37vLTw" id="29IGCqrCpfa" role="3uHU7w">
-                            <ref role="3cqZAo" node="29IGCqrCmGD" resolve="cachesDir" />
-                          </node>
+                        <node concept="37vLTw" id="4rbJdZOSAIE" role="3uHU7w">
+                          <ref role="3cqZAo" node="4rbJdZOSAIx" resolve="cachesString" />
                         </node>
                       </node>
                       <node concept="37vLTw" id="52x4_ZzMpe9" role="37vLTJ">
@@ -13149,26 +13154,16 @@
                     <node concept="3clFbF" id="4eCVXiE1yTL" role="3cqZAp">
                       <node concept="37vLTI" id="4eCVXiE1yTM" role="3clFbG">
                         <node concept="3cpWs3" id="4eCVXiE1yTN" role="37vLTx">
-                          <node concept="Xl_RD" id="4eCVXiE1yTO" role="3uHU7w">
-                            <property role="Xl_RC" value="\&quot;" />
+                          <node concept="37vLTw" id="4rbJdZOSDvP" role="3uHU7w">
+                            <ref role="3cqZAo" node="4rbJdZOSAIx" resolve="cachesString" />
                           </node>
-                          <node concept="3cpWs3" id="4eCVXiE1yTP" role="3uHU7B">
-                            <node concept="3cpWs3" id="4eCVXiE1yTQ" role="3uHU7B">
-                              <node concept="3cpWs3" id="4eCVXiE1yTR" role="3uHU7B">
-                                <node concept="Xl_RD" id="4eCVXiE1yTS" role="3uHU7B">
-                                  <property role="Xl_RC" value="-D" />
-                                </node>
-                                <node concept="10M0yZ" id="4eCVXiE1yTT" role="3uHU7w">
-                                  <ref role="3cqZAo" to="hazs:~CachesUtil.SAVE_CACHES_DIR" resolve="SAVE_CACHES_DIR" />
-                                  <ref role="1PxDUh" to="hazs:~CachesUtil" resolve="CachesUtil" />
-                                </node>
-                              </node>
-                              <node concept="Xl_RD" id="4eCVXiE1yTU" role="3uHU7w">
-                                <property role="Xl_RC" value="=\&quot;" />
-                              </node>
+                          <node concept="3cpWs3" id="4eCVXiE1yTR" role="3uHU7B">
+                            <node concept="Xl_RD" id="4eCVXiE1yTS" role="3uHU7B">
+                              <property role="Xl_RC" value="-D" />
                             </node>
-                            <node concept="37vLTw" id="4eCVXiE1yTV" role="3uHU7w">
-                              <ref role="3cqZAo" node="29IGCqrCmGD" resolve="cachesDir" />
+                            <node concept="10M0yZ" id="4eCVXiE1yTT" role="3uHU7w">
+                              <ref role="3cqZAo" to="hazs:~CachesUtil.SAVE_CACHES_DIR" resolve="SAVE_CACHES_DIR" />
+                              <ref role="1PxDUh" to="hazs:~CachesUtil" resolve="CachesUtil" />
                             </node>
                           </node>
                         </node>
@@ -13203,10 +13198,12 @@
                 </node>
               </node>
             </node>
-            <node concept="3y3z36" id="4rbJdZOK$Et" role="3clFbw">
-              <node concept="10Nm6u" id="4rbJdZOKPKh" role="3uHU7w" />
-              <node concept="37vLTw" id="4rbJdZOKzSG" role="3uHU7B">
-                <ref role="3cqZAo" node="29IGCqrCmGD" resolve="cachesDir" />
+            <node concept="2OqwBi" id="4rbJdZOSxwt" role="3clFbw">
+              <node concept="37vLTw" id="4rbJdZOSwtT" role="2Oq$k0">
+                <ref role="3cqZAo" node="4rbJdZOFXvQ" resolve="myJUnitSettings" />
+              </node>
+              <node concept="yHkDZ" id="4rbJdZOSyJ7" role="2OqNvi">
+                <ref role="yHkDY" to="tty3:78pvOus4b8w" resolve="myReuseCaches" />
               </node>
             </node>
           </node>
@@ -13246,11 +13243,7 @@
           <property role="TrG5h" value="dirLock" />
           <node concept="10P_77" id="78pvOus8gJN" role="1tU5fm" />
         </node>
-        <node concept="37vLTG" id="29IGCqrCmGD" role="3clF46">
-          <property role="TrG5h" value="cachesDir" />
-          <node concept="17QB3L" id="29IGCqrCo5m" role="1tU5fm" />
-        </node>
-        <node concept="3Tm1VV" id="1b7CZFPP7IH" role="1B3o_S" />
+        <node concept="3Tm6S6" id="4rbJdZOSpkF" role="1B3o_S" />
       </node>
       <node concept="2tJIrI" id="52x4_ZzOA3l" role="jymVt" />
       <node concept="3clFb_" id="52x4_ZzOzWI" role="jymVt">
