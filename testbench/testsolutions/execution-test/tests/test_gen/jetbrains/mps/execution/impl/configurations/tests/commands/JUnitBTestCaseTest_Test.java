@@ -30,31 +30,31 @@ import com.intellij.execution.ExecutionException;
 import java.util.Collections;
 
 @MPSLaunch
-public class JUnitBTestCase_Test extends BaseTransformationTest {
+public class JUnitBTestCaseTest_Test extends BaseTransformationTest {
   @ClassRule
-  public static final TestParametersCache ourParamCache = new TestParametersCache(JUnitBTestCase_Test.class, "${mps_home}", "r:e2bad6d6-3029-4bc3-b44d-49863f32d863(jetbrains.mps.execution.impl.configurations.tests.commands@tests)", false);
+  public static final TestParametersCache ourParamCache = new TestParametersCache(JUnitBTestCaseTest_Test.class, "${mps_home}", "r:e2bad6d6-3029-4bc3-b44d-49863f32d863(jetbrains.mps.execution.impl.configurations.tests.commands@tests)", false);
   @Rule
   public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 
-  public JUnitBTestCase_Test() {
+  public JUnitBTestCaseTest_Test() {
     super(ourParamCache);
   }
 
   @Test
   public void test_startSimpleBTestCase() throws Throwable {
-    new JUnitBTestCase_Test.TestBody(this).test_startSimpleBTestCase();
+    new JUnitBTestCaseTest_Test.TestBody(this).test_startSimpleBTestCase();
   }
   @Test
   public void test_startFailedBTestCase() throws Throwable {
-    new JUnitBTestCase_Test.TestBody(this).test_startFailedBTestCase();
+    new JUnitBTestCaseTest_Test.TestBody(this).test_startFailedBTestCase();
   }
   @Test
   public void test_programParametersArePassedToTheTest() throws Throwable {
-    new JUnitBTestCase_Test.TestBody(this).test_programParametersArePassedToTheTest();
+    new JUnitBTestCaseTest_Test.TestBody(this).test_programParametersArePassedToTheTest();
   }
   @Test
   public void test_programParametersWithSpacesArePassedToTheTest() throws Throwable {
-    new JUnitBTestCase_Test.TestBody(this).test_programParametersWithSpacesArePassedToTheTest();
+    new JUnitBTestCaseTest_Test.TestBody(this).test_programParametersWithSpacesArePassedToTheTest();
   }
 
   /*package*/ static class TestBody extends BaseTestBody {

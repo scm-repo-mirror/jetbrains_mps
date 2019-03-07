@@ -111,13 +111,13 @@ public class QueriesGenerated extends QueryProviderBase {
     return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
   }
   public static Object propertyMacro_GetValue_2_3(final PropertyMacroContext _context) {
-    return "get" + PersistentPropertyDeclaration__BehaviorDescriptor.getAccessorName_idO$iR4J$g8R.invoke(_context.getNode());
+    return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
   }
   public static Object propertyMacro_GetValue_2_4(final PropertyMacroContext _context) {
-    return "set" + PersistentPropertyDeclaration__BehaviorDescriptor.getAccessorName_idO$iR4J$g8R.invoke(_context.getNode());
+    return "get" + PersistentPropertyDeclaration__BehaviorDescriptor.getAccessorName_idO$iR4J$g8R.invoke(_context.getNode());
   }
   public static Object propertyMacro_GetValue_2_5(final PropertyMacroContext _context) {
-    return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return "set" + PersistentPropertyDeclaration__BehaviorDescriptor.getAccessorName_idO$iR4J$g8R.invoke(_context.getNode());
   }
   public static Object propertyMacro_GetValue_2_6(final PropertyMacroContext _context) {
     return (String) IGeneratedToClass__BehaviorDescriptor.getGeneratedClassName_idO$iR4JBsSg.invoke(_context.getNode());
@@ -338,18 +338,18 @@ public class QueriesGenerated extends QueryProviderBase {
     }).isNotEmpty();
   }
   public static boolean ifMacro_Condition_2_3(final IfMacroContext _context) {
-    return !((boolean) PersistentPropertyDeclaration__BehaviorDescriptor.isTemplate_idO$iR4J$g8G.invoke(_context.getNode()));
-  }
-  public static boolean ifMacro_Condition_2_4(final IfMacroContext _context) {
-    return !((boolean) PersistentPropertyDeclaration__BehaviorDescriptor.isTemplate_idO$iR4J$g8G.invoke(_context.getNode()));
-  }
-  public static boolean ifMacro_Condition_2_5(final IfMacroContext _context) {
     // see $IF$ [myState] 
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910122L, 0xd244b712f910123L, "persistentProperty"))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !((boolean) PersistentPropertyDeclaration__BehaviorDescriptor.isTemplate_idO$iR4J$g8G.invoke(it));
       }
     }).isNotEmpty();
+  }
+  public static boolean ifMacro_Condition_2_4(final IfMacroContext _context) {
+    return !((boolean) PersistentPropertyDeclaration__BehaviorDescriptor.isTemplate_idO$iR4J$g8G.invoke(_context.getNode()));
+  }
+  public static boolean ifMacro_Condition_2_5(final IfMacroContext _context) {
+    return !((boolean) PersistentPropertyDeclaration__BehaviorDescriptor.isTemplate_idO$iR4J$g8G.invoke(_context.getNode()));
   }
   public static boolean ifMacro_Condition_2_6(final IfMacroContext _context) {
     // see $IF$ [myState] 
@@ -406,22 +406,22 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.getTarget(SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910020L, 0xd244b712f910021L, "editor")), MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91013dL, 0xd244b712f910140L, "resetFrom")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body"));
   }
   public static SNode sourceNodeQuery_2_0(final SourceSubstituteMacroNodeContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"));
-  }
-  public static SNode sourceNodeQuery_2_1(final SourceSubstituteMacroNodeContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"));
-  }
-  public static SNode sourceNodeQuery_2_2(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType"));
   }
-  public static SNode sourceNodeQuery_2_3(final SourceSubstituteMacroNodeContext _context) {
+  public static SNode sourceNodeQuery_2_1(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility"));
   }
-  public static SNode sourceNodeQuery_2_4(final SourceSubstituteMacroNodeContext _context) {
+  public static SNode sourceNodeQuery_2_2(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body"));
   }
-  public static SNode sourceNodeQuery_2_5(final SourceSubstituteMacroNodeContext _context) {
+  public static SNode sourceNodeQuery_2_3(final SourceSubstituteMacroNodeContext _context) {
     return TypeChecker.getInstance().getTypeOf(_context.getNode());
+  }
+  public static SNode sourceNodeQuery_2_4(final SourceSubstituteMacroNodeContext _context) {
+    return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"));
+  }
+  public static SNode sourceNodeQuery_2_5(final SourceSubstituteMacroNodeContext _context) {
+    return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"));
   }
   public static SNode sourceNodeQuery_3_0(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer"));
@@ -513,33 +513,29 @@ public class QueriesGenerated extends QueryProviderBase {
     });
   }
   public static Iterable<SNode> sourceNodesQuery_2_4(final SourceSubstituteMacroNodesContext _context) {
-    return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910122L, 0xd244b712f910123L, "persistentProperty"));
-  }
-  public static Iterable<SNode> sourceNodesQuery_2_5(final SourceSubstituteMacroNodesContext _context) {
-    return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910122L, 0xd244b712f910123L, "persistentProperty"))).where(new IWhereFilter<SNode>() {
-      public boolean accept(SNode it) {
-        return !((boolean) PersistentPropertyDeclaration__BehaviorDescriptor.isTemplate_idO$iR4J$g8G.invoke(it));
-      }
-    });
-  }
-  public static Iterable<SNode> sourceNodesQuery_2_6(final SourceSubstituteMacroNodesContext _context) {
     return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"));
   }
-  public static Iterable<SNode> sourceNodesQuery_2_7(final SourceSubstituteMacroNodesContext _context) {
+  public static Iterable<SNode> sourceNodesQuery_2_5(final SourceSubstituteMacroNodesContext _context) {
     return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation"));
   }
-  public static Iterable<SNode> sourceNodesQuery_2_8(final SourceSubstituteMacroNodesContext _context) {
+  public static Iterable<SNode> sourceNodesQuery_2_6(final SourceSubstituteMacroNodesContext _context) {
     return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x10f383d6949L, "throwsItem"));
   }
-  public static Iterable<SNode> sourceNodesQuery_2_9(final SourceSubstituteMacroNodesContext _context) {
+  public static Iterable<SNode> sourceNodesQuery_2_7(final SourceSubstituteMacroNodesContext _context) {
     return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910020L, 0xd244b712f910023L, "methods"));
   }
-  public static Iterable<SNode> sourceNodesQuery_2_10(final SourceSubstituteMacroNodesContext _context) {
+  public static Iterable<SNode> sourceNodesQuery_2_8(final SourceSubstituteMacroNodesContext _context) {
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910122L, 0xd244b712f910123L, "persistentProperty"))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return (boolean) PersistentPropertyDeclaration__BehaviorDescriptor.isTemplate_idO$iR4J$g8G.invoke(it);
       }
     });
+  }
+  public static Iterable<SNode> sourceNodesQuery_2_9(final SourceSubstituteMacroNodesContext _context) {
+    return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910122L, 0xd244b712f910123L, "persistentProperty"));
+  }
+  public static Iterable<SNode> sourceNodesQuery_2_10(final SourceSubstituteMacroNodesContext _context) {
+    return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910122L, 0xd244b712f910123L, "persistentProperty"));
   }
   public static Iterable<SNode> sourceNodesQuery_2_11(final SourceSubstituteMacroNodesContext _context) {
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910122L, 0xd244b712f910123L, "persistentProperty"))).where(new IWhereFilter<SNode>() {
@@ -787,12 +783,12 @@ public class QueriesGenerated extends QueryProviderBase {
     snqMethods.put("5041115067675810175", new QueriesGenerated.SNQ(i++));
     snqMethods.put("5041115067675810218", new QueriesGenerated.SNQ(i++));
     snqMethods.put("5041115067675810257", new QueriesGenerated.SNQ(i++));
-    snqMethods.put("5041115067675810654", new QueriesGenerated.SNQ(i++));
-    snqMethods.put("5041115067675810664", new QueriesGenerated.SNQ(i++));
     snqMethods.put("5041115067675810725", new QueriesGenerated.SNQ(i++));
     snqMethods.put("5041115067675810733", new QueriesGenerated.SNQ(i++));
     snqMethods.put("5041115067675810741", new QueriesGenerated.SNQ(i++));
     snqMethods.put("5041115067675810826", new QueriesGenerated.SNQ(i++));
+    snqMethods.put("5041115067675810654", new QueriesGenerated.SNQ(i++));
+    snqMethods.put("5041115067675810664", new QueriesGenerated.SNQ(i++));
     snqMethods.put("5041115067675810921", new QueriesGenerated.SNQ(i++));
     snqMethods.put("5041115067675810930", new QueriesGenerated.SNQ(i++));
     snqMethods.put("5041115067675810959", new QueriesGenerated.SNQ(i++));
@@ -902,13 +898,13 @@ public class QueriesGenerated extends QueryProviderBase {
     snsqMethods.put("479872435242654663", new QueriesGenerated.SNsQ(i++));
     snsqMethods.put("5041115067675810485", new QueriesGenerated.SNsQ(i++));
     snsqMethods.put("5041115067675810550", new QueriesGenerated.SNsQ(i++));
-    snsqMethods.put("5041115067675810637", new QueriesGenerated.SNsQ(i++));
-    snsqMethods.put("5041115067675810695", new QueriesGenerated.SNsQ(i++));
     snsqMethods.put("5041115067675810757", new QueriesGenerated.SNsQ(i++));
     snsqMethods.put("5041115067675810765", new QueriesGenerated.SNsQ(i++));
     snsqMethods.put("5041115067675810773", new QueriesGenerated.SNsQ(i++));
     snsqMethods.put("5041115067675810780", new QueriesGenerated.SNsQ(i++));
     snsqMethods.put("5041115067675810844", new QueriesGenerated.SNsQ(i++));
+    snsqMethods.put("5041115067675810637", new QueriesGenerated.SNsQ(i++));
+    snsqMethods.put("5041115067675810695", new QueriesGenerated.SNsQ(i++));
     snsqMethods.put("5041115067675810286", new QueriesGenerated.SNsQ(i++));
     snsqMethods.put("5041115067675810356", new QueriesGenerated.SNsQ(i++));
     snsqMethods.put("5041115067675811064", new QueriesGenerated.SNsQ(i++));
@@ -1020,9 +1016,9 @@ public class QueriesGenerated extends QueryProviderBase {
     pvqMethods.put("5041115067675810459", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), "myTemplate"));
     pvqMethods.put("5041115067675810529", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), "myTemplate"));
     pvqMethods.put("9132506094562634033", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), "myTemplate"));
+    pvqMethods.put("5041115067675810747", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "method"));
     pvqMethods.put("5041115067675810643", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "getPersistentProperty"));
     pvqMethods.put("5041115067675810712", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "setPersistentProperty"));
-    pvqMethods.put("5041115067675810747", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "method"));
     pvqMethods.put("5041115067675810567", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "PersistentConfiguration_Template"));
     pvqMethods.put("5041115067675810883", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "myTemplate"));
     pvqMethods.put("5041115067675810892", new QueriesGenerated.PVQ(i++, MetaAdapterFactory.getProperty(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x11157a3736dL, 0x11157a64c91L, "fqClassName"), "PersistentConfigurationTemplate"));
@@ -1128,9 +1124,9 @@ public class QueriesGenerated extends QueryProviderBase {
     imcMethods.put("7337446690843328023", new QueriesGenerated.IfMC(i++));
     imcMethods.put("7337446690843356466", new QueriesGenerated.IfMC(i++));
     imcMethods.put("7337446690843371870", new QueriesGenerated.IfMC(i++));
+    imcMethods.put("7337446690844065038", new QueriesGenerated.IfMC(i++));
     imcMethods.put("5041115067675810617", new QueriesGenerated.IfMC(i++));
     imcMethods.put("5041115067675810686", new QueriesGenerated.IfMC(i++));
-    imcMethods.put("7337446690844065038", new QueriesGenerated.IfMC(i++));
     imcMethods.put("7337446690843293030", new QueriesGenerated.IfMC(i++));
     imcMethods.put("5041115067675810373", new QueriesGenerated.IfMC(i++));
     imcMethods.put("5041115067675810909", new QueriesGenerated.IfMC(i++));
@@ -1204,11 +1200,11 @@ public class QueriesGenerated extends QueryProviderBase {
     rtqMethods.put("5041115067675810107", new QueriesGenerated.RTQ(3, "PersistentConfiguration_Template"));
     rtqMethods.put("5041115067675810469", new QueriesGenerated.RTQ(4, "myTemplate"));
     rtqMethods.put("5041115067675810539", new QueriesGenerated.RTQ(5, "myTemplate"));
-    rtqMethods.put("5041115067675810609", new QueriesGenerated.RTQ(6, "myPersistentProperty"));
-    rtqMethods.put("5041115067675810628", new QueriesGenerated.RTQ(7, "myTemplate"));
-    rtqMethods.put("5041115067675810678", new QueriesGenerated.RTQ(8, "myPersistentProperty"));
-    rtqMethods.put("5041115067675810815", new QueriesGenerated.RTQ(9, "myTemplate"));
-    rtqMethods.put("5041115067675810835", new QueriesGenerated.RTQ(10, "myTemplate"));
+    rtqMethods.put("5041115067675810815", new QueriesGenerated.RTQ(6, "myTemplate"));
+    rtqMethods.put("5041115067675810835", new QueriesGenerated.RTQ(7, "myTemplate"));
+    rtqMethods.put("5041115067675810609", new QueriesGenerated.RTQ(8, "myPersistentProperty"));
+    rtqMethods.put("5041115067675810628", new QueriesGenerated.RTQ(9, "myTemplate"));
+    rtqMethods.put("5041115067675810678", new QueriesGenerated.RTQ(10, "myPersistentProperty"));
     rtqMethods.put("5041115067675810324", new QueriesGenerated.RTQ(11, "myPersistentProperty"));
     rtqMethods.put("5041115067675810336", new QueriesGenerated.RTQ(12, "myPersistentProperty"));
     rtqMethods.put("5041115067675810347", new QueriesGenerated.RTQ(13, "myPersistentProperty"));

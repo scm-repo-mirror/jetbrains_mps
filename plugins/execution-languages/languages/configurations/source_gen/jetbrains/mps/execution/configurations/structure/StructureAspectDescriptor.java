@@ -29,6 +29,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptContextExpression = createDescriptorForContextExpression();
   /*package*/ final ConceptDescriptor myConceptCreate_ConceptFunction = createDescriptorForCreate_ConceptFunction();
   /*package*/ final ConceptDescriptor myConceptDebuggerSettings_Parameter = createDescriptorForDebuggerSettings_Parameter();
+  /*package*/ final ConceptDescriptor myConceptDummyRunConfigurationInitializer = createDescriptorForDummyRunConfigurationInitializer();
   /*package*/ final ConceptDescriptor myConceptEnvironmentExpression = createDescriptorForEnvironmentExpression();
   /*package*/ final ConceptDescriptor myConceptExecuteBeforeTask_ConceptFunction = createDescriptorForExecuteBeforeTask_ConceptFunction();
   /*package*/ final ConceptDescriptor myConceptExecuteConfiguration_Function = createDescriptorForExecuteConfiguration_Function();
@@ -73,7 +74,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAbstractRunConfigurationExecutor, myConceptBeforeTask, myConceptBeforeTaskCall, myConceptBeforeTaskParameter, myConceptBeforeTaskParameterReference, myConceptConfigurationFromExecutorReference, myConceptConfiguration_Parameter, myConceptConsoleCreator, myConceptConsoleType, myConceptContextConfiguration_Parameter, myConceptContextExpression, myConceptCreate_ConceptFunction, myConceptDebuggerSettings_Parameter, myConceptEnvironmentExpression, myConceptExecuteBeforeTask_ConceptFunction, myConceptExecuteConfiguration_Function, myConceptExecutor_Parameter, myConceptGetProjectOperation, myConceptIsConfigurationFromContext_ConceptFunction, myConceptModelSource, myConceptModuleSource, myConceptNodeListSource, myConceptNodeSource, myConceptProjectSource, myConceptProject_Parameter, myConceptRunConfiguration, myConceptRunConfigurationCreator, myConceptRunConfigurationExecutor, myConceptRunConfigurationKind, myConceptRunConfigurationProducer, myConceptRunConfigurationProducerPart, myConceptRunConfigurationSource, myConceptRunConfigurationType, myConceptSModelSource, myConceptSModuleSource, myConceptSource_ConceptFunctionParameter, myConceptStartProcessHandlerStatement);
+    return Arrays.asList(myConceptAbstractRunConfigurationExecutor, myConceptBeforeTask, myConceptBeforeTaskCall, myConceptBeforeTaskParameter, myConceptBeforeTaskParameterReference, myConceptConfigurationFromExecutorReference, myConceptConfiguration_Parameter, myConceptConsoleCreator, myConceptConsoleType, myConceptContextConfiguration_Parameter, myConceptContextExpression, myConceptCreate_ConceptFunction, myConceptDebuggerSettings_Parameter, myConceptDummyRunConfigurationInitializer, myConceptEnvironmentExpression, myConceptExecuteBeforeTask_ConceptFunction, myConceptExecuteConfiguration_Function, myConceptExecutor_Parameter, myConceptGetProjectOperation, myConceptIsConfigurationFromContext_ConceptFunction, myConceptModelSource, myConceptModuleSource, myConceptNodeListSource, myConceptNodeSource, myConceptProjectSource, myConceptProject_Parameter, myConceptRunConfiguration, myConceptRunConfigurationCreator, myConceptRunConfigurationExecutor, myConceptRunConfigurationKind, myConceptRunConfigurationProducer, myConceptRunConfigurationProducerPart, myConceptRunConfigurationSource, myConceptRunConfigurationType, myConceptSModelSource, myConceptSModuleSource, myConceptSource_ConceptFunctionParameter, myConceptStartProcessHandlerStatement);
   }
 
   @Override
@@ -106,6 +107,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptCreate_ConceptFunction;
       case LanguageConceptSwitch.DebuggerSettings_Parameter:
         return myConceptDebuggerSettings_Parameter;
+      case LanguageConceptSwitch.DummyRunConfigurationInitializer:
+        return myConceptDummyRunConfigurationInitializer;
       case LanguageConceptSwitch.EnvironmentExpression:
         return myConceptEnvironmentExpression;
       case LanguageConceptSwitch.ExecuteBeforeTask_ConceptFunction:
@@ -299,6 +302,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     b.alias("debuggerSettings");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForDummyRunConfigurationInitializer() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.execution.configurations", "DummyRunConfigurationInitializer", 0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x1e454b508a60997cL);
+    b.class_(false, false, false);
+    b.super_("jetbrains.mps.baseLanguage.structure.AbstractCreator", 0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab844af9bL);
+    b.origin("r:f3383ae6-205a-4e7c-8dd9-c29966e29e49(jetbrains.mps.execution.configurations.structure)/2181232403821926780");
+    b.version(2);
+    b.associate("configuration", 0xd244b712f910117L).target(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f46e49L).optional(false).origin("946964771156066583").done();
+    b.aggregate("projectParameter", 0x1e454b508a72ed99L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(true).ordered(true).multiple(false).origin("2181232403823127961").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForEnvironmentExpression() {

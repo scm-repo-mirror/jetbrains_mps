@@ -478,7 +478,7 @@
           <node concept="2OqwBi" id="63yBSeEXxGm" role="mwGJk">
             <node concept="2OqwBi" id="63yBSeEXxGn" role="2Oq$k0">
               <node concept="1YBJjd" id="63yBSeEXxGo" role="2Oq$k0">
-                <ref role="1YBMHb" node="63yBSeEXxGu" resolve="persistentPropertyReferenceOperation" />
+                <ref role="1YBMHb" node="63yBSeEXxGu" resolve="op" />
               </node>
               <node concept="3TrEf2" id="63yBSeEXxGp" role="2OqNvi">
                 <ref role="3Tt5mk" to="fb9u:O$iR4J$g4f" resolve="variableDeclaration" />
@@ -492,14 +492,14 @@
         <node concept="mw_s8" id="63yBSeEXxGr" role="1ZfhK$">
           <node concept="1Z2H0r" id="63yBSeEXxGs" role="mwGJk">
             <node concept="1YBJjd" id="63yBSeEXxGt" role="1Z2MuG">
-              <ref role="1YBMHb" node="63yBSeEXxGu" resolve="persistentPropertyReferenceOperation" />
+              <ref role="1YBMHb" node="63yBSeEXxGu" resolve="op" />
             </node>
           </node>
         </node>
       </node>
     </node>
     <node concept="1YaCAy" id="63yBSeEXxGu" role="1YuTPh">
-      <property role="TrG5h" value="persistentPropertyReferenceOperation" />
+      <property role="TrG5h" value="op" />
       <ref role="1YaFvo" to="fb9u:O$iR4J$g4e" resolve="PersistentPropertyReferenceOperation" />
     </node>
   </node>
@@ -680,7 +680,6 @@
           </node>
         </node>
       </node>
-      <node concept="3clFbH" id="63yBSeEXxHH" role="3cqZAp" />
     </node>
     <node concept="1YaCAy" id="63yBSeEXxHI" role="1YuTPh">
       <property role="TrG5h" value="configurationTemplateInitializer" />

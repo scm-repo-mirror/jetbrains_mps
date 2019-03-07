@@ -647,5 +647,24 @@
       <ref role="20lvS9" node="25jQf71X6T9" resolve="RunConfiguration" />
     </node>
   </node>
+  <node concept="1TIwiD" id="1T5iP2ao9_W">
+    <property role="EcuMT" value="2181232403821926780" />
+    <property role="TrG5h" value="DummyRunConfigurationInitializer" />
+    <property role="R4oN_" value="initializer for rc as a persistent properties container" />
+    <ref role="1TJDcQ" to="tpee:gEShaYr" resolve="AbstractCreator" />
+    <node concept="1TJgyj" id="O$iR4J$g4n" role="1TKVEi">
+      <property role="20lmBu" value="reference" />
+      <property role="20kJfa" value="configuration" />
+      <property role="20lbJX" value="1" />
+      <property role="IQ2ns" value="946964771156066583" />
+      <ref role="20lvS9" node="25jQf71X6T9" resolve="RunConfiguration" />
+    </node>
+    <node concept="1TJgyj" id="1T5iP2asIQp" role="1TKVEi">
+      <property role="IQ2ns" value="2181232403823127961" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="projectParameter" />
+      <ref role="20lvS9" to="tpee:fz3vP1J" resolve="Expression" />
+    </node>
+  </node>
 </model>
 

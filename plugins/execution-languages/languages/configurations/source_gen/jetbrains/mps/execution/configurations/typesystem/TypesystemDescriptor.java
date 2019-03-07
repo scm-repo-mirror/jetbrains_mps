@@ -10,6 +10,10 @@ import jetbrains.mps.lang.typesystem.runtime.SubtypingRule_Runtime;
 public class TypesystemDescriptor extends BaseHelginsDescriptor {
   public TypesystemDescriptor() {
     {
+      InferenceRule_Runtime inferenceRule = new checkParam_RunConfigurationInitializer_InferenceRule();
+      this.myInferenceRules.add(inferenceRule);
+    }
+    {
       InferenceRule_Runtime inferenceRule = new typeof_BeforeTaskCall_InferenceRule();
       this.myInferenceRules.add(inferenceRule);
     }
@@ -79,6 +83,10 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
     }
     {
       InferenceRule_Runtime inferenceRule = new typeof_RunConfigurationCreator_InferenceRule();
+      this.myInferenceRules.add(inferenceRule);
+    }
+    {
+      InferenceRule_Runtime inferenceRule = new typeof_RunConfigurationInitializer_InferenceRule();
       this.myInferenceRules.add(inferenceRule);
     }
     {

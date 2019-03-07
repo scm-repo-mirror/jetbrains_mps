@@ -1268,5 +1268,80 @@
       <ref role="1YaFvo" to="uhxm:25jQf71X6T9" resolve="RunConfiguration" />
     </node>
   </node>
+  <node concept="1YbPZF" id="1T5iP2aocaE">
+    <property role="TrG5h" value="typeof_RunConfigurationInitializer" />
+    <node concept="3clFbS" id="1T5iP2aocaF" role="18ibNy">
+      <node concept="1Z5TYs" id="63yBSeEXxGL" role="3cqZAp">
+        <node concept="mw_s8" id="63yBSeEXxGM" role="1ZfhKB">
+          <node concept="2pJPEk" id="2F8bNQsJaX" role="mwGJk">
+            <node concept="2pJPED" id="2F8bNQsJaU" role="2pJPEn">
+              <ref role="2pJxaS" to="uhxm:3P4ieJEY6lC" resolve="RunConfigurationType" />
+              <node concept="2pIpSj" id="2F8bNQsJaV" role="2pJxcM">
+                <ref role="2pIpSl" to="uhxm:O$iR4J$g3Y" resolve="runConfiguration" />
+                <node concept="36biLy" id="2F8bNQsJaW" role="2pJxcZ">
+                  <node concept="2OqwBi" id="63yBSeEXMyb" role="36biLW">
+                    <node concept="1YBJjd" id="1T5iP2aodw8" role="2Oq$k0">
+                      <ref role="1YBMHb" node="1T5iP2aocaH" resolve="initializer" />
+                    </node>
+                    <node concept="3TrEf2" id="1T5iP2aoe5W" role="2OqNvi">
+                      <ref role="3Tt5mk" to="uhxm:O$iR4J$g4n" resolve="configuration" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="mw_s8" id="63yBSeEXxGT" role="1ZfhK$">
+          <node concept="1Z2H0r" id="63yBSeEXxGU" role="mwGJk">
+            <node concept="1YBJjd" id="1T5iP2aocwa" role="1Z2MuG">
+              <ref role="1YBMHb" node="1T5iP2aocaH" resolve="initializer" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="1T5iP2aocaH" role="1YuTPh">
+      <property role="TrG5h" value="initializer" />
+      <ref role="1YaFvo" to="uhxm:1T5iP2ao9_W" resolve="DummyRunConfigurationInitializer" />
+    </node>
+  </node>
+  <node concept="1YbPZF" id="1T5iP2as2Ym">
+    <property role="TrG5h" value="checkParam_RunConfigurationInitializer" />
+    <node concept="3clFbS" id="1T5iP2as2Yn" role="18ibNy">
+      <node concept="2NvLDW" id="63yBSeEXxHj" role="3cqZAp">
+        <property role="Ob790" value="0" />
+        <node concept="mw_s8" id="63yBSeEXxHr" role="1ZfhK$">
+          <node concept="1Z2H0r" id="63yBSeEXxHs" role="mwGJk">
+            <node concept="2OqwBi" id="1T5iP2as3Ow" role="1Z2MuG">
+              <node concept="1YBJjd" id="1T5iP2as3FZ" role="2Oq$k0">
+                <ref role="1YBMHb" node="1T5iP2as2Y$" resolve="initializer" />
+              </node>
+              <node concept="3TrEf2" id="1T5iP2as460" role="2OqNvi">
+                <ref role="3Tt5mk" to="uhxm:1T5iP2asIQp" resolve="projectParameter" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="mw_s8" id="1T5iP2as5yA" role="1ZfhKB">
+          <node concept="2pJPEk" id="1T5iP2as5yq" role="mwGJk">
+            <node concept="2pJPED" id="1T5iP2as5_M" role="2pJPEn">
+              <ref role="2pJxaS" to="tpee:g7uibYu" resolve="ClassifierType" />
+              <node concept="2pIpSj" id="1T5iP2as5At" role="2pJxcM">
+                <ref role="2pIpSl" to="tpee:g7uigIF" resolve="classifier" />
+                <node concept="36bGnv" id="1T5iP2as5Bc" role="2pJxcZ">
+                  <ref role="36bGnp" to="4nm9:~Project" resolve="Project" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="1T5iP2as2Y$" role="1YuTPh">
+      <property role="TrG5h" value="initializer" />
+      <ref role="1YaFvo" to="uhxm:1T5iP2ao9_W" resolve="DummyRunConfigurationInitializer" />
+    </node>
+  </node>
 </model>
 

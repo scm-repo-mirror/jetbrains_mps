@@ -43,7 +43,6 @@ public class typeof_PersistentConfigurationTemplateInitializer_InferenceRule ext
         typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:e115237b-80f4-4ca3-87d6-2ac891492994(jetbrains.mps.execution.settings.typesystem)", "6981317760235477852", true), (SNode) typeCheckingContext.typeOf(ListSequence.fromList(parameters).getElement(i), "r:e115237b-80f4-4ca3-87d6-2ac891492994(jetbrains.mps.execution.settings.typesystem)", "6981317760235477846", true), false, false, _info_12389875345);
       }
     }
-
   }
   public SAbstractConcept getApplicableConcept() {
     return MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910116L, "jetbrains.mps.execution.settings.structure.PersistentConfigurationTemplateInitializer");

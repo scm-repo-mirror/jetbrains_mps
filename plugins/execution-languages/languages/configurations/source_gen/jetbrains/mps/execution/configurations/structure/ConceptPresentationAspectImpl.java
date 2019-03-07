@@ -22,6 +22,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ContextExpression;
   private ConceptPresentation props_Create_ConceptFunction;
   private ConceptPresentation props_DebuggerSettings_Parameter;
+  private ConceptPresentation props_DummyRunConfigurationInitializer;
   private ConceptPresentation props_EnvironmentExpression;
   private ConceptPresentation props_ExecuteBeforeTask_ConceptFunction;
   private ConceptPresentation props_ExecuteConfiguration_Function;
@@ -142,6 +143,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_DebuggerSettings_Parameter = cpb.create();
         }
         return props_DebuggerSettings_Parameter;
+      case LanguageConceptSwitch.DummyRunConfigurationInitializer:
+        if (props_DummyRunConfigurationInitializer == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("initializer for rc as a persistent properties container");
+          cpb.presentationByReference(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x1e454b508a60997cL, 0xd244b712f910117L, "configuration", "", "");
+          props_DummyRunConfigurationInitializer = cpb.create();
+        }
+        return props_DummyRunConfigurationInitializer;
       case LanguageConceptSwitch.EnvironmentExpression:
         if (props_EnvironmentExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -233,7 +242,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_RunConfiguration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a52b0mb);
+          cpb.icon(IconContainer.RESOURCE_a0a2a0a62b0nb);
           props_RunConfiguration = cpb.create();
         }
         return props_RunConfiguration;
