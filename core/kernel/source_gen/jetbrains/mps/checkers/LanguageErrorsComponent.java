@@ -23,12 +23,14 @@ import org.jetbrains.mps.openapi.model.SNodeUtil;
 import jetbrains.mps.util.Cancellable;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Map;
+import jetbrains.mps.errors.item.IssueKindReportItem;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import java.util.ArrayList;
 import org.jetbrains.mps.openapi.util.Consumer;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import org.jetbrains.mps.openapi.event.SNodeAddEvent;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.event.SNodeRemoveEvent;
 import org.jetbrains.mps.openapi.event.SReferenceChangeEvent;
@@ -56,12 +58,16 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
    */
   private DescendantsTreeIterator myFullCheckIterator;
 
-  private class ApprovableError {
+  private class ApprovableError extends CheckingSession.SuppressableError<NodeReportItem> {
     private ApprovableError(NodeReportItem error, boolean approved) {
-      this.error = error;
+      super(error);
       this.myApproved = approved;
+
     }
-    public final NodeReportItem error;
+    @Override
+    public void suppress() {
+      myApproved = false;
+    }
     public boolean myApproved;
   }
 
@@ -94,11 +100,7 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
 
   @Override
   protected void addErrorInternal(NodeReportItem errorReporter) {
-    addErrorApproved(errorReporter, false);
-  }
-
-  private void addErrorApproved(NodeReportItem errorReporter, boolean approved) {
-    myNodesToErrors.putValue(errorReporter.getNode().resolve(myModel.getRepository()), new LanguageErrorsComponent.ApprovableError(errorReporter, approved));
+    myNodesToErrors.putValue(errorReporter.getNode().resolve(myModel.getRepository()), new LanguageErrorsComponent.ApprovableError(errorReporter, true));
   }
 
   public Set<NodeReportItem> getErrors() {
@@ -109,7 +111,7 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
       }
     }).select(new ISelector<LanguageErrorsComponent.ApprovableError, NodeReportItem>() {
       public NodeReportItem select(LanguageErrorsComponent.ApprovableError it) {
-        return it.error;
+        return it.getError();
       }
     }));
   }
@@ -236,29 +238,24 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
       myFullCheckCompleted = true;
     }
 
-    Map<SNode, Collection<? extends NodeReportItem>> nodesToErrors = MapSequence.fromMap(new HashMap<SNode, Collection<? extends NodeReportItem>>());
+    final Map<IssueKindReportItem.PathObject, Collection<LanguageErrorsComponent.ApprovableError>> nodesToErrors = MapSequence.fromMap(new HashMap<IssueKindReportItem.PathObject, Collection<LanguageErrorsComponent.ApprovableError>>());
     for (Map.Entry<SNode, Collection<LanguageErrorsComponent.ApprovableError>> nodeErrors : myNodesToErrors.entrySet()) {
       Collection<LanguageErrorsComponent.ApprovableError> value = nodeErrors.getValue();
-      MapSequence.fromMap(nodesToErrors).put(nodeErrors.getKey(), CollectionSequence.fromCollection(value).select(new ISelector<LanguageErrorsComponent.ApprovableError, NodeReportItem>() {
-        public NodeReportItem select(LanguageErrorsComponent.ApprovableError it) {
-          return it.error;
-        }
-      }).toListSequence());
+      MapSequence.fromMap(nodesToErrors).put(new IssueKindReportItem.PathObject.NodePathObject(nodeErrors.getKey().getReference()), ListSequence.fromList(ListSequence.fromListWithValues(new ArrayList<LanguageErrorsComponent.ApprovableError>(), value)).asUnmodifiable());
     }
-    for (Map.Entry<SNode, Collection<LanguageErrorsComponent.ApprovableError>> nodeErrors : myNodesToErrors.entrySet()) {
-      for (LanguageErrorsComponent.ApprovableError error : nodeErrors.getValue()) {
-        boolean approved = true;
-        for (AbstractNodeCheckerInEditor checker : checkers) {
-          if (checker instanceof IPostprocessChecker) {
-            IPostprocessChecker<SNode, NodeReportItem> postProcessChecker = ((IPostprocessChecker<SNode, NodeReportItem>) checker);
-            approved = approved && postProcessChecker.postProcess(nodeErrors.getKey(), repository, new Consumer<NodeReportItem>() {
-              public void consume(NodeReportItem report) {
-                LanguageErrorsComponent.this.addErrorApproved(report, true);
-              }
-            }, new EmptyProgressMonitor(), error.error, nodesToErrors);
+    for (AbstractNodeCheckerInEditor checker : checkers) {
+      ICheckingPostprocessor postProcessChecker = checker.getPostprocessor();
+      if (postProcessChecker != null) {
+        Consumer<NodeReportItem> consumer = new Consumer<NodeReportItem>() {
+          public void consume(NodeReportItem report) {
+            LanguageErrorsComponent.this.addError(report);
           }
-        }
-        error.myApproved = approved;
+        };
+        postProcessChecker.postProcess(repository, new EmptyProgressMonitor(), consumer, new CheckingSession() {
+          public Map<IssueKindReportItem.PathObject, ? extends Collection<? extends CheckingSession.SuppressableError<? extends IssueKindReportItem>>> getAllFoundErrors() {
+            return nodesToErrors;
+          }
+        });
       }
     }
 

@@ -15,20 +15,23 @@ import java.util.Collection;
 import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
+import java.util.ArrayList;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.internal.collections.runtime.ITranslator2;
 
-public class AggregatingChecker<O, I extends IssueKindReportItem> implements IAbstractChecker<O, I> {
-  private List<? extends IChecker<O, ? extends I>> myOrigins;
+public class AggregatingChecker<O> implements IAbstractChecker<O, IssueKindReportItem> {
+  private List<? extends IChecker<O, ? extends IssueKindReportItem>> myOrigins;
   private _FunctionTypes._return_P1_E0<? extends String, ? super O> myNameGetter;
-  public AggregatingChecker(List<? extends IChecker<O, ? extends I>> origins, _FunctionTypes._return_P1_E0<? extends String, ? super O> nameGetter) {
+  public AggregatingChecker(List<? extends IChecker<O, ? extends IssueKindReportItem>> origins, _FunctionTypes._return_P1_E0<? extends String, ? super O> nameGetter) {
     myOrigins = origins;
     myNameGetter = nameGetter;
   }
   @Override
-  public void check(O toCheck, SRepository repository, Consumer<? super I> errorCollector, ProgressMonitor monitor) {
+  public void check(O toCheck, SRepository repository, Consumer<? super IssueKindReportItem> errorCollector, ProgressMonitor monitor) {
     monitor.start("Checking " + myNameGetter.invoke(toCheck), ListSequence.fromList(myOrigins).count());
     try {
-      CollectConsumer<I> consumer = new CollectConsumer<I>();
-      for (IChecker<O, ? extends I> origin : ListSequence.fromList(myOrigins)) {
+      CollectConsumer<IssueKindReportItem> consumer = new CollectConsumer<IssueKindReportItem>();
+      for (IChecker<O, ? extends IssueKindReportItem> origin : ListSequence.fromList(myOrigins)) {
         ProgressMonitor subTask = monitor.subTask(1, SubProgressKind.DEFAULT);
         subTask.start(origin.getCategory().toString(), 1);
         origin.check(toCheck, repository, consumer, subTask.subTask(1, SubProgressKind.AS_COMMENT));
@@ -38,21 +41,47 @@ public class AggregatingChecker<O, I extends IssueKindReportItem> implements IAb
           break;
         }
       }
-      Collection<? extends I> consumerResult = consumer.getResult();
-      Map<O, Collection<? extends I>> consumerResultMap = MapSequence.<O, Collection<? extends I>>fromMapAndKeysArray(new HashMap<O, Collection<? extends I>>(), toCheck).withValues(consumerResult);
-      for (I reported : consumerResult) {
-        boolean shouldReport = true;
-        for (IChecker<O, ? extends I> origin : myOrigins) {
-          if (origin instanceof IPostprocessChecker) {
-            shouldReport = shouldReport && ((IPostprocessChecker<O, ? extends I>) origin).postProcess(toCheck, repository, errorCollector, monitor, reported, consumerResultMap);
-          }
+      Collection<? extends IssueKindReportItem> consumerResult = consumer.getResult();
+      final Map<IssueKindReportItem.PathObject, Collection<AggregatingChecker.MySuppressableError>> consumerResultMap = MapSequence.fromMap(new HashMap<IssueKindReportItem.PathObject, Collection<AggregatingChecker.MySuppressableError>>());
+      for (IssueKindReportItem reported : consumerResult) {
+        if (MapSequence.fromMap(consumerResultMap).get(IssueKindReportItem.PATH_OBJECT.get(reported)) == null) {
+          MapSequence.fromMap(consumerResultMap).put(IssueKindReportItem.PATH_OBJECT.get(reported), ListSequence.fromList(new ArrayList<AggregatingChecker.MySuppressableError>()));
         }
-        if (shouldReport) {
-          errorCollector.consume(reported);
+        MapSequence.fromMap(consumerResultMap).get(IssueKindReportItem.PATH_OBJECT.get(reported)).add(new AggregatingChecker.MySuppressableError(reported));
+      }
+      for (IChecker<O, ? extends IssueKindReportItem> origin : myOrigins) {
+        ICheckingPostprocessor<? extends IssueKindReportItem> postprocessor = origin.getPostprocessor();
+        if (postprocessor != null) {
+          postprocessor.postProcess(repository, monitor, errorCollector, new CheckingSession() {
+            public Map<IssueKindReportItem.PathObject, ? extends Collection<? extends CheckingSession.SuppressableError<? extends IssueKindReportItem>>> getAllFoundErrors() {
+              return consumerResultMap;
+            }
+          });
+        }
+      }
+      for (AggregatingChecker.MySuppressableError approved : Sequence.fromIterable(MapSequence.fromMap(consumerResultMap).values()).translate(new ITranslator2<Collection<AggregatingChecker.MySuppressableError>, AggregatingChecker.MySuppressableError>() {
+        public Iterable<AggregatingChecker.MySuppressableError> translate(Collection<AggregatingChecker.MySuppressableError> it) {
+          return it;
+        }
+      })) {
+        if (!(approved.isSuppressed())) {
+          errorCollector.consume(approved.getError());
         }
       }
     } finally {
       monitor.done();
+    }
+  }
+  private static class MySuppressableError extends CheckingSession.SuppressableError<IssueKindReportItem> {
+    private boolean suppressed = false;
+    public MySuppressableError(IssueKindReportItem reported) {
+      super(reported);
+    }
+    public void suppress() {
+      suppressed = true;
+    }
+    public boolean isSuppressed() {
+      return this.suppressed;
     }
   }
 }
