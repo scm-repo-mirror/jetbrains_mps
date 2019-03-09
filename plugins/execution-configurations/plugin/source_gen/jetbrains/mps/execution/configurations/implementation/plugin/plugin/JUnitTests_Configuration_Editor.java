@@ -12,7 +12,6 @@ import java.awt.GridBagLayout;
 import jetbrains.mps.baseLanguage.execution.api.JavaConfigurationEditorComponent;
 import jetbrains.mps.baseLanguage.unitTest.execution.settings.JUnitConfigurationEditorComponent;
 import jetbrains.mps.ide.common.LayoutUtil;
-import javax.swing.border.EmptyBorder;
 import com.intellij.openapi.options.ConfigurationException;
 
 public class JUnitTests_Configuration_Editor extends SettingsEditorEx<JUnitTests_Configuration> {
@@ -37,7 +36,6 @@ public class JUnitTests_Configuration_Editor extends SettingsEditorEx<JUnitTests
     junitEditorComponent.attachJavaAndDeployComponentsAndUpdateInProcessFlag(javaEditorComponent, pluginsEditor);
     resultPanel.add(junitEditorComponent, LayoutUtil.createPanelConstraints(0));
     resultPanel.add(javaEditorComponent, LayoutUtil.createPanelConstraints(1));
-    pluginsEditor.setBorder(new EmptyBorder(5, 5, 5, 5));
     resultPanel.add(pluginsEditor, LayoutUtil.createPanelConstraints(2));
     return resultPanel;
   }

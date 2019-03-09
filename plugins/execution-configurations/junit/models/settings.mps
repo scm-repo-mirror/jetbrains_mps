@@ -1363,7 +1363,7 @@
       <node concept="2OqwBi" id="2ID7c2zTnwM" role="33vP2m">
         <node concept="2WthIp" id="2ID7c2zTnwP" role="2Oq$k0" />
         <node concept="2XshWL" id="2ID7c2zTnwR" role="2OqNvi">
-          <ref role="2WH_rO" node="29IGCqr_3Cy" resolve="getDefaultPathForCaches" />
+          <ref role="2WH_rO" node="29IGCqr_3Cy" resolve="getDefaultPathForSettings" />
         </node>
       </node>
     </node>
@@ -1407,14 +1407,14 @@
       <node concept="10Oyi0" id="2h1wjLbYpqv" role="1tU5fm" />
     </node>
     <node concept="yHkHE" id="29IGCqr_3Cy" role="yHkHi">
-      <property role="TrG5h" value="getDefaultPathForCaches" />
+      <property role="TrG5h" value="getDefaultPathForSettings" />
       <node concept="17QB3L" id="29IGCqr_4sV" role="3clF45" />
       <node concept="3clFbS" id="29IGCqr_3C$" role="3clF47">
         <node concept="3cpWs6" id="4eCVXiE0tFx" role="3cqZAp">
           <node concept="2OqwBi" id="4eCVXiE0GKP" role="3cqZAk">
             <node concept="2ShNRf" id="4eCVXiE0utX" role="2Oq$k0">
               <node concept="HV5vD" id="4eCVXiE0GmW" role="2ShVmc">
-                <ref role="HV5vE" node="4eCVXiDZQZn" resolve="DefaultCachesPathChooser" />
+                <ref role="HV5vE" node="4eCVXiDZQZn" resolve="DefaultSettingsPathChooser" />
               </node>
             </node>
             <node concept="liA8E" id="4eCVXiE0HgC" role="2OqNvi">
@@ -1426,7 +1426,7 @@
       <node concept="3Tm1VV" id="2iHJ$C2_vq6" role="1B3o_S" />
     </node>
     <node concept="yHkHE" id="5dbgjInbZ3$" role="yHkHi">
-      <property role="TrG5h" value="getCachesLocation" />
+      <property role="TrG5h" value="getSettingsLocation" />
       <node concept="17QB3L" id="5dbgjInc012" role="3clF45" />
       <node concept="3clFbS" id="5dbgjInbZ3A" role="3clF47">
         <node concept="3clFbJ" id="5dbgjInc05h" role="3cqZAp">
@@ -1452,7 +1452,7 @@
                 <node concept="2OqwBi" id="5dbgjInc1CT" role="3cqZAk">
                   <node concept="2WthIp" id="5dbgjInc1CW" role="2Oq$k0" />
                   <node concept="2XshWL" id="5dbgjInc1CY" role="2OqNvi">
-                    <ref role="2WH_rO" node="29IGCqr_3Cy" resolve="getDefaultPathForCaches" />
+                    <ref role="2WH_rO" node="29IGCqr_3Cy" resolve="getDefaultPathForSettings" />
                   </node>
                 </node>
               </node>
@@ -1479,7 +1479,7 @@
                   <node concept="2OqwBi" id="75c$k6X2Eko" role="37wK5m">
                     <node concept="2WthIp" id="75c$k6X2Ekp" role="2Oq$k0" />
                     <node concept="2XshWL" id="3P4ieJEKvZD" role="2OqNvi">
-                      <ref role="2WH_rO" node="5dbgjInbZ3$" resolve="getCachesLocation" />
+                      <ref role="2WH_rO" node="5dbgjInbZ3$" resolve="getSettingsLocation" />
                     </node>
                   </node>
                   <node concept="Xl_RD" id="75c$k6X2Hs3" role="37wK5m">
@@ -1654,7 +1654,7 @@
                 <node concept="2OqwBi" id="6bMNZRsh30A" role="37wK5m">
                   <node concept="2WthIp" id="6bMNZRsh30B" role="2Oq$k0" />
                   <node concept="2XshWL" id="5dbgjInc7YF" role="2OqNvi">
-                    <ref role="2WH_rO" node="5dbgjInbZ3$" resolve="getCachesLocation" />
+                    <ref role="2WH_rO" node="5dbgjInbZ3$" resolve="getSettingsLocation" />
                   </node>
                 </node>
               </node>
@@ -4954,7 +4954,7 @@
         <node concept="1pGfFk" id="5X1zr0$Ig8J" role="2ShVmc">
           <ref role="37wK5l" to="qqrq:~JBCheckBox.&lt;init&gt;(java.lang.String)" resolve="JBCheckBox" />
           <node concept="Xl_RD" id="5X1zr0$Ig8K" role="37wK5m">
-            <property role="Xl_RC" value="Override the default caches location:" />
+            <property role="Xl_RC" value="Override the default settings location:" />
           </node>
         </node>
       </node>
@@ -7369,7 +7369,7 @@
                   <ref role="3cqZAo" node="1_bTry1YtqB" resolve="settings" />
                 </node>
                 <node concept="2XshWL" id="2ID7c2zTFco" role="2OqNvi">
-                  <ref role="2WH_rO" node="5dbgjInbZ3$" resolve="getCachesLocation" />
+                  <ref role="2WH_rO" node="5dbgjInbZ3$" resolve="getSettingsLocation" />
                 </node>
               </node>
             </node>
@@ -8130,7 +8130,7 @@
     </node>
   </node>
   <node concept="312cEu" id="4eCVXiDZQZn">
-    <property role="TrG5h" value="DefaultCachesPathChooser" />
+    <property role="TrG5h" value="DefaultSettingsPathChooser" />
     <node concept="Wx3nA" id="4eCVXiE00pW" role="jymVt">
       <property role="2dlcS1" value="false" />
       <property role="2dld4O" value="false" />
@@ -8139,7 +8139,7 @@
       <node concept="3Tm6S6" id="4eCVXiE00m6" role="1B3o_S" />
       <node concept="17QB3L" id="4eCVXiE00pU" role="1tU5fm" />
       <node concept="Xl_RD" id="4eCVXiE00qt" role="33vP2m">
-        <property role="Xl_RC" value="mps_test_dir" />
+        <property role="Xl_RC" value="MPSJUnitRC" />
       </node>
     </node>
     <node concept="2tJIrI" id="4eCVXiE00rv" role="jymVt" />
@@ -8149,18 +8149,6 @@
       <property role="od$2w" value="false" />
       <property role="DiZV1" value="false" />
       <node concept="3clFbS" id="4eCVXiE09PH" role="3clF47">
-        <node concept="3cpWs8" id="29IGCqr_Q6F" role="3cqZAp">
-          <node concept="3cpWsn" id="29IGCqr_Q6G" role="3cpWs9">
-            <property role="TrG5h" value="tmpDir" />
-            <node concept="3uibUv" id="29IGCqr_Q6H" role="1tU5fm">
-              <ref role="3uigEE" to="guwi:~File" resolve="File" />
-            </node>
-            <node concept="2YIFZM" id="29IGCqr_Qiw" role="33vP2m">
-              <ref role="37wK5l" to="18ew:~FileUtil.getTempDir():java.io.File" resolve="getTempDir" />
-              <ref role="1Pybhc" to="18ew:~FileUtil" resolve="FileUtil" />
-            </node>
-          </node>
-        </node>
         <node concept="1Dw8fO" id="4eCVXiE0K_m" role="3cqZAp">
           <node concept="3clFbS" id="4eCVXiE0K_p" role="2LFqv$">
             <node concept="3cpWs8" id="4eCVXiE0LRK" role="3cqZAp">
@@ -8186,12 +8174,11 @@
                 <node concept="2ShNRf" id="29IGCqr_QO5" role="33vP2m">
                   <node concept="1pGfFk" id="29IGCqrAld6" role="2ShVmc">
                     <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String,java.lang.String)" resolve="File" />
-                    <node concept="2OqwBi" id="29IGCqrAqcq" role="37wK5m">
-                      <node concept="37vLTw" id="29IGCqrAld_" role="2Oq$k0">
-                        <ref role="3cqZAo" node="29IGCqr_Q6G" resolve="tmpDir" />
-                      </node>
-                      <node concept="liA8E" id="29IGCqrArgX" role="2OqNvi">
-                        <ref role="37wK5l" to="guwi:~File.getAbsolutePath():java.lang.String" resolve="getAbsolutePath" />
+                    <node concept="2YIFZM" id="3djbh3B58Vg" role="37wK5m">
+                      <ref role="37wK5l" to="bd8o:~PathManager.getDefaultConfigPathFor(java.lang.String):java.lang.String" resolve="getDefaultConfigPathFor" />
+                      <ref role="1Pybhc" to="bd8o:~PathManager" resolve="PathManager" />
+                      <node concept="37vLTw" id="3djbh3B59is" role="37wK5m">
+                        <ref role="3cqZAo" node="4eCVXiE00pW" resolve="BASE_NAME" />
                       </node>
                     </node>
                     <node concept="37vLTw" id="4eCVXiE0OJc" role="37wK5m">

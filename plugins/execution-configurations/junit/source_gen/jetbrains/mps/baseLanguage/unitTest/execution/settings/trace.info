@@ -578,17 +578,16 @@
   </root>
   <root nodeRef="r:e12fc70b-3d1d-4dc2-9467-5147656e0455(jetbrains.mps.baseLanguage.unitTest.execution.settings)/4875410293292756951">
     <file name="DefaultCachesPathChooser.java">
-      <node id="4875410293292795516" at="10,0,11,0" concept="16" trace="BASE_NAME" />
-      <node id="2481116735933473195" at="12,29,13,40" concept="12" />
+      <node id="4875410293292795516" at="11,0,12,0" concept="16" trace="BASE_NAME" />
       <node id="4875410293292998128" at="14,36,15,37" concept="12" />
-      <node id="2481116735933475345" at="15,37,16,68" concept="12" />
+      <node id="2481116735933475345" at="15,37,16,90" concept="12" />
       <node id="4875410293292986304" at="17,33,18,44" concept="13" />
       <node id="4875410293293014898" at="20,5,21,73" concept="20" />
       <node id="4875410293293031354" at="24,38,25,89" concept="13" />
-      <node id="4875410293293011192" at="16,68,19,7" concept="10" />
+      <node id="4875410293293011192" at="16,90,19,7" concept="10" />
       <node id="4875410293293027643" at="24,0,27,0" concept="11" trace="checkDir#(Ljava/io/File;)Z" />
-      <node id="4875410293292992854" at="13,40,20,5" concept="8" />
-      <node id="4875410293292834154" at="12,0,23,0" concept="11" trace="chooseDir#()Ljava/lang/String;" />
+      <node id="4875410293292992854" at="13,29,20,5" concept="8" />
+      <node id="4875410293292834154" at="13,0,23,0" concept="11" trace="chooseDir#()Ljava/lang/String;" />
       <scope id="4875410293293011195" at="17,33,18,44" />
       <scope id="4875410293293027646" at="24,38,25,89" />
       <scope id="4875410293293027643" at="24,0,27,0">
@@ -598,14 +597,12 @@
         <var name="dirName" id="4875410293292998131" />
         <var name="newTestDir" id="2481116735933475346" />
       </scope>
-      <scope id="4875410293292992854" at="13,40,20,5">
+      <scope id="4875410293292992854" at="13,29,20,5">
         <var name="i" id="4875410293292992860" />
       </scope>
-      <scope id="4875410293292834157" at="12,29,21,73">
-        <var name="tmpDir" id="2481116735933473196" />
-      </scope>
-      <scope id="4875410293292834154" at="12,0,23,0" />
-      <unit id="4875410293292756951" at="9,0,28,0" name="jetbrains.mps.baseLanguage.unitTest.execution.settings.DefaultCachesPathChooser" />
+      <scope id="4875410293292834157" at="13,29,21,73" />
+      <scope id="4875410293292834154" at="13,0,23,0" />
+      <unit id="4875410293292756951" at="10,0,28,0" name="jetbrains.mps.baseLanguage.unitTest.execution.settings.DefaultCachesPathChooser" />
     </file>
   </root>
   <root nodeRef="r:e12fc70b-3d1d-4dc2-9467-5147656e0455(jetbrains.mps.baseLanguage.unitTest.execution.settings)/5740494279799512421">

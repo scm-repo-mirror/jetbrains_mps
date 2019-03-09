@@ -2550,27 +2550,31 @@
               </node>
             </node>
           </node>
-          <node concept="3clFbF" id="5dZuAAfo_YR" role="3cqZAp">
-            <node concept="2OqwBi" id="5dZuAAfo_YS" role="3clFbG">
-              <node concept="37vLTw" id="5dZuAAfo_YT" role="2Oq$k0">
-                <ref role="3cqZAo" node="5dZuAAfo_YM" resolve="pluginsEditor" />
-              </node>
-              <node concept="liA8E" id="5dZuAAfo_YU" role="2OqNvi">
-                <ref role="37wK5l" to="dxuu:~JComponent.setBorder(javax.swing.border.Border):void" resolve="setBorder" />
-                <node concept="2ShNRf" id="5dZuAAfo_YV" role="37wK5m">
-                  <node concept="1pGfFk" id="5dZuAAfo_YW" role="2ShVmc">
-                    <ref role="37wK5l" to="9z78:~EmptyBorder.&lt;init&gt;(int,int,int,int)" resolve="EmptyBorder" />
-                    <node concept="3cmrfG" id="5dZuAAfo_YY" role="37wK5m">
-                      <property role="3cmrfH" value="5" />
-                    </node>
-                    <node concept="3cmrfG" id="3qbI1lNhu7s" role="37wK5m">
-                      <property role="3cmrfH" value="5" />
-                    </node>
-                    <node concept="3cmrfG" id="3qbI1lNhwGt" role="37wK5m">
-                      <property role="3cmrfH" value="5" />
-                    </node>
-                    <node concept="3cmrfG" id="3qbI1lNhxOy" role="37wK5m">
-                      <property role="3cmrfH" value="5" />
+          <node concept="1X3_iC" id="3djbh3B3Xjh" role="lGtFl">
+            <property role="3V$3am" value="statement" />
+            <property role="3V$3ak" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123136/1068581517665" />
+            <node concept="3clFbF" id="5dZuAAfo_YR" role="8Wnug">
+              <node concept="2OqwBi" id="5dZuAAfo_YS" role="3clFbG">
+                <node concept="37vLTw" id="5dZuAAfo_YT" role="2Oq$k0">
+                  <ref role="3cqZAo" node="5dZuAAfo_YM" resolve="pluginsEditor" />
+                </node>
+                <node concept="liA8E" id="5dZuAAfo_YU" role="2OqNvi">
+                  <ref role="37wK5l" to="dxuu:~JComponent.setBorder(javax.swing.border.Border):void" resolve="setBorder" />
+                  <node concept="2ShNRf" id="5dZuAAfo_YV" role="37wK5m">
+                    <node concept="1pGfFk" id="5dZuAAfo_YW" role="2ShVmc">
+                      <ref role="37wK5l" to="9z78:~EmptyBorder.&lt;init&gt;(int,int,int,int)" resolve="EmptyBorder" />
+                      <node concept="3cmrfG" id="5dZuAAfo_YY" role="37wK5m">
+                        <property role="3cmrfH" value="5" />
+                      </node>
+                      <node concept="3cmrfG" id="3qbI1lNhu7s" role="37wK5m">
+                        <property role="3cmrfH" value="5" />
+                      </node>
+                      <node concept="3cmrfG" id="3qbI1lNhwGt" role="37wK5m">
+                        <property role="3cmrfH" value="5" />
+                      </node>
+                      <node concept="3cmrfG" id="3qbI1lNhxOy" role="37wK5m">
+                        <property role="3cmrfH" value="5" />
+                      </node>
                     </node>
                   </node>
                 </node>
@@ -3098,6 +3102,25 @@
         <node concept="RBKsg" id="5gyVhZ1885L" role="2Oq$k0" />
         <node concept="2XshWL" id="5gyVhZ1ayeB" role="2OqNvi">
           <ref role="2WH_rO" node="5gyVhZ1ayde" resolve="getTestsToMake" />
+        </node>
+      </node>
+    </node>
+    <node concept="yYvg6" id="3djbh3BbrSj" role="yYvgT">
+      <ref role="yYvg7" node="3djbh3B5ov9" resolve="ClearSettingsDirectoryBeforeRunTask" />
+      <node concept="2ShNRf" id="3djbh3BbrSk" role="1ZwhtC">
+        <node concept="1pGfFk" id="3djbh3BbrSl" role="2ShVmc">
+          <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String)" resolve="File" />
+          <node concept="2OqwBi" id="3djbh3BbrSm" role="37wK5m">
+            <node concept="2OqwBi" id="3djbh3BbrSn" role="2Oq$k0">
+              <node concept="RBKsg" id="3djbh3BbrSo" role="2Oq$k0" />
+              <node concept="yHkDZ" id="3djbh3BbG3M" role="2OqNvi">
+                <ref role="yHkDY" node="5gyVhZ1ayaO" resolve="myJUnitSettings" />
+              </node>
+            </node>
+            <node concept="2XshWL" id="3djbh3BbGtk" role="2OqNvi">
+              <ref role="2WH_rO" to="tty3:5dbgjInbZ3$" resolve="getSettingsLocation" />
+            </node>
+          </node>
         </node>
       </node>
     </node>
@@ -4944,6 +4967,25 @@
     <property role="3GE5qa" value="mps.newInstance" />
     <property role="3gLNDv" value="myRunConfiguration" />
     <ref role="yIonz" node="5gyVhZ18biM" resolve="MPS Instance" />
+    <node concept="yYvg6" id="3djbh3B5Adk" role="yYvgT">
+      <ref role="yYvg7" node="3djbh3B5ov9" resolve="ClearSettingsDirectoryBeforeRunTask" />
+      <node concept="2ShNRf" id="3djbh3Bb69Z" role="1ZwhtC">
+        <node concept="1pGfFk" id="3djbh3BbngV" role="2ShVmc">
+          <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String)" resolve="File" />
+          <node concept="2OqwBi" id="3djbh3BaZTt" role="37wK5m">
+            <node concept="2OqwBi" id="3djbh3B5C44" role="2Oq$k0">
+              <node concept="RBKsg" id="3djbh3B5C45" role="2Oq$k0" />
+              <node concept="yHkDZ" id="3djbh3B5C46" role="2OqNvi">
+                <ref role="yHkDY" node="q00jVsP9$_" resolve="myMpsSettings" />
+              </node>
+            </node>
+            <node concept="2XshWL" id="3djbh3Bb23b" role="2OqNvi">
+              <ref role="2WH_rO" node="WN7eTvLiZi" resolve="getExpandedSettingsPath" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
     <node concept="yYvg6" id="1QpbsT7Bnx" role="yYvgT">
       <ref role="yYvg7" node="1QpbsTfWh5" resolve="AssemblePluginsBeforeTask" />
       <node concept="2OqwBi" id="1QpbsTfSG0" role="1ZwhtC">
@@ -6996,43 +7038,15 @@
       <property role="TrG5h" value="getDefaultSettingsPath" />
       <node concept="17QB3L" id="WN7eTvMHIp" role="3clF45" />
       <node concept="3clFbS" id="WN7eTvMGRC" role="3clF47">
-        <node concept="3cpWs8" id="WN7eTvMIrH" role="3cqZAp">
-          <node concept="3cpWsn" id="WN7eTvMIrI" role="3cpWs9">
-            <property role="TrG5h" value="defaultConfigPathFor" />
-            <node concept="17QB3L" id="WN7eTvMIwP" role="1tU5fm" />
-            <node concept="2YIFZM" id="WN7eTvMIrJ" role="33vP2m">
-              <ref role="37wK5l" to="bd8o:~PathManager.getDefaultConfigPathFor(java.lang.String):java.lang.String" resolve="getDefaultConfigPathFor" />
-              <ref role="1Pybhc" to="bd8o:~PathManager" resolve="PathManager" />
-              <node concept="Xl_RD" id="WN7eTvMIrK" role="37wK5m">
-                <property role="Xl_RC" value="MPSInstanceRC" />
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="3cpWs8" id="WN7eTvMIBv" role="3cqZAp">
           <node concept="3cpWsn" id="WN7eTvMIBy" role="3cpWs9">
             <property role="TrG5h" value="defaultSettingsPath" />
             <node concept="17QB3L" id="WN7eTvMIBt" role="1tU5fm" />
-            <node concept="2OqwBi" id="WN7eTvMNA3" role="33vP2m">
-              <node concept="2OqwBi" id="WN7eTvMLH$" role="2Oq$k0">
-                <node concept="2OqwBi" id="WN7eTvMKqS" role="2Oq$k0">
-                  <node concept="2YIFZM" id="WN7eTvMJPP" role="2Oq$k0">
-                    <ref role="37wK5l" to="eoo2:~Paths.get(java.lang.String,java.lang.String...):java.nio.file.Path" resolve="get" />
-                    <ref role="1Pybhc" to="eoo2:~Paths" resolve="Paths" />
-                    <node concept="37vLTw" id="WN7eTvMJVh" role="37wK5m">
-                      <ref role="3cqZAo" node="WN7eTvMIrI" resolve="defaultConfigPathFor" />
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="WN7eTvMLbl" role="2OqNvi">
-                    <ref role="37wK5l" to="eoo2:~Path.getParent():java.nio.file.Path" resolve="getParent" />
-                  </node>
-                </node>
-                <node concept="liA8E" id="WN7eTvMMC4" role="2OqNvi">
-                  <ref role="37wK5l" to="eoo2:~Path.toAbsolutePath():java.nio.file.Path" resolve="toAbsolutePath" />
-                </node>
-              </node>
-              <node concept="liA8E" id="WN7eTvMOCr" role="2OqNvi">
-                <ref role="37wK5l" to="eoo2:~Path.toString():java.lang.String" resolve="toString" />
+            <node concept="2YIFZM" id="3djbh3B55pn" role="33vP2m">
+              <ref role="37wK5l" to="bd8o:~PathManager.getDefaultConfigPathFor(java.lang.String):java.lang.String" resolve="getDefaultConfigPathFor" />
+              <ref role="1Pybhc" to="bd8o:~PathManager" resolve="PathManager" />
+              <node concept="Xl_RD" id="3djbh3B55po" role="37wK5m">
+                <property role="Xl_RC" value="MPSInstanceRC" />
               </node>
             </node>
           </node>
@@ -10571,7 +10585,7 @@
                 <node concept="1pGfFk" id="13efIFyF$vD" role="2ShVmc">
                   <ref role="37wK5l" to="w0gx:~ModuleReference.&lt;init&gt;(java.lang.String,org.jetbrains.mps.openapi.module.SModuleId)" resolve="ModuleReference" />
                   <node concept="Xl_RD" id="13efIFyF$Uf" role="37wK5m">
-                    <property role="Xl_RC" value="Temporary module for deploy plugins run configuration" />
+                    <property role="Xl_RC" value="Temp module for assembling plugins" />
                   </node>
                   <node concept="2YIFZM" id="13efIFyF_G$" role="37wK5m">
                     <ref role="37wK5l" to="z1c3:~ModuleId.regular():jetbrains.mps.project.ModuleId" resolve="regular" />
@@ -10588,10 +10602,10 @@
                   <ref role="37wK5l" to="tqvn:~NaiveJavaModuleFacet.&lt;init&gt;(jetbrains.mps.project.AbstractModule,java.lang.String,java.lang.String)" resolve="NaiveJavaModuleFacet" />
                   <node concept="Xjq3P" id="59dmSAW9dX_" role="37wK5m" />
                   <node concept="Xl_RD" id="59dmSAW9eff" role="37wK5m">
-                    <property role="Xl_RC" value="DEPLOY_MODULE_SOURCE_GEN" />
+                    <property role="Xl_RC" value="MODULE_SOURCE_GEN" />
                   </node>
                   <node concept="Xl_RD" id="59dmSAW9eGi" role="37wK5m">
-                    <property role="Xl_RC" value="DEPLOY_MODULE_CLASSES_GEN" />
+                    <property role="Xl_RC" value="MODULE_CLASSES_GEN" />
                   </node>
                 </node>
               </node>
@@ -15499,6 +15513,35 @@
     <node concept="3Tm1VV" id="1T5iP2aaCPi" role="1B3o_S" />
     <node concept="3uibUv" id="1T5iP2aaD4x" role="1zkMxy">
       <ref role="3uigEE" to="qqrq:~JBPanel" resolve="JBPanel" />
+    </node>
+  </node>
+  <node concept="2PEKAc" id="3djbh3B5ov9">
+    <property role="3GE5qa" value="junit" />
+    <property role="TrG5h" value="ClearSettingsDirectoryBeforeRunTask" />
+    <property role="OSgQB" value="Clear Settings Directory" />
+    <node concept="1CW0x$" id="3djbh3B5ova" role="1D3o6X">
+      <node concept="3clFbS" id="3djbh3B5ovb" role="2VODD2">
+        <node concept="3clFbF" id="3djbh3B5t98" role="3cqZAp">
+          <node concept="2YIFZM" id="3djbh3B5ti6" role="3clFbG">
+            <ref role="37wK5l" to="18ew:~FileUtil.delete(java.io.File):boolean" resolve="delete" />
+            <ref role="1Pybhc" to="18ew:~FileUtil" resolve="FileUtil" />
+            <node concept="yYjwu" id="3djbh3B5tqN" role="37wK5m">
+              <ref role="3cqZAo" node="3djbh3B5ozX" resolve="settingsLocation" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="3djbh3B5ozS" role="3cqZAp">
+          <node concept="3clFbT" id="3djbh3B5ozT" role="3cqZAk">
+            <property role="3clFbU" value="true" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="yYmJa" id="3djbh3B5ozX" role="yYnPO">
+      <property role="TrG5h" value="settingsLocation" />
+      <node concept="3uibUv" id="3djbh3B5ozY" role="1tU5fm">
+        <ref role="3uigEE" to="guwi:~File" resolve="File" />
+      </node>
     </node>
   </node>
 </model>
