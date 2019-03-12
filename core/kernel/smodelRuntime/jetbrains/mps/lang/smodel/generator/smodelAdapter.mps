@@ -14231,26 +14231,7 @@
           </node>
         </node>
         <node concept="3cpWs6" id="4uA70LEn8D5" role="3cqZAp">
-          <node concept="2OqwBi" id="4uA70LEnapF" role="3cqZAk">
-            <node concept="liA8E" id="4uA70LEnaYq" role="2OqNvi">
-              <ref role="37wK5l" to="c17a:~SEnumeration.getDefault():org.jetbrains.mps.openapi.language.SEnumerationLiteral" resolve="getDefault" />
-            </node>
-            <node concept="1eOMI4" id="jnWgn6vT9b" role="2Oq$k0">
-              <node concept="10QFUN" id="4uA70LEnbrZ" role="1eOMHV">
-                <node concept="3uibUv" id="jnWgn6vWCa" role="10QFUM">
-                  <ref role="3uigEE" to="c17a:~SEnumeration" resolve="SEnumeration" />
-                </node>
-                <node concept="2OqwBi" id="4uA70LEn8Rj" role="10QFUP">
-                  <node concept="37vLTw" id="4uA70LEn8DI" role="2Oq$k0">
-                    <ref role="3cqZAo" node="4uA70LEn5Vt" resolve="property" />
-                  </node>
-                  <node concept="liA8E" id="4uA70LEn9P9" role="2OqNvi">
-                    <ref role="37wK5l" to="c17a:~SProperty.getType():org.jetbrains.mps.openapi.language.SDataType" resolve="getType" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
+          <node concept="10Nm6u" id="7tcpz0$mLI0" role="3cqZAk" />
         </node>
       </node>
       <node concept="3Tm1VV" id="4uA70LEn2eI" role="1B3o_S" />

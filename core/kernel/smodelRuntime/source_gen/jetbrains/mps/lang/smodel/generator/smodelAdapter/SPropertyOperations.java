@@ -120,7 +120,7 @@ public class SPropertyOperations {
         return (SEnumerationLiteral) value;
       }
     }
-    return ((SEnumeration) property.getType()).getDefault();
+    return null;
   }
 
   public static boolean hasValue(SNode node, SProperty property, String value) {
