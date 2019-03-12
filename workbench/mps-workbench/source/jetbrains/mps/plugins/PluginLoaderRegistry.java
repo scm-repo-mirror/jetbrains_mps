@@ -503,7 +503,9 @@ public class PluginLoaderRegistry implements ApplicationComponent {
     public void onUnloaded(@NotNull ResourceTrackerCallback callback, @NotNull ProgressMonitor monitor) {
       Set<ReloadableModule> unloadedModules = callback.acquire(PluginLoaderRegistry.this);
       myAccumulation.onUnload(unloadedModules);
-      myAccumulation.schedulePostRunnable(() -> callback.release(PluginLoaderRegistry.this));
+      // hack for run configurations because of IDEA stupid API; @see RunConfigurationsStateManager
+      myAccumulation.schedulePostRunnable(() ->
+                                              myAccumulation.schedulePostRunnable(() -> callback.release(PluginLoaderRegistry.this)));
     }
 
     @Override
