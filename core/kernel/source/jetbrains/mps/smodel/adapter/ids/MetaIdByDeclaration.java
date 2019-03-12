@@ -45,10 +45,10 @@ public class MetaIdByDeclaration {
     );
   }
 
-  public static SDataTypeId getDatatypeId(@NotNull SNode csDatatypeDeclaration) {
+  public static SDataTypeId getDatatypeId(@NotNull SNode datatypeDeclaration) {
     return new SDataTypeId(
-        getLangId(null, csDatatypeDeclaration),
-        getID(null, csDatatypeDeclaration)
+        getLangId(datatypeDeclaration.getProperty(SNodeUtil.property_DataType_LangId), datatypeDeclaration),
+        getID(datatypeDeclaration.getProperty(SNodeUtil.property_DataType_Id), datatypeDeclaration)
     );
   }
 
@@ -76,7 +76,7 @@ public class MetaIdByDeclaration {
   public static SEnumerationLiteralId getEnumLiteralId(@NotNull SNode enumLiteral) {
     return new SEnumerationLiteralId(
         getDatatypeId(enumLiteral.getContainingRoot()),
-        getID(null, enumLiteral)
+        getID(enumLiteral.getProperty(SNodeUtil.property_EnumerationMemberDeclaration_memberId), enumLiteral)
     );
   }
 

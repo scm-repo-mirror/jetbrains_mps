@@ -248,6 +248,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x11d2ea63881L);
     b.origin("r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/1082978164218");
     b.version(2);
+    b.property("datatypeId", 0x6c1f946a87044403L).type(MetaIdFactory.dataTypeId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x3b4187227177134aL)).origin("7791109065626895363").done();
+    b.property("languageId", 0x6c1f946a87044404L).type(PrimitiveTypeId.STRING).origin("7791109065626895364").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForDeprecatedNodeAnnotation() {
@@ -356,6 +358,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/3348158742936976480");
     b.version(2);
     b.property("presentation", 0x9538e3a78561888L).type(PrimitiveTypeId.STRING).origin("672037151186491528").done();
+    b.property("memberId", 0x13b8f6fdce540e38L).type(MetaIdFactory.dataTypeId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x3b4187227177134aL)).origin("1421157252384165432").done();
     b.associate("oldMember", 0xc7a22b1ac1ed15fL).target(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L).optional(true).origin("899069222106091871").done();
     b.alias("member");
     return b.create();

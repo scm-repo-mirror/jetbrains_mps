@@ -258,7 +258,7 @@
       <concept id="7400021826774799413" name="jetbrains.mps.lang.smodel.structure.NodePointerExpression" flags="ng" index="2tJFMh">
         <child id="7400021826774799510" name="ref" index="2tJFKM" />
       </concept>
-      <concept id="1138676077309" name="jetbrains.mps.lang.smodel.structure.EnumMemberReference" flags="nn" index="uoxfO">
+      <concept id="1138676077309" name="jetbrains.mps.lang.smodel.structure.EnumMemberReference_Old" flags="nn" index="uoxfO">
         <reference id="1138676095763" name="enumMember" index="uo_Cq" />
       </concept>
       <concept id="4693937538533521280" name="jetbrains.mps.lang.smodel.structure.OfConceptOperation" flags="ng" index="v3k3i">
@@ -1165,6 +1165,32 @@
         <ref role="3uigEE" to="c17a:~SProperty" resolve="SProperty" />
       </node>
     </node>
+    <node concept="Wx3nA" id="6Kv_6E718rq" role="jymVt">
+      <property role="TrG5h" value="property_DataType_Id" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm1VV" id="6Kv_6E718rr" role="1B3o_S" />
+      <node concept="355D3s" id="6Kv_6E718rs" role="33vP2m">
+        <property role="B6XcY" value="true" />
+        <ref role="355D3t" to="tpce:fKAxPRU" resolve="DataTypeDeclaration" />
+        <ref role="355D3u" to="tpce:6Kv_6E714g3" resolve="datatypeId" />
+      </node>
+      <node concept="3uibUv" id="6Kv_6E718rt" role="1tU5fm">
+        <ref role="3uigEE" to="c17a:~SProperty" resolve="SProperty" />
+      </node>
+    </node>
+    <node concept="Wx3nA" id="6Kv_6E718ru" role="jymVt">
+      <property role="TrG5h" value="property_DataType_LangId" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm1VV" id="6Kv_6E718rv" role="1B3o_S" />
+      <node concept="355D3s" id="6Kv_6E718rw" role="33vP2m">
+        <property role="B6XcY" value="true" />
+        <ref role="355D3t" to="tpce:fKAxPRU" resolve="DataTypeDeclaration" />
+        <ref role="355D3u" to="tpce:6Kv_6E714g4" resolve="languageId" />
+      </node>
+      <node concept="3uibUv" id="6Kv_6E718rx" role="1tU5fm">
+        <ref role="3uigEE" to="c17a:~SProperty" resolve="SProperty" />
+      </node>
+    </node>
     <node concept="2tJIrI" id="7BIvS$tLebb" role="jymVt" />
     <node concept="Wx3nA" id="4wG2MBHiEao" role="jymVt">
       <property role="TrG5h" value="concept_PropertyAttribute" />
@@ -1796,6 +1822,19 @@
       </node>
       <node concept="3uibUv" id="7BIvS$tMzim" role="1tU5fm">
         <ref role="3uigEE" to="c17a:~SContainmentLink" resolve="SContainmentLink" />
+      </node>
+    </node>
+    <node concept="Wx3nA" id="1eSXJRel6Ib" role="jymVt">
+      <property role="TrG5h" value="property_EnumerationMemberDeclaration_memberId" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm1VV" id="1eSXJRel68B" role="1B3o_S" />
+      <node concept="3uibUv" id="1eSXJRel6Dq" role="1tU5fm">
+        <ref role="3uigEE" to="c17a:~SProperty" resolve="SProperty" />
+      </node>
+      <node concept="355D3s" id="1eSXJRel8d_" role="33vP2m">
+        <property role="B6XcY" value="true" />
+        <ref role="355D3t" to="tpce:2TR3acGo7Lw" resolve="EnumerationMemberDeclaration" />
+        <ref role="355D3u" to="tpce:1eSXJRel0SS" resolve="memberId" />
       </node>
     </node>
     <node concept="2tJIrI" id="6z0EkmmFnsc" role="jymVt" />
@@ -2713,7 +2752,7 @@
             <node concept="liA8E" id="we7Mq5dXmc" role="2OqNvi">
               <ref role="37wK5l" to="wyt6:~Object.equals(java.lang.Object):boolean" resolve="equals" />
               <node concept="35c_gC" id="4teNS_e1qWS" role="37wK5m">
-                <ref role="35c_gD" to="tpce:fKAxPRV" resolve="EnumerationDataTypeDeclaration" />
+                <ref role="35c_gD" to="tpce:fKAxPRV" resolve="EnumerationDataTypeDeclaration_Old" />
               </node>
             </node>
           </node>

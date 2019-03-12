@@ -8,6 +8,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 
 public class ConceptIdSetter {
   public static void processConcept(SNode root, SModel m, boolean force) {
@@ -16,11 +17,11 @@ public class ConceptIdSetter {
     }
 
     for (SNode p : ListSequence.fromList(SLinkOperations.getChildren(root, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6cL, "propertyDeclaration")))) {
-      ConceptIdSetter.processProperty(p, root, force);
+      processProperty(p, root, force);
     }
 
     for (SNode l : ListSequence.fromList(SLinkOperations.getChildren(root, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6bL, "linkDeclaration")))) {
-      ConceptIdSetter.processLink(l, root, force);
+      processLink(l, root, force);
     }
   }
 
@@ -34,6 +35,20 @@ public class ConceptIdSetter {
     if (force || isEmptyString(SPropertyOperations.getString(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId")))) {
       SPropertyOperations.assign(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId"), ConceptIdHelper.generateLinkId(root, link) + "");
     }
+  }
+
+  public static void processDatatype(SNode root, SModel m) {
+    SPropertyOperations.assign(root, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId"), ConceptIdHelper.generateDatatypeId(m, root) + "");
+
+    SNode enumm = SNodeOperations.as(root, MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion"));
+    for (SNode member : ListSequence.fromList(SLinkOperations.getChildren(enumm, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, 0x2e770ca32c607cc1L, "members")))) {
+      processEnumMember(member, enumm);
+    }
+  }
+
+
+  public static void processEnumMember(SNode member, SNode root) {
+    SPropertyOperations.assign(member, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, 0x13b8f6fdce540e38L, "memberId"), ConceptIdHelper.generateEnumMemberId(root, member) + "");
   }
   private static boolean isEmptyString(String str) {
     return str == null || str.length() == 0;

@@ -95,4 +95,8 @@ public final class SConstrainedStringDatatypeAdapter extends SNamedElementAdapte
   public Object getDefault() {
     return null;
   }
+
+  public SDataTypeId getId() {
+    return myId;
+  }
 }

@@ -227,7 +227,7 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
   public class SEnumLiteralAdapter implements SEnumerationLiteral {
     private final long myId;
 
-    private SEnumLiteralAdapter(long id) {
+    public SEnumLiteralAdapter(long id) {
       myId = id;
     }
 

@@ -15,6 +15,7 @@ import java.util.Collection;
 import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
 import java.util.Objects;
 import jetbrains.mps.smodel.adapter.structure.types.SEnumerationAdapter;
+import jetbrains.mps.smodel.adapter.ids.MetaIdHelper;
 
 public class SEnumOperations {
   @Deprecated
@@ -119,6 +120,12 @@ public class SEnumOperations {
   public static SEnumerationLiteral getMemberForName(SEnumeration enumeration, String name) {
     return (enumeration == null ? null : enumeration.getLiteral(name));
   }
+  public static SEnumerationLiteral getMember(SEnumeration enumeration, long memberId) {
+    if (enumeration instanceof SEnumerationAdapter) {
+      return ((SEnumerationAdapter) enumeration).new SEnumLiteralAdapter(memberId);
+    }
+    return null;
+  }
   public static SEnumerationLiteral getMemberForPresentation(SEnumeration enumeration, String presentation) {
     if (enumeration == null) {
       return null;
@@ -161,8 +168,8 @@ public class SEnumOperations {
   public static String getMemberPresentation(SEnumerationLiteral enumMember) {
     return (enumMember == null ? null : enumMember.getPresentation());
   }
-  public static boolean isMember(SEnumerationLiteral enumMember, String name) {
-    return enumMember != null && Objects.equals(enumMember.getName(), name);
+  public static boolean isMember(SEnumerationLiteral enumMember, long id) {
+    return enumMember != null && MetaIdHelper.getEnumerationLiteral(enumMember).getIdValue() == id;
   }
   public static int getMemberOrdinal(SEnumerationLiteral enumMember) {
     return (enumMember == null ? -1 : enumMember.getOrdinal());

@@ -17,6 +17,7 @@
     </language>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
       <concept id="3348158742936976480" name="jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration" flags="ng" index="25R33">
+        <property id="1421157252384165432" name="memberId" index="3tVfz5" />
         <property id="672037151186491528" name="presentation" index="1L1pqM" />
       </concept>
       <concept id="3348158742936976479" name="jetbrains.mps.lang.structure.structure.EnumerationDeclartaion" flags="ng" index="25R3W">
@@ -31,6 +32,9 @@
       </concept>
       <concept id="6054523464627964745" name="jetbrains.mps.lang.structure.structure.AttributeInfo_AttributedConcept" flags="ng" index="trNpa">
         <reference id="6054523464627965081" name="concept" index="trN6q" />
+      </concept>
+      <concept id="1082978164218" name="jetbrains.mps.lang.structure.structure.DataTypeDeclaration" flags="ng" index="AxPO6">
+        <property id="7791109065626895363" name="datatypeId" index="3F6X1D" />
       </concept>
       <concept id="1082978164219" name="jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration_Old" flags="ng" index="AxPO7">
         <property id="1212080844762" name="hasNoDefaultMember" index="PDuV0" />
@@ -191,6 +195,16 @@
     <property role="TrG5h" value="DataTypeDeclaration" />
     <property role="EcuMT" value="1082978164218" />
     <property role="R5$K7" value="true" />
+    <node concept="1TJgyi" id="6Kv_6E714g3" role="1TKVEl">
+      <property role="TrG5h" value="datatypeId" />
+      <property role="IQ2nx" value="7791109065626895363" />
+      <ref role="AX2Wp" node="3H1xM9LtLda" resolve="IDNumber" />
+    </node>
+    <node concept="1TJgyi" id="6Kv_6E714g4" role="1TKVEl">
+      <property role="IQ2nx" value="7791109065626895364" />
+      <property role="TrG5h" value="languageId" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
     <node concept="PrWs8" id="1ob16QT37Kd" role="PzmwI">
       <ref role="PrY4T" node="1ob16QT2yIl" resolve="INamedLanguageElement" />
     </node>
@@ -838,6 +852,11 @@
       <property role="TrG5h" value="presentation" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
+    <node concept="1TJgyi" id="1eSXJRel0SS" role="1TKVEl">
+      <property role="IQ2nx" value="1421157252384165432" />
+      <property role="TrG5h" value="memberId" />
+      <ref role="AX2Wp" node="3H1xM9LtLda" resolve="IDNumber" />
+    </node>
     <node concept="1TJgyj" id="LU8F6G7H5v" role="1TKVEi">
       <property role="IQ2ns" value="899069222106091871" />
       <property role="20lmBu" value="reference" />
@@ -934,56 +953,72 @@
   <node concept="25R3W" id="5CkWgdpp0p0">
     <property role="3GE5qa" value="enums.migration" />
     <property role="TrG5h" value="NameOperationMigrationStrategy" />
+    <property role="3F6X1D" value="6491077959634650688" />
     <node concept="25R33" id="5CkWgdpp0p1" role="25R1y">
       <property role="TrG5h" value="by_name" />
+      <property role="3tVfz5" value="6491077959634650689" />
     </node>
     <node concept="25R33" id="5CkWgdpp0p2" role="25R1y">
       <property role="TrG5h" value="by_presentation" />
+      <property role="3tVfz5" value="6491077959634650690" />
     </node>
     <node concept="25R33" id="5CkWgdpp0p5" role="25R1y">
       <property role="TrG5h" value="by_custom_methods" />
+      <property role="3tVfz5" value="6491077959634650693" />
     </node>
   </node>
   <node concept="25R3W" id="5CkWgdpp3eX">
     <property role="3GE5qa" value="enums.migration" />
     <property role="TrG5h" value="ValueOperationMigrationStrategy" />
+    <property role="3F6X1D" value="6491077959634662333" />
     <node concept="25R33" id="5CkWgdpp3eY" role="25R1y">
       <property role="TrG5h" value="string_name" />
+      <property role="3tVfz5" value="6491077959634662334" />
     </node>
     <node concept="25R33" id="5CkWgdpp3eZ" role="25R1y">
       <property role="TrG5h" value="string_presentation" />
+      <property role="3tVfz5" value="6491077959634662335" />
     </node>
     <node concept="25R33" id="5CkWgdpp3f6" role="25R1y">
       <property role="TrG5h" value="boolean" />
+      <property role="3tVfz5" value="6491077959634662342" />
     </node>
     <node concept="25R33" id="5CkWgdpp3fb" role="25R1y">
       <property role="TrG5h" value="int_ordinal" />
+      <property role="3tVfz5" value="6491077959634662347" />
     </node>
     <node concept="25R33" id="5CkWgdpp3fh" role="25R1y">
       <property role="TrG5h" value="int_ordinal_plus_one" />
+      <property role="3tVfz5" value="6491077959634662353" />
     </node>
     <node concept="25R33" id="5CkWgdpp3fo" role="25R1y">
       <property role="TrG5h" value="by_custom_methods" />
+      <property role="3tVfz5" value="6491077959634662360" />
     </node>
   </node>
   <node concept="25R3W" id="2UidVq6Wu$P">
     <property role="3GE5qa" value="enums.migration" />
     <property role="TrG5h" value="EnumCustomMethodReplacementKind" />
+    <property role="3F6X1D" value="3355805929432017205" />
     <node concept="25R33" id="2UidVq6Wu$Q" role="25R1y">
       <property role="TrG5h" value="memberToValue" />
       <property role="1L1pqM" value="member -&gt; value" />
+      <property role="3tVfz5" value="3355805929432017206" />
     </node>
     <node concept="25R33" id="2UidVq6Wu$R" role="25R1y">
       <property role="TrG5h" value="valueToMember" />
       <property role="1L1pqM" value="value -&gt; member" />
+      <property role="3tVfz5" value="3355805929432017207" />
     </node>
     <node concept="25R33" id="2UidVq6Wu$U" role="25R1y">
       <property role="TrG5h" value="memberToName" />
       <property role="1L1pqM" value="name -&gt; member" />
+      <property role="3tVfz5" value="3355805929432017210" />
     </node>
     <node concept="25R33" id="2UidVq6Wu$Y" role="25R1y">
       <property role="TrG5h" value="nameToMember" />
       <property role="1L1pqM" value="member -&gt; name" />
+      <property role="3tVfz5" value="3355805929432017214" />
     </node>
   </node>
   <node concept="1TIwiD" id="2UidVq6Wu_3">

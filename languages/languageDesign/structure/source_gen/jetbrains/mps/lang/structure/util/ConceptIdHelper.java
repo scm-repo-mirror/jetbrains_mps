@@ -32,6 +32,18 @@ public class ConceptIdHelper {
     return result.value;
   }
 
+  public static long generateDatatypeId(@Nullable SModel m, @Nullable final SNode c) {
+    final Wrappers._long result = new Wrappers._long(ConceptIdHelper.getDefaultIdFromNode(c));
+    while (ListSequence.fromList(SModelOperations.roots(m, MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, "jetbrains.mps.lang.structure.structure.DataTypeDeclaration"))).any(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return it != c && Objects.equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId")), result.value + "");
+      }
+    })) {
+      result.value = randomLong();
+    }
+    return result.value;
+  }
+
   public static long generatePropertyId(@Nullable SNode c, final SNode p) {
     final Wrappers._long result = new Wrappers._long(ConceptIdHelper.getDefaultIdFromNode(p));
     while (ListSequence.fromList(SLinkOperations.getChildren(c, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6cL, "propertyDeclaration"))).any(new IWhereFilter<SNode>() {
@@ -56,14 +68,26 @@ public class ConceptIdHelper {
     return result.value;
   }
 
+  public static long generateEnumMemberId(@Nullable SNode e, final SNode m) {
+    final Wrappers._long result = new Wrappers._long(ConceptIdHelper.getDefaultIdFromNode(m));
+    while (ListSequence.fromList(SLinkOperations.getChildren(e, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, 0x2e770ca32c607cc1L, "members"))).any(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return it != m && Objects.equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, 0x13b8f6fdce540e38L, "memberId")), result.value + "");
+      }
+    })) {
+      result.value = randomLong();
+    }
+    return result.value;
+  }
+
   @Nullable
   public static String getNodeIdString(SNode n) {
-    jetbrains.mps.smodel.SNode sn = as_huw3go_a0a0a6(n, jetbrains.mps.smodel.SNode.class);
+    jetbrains.mps.smodel.SNode sn = as_huw3go_a0a0a01(n, jetbrains.mps.smodel.SNode.class);
     if (sn == null) {
       return null;
     }
 
-    SNodeId.Regular ni = as_huw3go_a0a3a6(sn.getNodeId(), SNodeId.Regular.class);
+    SNodeId.Regular ni = as_huw3go_a0a3a01(sn.getNodeId(), SNodeId.Regular.class);
     if (ni == null) {
       return null;
     }
@@ -85,10 +109,10 @@ public class ConceptIdHelper {
   private static long randomLong() {
     return ((long) (Math.random() * Long.MAX_VALUE));
   }
-  private static <T> T as_huw3go_a0a0a6(Object o, Class<T> type) {
+  private static <T> T as_huw3go_a0a0a01(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
-  private static <T> T as_huw3go_a0a3a6(Object o, Class<T> type) {
+  private static <T> T as_huw3go_a0a3a01(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 }

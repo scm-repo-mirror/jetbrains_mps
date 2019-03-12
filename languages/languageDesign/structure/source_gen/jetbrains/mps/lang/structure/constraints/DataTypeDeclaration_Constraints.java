@@ -15,6 +15,14 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.IOperationContext;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
+import java.util.Map;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
+import java.util.HashMap;
+import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
+import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
+import org.jetbrains.mps.openapi.model.SNode;
+import java.util.UUID;
 import jetbrains.mps.smodel.SNodePointer;
 
 public class DataTypeDeclaration_Constraints extends BaseConstraintsDescriptor {
@@ -39,6 +47,49 @@ public class DataTypeDeclaration_Constraints extends BaseConstraintsDescriptor {
         };
       }
     };
+  }
+  @Override
+  protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
+    Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
+    properties.put(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId"), new BasePropertyConstraintsDescriptor(MetaIdFactory.propId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L), this) {
+      @Override
+      public boolean hasOwnValidator() {
+        return true;
+      }
+      @Override
+      public boolean validateValue(SNode node, Object $propertyValue) {
+        String propertyValue = (String) ($propertyValue);
+        if ((propertyValue == null || propertyValue.length() == 0)) {
+          return true;
+        }
+        try {
+          Long.parseLong(propertyValue);
+          return true;
+        } catch (NumberFormatException e) {
+          return false;
+        }
+      }
+    });
+    properties.put(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044404L, "languageId"), new BasePropertyConstraintsDescriptor(MetaIdFactory.propId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044404L), this) {
+      @Override
+      public boolean hasOwnValidator() {
+        return true;
+      }
+      @Override
+      public boolean validateValue(SNode node, Object $propertyValue) {
+        String propertyValue = (String) ($propertyValue);
+        if ((propertyValue == null || propertyValue.length() == 0)) {
+          return true;
+        }
+        try {
+          UUID.fromString(propertyValue);
+          return true;
+        } catch (NumberFormatException e) {
+          return false;
+        }
+      }
+    });
+    return properties;
   }
   private static SNodePointer breakingNode_gntvk6_a0a0a0a0a0a0a0a2 = new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "6836281137582805350");
 }
