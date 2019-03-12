@@ -317,9 +317,7 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
       myRootGroups.clear();
 
       for (SModelTreeNode newChildModel : myChildModelTreeNodes) {
-        DefaultTreeModel treeModel = getTree().getModel();
-        int index = myChildModelTreeNodes.indexOf(newChildModel);
-        treeModel.insertNodeInto(newChildModel, this, index);
+        add(newChildModel);
       }
       org.jetbrains.mps.openapi.model.SModel model = getModel();
 
@@ -343,7 +341,7 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
         }
       }
 
-      DefaultTreeModel treeModel = getTree().getModel();
+      final DefaultTreeModel treeModel = getTree().getModel();
       treeModel.nodeStructureChanged(this);
     } finally {
       myInitialized = true;
@@ -374,7 +372,7 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
     //so we merge the two by always remembering the last insertion point
     final HashMap<MPSTreeNode, Integer> lastPositions = new HashMap<>();
     for (SNode root : added) {
-      SNodeTreeNode nodeToInsert = new SNodeTreeNode(root);
+      SNodeTreeNode nodeToInsert = createSNodeTreeNode(root);
       MPSTreeNode targetNode = getNodeGroupFor(root);
 
       if (targetNode == null) {
