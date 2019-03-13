@@ -4,8 +4,7 @@
   <property name="build.tmp" location="${build.dir}/tmp/p2" />
   <property name="build.layout" location="${build.dir}/artifacts/p2" />
   <property name="mps_home" location="" />
-  <property name="mps_distribution" location="${mps_home}" />
-  <property name="artifacts.mps" location="${mps_distribution}" />
+  <property name="artifacts.mps" location="${mps_home}" />
   <property name="artifacts.p1" location="${build.dir}/artifacts/p1" />
   <property file="${artifacts.mps}/build.properties" prefix="import.mps" />
   <property name="mps.build.number" value="${import.mps.mps.build.number}" />
@@ -155,7 +154,6 @@
         <arg value="-Xmx512m" />
       </jvmargs>
       <macro name="mps_home" path="${mps_home}" />
-      <macro name="mps_distribution" path="${mps_distribution}" />
     </generate>
   </target>
   

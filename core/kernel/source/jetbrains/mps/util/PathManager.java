@@ -19,6 +19,7 @@ import jetbrains.mps.vfs.path.Path;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jdom.Document;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.annotations.Singleton;
@@ -40,6 +41,9 @@ import java.util.List;
 public final class PathManager {
   private static final Logger LOG = LogManager.getLogger(PathManager.class);
 
+//  I am in doubt whether we need this (e.g in copymodels)
+//  private static final String PROPERTY_HOME_PATH = "mps.home.path";
+
   private static final String FILE = "file";
   public static final String JAR = "jar";
   private static final String JAR_DELIMITER = "!";
@@ -58,36 +62,50 @@ public final class PathManager {
   private PathManager() {
   }
 
+  /**
+   * The thing is that we have two main #getHomePath implementations: here and in IDEA's PathManager#getHomePath.
+   * These almost always should return the same value, however the method here answers to the question where the MPS classes are located,
+   * while the IDEA's method answers where the IDEA classes are located.
+   * Also this paths are configurable from the outside by the properties.
+   * In MPS IDE we obviously have these two pointing to the same location, however
+   * in MPS IDEA plugin the one below point to the root of the mps-core plugin, while the IDEA's method returns
+   * the location of the IDEA distribution.
+   * @see #getPlatformLibPath()
+   *
+   * @return the MPS home path
+   */
   public static String getHomePath() {
-    // XXX com.intellij.openapi.application.PathManager#getHomePath respects "idea.home.path" system property to force different location
-    //     Though we can not reference the class here directly, we might want to do it in a places where IDEA is available (e.g. JUnit test integration)
-    //     OTOH, it's odd to use different PathManager with different idea about 'home path' from various parts of MPS
+    // [AT] it's odd to use different PathManager with different idea about 'home path' from various parts of MPS
     if (ourHomePath != null) {
       return ourHomePath;
     }
 
-    String rootPath = getContainingJar(PathManager.class);
+//    if (System.getProperty(PathManager.PROPERTY_HOME_PATH) != null) {
+//      ourHomePath = FileUtil.getAbsolutePath(System.getProperty(PathManager.PROPERTY_HOME_PATH));
+//    } else {
+      String rootPath = getContainingJar(PathManager.class);
 
-    File root = new File(rootPath);
-    root = root.getAbsoluteFile();
+      File root = new File(rootPath);
+      root = root.getAbsoluteFile();
 
-    if (rootPath.endsWith(DOT_JAR)) {
-      // {mps_home}/lib
-      root = root.getParentFile();
-      if (root != null) {
-        // {mps_home}
+      if (rootPath.endsWith(DOT_JAR)) {
+        // {mps_home}/lib
         root = root.getParentFile();
+        if (root != null) {
+          // {mps_home}
+          root = root.getParentFile();
+        }
+      } else {
+        while ((!isMpsDir(root)) && (root.getParentFile() != null)) {
+          root = root.getParentFile();
+        }
       }
-    } else {
-      while ((!isMpsDir(root)) && (root.getParentFile() != null)) {
-        root = root.getParentFile();
-      }
-    }
 
-    ourHomePath = root.getAbsolutePath();
-    if (ourHomePath.equals("/")) {
-      throw new IllegalStateException("cannot detect MPS location");
-    }
+      ourHomePath = root.getAbsolutePath();
+      if ("/".equals(ourHomePath)) {
+        throw new IllegalStateException("cannot detect MPS location");
+      }
+//    }
     return ourHomePath;
   }
 
@@ -189,7 +207,7 @@ public final class PathManager {
     //    there's one <MPS Installation>/lib folder to host both IDEA and MPS libraries
     // II) MPS as IDEA plugin
     //    there's <IDEA installation>/lib for IDEA jars
-    //    <MPS plugin>/lib with MPS jars
+    //    <mps-core plugin>/lib with MPS jars
     // III) MPS started from sources
     //    there's <checkout dir>/lib with IDEA jars
     //    there's no lib/ with MPS jars, however,  #getHomePath() points to same <checkout dir> (the one with bin/idea.properties), and

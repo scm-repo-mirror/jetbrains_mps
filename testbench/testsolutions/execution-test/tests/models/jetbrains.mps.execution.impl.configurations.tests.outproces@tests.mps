@@ -1137,8 +1137,8 @@
               </node>
               <node concept="2r$n1x" id="4rbJdZOYJul" role="2r_Bvh">
                 <ref role="2r$qp6" to="go48:14R2qyOCsWI" resolve="workingDirectory" />
-                <node concept="Xl_RD" id="4rbJdZOYJum" role="2r_lH1">
-                  <property role="Xl_RC" value="" />
+                <node concept="Xl_RD" id="12CYGR19pdL" role="2r_lH1">
+                  <property role="Xl_RC" value="." />
                 </node>
               </node>
               <node concept="2r$n1x" id="4rbJdZOYJun" role="2r_Bvh">

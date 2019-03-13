@@ -15,6 +15,7 @@ public class NodeByConcept_Configuration_Editor extends SettingsEditorEx<NodeByC
   private NodeByConceptChooser myChooser;
   public void disposeEditor() {
   }
+
   @NotNull
   public NodeByConceptChooser createEditor() {
     myChooser = new NodeByConceptChooser();
@@ -22,10 +23,12 @@ public class NodeByConcept_Configuration_Editor extends SettingsEditorEx<NodeByC
     myChooser.setAcceptor(myIsValid);
     return myChooser;
   }
+
   public void applyEditorTo(final NodeByConcept_Configuration configuration) throws ConfigurationException {
     configuration.setNode(myChooser.getNode());
     configuration.setNodeText(myChooser.getText());
   }
+
   public void resetEditorFrom(final NodeByConcept_Configuration configuration) {
     myChooser.setNode(configuration.getNodeRef());
     myChooser.setText(configuration.getNodeText());

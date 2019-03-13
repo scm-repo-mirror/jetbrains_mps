@@ -22,7 +22,6 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.project.structure.modules.ModuleReference;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.persistence.PersistenceRegistry;
-import jetbrains.mps.baseLanguage.unitTest.execution.client.RunCachesManager;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -30,6 +29,7 @@ import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.lang.test.util.TestInProcessRunState;
 import jetbrains.mps.lang.test.util.RunStateEnum;
+import jetbrains.mps.baseLanguage.unitTest.execution.client.RunCachesManager;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.util.Reference;
 import com.intellij.openapi.application.ApplicationManager;
@@ -71,7 +71,8 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
     XmlSerializer.deserializeInto(myState, (Element) element.getChildren().get(0));
   }
 
-  public String getDefaultPathForSettings() {
+  private String getDefaultPathForSettings() {
+    // must be called only once! 
     return new DefaultSettingsPathChooser().chooseDir();
   }
   public String getSettingsLocation() {
@@ -82,7 +83,7 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
     }
   }
   public File getPluginsPath() {
-    String configPath = new File(getSettingsLocation(), "config").getAbsolutePath();
+    String configPath = new File(this.getCachesPath(), "config").getAbsolutePath();
     return new File(configPath, "plugins");
   }
   public SModuleReference getModuleReference() {
@@ -102,9 +103,6 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
   }
   public void setJUnitRunType(JUnitRunTypes runType) {
     this.setRunType(runType.ordinal());
-  }
-  public boolean canSaveCachesPath() {
-    return this.getReuseCaches() && !(RunCachesManager.isLocked(getSettingsLocation()));
   }
   public boolean canExecuteInProcess(Iterable<ITestNodeWrapper> testNodes) {
     return this.getInProcess() && !(this.getDebug());
@@ -130,8 +128,8 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
     }
   }
   private void checkCachesDirIsFreeToLock() throws RuntimeConfigurationException {
-    if (!(this.getInProcess()) && this.getReuseCaches() && !(canSaveCachesPath())) {
-      throw new RuntimeConfigurationError("The chosen caches directory is already locked by another run. Please choose another one.");
+    if (!(this.getInProcess()) && this.getReuseCaches() && RunCachesManager.isLocked(this.getCachesPath())) {
+      throw new RuntimeConfigurationError("The chosen settings directory is already locked by another run. Please choose another one.");
     }
   }
   public List<ITestNodeWrapper> getTestsUnderProgress(final MPSProject project) {

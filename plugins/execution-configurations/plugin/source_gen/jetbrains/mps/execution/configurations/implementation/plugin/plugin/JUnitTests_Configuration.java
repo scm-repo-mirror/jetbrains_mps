@@ -188,7 +188,7 @@ public class JUnitTests_Configuration extends BaseMpsRunConfiguration implements
     return new Object[]{this.getTestsToMake()};
   }
   public Object[] createClearSettingsDirectoryBeforeRunTaskTask() {
-    return new Object[]{new File(this.getJUnitSettings().getSettingsLocation())};
+    return new Object[]{new File(this.getJUnitSettings().getCachesPath())};
   }
   public Object[] createAssemblePluginsBeforeTaskTask() {
     return new Object[]{this.getDeploySettings().getPluginsListToDeploy(), this.getJUnitSettings().getPluginsPath()};

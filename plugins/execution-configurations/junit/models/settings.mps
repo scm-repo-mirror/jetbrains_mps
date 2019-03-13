@@ -1369,7 +1369,7 @@
       <node concept="17QB3L" id="29IGCqrBTNB" role="1tU5fm" />
       <node concept="2OqwBi" id="2ID7c2zTnwM" role="33vP2m">
         <node concept="2WthIp" id="2ID7c2zTnwP" role="2Oq$k0" />
-        <node concept="2XshWL" id="2ID7c2zTnwR" role="2OqNvi">
+        <node concept="2XshWL" id="5s9qK0EW8R9" role="2OqNvi">
           <ref role="2WH_rO" node="29IGCqr_3Cy" resolve="getDefaultPathForSettings" />
         </node>
       </node>
@@ -1417,6 +1417,11 @@
       <property role="TrG5h" value="getDefaultPathForSettings" />
       <node concept="17QB3L" id="29IGCqr_4sV" role="3clF45" />
       <node concept="3clFbS" id="29IGCqr_3C$" role="3clF47">
+        <node concept="3SKdUt" id="5s9qK0EVPFi" role="3cqZAp">
+          <node concept="3SKdUq" id="5s9qK0EVPFk" role="3SKWNk">
+            <property role="3SKdUp" value="must be called only once!" />
+          </node>
+        </node>
         <node concept="3cpWs6" id="4eCVXiE0tFx" role="3cqZAp">
           <node concept="2OqwBi" id="4eCVXiE0GKP" role="3cqZAk">
             <node concept="2ShNRf" id="4eCVXiE0utX" role="2Oq$k0">
@@ -1430,7 +1435,7 @@
           </node>
         </node>
       </node>
-      <node concept="3Tm1VV" id="2iHJ$C2_vq6" role="1B3o_S" />
+      <node concept="3Tm6S6" id="5s9qK0EVLrx" role="1B3o_S" />
     </node>
     <node concept="yHkHE" id="5dbgjInbZ3$" role="yHkHi">
       <property role="TrG5h" value="getSettingsLocation" />
@@ -1458,7 +1463,7 @@
               <node concept="3cpWs6" id="5dbgjInc1Au" role="3cqZAp">
                 <node concept="2OqwBi" id="5dbgjInc1CT" role="3cqZAk">
                   <node concept="2WthIp" id="5dbgjInc1CW" role="2Oq$k0" />
-                  <node concept="2XshWL" id="5dbgjInc1CY" role="2OqNvi">
+                  <node concept="2XshWL" id="5s9qK0EW38C" role="2OqNvi">
                     <ref role="2WH_rO" node="29IGCqr_3Cy" resolve="getDefaultPathForSettings" />
                   </node>
                 </node>
@@ -1467,7 +1472,7 @@
           </node>
         </node>
       </node>
-      <node concept="3Tm1VV" id="5dbgjInbZZT" role="1B3o_S" />
+      <node concept="3Tm1VV" id="5s9qK0EVu6K" role="1B3o_S" />
     </node>
     <node concept="yHkHE" id="WN7eTvKI7q" role="yHkHi">
       <property role="TrG5h" value="getPluginsPath" />
@@ -1483,10 +1488,10 @@
               <node concept="2ShNRf" id="75c$k6X2F02" role="2Oq$k0">
                 <node concept="1pGfFk" id="75c$k6X2GDh" role="2ShVmc">
                   <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String,java.lang.String)" resolve="File" />
-                  <node concept="2OqwBi" id="75c$k6X2Eko" role="37wK5m">
-                    <node concept="2WthIp" id="75c$k6X2Ekp" role="2Oq$k0" />
-                    <node concept="2XshWL" id="3P4ieJEKvZD" role="2OqNvi">
-                      <ref role="2WH_rO" node="5dbgjInbZ3$" resolve="getSettingsLocation" />
+                  <node concept="2OqwBi" id="5s9qK0EWnNy" role="37wK5m">
+                    <node concept="2WthIp" id="5s9qK0EWnzF" role="2Oq$k0" />
+                    <node concept="yHkDZ" id="5s9qK0EWob8" role="2OqNvi">
+                      <ref role="yHkDY" node="29IGCqrBT0S" resolve="myCachesPath" />
                     </node>
                   </node>
                   <node concept="Xl_RD" id="75c$k6X2Hs3" role="37wK5m">
@@ -1647,35 +1652,6 @@
           <ref role="3uigEE" node="5gyVhZ1bmkR" resolve="JUnitRunTypes" />
         </node>
       </node>
-    </node>
-    <node concept="yHkHE" id="6bMNZRsh1zN" role="yHkHi">
-      <property role="TrG5h" value="canSaveCachesPath" />
-      <node concept="10P_77" id="6bMNZRsh2O7" role="3clF45" />
-      <node concept="3clFbS" id="6bMNZRsh1zP" role="3clF47">
-        <node concept="3clFbF" id="6bMNZRsh2XZ" role="3cqZAp">
-          <node concept="1Wc70l" id="6bMNZRsh2Y1" role="3clFbG">
-            <node concept="3fqX7Q" id="6bMNZRsh30z" role="3uHU7w">
-              <node concept="2YIFZM" id="6bMNZRsh30_" role="3fr31v">
-                <ref role="37wK5l" to="sfqd:78pvOus7VgM" resolve="isLocked" />
-                <ref role="1Pybhc" to="sfqd:1yMd$64tgFd" resolve="RunCachesManager" />
-                <node concept="2OqwBi" id="6bMNZRsh30A" role="37wK5m">
-                  <node concept="2WthIp" id="6bMNZRsh30B" role="2Oq$k0" />
-                  <node concept="2XshWL" id="5dbgjInc7YF" role="2OqNvi">
-                    <ref role="2WH_rO" node="5dbgjInbZ3$" resolve="getSettingsLocation" />
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="2OqwBi" id="6bMNZRsh2Y6" role="3uHU7B">
-              <node concept="2WthIp" id="6bMNZRsh2Y7" role="2Oq$k0" />
-              <node concept="yHkDZ" id="6bMNZRsh2Y8" role="2OqNvi">
-                <ref role="yHkDY" node="78pvOus4b8w" resolve="myReuseCaches" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="6bMNZRsh2Nv" role="1B3o_S" />
     </node>
     <node concept="yHkHE" id="1b7CZFPJVXT" role="yHkHi">
       <property role="TrG5h" value="canExecuteInProcess" />
@@ -1894,35 +1870,37 @@
       <property role="TrG5h" value="checkCachesDirIsFreeToLock" />
       <node concept="3cqZAl" id="4YEli8eHAMH" role="3clF45" />
       <node concept="3clFbS" id="4YEli8eHAMI" role="3clF47">
-        <node concept="3clFbJ" id="40rNy8FM4Lf" role="3cqZAp">
-          <node concept="3clFbS" id="40rNy8FM4Li" role="3clFbx">
-            <node concept="yHkDM" id="6bMNZRsbk0s" role="3cqZAp">
-              <node concept="Xl_RD" id="6bMNZRsbk0K" role="yHkDO">
-                <property role="Xl_RC" value="The chosen caches directory is already locked by another run. Please choose another one." />
+        <node concept="3clFbJ" id="5s9qK0EW13E" role="3cqZAp">
+          <node concept="3clFbS" id="5s9qK0EW13F" role="3clFbx">
+            <node concept="yHkDM" id="5s9qK0EW13G" role="3cqZAp">
+              <node concept="Xl_RD" id="5s9qK0EW13H" role="yHkDO">
+                <property role="Xl_RC" value="The chosen settings directory is already locked by another run. Please choose another one." />
               </node>
             </node>
           </node>
-          <node concept="1Wc70l" id="40rNy8FM5YO" role="3clFbw">
-            <node concept="3fqX7Q" id="5ovgik_ZsP2" role="3uHU7w">
-              <node concept="2OqwBi" id="5ovgik_ZsP4" role="3fr31v">
-                <node concept="2WthIp" id="5ovgik_ZsP5" role="2Oq$k0" />
-                <node concept="2XshWL" id="5ovgik_ZsP6" role="2OqNvi">
-                  <ref role="2WH_rO" node="6bMNZRsh1zN" resolve="canSaveCachesPath" />
+          <node concept="1Wc70l" id="5s9qK0EW13I" role="3clFbw">
+            <node concept="2YIFZM" id="5s9qK0EW13L" role="3uHU7w">
+              <ref role="37wK5l" to="sfqd:78pvOus7VgM" resolve="isLocked" />
+              <ref role="1Pybhc" to="sfqd:1yMd$64tgFd" resolve="RunCachesManager" />
+              <node concept="2OqwBi" id="5s9qK0EW13M" role="37wK5m">
+                <node concept="2WthIp" id="5s9qK0EW13N" role="2Oq$k0" />
+                <node concept="yHkDZ" id="5s9qK0EW13O" role="2OqNvi">
+                  <ref role="yHkDY" node="29IGCqrBT0S" resolve="myCachesPath" />
                 </node>
               </node>
             </node>
-            <node concept="1Wc70l" id="2iHJ$C2AzeN" role="3uHU7B">
-              <node concept="3fqX7Q" id="2iHJ$C2AzOP" role="3uHU7B">
-                <node concept="2OqwBi" id="2iHJ$C2AzOR" role="3fr31v">
-                  <node concept="2WthIp" id="2iHJ$C2AzOS" role="2Oq$k0" />
-                  <node concept="yHkDZ" id="2iHJ$C2AzOT" role="2OqNvi">
+            <node concept="1Wc70l" id="5s9qK0EW13P" role="3uHU7B">
+              <node concept="3fqX7Q" id="5s9qK0EW13Q" role="3uHU7B">
+                <node concept="2OqwBi" id="5s9qK0EW13R" role="3fr31v">
+                  <node concept="2WthIp" id="5s9qK0EW13S" role="2Oq$k0" />
+                  <node concept="yHkDZ" id="5s9qK0EW13T" role="2OqNvi">
                     <ref role="yHkDY" node="1hvQXBo5kdH" resolve="myInProcess" />
                   </node>
                 </node>
               </node>
-              <node concept="2OqwBi" id="40rNy8FM50w" role="3uHU7w">
-                <node concept="2WthIp" id="40rNy8FM4OX" role="2Oq$k0" />
-                <node concept="yHkDZ" id="40rNy8FM5r$" role="2OqNvi">
+              <node concept="2OqwBi" id="5s9qK0EW13U" role="3uHU7w">
+                <node concept="2WthIp" id="5s9qK0EW13V" role="2Oq$k0" />
+                <node concept="yHkDZ" id="5s9qK0EW13W" role="2OqNvi">
                   <ref role="yHkDY" node="78pvOus4b8w" resolve="myReuseCaches" />
                 </node>
               </node>

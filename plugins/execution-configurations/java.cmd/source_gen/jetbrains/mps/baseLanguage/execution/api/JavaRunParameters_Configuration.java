@@ -22,12 +22,15 @@ public class JavaRunParameters_Configuration implements IPersistentConfiguration
   private static final Logger LOG = LogManager.getLogger(JavaRunParameters_Configuration.class);
   @NotNull
   private JavaRunParameters_Configuration.MyState myState = new JavaRunParameters_Configuration.MyState();
+
+  @Override
   public void checkConfiguration(final PersistentConfigurationContext context) throws RuntimeConfigurationException {
   }
   @Override
   public void writeExternal(Element element) throws WriteExternalException {
     element.addContent(XmlSerializer.serialize(myState));
   }
+
   @Override
   public void readExternal(Element element) throws InvalidDataException {
     if (element == null) {
@@ -35,12 +38,7 @@ public class JavaRunParameters_Configuration implements IPersistentConfiguration
     }
     XmlSerializer.deserializeInto(myState, (Element) element.getChildren().get(0));
   }
-  public JavaRunParameters getJavaParameters() {
-    return myState.myJavaParameters;
-  }
-  public void setJavaParameters(JavaRunParameters value) {
-    myState.myJavaParameters = value;
-  }
+
   /*package*/ String getDefaultWorkingDir() {
     String userDir = PathManager.getUserDir();
     if (userDir == null) {
@@ -66,10 +64,18 @@ public class JavaRunParameters_Configuration implements IPersistentConfiguration
     }
     return clone;
   }
+
+  public JavaRunParameters getJavaParameters() {
+    return myState.myJavaParameters;
+  }
+
+  public void setJavaParameters(JavaRunParameters value) {
+    myState.myJavaParameters = value;
+  }
+
   public final class MyState {
     public JavaRunParameters myJavaParameters = new JavaRunParameters(null, null, null, getDefaultWorkingDir(), false);
-    public MyState() {
-    }
+
     @Override
     public Object clone() throws CloneNotSupportedException {
       JavaRunParameters_Configuration.MyState state = new JavaRunParameters_Configuration.MyState();

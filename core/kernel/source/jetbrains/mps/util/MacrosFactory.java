@@ -31,7 +31,8 @@ import org.jetbrains.mps.openapi.module.SModule;
 public final class MacrosFactory implements MacroHelper.Source {
   public static final String MODULE = "${module}";
   public static final String PROJECT_LEGACY = "${project}";
-  public static final String MPS_HOME = "${mps_home}";
+  public static final String MPS_HOME_MACRO_NAME = "mps_home";
+  public static final String MPS_HOME = "${" + MPS_HOME_MACRO_NAME + "}";
   public static final String PLATFORM_LIB = "${platform_lib}";
   public static final String LIB_EXT = "${lib_ext}";
 

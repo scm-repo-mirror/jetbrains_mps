@@ -42,6 +42,8 @@ public class DemoApplication_Configuration extends BaseMpsRunConfiguration imple
       return SPropertyOperations.getBoolean(SNodeOperations.cast(node, MetaAdapterFactory.getConcept(0xe6081818930c4926L, 0xbdef3537bcc59087L, 0x446739e63be33684L, "jetbrains.mps.execution.demo.structure.SomeConcept")), MetaAdapterFactory.getProperty(0xe6081818930c4926L, 0xbdef3537bcc59087L, 0x446739e63be33684L, 0x446739e63be7cbc4L, "valid"));
     }
   });
+
+  @Override
   public void checkConfiguration(final PersistentConfigurationContext context) throws RuntimeConfigurationException {
     this.getNode().checkConfiguration(context);
   }
@@ -53,6 +55,7 @@ public class DemoApplication_Configuration extends BaseMpsRunConfiguration imple
       element.addContent(fieldElement);
     }
   }
+
   @Override
   public void readExternal(Element element) throws InvalidDataException {
     if (element == null) {
@@ -69,15 +72,22 @@ public class DemoApplication_Configuration extends BaseMpsRunConfiguration imple
       }
     }
   }
-  public NodeByConcept_Configuration getNode() {
-    return myNode;
-  }
+
   @Override
   public DemoApplication_Configuration clone() {
     DemoApplication_Configuration clone = createCloneTemplate();
     clone.myNode = (NodeByConcept_Configuration) myNode.clone();
     return clone;
   }
+
+  public NodeByConcept_Configuration getNode() {
+    return myNode;
+  }
+
+  public void setNode(NodeByConcept_Configuration value) {
+    myNode = value;
+  }
+
   public DemoApplication_Configuration(Project project, ConfigurationFactory factory, String name) {
     super(project, factory, name);
   }

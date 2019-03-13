@@ -33,6 +33,9 @@
     <import index="alof" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.project(MPS.Platform/)" />
     <import index="z1c3" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
     <import index="z1c4" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
+    <import index="kdzh" ref="r:0353b795-df17-4050-9687-ee47eeb7094f(jetbrains.mps.build.mps.structure)" />
+    <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
+    <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="jkm4" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.ui(MPS.IDEA/)" implicit="true" />
   </imports>
   <registry>
@@ -1250,18 +1253,29 @@
               </node>
             </node>
             <node concept="3clFbS" id="3h9a8EwP3wN" role="3clFbx">
+              <node concept="3cpWs8" id="12CYGR1cY1T" role="3cqZAp">
+                <node concept="3cpWsn" id="12CYGR1cY1U" role="3cpWs9">
+                  <property role="TrG5h" value="buildProject" />
+                  <node concept="3Tqbb2" id="12CYGR1cY1Q" role="1tU5fm">
+                    <ref role="ehGHo" to="3ior:4RPz6WoY4Cj" resolve="BuildProject" />
+                  </node>
+                  <node concept="1PxgMI" id="12CYGR1cY1V" role="33vP2m">
+                    <node concept="37vLTw" id="12CYGR1cY1W" role="1m5AlR">
+                      <ref role="3cqZAo" node="3h9a8EwP6NF" resolve="containingRoot" />
+                    </node>
+                    <node concept="chp4Y" id="12CYGR1cY1X" role="3oSUPX">
+                      <ref role="cht4Q" to="3ior:4RPz6WoY4Cj" resolve="BuildProject" />
+                    </node>
+                  </node>
+                </node>
+              </node>
               <node concept="3cpWs8" id="7l2brEKZk93" role="3cqZAp">
                 <node concept="3cpWsn" id="7l2brEKZk94" role="3cpWs9">
                   <property role="TrG5h" value="name" />
                   <node concept="17QB3L" id="7l2brEKZk95" role="1tU5fm" />
                   <node concept="2OqwBi" id="7l2brEKZk96" role="33vP2m">
-                    <node concept="1PxgMI" id="7l2brEKZk97" role="2Oq$k0">
-                      <node concept="37vLTw" id="42Ryvd4DcmJ" role="1m5AlR">
-                        <ref role="3cqZAo" node="3h9a8EwP6NF" resolve="containingRoot" />
-                      </node>
-                      <node concept="chp4Y" id="714IaVdGYV4" role="3oSUPX">
-                        <ref role="cht4Q" to="tpck:h0TrEE$" resolve="INamedConcept" />
-                      </node>
+                    <node concept="37vLTw" id="12CYGR1cY1Y" role="2Oq$k0">
+                      <ref role="3cqZAo" node="12CYGR1cY1U" resolve="buildProject" />
                     </node>
                     <node concept="3TrcHB" id="7l2brEKZk99" role="2OqNvi">
                       <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />

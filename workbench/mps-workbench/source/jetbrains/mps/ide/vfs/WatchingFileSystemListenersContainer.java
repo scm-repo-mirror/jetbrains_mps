@@ -16,7 +16,6 @@ import java.util.Map;
  * only in that it provides watching those paths for which listener was added.
  * In idea plugin it shouldn't be needed, as idea adds watch requests on its own. It does that
  * for source roots of modules. And our model roots must always be idea source roots, see MPS-18162
- * TODO does it make sense to have IdeaFileSystemProvider separately? merge
  *
  * danilla 8/7/13
  */

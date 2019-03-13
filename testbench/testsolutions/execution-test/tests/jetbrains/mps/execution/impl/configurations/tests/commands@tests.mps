@@ -30,6 +30,7 @@
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="n8jl" ref="r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)" />
+    <import index="5zyv" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent(JDK/)" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" implicit="true" />
   </imports>
   <registry>
@@ -94,6 +95,10 @@
         <child id="1197027771414" name="operand" index="2Oq$k0" />
         <child id="1197027833540" name="operation" index="2OqNvi" />
       </concept>
+      <concept id="1083260308424" name="jetbrains.mps.baseLanguage.structure.EnumConstantReference" flags="nn" index="Rm8GO">
+        <reference id="1083260308426" name="enumConstantDeclaration" index="Rm8GQ" />
+        <reference id="1144432896254" name="enumClass" index="1Px2BO" />
+      </concept>
       <concept id="1164879751025" name="jetbrains.mps.baseLanguage.structure.TryCatchStatement" flags="nn" index="SfApY">
         <child id="1164879758292" name="body" index="SfCbr" />
         <child id="1164903496223" name="catchClause" index="TEbGg" />
@@ -133,7 +138,6 @@
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
       </concept>
-      <concept id="1092119917967" name="jetbrains.mps.baseLanguage.structure.MulExpression" flags="nn" index="17qRlL" />
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
       </concept>
@@ -159,6 +163,7 @@
       <concept id="1068580123155" name="jetbrains.mps.baseLanguage.structure.ExpressionStatement" flags="nn" index="3clFbF">
         <child id="1068580123156" name="expression" index="3clFbG" />
       </concept>
+      <concept id="1068580123157" name="jetbrains.mps.baseLanguage.structure.Statement" flags="nn" index="3clFbH" />
       <concept id="1068580123159" name="jetbrains.mps.baseLanguage.structure.IfStatement" flags="nn" index="3clFbJ">
         <child id="1082485599094" name="ifFalseStatement" index="9aQIa" />
         <child id="1068580123160" name="condition" index="3clFbw" />
@@ -505,12 +510,16 @@
                     <ref role="3cqZAo" node="6bfDvj8bDoz" resolve="process" />
                   </node>
                   <node concept="343rKw" id="6bfDvj8bDpf" role="2OqNvi">
-                    <node concept="17qRlL" id="ZAm4fcOYqc" role="3nLspB">
-                      <node concept="3cmrfG" id="ZAm4fcOYqf" role="3uHU7w">
-                        <property role="3cmrfH" value="1000" />
+                    <node concept="2OqwBi" id="4rbJdZOYCsN" role="3nLspB">
+                      <node concept="Rm8GO" id="4rbJdZOYDwR" role="2Oq$k0">
+                        <ref role="Rm8GQ" to="5zyv:~TimeUnit.MINUTES" resolve="MINUTES" />
+                        <ref role="1Px2BO" to="5zyv:~TimeUnit" resolve="TimeUnit" />
                       </node>
-                      <node concept="3cmrfG" id="5vTxdEztEWY" role="3uHU7B">
-                        <property role="3cmrfH" value="30" />
+                      <node concept="liA8E" id="4rbJdZOYGkv" role="2OqNvi">
+                        <ref role="37wK5l" to="5zyv:~TimeUnit.toMillis(long):long" resolve="toMillis" />
+                        <node concept="3cmrfG" id="6LWri0IGK$r" role="37wK5m">
+                          <property role="3cmrfH" value="1" />
+                        </node>
                       </node>
                     </node>
                   </node>
@@ -882,37 +891,44 @@
         </node>
         <node concept="3cpWs8" id="4rbJdZOvE7r" role="3cqZAp">
           <node concept="3cpWsn" id="4rbJdZOvE7s" role="3cpWs9">
-            <property role="TrG5h" value="string" />
+            <property role="TrG5h" value="vmParams" />
             <node concept="17QB3L" id="4rbJdZOvE7t" role="1tU5fm" />
-            <node concept="3cpWs3" id="4rbJdZOvE7u" role="33vP2m">
-              <node concept="10M0yZ" id="4rbJdZOvG1C" role="3uHU7w">
-                <ref role="3cqZAo" to="u9u1:4rbJdZOvDPf" resolve="SYS_PROPERTY_EXPECTED_VALUE_WITH_SPACES" />
-                <ref role="1PxDUh" to="u9u1:4rbJdZOvDP6" resolve="ReadingPropertyWithSpacesBTestCase_Test" />
+            <node concept="3cpWs3" id="12CYGR1c5qY" role="33vP2m">
+              <node concept="Xl_RD" id="12CYGR1c5r1" role="3uHU7w">
+                <property role="Xl_RC" value="\&quot;" />
               </node>
-              <node concept="3cpWs3" id="4rbJdZOvE7w" role="3uHU7B">
-                <node concept="3cpWs3" id="4rbJdZOvE7x" role="3uHU7B">
-                  <node concept="Xl_RD" id="4rbJdZOvE7y" role="3uHU7B">
-                    <property role="Xl_RC" value="-D" />
+              <node concept="3cpWs3" id="4rbJdZOvE7u" role="3uHU7B">
+                <node concept="3cpWs3" id="4rbJdZOvE7w" role="3uHU7B">
+                  <node concept="3cpWs3" id="4rbJdZOvE7x" role="3uHU7B">
+                    <node concept="Xl_RD" id="4rbJdZOvE7y" role="3uHU7B">
+                      <property role="Xl_RC" value="-D" />
+                    </node>
+                    <node concept="10M0yZ" id="4rbJdZOvE7z" role="3uHU7w">
+                      <ref role="1PxDUh" to="u9u1:4rbJdZOvDP6" resolve="ReadingPropertyWithSpacesBTestCase_Test" />
+                      <ref role="3cqZAo" to="u9u1:4rbJdZOvDP7" resolve="SYS_PROPERTY" />
+                    </node>
                   </node>
-                  <node concept="10M0yZ" id="4rbJdZOvE7z" role="3uHU7w">
-                    <ref role="1PxDUh" to="u9u1:4rbJdZOvDP6" resolve="ReadingPropertyWithSpacesBTestCase_Test" />
-                    <ref role="3cqZAo" to="u9u1:4rbJdZOvDP7" resolve="SYS_PROPERTY" />
+                  <node concept="Xl_RD" id="4rbJdZOvE7$" role="3uHU7w">
+                    <property role="Xl_RC" value="=\&quot;" />
                   </node>
                 </node>
-                <node concept="Xl_RD" id="4rbJdZOvE7$" role="3uHU7w">
-                  <property role="Xl_RC" value="=" />
+                <node concept="10M0yZ" id="4rbJdZOvG1C" role="3uHU7w">
+                  <ref role="3cqZAo" to="u9u1:4rbJdZOvDPf" resolve="SYS_PROPERTY_EXPECTED_VALUE_WITH_SPACES" />
+                  <ref role="1PxDUh" to="u9u1:4rbJdZOvDP6" resolve="ReadingPropertyWithSpacesBTestCase_Test" />
                 </node>
               </node>
             </node>
           </node>
         </node>
+        <node concept="3clFbH" id="12CYGR1c54G" role="3cqZAp" />
+        <node concept="3clFbH" id="12CYGR1c4gM" role="3cqZAp" />
         <node concept="3clFbF" id="4rbJdZOvE7_" role="3cqZAp">
           <node concept="2OqwBi" id="4rbJdZOvE7A" role="3clFbG">
             <node concept="2WthIp" id="4rbJdZOvE7B" role="2Oq$k0" />
             <node concept="2XshWL" id="4rbJdZOvE7C" role="2OqNvi">
               <ref role="2WH_rO" node="6bfDvj8bCm1" resolve="checkTests" />
               <node concept="37vLTw" id="4rbJdZOvE7D" role="2XxRq1">
-                <ref role="3cqZAo" node="4rbJdZOvE7s" resolve="string" />
+                <ref role="3cqZAo" node="4rbJdZOvE7s" resolve="vmParams" />
               </node>
               <node concept="10Nm6u" id="4rbJdZOvE7E" role="2XxRq1" />
               <node concept="37vLTw" id="4rbJdZOvHYO" role="2XxRq1">

@@ -12,12 +12,14 @@ import jetbrains.mps.baseLanguage.execution.api.JavaRunParameters;
 import com.intellij.execution.ExecutionException;
 import org.apache.log4j.Level;
 import jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitTests_Configuration;
-import jetbrains.mps.internal.collections.runtime.IterableUtils;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.baseLanguage.execution.api.Java_Command;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.smodel.MPSModuleRepository;
+import jetbrains.mps.internal.collections.runtime.IterableUtils;
 import jetbrains.mps.debug.api.IDebugger;
+import com.intellij.openapi.application.PathManager;
+import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.debug.api.run.IDebuggerConfiguration;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.debug.api.IDebuggerSettings;
@@ -77,11 +79,10 @@ public class JUnit_Command {
     TestsWithParameters testsWithParams = TestsWithParameters.createFromTest2RunList(tests);
     TestsWithParametersAndConfiguration settings = new TestsWithParametersAndConfiguration(project.getRepository(), testsWithParams, junitRC);
 
-    String vmParam = javaParams.vmOptions();
-    String updatedVmParams = IterableUtils.join(ListSequence.fromList(testsWithParams.getParameters().getJvmArgs()), " ") + (((vmParam != null && vmParam.length() > 0) ? " " + vmParam : ""));
+    String updatedVmParams = JUnit_Command.getUpdatedVMParameters(settings);
     List<String> calculatedCP = ListSequence.fromList(JUnit_Command.getClasspath(settings)).toListSequence();
     String workingDir = javaParams.workingDirectory();
-    return new Java_Command().setVirtualMachineParameter_String(updatedVmParams).setClassPath_ListString(calculatedCP).setJrePath_String((check_txeh3_a0c0i0a1(javaParams) ? javaParams.jrePath() : null)).setWorkingDirectory_File((workingDir == null ? null : new File(workingDir))).setProgramParameter_String(JUnit_Command.getProgramParameters(settings)).setDebuggerSettings_String(myDebuggerSettings_String).createProcess(testsWithParams.getParameters().getExecutorClass().getName());
+    return new Java_Command().setVirtualMachineParameter_String(updatedVmParams).setClassPath_ListString(calculatedCP).setJrePath_String((check_txeh3_a0c0h0a1(javaParams) ? javaParams.jrePath() : null)).setWorkingDirectory_File((workingDir == null ? null : new File(workingDir))).setProgramParameter_String(JUnit_Command.getProgramParameters(settings)).setDebuggerSettings_String(myDebuggerSettings_String).createProcess(testsWithParams.getParameters().getExecutorClass().getName());
   }
   public ProcessHandler createProcess(List<ITestNodeWrapper> tests) throws ExecutionException {
     //  
@@ -101,7 +102,6 @@ public class JUnit_Command {
     SRepository repo = (myProject_Project == null ? MPSModuleRepository.getInstance() : myProject_Project.getRepository());
     TestsWithParametersAndConfiguration settings = new TestsWithParametersAndConfiguration(repo, testsWithParams, null);
 
-
     String vmArgs = IterableUtils.join(ListSequence.fromList(testsWithParams.getParameters().getJvmArgs()), " ") + (((myVirtualMachineParameter_String != null && myVirtualMachineParameter_String.length() > 0) ? " " + myVirtualMachineParameter_String : ""));
     return new Java_Command().setVirtualMachineParameter_String(vmArgs).setClassPath_ListString(ListSequence.fromList(JUnit_Command.getClasspath(settings)).toListSequence()).setJrePath_String(myJrePath_String).setWorkingDirectory_File(myWorkingDirectory_File).setProgramParameter_String(JUnit_Command.getProgramParameters(settings)).setDebuggerSettings_String(myDebuggerSettings_String).createProcess(testsWithParams.getParameters().getExecutorClass().getName());
   }
@@ -115,6 +115,22 @@ public class JUnit_Command {
   }
   private static String getProgramParameters(TestsWithParametersAndConfiguration settings) throws ExecutionException {
     return new ProgramParametersCalculator(settings).calculate();
+  }
+  private static String getUpdatedVMParameters(TestsWithParametersAndConfiguration settings) {
+    String vmParam = settings.myConfiguration.getJavaRunParameters().getJavaParameters().vmOptions();
+    vmParam = IterableUtils.join(ListSequence.fromList(settings.myTests2Run.getParameters().getJvmArgs()), " ") + (((vmParam != null && vmParam.length() > 0) ? " " + vmParam : ""));
+    String settingsPath = settings.myConfiguration.getJUnitSettings().getSettingsLocation();
+    if ((settingsPath != null && settingsPath.length() > 0)) {
+      String configPath = new File(settingsPath, "config").getAbsolutePath();
+      String systemPath = new File(settingsPath, "system").getAbsolutePath();
+      String logPath = new File(systemPath, "log").getAbsolutePath();
+      return vmParam + JUnit_Command.createPropString(PathManager.PROPERTY_CONFIG_PATH, configPath) + JUnit_Command.createPropString(PathManager.PROPERTY_SYSTEM_PATH, systemPath) + JUnit_Command.createPropString(PathManager.PROPERTY_LOG_PATH, logPath);
+    } else {
+      return vmParam;
+    }
+  }
+  private static String createPropString(String propName, String propValue) {
+    return " -D" + propName + "=" + NameUtil.escapeString(propValue);
   }
 
   public static IDebuggerConfiguration getDebuggerConfiguration() {
@@ -146,7 +162,7 @@ public class JUnit_Command {
     }
     return null;
   }
-  private static boolean check_txeh3_a0c0i0a1(JavaRunParameters checkedDotOperand) {
+  private static boolean check_txeh3_a0c0h0a1(JavaRunParameters checkedDotOperand) {
     if (null != checkedDotOperand) {
       return (boolean) checkedDotOperand.useAlternativeJre();
     }

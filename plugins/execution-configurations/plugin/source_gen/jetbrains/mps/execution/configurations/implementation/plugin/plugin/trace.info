@@ -2421,13 +2421,13 @@
   <root nodeRef="r:8aafee6a-4721-443e-8020-e8986ed3f25a(jetbrains.mps.execution.configurations.implementation.plugin.plugin)/6062668769034010900">
     <file name="JUnitTests_Configuration.java">
       <node id="6062668769034010991" at="187,48,188,47" concept="11" />
-      <node id="3698349269622570515" at="190,67,191,81" concept="11" />
+      <node id="3698349269622570515" at="190,67,191,75" concept="11" />
       <node id="4414733712822855031" at="193,57,194,117" concept="11" />
       <node id="6062668769034010991" at="187,0,190,0" concept="9" trace="createMakeNodePointersTask#()[Ljava/lang/Object;" />
       <node id="3698349269622570515" at="190,0,193,0" concept="9" trace="createClearSettingsDirectoryBeforeRunTaskTask#()[Ljava/lang/Object;" />
       <node id="4414733712822855031" at="193,0,196,0" concept="9" trace="createAssemblePluginsBeforeTaskTask#()[Ljava/lang/Object;" />
       <scope id="6062668769034010991" at="187,48,188,47" />
-      <scope id="3698349269622570515" at="190,67,191,81" />
+      <scope id="3698349269622570515" at="190,67,191,75" />
       <scope id="4414733712822855031" at="193,57,194,117" />
       <scope id="6062668769034010991" at="187,0,190,0" />
       <scope id="3698349269622570515" at="190,0,193,0" />

@@ -46,6 +46,8 @@ public class BuildScript_Configuration extends BaseMpsRunConfiguration implement
     }
   });
   private AntSettings_Configuration mySettings = new AntSettings_Configuration();
+
+  @Override
   public void checkConfiguration(final PersistentConfigurationContext context) throws RuntimeConfigurationException {
     final Wrappers._boolean isPackaged = new Wrappers._boolean();
     final SRepository repo = context.getProject().getRepository();
@@ -77,6 +79,7 @@ public class BuildScript_Configuration extends BaseMpsRunConfiguration implement
       element.addContent(fieldElement);
     }
   }
+
   @Override
   public void readExternal(Element element) throws InvalidDataException {
     if (element == null) {
@@ -103,12 +106,7 @@ public class BuildScript_Configuration extends BaseMpsRunConfiguration implement
       }
     }
   }
-  public NodeByConcept_Configuration getNodePointer() {
-    return myNodePointer;
-  }
-  public AntSettings_Configuration getSettings() {
-    return mySettings;
-  }
+
   @Override
   public BuildScript_Configuration clone() {
     BuildScript_Configuration clone = createCloneTemplate();
@@ -116,6 +114,21 @@ public class BuildScript_Configuration extends BaseMpsRunConfiguration implement
     clone.mySettings = (AntSettings_Configuration) mySettings.clone();
     return clone;
   }
+
+  public NodeByConcept_Configuration getNodePointer() {
+    return myNodePointer;
+  }
+  public AntSettings_Configuration getSettings() {
+    return mySettings;
+  }
+
+  public void setNodePointer(NodeByConcept_Configuration value) {
+    myNodePointer = value;
+  }
+  public void setSettings(AntSettings_Configuration value) {
+    mySettings = value;
+  }
+
   public BuildScript_Configuration(Project project, ConfigurationFactory factory, String name) {
     super(project, factory, name);
   }

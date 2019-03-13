@@ -20,6 +20,7 @@ public class AntSettings_Configuration_Editor extends SettingsEditorEx<AntSettin
   private RawLineEditorComponent myAntOptions;
   public void disposeEditor() {
   }
+
   @NotNull
   public JPanel createEditor() {
     JPanel panel = new JPanel(new GridBagLayout());
@@ -35,11 +36,13 @@ public class AntSettings_Configuration_Editor extends SettingsEditorEx<AntSettin
 
     return panel;
   }
+
   public void applyEditorTo(final AntSettings_Configuration configuration) throws ConfigurationException {
     configuration.setUseOtherAntLocation(myUseAlternativeAnt.isSelected());
     configuration.setOtherAntLocation(myAlternativeAnt.getText());
     configuration.setAntOptions(myAntOptions.getText());
   }
+
   public void resetEditorFrom(final AntSettings_Configuration configuration) {
     myUseAlternativeAnt.setSelected(configuration.getUseOtherAntLocation());
     myAlternativeAnt.setText(configuration.getOtherAntLocation());

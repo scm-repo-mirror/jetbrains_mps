@@ -5,6 +5,7 @@
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
     <use id="f3347d8a-0e79-4f35-8ac9-1574f25c986f" name="jetbrains.mps.execution.commands" version="0" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
+    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
   </languages>
   <imports>
     <import index="cky9" ref="r:1d4e7c57-c144-4228-9dec-8180ddf9f0ee(jetbrains.mps.tool.environment)" />
@@ -15,6 +16,8 @@
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="83ig" ref="920eaa0e-ecca-46bc-bee7-4e5c59213dd6/java:jetbrains.mps.testbench(Testbench/)" />
     <import index="fyhk" ref="920eaa0e-ecca-46bc-bee7-4e5c59213dd6/java:jetbrains.mps(Testbench/)" />
+    <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
+    <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
   </imports>
   <registry>
     <language id="f3347d8a-0e79-4f35-8ac9-1574f25c986f" name="jetbrains.mps.execution.commands">
@@ -152,6 +155,11 @@
       <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
+      <concept id="1163668896201" name="jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression" flags="nn" index="3K4zz7">
+        <child id="1163668914799" name="condition" index="3K4Cdx" />
+        <child id="1163668922816" name="ifTrue" index="3K4E3e" />
+        <child id="1163668934364" name="ifFalse" index="3K4GZi" />
+      </concept>
       <concept id="6329021646629104957" name="jetbrains.mps.baseLanguage.structure.TextCommentPart" flags="nn" index="3SKdUq">
         <property id="6329021646629104958" name="text" index="3SKdUp" />
       </concept>
@@ -202,6 +210,13 @@
       </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
+      </concept>
+    </language>
+    <language id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections">
+      <concept id="1151702311717" name="jetbrains.mps.baseLanguage.collections.structure.ToListOperation" flags="nn" index="ANE8D" />
+      <concept id="1235573135402" name="jetbrains.mps.baseLanguage.collections.structure.SingletonSequenceCreator" flags="nn" index="2HTt$P">
+        <child id="1235573175711" name="elementType" index="2HTBi0" />
+        <child id="1235573187520" name="singletonValue" index="2HTEbv" />
       </concept>
     </language>
   </registry>
@@ -323,42 +338,56 @@
                   </node>
                 </node>
               </node>
-              <node concept="3cpWs8" id="5kOge16Akyd" role="3cqZAp">
-                <node concept="3cpWsn" id="5kOge16Akyg" role="3cpWs9">
-                  <property role="TrG5h" value="mpsDistrOption" />
-                  <node concept="17QB3L" id="5kOge16Akyb" role="1tU5fm" />
-                  <node concept="10Nm6u" id="5kOge16Al6Y" role="33vP2m" />
+              <node concept="3SKdUt" id="4BZZ2Mx1Hox" role="3cqZAp">
+                <node concept="3SKdUq" id="4BZZ2Mx1Hoz" role="3SKWNk">
+                  <property role="3SKdUp" value="macroToDefine is needed in binaries, the property is from IDE on sources" />
                 </node>
               </node>
-              <node concept="3clFbJ" id="5kOge16Ajd8" role="3cqZAp">
-                <node concept="3clFbS" id="5kOge16Ajda" role="3clFbx">
-                  <node concept="3clFbF" id="5kOge16Ale5" role="3cqZAp">
-                    <node concept="37vLTI" id="5kOge16Alo$" role="3clFbG">
-                      <node concept="3cpWs3" id="5kOge16AlLY" role="37vLTx">
-                        <node concept="Xl_RD" id="5kOge16Alv5" role="3uHU7B">
-                          <property role="Xl_RC" value="-Dmps_distribution=" />
-                        </node>
-                        <node concept="2YIFZM" id="5kOge16AlSw" role="3uHU7w">
-                          <ref role="37wK5l" to="wyt6:~System.getProperty(java.lang.String):java.lang.String" resolve="getProperty" />
-                          <ref role="1Pybhc" to="wyt6:~System" resolve="System" />
-                          <node concept="Xl_RD" id="5kOge16AlSx" role="37wK5m">
-                            <property role="Xl_RC" value="mps_distribution" />
-                          </node>
-                        </node>
-                      </node>
-                      <node concept="37vLTw" id="5kOge16Ale3" role="37vLTJ">
-                        <ref role="3cqZAo" node="5kOge16Akyg" resolve="mpsDistrOption" />
-                      </node>
+              <node concept="3cpWs8" id="4BZZ2Mx1_9I" role="3cqZAp">
+                <node concept="3cpWsn" id="4BZZ2Mx1_9J" role="3cpWs9">
+                  <property role="TrG5h" value="mpsHomePath" />
+                  <node concept="17QB3L" id="4BZZ2Mx1_O_" role="1tU5fm" />
+                  <node concept="2YIFZM" id="4BZZ2Mx1_9K" role="33vP2m">
+                    <ref role="37wK5l" to="wyt6:~System.getProperty(java.lang.String):java.lang.String" resolve="getProperty" />
+                    <ref role="1Pybhc" to="wyt6:~System" resolve="System" />
+                    <node concept="Xl_RD" id="4BZZ2Mx1_9L" role="37wK5m">
+                      <property role="Xl_RC" value="mps.home.path" />
                     </node>
                   </node>
                 </node>
-                <node concept="3y3z36" id="5kOge16AklP" role="3clFbw">
-                  <node concept="10Nm6u" id="5kOge16Akor" role="3uHU7w" />
-                  <node concept="2YIFZM" id="5kOge16AjmF" role="3uHU7B">
-                    <ref role="37wK5l" to="wyt6:~System.getProperty(java.lang.String):java.lang.String" resolve="getProperty" />
-                    <ref role="1Pybhc" to="wyt6:~System" resolve="System" />
-                    <node concept="Xl_RD" id="5kOge16AjsY" role="37wK5m">
-                      <property role="Xl_RC" value="mps_distribution" />
+              </node>
+              <node concept="3cpWs8" id="4BZZ2Mx1$Wa" role="3cqZAp">
+                <node concept="3cpWsn" id="4BZZ2Mx1$Wb" role="3cpWs9">
+                  <property role="TrG5h" value="options" />
+                  <node concept="17QB3L" id="4BZZ2Mx1$W4" role="1tU5fm" />
+                  <node concept="3K4zz7" id="4BZZ2Mx1B$r" role="33vP2m">
+                    <node concept="Xl_RD" id="4BZZ2Mx1Cog" role="3K4GZi">
+                      <property role="Xl_RC" value="" />
+                    </node>
+                    <node concept="3y3z36" id="4BZZ2Mx1BuI" role="3K4Cdx">
+                      <node concept="37vLTw" id="4BZZ2Mx1ASt" role="3uHU7B">
+                        <ref role="3cqZAo" node="4BZZ2Mx1_9J" resolve="mpsHomePath" />
+                      </node>
+                      <node concept="10Nm6u" id="4BZZ2Mx1Bpz" role="3uHU7w" />
+                    </node>
+                    <node concept="3cpWs3" id="4BZZ2Mx1$Wc" role="3K4E3e">
+                      <node concept="37vLTw" id="4BZZ2Mx1_9M" role="3uHU7w">
+                        <ref role="3cqZAo" node="4BZZ2Mx1_9J" resolve="mpsHomePath" />
+                      </node>
+                      <node concept="3cpWs3" id="4BZZ2Mx1$Wf" role="3uHU7B">
+                        <node concept="3cpWs3" id="4BZZ2Mx1$Wg" role="3uHU7B">
+                          <node concept="Xl_RD" id="4BZZ2Mx1$Wh" role="3uHU7B">
+                            <property role="Xl_RC" value="-D" />
+                          </node>
+                          <node concept="10M0yZ" id="4BZZ2Mx1$Wi" role="3uHU7w">
+                            <ref role="3cqZAo" to="18ew:~MacrosFactory.MPS_HOME_MACRO_NAME" resolve="MPS_HOME_MACRO_NAME" />
+                            <ref role="1PxDUh" to="18ew:~MacrosFactory" resolve="MacrosFactory" />
+                          </node>
+                        </node>
+                        <node concept="Xl_RD" id="4BZZ2Mx1$Wj" role="3uHU7w">
+                          <property role="Xl_RC" value="=" />
+                        </node>
+                      </node>
                     </node>
                   </node>
                 </node>
@@ -375,16 +404,31 @@
                         <property role="Xl_RC" value="testbench/modules/xmodel.build/p1.xml" />
                       </node>
                     </node>
-                    <node concept="2LYoGL" id="5kOge16Amnj" role="2LYoGw">
-                      <ref role="2LYoGK" to="ximz:j$XAJDK0Dy" resolve="options" />
-                      <node concept="37vLTw" id="5kOge16AmBG" role="2LYoGN">
-                        <ref role="3cqZAo" node="5kOge16Akyg" resolve="mpsDistrOption" />
-                      </node>
-                    </node>
                     <node concept="2LYoGL" id="3Af5TgnC$UY" role="2LYoGw">
                       <ref role="2LYoGK" to="ximz:j$XAJDK0D$" resolve="targetName" />
                       <node concept="Xl_RD" id="3Af5TgnC_aH" role="2LYoGN">
                         <property role="Xl_RC" value="generate assemble" />
+                      </node>
+                    </node>
+                    <node concept="2LYoGL" id="12CYGR1cCYa" role="2LYoGw">
+                      <ref role="2LYoGK" to="ximz:j$XAJDK0Dy" resolve="options" />
+                      <node concept="37vLTw" id="4BZZ2Mx1FBv" role="2LYoGN">
+                        <ref role="3cqZAo" node="4BZZ2Mx1$Wb" resolve="options" />
+                      </node>
+                    </node>
+                    <node concept="2LYoGL" id="4BZZ2Mx1FVU" role="2LYoGw">
+                      <ref role="2LYoGK" to="ximz:7JA3O4XSBBa" resolve="macroToDefine" />
+                      <node concept="2OqwBi" id="12CYGR1exqu" role="2LYoGN">
+                        <node concept="2ShNRf" id="12CYGR1eqrM" role="2Oq$k0">
+                          <node concept="2HTt$P" id="12CYGR1eshd" role="2ShVmc">
+                            <node concept="17QB3L" id="12CYGR1eshv" role="2HTBi0" />
+                            <node concept="10M0yZ" id="5O_sWVJ3XfD" role="2HTEbv">
+                              <ref role="3cqZAo" to="18ew:~MacrosFactory.MPS_HOME_MACRO_NAME" resolve="MPS_HOME_MACRO_NAME" />
+                              <ref role="1PxDUh" to="18ew:~MacrosFactory" resolve="MacrosFactory" />
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="ANE8D" id="12CYGR1ezJM" role="2OqNvi" />
                       </node>
                     </node>
                   </node>
@@ -449,16 +493,31 @@
                         <property role="Xl_RC" value="testbench/modules/xmodel.build/p2.xml" />
                       </node>
                     </node>
-                    <node concept="2LYoGL" id="5kOge16AmDW" role="2LYoGw">
-                      <ref role="2LYoGK" to="ximz:j$XAJDK0Dy" resolve="options" />
-                      <node concept="37vLTw" id="5kOge16AmKd" role="2LYoGN">
-                        <ref role="3cqZAo" node="5kOge16Akyg" resolve="mpsDistrOption" />
-                      </node>
-                    </node>
                     <node concept="2LYoGL" id="3Af5TgnEuva" role="2LYoGw">
                       <ref role="2LYoGK" to="ximz:j$XAJDK0D$" resolve="targetName" />
                       <node concept="Xl_RD" id="3Af5TgnEuvb" role="2LYoGN">
                         <property role="Xl_RC" value="generate" />
+                      </node>
+                    </node>
+                    <node concept="2LYoGL" id="12CYGR1cTsK" role="2LYoGw">
+                      <ref role="2LYoGK" to="ximz:j$XAJDK0Dy" resolve="options" />
+                      <node concept="37vLTw" id="4BZZ2Mx1FHV" role="2LYoGN">
+                        <ref role="3cqZAo" node="4BZZ2Mx1$Wb" resolve="options" />
+                      </node>
+                    </node>
+                    <node concept="2LYoGL" id="5Oj7yqRnH$$" role="2LYoGw">
+                      <ref role="2LYoGK" to="ximz:7JA3O4XSBBa" resolve="macroToDefine" />
+                      <node concept="2OqwBi" id="5Oj7yqRnH$_" role="2LYoGN">
+                        <node concept="2ShNRf" id="5Oj7yqRnH$A" role="2Oq$k0">
+                          <node concept="2HTt$P" id="5Oj7yqRnH$B" role="2ShVmc">
+                            <node concept="17QB3L" id="5Oj7yqRnH$C" role="2HTBi0" />
+                            <node concept="10M0yZ" id="5Oj7yqRnH$D" role="2HTEbv">
+                              <ref role="3cqZAo" to="18ew:~MacrosFactory.MPS_HOME_MACRO_NAME" resolve="MPS_HOME_MACRO_NAME" />
+                              <ref role="1PxDUh" to="18ew:~MacrosFactory" resolve="MacrosFactory" />
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="ANE8D" id="5Oj7yqRnH$E" role="2OqNvi" />
                       </node>
                     </node>
                   </node>
@@ -673,7 +732,7 @@
       </node>
       <node concept="TZ5HA" id="5kOge16A3hT" role="TZ5H$">
         <node concept="1dT_AC" id="5kOge16A3hU" role="1dT_Ay">
-          <property role="1dT_AB" value="                         and pass its location with mps_distribution VM argument (i.e. -Dmps_distribution=/Downloads/MPS-171.333/)" />
+          <property role="1dT_AB" value="                         and pass its location with idea.home.path VM argument (i.e. -Didea.home.path=/Downloads/MPS-171.333/)" />
         </node>
       </node>
       <node concept="TZ5HA" id="5kOge16_Z4a" role="TZ5H$">
@@ -684,37 +743,6 @@
       <node concept="TZ5HA" id="5kOge16_Z5b" role="TZ5H$">
         <node concept="1dT_AC" id="5kOge16_Z5c" role="1dT_Ay">
           <property role="1dT_AB" value="(I've seen mps/bin as default home folder). Ant starts p1.xml and p2.xml scripts using location relative to mps project root." />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="5kOge16_Z5R" role="TZ5H$">
-        <node concept="1dT_AC" id="5kOge16A2PX" role="1dT_Ay">
-          <property role="1dT_AB" value="IMPORTANT: p1 and p2 explicitly list 'java' among used plugins and reference artifacts of 'mps' dependency through custom mps_distribution macro (not mps_home)" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="5kOge16A30F" role="TZ5H$">
-        <node concept="1dT_AC" id="5kOge16A30G" role="1dT_Ay">
-          <property role="1dT_AB" value="as it's the only chance to get ant-mps.jar location relavive to {artifacts.mps}/, not {mps_home}." />
-        </node>
-        <node concept="1dT_AC" id="5kOge16_Z5S" role="1dT_Ay">
-          <property role="1dT_AB" value="" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="5kOge16A2ZH" role="TZ5H$">
-        <node concept="1dT_AC" id="5kOge16A2W4" role="1dT_Ay">
-          <property role="1dT_AB" value=" It's vital for running tests from MPS sources as ant() command implicitly set mps_home to that of running MPS instance, which" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="5kOge16A31H" role="TZ5H$">
-        <node concept="1dT_AC" id="5kOge16A31I" role="1dT_Ay">
-          <property role="1dT_AB" value="doesn't have ant-mps.jar where build script expects it (/lib/ant/lib/ant-mps.jar). Since we can't override mps_home from the test, we" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="5kOge16A32L" role="TZ5H$">
-        <node concept="1dT_AC" id="5kOge16A32M" role="1dT_Ay">
-          <property role="1dT_AB" value="use a trick to supply mps_distribution that points to an unzipped MPS distribution (from MPS-version.zip)" />
-        </node>
-        <node concept="1dT_AC" id="5kOge16A2ZI" role="1dT_Ay">
-          <property role="1dT_AB" value="" />
         </node>
       </node>
     </node>

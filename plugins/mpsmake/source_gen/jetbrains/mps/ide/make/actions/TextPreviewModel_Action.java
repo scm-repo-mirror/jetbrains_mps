@@ -173,7 +173,10 @@ public class TextPreviewModel_Action extends BaseAction {
               }
             });
             // to update tree to reveal transient models. is it still necessary? 
-            ProjectPane.getInstance(mpsProject).rebuild();
+            ProjectPane pane = ProjectPane.getInstance(mpsProject);
+            if (pane != null) {
+              pane.rebuild();
+            }
           } catch (Exception e) {
             msgHandler.handle(new Message(MessageKind.ERROR, "TextPreviewModel", e.toString()).setException(e));
           }

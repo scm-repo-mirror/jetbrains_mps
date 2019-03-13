@@ -125,7 +125,7 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
   }
 
   public boolean getCompileInMPS() {
-    throw new UnsupportedOperationException();
+    throw new UnsupportedOperationException(this + " does not support 'compile in mps'");
   }
 
   /**

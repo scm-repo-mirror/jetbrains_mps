@@ -3116,8 +3116,8 @@
                 <ref role="yHkDY" node="5gyVhZ1ayaO" resolve="myJUnitSettings" />
               </node>
             </node>
-            <node concept="2XshWL" id="3djbh3BbGtk" role="2OqNvi">
-              <ref role="2WH_rO" to="tty3:5dbgjInbZ3$" resolve="getSettingsLocation" />
+            <node concept="yHkDZ" id="5s9qK0F5p50" role="2OqNvi">
+              <ref role="yHkDY" to="tty3:29IGCqrBT0S" resolve="myCachesPath" />
             </node>
           </node>
         </node>

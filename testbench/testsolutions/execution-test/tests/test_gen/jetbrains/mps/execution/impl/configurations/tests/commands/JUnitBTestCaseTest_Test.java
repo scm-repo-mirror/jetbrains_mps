@@ -25,6 +25,7 @@ import jetbrains.mps.baseLanguage.unitTest.execution.client.JUnit_Command;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.UnitTestProcessListener;
 import jetbrains.mps.execution.api.commands.ProcessHandlerBuilder;
+import java.util.concurrent.TimeUnit;
 import junit.framework.Assert;
 import com.intellij.execution.ExecutionException;
 import java.util.Collections;
@@ -77,8 +78,10 @@ public class JUnitBTestCaseTest_Test extends BaseTransformationTest {
     }
     public void test_programParametersWithSpacesArePassedToTheTest() throws Exception {
       List<ITestNodeWrapper> testToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)", "5101378672992886086"));
-      String string = "-D" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY + "=" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY_EXPECTED_VALUE_WITH_SPACES;
-      this.checkTests(string, null, testToSucceed, this.emptyList());
+      String vmParams = "-D" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY + "=\"" + ReadingPropertyWithSpacesBTestCase_Test.SYS_PROPERTY_EXPECTED_VALUE_WITH_SPACES + "\"";
+
+
+      this.checkTests(vmParams, null, testToSucceed, this.emptyList());
     }
 
 
@@ -90,7 +93,7 @@ public class JUnitBTestCaseTest_Test extends BaseTransformationTest {
         TestRunState runState = new TestRunState(allTests);
         runState.addListener(checkListener);
         process.addProcessListener(new UnitTestProcessListener(runState));
-        int exitcode = ProcessHandlerBuilder.startAndWait(process, 30 * 1000);
+        int exitcode = ProcessHandlerBuilder.startAndWait(process, TimeUnit.MINUTES.toMillis(1));
         if (exitcode != ListSequence.fromList(testsToFail).count()) {
           Assert.fail("Exit code must be equal to " + ListSequence.fromList(testsToFail).count() + ", but " + exitcode);
         } else if (exitcode < 0) {

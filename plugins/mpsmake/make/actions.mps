@@ -6838,17 +6838,38 @@
                                     <property role="3SKdUp" value="to update tree to reveal transient models. is it still necessary?" />
                                   </node>
                                 </node>
-                                <node concept="3clFbF" id="9D0Ba05uV0" role="3cqZAp">
-                                  <node concept="2OqwBi" id="9D0Ba05uV1" role="3clFbG">
-                                    <node concept="2YIFZM" id="9D0Ba05uV2" role="2Oq$k0">
+                                <node concept="3cpWs8" id="5O_sWVJ5DYC" role="3cqZAp">
+                                  <node concept="3cpWsn" id="5O_sWVJ5DYD" role="3cpWs9">
+                                    <property role="TrG5h" value="pane" />
+                                    <node concept="3uibUv" id="5O_sWVJ5DYz" role="1tU5fm">
+                                      <ref role="3uigEE" to="rvbb:~ProjectPane" resolve="ProjectPane" />
+                                    </node>
+                                    <node concept="2YIFZM" id="5O_sWVJ5DYE" role="33vP2m">
                                       <ref role="37wK5l" to="rvbb:~ProjectPane.getInstance(jetbrains.mps.project.Project):jetbrains.mps.ide.projectPane.ProjectPane" resolve="getInstance" />
                                       <ref role="1Pybhc" to="rvbb:~ProjectPane" resolve="ProjectPane" />
-                                      <node concept="37vLTw" id="4OAoGY4h0CS" role="37wK5m">
+                                      <node concept="37vLTw" id="5O_sWVJ5DYF" role="37wK5m">
                                         <ref role="3cqZAo" node="4OAoGY4h0CM" resolve="mpsProject" />
                                       </node>
                                     </node>
-                                    <node concept="liA8E" id="9D0Ba05uV6" role="2OqNvi">
-                                      <ref role="37wK5l" to="rvbb:~ProjectPane.rebuild():void" resolve="rebuild" />
+                                  </node>
+                                </node>
+                                <node concept="3clFbJ" id="5O_sWVJ5HCy" role="3cqZAp">
+                                  <node concept="3clFbS" id="5O_sWVJ5HC$" role="3clFbx">
+                                    <node concept="3clFbF" id="9D0Ba05uV0" role="3cqZAp">
+                                      <node concept="2OqwBi" id="9D0Ba05uV1" role="3clFbG">
+                                        <node concept="37vLTw" id="5O_sWVJ5DYG" role="2Oq$k0">
+                                          <ref role="3cqZAo" node="5O_sWVJ5DYD" resolve="pane" />
+                                        </node>
+                                        <node concept="liA8E" id="9D0Ba05uV6" role="2OqNvi">
+                                          <ref role="37wK5l" to="rvbb:~ProjectPane.rebuild():void" resolve="rebuild" />
+                                        </node>
+                                      </node>
+                                    </node>
+                                  </node>
+                                  <node concept="3y3z36" id="5O_sWVJ5JZ$" role="3clFbw">
+                                    <node concept="10Nm6u" id="5O_sWVJ5Kce" role="3uHU7w" />
+                                    <node concept="37vLTw" id="5O_sWVJ5Jnq" role="3uHU7B">
+                                      <ref role="3cqZAo" node="5O_sWVJ5DYD" resolve="pane" />
                                     </node>
                                   </node>
                                 </node>

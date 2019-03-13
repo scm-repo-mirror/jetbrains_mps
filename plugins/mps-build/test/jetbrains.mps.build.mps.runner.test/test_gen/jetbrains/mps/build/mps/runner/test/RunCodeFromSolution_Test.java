@@ -8,7 +8,9 @@ import jetbrains.mps.project.Project;
 import java.io.File;
 import junit.framework.Assert;
 import com.intellij.execution.process.ProcessHandler;
+import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.ant.execution.Ant_Command;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import com.intellij.execution.process.ProcessAdapter;
 import com.intellij.execution.process.ProcessEvent;
 import com.intellij.openapi.util.Key;
@@ -49,7 +51,9 @@ public class RunCodeFromSolution_Test extends EnvironmentAwareTestCase {
 
     ProcessHandler process = null;
     try {
-      process = new Ant_Command().createProcess(scriptFile.getPath());
+      String mpsHomePath = System.getProperty("mps.home.path");
+      String options = (mpsHomePath != null ? "-D" + MacrosFactory.MPS_HOME_MACRO_NAME + "=" + mpsHomePath : "");
+      process = new Ant_Command().setOptions_String(options).setMacroToDefine_ListString(Sequence.fromIterable(Sequence.<String>singleton(MacrosFactory.MPS_HOME_MACRO_NAME)).toListSequence()).createProcess(scriptFile.getPath());
     } catch (Throwable ex) {
       ex.printStackTrace();
       Assert.fail("Exception during execution.");
@@ -59,9 +63,9 @@ public class RunCodeFromSolution_Test extends EnvironmentAwareTestCase {
       public void onTextAvailable(ProcessEvent event, Key key) {
         if (ProcessOutputTypes.STDERR.equals(key)) {
           // print errors 
-          System.err.print(event.getText());
+          System.err.print("test>>> " + event.getText());
         } else {
-          System.out.print(event.getText());
+          System.out.print("test>>> " + event.getText());
         }
       }
     });
@@ -72,7 +76,7 @@ public class RunCodeFromSolution_Test extends EnvironmentAwareTestCase {
 
     // check and delete ok.log file 
     if (!(okFile.exists())) {
-      Assert.fail("Test failed.");
+      Assert.fail("Test failed: the file was not created");
     }
     okFile.delete();
   }
