@@ -169,7 +169,7 @@ public final class StringBasedIdForJavaStubMethods extends SNodeId implements St
   }
 
   /**
-   * persisting with return type!
+   * persisting without the return type!
    */
   @Override
   public String toString() {
