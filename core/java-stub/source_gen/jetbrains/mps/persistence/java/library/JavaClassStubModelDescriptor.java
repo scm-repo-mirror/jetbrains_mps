@@ -4,6 +4,7 @@ package jetbrains.mps.persistence.java.library;
 
 import jetbrains.mps.smodel.RegularModelDescriptor;
 import jetbrains.mps.extapi.persistence.ModelSourceChangeTracker;
+import jetbrains.mps.smodel.nodeidmap.MigratingJavaStubRefsNodeIdMap;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.extapi.persistence.FolderSetDataSource;
 import org.jetbrains.annotations.NotNull;
@@ -13,7 +14,6 @@ import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.smodel.loading.ModelLoadingState;
 import jetbrains.mps.smodel.SModel;
 import jetbrains.mps.baseLanguage.javastub.ASMModelLoader;
-import jetbrains.mps.smodel.nodeidmap.StringBasedNodeIdMap;
 import java.util.Collection;
 import jetbrains.mps.smodel.loading.PartialModelUpdateFacility;
 import jetbrains.mps.smodel.ModelLoadResult;
@@ -88,7 +88,7 @@ public class JavaClassStubModelDescriptor extends RegularModelDescriptor impleme
         myIsLoadInProgress = true;
         ASMModelLoader loader = new ASMModelLoader(getModule(), getSource().getPaths());
         loader.skipPrivateMembers(mySkipPrivate);
-        SModel completeModelData = new SModel(getReference(), new StringBasedNodeIdMap());
+        SModel completeModelData = new SModel(getReference(), new MigratingJavaStubRefsNodeIdMap());
         Collection<SModelReference> imports = loader.completeModel(this, completeModelData);
         completeModelData.enterUpdateMode();
         mi.enterUpdateMode();
@@ -108,7 +108,7 @@ public class JavaClassStubModelDescriptor extends RegularModelDescriptor impleme
   @Override
   @NotNull
   protected ModelLoadResult<SModel> createModel() {
-    SModel model = new SModel(getReference(), new StringBasedNodeIdMap());
+    SModel model = new SModel(getReference(), new MigratingJavaStubRefsNodeIdMap());
     for (SLanguage l : getLanguagesToImport()) {
       model.addLanguage(l);
     }
