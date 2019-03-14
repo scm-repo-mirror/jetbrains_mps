@@ -128,7 +128,7 @@ public final class StringBasedIdForJavaStubMethods extends SNodeId implements St
    */
   @Override
   public String toString() {
-    return ID_PREFIX + myStubMethodIdWithReturnType;
+    return Foreign.ID_PREFIX + myStubMethodIdWithReturnType;
 //      return asForeignIdString(); to enable in 201
   }
 
