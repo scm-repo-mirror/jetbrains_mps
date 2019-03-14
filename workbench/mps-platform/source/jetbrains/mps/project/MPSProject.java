@@ -16,6 +16,7 @@
 package jetbrains.mps.project;
 
 import com.intellij.ide.impl.ProjectUtil;
+import com.intellij.openapi.Disposable;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.components.ProjectComponent;
@@ -45,7 +46,7 @@ import java.util.List;
  * <p>
  * fixme introduce a project<->library relation on this particular level (AP)
  */
-public class MPSProject extends ProjectBase implements FileBasedProject, ProjectComponent {
+public class MPSProject extends ProjectBase implements FileBasedProject, ProjectComponent, Disposable {
   private final com.intellij.openapi.project.Project myProject;
   private final IdeaFileSystem myProjectFileSystem;
 
