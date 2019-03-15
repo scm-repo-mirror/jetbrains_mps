@@ -4,7 +4,6 @@
   <languages>
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
-    <use id="80208897-4572-437d-b50e-8f050cba9566" name="jetbrains.mps.debugger.java.privateMembers" version="-1" />
     <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="-1" />
     <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="-1" />
     <use id="696c1165-4a59-463b-bc5d-902caab85dd0" name="jetbrains.mps.make.facet" version="-1" />
@@ -1840,21 +1839,31 @@
                 </node>
               </node>
             </node>
-            <node concept="3clFbF" id="jVJrchk2MN" role="3cqZAp">
-              <node concept="2OqwBi" id="jVJrchk4ro" role="3clFbG">
-                <node concept="2OqwBi" id="jVJrchk3_a" role="2Oq$k0">
-                  <node concept="37vLTw" id="jVJrchk2ML" role="2Oq$k0">
-                    <ref role="3cqZAo" node="29Pb3oJp8Wm" resolve="myDescriptor" />
-                  </node>
-                  <node concept="liA8E" id="jVJrchk41C" role="2OqNvi">
-                    <ref role="37wK5l" to="w0gx:#ModuleDescriptor.getModelRootDescriptors():java.util.Collection" resolve="getModelRootDescriptors" />
+            <node concept="3clFbJ" id="3Tx3Kt6vV8Q" role="3cqZAp">
+              <node concept="3clFbS" id="3Tx3Kt6vV8S" role="3clFbx">
+                <node concept="3clFbF" id="jVJrchk2MN" role="3cqZAp">
+                  <node concept="2OqwBi" id="jVJrchk4ro" role="3clFbG">
+                    <node concept="2OqwBi" id="jVJrchk3_a" role="2Oq$k0">
+                      <node concept="37vLTw" id="jVJrchk2ML" role="2Oq$k0">
+                        <ref role="3cqZAo" node="29Pb3oJp8Wm" resolve="myDescriptor" />
+                      </node>
+                      <node concept="liA8E" id="jVJrchk41C" role="2OqNvi">
+                        <ref role="37wK5l" to="w0gx:#ModuleDescriptor.getModelRootDescriptors():java.util.Collection" resolve="getModelRootDescriptors" />
+                      </node>
+                    </node>
+                    <node concept="liA8E" id="jVJrchk8ah" role="2OqNvi">
+                      <ref role="37wK5l" to="33ny:#Collection.add(java.lang.Object):boolean" resolve="add" />
+                      <node concept="37vLTw" id="jVJrchkj8G" role="37wK5m">
+                        <ref role="3cqZAo" node="jVJrchkj8A" resolve="javaStubRoot" />
+                      </node>
+                    </node>
                   </node>
                 </node>
-                <node concept="liA8E" id="jVJrchk8ah" role="2OqNvi">
-                  <ref role="37wK5l" to="33ny:#Collection.add(java.lang.Object):boolean" resolve="add" />
-                  <node concept="37vLTw" id="jVJrchkj8G" role="37wK5m">
-                    <ref role="3cqZAo" node="jVJrchkj8A" resolve="javaStubRoot" />
-                  </node>
+              </node>
+              <node concept="3y3z36" id="3Tx3Kt6vV__" role="3clFbw">
+                <node concept="10Nm6u" id="3Tx3Kt6vVAw" role="3uHU7w" />
+                <node concept="37vLTw" id="3Tx3Kt6vVmD" role="3uHU7B">
+                  <ref role="3cqZAo" node="jVJrchkj8A" resolve="javaStubRoot" />
                 </node>
               </node>
             </node>
