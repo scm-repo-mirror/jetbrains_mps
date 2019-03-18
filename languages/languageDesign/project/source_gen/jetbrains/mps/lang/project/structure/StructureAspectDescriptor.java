@@ -247,7 +247,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.property("uuid", 0x5869770da61dfe22L).type(PrimitiveTypeId.STRING).origin("6370754048397540898").done();
     b.property("namespace", 0x5869770da61dfe23L).type(PrimitiveTypeId.STRING).origin("6370754048397540899").done();
     b.property("compileInMPS", 0x5869770da61dfe24L).type(PrimitiveTypeId.BOOLEAN).origin("6370754048397540900").done();
-    b.property("enableJavaStubs", 0x19bfb4173fb52668L).type(PrimitiveTypeId.BOOLEAN).origin("1855399583446017640").done();
     b.aggregate("model", 0x5869770da61dfe2bL).target(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L).optional(true).ordered(true).multiple(true).origin("6370754048397540907").done();
     b.aggregate("modelRoots", 0x19bfb4173fb52421L).target(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x19bfb4173fb52426L).optional(true).ordered(true).multiple(true).origin("1855399583446017057").done();
     b.aggregate("dependencies", 0x5869770da61dfe2cL).target(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe28L).optional(true).ordered(true).multiple(true).origin("6370754048397540908").done();

@@ -129,11 +129,6 @@
       <property role="IQ2nx" value="6370754048397540900" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
     </node>
-    <node concept="1TJgyi" id="1AZH1sZHipC" role="1TKVEl">
-      <property role="TrG5h" value="enableJavaStubs" />
-      <property role="IQ2nx" value="1855399583446017640" />
-      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
-    </node>
     <node concept="PrWs8" id="5xDtKQA8cYP" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
