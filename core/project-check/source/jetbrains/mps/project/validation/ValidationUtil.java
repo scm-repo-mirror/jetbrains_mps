@@ -390,7 +390,9 @@ public class ValidationUtil {
       for (SModel m : depTarget.getModels()) {
         otherGeneratorModels.add(m.getReference());
       }
-      final Language otherGenLanguage = ((Generator) depTarget).getSourceLanguage();
+      // XXX Is it worth to include models of dependant generator's source language?
+      //     Do we respect the same e.g. in reference scopes?
+      final SModule otherGenLanguage = ((Generator) depTarget).sourceLanguage().getSourceModuleReference().resolve(generator.getRepository());
       for (SModel m : (otherGenLanguage == null ? Collections.<SModel>emptySet() : otherGenLanguage.getModels())) {
         otherGeneratorModels.add(m.getReference());
       }
