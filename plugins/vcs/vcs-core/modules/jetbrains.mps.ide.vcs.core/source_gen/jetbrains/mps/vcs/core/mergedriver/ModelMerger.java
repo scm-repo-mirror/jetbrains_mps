@@ -26,8 +26,9 @@ import java.io.IOException;
 import jetbrains.mps.persistence.PersistenceVersionAware;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
-import java.util.HashMap;
+import org.jetbrains.mps.openapi.persistence.ContentOption;
 import jetbrains.mps.persistence.MetaModelInfoProvider;
+import org.jetbrains.mps.openapi.persistence.ModelLoadException;
 import jetbrains.mps.smodel.DefaultSModel;
 import jetbrains.mps.extapi.model.SModelBase;
 import jetbrains.mps.extapi.model.SModelData;
@@ -64,11 +65,10 @@ import jetbrains.mps.extapi.model.SModelData;
     SModel baseModel = loadModel(baseContent, ext);
     SModel localModel = loadModel(localContent, ext);
     SModel latestModel = loadModel(latestContent, ext);
-    if (baseModel == null || localModel == null || latestModel == null) {
+    if (isModelInvalid(baseModel) || isModelInvalid(localModel) || isModelInvalid(latestModel)) {
       return backup(baseContent, localContent, latestContent);
     }
     myModelName = baseModel.getName();
-
     int baseP = getPersistenceVersion(baseModel);
     int localP = getPersistenceVersion(localModel);
     int latestP = getPersistenceVersion(latestModel);
@@ -139,6 +139,14 @@ import jetbrains.mps.extapi.model.SModelData;
 
     return backup(baseContent, localContent, latestContent);
   }
+  private boolean isModelInvalid(@Nullable SModel model) {
+    // check if the model cannot be used for merge 
+    if (model == null) {
+      return true;
+    }
+    model.load();
+    return !((model.isLoaded())) || model.getProblems().iterator().hasNext();
+  }
   private Tuples._2<Integer, byte[]> backup(FileContent baseContent, FileContent localContent, FileContent latestContent) {
     try {
       File zipModel = MergeDriverBackupUtil.zipModel(new byte[][]{baseContent.getData(), localContent.getData(), latestContent.getData()}, myModelName);
@@ -166,14 +174,15 @@ import jetbrains.mps.extapi.model.SModelData;
     if (modelFactory == null) {
       return null;
     }
-    HashMap<String, String> options = new HashMap<String, String>();
-    options.put(ModelFactory.OPTION_CONTENT_ONLY, Boolean.TRUE.toString());
-    options.put(MetaModelInfoProvider.OPTION_KEEP_READ_METAINFO, Boolean.TRUE.toString());
     try {
-      return modelFactory.load(content, options);
+      return modelFactory.load(content, ContentOption.CONTENT_ONLY, MetaModelInfoProvider.MetaInfoLoadingOption.KEEP_READ);
     } catch (IOException ex) {
       if (LOG.isEnabledFor(Level.WARN)) {
         LOG.warn("Failed to read model", ex);
+      }
+    } catch (ModelLoadException ex) {
+      if (LOG.isEnabledFor(Level.WARN)) {
+        LOG.warn("Failed to load model", ex);
       }
     }
     return null;
