@@ -9,12 +9,14 @@ import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.generator.GenerationFacade;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.make.resources.IResource;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
-import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
 import jetbrains.mps.generator.ModelGenerationStatusManager;
 import jetbrains.mps.smodel.resources.ModelsToResources;
@@ -24,7 +26,6 @@ import jetbrains.mps.smodel.ModelImports;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.smodel.Language;
-import jetbrains.mps.smodel.Generator;
 
 public class MakeActionParameters {
   private final Project myProject;
@@ -43,6 +44,26 @@ public class MakeActionParameters {
     myModules = (modules != null ? ListSequence.fromListWithValues(new ArrayList<SModule>(), modules) : null);
     return this;
   }
+
+  public MakeActionParameters modules(@Nullable SModule contextModule, @Nullable Iterable<SModule> otherModules) {
+    if (contextModule == null && otherModules == null) {
+      myModules = null;
+      return this;
+    }
+    List<SModule> list = ListSequence.fromList(new ArrayList<SModule>());
+    if (otherModules != null) {
+      ListSequence.fromList(list).addSequence(Sequence.fromIterable(otherModules));
+    }
+    if (contextModule instanceof Generator) {
+      contextModule = ((Generator) contextModule).getSourceLanguage();
+    }
+    if (contextModule != null && !(ListSequence.fromList(list).contains(contextModule))) {
+      ListSequence.fromList(list).addElement(contextModule);
+    }
+    myModules = (ListSequence.fromList(list).isEmpty() ? null : list);
+    return this;
+  }
+
   /**
    * By default, parameters are set for make, not clean build (i.e. <code>cleanMake(false)</code>.
    * 

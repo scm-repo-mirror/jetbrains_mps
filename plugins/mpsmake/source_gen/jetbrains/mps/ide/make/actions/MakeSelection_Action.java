@@ -13,7 +13,6 @@ import jetbrains.mps.project.MPSProject;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
-import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 
@@ -36,7 +35,7 @@ public class MakeSelection_Action extends BaseAction {
     if (event.getData(MPSCommonDataKeys.MPS_PROJECT).getComponent(MakeServiceComponent.class).isSessionActive()) {
       return false;
     }
-    String text = new MakeActionParameters(event.getData(MPSCommonDataKeys.MPS_PROJECT)).modules(MakeSelection_Action.this.getModules(event)).models(MakeSelection_Action.this.getModels(event)).cleanMake(MakeSelection_Action.this.cleanMake).actionText();
+    String text = new MakeActionParameters(event.getData(MPSCommonDataKeys.MPS_PROJECT)).modules(event.getData(MPSCommonDataKeys.CONTEXT_MODULE), event.getData(MPSCommonDataKeys.MODULES)).models(MakeSelection_Action.this.getModels(event)).cleanMake(MakeSelection_Action.this.cleanMake).actionText();
     if (text != null) {
       event.getPresentation().setText(text);
       return true;
@@ -74,7 +73,7 @@ public class MakeSelection_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    new MakeActionImpl(new MakeActionParameters(event.getData(MPSCommonDataKeys.MPS_PROJECT)).modules(MakeSelection_Action.this.getModules(event)).models(MakeSelection_Action.this.getModels(event)).cleanMake(MakeSelection_Action.this.cleanMake)).executeAction();
+    new MakeActionImpl(new MakeActionParameters(event.getData(MPSCommonDataKeys.MPS_PROJECT)).modules(event.getData(MPSCommonDataKeys.CONTEXT_MODULE), event.getData(MPSCommonDataKeys.MODULES)).models(MakeSelection_Action.this.getModels(event)).cleanMake(MakeSelection_Action.this.cleanMake)).executeAction();
   }
   @NotNull
   public String getActionId() {
@@ -84,20 +83,6 @@ public class MakeSelection_Action extends BaseAction {
     res.append(((Object) this.cleanMake).toString());
     res.append("!");
     return res.toString();
-  }
-  private List<SModule> getModules(final AnActionEvent event) {
-    SModule cmd = event.getData(MPSCommonDataKeys.CONTEXT_MODULE);
-    if (cmd instanceof Generator) {
-      cmd = ((Generator) cmd).getSourceLanguage();
-    }
-    List<SModule> rv = ListSequence.fromList(new ArrayList<SModule>());
-    if (event.getData(MPSCommonDataKeys.MODULES) != null) {
-      ListSequence.fromList(rv).addSequence(ListSequence.fromList(event.getData(MPSCommonDataKeys.MODULES)));
-    }
-    if (cmd != null && !(ListSequence.fromList(rv).contains(cmd))) {
-      ListSequence.fromList(rv).addElement(cmd);
-    }
-    return rv;
   }
   private List<SModel> getModels(final AnActionEvent event) {
     List<SModel> rv = ListSequence.fromList(new ArrayList<SModel>());

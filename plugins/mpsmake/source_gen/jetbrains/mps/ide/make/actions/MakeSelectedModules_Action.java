@@ -8,13 +8,10 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.make.MakeServiceComponent;
-import java.util.List;
-import org.jetbrains.mps.openapi.module.SModule;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.smodel.Generator;
-import java.util.ArrayList;
+import java.util.List;
+import org.jetbrains.mps.openapi.module.SModule;
 
 public class MakeSelectedModules_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -33,11 +30,7 @@ public class MakeSelectedModules_Action extends BaseAction {
     if (event.getData(MPSCommonDataKeys.MPS_PROJECT).getComponent(MakeServiceComponent.class).isSessionActive()) {
       return false;
     }
-    List<SModule> list = MakeSelectedModules_Action.this.getModules(event);
-    if (ListSequence.fromList(list).isEmpty()) {
-      return false;
-    }
-    String text = new MakeActionParameters(event.getData(MPSCommonDataKeys.MPS_PROJECT)).modules(list).actionText();
+    String text = new MakeActionParameters(event.getData(MPSCommonDataKeys.MPS_PROJECT)).modules(event.getData(MPSCommonDataKeys.CONTEXT_MODULE), event.getData(MPSCommonDataKeys.MODULES)).actionText();
     if (text != null) {
       event.getPresentation().setText(text);
       return true;
@@ -69,20 +62,6 @@ public class MakeSelectedModules_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    new MakeActionImpl(new MakeActionParameters(event.getData(MPSCommonDataKeys.MPS_PROJECT)).modules(MakeSelectedModules_Action.this.getModules(event))).executeAction();
-  }
-  private List<SModule> getModules(final AnActionEvent event) {
-    SModule cmd = event.getData(MPSCommonDataKeys.CONTEXT_MODULE);
-    if (cmd instanceof Generator) {
-      cmd = ((Generator) cmd).getSourceLanguage();
-    }
-    List<SModule> rv = ListSequence.fromList(new ArrayList<SModule>());
-    if (event.getData(MPSCommonDataKeys.MODULES) != null) {
-      ListSequence.fromList(rv).addSequence(ListSequence.fromList(event.getData(MPSCommonDataKeys.MODULES)));
-    }
-    if (cmd != null && !(ListSequence.fromList(rv).contains(cmd))) {
-      ListSequence.fromList(rv).addElement(cmd);
-    }
-    return rv;
+    new MakeActionImpl(new MakeActionParameters(event.getData(MPSCommonDataKeys.MPS_PROJECT)).modules(event.getData(MPSCommonDataKeys.CONTEXT_MODULE), event.getData(MPSCommonDataKeys.MODULES))).executeAction();
   }
 }
