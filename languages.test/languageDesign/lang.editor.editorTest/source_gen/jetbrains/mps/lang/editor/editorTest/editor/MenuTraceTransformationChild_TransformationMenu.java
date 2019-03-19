@@ -490,6 +490,20 @@ public class MenuTraceTransformationChild_TransformationMenu extends Transformat
         public void execute(@NotNull String pattern) {
           SNode createdNode = item.createNode(pattern);
         }
+
+        @Override
+        public void customize(String pattern, EditorMenuItemStyle style) {
+          super.customize(pattern, style);
+          if (targetNode != null) {
+            EditorMenuItemModifyingCustomizationContext context = new EditorMenuItemModifyingCustomizationContext(targetNode, null, null, null);
+            CompletionItemInformation completionItemInformation = new CompletionItemInformation(null, null, getMatchingText(pattern), getShortDescriptionText(pattern));
+            EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(context, new CompletionMenuItemCustomizationContext(completionItemInformation));
+            for (EditorMenuItemCustomizer customizer : _context.getCustomizers()) {
+              customizer.customize(style, compositeContext);
+            }
+
+          }
+        }
       };
     }
   }

@@ -34,6 +34,12 @@ import jetbrains.mps.lang.editor.menus.transformation.SubstituteMenuItemAsAction
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.baseLanguage.actions.PrecedenceUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
+import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
+import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
+import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
+import jetbrains.mps.editor.runtime.menus.EditorMenuItemCompositeCustomizationContext;
+import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationContext;
+import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 
 public class binaryOperations extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -122,6 +128,20 @@ public class binaryOperations extends TransformationMenuBase {
           public void execute(@NotNull String pattern) {
             SNode createdNode = item.createNode(pattern);
             SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), PrecedenceUtil.processRightTransform(targetNode, createdNode), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
+          }
+
+          @Override
+          public void customize(String pattern, EditorMenuItemStyle style) {
+            super.customize(pattern, style);
+            if (targetNode != null) {
+              EditorMenuItemModifyingCustomizationContext context = new EditorMenuItemModifyingCustomizationContext(targetNode, null, null, null);
+              CompletionItemInformation completionItemInformation = new CompletionItemInformation(null, null, getMatchingText(pattern), getShortDescriptionText(pattern));
+              EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(context, new CompletionMenuItemCustomizationContext(completionItemInformation));
+              for (EditorMenuItemCustomizer customizer : _context.getCustomizers()) {
+                customizer.customize(style, compositeContext);
+              }
+
+            }
           }
         };
       }

@@ -32,6 +32,12 @@ import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuItem;
 import jetbrains.mps.editor.runtime.menus.SubstituteItemProxy;
 import jetbrains.mps.lang.editor.menus.transformation.SubstituteMenuItemAsActionItem;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
+import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
+import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
+import jetbrains.mps.editor.runtime.menus.EditorMenuItemCompositeCustomizationContext;
+import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationContext;
+import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 
 public class print extends TransformationMenuBase {
   public print() {
@@ -144,6 +150,20 @@ public class print extends TransformationMenuBase {
             }
             SNodeOperations.replaceWithAnother(expressionToReplace, createdNode);
             SLinkOperations.setTarget(createdNode, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x6c8954f469a7c420L, 0x7417cca3eb1ff761L, "object"), expressionToReplace);
+          }
+
+          @Override
+          public void customize(String pattern, EditorMenuItemStyle style) {
+            super.customize(pattern, style);
+            if (targetNode != null) {
+              EditorMenuItemModifyingCustomizationContext context = new EditorMenuItemModifyingCustomizationContext(targetNode, null, null, null);
+              CompletionItemInformation completionItemInformation = new CompletionItemInformation(null, null, getMatchingText(pattern), getShortDescriptionText(pattern));
+              EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(context, new CompletionMenuItemCustomizationContext(completionItemInformation));
+              for (EditorMenuItemCustomizer customizer : _context.getCustomizers()) {
+                customizer.customize(style, compositeContext);
+              }
+
+            }
           }
         };
       }
