@@ -1026,6 +1026,7 @@
         <node concept="3cpWs8" id="TfU9m6ofZF" role="3cqZAp">
           <node concept="3cpWsn" id="TfU9m6ofZG" role="3cpWs9">
             <property role="TrG5h" value="mod" />
+            <property role="3TUv4t" value="true" />
             <node concept="3uibUv" id="TfU9m6ofZH" role="1tU5fm">
               <ref role="3uigEE" to="lui2:~SModule" resolve="SModule" />
             </node>
@@ -1070,13 +1071,8 @@
             </node>
             <node concept="liA8E" id="TfU9m6wazF" role="2OqNvi">
               <ref role="37wK5l" to="33ny:~ArrayList.add(java.lang.Object)" resolve="add" />
-              <node concept="2OqwBi" id="TfU9m6wb0y" role="37wK5m">
-                <node concept="37vLTw" id="TfU9m6waL4" role="2Oq$k0">
-                  <ref role="3cqZAo" node="TfU9m6mGRs" resolve="rv" />
-                </node>
-                <node concept="liA8E" id="TfU9m6wble" role="2OqNvi">
-                  <ref role="37wK5l" node="TfU9m6nncy" resolve="getModule" />
-                </node>
+              <node concept="37vLTw" id="7t$FcA4tIvP" role="37wK5m">
+                <ref role="3cqZAo" node="TfU9m6ofZG" resolve="mod" />
               </node>
             </node>
           </node>
@@ -1134,24 +1130,91 @@
             </node>
             <node concept="3SKdUt" id="3bdlBcZrNna" role="3cqZAp">
               <node concept="3SKdUq" id="3bdlBcZrNnc" role="3SKWNk">
-                <property role="3SKdUp" value="FIXME is it true GMDM doesn't recognize generator's source language as COMPILE or VISIBLE dependency?" />
+                <property role="3SKdUp" value="Unfortunately, GMDM doesn't recognize generator's source language as COMPILE or VISIBLE dependency, therefore have to add it here" />
               </node>
             </node>
-            <node concept="3clFbF" id="TfU9m6z3VS" role="3cqZAp">
-              <node concept="2OqwBi" id="TfU9m6zp3b" role="3clFbG">
-                <node concept="37vLTw" id="TfU9m6zouX" role="2Oq$k0">
-                  <ref role="3cqZAo" node="TfU9m6vNaL" resolve="modExt" />
+            <node concept="1gVbGN" id="7t$FcA4tLSm" role="3cqZAp">
+              <node concept="3y3z36" id="7t$FcA4tNy3" role="1gVkn0">
+                <node concept="10Nm6u" id="7t$FcA4tNG7" role="3uHU7w" />
+                <node concept="2OqwBi" id="7t$FcA4tN2n" role="3uHU7B">
+                  <node concept="37vLTw" id="7t$FcA4tMYb" role="2Oq$k0">
+                    <ref role="3cqZAo" node="TfU9m6ofZG" resolve="mod" />
+                  </node>
+                  <node concept="liA8E" id="7t$FcA4tNr7" role="2OqNvi">
+                    <ref role="37wK5l" to="lui2:~SModule.getRepository()" resolve="getRepository" />
+                  </node>
                 </node>
-                <node concept="liA8E" id="TfU9m6zqcZ" role="2OqNvi">
-                  <ref role="37wK5l" to="33ny:~ArrayList.add(java.lang.Object)" resolve="add" />
-                  <node concept="2OqwBi" id="TfU9m6zqSi" role="37wK5m">
-                    <node concept="37vLTw" id="TfU9m6zqtl" role="2Oq$k0">
-                      <ref role="3cqZAo" node="3bdlBcZqlGu" resolve="generator" />
+              </node>
+            </node>
+            <node concept="3cpWs8" id="7t$FcA4tBCx" role="3cqZAp">
+              <node concept="3cpWsn" id="7t$FcA4tBCy" role="3cpWs9">
+                <property role="TrG5h" value="sourceLang" />
+                <node concept="3uibUv" id="7t$FcA4tBCp" role="1tU5fm">
+                  <ref role="3uigEE" to="lui2:~SModule" resolve="SModule" />
+                </node>
+                <node concept="2OqwBi" id="7t$FcA4tBCz" role="33vP2m">
+                  <node concept="2OqwBi" id="7t$FcA4tBC$" role="2Oq$k0">
+                    <node concept="2OqwBi" id="7t$FcA4tBC_" role="2Oq$k0">
+                      <node concept="37vLTw" id="7t$FcA4tBCA" role="2Oq$k0">
+                        <ref role="3cqZAo" node="3bdlBcZqlGu" resolve="generator" />
+                      </node>
+                      <node concept="liA8E" id="7t$FcA4tBCB" role="2OqNvi">
+                        <ref role="37wK5l" to="w1kc:~Generator.sourceLanguage()" resolve="sourceLanguage" />
+                      </node>
                     </node>
-                    <node concept="liA8E" id="TfU9m6zrsB" role="2OqNvi">
-                      <ref role="37wK5l" to="w1kc:~Generator.getSourceLanguage()" resolve="getSourceLanguage" />
+                    <node concept="liA8E" id="7t$FcA4tBCC" role="2OqNvi">
+                      <ref role="37wK5l" to="c17a:~SLanguage.getSourceModuleReference()" resolve="getSourceModuleReference" />
                     </node>
                   </node>
+                  <node concept="liA8E" id="7t$FcA4tBCD" role="2OqNvi">
+                    <ref role="37wK5l" to="lui2:~SModuleReference.resolve(org.jetbrains.mps.openapi.module.SRepository)" resolve="resolve" />
+                    <node concept="2OqwBi" id="7t$FcA4tBCE" role="37wK5m">
+                      <node concept="37vLTw" id="7t$FcA4tBCF" role="2Oq$k0">
+                        <ref role="3cqZAo" node="TfU9m6ofZG" resolve="mod" />
+                      </node>
+                      <node concept="liA8E" id="7t$FcA4tBCG" role="2OqNvi">
+                        <ref role="37wK5l" to="lui2:~SModule.getRepository()" resolve="getRepository" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbJ" id="7t$FcA4tF2a" role="3cqZAp">
+              <node concept="3clFbS" id="7t$FcA4tF2c" role="3clFbx">
+                <node concept="3SKdUt" id="7t$FcA4tImA" role="3cqZAp">
+                  <node concept="3SKdUq" id="7t$FcA4tImC" role="3SKWNk">
+                    <property role="3SKdUp" value="perhaps, we could use slanguage.sourceModuleReference only (right into reqs if among vertexes), i.e. no resolve, but this would" />
+                  </node>
+                </node>
+                <node concept="3SKdUt" id="7t$FcA4tOPg" role="3cqZAp">
+                  <node concept="3SKdUq" id="7t$FcA4tOPi" role="3SKWNk">
+                    <property role="3SKdUp" value="affect transitive dependencies, and it's unlikely what I need here. It's seems better to collect more than to get unpleasant compile errors due " />
+                  </node>
+                </node>
+                <node concept="3SKdUt" id="7t$FcA4tOW3" role="3cqZAp">
+                  <node concept="3SKdUq" id="7t$FcA4tOW4" role="3SKWNk">
+                    <property role="3SKdUp" value="to improper make order." />
+                  </node>
+                </node>
+                <node concept="3clFbF" id="TfU9m6z3VS" role="3cqZAp">
+                  <node concept="2OqwBi" id="TfU9m6zp3b" role="3clFbG">
+                    <node concept="37vLTw" id="TfU9m6zouX" role="2Oq$k0">
+                      <ref role="3cqZAo" node="TfU9m6vNaL" resolve="modExt" />
+                    </node>
+                    <node concept="liA8E" id="TfU9m6zqcZ" role="2OqNvi">
+                      <ref role="37wK5l" to="33ny:~ArrayList.add(java.lang.Object)" resolve="add" />
+                      <node concept="37vLTw" id="7t$FcA4tI5V" role="37wK5m">
+                        <ref role="3cqZAo" node="7t$FcA4tBCy" resolve="sourceLang" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3y3z36" id="7t$FcA4tG2p" role="3clFbw">
+                <node concept="10Nm6u" id="7t$FcA4tG6k" role="3uHU7w" />
+                <node concept="37vLTw" id="7t$FcA4tF4I" role="3uHU7B">
+                  <ref role="3cqZAo" node="7t$FcA4tBCy" resolve="sourceLang" />
                 </node>
               </node>
             </node>

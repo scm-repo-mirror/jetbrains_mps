@@ -177,18 +177,25 @@ __switch__:
   }
 
   private void fillEdges(ModulesCluster.ModuleDeps rv) {
-    SModule mod = rv.getModule();
+    final SModule mod = rv.getModule();
     // get a set of modules we are going to build transitive dependencies for 
     ArrayList<SModule> modExt = new ArrayList<SModule>();
-    modExt.add(rv.getModule());
+    modExt.add(mod);
 
     Set<SLanguage> moduleUsedLanguages;
     // inv: reference existing vertexes only 
     Set<SModuleReference> reqs = SetSequence.fromSet(new HashSet<SModuleReference>());
     if (mod instanceof Generator) {
       Generator generator = (Generator) mod;
-      // FIXME is it true GMDM doesn't recognize generator's source language as COMPILE or VISIBLE dependency? 
-      modExt.add(generator.getSourceLanguage());
+      // Unfortunately, GMDM doesn't recognize generator's source language as COMPILE or VISIBLE dependency, therefore have to add it here 
+      assert mod.getRepository() != null;
+      SModule sourceLang = generator.sourceLanguage().getSourceModuleReference().resolve(mod.getRepository());
+      if (sourceLang != null) {
+        // perhaps, we could use slanguage.sourceModuleReference only (right into reqs if among vertexes), i.e. no resolve, but this would 
+        // affect transitive dependencies, and it's unlikely what I need here. It's seems better to collect more than to get unpleasant compile errors due  
+        // to improper make order. 
+        modExt.add(sourceLang);
+      }
       // XXX though it looks suspicious that we require source language module to build a generator, the reason to have it there 
       //     is likely the need to satisfy module load dependency (not the need to have language available the moment generator module is being generated/textgen'ed) 
       moduleUsedLanguages = SetSequence.fromSet(new HashSet<SLanguage>());
