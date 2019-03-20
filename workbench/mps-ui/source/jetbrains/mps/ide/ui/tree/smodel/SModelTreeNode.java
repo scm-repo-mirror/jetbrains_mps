@@ -41,8 +41,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 public class SModelTreeNode extends MPSTreeNode implements TreeElement {
   private final SModel myModelDescriptor;
@@ -237,44 +235,6 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
   @Override
   public boolean isInitialized() {
     return myInitialized;
-  }
-
-  // FIXME bad code, not in use, kept for mbeddr
-  public boolean isSubfolderModel(@NotNull SModel candidate) {
-    final String modelName = myModelDescriptor.getName().getLongName();
-    String candidateName = candidate.getName().getLongName();
-    if (!candidateName.startsWith(modelName) || modelName.equals(candidateName)) {
-      return false;
-    }
-    if (candidateName.charAt(modelName.length()) == '.') {
-      String modelStereotype = myModelDescriptor.getName().getStereotype();
-      String candidateStereotype = candidate.getName().getStereotype();
-      if (!modelStereotype.equals(candidateStereotype)) {
-        return false;
-      }
-      String shortName = candidateName.substring(modelName.length() + 1);
-      if (shortName.indexOf('.') > 0) {
-        String maxPackage = candidateName.substring(0, candidateName.lastIndexOf('.'));
-        // Imagine, we need to figure out whether a.b.c.d is subfolder model of a.b (iow, 'a.b'.isSubfolderModel('a.b.c.d'))
-        // Guess, 'subfolder' means 'shall be displayed as my immediate child' here.
-        // As I understood, the idea is to check whether there's model a.b.c (sic!) inside same module and thus candidate model
-        // shall get reported as its subfolder rather than that of myModelDescriptor.
-        // XXX there's a defect that two models like a.b.x.y1 and a.b.x.y2 (namely, jetbrains.mps.ide solution,
-        //     findusages.findalgorithm.finders.specific and findusages.view.optionseditor)
-        //     are visualized as distinct x.y1 and x.y2 when there's no a.b.x model (i.e. they are not grouped under
-        //     same 'x' node unless there are nodes in 'x' model).
-        //     Another defect in present implementation is that it doesn't take into account actual set of visualized models
-        //     and assumes all models of a module are visible, but this can't be fixed unless the whole approach (see below) is fixed.
-        // FIXME This whole code with implicit assumption of iterating over models from the same module, and recursive processing of
-        //       sorted(!) collection of models with int index (i.e. SModelsSubtree.buildChildModels()) needs refactoring.
-        //       Sorting ensures we didn't create SModelTreeNode for a child before the one for the parent.
-        //       Can't refactor right away as mbeddr subclasses our tree nodes and heavily relies on implementation.
-        final Stream<SModel> modelsInMyModule = StreamSupport.stream(myModelDescriptor.getModule().getModels().spliterator(), false);
-        return !modelsInMyModule.anyMatch(m -> maxPackage.equals(m.getName().getLongName()));
-      }
-      return true;
-    }
-    return false;
   }
 
   public void addChildModel(SModelTreeNode model) {
