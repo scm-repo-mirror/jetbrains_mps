@@ -9,11 +9,11 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SModule;
 import java.io.File;
 
-public class MpsWorkerTest extends MpsWorker {
+public class MpsWorkerTest extends CoreWorker {
   private String myModuleRef;
   private boolean myIsPresent;
 
-  public MpsWorkerTest(Script whatToDo, MpsWorker.AntLogger logger) {
+  public MpsWorkerTest(Script whatToDo, WorkerBase.AntLogger logger) {
     super(whatToDo, logger);
   }
 
@@ -42,7 +42,7 @@ public class MpsWorkerTest extends MpsWorker {
   }
 
   public static void main(String[] args) {
-    MpsWorkerTest testWorker = new MpsWorkerTest(Script.fromDumpInFile(new File(args[0])), new MpsWorker.SystemOutLogger());
+    MpsWorkerTest testWorker = new MpsWorkerTest(Script.fromDumpInFile(new File(args[0])), new WorkerBase.SystemOutLogger());
     testWorker.setModuleToCheck(args[1], Boolean.parseBoolean(args[2]));
     testWorker.workFromMain();
   }

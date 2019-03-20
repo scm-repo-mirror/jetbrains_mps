@@ -16,7 +16,33 @@
     <classNode dependClassName="jetbrains.mps.core.tool.environment.classloading.UrlClassLoader" />
     <classNode dependClassName="org.apache.log4j.LogManager" />
   </dependency>
-  <dependency className="jetbrains.mps.tool.builder.MpsWorker">
+  <dependency className="jetbrains.mps.tool.builder.CoreWorker">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.tool.common.Script" />
+    <classNode dependClassName="jetbrains.mps.tool.environment.Environment" />
+    <classNode dependClassName="jetbrains.mps.tool.environment.MpsEnvironment" />
+    <classNode extendsClassName="jetbrains.mps.tool.builder.WorkerBase" />
+  </dependency>
+  <dependency className="jetbrains.mps.tool.builder.MpsWorkerTest">
+    <classNode dependClassName="java.io.File" />
+    <classNode dependClassName="java.lang.Boolean" />
+    <classNode dependClassName="java.lang.Exception" />
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.lang.Runnable" />
+    <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.persistence.PersistenceRegistry" />
+    <classNode dependClassName="jetbrains.mps.smodel.MPSModuleRepository" />
+    <classNode dependClassName="jetbrains.mps.tool.builder.WorkerBase" />
+    <classNode dependClassName="jetbrains.mps.tool.common.Script" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.module.SModule" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.module.SModuleReference" />
+    <classNode extendsClassName="jetbrains.mps.tool.builder.CoreWorker" />
+  </dependency>
+  <dependency className="jetbrains.mps.tool.builder.PlatformWorker">
+    <classNode dependClassName="jetbrains.mps.tool.common.Script" />
+    <classNode extendsClassName="jetbrains.mps.tool.builder.WorkerBase" />
+  </dependency>
+  <dependency className="jetbrains.mps.tool.builder.WorkerBase">
     <classNode dependClassName="java.io.File" />
     <classNode dependClassName="java.io.PrintWriter" />
     <classNode dependClassName="java.io.StringWriter" />
@@ -58,7 +84,6 @@
     <classNode dependClassName="jetbrains.mps.tool.common.Script" />
     <classNode dependClassName="jetbrains.mps.tool.environment.Environment" />
     <classNode dependClassName="jetbrains.mps.tool.environment.EnvironmentConfig" />
-    <classNode dependClassName="jetbrains.mps.tool.environment.MpsEnvironment" />
     <classNode dependClassName="jetbrains.mps.util.Computable" />
     <classNode dependClassName="jetbrains.mps.util.IterableUtil" />
     <classNode dependClassName="jetbrains.mps.util.annotation.ToRemove" />
@@ -70,20 +95,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SModel" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SModule" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
-  </dependency>
-  <dependency className="jetbrains.mps.tool.builder.MpsWorkerTest">
-    <classNode dependClassName="java.io.File" />
-    <classNode dependClassName="java.lang.Boolean" />
-    <classNode dependClassName="java.lang.Exception" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.Runnable" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="jetbrains.mps.persistence.PersistenceRegistry" />
-    <classNode dependClassName="jetbrains.mps.smodel.MPSModuleRepository" />
-    <classNode dependClassName="jetbrains.mps.tool.common.Script" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.module.SModule" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.module.SModuleReference" />
-    <classNode extendsClassName="jetbrains.mps.tool.builder.MpsWorker" />
   </dependency>
 </dependenciesRoot>
 

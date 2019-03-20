@@ -12,7 +12,6 @@ import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.smodel.BaseMPSModuleOwner;
 import jetbrains.mps.tool.common.JavaCompilerProperties;
 import jetbrains.mps.compiler.JavaCompilerOptionsComponent;
-import jetbrains.mps.tool.environment.MpsEnvironment;
 import jetbrains.mps.tool.environment.EnvironmentConfig;
 import jetbrains.mps.tool.common.RepositoryDescriptor;
 import java.io.File;
@@ -56,19 +55,19 @@ import jetbrains.mps.util.annotation.ToRemove;
  * under mps-home/lib based on Ant Project properties (various "artifacts.*" values). Task has control over classpath through 
  * MpsLoadTask#calculateClassPath() method and may supply extra elements in use by particular worker (e.g. MigrationTask adds jars of migration plugin)
  */
-public abstract class MpsWorker {
-  private static final Logger LOG = LogManager.getLogger(MpsWorker.class);
+public abstract class WorkerBase {
+  private static final Logger LOG = LogManager.getLogger(WorkerBase.class);
   protected final List<String> myErrors = new ArrayList<String>();
   protected final List<String> myWarnings = new ArrayList<String>();
   protected final Script myWhatToDo;
   protected final JavaCompilerOptions myJavaCompilerOptions;
   protected final boolean mySkipCompilation;
-  private final MpsWorker.AntLogger myLogger;
+  private final WorkerBase.AntLogger myLogger;
   protected Environment myEnvironment;
   private final BaseMPSModuleOwner myOwner = new BaseMPSModuleOwner();
 
 
-  public MpsWorker(Script whatToDo, MpsWorker.AntLogger logger) {
+  public WorkerBase(Script whatToDo, WorkerBase.AntLogger logger) {
     myWhatToDo = whatToDo;
     myLogger = logger;
 
@@ -86,11 +85,7 @@ public abstract class MpsWorker {
     return new JavaCompilerOptions(parsedJavaVersion);
   }
 
-  protected Environment createEnvironment() {
-    MpsEnvironment env = new MpsEnvironment(createEnvironmentConfig(myWhatToDo));
-    env.init();
-    return env;
-  }
+  protected abstract Environment createEnvironment();
 
   public EnvironmentConfig createEnvironmentConfig(Script whatToDo) {
     EnvironmentConfig config = EnvironmentConfig.emptyConfig().withDefaultSamples().withDefaultPlugins();
@@ -295,11 +290,11 @@ public abstract class MpsWorker {
     myErrors.add(text);
   }
   public void log(Throwable e) {
-    StringBuffer sb = MpsWorker.extractStackTrace(e);
+    StringBuffer sb = WorkerBase.extractStackTrace(e);
     error(sb.toString());
   }
   public void log(String text, Throwable e) {
-    StringBuffer sb = MpsWorker.extractStackTrace(e);
+    StringBuffer sb = WorkerBase.extractStackTrace(e);
     error(text + "\n" + sb.toString());
   }
   public static StringBuffer extractStackTrace(Throwable e) {
@@ -310,7 +305,7 @@ public abstract class MpsWorker {
   public interface AntLogger {
     void log(String text, Level level);
   }
-  public static class SystemOutLogger implements MpsWorker.AntLogger {
+  public static class SystemOutLogger implements WorkerBase.AntLogger {
     public SystemOutLogger() {
     }
     @Override
@@ -322,7 +317,7 @@ public abstract class MpsWorker {
       }
     }
   }
-  public static class LogLogger implements MpsWorker.AntLogger {
+  public static class LogLogger implements WorkerBase.AntLogger {
     public LogLogger() {
     }
     @Override

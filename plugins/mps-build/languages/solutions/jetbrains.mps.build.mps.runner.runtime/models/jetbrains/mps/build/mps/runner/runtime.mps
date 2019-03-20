@@ -213,12 +213,12 @@
       <node concept="37vLTG" id="3H7CugYdXuL" role="3clF46">
         <property role="TrG5h" value="logger" />
         <node concept="3uibUv" id="3H7CugYdXuM" role="1tU5fm">
-          <ref role="3uigEE" to="jo3e:KL8Aqlj5BL" resolve="MpsWorker.AntLogger" />
+          <ref role="3uigEE" to="jo3e:KL8Aqlj5BL" resolve="WorkerBase.AntLogger" />
         </node>
       </node>
       <node concept="3clFbS" id="3H7CugYdXuN" role="3clF47">
         <node concept="XkiVB" id="3H7CugYdXuO" role="3cqZAp">
-          <ref role="37wK5l" to="jo3e:KL8Aqlj5me" resolve="MpsWorker" />
+          <ref role="37wK5l" to="jo3e:5QqlCZXpn8B" resolve="PlatformWorker" />
           <node concept="37vLTw" id="3H7CugYdXuP" role="37wK5m">
             <ref role="3cqZAo" node="3H7CugYdXuJ" resolve="whatToDo" />
           </node>
@@ -938,8 +938,8 @@
     </node>
     <node concept="2tJIrI" id="63P3E8$lHXM" role="jymVt" />
     <node concept="3Tm1VV" id="3H7CugYdV9c" role="1B3o_S" />
-    <node concept="3uibUv" id="4v8fy9OF0zP" role="1zkMxy">
-      <ref role="3uigEE" to="jo3e:KL8Aqlj5ln" resolve="MpsWorker" />
+    <node concept="3uibUv" id="5QqlCZXoHLn" role="1zkMxy">
+      <ref role="3uigEE" to="jo3e:5QqlCZXoig6" resolve="PlatformWorker" />
     </node>
     <node concept="3clFb_" id="2R_g56bHtfm" role="jymVt">
       <property role="TrG5h" value="createEnvironment" />
@@ -1289,7 +1289,7 @@
                 </node>
                 <node concept="2ShNRf" id="3H7CugYilYB" role="37wK5m">
                   <node concept="1pGfFk" id="3H7CugYilYC" role="2ShVmc">
-                    <ref role="37wK5l" to="jo3e:KL8Aqlj5BY" resolve="MpsWorker.SystemOutLogger" />
+                    <ref role="37wK5l" to="jo3e:KL8Aqlj5BY" resolve="WorkerBase.SystemOutLogger" />
                   </node>
                 </node>
               </node>

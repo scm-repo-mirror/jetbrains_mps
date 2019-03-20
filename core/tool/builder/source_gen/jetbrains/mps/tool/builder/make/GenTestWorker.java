@@ -6,7 +6,7 @@ import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import jetbrains.mps.tool.common.Script;
-import jetbrains.mps.tool.builder.MpsWorker;
+import jetbrains.mps.tool.builder.WorkerBase;
 import java.io.File;
 import java.io.IOException;
 import jetbrains.mps.project.Project;
@@ -57,7 +57,7 @@ public class GenTestWorker extends BaseGeneratorWorker {
   private String tmpPath;
   private GenTestWorker.MyReporter myReporter = new GenTestWorker.MyReporter();
 
-  public GenTestWorker(Script whatToDo, MpsWorker.AntLogger logger) {
+  public GenTestWorker(Script whatToDo, WorkerBase.AntLogger logger) {
     super(whatToDo, logger);
     File tmpDir;
     try {
@@ -252,7 +252,7 @@ public class GenTestWorker extends BaseGeneratorWorker {
   }
 
   public static void main(String[] args) {
-    GenTestWorker generator = new GenTestWorker(Script.fromDumpInFile(new File(args[0])), new MpsWorker.SystemOutLogger());
+    GenTestWorker generator = new GenTestWorker(Script.fromDumpInFile(new File(args[0])), new WorkerBase.SystemOutLogger());
     generator.workFromMain();
   }
 

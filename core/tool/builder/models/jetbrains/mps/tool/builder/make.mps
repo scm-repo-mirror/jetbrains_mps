@@ -1709,7 +1709,7 @@
       <node concept="37vLTG" id="3GGnItM97pG" role="3clF46">
         <property role="TrG5h" value="logger" />
         <node concept="3uibUv" id="3GGnItM97pH" role="1tU5fm">
-          <ref role="3uigEE" to="jo3e:KL8Aqlj5BL" resolve="MpsWorker.AntLogger" />
+          <ref role="3uigEE" to="jo3e:KL8Aqlj5BL" resolve="WorkerBase.AntLogger" />
         </node>
       </node>
     </node>
@@ -2071,7 +2071,7 @@
           <node concept="3cpWsn" id="3GGnItM97p4" role="3cpWs9">
             <property role="TrG5h" value="mpsWorker" />
             <node concept="3uibUv" id="3GGnItM97p5" role="1tU5fm">
-              <ref role="3uigEE" to="jo3e:KL8Aqlj5ln" resolve="MpsWorker" />
+              <ref role="3uigEE" to="jo3e:KL8Aqlj5ln" resolve="WorkerBase" />
             </node>
             <node concept="2ShNRf" id="3GGnItM97p6" role="33vP2m">
               <node concept="1pGfFk" id="3GGnItM97p7" role="2ShVmc">
@@ -2095,7 +2095,7 @@
                 </node>
                 <node concept="2ShNRf" id="3GGnItM97pe" role="37wK5m">
                   <node concept="1pGfFk" id="3GGnItM97pf" role="2ShVmc">
-                    <ref role="37wK5l" to="jo3e:KL8Aqlj5BY" resolve="MpsWorker.SystemOutLogger" />
+                    <ref role="37wK5l" to="jo3e:KL8Aqlj5BY" resolve="WorkerBase.SystemOutLogger" />
                   </node>
                 </node>
               </node>
@@ -2414,8 +2414,8 @@
       <node concept="10P_77" id="dVfA4aroCf" role="1tU5fm" />
     </node>
     <node concept="2tJIrI" id="dVfA4arpSf" role="jymVt" />
-    <node concept="3uibUv" id="KL8Aqll4mH" role="1zkMxy">
-      <ref role="3uigEE" to="jo3e:KL8Aqlj5ln" resolve="MpsWorker" />
+    <node concept="3uibUv" id="5QqlCZXpcvp" role="1zkMxy">
+      <ref role="3uigEE" to="jo3e:5QqlCZXoMvl" resolve="CoreWorker" />
     </node>
     <node concept="3Tm1VV" id="KL8Aqll4mI" role="1B3o_S" />
     <node concept="3clFbW" id="KL8Aqll4n0" role="jymVt">
@@ -2430,12 +2430,12 @@
       <node concept="37vLTG" id="KL8Aqll4n5" role="3clF46">
         <property role="TrG5h" value="logger" />
         <node concept="3uibUv" id="KL8Aqll4n6" role="1tU5fm">
-          <ref role="3uigEE" to="jo3e:KL8Aqlj5BL" resolve="MpsWorker.AntLogger" />
+          <ref role="3uigEE" to="jo3e:KL8Aqlj5BL" resolve="WorkerBase.AntLogger" />
         </node>
       </node>
       <node concept="3clFbS" id="KL8Aqll4n7" role="3clF47">
         <node concept="XkiVB" id="KL8Aqll4n8" role="3cqZAp">
-          <ref role="37wK5l" to="jo3e:KL8Aqlj5me" resolve="MpsWorker" />
+          <ref role="37wK5l" to="jo3e:5QqlCZXpmQT" resolve="CoreWorker" />
           <node concept="37vLTw" id="2BHiRxglITb" role="37wK5m">
             <ref role="3cqZAo" node="KL8Aqll4n3" resolve="whatToDo" />
           </node>
@@ -3575,7 +3575,7 @@
                           <ref role="37wK5l" to="jo3e:KL8Aqlj5zJ" resolve="error" />
                           <node concept="2OqwBi" id="KL8Aqll4ym" role="37wK5m">
                             <node concept="2YIFZM" id="KL8Aqll4yn" role="2Oq$k0">
-                              <ref role="1Pybhc" to="jo3e:KL8Aqlj5ln" resolve="MpsWorker" />
+                              <ref role="1Pybhc" to="jo3e:KL8Aqlj5ln" resolve="WorkerBase" />
                               <ref role="37wK5l" to="jo3e:KL8Aqlj5_N" resolve="extractStackTrace" />
                               <node concept="2OqwBi" id="KL8Aqll4yo" role="37wK5m">
                                 <node concept="37vLTw" id="2BHiRxgm9B_" role="2Oq$k0">
@@ -3729,7 +3729,7 @@
       <node concept="37vLTG" id="KL8Aqll4TQ" role="3clF46">
         <property role="TrG5h" value="logger" />
         <node concept="3uibUv" id="KL8Aqll4TR" role="1tU5fm">
-          <ref role="3uigEE" to="jo3e:KL8Aqlj5BL" resolve="MpsWorker.AntLogger" />
+          <ref role="3uigEE" to="jo3e:KL8Aqlj5BL" resolve="WorkerBase.AntLogger" />
         </node>
       </node>
       <node concept="3clFbS" id="KL8Aqll4TS" role="3clF47">
@@ -5593,7 +5593,7 @@
                 </node>
                 <node concept="2ShNRf" id="KL8Aqll5j8" role="37wK5m">
                   <node concept="1pGfFk" id="KL8Aqll5j9" role="2ShVmc">
-                    <ref role="37wK5l" to="jo3e:KL8Aqlj5BY" resolve="MpsWorker.SystemOutLogger" />
+                    <ref role="37wK5l" to="jo3e:KL8Aqlj5BY" resolve="WorkerBase.SystemOutLogger" />
                   </node>
                 </node>
               </node>

@@ -326,9 +326,9 @@
     </language>
   </registry>
   <node concept="312cEu" id="KL8Aqlj5ln">
-    <property role="TrG5h" value="MpsWorker" />
     <property role="1sVAO0" value="true" />
     <property role="1EXbeo" value="false" />
+    <property role="TrG5h" value="WorkerBase" />
     <node concept="3Tm1VV" id="KL8Aqlj5lo" role="1B3o_S" />
     <node concept="312cEg" id="KL8Aqlj5lu" role="jymVt">
       <property role="TrG5h" value="myErrors" />
@@ -394,7 +394,7 @@
       <property role="34CwA1" value="false" />
       <property role="3TUv4t" value="true" />
       <node concept="3uibUv" id="KL8Aqlj5lK" role="1tU5fm">
-        <ref role="3uigEE" node="KL8Aqlj5BL" resolve="MpsWorker.AntLogger" />
+        <ref role="3uigEE" node="KL8Aqlj5BL" resolve="WorkerBase.AntLogger" />
       </node>
       <node concept="3Tm6S6" id="KL8Aqlj5lL" role="1B3o_S" />
     </node>
@@ -434,7 +434,7 @@
         <property role="TrG5h" value="logger" />
         <property role="3TUv4t" value="false" />
         <node concept="3uibUv" id="KL8Aqlj5mk" role="1tU5fm">
-          <ref role="3uigEE" node="KL8Aqlj5BL" resolve="MpsWorker.AntLogger" />
+          <ref role="3uigEE" node="KL8Aqlj5BL" resolve="WorkerBase.AntLogger" />
         </node>
       </node>
       <node concept="3clFbS" id="KL8Aqlj5mn" role="3clF47">
@@ -573,49 +573,13 @@
     </node>
     <node concept="2tJIrI" id="5A5jZrz0t$s" role="jymVt" />
     <node concept="3clFb_" id="5kpQnuAyTCk" role="jymVt">
-      <property role="1EzhhJ" value="false" />
+      <property role="1EzhhJ" value="true" />
       <property role="TrG5h" value="createEnvironment" />
       <property role="od$2w" value="false" />
-      <property role="DiZV1" value="false" />
       <node concept="3uibUv" id="5kpQnuA_bRW" role="3clF45">
         <ref role="3uigEE" to="79ha:HKKzfMjqRV" resolve="Environment" />
       </node>
-      <node concept="3clFbS" id="5kpQnuAyTCn" role="3clF47">
-        <node concept="3cpWs8" id="ZWTyeZVqQq" role="3cqZAp">
-          <node concept="3cpWsn" id="ZWTyeZVqQr" role="3cpWs9">
-            <property role="TrG5h" value="env" />
-            <node concept="3uibUv" id="ZWTyeZVqQs" role="1tU5fm">
-              <ref role="3uigEE" to="79ha:6rx4kZDk6yp" resolve="MpsEnvironment" />
-            </node>
-            <node concept="2ShNRf" id="ZWTyeZVqSX" role="33vP2m">
-              <node concept="1pGfFk" id="ZWTyeZVtam" role="2ShVmc">
-                <ref role="37wK5l" to="79ha:6rx4kZDkRyV" resolve="MpsEnvironment" />
-                <node concept="1rXfSq" id="4v8fy9OFJg$" role="37wK5m">
-                  <ref role="37wK5l" node="63P3E8$mb3n" resolve="createEnvironmentConfig" />
-                  <node concept="37vLTw" id="4v8fy9OFJg_" role="37wK5m">
-                    <ref role="3cqZAo" node="KL8Aqlj5lG" resolve="myWhatToDo" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="ZWTyeZVtiR" role="3cqZAp">
-          <node concept="2OqwBi" id="ZWTyeZVtoQ" role="3clFbG">
-            <node concept="37vLTw" id="ZWTyeZVtiP" role="2Oq$k0">
-              <ref role="3cqZAo" node="ZWTyeZVqQr" resolve="env" />
-            </node>
-            <node concept="liA8E" id="ZWTyeZVtwp" role="2OqNvi">
-              <ref role="37wK5l" to="79ha:3eUNqOk7hpY" resolve="init" />
-            </node>
-          </node>
-        </node>
-        <node concept="3cpWs6" id="ZWTyeZVw9B" role="3cqZAp">
-          <node concept="37vLTw" id="ZWTyeZVwhQ" role="3cqZAk">
-            <ref role="3cqZAo" node="ZWTyeZVqQr" resolve="env" />
-          </node>
-        </node>
-      </node>
+      <node concept="3clFbS" id="5kpQnuAyTCn" role="3clF47" />
       <node concept="3Tmbuc" id="5A5jZrz22fO" role="1B3o_S" />
     </node>
     <node concept="2tJIrI" id="5A5jZrz0sbu" role="jymVt" />
@@ -2508,7 +2472,7 @@
               <ref role="3uigEE" to="wyt6:~StringBuffer" resolve="StringBuffer" />
             </node>
             <node concept="2YIFZM" id="KL8Aqlj5$7" role="33vP2m">
-              <ref role="1Pybhc" node="KL8Aqlj5ln" resolve="MpsWorker" />
+              <ref role="1Pybhc" node="KL8Aqlj5ln" resolve="WorkerBase" />
               <ref role="37wK5l" node="KL8Aqlj5_N" resolve="extractStackTrace" />
               <node concept="37vLTw" id="2BHiRxgmOhd" role="37wK5m">
                 <ref role="3cqZAo" node="KL8Aqlj5$1" resolve="e" />
@@ -2558,7 +2522,7 @@
               <ref role="3uigEE" to="wyt6:~StringBuffer" resolve="StringBuffer" />
             </node>
             <node concept="2YIFZM" id="KL8Aqlj5$p" role="33vP2m">
-              <ref role="1Pybhc" node="KL8Aqlj5ln" resolve="MpsWorker" />
+              <ref role="1Pybhc" node="KL8Aqlj5ln" resolve="WorkerBase" />
               <ref role="37wK5l" node="KL8Aqlj5_N" resolve="extractStackTrace" />
               <node concept="37vLTw" id="2BHiRxgmaEy" role="37wK5m">
                 <ref role="3cqZAo" node="KL8Aqlj5$j" resolve="e" />
@@ -2682,7 +2646,7 @@
       <property role="1EXbeo" value="false" />
       <node concept="3Tm1VV" id="KL8Aqlj5BW" role="1B3o_S" />
       <node concept="3uibUv" id="KL8Aqlj5BX" role="EKbjA">
-        <ref role="3uigEE" node="KL8Aqlj5BL" resolve="MpsWorker.AntLogger" />
+        <ref role="3uigEE" node="KL8Aqlj5BL" resolve="WorkerBase.AntLogger" />
       </node>
       <node concept="3clFbW" id="KL8Aqlj5BY" role="jymVt">
         <node concept="3Tm1VV" id="KL8Aqlj5BZ" role="1B3o_S" />
@@ -2766,7 +2730,7 @@
       <property role="1EXbeo" value="false" />
       <node concept="3Tm1VV" id="KL8Aqlj5Cs" role="1B3o_S" />
       <node concept="3uibUv" id="KL8Aqlj5Ct" role="EKbjA">
-        <ref role="3uigEE" node="KL8Aqlj5BL" resolve="MpsWorker.AntLogger" />
+        <ref role="3uigEE" node="KL8Aqlj5BL" resolve="WorkerBase.AntLogger" />
       </node>
       <node concept="3clFbW" id="KL8Aqlj5Cu" role="jymVt">
         <node concept="3Tm1VV" id="KL8Aqlj5Cv" role="1B3o_S" />
@@ -3507,7 +3471,7 @@
       <node concept="3Tm1VV" id="7oFdQJwGgk3" role="1B3o_S" />
       <node concept="3clFbS" id="7oFdQJwGgk5" role="3clF47">
         <node concept="XkiVB" id="7oFdQJwGgk7" role="3cqZAp">
-          <ref role="37wK5l" node="KL8Aqlj5me" resolve="MpsWorker" />
+          <ref role="37wK5l" node="5QqlCZXpmQT" resolve="CoreWorker" />
           <node concept="37vLTw" id="7oFdQJwGgkb" role="37wK5m">
             <ref role="3cqZAo" node="7oFdQJwGgk8" resolve="whatToDo" />
           </node>
@@ -3525,13 +3489,13 @@
       <node concept="37vLTG" id="7oFdQJwGgkc" role="3clF46">
         <property role="TrG5h" value="logger" />
         <node concept="3uibUv" id="7oFdQJwGgke" role="1tU5fm">
-          <ref role="3uigEE" node="KL8Aqlj5BL" resolve="MpsWorker.AntLogger" />
+          <ref role="3uigEE" node="KL8Aqlj5BL" resolve="WorkerBase.AntLogger" />
         </node>
       </node>
     </node>
     <node concept="3Tm1VV" id="7oFdQJwFlX4" role="1B3o_S" />
-    <node concept="3uibUv" id="7oFdQJwFlYe" role="1zkMxy">
-      <ref role="3uigEE" node="KL8Aqlj5ln" resolve="MpsWorker" />
+    <node concept="3uibUv" id="5QqlCZXpewz" role="1zkMxy">
+      <ref role="3uigEE" node="5QqlCZXoMvl" resolve="CoreWorker" />
     </node>
     <node concept="2tJIrI" id="21bannvQIlj" role="jymVt" />
     <node concept="3clFb_" id="21bannvQJzo" role="jymVt">
@@ -3787,7 +3751,7 @@
                 </node>
                 <node concept="2ShNRf" id="1oo0A63FX9V" role="37wK5m">
                   <node concept="1pGfFk" id="1oo0A63FX9W" role="2ShVmc">
-                    <ref role="37wK5l" node="KL8Aqlj5BY" resolve="MpsWorker.SystemOutLogger" />
+                    <ref role="37wK5l" node="KL8Aqlj5BY" resolve="WorkerBase.SystemOutLogger" />
                   </node>
                 </node>
               </node>
@@ -3837,6 +3801,124 @@
       </node>
       <node concept="3Tm1VV" id="1oo0A63FX9i" role="1B3o_S" />
       <node concept="3cqZAl" id="1oo0A63FX9j" role="3clF45" />
+    </node>
+  </node>
+  <node concept="312cEu" id="5QqlCZXoig6">
+    <property role="TrG5h" value="PlatformWorker" />
+    <property role="1sVAO0" value="true" />
+    <node concept="3Tm1VV" id="5QqlCZXoig7" role="1B3o_S" />
+    <node concept="3uibUv" id="5QqlCZXokbx" role="1zkMxy">
+      <ref role="3uigEE" node="KL8Aqlj5ln" resolve="WorkerBase" />
+    </node>
+    <node concept="3clFbW" id="5QqlCZXpn8B" role="jymVt">
+      <node concept="3cqZAl" id="5QqlCZXpn8C" role="3clF45" />
+      <node concept="3Tm1VV" id="5QqlCZXpn8D" role="1B3o_S" />
+      <node concept="3clFbS" id="5QqlCZXpn8F" role="3clF47">
+        <node concept="XkiVB" id="5QqlCZXpn8H" role="3cqZAp">
+          <ref role="37wK5l" node="KL8Aqlj5me" resolve="WorkerBase" />
+          <node concept="37vLTw" id="5QqlCZXpn8L" role="37wK5m">
+            <ref role="3cqZAo" node="5QqlCZXpn8I" resolve="whatToDo" />
+          </node>
+          <node concept="37vLTw" id="5QqlCZXpn8P" role="37wK5m">
+            <ref role="3cqZAo" node="5QqlCZXpn8M" resolve="logger" />
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="5QqlCZXpn8I" role="3clF46">
+        <property role="TrG5h" value="whatToDo" />
+        <node concept="3uibUv" id="5QqlCZXpn8K" role="1tU5fm">
+          <ref role="3uigEE" to="asz6:KL8Aql8enO" resolve="Script" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="5QqlCZXpn8M" role="3clF46">
+        <property role="TrG5h" value="logger" />
+        <node concept="3uibUv" id="5QqlCZXpn8O" role="1tU5fm">
+          <ref role="3uigEE" node="KL8Aqlj5BL" resolve="WorkerBase.AntLogger" />
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="312cEu" id="5QqlCZXoMvl">
+    <property role="TrG5h" value="CoreWorker" />
+    <property role="1sVAO0" value="true" />
+    <node concept="3Tm1VV" id="5QqlCZXoMvm" role="1B3o_S" />
+    <node concept="3uibUv" id="5QqlCZXoMQz" role="1zkMxy">
+      <ref role="3uigEE" node="KL8Aqlj5ln" resolve="WorkerBase" />
+    </node>
+    <node concept="3clFbW" id="5QqlCZXpmQT" role="jymVt">
+      <node concept="3cqZAl" id="5QqlCZXpmQU" role="3clF45" />
+      <node concept="3Tm1VV" id="5QqlCZXpmQV" role="1B3o_S" />
+      <node concept="3clFbS" id="5QqlCZXpmQX" role="3clF47">
+        <node concept="XkiVB" id="5QqlCZXpmQZ" role="3cqZAp">
+          <ref role="37wK5l" node="KL8Aqlj5me" resolve="WorkerBase" />
+          <node concept="37vLTw" id="5QqlCZXpmR3" role="37wK5m">
+            <ref role="3cqZAo" node="5QqlCZXpmR0" resolve="whatToDo" />
+          </node>
+          <node concept="37vLTw" id="5QqlCZXpmR7" role="37wK5m">
+            <ref role="3cqZAo" node="5QqlCZXpmR4" resolve="logger" />
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="5QqlCZXpmR0" role="3clF46">
+        <property role="TrG5h" value="whatToDo" />
+        <node concept="3uibUv" id="5QqlCZXpmR2" role="1tU5fm">
+          <ref role="3uigEE" to="asz6:KL8Aql8enO" resolve="Script" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="5QqlCZXpmR4" role="3clF46">
+        <property role="TrG5h" value="logger" />
+        <node concept="3uibUv" id="5QqlCZXpmR6" role="1tU5fm">
+          <ref role="3uigEE" node="KL8Aqlj5BL" resolve="WorkerBase.AntLogger" />
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="5QqlCZXpyj9" role="jymVt" />
+    <node concept="3clFb_" id="5QqlCZXpynv" role="jymVt">
+      <property role="TrG5h" value="createEnvironment" />
+      <property role="od$2w" value="false" />
+      <node concept="3uibUv" id="5QqlCZXpynw" role="3clF45">
+        <ref role="3uigEE" to="79ha:HKKzfMjqRV" resolve="Environment" />
+      </node>
+      <node concept="3Tmbuc" id="5QqlCZXpyny" role="1B3o_S" />
+      <node concept="3clFbS" id="5QqlCZXpynz" role="3clF47">
+        <node concept="3cpWs8" id="ZWTyeZVqQq" role="3cqZAp">
+          <node concept="3cpWsn" id="ZWTyeZVqQr" role="3cpWs9">
+            <property role="TrG5h" value="env" />
+            <node concept="3uibUv" id="ZWTyeZVqQs" role="1tU5fm">
+              <ref role="3uigEE" to="79ha:6rx4kZDk6yp" resolve="MpsEnvironment" />
+            </node>
+            <node concept="2ShNRf" id="ZWTyeZVqSX" role="33vP2m">
+              <node concept="1pGfFk" id="ZWTyeZVtam" role="2ShVmc">
+                <ref role="37wK5l" to="79ha:6rx4kZDkRyV" resolve="MpsEnvironment" />
+                <node concept="1rXfSq" id="4v8fy9OFJg$" role="37wK5m">
+                  <ref role="37wK5l" node="63P3E8$mb3n" resolve="createEnvironmentConfig" />
+                  <node concept="37vLTw" id="4v8fy9OFJg_" role="37wK5m">
+                    <ref role="3cqZAo" node="KL8Aqlj5lG" resolve="myWhatToDo" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="ZWTyeZVtiR" role="3cqZAp">
+          <node concept="2OqwBi" id="ZWTyeZVtoQ" role="3clFbG">
+            <node concept="37vLTw" id="ZWTyeZVtiP" role="2Oq$k0">
+              <ref role="3cqZAo" node="ZWTyeZVqQr" resolve="env" />
+            </node>
+            <node concept="liA8E" id="ZWTyeZVtwp" role="2OqNvi">
+              <ref role="37wK5l" to="79ha:3eUNqOk7hpY" resolve="init" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="ZWTyeZVw9B" role="3cqZAp">
+          <node concept="37vLTw" id="ZWTyeZVwhQ" role="3cqZAk">
+            <ref role="3cqZAo" node="ZWTyeZVqQr" resolve="env" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="5QqlCZXpyn$" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
     </node>
   </node>
 </model>
