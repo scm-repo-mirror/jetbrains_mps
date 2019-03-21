@@ -2,11 +2,11 @@
 <model ref="r:00000000-0000-4000-0000-011c895902e3(jetbrains.mps.lang.generator.editor)">
   <persistence version="9" />
   <languages>
-    <use id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers" version="0" />
-    <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="4" />
-    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="12" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="8" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="13" />
+    <use id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers" version="-1" />
+    <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="-1" />
+    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="-1" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="-1" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -502,6 +502,9 @@
       <concept id="1138676077309" name="jetbrains.mps.lang.smodel.structure.EnumMemberReference" flags="nn" index="uoxfO">
         <reference id="1138676095763" name="enumMember" index="uo_Cq" />
       </concept>
+      <concept id="4693937538533521280" name="jetbrains.mps.lang.smodel.structure.OfConceptOperation" flags="ng" index="v3k3i">
+        <child id="4693937538533538124" name="requestedConcept" index="v3oSu" />
+      </concept>
       <concept id="1173122760281" name="jetbrains.mps.lang.smodel.structure.Node_GetAncestorsOperation" flags="nn" index="z$bX8" />
       <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
         <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
@@ -518,6 +521,7 @@
       <concept id="7504436213544206332" name="jetbrains.mps.lang.smodel.structure.Node_ContainingLinkOperation" flags="nn" index="2NL2c5" />
       <concept id="1171310072040" name="jetbrains.mps.lang.smodel.structure.Node_GetContainingRootOperation" flags="nn" index="2Rxl7S" />
       <concept id="1171407110247" name="jetbrains.mps.lang.smodel.structure.Node_GetAncestorOperation" flags="nn" index="2Xjw5R" />
+      <concept id="1171500988903" name="jetbrains.mps.lang.smodel.structure.Node_GetChildrenOperation" flags="nn" index="32TBzR" />
       <concept id="1205861725686" name="jetbrains.mps.lang.smodel.structure.Node_IsAttributeOperation" flags="nn" index="32XrjI" />
       <concept id="2644386474301421077" name="jetbrains.mps.lang.smodel.structure.LinkIdRefExpression" flags="nn" index="359W_D">
         <reference id="2644386474301421078" name="conceptDeclaration" index="359W_E" />
@@ -7499,26 +7503,54 @@
                 </node>
               </node>
             </node>
-            <node concept="3clFbF" id="6GI$fc4bQim" role="3cqZAp">
-              <node concept="2OqwBi" id="6GI$fc4bQin" role="3clFbG">
-                <node concept="3c8USq" id="6GI$fc4bRXl" role="2Oq$k0" />
-                <node concept="1OKiuA" id="6GI$fc4bQip" role="2OqNvi">
-                  <node concept="1Q80Hx" id="6GI$fc4bQiq" role="lBI5i" />
-                  <node concept="2B6iha" id="6GI$fc4bQir" role="lGT1i">
-                    <property role="1lyBwo" value="first" />
+            <node concept="3SKdUt" id="3MQdgO2dk_f" role="3cqZAp">
+              <node concept="3SKdUq" id="3MQdgO2dk_h" role="3SKWNk">
+                <property role="3SKdUp" value="this condition is to prevent inspector from opening for VarMacro2 nodes, with nothing valueable in" />
+              </node>
+            </node>
+            <node concept="3SKdUt" id="3MQdgO2dkVz" role="3cqZAp">
+              <node concept="3SKdUq" id="3MQdgO2dkV_" role="3SKWNk">
+                <property role="3SKdUp" value="inspector (I believe original motivation behind selection code was to get cursor in a macro's query)" />
+              </node>
+            </node>
+            <node concept="3clFbJ" id="3MQdgO2dcCI" role="3cqZAp">
+              <node concept="3clFbS" id="3MQdgO2dcCK" role="3clFbx">
+                <node concept="3clFbF" id="6GI$fc4bQim" role="3cqZAp">
+                  <node concept="2OqwBi" id="6GI$fc4bQin" role="3clFbG">
+                    <node concept="3c8USq" id="6GI$fc4bRXl" role="2Oq$k0" />
+                    <node concept="1OKiuA" id="6GI$fc4bQip" role="2OqNvi">
+                      <node concept="1Q80Hx" id="6GI$fc4bQiq" role="lBI5i" />
+                      <node concept="2B6iha" id="6GI$fc4bQir" role="lGT1i">
+                        <property role="1lyBwo" value="first" />
+                      </node>
+                      <node concept="3cmrfG" id="6GI$fc4bQis" role="3dN3m$">
+                        <property role="3cmrfH" value="1" />
+                      </node>
+                    </node>
                   </node>
-                  <node concept="3cmrfG" id="6GI$fc4bQis" role="3dN3m$">
-                    <property role="3cmrfH" value="1" />
+                </node>
+                <node concept="3clFbF" id="6GI$fc4bQit" role="3cqZAp">
+                  <node concept="2OqwBi" id="6GI$fc4bQiu" role="3clFbG">
+                    <node concept="1Q80Hx" id="6GI$fc4bQiv" role="2Oq$k0" />
+                    <node concept="liA8E" id="6GI$fc4bQiw" role="2OqNvi">
+                      <ref role="37wK5l" to="cj4x:~EditorContext.openInspector()" resolve="openInspector" />
+                    </node>
                   </node>
                 </node>
               </node>
-            </node>
-            <node concept="3clFbF" id="6GI$fc4bQit" role="3cqZAp">
-              <node concept="2OqwBi" id="6GI$fc4bQiu" role="3clFbG">
-                <node concept="1Q80Hx" id="6GI$fc4bQiv" role="2Oq$k0" />
-                <node concept="liA8E" id="6GI$fc4bQiw" role="2OqNvi">
-                  <ref role="37wK5l" to="cj4x:~EditorContext.openInspector()" resolve="openInspector" />
+              <node concept="2OqwBi" id="3MQdgO2de$r" role="3clFbw">
+                <node concept="2OqwBi" id="3MQdgO2dhmz" role="2Oq$k0">
+                  <node concept="2OqwBi" id="3MQdgO2dcRU" role="2Oq$k0">
+                    <node concept="3c8USq" id="3MQdgO2edot" role="2Oq$k0" />
+                    <node concept="32TBzR" id="3MQdgO2ddau" role="2OqNvi" />
+                  </node>
+                  <node concept="v3k3i" id="3MQdgO2djZT" role="2OqNvi">
+                    <node concept="chp4Y" id="3MQdgO2dk3i" role="v3oSu">
+                      <ref role="cht4Q" to="tpee:gyVMwX8" resolve="ConceptFunction" />
+                    </node>
+                  </node>
                 </node>
+                <node concept="3GX2aA" id="3MQdgO2dkqQ" role="2OqNvi" />
               </node>
             </node>
           </node>
@@ -7561,11 +7593,13 @@
     <property role="3GE5qa" value="macro" />
     <ref role="1XX52x" to="tpf8:UesZ_nZ2HY" resolve="VarMacro2" />
     <node concept="3EZMnI" id="UesZ_nZlRy" role="2wV5jI">
+      <property role="1cu_pB" value="0" />
       <node concept="3EZMnI" id="UesZ_nZlZw" role="3EZMnx">
+        <property role="1cu_pB" value="0" />
         <node concept="2iRkQZ" id="UesZ_nZlZx" role="2iSdaV" />
         <node concept="3F0ifn" id="UesZ_nZlRz" role="3EZMnx">
           <property role="3F0ifm" value="$VAR$" />
-          <property role="1cu_pB" value="1" />
+          <property role="1cu_pB" value="0" />
           <ref role="1ERwB7" node="gZDQqLq" resolve="MacroSymbol_Actions" />
           <ref role="1k5W1q" node="hG2hEjs" resolve="macroStart" />
           <node concept="11LMrY" id="UesZ_nZlR$" role="3F10Kt" />
@@ -7577,9 +7611,11 @@
           </node>
         </node>
         <node concept="3EZMnI" id="UesZ_nZlZW" role="3EZMnx">
+          <property role="1cu_pB" value="0" />
           <node concept="2iRfu4" id="1PTczGeLPUA" role="2iSdaV" />
           <node concept="3XFhqQ" id="1PTczGeN2CP" role="3EZMnx" />
           <node concept="3F2HdR" id="UesZ_nZlZN" role="3EZMnx">
+            <property role="1cu_pB" value="0" />
             <ref role="1NtTu8" to="tpf8:UesZ_nZ2Id" resolve="variables" />
             <node concept="2iRkQZ" id="UesZ_nZlZP" role="2czzBx" />
           </node>
@@ -7630,6 +7666,7 @@
     <property role="3GE5qa" value="macro" />
     <ref role="1XX52x" to="tpf8:UesZ_nZ2I6" resolve="VarDeclaration" />
     <node concept="3F0A7n" id="UesZ_nZoBV" role="2wV5jI">
+      <property role="1cu_pB" value="0" />
       <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
       <ref role="1k5W1q" node="5Ex$Jzqi8Mt" resolve="VariableRef" />
     </node>

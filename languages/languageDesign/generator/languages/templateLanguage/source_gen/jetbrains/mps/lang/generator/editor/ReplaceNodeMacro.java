@@ -29,6 +29,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuItem;
 import jetbrains.mps.editor.runtime.menus.SubstituteItemProxy;
 import jetbrains.mps.lang.editor.menus.transformation.SubstituteMenuItemAsActionItem;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
@@ -104,8 +105,12 @@ public class ReplaceNodeMacro extends TransformationMenuBase {
         public void execute(@NotNull String pattern) {
           SNode createdNode = item.createNode(pattern);
           SNodeOperations.replaceWithAnother(_context.getNode(), createdNode);
-          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), createdNode, SelectionManager.FIRST_CELL, 1);
-          _context.getEditorContext().openInspector();
+          // this condition is to prevent inspector from opening for VarMacro2 nodes, with nothing valueable in 
+          // inspector (I believe original motivation behind selection code was to get cursor in a macro's query) 
+          if (Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getChildren(createdNode), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, "jetbrains.mps.baseLanguage.structure.ConceptFunction"))).isNotEmpty()) {
+            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), createdNode, SelectionManager.FIRST_CELL, 1);
+            _context.getEditorContext().openInspector();
+          }
         }
 
         @Override
