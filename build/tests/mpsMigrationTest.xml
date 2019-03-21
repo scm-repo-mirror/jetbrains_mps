@@ -4,6 +4,7 @@
 
   <property name="project.simpleMigration" location="${basedir}/testbench/modules/testMigration"/>
   <property name="project.consMigrations" location="${basedir}/testbench/modules/testConsMigrations"/>
+  <property name="project.migrationTaskPlugin" location="${basedir}/testbench/modules/testMigrationTaskAdditionalPlugin"/>
 
   <!--this will be specified by test.xml-->
   <property name="mps_build_home" location="build/artifacts/mps"/>
@@ -69,6 +70,18 @@
       <jvmarg value="-Dtest.output.dir=${project.consMigrations}"/>
       <test name="jetbrains.mps.ant.TestAntTaskResult" methods="testConsequentMigrations"/>
       <formatter type="xml" extension=".testConsequentMigrations.xml"/>
+    </junit>
+
+    <migrate project="${project.migrationTaskPlugin}">
+      <macro name="mps_home" path="${mps_build_home}"/>
+      <plugin path="${mps_build_home}/plugins/http-support/" id="jetbrains.mps.ide.httpsupport"/>
+    </migrate>
+
+    <junit fork="true" dir="${mps_build_home}" showoutput="true">
+      <classpath refid="test_classpath"/>
+      <jvmarg value="-Dtest.output.dir=${project.migrationTaskPlugin}"/>
+      <test name="jetbrains.mps.ant.TestAntTaskResult" methods="testMigrationTaskAdditionalPlugin"/>
+      <formatter type="xml" extension=".testMigrationTaskAdditionalPlugin.xml"/>
     </junit>
   </target>
 </project>

@@ -62,6 +62,11 @@ public class TestAntTaskResult {
     testResult();
   }
 
+  @Test
+  public void testMigrationTaskAdditionalPlugin() {
+    testResult();
+  }
+
   protected void testResult() {
     String fname = System.getProperty("test.output.dir") + File.separator + "result.txt";
     File file = new File(fname);
