@@ -807,7 +807,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_VarMacro == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.deprecated(true);
-          cpb.shortDesc("compute and store value in variable");
+          cpb.shortDesc("(DEPRECTATED) compute and store value in variable");
           cpb.presentationByName();
           props_VarMacro = cpb.create();
         }

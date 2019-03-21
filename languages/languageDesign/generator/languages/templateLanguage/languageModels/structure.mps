@@ -1622,7 +1622,7 @@
   <node concept="1TIwiD" id="4mp7qFmCXde">
     <property role="R5$K7" value="false" />
     <property role="R5$K2" value="false" />
-    <property role="R4oN_" value="compute and store value in variable" />
+    <property role="R4oN_" value="(DEPRECTATED) compute and store value in variable" />
     <property role="TrG5h" value="VarMacro" />
     <property role="3GE5qa" value="macro" />
     <property role="34LRSv" value="$VAR$" />

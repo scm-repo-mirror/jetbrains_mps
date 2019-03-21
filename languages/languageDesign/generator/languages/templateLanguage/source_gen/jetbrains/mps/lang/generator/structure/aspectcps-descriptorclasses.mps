@@ -9374,7 +9374,7 @@
                       <node concept="liA8E" id="RY" role="2OqNvi">
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.shortDesc(java.lang.String)" resolve="shortDesc" />
                         <node concept="Xl_RD" id="RZ" role="37wK5m">
-                          <property role="Xl_RC" value="compute and store value in variable" />
+                          <property role="Xl_RC" value="(DEPRECTATED) compute and store value in variable" />
                         </node>
                       </node>
                     </node>
