@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2014 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -75,7 +75,7 @@ public final class ParseFacility<T> {
     } catch (FileNotFoundException ex) {
       // ok, just ignore
     } catch (IOException ex) {
-      getLog().warn("Ignored parse error in file " + (myFile == null ? null : myFile.getPath()), ex);
+      getLog().warn(String.format("Ignored parse error in %s",  myFile == null ? myUrl : myFile));
     }
     return null;
   }
@@ -83,6 +83,9 @@ public final class ParseFacility<T> {
   public T parse() throws IOException {
     InputStream is = null;
     try {
+      // XXX perhaps, shall wrap is with a BufferedInputStream (any that supports mark()), and check if stream is not empty
+      //     to avoid garbage 'Premature end of file' warnings in the log. Makes sense even for IFile streams (regardless of length check in isValidInput
+      //     as its content perhaps may be different due to vfs caching).
       is = openStream();
       return myParser.load(is);
     } finally {
