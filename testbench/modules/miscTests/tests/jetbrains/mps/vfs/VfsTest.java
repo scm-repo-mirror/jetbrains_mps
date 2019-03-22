@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,10 +17,9 @@ package jetbrains.mps.vfs;
 
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
+import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.platform.watching.FileSystemListenersContainer;
 import jetbrains.mps.ide.vfs.IdeaFileSystem;
-import jetbrains.mps.ide.vfs.JarIdeaFileSystem;
-import jetbrains.mps.ide.vfs.LocalIdeaFileSystem;
 import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.tool.environment.EnvironmentAware;
 import jetbrains.mps.util.IFileUtil;
@@ -66,7 +65,8 @@ public class VfsTest implements EnvironmentAware {
     FileSystem oldFS = FileSystemExtPoint.getFS();
     try {
       FileSystemListenersContainer lc = new FileSystemListenersContainer();
-      FileSystemExtPoint.setFS(new IdeaFileSystem(lc, new JarIdeaFileSystem(lc), new LocalIdeaFileSystem(lc)));
+      // XXX what's the reason to initialize IdeaFileSystem app component this way?
+      FileSystemExtPoint.setFS(new IdeaFileSystem(ApplicationManager.getApplication().getComponent(MPSCoreComponents.class), lc, null, null));
       final Throwable[] ex = new Throwable[1];
       ApplicationManager.getApplication().invokeAndWait(new Runnable() {
         @Override

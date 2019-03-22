@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,14 +15,14 @@
  */
 package jetbrains.mps.ide.vfs;
 
-import com.intellij.openapi.components.ApplicationComponent;
+import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.platform.watching.FileSystemListenersContainer;
 import jetbrains.mps.vfs.VFSManager;
 import org.jetbrains.annotations.NotNull;
 
-public class LocalIdeaFileSystem extends BaseIdeaFileSystem implements ApplicationComponent {
-  public LocalIdeaFileSystem(FileSystemListenersContainer listenerContainer) {
-    super(listenerContainer);
+public class LocalIdeaFileSystem extends BaseIdeaFileSystem {
+  public LocalIdeaFileSystem(MPSCoreComponents mpsCore, FileSystemListenersContainer listenerContainer) {
+    super(mpsCore, listenerContainer);
   }
 
   @NotNull

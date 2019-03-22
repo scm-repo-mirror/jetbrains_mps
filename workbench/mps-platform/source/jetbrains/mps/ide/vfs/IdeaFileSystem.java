@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,10 +15,10 @@
  */
 package jetbrains.mps.ide.vfs;
 
-import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.vfs.SafeWriteRequestor;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileSystem;
+import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.platform.watching.FileSystemListenersContainer;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.annotation.ToRemove;
@@ -33,11 +33,11 @@ import org.jetbrains.annotations.Nullable;
 
 @Deprecated
 @ToRemove(version = 2019.1)
-public final class IdeaFileSystem extends BaseIdeaFileSystem implements SafeWriteRequestor, ApplicationComponent, FileSystem, IFileSystem, CachingFileSystem {
+public final class IdeaFileSystem extends BaseIdeaFileSystem implements SafeWriteRequestor, FileSystem, IFileSystem, CachingFileSystem {
   private FileSystem myOldFileSystem;
 
-  public IdeaFileSystem(FileSystemListenersContainer listenerContainer, JarIdeaFileSystem fs1, LocalIdeaFileSystem fs2) {
-    super(listenerContainer);
+  public IdeaFileSystem(MPSCoreComponents mpsCore, FileSystemListenersContainer listenerContainer, JarIdeaFileSystem fs1, LocalIdeaFileSystem fs2) {
+    super(mpsCore, listenerContainer);
   }
 
   @NotNull
@@ -49,7 +49,7 @@ public final class IdeaFileSystem extends BaseIdeaFileSystem implements SafeWrit
       path += "/";
     }
     String fsId = path.contains("!") ? VFSManager.JAR_FS : VFSManager.FILE_FS;
-    IFileSystem fileSystem = VFSManager.getInstance().getFileSystem(fsId);
+    IFileSystem fileSystem = vfsManager().getFileSystem(fsId);
     assert fileSystem instanceof BaseIdeaFileSystem;
     return ((BaseIdeaFileSystem) fileSystem).getFile(path);
   }

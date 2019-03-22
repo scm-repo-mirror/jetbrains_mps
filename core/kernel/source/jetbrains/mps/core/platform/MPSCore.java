@@ -73,7 +73,6 @@ public final class MPSCore extends ComponentPlugin implements ComponentHost {
   private PersistenceRegistry myPersistenceFacade;
   private MPSModuleRepository myModuleRepository;
   private LanguageRegistry myLanguageRegistry;
-  private TypeRegistry myTypeRegistry;
   private SRepositoryRegistry myRepositoryRegistry;
   private FacetsRegistry myModuleFacetsRegistry;
   private PathMacros myPathMacros;
@@ -83,6 +82,7 @@ public final class MPSCore extends ComponentPlugin implements ComponentHost {
   private ModelsAutoImportsManager myAutoImportsManager;
   private DescriptorIOFacade myModuleDescriptorFacade;
   private CheckerRegistry myCheckerRegistry;
+  private VFSManager myVFSManager;
 
   /**
    * made package-private
@@ -101,6 +101,7 @@ public final class MPSCore extends ComponentPlugin implements ComponentHost {
   @Override
   public void dispose() {
     super.dispose();
+    myCheckerRegistry = null;
     myModuleDescriptorFacade = null;
     myAutoImportsManager = null;
     myModelFactoryService = null;
@@ -113,11 +114,13 @@ public final class MPSCore extends ComponentPlugin implements ComponentHost {
     myRepositoryRegistry = null;
     myPathMacros = null;
     myExtensionRegistry = null;
+    myVFSManager = null;
     myInitialized = false;
   }
 
   private void doInit() {
     SNodeAccessUtil.setInstance(new SNodeAccessUtilImpl());
+    myVFSManager = init(new VFSManager());
     // in fact, could be part of PersistenceRegistry to minimize number of components. OTOH, complicates access
     // to the instance, findComponent(PersistenceRegistry.class).getDataSourceService() is longer than just findComponent(DataSourceFactoryRuleService.class)
     myDataSourceService = init(new DataSourceFactoryRuleService());
@@ -245,6 +248,9 @@ public final class MPSCore extends ComponentPlugin implements ComponentHost {
     }
     if (CheckerRegistry.class.equals(componentClass)) {
       return componentClass.cast(myCheckerRegistry);
+    }
+    if (VFSManager.class.equals(componentClass)) {
+      return componentClass.cast(myVFSManager);
     }
     return null;
   }

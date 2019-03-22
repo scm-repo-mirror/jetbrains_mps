@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,14 +24,10 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.testFramework.PlatformTestUtil;
 import jetbrains.mps.ide.platform.watching.FileSystemListenersContainer;
 import jetbrains.mps.ide.vfs.IdeaFile;
-import jetbrains.mps.ide.vfs.IdeaFileSystem;
-import jetbrains.mps.ide.vfs.JarIdeaFileSystem;
-import jetbrains.mps.ide.vfs.LocalIdeaFileSystem;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.tool.environment.EnvironmentAware;
 import jetbrains.mps.util.Reference;
-import jetbrains.mps.vfs.FileSystemExtPoint;
 import jetbrains.mps.vfs.refresh.DefaultCachingContext;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.ModelAccess;
@@ -89,8 +85,7 @@ public abstract class ModuleInProjectTest implements EnvironmentAware {
   }
 
   void refreshProjectRecursively() {
-    FileSystemListenersContainer lc = new FileSystemListenersContainer();
-    IdeaFile projectFile = new IdeaFileSystem(lc, new JarIdeaFileSystem(lc), new LocalIdeaFileSystem(lc)).getFile(myProject.getProjectFile().toString());
+    IdeaFile projectFile = myProject.getFileSystem().getFile(myProject.getProjectFile().toString());
     projectFile.refresh(new DefaultCachingContext(true, true));
     ApplicationManager.getApplication().invokeAndWait(() -> {
       ((StoreAwareProjectManager) ProjectManager.getInstance()).flushChangedProjectFileAlarm(); // needed to trigger refresh on the project folder components in test environment

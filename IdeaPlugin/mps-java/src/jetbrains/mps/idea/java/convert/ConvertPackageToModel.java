@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package jetbrains.mps.idea.java.convert;
 
 import com.intellij.facet.FacetManager;
@@ -44,12 +43,8 @@ import jetbrains.mps.extapi.model.SModelBase;
 import jetbrains.mps.ide.java.newparser.JavaParseException;
 import jetbrains.mps.ide.java.newparser.JavaToMpsConverter;
 import jetbrains.mps.ide.messages.MessagesViewTool;
-import jetbrains.mps.ide.platform.watching.FileSystemListenersContainer;
 import jetbrains.mps.ide.platform.watching.ReloadManager;
 import jetbrains.mps.ide.project.ProjectHelper;
-import jetbrains.mps.ide.vfs.IdeaFileSystem;
-import jetbrains.mps.ide.vfs.JarIdeaFileSystem;
-import jetbrains.mps.ide.vfs.LocalIdeaFileSystem;
 import jetbrains.mps.idea.core.facet.MPSFacet;
 import jetbrains.mps.idea.core.facet.MPSFacetType;
 import jetbrains.mps.idea.core.psi.impl.MPSPsiNode;
@@ -81,7 +76,6 @@ import java.util.Set;
 /**
  * danilla 6/5/13
  */
-
 public class ConvertPackageToModel extends AnAction {
 
   private static Logger LOG = Logger.getLogger("Convert java to mps");
@@ -137,7 +131,7 @@ public class ConvertPackageToModel extends AnAction {
     }
 
     final JavaToMpsConverter parser = new JavaToMpsConverter(mpsModule, mpsProject.getRepository(), true, true, project.getComponent(MessagesViewTool.class).newHandler());
-    final List<IFile> javaFiles = toIFiles(psiJavaFiles);
+    final List<IFile> javaFiles = toIFiles(mpsProject, psiJavaFiles);
 
     ApplicationManager.getApplication().saveAll();
 
@@ -277,13 +271,11 @@ public class ConvertPackageToModel extends AnAction {
     return false;
   }
 
-  private List<IFile> toIFiles(List<? extends PsiFile> psiFiles) {
-    List<IFile> result = new ArrayList<IFile>(psiFiles.size());
+  private static List<IFile> toIFiles(MPSProject mpsProject, List<? extends PsiFile> psiFiles) {
+    List<IFile> result = new ArrayList<>(psiFiles.size());
 
     for (PsiFile file : psiFiles) {
-      VirtualFile vfile = file.getVirtualFile();
-      FileSystemListenersContainer lc = new FileSystemListenersContainer();
-      IFile ifile = new IdeaFileSystem(lc, new JarIdeaFileSystem(lc), new LocalIdeaFileSystem(lc)).getFile(vfile.getPath());
+      IFile ifile = mpsProject.getFileSystem().fromVirtualFile(file.getVirtualFile());
       result.add(ifile);
     }
 

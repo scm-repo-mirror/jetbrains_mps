@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.openapi.vfs.VirtualFileSystem;
 import com.intellij.openapi.vfs.newvfs.RefreshQueue;
+import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.platform.watching.FileSystemListenersContainer;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.vfs.IFile;
@@ -53,10 +54,21 @@ import java.util.stream.Collectors;
 public abstract class BaseIdeaFileSystem implements IFileSystem, CachingFileSystem, ApplicationComponent {
   private static final Logger LOG = LogManager.getLogger(IdeaFileSystem.class);
 
+  private final MPSCoreComponents myCoreComponents;
   private FileSystemListenersContainer myListenersContainer;
 
-  public BaseIdeaFileSystem(FileSystemListenersContainer listenerContainer) {
+  public BaseIdeaFileSystem(MPSCoreComponents mpsCore, FileSystemListenersContainer listenerContainer) {
+    // XXX would be nice to get VirtualFileManager instance as well (see #getUnderlyingFS()), but the parameter list gets too long
+    //     Perhaps, if this class and subclasses stop being app component, we could have a single one that takes
+    //     MPSCoreComponent, FileSystemListenersContainer and VirtualFileManager, and registers appropriate protocol
+    //     implementations (jar, local, jrt and idea) as needed. Is there any value in distinct app components per protocol?
+    myCoreComponents = mpsCore;
     myListenersContainer = listenerContainer;
+  }
+
+  protected final VFSManager vfsManager() {
+    // perhaps, could be public, if needed
+    return myCoreComponents.getPlatform().findComponent(VFSManager.class);
   }
 
   @NotNull
@@ -138,12 +150,12 @@ public abstract class BaseIdeaFileSystem implements IFileSystem, CachingFileSyst
 
   @Override
   public void initComponent() {
-    VFSManager.getInstance().registerFS(getProtocol(), this);
+    vfsManager().registerFS(getProtocol(), this);
   }
 
   @Override
   public void disposeComponent() {
-    VFSManager.getInstance().unregisterFS(getProtocol(), this);
+    vfsManager().unregisterFS(getProtocol(), this);
   }
 
   @NotNull

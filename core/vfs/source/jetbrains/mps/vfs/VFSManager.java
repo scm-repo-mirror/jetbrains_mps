@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,9 +15,11 @@
  */
 package jetbrains.mps.vfs;
 
+import jetbrains.mps.components.CoreComponent;
+import jetbrains.mps.util.annotation.ToRemove;
+import jetbrains.mps.vfs.iofs.file.LocalIoFileSystem;
 import jetbrains.mps.vfs.iofs.jar.JarIoFileSystem;
 import jetbrains.mps.vfs.iofs.jrt.JrtIoFileSystem;
-import jetbrains.mps.vfs.iofs.file.LocalIoFileSystem;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -25,16 +27,34 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
-public class VFSManager {
+public class VFSManager implements CoreComponent {
   public static final String FILE_FS = "file";
   public static final String JAR_FS = "jar";
   public static final String JRT_FS = "jrt";
 
   private static final Logger LOG = LogManager.getLogger(VFSManager.class);
 
-  private static VFSManager INSTANCE = new VFSManager();
+  private static VFSManager INSTANCE;
   final private Map<String, IFileSystem> myFileSystems = new HashMap<>();
 
+  public VFSManager() {
+  }
+
+  @Override
+  public void init() {
+    INSTANCE = this;
+  }
+
+  @Override
+  public void dispose() {
+    INSTANCE = null;
+  }
+
+  /**
+   * @deprecated provisional code, not yet exposed in any release, to be removed
+   */
+  @Deprecated
+  @ToRemove(version = 0)
   public static VFSManager getInstance() {
     return INSTANCE;
   }
