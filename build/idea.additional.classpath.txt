@@ -24,6 +24,7 @@ core/findUsages-runtime/classes
 core/squery-runtime/classes
 core/refactoring/classes
 core/refactoring-runtime/classes
+core/typechecking/classes
 core/typesystemEngine/classes
 core/generator/classes
 core/make-runtime/classes

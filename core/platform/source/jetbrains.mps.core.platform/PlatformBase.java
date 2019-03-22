@@ -24,6 +24,7 @@ import jetbrains.mps.lang.dataFlow.MPSDataFlow;
 import jetbrains.mps.make.facets.MPSMake;
 import jetbrains.mps.persistence.MPSPersistence;
 import jetbrains.mps.text.impl.MPSTextGenerator;
+import jetbrains.mps.typechecking.internal.MPSTypechecking;
 import jetbrains.mps.typesystem.MPSTypesystem;
 import org.jetbrains.annotations.NotNull;
 
@@ -61,7 +62,9 @@ class PlatformBase implements Platform {
         public void run() {
           initAndRegister(new MPSProjectValidation(myCore));
           initAndRegister(new MPSMake(myCore.getLanguageRegistry()));
-          initAndRegister(new MPSTypesystem(myCore.getLanguageRegistry(), myCore.getClassLoaderManager()));
+          MPSTypechecking mpsTypechecking = new MPSTypechecking(myCore.getLanguageRegistry(), myCore.getClassLoaderManager());
+          initAndRegister(mpsTypechecking);
+          initAndRegister(new MPSTypesystem(myCore.getLanguageRegistry(), myCore.getClassLoaderManager(), mpsTypechecking));
           initAndRegister(new MPSGenerator(myCore));
           initAndRegister(new MPSFindUsages(myCore.getLanguageRegistry()));
           initAndRegister(new MPSTextGenerator(myCore.getLanguageRegistry()));

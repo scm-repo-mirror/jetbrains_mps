@@ -90,6 +90,7 @@
       <module fileurl="file://$PROJECT_DIR$/core/textgen/textgen.iml" filepath="$PROJECT_DIR$/core/textgen/textgen.iml" group="core" />
       <module fileurl="file://$PROJECT_DIR$/tools/tools/tools.iml" filepath="$PROJECT_DIR$/tools/tools/tools.iml" />
       <module fileurl="file://$PROJECT_DIR$/languages/baseLanguage/tuples/runtime/tuples-runtime.iml" filepath="$PROJECT_DIR$/languages/baseLanguage/tuples/runtime/tuples-runtime.iml" group="languages" />
+      <module fileurl="file://$PROJECT_DIR$/core/typechecking/typechecking.iml" filepath="$PROJECT_DIR$/core/typechecking/typechecking.iml" group="core" />
       <module fileurl="file://$PROJECT_DIR$/core/typesystemEngine/typesystemEngine.iml" filepath="$PROJECT_DIR$/core/typesystemEngine/typesystemEngine.iml" group="core" />
       <module fileurl="file://$PROJECT_DIR$/editor/typesystemIntegration/typesystemIntegration.iml" filepath="$PROJECT_DIR$/editor/typesystemIntegration/typesystemIntegration.iml" group="editor" />
       <module fileurl="file://$PROJECT_DIR$/workbench/typesystemUi/typesystemUi.iml" filepath="$PROJECT_DIR$/workbench/typesystemUi/typesystemUi.iml" group="workbench" />
