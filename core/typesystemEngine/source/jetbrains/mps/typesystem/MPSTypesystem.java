@@ -19,7 +19,6 @@ import jetbrains.mps.classloading.ClassLoaderManager;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.components.ComponentPlugin;
 import jetbrains.mps.components.CoreComponent;
-import jetbrains.mps.languageScope.LanguageScopeFactory;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.typesystem.inference.TypeChecker;
 import jetbrains.mps.typesystem.inference.TypeContextManager;
@@ -27,9 +26,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public final class MPSTypesystem extends ComponentPlugin implements ComponentHost {
+
+  // dependencies
   private final LanguageRegistry myLanguageRegistry;
   private final ClassLoaderManager myClassLoaderManager;
-  private LanguageScopeFactory myLanguageScopeFactory;
+  private final TypecheckingFacadeImpl myTypecheckingFacade;
+
+  // sub-components
   private TypeChecker myTypeChecker;
   private TypeContextManager myTypeContextManager;
 
@@ -41,7 +44,9 @@ public final class MPSTypesystem extends ComponentPlugin implements ComponentHos
   @Override
   public void init() {
     super.init();
-    myLanguageScopeFactory = init(new LanguageScopeFactory(myLanguageRegistry));
+    myTypecheckingFacade.getTypecheckingExtensions().setDefault(
+        new LegacyTypecheckingQueryDispatcher(), new LegacyTypecheckingProvider()
+    );
     myTypeChecker = init(new TypeChecker(myLanguageRegistry));
     myTypeContextManager = init(new TypeContextManager(myTypeChecker, myClassLoaderManager));
   }
@@ -49,9 +54,6 @@ public final class MPSTypesystem extends ComponentPlugin implements ComponentHos
   @Nullable
   @Override
   public <T extends CoreComponent> T findComponent(@NotNull Class<T> componentClass) {
-    if (LanguageScopeFactory.class.equals(componentClass)) {
-      return componentClass.cast(myLanguageScopeFactory);
-    }
     if (TypeChecker.class.equals(componentClass)) {
       return componentClass.cast(myTypeChecker);
     }

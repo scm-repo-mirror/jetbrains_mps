@@ -42,6 +42,8 @@ public class LanguageScopeFactory implements CoreComponent, LanguageRegistryList
   private static final int CACHE_SIZE = 1000;
 
   private static LanguageScopeFactory INSTANCE;
+
+  // dependency
   private final LanguageRegistry myLanguageRegistry;
 
   /**

@@ -30,10 +30,18 @@ public class LanguageScopeExecutor {
    * If {@code sModel} is {@code null}, global scope (with all languages?) is assumed.
    * Beware, {@code sModel}, if provided, expected to be attached to a repository to get its usages (namely, devkits)
    * properly resolved.
+   * @deprecated use the overloaded method with additional {@link LanguageScopeFactory} parameter
    */
+  @Deprecated
   public static <T> T execWithModelScope(@Nullable SModel sModel, Computable<T> computable) {
+    LanguageScopeFactory languageScopeFactory = LanguageScopeFactory.getInstance();
+    return execWithModelScope(sModel, computable, languageScopeFactory);
+  }
+
+  public static <T> T execWithModelScope(@Nullable SModel sModel, @Nullable Computable<T> computable,
+                                          LanguageScopeFactory languageScopeFactory) {
     LanguageScope languageScope = sModel == null ? LanguageScope.getGlobal() :
-      LanguageScopeFactory.getInstance().getLanguageScope(SModelOperations.getAllLanguageImports(sModel));
+                                  languageScopeFactory.getLanguageScope(SModelOperations.getAllLanguageImports(sModel));
     try{
       LanguageScope.pushCurrent(languageScope, computable);
       return computable.compute();
@@ -54,8 +62,18 @@ public class LanguageScopeExecutor {
     }
   }
 
+  /**
+   * @deprecated use the overloaded method with additional {@link LanguageScopeFactory} parameter.
+   */
+  @Deprecated
   public static <T> T execWithMultiLanguageScope(Collection<SLanguage> langs, Computable<T> computable) {
-    LanguageScope languageScope = LanguageScopeFactory.getInstance().getLanguageScope(langs);
+    LanguageScopeFactory languageScopeFactory = LanguageScopeFactory.getInstance();
+    return execWithMultiLanguageScope(langs, computable, languageScopeFactory);
+  }
+
+  public static <T> T execWithMultiLanguageScope(@Nullable Collection<SLanguage> langs, @Nullable Computable<T> computable,
+                                                  LanguageScopeFactory languageScopeFactory) {
+    LanguageScope languageScope = languageScopeFactory.getLanguageScope(langs);
     try{
       LanguageScope.pushCurrent(languageScope, computable);
       return computable.compute();

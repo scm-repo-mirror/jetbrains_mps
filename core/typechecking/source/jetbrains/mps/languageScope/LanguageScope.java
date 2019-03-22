@@ -27,12 +27,8 @@ public class LanguageScope {
 
   private static final CurrentLanguageScope GLOBAL = new CurrentLanguageScope(new GlobalLanguageScope(), null);
 
-  private static ThreadLocal<LinkedList<CurrentLanguageScope>> CURRENT_STACK = new ThreadLocal<LinkedList<CurrentLanguageScope>>() {
-    @Override
-    protected LinkedList<CurrentLanguageScope> initialValue() {
-      return new LinkedList<>(Collections.singleton(GLOBAL));
-    }
-  };
+  private static ThreadLocal<LinkedList<CurrentLanguageScope>> CURRENT_STACK = ThreadLocal.withInitial(
+      () -> new LinkedList<>(Collections.singleton(GLOBAL)));
 
   private final LanguageScopeFactory myFactory;
   private final BitSet myNsBitSet;
