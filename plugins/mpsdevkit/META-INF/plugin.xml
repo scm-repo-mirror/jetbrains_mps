@@ -59,6 +59,7 @@
     <mps.VisibleModuleMask mask="jetbrains\.mps\.runtime"/>
     <mps.VisibleModuleMask mask="jetbrains\.mps\.smodel\.resources"/>
     <mps.VisibleModuleMask mask="jetbrains\.mps\.traceInfo.*"/>
+    <mps.VisibleModuleMask mask="jetbrains\.mps\.typechecking.*"/>
     <mps.VisibleModuleMask mask="jetbrains\.mps\.typesystemEngine"/>
     <mps.VisibleModuleMask mask="MPS.*"/>
     <mps.VisibleModuleMask mask="stubUtils"/>
