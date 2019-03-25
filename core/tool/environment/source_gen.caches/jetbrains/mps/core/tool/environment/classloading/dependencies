@@ -43,6 +43,7 @@
     <classNode dependClassName="java.net.MalformedURLException" />
     <classNode dependClassName="java.net.URL" />
     <classNode dependClassName="java.net.URLClassLoader" />
+    <classNode dependClassName="java.util.ArrayList" />
     <classNode dependClassName="java.util.HashMap" />
     <classNode dependClassName="java.util.Iterator" />
     <classNode dependClassName="java.util.List" />

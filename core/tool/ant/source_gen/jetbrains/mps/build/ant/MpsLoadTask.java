@@ -11,9 +11,10 @@ import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Project;
 import java.util.Set;
 import java.util.Hashtable;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import jetbrains.mps.tool.common.PluginData;
 import org.apache.tools.ant.util.JavaEnvUtils;
+import java.util.HashSet;
 import java.io.IOException;
 import org.apache.tools.ant.taskdefs.Execute;
 import java.net.URL;
@@ -28,7 +29,6 @@ import java.lang.reflect.Constructor;
 import org.apache.tools.ant.ProjectComponent;
 import java.util.Collections;
 import java.io.FileInputStream;
-import java.util.LinkedHashSet;
 import java.io.InputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -120,7 +120,7 @@ public abstract class MpsLoadTask extends Task {
         myWhatToDo.addMacro((String) name, (String) value);
       }
     }
-    Set<File> pluginsClassPath = new HashSet<File>();
+    Set<File> pluginsClassPath = new LinkedHashSet<File>();
     for (PluginData pd : myWhatToDo.getPlugins()) {
       MPSClasspathUtil.gatherAllClassesAndJarsUnder(new File(pd.path), pluginsClassPath);
     }

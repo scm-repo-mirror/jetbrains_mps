@@ -6881,7 +6881,7 @@
         <ref role="3uigEE" node="5QbKaIbm7l0" resolve="UrlClassLoader" />
       </node>
       <node concept="37vLTG" id="1bMaI2XqGfk" role="3clF46">
-        <property role="TrG5h" value="classpathElements" />
+        <property role="TrG5h" value="additionalCP" />
         <property role="3TUv4t" value="true" />
         <node concept="3uibUv" id="1bMaI2XqGfl" role="1tU5fm">
           <ref role="3uigEE" to="33ny:~List" resolve="List" />
@@ -6891,6 +6891,25 @@
         </node>
       </node>
       <node concept="3clFbS" id="1bMaI2XqGfn" role="3clF47">
+        <node concept="3cpWs8" id="3c815zsOQca" role="3cqZAp">
+          <node concept="3cpWsn" id="3c815zsOQcg" role="3cpWs9">
+            <property role="TrG5h" value="cp" />
+            <node concept="3uibUv" id="3c815zsOQci" role="1tU5fm">
+              <ref role="3uigEE" to="33ny:~List" resolve="List" />
+              <node concept="3uibUv" id="3c815zsOQAV" role="11_B2D">
+                <ref role="3uigEE" to="zf81:~URL" resolve="URL" />
+              </node>
+            </node>
+            <node concept="2ShNRf" id="3c815zsOR7j" role="33vP2m">
+              <node concept="1pGfFk" id="3c815zsORCD" role="2ShVmc">
+                <ref role="37wK5l" to="33ny:~ArrayList.&lt;init&gt;()" resolve="ArrayList" />
+                <node concept="3uibUv" id="3c815zsOSi9" role="1pMfVU">
+                  <ref role="3uigEE" to="zf81:~URL" resolve="URL" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="1bMaI2XqGfo" role="3cqZAp">
           <node concept="2YIFZM" id="1bMaI2XqGfp" role="3clFbG">
             <ref role="1Pybhc" to="v9gs:4937uxYQn6D" resolve="PathManager" />
@@ -6977,8 +6996,8 @@
               <node concept="2YIFZM" id="1bMaI2XqGfR" role="3clFbG">
                 <ref role="1Pybhc" node="1bMaI2XqGdw" resolve="ClassloaderUtil" />
                 <ref role="37wK5l" node="1bMaI2XqGhH" resolve="addParentClasspath" />
-                <node concept="37vLTw" id="2BHiRxgm9f6" role="37wK5m">
-                  <ref role="3cqZAo" node="1bMaI2XqGfk" resolve="classpathElements" />
+                <node concept="37vLTw" id="3c815zsOSES" role="37wK5m">
+                  <ref role="3cqZAo" node="3c815zsOQcg" resolve="cp" />
                 </node>
               </node>
             </node>
@@ -6986,8 +7005,8 @@
               <node concept="2YIFZM" id="1bMaI2XqGfU" role="3clFbG">
                 <ref role="1Pybhc" node="1bMaI2XqGdw" resolve="ClassloaderUtil" />
                 <ref role="37wK5l" node="1bMaI2XqGkF" resolve="addIDEALibraries" />
-                <node concept="37vLTw" id="2BHiRxgmerM" role="37wK5m">
-                  <ref role="3cqZAo" node="1bMaI2XqGfk" resolve="classpathElements" />
+                <node concept="37vLTw" id="3c815zsOSVR" role="37wK5m">
+                  <ref role="3cqZAo" node="3c815zsOQcg" resolve="cp" />
                 </node>
               </node>
             </node>
@@ -6995,9 +7014,22 @@
               <node concept="2YIFZM" id="1bMaI2XqGfX" role="3clFbG">
                 <ref role="37wK5l" node="1bMaI2XqGnS" resolve="addAdditionalClassPath" />
                 <ref role="1Pybhc" node="1bMaI2XqGdw" resolve="ClassloaderUtil" />
-                <node concept="37vLTw" id="2BHiRxglKY6" role="37wK5m">
-                  <ref role="3cqZAo" node="1bMaI2XqGfk" resolve="classpathElements" />
+                <node concept="37vLTw" id="3c815zsOTcO" role="37wK5m">
+                  <ref role="3cqZAo" node="3c815zsOQcg" resolve="cp" />
                 </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="3c815zsOViW" role="3cqZAp">
+          <node concept="2OqwBi" id="3c815zsOVJg" role="3clFbG">
+            <node concept="37vLTw" id="3c815zsOViU" role="2Oq$k0">
+              <ref role="3cqZAo" node="3c815zsOQcg" resolve="cp" />
+            </node>
+            <node concept="liA8E" id="3c815zsOXf5" role="2OqNvi">
+              <ref role="37wK5l" to="33ny:~List.addAll(java.util.Collection):boolean" resolve="addAll" />
+              <node concept="37vLTw" id="3c815zsOX$4" role="37wK5m">
+                <ref role="3cqZAo" node="1bMaI2XqGfk" resolve="additionalCP" />
               </node>
             </node>
           </node>
@@ -7006,8 +7038,8 @@
           <node concept="2YIFZM" id="1bMaI2XqGg0" role="3clFbG">
             <ref role="37wK5l" node="1bMaI2XqGgN" resolve="filterClassPath" />
             <ref role="1Pybhc" node="1bMaI2XqGdw" resolve="ClassloaderUtil" />
-            <node concept="37vLTw" id="2BHiRxgheTT" role="37wK5m">
-              <ref role="3cqZAo" node="1bMaI2XqGfk" resolve="classpathElements" />
+            <node concept="37vLTw" id="3c815zsOTtL" role="37wK5m">
+              <ref role="3cqZAo" node="3c815zsOQcg" resolve="cp" />
             </node>
           </node>
         </node>
@@ -7097,8 +7129,8 @@
                 <node concept="2ShNRf" id="1bMaI2XqGg$" role="37vLTx">
                   <node concept="1pGfFk" id="1bMaI2XqGg_" role="2ShVmc">
                     <ref role="37wK5l" node="5QbKaIbm7ma" resolve="UrlClassLoader" />
-                    <node concept="37vLTw" id="2BHiRxgm89m" role="37wK5m">
-                      <ref role="3cqZAo" node="1bMaI2XqGfk" resolve="classpathElements" />
+                    <node concept="37vLTw" id="3c815zsOTII" role="37wK5m">
+                      <ref role="3cqZAo" node="3c815zsOQcg" resolve="cp" />
                     </node>
                     <node concept="10Nm6u" id="1bMaI2XqGgB" role="37wK5m" />
                     <node concept="3clFbT" id="1bMaI2XqGgC" role="37wK5m">

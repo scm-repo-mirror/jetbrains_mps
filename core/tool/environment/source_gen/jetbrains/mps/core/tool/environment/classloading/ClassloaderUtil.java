@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
 import java.util.List;
 import java.net.URL;
+import java.util.ArrayList;
 import jetbrains.mps.core.tool.environment.util.PathManager;
 import java.net.MalformedURLException;
 import java.util.regex.Pattern;
@@ -56,12 +57,13 @@ public class ClassloaderUtil {
     return LogManager.getLogger("ClassloaderUtil");
   }
 
-  public static UrlClassLoader initClassloader(final List<URL> classpathElements) {
+  public static UrlClassLoader initClassloader(final List<URL> additionalCP) {
+    List<URL> cp = new ArrayList<URL>();
     PathManager.loadProperties();
     try {
-      ClassloaderUtil.addParentClasspath(classpathElements);
-      ClassloaderUtil.addIDEALibraries(classpathElements);
-      ClassloaderUtil.addAdditionalClassPath(classpathElements);
+      ClassloaderUtil.addParentClasspath(cp);
+      ClassloaderUtil.addIDEALibraries(cp);
+      ClassloaderUtil.addAdditionalClassPath(cp);
     } catch (IllegalArgumentException e) {
       ClassloaderUtil.getLogger().error(null, e);
       System.exit(1);
@@ -69,10 +71,11 @@ public class ClassloaderUtil {
       ClassloaderUtil.getLogger().error(e.getMessage());
       System.exit(1);
     }
-    ClassloaderUtil.filterClassPath(classpathElements);
+    cp.addAll(additionalCP);
+    ClassloaderUtil.filterClassPath(cp);
     UrlClassLoader newClassLoader = null;
     try {
-      newClassLoader = new UrlClassLoader(classpathElements, null, true, true);
+      newClassLoader = new UrlClassLoader(cp, null, true, true);
       //  prepare plugins 
       Thread.currentThread().setContextClassLoader(newClassLoader);
     } catch (Exception e) {

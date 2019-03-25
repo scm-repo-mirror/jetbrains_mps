@@ -62,6 +62,7 @@
       </concept>
       <concept id="2820489544401957797" name="jetbrains.mps.baseLanguage.structure.DefaultClassCreator" flags="nn" index="HV5vD">
         <reference id="2820489544401957798" name="classifier" index="HV5vE" />
+        <child id="2820489544402271667" name="typeParameter" index="HU9BZ" />
       </concept>
       <concept id="1154032098014" name="jetbrains.mps.baseLanguage.structure.AbstractLoopStatement" flags="nn" index="2LF5Ji">
         <child id="1154032183016" name="body" index="2LFqv$" />
@@ -1951,9 +1952,9 @@
               </node>
             </node>
             <node concept="2ShNRf" id="5JXeQM0uZKN" role="33vP2m">
-              <node concept="1pGfFk" id="5JXeQM0v0s6" role="2ShVmc">
-                <ref role="37wK5l" to="33ny:~HashSet.&lt;init&gt;()" resolve="HashSet" />
-                <node concept="3uibUv" id="5JXeQM0v1q2" role="1pMfVU">
+              <node concept="HV5vD" id="3c815zsPkSJ" role="2ShVmc">
+                <ref role="HV5vE" to="33ny:~LinkedHashSet" resolve="LinkedHashSet" />
+                <node concept="3uibUv" id="3c815zsPmSx" role="HU9BZ">
                   <ref role="3uigEE" to="guwi:~File" resolve="File" />
                 </node>
               </node>
