@@ -26,13 +26,7 @@ import java.util.Set;
 import com.intellij.util.messages.MessageBusConnection;
 import jetbrains.mps.nodeEditor.leftHighlighter.LeftEditorHighlighter;
 import org.jetbrains.mps.openapi.model.SNode;
-import org.jetbrains.mps.openapi.model.SNodeId;
-import jetbrains.mps.internal.collections.runtime.SetSequence;
-import java.util.HashSet;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.internal.collections.runtime.ISelector;
-import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.smodel.persistence.def.ModelReadException;
 import jetbrains.mps.vcspersistence.VCSPersistenceSupport;
@@ -42,6 +36,7 @@ import com.intellij.openapi.vcs.changes.ui.ChangesViewContentManager;
 import com.intellij.openapi.ui.MessageType;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.internal.collections.runtime.ISelector;
 import com.intellij.openapi.vcs.actions.AnnotationColors;
 import com.intellij.ui.ColorUtil;
 import org.jetbrains.mps.openapi.module.SRepository;
@@ -57,6 +52,8 @@ import jetbrains.mps.vcs.diff.changes.NodeGroupChange;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.smodel.persistence.lines.NodeLineContent;
 import jetbrains.mps.nodeEditor.EditorComponent;
+import jetbrains.mps.internal.collections.runtime.SetSequence;
+import java.util.HashSet;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import jetbrains.mps.nodeEditor.cells.FontRegistry;
@@ -103,10 +100,12 @@ import java.io.File;
 import com.intellij.openapi.vcs.changes.ContentRevision;
 import com.intellij.openapi.fileTypes.FileType;
 import jetbrains.mps.fileTypes.MPSFileTypeFactory;
+import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.vcspersistence.VCSPersistenceUtil;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.vcs.diff.merge.MergeTemporaryModel;
+import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import com.intellij.diff.contents.DiffContent;
@@ -142,12 +141,7 @@ public class AnnotationColumn extends AbstractLeftColumn {
   private MessageBusConnection myMessageBusConnection;
   public AnnotationColumn(LeftEditorHighlighter leftEditorHighlighter, SNode root, FileAnnotation fileAnnotation, final AbstractVcs vcs, VirtualFile virtualFile) {
     super(leftEditorHighlighter);
-    Set<SNodeId> descendantIds = SetSequence.fromSetWithValues(new HashSet<SNodeId>(), ListSequence.fromList(SNodeOperations.getNodeDescendants(root, null, true, new SAbstractConcept[]{})).select(new ISelector<SNode, SNodeId>() {
-      public SNodeId select(SNode n) {
-        return n.getNodeId();
-      }
-    }));
-    SModel model = SNodeOperations.getModel(root);
+    myModel = (EditableSModel) SNodeOperations.getModel(root);
     myFileAnnotation = fileAnnotation;
     for (VcsFileRevision rev : ListSequence.fromList(fileAnnotation.getRevisions())) {
       MapSequence.fromMap(myRevisionNumberToRevision).put(rev.getRevisionNumber(), rev);
@@ -176,22 +170,6 @@ public class AnnotationColumn extends AbstractLeftColumn {
         return LineAnnotationAspect.AUTHOR.equals(a.getId());
       }
     });
-    Map<SNodeId, Integer> nodeIdToFileLine = MapSequence.fromMap(new HashMap<SNodeId, Integer>());
-    for (int line = 0; line < ListSequence.fromList(myFileLineToContent).count(); line++) {
-      SNode node = null;
-      SNodeId id = check_5mnya_a0b0k0v(ListSequence.fromList(myFileLineToContent).getElement(line));
-      if (id != null && SetSequence.fromSet(descendantIds).contains(id)) {
-        node = model.getNode(id);
-      }
-      if (node == null) {
-        continue;
-      }
-      if (MapSequence.fromMap(nodeIdToFileLine).containsKey(id)) {
-        MapSequence.fromMap(nodeIdToFileLine).put(id, getFileLineWithMaxRevision(MapSequence.fromMap(nodeIdToFileLine).get(id), line));
-      } else {
-        MapSequence.fromMap(nodeIdToFileLine).put(id, line);
-      }
-    }
     ListSequence.fromList(myAspectSubcolumns).addSequence(Sequence.fromIterable(Sequence.fromArray(fileAnnotation.getAspects())).select(new ISelector<LineAnnotationAspect, AnnotationAspectSubcolumn>() {
       public AnnotationAspectSubcolumn select(LineAnnotationAspect a) {
         return new AnnotationAspectSubcolumn(AnnotationColumn.this, a);
@@ -212,7 +190,6 @@ public class AnnotationColumn extends AbstractLeftColumn {
     myRevisionRange = new VcsRevisionRange(this, myFileAnnotation);
     ListSequence.fromList(myAspectSubcolumns).addElement(new HighlightRevisionSubcolumn(this, myRevisionRange));
     myVirtualFile = virtualFile;
-    myModel = (EditableSModel) model;
     myVcs = vcs;
     final SRepository editorRepo = getEditorComponent().getEditorContext().getRepository();
     final CurrentDifferenceRegistry registry = CurrentDifferenceRegistry.getInstance(getProject());
@@ -221,7 +198,7 @@ public class AnnotationColumn extends AbstractLeftColumn {
         final CurrentDifference currentDifference = registry.getCurrentDifference(myModel);
         editorRepo.getModelAccess().runReadAction(new Runnable() {
           public void run() {
-            ListSequence.fromList(check_5mnya_a0a0a0a1a0a0w0v(currentDifference.getChangeSet())).visitAll(new IVisitor<ModelChange>() {
+            ListSequence.fromList(check_5mnya_a0a0a0a1a0a0s0v(currentDifference.getChangeSet())).visitAll(new IVisitor<ModelChange>() {
               public void visit(ModelChange ch) {
                 saveChange(ch);
               }
@@ -732,13 +709,7 @@ __switch__:
       }
     }
   }
-  private static SNodeId check_5mnya_a0b0k0v(LineContent checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getNodeId();
-    }
-    return null;
-  }
-  private static List<ModelChange> check_5mnya_a0a0a0a1a0a0w0v(ChangeSet checkedDotOperand) {
+  private static List<ModelChange> check_5mnya_a0a0a0a1a0a0s0v(ChangeSet checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModelChanges();
     }
