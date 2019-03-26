@@ -617,11 +617,19 @@ public class ParenthesisUtil {
     SNode backsideExpr = (isRight ? SLinkOperations.getTarget(child, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression")) : SLinkOperations.getTarget(child, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression")));
     SNodeOperations.deleteNode(child);
     SNodeOperations.replaceWithAnother(op, child);
-    SNodeOperations.replaceWithAnother(backsideExpr, op);
-    if (isRight) {
-      SLinkOperations.setTarget(op, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), backsideExpr);
+    if (backsideExpr != null) {
+      SNodeOperations.replaceWithAnother(backsideExpr, op);
+      if (isRight) {
+        SLinkOperations.setTarget(op, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), backsideExpr);
+      } else {
+        SLinkOperations.setTarget(op, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), backsideExpr);
+      }
     } else {
-      SLinkOperations.setTarget(op, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), backsideExpr);
+      if (isRight) {
+        SLinkOperations.setTarget(child, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), op);
+      } else {
+        SLinkOperations.setTarget(child, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), op);
+      }
     }
   }
   public static boolean isBadPriority(SNode child, SNode parent, boolean isRight) {
