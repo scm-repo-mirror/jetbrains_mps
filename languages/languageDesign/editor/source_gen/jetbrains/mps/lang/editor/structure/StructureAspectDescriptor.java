@@ -2734,7 +2734,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("specificator", 0x64a01fa8546d376bL).target(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7e806541c9392c22L).optional(false).ordered(true).multiple(false).origin("7250830207897909099").done();
     b.aggregate("customizeFunction", 0xab9d570df29746bL).target(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xab9d570df2577c8L).optional(false).ordered(true).multiple(false).origin("772883491827840107").done();
     b.kind(ConceptKind.INTERFACE, StaticScope.GLOBAL);
-    b.alias("Completion Styling");
+    b.alias("completion styling");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForConceptEditorContextHints() {

@@ -26554,8 +26554,8 @@
     <property role="3GE5qa" value="Menu.Completion" />
     <ref role="1XX52x" to="tpc2:6LZbIQxCb5y" resolve="CompletionStyling" />
     <node concept="3EZMnI" id="6LZbIQxCZXx" role="2wV5jI">
-      <node concept="3F0ifn" id="6LZbIQxCZXC" role="3EZMnx">
-        <property role="3F0ifm" value="completion styling" />
+      <node concept="PMmxH" id="19KoS0Gbu5G" role="3EZMnx">
+        <ref role="PMmxG" to="tpco:2wZex4PafBj" resolve="alias" />
       </node>
       <node concept="3F0A7n" id="6LZbIQxCZXI" role="3EZMnx">
         <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />

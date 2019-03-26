@@ -29,7 +29,7 @@ public class EditorMenuItemStyleImpl implements EditorMenuItemStyle {
   private boolean myItalic;
   private boolean myStrikeout;
   private boolean myWasCustomized;
-  private String myDescription;
+  private String myDescriptionText;
 
   @Override
   public void hide() {
@@ -74,8 +74,8 @@ public class EditorMenuItemStyleImpl implements EditorMenuItemStyle {
   }
 
   @Override
-  public void setDescription(String description) {
-    myDescription = description;
+  public void setDescriptionText(String descriptionText) {
+    myDescriptionText = descriptionText;
     myWasCustomized = true;
   }
 
@@ -107,8 +107,8 @@ public class EditorMenuItemStyleImpl implements EditorMenuItemStyle {
     return Optional.ofNullable(myTextColor);
   }
 
-  public Optional<String> getDescription() {
-    return Optional.ofNullable(myDescription);
+  public Optional<String> getDescriptionText() {
+    return Optional.ofNullable(myDescriptionText);
   }
 
   boolean wasCustomized() {

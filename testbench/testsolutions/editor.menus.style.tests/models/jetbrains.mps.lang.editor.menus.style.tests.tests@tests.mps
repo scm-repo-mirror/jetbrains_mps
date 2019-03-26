@@ -1906,8 +1906,8 @@
                       <node concept="37vLTw" id="1jFsakGoHnG" role="2Oq$k0">
                         <ref role="3cqZAo" node="77bAwtGR0gx" resolve="impl" />
                       </node>
-                      <node concept="liA8E" id="1jFsakGoJhX" role="2OqNvi">
-                        <ref role="37wK5l" to="6lvu:~EditorMenuItemStyleImpl.getDescription()" resolve="getDescription" />
+                      <node concept="liA8E" id="19KoS0GhzJx" role="2OqNvi">
+                        <ref role="37wK5l" to="6lvu:~EditorMenuItemStyleImpl.getDescriptionText()" resolve="getDescriptionText" />
                       </node>
                     </node>
                     <node concept="liA8E" id="1jFsakGoHnI" role="2OqNvi">

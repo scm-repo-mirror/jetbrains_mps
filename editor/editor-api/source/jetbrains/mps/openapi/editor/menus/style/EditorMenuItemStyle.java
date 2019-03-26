@@ -32,6 +32,6 @@ public interface EditorMenuItemStyle {
 
   void setTextColor(Color color);
 
-  void setDescription(String description);
+  void setDescriptionText(String descriptionText);
 }
 

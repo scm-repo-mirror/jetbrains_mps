@@ -121,7 +121,7 @@ class NodeItemCellRenderer extends JPanel implements ListCellRenderer<Substitute
     }
 
     try {
-      String descriptionText = completionCustomizationManager.getDescription(action, pattern).orElse(action.getDescriptionText(pattern));
+      String descriptionText = completionCustomizationManager.getDescriptionText(action, pattern).orElse(action.getDescriptionText(pattern));
       if (descriptionText != null) {
         myRight.append(descriptionText);
       }

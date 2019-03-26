@@ -1550,7 +1550,7 @@
                 <node concept="2OqwBi" id="1jFsakGoH4x" role="3clFbG">
                   <node concept="3lBNjA" id="1jFsakGoGW6" role="2Oq$k0" />
                   <node concept="liA8E" id="1jFsakGoHbR" role="2OqNvi">
-                    <ref role="37wK5l" to="av1m:~EditorMenuItemStyle.setDescription(java.lang.String)" resolve="setDescription" />
+                    <ref role="37wK5l" to="av1m:~EditorMenuItemStyle.setDescriptionText(java.lang.String)" resolve="setDescriptionText" />
                     <node concept="Xl_RD" id="1jFsakGoHfI" role="37wK5m">
                       <property role="Xl_RC" value="custom_description" />
                     </node>

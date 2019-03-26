@@ -138,8 +138,8 @@ class CompletionCustomizationManager {
     return getActionStyle(action, pattern, EditorMenuItemStyleImpl::getTextColor);
   }
 
-  Optional<String> getDescription(SubstituteAction action, String pattern) {
-    return getActionStyle(action, pattern, EditorMenuItemStyleImpl::getDescription);
+  Optional<String> getDescriptionText(SubstituteAction action, String pattern) {
+    return getActionStyle(action, pattern, EditorMenuItemStyleImpl::getDescriptionText);
   }
 
 

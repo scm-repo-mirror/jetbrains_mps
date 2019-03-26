@@ -3774,7 +3774,7 @@
       <node id="8646897227238512939" at="71,26,72,29" concept="2" />
       <node id="8199816903239734680" at="72,29,73,45" concept="2" />
       <node id="8199816903239759514" at="73,45,74,41" concept="2" />
-      <node id="1507422355002150664" at="74,41,75,51" concept="2" />
+      <node id="1507422355002150664" at="74,41,75,55" concept="2" />
       <node id="8199816903239731802" at="23,104,26,5" concept="5" />
       <node id="8199816903239731802" at="27,135,30,5" concept="5" />
       <node id="8199816903239731855" at="36,0,39,0" concept="6" trace="doMatchesContext#(Ljetbrains/mps/openapi/editor/menus/style/EditorMenuItemCustomizationContext;)Z" />
@@ -3830,7 +3830,7 @@
         <var name="context" id="8199816903239731855" />
         <var name="style" id="8199816903239731855" />
       </scope>
-      <scope id="8199816903239963331" at="69,14,75,51" />
+      <scope id="8199816903239963331" at="69,14,75,55" />
       <scope id="8199816903239731802" at="23,104,30,5">
         <var name="customizer" id="8199816903239731802" />
       </scope>
