@@ -1896,6 +1896,27 @@
                   </node>
                 </node>
               </node>
+              <node concept="3vwNmj" id="1jFsakGoHnB" role="3cqZAp">
+                <node concept="17R0WA" id="1jFsakGoHnC" role="3vwVQn">
+                  <node concept="Xl_RD" id="1jFsakGoKKP" role="3uHU7w">
+                    <property role="Xl_RC" value="custom_description" />
+                  </node>
+                  <node concept="2OqwBi" id="1jFsakGoHnE" role="3uHU7B">
+                    <node concept="2OqwBi" id="1jFsakGoHnF" role="2Oq$k0">
+                      <node concept="37vLTw" id="1jFsakGoHnG" role="2Oq$k0">
+                        <ref role="3cqZAo" node="77bAwtGR0gx" resolve="impl" />
+                      </node>
+                      <node concept="liA8E" id="1jFsakGoJhX" role="2OqNvi">
+                        <ref role="37wK5l" to="6lvu:~EditorMenuItemStyleImpl.getDescription()" resolve="getDescription" />
+                      </node>
+                    </node>
+                    <node concept="liA8E" id="1jFsakGoHnI" role="2OqNvi">
+                      <ref role="37wK5l" to="33ny:~Optional.orElse(java.lang.Object)" resolve="orElse" />
+                      <node concept="10Nm6u" id="1jFsakGoHnJ" role="37wK5m" />
+                    </node>
+                  </node>
+                </node>
+              </node>
               <node concept="3vwNmj" id="77bAwtGR12y" role="3cqZAp">
                 <node concept="17R0WA" id="77bAwtGR1mJ" role="3vwVQn">
                   <node concept="10M0yZ" id="77bAwtGR1wb" role="3uHU7w">

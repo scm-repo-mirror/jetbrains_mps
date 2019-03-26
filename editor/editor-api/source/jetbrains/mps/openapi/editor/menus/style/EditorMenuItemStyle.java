@@ -31,5 +31,7 @@ public interface EditorMenuItemStyle {
   void setBackgroundColor(Color color);
 
   void setTextColor(Color color);
+
+  void setDescription(String description);
 }
 

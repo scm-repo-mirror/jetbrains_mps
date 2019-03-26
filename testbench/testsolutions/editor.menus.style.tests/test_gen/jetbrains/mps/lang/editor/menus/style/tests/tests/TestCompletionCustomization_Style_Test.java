@@ -52,6 +52,7 @@ public class TestCompletionCustomization_Style_Test extends BaseTransformationTe
           Assert.assertTrue(impl.isBold());
           Assert.assertTrue(impl.isItalic());
           Assert.assertTrue(impl.isStrikeout());
+          Assert.assertTrue(Objects.equals(impl.getDescription().orElse(null), "custom_description"));
           Assert.assertTrue(Objects.equals(impl.getBackgroundColor().orElse(null), Color.BLUE));
           Assert.assertTrue(Objects.equals(impl.getTextColor().orElse(null), Color.YELLOW));
         }

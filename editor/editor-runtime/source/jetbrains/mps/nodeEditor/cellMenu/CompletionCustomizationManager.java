@@ -138,6 +138,10 @@ class CompletionCustomizationManager {
     return getActionStyle(action, pattern, EditorMenuItemStyleImpl::getTextColor);
   }
 
+  Optional<String> getDescription(SubstituteAction action, String pattern) {
+    return getActionStyle(action, pattern, EditorMenuItemStyleImpl::getDescription);
+  }
+
 
   private double getLocalSortPriority(SubstituteAction action) {
     final Object parameterObject = myActionToParameterObject.computeIfAbsent(action, SubstituteAction::getParameterObject);

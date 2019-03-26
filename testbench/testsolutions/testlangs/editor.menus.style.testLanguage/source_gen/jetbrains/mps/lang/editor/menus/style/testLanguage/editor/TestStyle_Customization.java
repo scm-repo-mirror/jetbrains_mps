@@ -72,6 +72,7 @@ public class TestStyle_Customization implements EditorMenuItemCustomizer {
         style.setStrikeout();
         style.setBackgroundColor(Color.BLUE);
         style.setTextColor(Color.YELLOW);
+        style.setDescription("custom_description");
       }
     }
 
