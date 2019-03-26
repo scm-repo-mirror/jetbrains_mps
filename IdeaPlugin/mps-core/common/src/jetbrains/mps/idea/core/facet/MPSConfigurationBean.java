@@ -55,7 +55,7 @@ import java.util.Map.Entry;
 public final class MPSConfigurationBean {
 
   // FIXME this value is solely to overcome present limitation of SModuleConfigurationTab to get MPSConfigurationBean and the need to access SD from it.
-  private final SolutionDescriptor myDescriptor;
+  private SolutionDescriptor myDescriptor;
   private final State myState;
 
   /*package*/ MPSConfigurationBean(SolutionDescriptor sd, MPSConfigurationBean other) {
@@ -79,6 +79,17 @@ public final class MPSConfigurationBean {
   @Deprecated
   public SolutionDescriptor getSolutionDescriptor() {
     return myDescriptor;
+  }
+
+  /**
+   * The only scenario for this method is the moment MPS facet is added. MPSFacetConfiguration#getBean()
+   * can not take any existing SD (MPSFacet has not been initialized yet), but MPSFacetSourcesTab we are going to
+   * present to a user need SD to fill in model roots.
+   */
+  /*package*/ void initSolutionDescriptorIfNone() {
+    if (myDescriptor == null) {
+      myDescriptor = newSolutionDescriptor();
+    }
   }
 
   // shall be visible for tests

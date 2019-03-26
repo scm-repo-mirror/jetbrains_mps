@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -137,7 +137,9 @@ public class MPSFacetConfiguration implements FacetConfiguration, PersistentStat
 
   @Override
   public FacetEditorTab[] createEditorTabs(FacetEditorContext facetEditorContext, FacetValidatorsManager facetValidatorsManager) {
-    return new FacetEditorTab[]{new MPSFacetCommonTab(facetEditorContext, getBean())};
+    MPSConfigurationBean bean = getBean();
+    bean.initSolutionDescriptorIfNone();
+    return new FacetEditorTab[]{new MPSFacetCommonTab(facetEditorContext, bean)};
   }
 
   /*package*/ void setFacet(MPSFacet mpsFacet) {
