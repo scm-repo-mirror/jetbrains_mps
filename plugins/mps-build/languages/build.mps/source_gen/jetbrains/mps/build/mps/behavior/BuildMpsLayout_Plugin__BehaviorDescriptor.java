@@ -100,10 +100,8 @@ public final class BuildMpsLayout_Plugin__BehaviorDescriptor extends BaseBHDescr
         } else if (SNodeOperations.isInstanceOf(ipc, MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bbdcL, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPluginModule"))) {
           modules = Sequence.<SNode>singleton(SLinkOperations.getTarget(SNodeOperations.as(ipc, MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bbdcL, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPluginModule")), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bbdcL, 0x5b7be37b4de9bbddL, "target")));
         }
-        // XXX Note, it seems artifacts iterable has to be superset of modules collection. It looks like it was deemed 
-        // for scenarios like this one (build parts exposed through single layout node). As it's unused now, it's hard to be 100% sure, though. 
         BuildMpsLayout_Plugin__BehaviorDescriptor.unpackPluginModules_id6ZIjmBZXud7.invoke(__thisNode__, modules, helper, baseLocation, groupSuffix);
-      } else {
+      } else if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb6eL, 0x318cec002865ade0L, "packagingType")) == null)) {
         // legacy code, old behavior for the 'custom packaging option', to remove in 19.1 
         if (SNodeOperations.isInstanceOf(ipc, MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4deb1201L, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPluginGroup"))) {
           final SNode group = SNodeOperations.as(ipc, MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4deb1201L, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPluginGroup"));
