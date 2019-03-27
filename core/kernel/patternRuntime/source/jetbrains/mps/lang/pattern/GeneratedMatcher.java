@@ -27,7 +27,7 @@ import java.util.List;
  * @author Artem Tikhomirov
  * @since 3.4
  */
-public class GeneratedMatcher extends GeneratedMatchingPattern {
+public class GeneratedMatcher extends GeneratedMatchingPattern implements INodeMatchingPattern {
   private final SNode myPatternNode;
   private final boolean myHasAntiquotations;
   protected final ValueContainer myValues = new ValueContainer();
@@ -40,6 +40,11 @@ public class GeneratedMatcher extends GeneratedMatchingPattern {
     myPatternNode = patternNode;
     myHasAntiquotations = hasAntiquotations;
     myTopMatcher = new NodeMatcher(myValues);
+  }
+
+  @Override
+  public SNode getPatternNode() {
+    return myPatternNode;
   }
 
   @Override
