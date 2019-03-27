@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
+import org.jetbrains.mps.openapi.model.SModelReference;
 import java.util.Set;
 import jetbrains.mps.smodel.BootstrapLanguages;
 import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
@@ -350,7 +351,50 @@ public final class ModuleChecker {
     }
 
     /*package*/ void checkAccessoryModels(ModuleChecker.CheckType type) {
-      // FIXME implement to address MPS-25255 
+      // FIXME revisit this and similar code above. What's the purpose of previous.remove() down there? Is it not to encounter it again 
+      // FIXME or we intend to update original node? 
+      List<SNode> previous = ListSequence.fromListWithValues(new ArrayList(), SLinkOperations.getChildren(myLangNode, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x6e2dd2f4c4c3e91dL, "accessory")));
+
+      for (SModelReference accessoryModel : myModuleDescriptor.getAccessoryModels()) {
+        if (accessoryModel.getModuleReference() == null) {
+          // FIXME report erroneous accessory model 
+          continue;
+        }
+        final SNode resolved = myVisibleModules.resolve(accessoryModel.getModuleReference());
+        if (resolved == null) {
+          report(String.format("cannot find module %s of accessory model %s among project dependencies", accessoryModel.getModuleReference(), accessoryModel.getName()));
+          continue;
+        }
+        if (resolved == myLangNode) {
+          // accessory model belongs to the language itself, nothing to expose 
+          continue;
+        }
+
+        if (type.doCheck && !(ListSequence.fromList(SLinkOperations.getChildren(myLangNode, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x6e2dd2f4c4c3e91dL, "accessory"))).any(new IWhereFilter<SNode>() {
+          public boolean accept(SNode it) {
+            return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6e2dd2f4c4c3e91aL, 0x6e2dd2f4c4c3e91bL, "module")) == resolved;
+          }
+        }))) {
+          report(String.format("Dependency to module %s with accessory models has to be extracted into the project", accessoryModel.getModuleReference().getModuleName()));
+        }
+
+        if (type.doPartialImport) {
+          SNode ul = ListSequence.fromList(previous).findFirst(new IWhereFilter<SNode>() {
+            public boolean accept(SNode it) {
+              return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6e2dd2f4c4c3e91aL, 0x6e2dd2f4c4c3e91bL, "module")) == resolved;
+            }
+          });
+          if (ul == null) {
+            ul = SModelOperations.createNewNode(SNodeOperations.getModel(myLangNode), null, MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6e2dd2f4c4c3e91aL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleRef"));
+            // I hate BM_AbstractModule vs BM_Module distinction and gonna remove it some day, meanwhile have to cast 
+            SLinkOperations.setTarget(ul, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6e2dd2f4c4c3e91aL, 0x6e2dd2f4c4c3e91bL, "module"), SNodeOperations.cast(resolved, MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, "jetbrains.mps.build.mps.structure.BuildMps_Module")));
+            ListSequence.fromList(SLinkOperations.getChildren(myLangNode, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x6e2dd2f4c4c3e91dL, "accessory"))).addElement(ul);
+          } else {
+            ListSequence.fromList(previous).removeElement(ul);
+          }
+        }
+      }
+
     }
 
     /**

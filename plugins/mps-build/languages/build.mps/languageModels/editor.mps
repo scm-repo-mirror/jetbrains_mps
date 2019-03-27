@@ -1045,6 +1045,32 @@
           </node>
         </node>
       </node>
+      <node concept="3F0ifn" id="6SHOJj4KZ1r" role="3EZMnx">
+        <property role="3F0ifm" value="modules with accessory models:" />
+        <ref role="1k5W1q" to="o2va:hwW5xkg" resolve="keyword" />
+        <node concept="ljvvj" id="6SHOJj4KZ1s" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="lj46D" id="6SHOJj4KZ1t" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3EZMnI" id="6SHOJj50_lb" role="3EZMnx">
+        <node concept="l2Vlx" id="6SHOJj51rSh" role="2iSdaV" />
+        <node concept="3F2HdR" id="6SHOJj4KZE8" role="3EZMnx">
+          <ref role="1NtTu8" to="kdzh:6SHOJj4KY$t" resolve="accessory" />
+          <node concept="pj6Ft" id="6SHOJj4KZR$" role="3F10Kt">
+            <property role="VOm3f" value="true" />
+          </node>
+          <node concept="lj46D" id="6SHOJj4KZRD" role="3F10Kt">
+            <property role="VOm3f" value="true" />
+          </node>
+          <node concept="l2Vlx" id="6SHOJj4KZE9" role="2czzBx" />
+        </node>
+        <node concept="lj46D" id="6SHOJj50_yH" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
       <node concept="3F0ifn" id="7YI57w6hkbl" role="3EZMnx">
         <property role="3F0ifm" value="generator:" />
         <ref role="1k5W1q" to="o2va:hwW5xkg" resolve="keyword" />
@@ -6311,6 +6337,19 @@
       </node>
       <node concept="3F0ifn" id="7cgc9gER36n" role="3EZMnx" />
       <node concept="l2Vlx" id="75N6Lqy0vWs" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="6SHOJj4ZDoq">
+    <property role="3GE5qa" value="Project" />
+    <ref role="1XX52x" to="kdzh:6SHOJj4KY$q" resolve="BuildMps_ModuleRef" />
+    <node concept="1iCGBv" id="6SHOJj4ZDos" role="2wV5jI">
+      <ref role="1NtTu8" to="kdzh:6SHOJj4KY$r" resolve="module" />
+      <node concept="1sVBvm" id="6SHOJj4ZDou" role="1sWHZn">
+        <node concept="3F0A7n" id="6SHOJj4ZDo_" role="2wV5jI">
+          <property role="1Intyy" value="true" />
+          <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
+        </node>
+      </node>
     </node>
   </node>
 </model>

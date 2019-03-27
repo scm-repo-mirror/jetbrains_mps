@@ -19,8 +19,10 @@ import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.util.iterable.RecursiveIterator;
 import java.util.Iterator;
 import java.util.HashSet;
-import jetbrains.mps.build.mps.behavior.BuildMps_Generator__BehaviorDescriptor;
 import java.util.List;
+import java.util.ArrayList;
+import jetbrains.mps.build.mps.behavior.BuildMps_Generator__BehaviorDescriptor;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import org.jetbrains.annotations.NotNull;
 
 public class MPSModulesClosure {
@@ -211,8 +213,24 @@ public class MPSModulesClosure {
     if (Sequence.fromIterable(languages).isEmpty()) {
       return;
     }
-    Set<SNode> extraLangs = SetSequence.fromSet(new HashSet<SNode>());
-    for (SNode g : SLinkOperations.collect(languages, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x7fae147806433827L, "generator"))) {
+
+    List<SNode> queue = new ArrayList<SNode>();
+    ListSequence.fromList(queue).addSequence(Sequence.fromIterable(languages));
+
+    Set<SNode> visitedLanguages = SetSequence.fromSet(new HashSet<SNode>());
+    Set<SNode> extraModules = SetSequence.fromSet(new HashSet<SNode>());
+
+    while (ListSequence.fromList(queue).isNotEmpty()) {
+      SNode nextLang = ListSequence.fromList(queue).removeElementAt(0);
+      if (SetSequence.fromSet(visitedLanguages).contains(nextLang)) {
+        continue;
+      }
+      SetSequence.fromSet(visitedLanguages).addElement(nextLang);
+
+      // MPS-25255, modules of language's accessory models, if not hosted by language itself 
+      SetSequence.fromSet(extraModules).addSequence(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(nextLang, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x6e2dd2f4c4c3e91dL, "accessory")), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6e2dd2f4c4c3e91aL, 0x6e2dd2f4c4c3e91bL, "module"))));
+
+      SNode g = SLinkOperations.getTarget(nextLang, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x7fae147806433827L, "generator"));
       if (g == null) {
         continue;
       }
@@ -221,23 +239,22 @@ public class MPSModulesClosure {
 
       // I'm not quite sure it's possible to depend directly from generator module. 
       // Instead introduce a dependency from generator's source language 
-      SetSequence.fromSet(extraLangs).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(deps, MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4c6db07d2e56a8b4L, "jetbrains.mps.build.mps.structure.BuildMps_Generator"))).select(new ISelector<SNode, SNode>() {
+      ListSequence.fromList(queue).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(deps, MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4c6db07d2e56a8b4L, "jetbrains.mps.build.mps.structure.BuildMps_Generator"))).select(new ISelector<SNode, SNode>() {
         public SNode select(SNode it) {
           return (SNode) BuildMps_Generator__BehaviorDescriptor.getSourceLanguage_id7YI57w6ZMdZ.invoke(it);
         }
-      }).where(new IWhereFilter<SNode>() {
-        public boolean accept(SNode it) {
-          return it != null;
-        }
-      }));
-      // any language generator depends from are better to be there, too. 
-      SetSequence.fromSet(extraLangs).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(deps, MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, "jetbrains.mps.build.mps.structure.BuildMps_Language"))));
-      SetSequence.fromSet(extraLangs).addSequence(Sequence.fromIterable(usedLangs));
-      SetSequence.fromSet(myModules).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(deps, MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f7L, "jetbrains.mps.build.mps.structure.BuildMps_Solution"))).toListSequence());
+      }).where(new NotNullWhereFilter<SNode>()));
+      ListSequence.fromList(queue).addSequence(Sequence.fromIterable(usedLangs));
+      // If a generator depends on any language module, it doesn't mean it's 'used language', it's merely a module dependency, therefore we don't pit it into queue and do not process  
+      // any further but as a regular module dependency. In fact, it seems reasonable just to have addAll(deps) here, without filtering languages and solutions (just need to make clear  
+      // what could possibly dependencies to devkit and generator modules mean) 
+      SetSequence.fromSet(extraModules).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(deps, MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, "jetbrains.mps.build.mps.structure.BuildMps_Language"))));
+      SetSequence.fromSet(extraModules).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(deps, MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f7L, "jetbrains.mps.build.mps.structure.BuildMps_Solution"))));
     }
-    SetSequence.fromSet(extraLangs).removeSequence(SetSequence.fromSet(myModules));
-    SetSequence.fromSet(myModules).addSequence(SetSequence.fromSet(extraLangs));
-    collectGeneratorsDependendencies(extraLangs);
+    SetSequence.fromSet(visitedLanguages).removeSequence(SetSequence.fromSet(myModules));
+    SetSequence.fromSet(myModules).addSequence(SetSequence.fromSet(visitedLanguages));
+    SetSequence.fromSet(extraModules).removeSequence(SetSequence.fromSet(myModules));
+    SetSequence.fromSet(myModules).addSequence(SetSequence.fromSet(extraModules));
   }
 
   /**

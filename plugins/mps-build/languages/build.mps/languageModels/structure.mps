@@ -194,6 +194,16 @@
       <property role="IQ2ns" value="3189788309731917348" />
       <ref role="20lvS9" node="2L4pT56gSBR" resolve="BuildMps_ModuleRuntime" />
     </node>
+    <node concept="1TJgyj" id="6SHOJj4KY$t" role="1TKVEi">
+      <property role="IQ2ns" value="7939233666839079197" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="accessory" />
+      <property role="20lbJX" value="0..n" />
+      <ref role="20lvS9" node="6SHOJj4KY$q" resolve="BuildMps_ModuleRef" />
+      <node concept="t5JxF" id="6SHOJj4KY$M" role="lGtFl">
+        <property role="t5JxN" value="modules of accessory models hosted externally to the language" />
+      </node>
+    </node>
     <node concept="1TJgyj" id="7YI57w6gNwB" role="1TKVEi">
       <property role="20lmBu" value="aggregation" />
       <property role="20kJfa" value="generator" />
@@ -1673,6 +1683,20 @@
       <property role="IQ2nx" value="3639941018582260811" />
       <property role="TrG5h" value="id" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="6SHOJj4KY$q">
+    <property role="EcuMT" value="7939233666839079194" />
+    <property role="TrG5h" value="BuildMps_ModuleRef" />
+    <property role="3GE5qa" value="Project" />
+    <property role="R4oN_" value="'smart' reference to a module" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="6SHOJj4KY$r" role="1TKVEi">
+      <property role="IQ2ns" value="7939233666839079195" />
+      <property role="20lmBu" value="reference" />
+      <property role="20kJfa" value="module" />
+      <property role="20lbJX" value="1" />
+      <ref role="20lvS9" node="4zCbl23cpcc" resolve="BuildMps_Module" />
     </node>
   </node>
 </model>
