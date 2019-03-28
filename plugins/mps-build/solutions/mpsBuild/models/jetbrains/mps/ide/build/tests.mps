@@ -309,6 +309,75 @@
             <ref role="3bR37D" to="ffeo:ymnOULAU0H" resolve="jetbrains.mps.lang.test" />
           </node>
         </node>
+        <node concept="1SiIV0" id="3vfBydmDYYK" role="3bR37C">
+          <node concept="3bR9La" id="3vfBydmDYYL" role="1SiIV1">
+            <ref role="3bR37D" node="53PdBITf4ee" resolve="jetbrains.mps.lang.editor.tableTests" />
+          </node>
+        </node>
+      </node>
+      <node concept="1E1JtA" id="3vfBydmDYXe" role="2G$12L">
+        <property role="BnDLt" value="true" />
+        <property role="TrG5h" value="testLangWithRT.runtime" />
+        <property role="3LESm3" value="097970c1-2702-4857-9899-ec475bceb8d3" />
+        <node concept="55IIr" id="3vfBydmDYXh" role="3LF7KH">
+          <node concept="2Ry0Ak" id="3vfBydmDYYq" role="iGT6I">
+            <property role="2Ry0Am" value="testbench" />
+            <node concept="2Ry0Ak" id="3vfBydmDYYv" role="2Ry0An">
+              <property role="2Ry0Am" value="testsolutions" />
+              <node concept="2Ry0Ak" id="3vfBydmDYY$" role="2Ry0An">
+                <property role="2Ry0Am" value="testlangs" />
+                <node concept="2Ry0Ak" id="3vfBydmDYYD" role="2Ry0An">
+                  <property role="2Ry0Am" value="test.lang.with.RT" />
+                  <node concept="2Ry0Ak" id="3vfBydmDZ1I" role="2Ry0An">
+                    <property role="2Ry0Am" value="runtime" />
+                    <node concept="2Ry0Ak" id="3vfBydmDZ1N" role="2Ry0An">
+                      <property role="2Ry0Am" value="testLangWithRT.runtime.msd" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1SiIV0" id="3vfBydmDZ1P" role="3bR37C">
+          <node concept="3bR9La" id="3vfBydmDZ1Q" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:mXGwHwhVPj" resolve="JDK" />
+          </node>
+        </node>
+      </node>
+      <node concept="1E1JtD" id="3vfBydmDZ3c" role="2G$12L">
+        <property role="BnDLt" value="true" />
+        <property role="TrG5h" value="testLangWithRT" />
+        <property role="3LESm3" value="2e4f876d-c394-4f48-93c5-b5f4c0ec9b51" />
+        <node concept="55IIr" id="3vfBydmDZ3f" role="3LF7KH">
+          <node concept="2Ry0Ak" id="3vfBydmDZ4y" role="iGT6I">
+            <property role="2Ry0Am" value="testbench" />
+            <node concept="2Ry0Ak" id="3vfBydmDZck" role="2Ry0An">
+              <property role="2Ry0Am" value="testsolutions" />
+              <node concept="2Ry0Ak" id="3vfBydmDZcn" role="2Ry0An">
+                <property role="2Ry0Am" value="testlangs" />
+                <node concept="2Ry0Ak" id="3vfBydmDZcs" role="2Ry0An">
+                  <property role="2Ry0Am" value="test.lang.with.RT" />
+                  <node concept="2Ry0Ak" id="3vfBydmDZcx" role="2Ry0An">
+                    <property role="2Ry0Am" value="testLangWithRT.mpl" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1E0d5M" id="3vfBydmDZcz" role="1E1XAP">
+          <ref role="1E0d5P" node="3vfBydmDYXe" resolve="testLangWithRT.runtime" />
+        </node>
+        <node concept="1SiIV0" id="3vfBydmDZc$" role="3bR37C">
+          <node concept="1Busua" id="3vfBydmDZc_" role="1SiIV1">
+            <ref role="1Busuk" to="ffeo:7Kfy9QB6KYb" resolve="jetbrains.mps.baseLanguage" />
+          </node>
+        </node>
+        <node concept="1yeLz9" id="3vfBydmDZcA" role="1TViLv">
+          <property role="TrG5h" value="testLangWithRT#01" />
+          <property role="3LESm3" value="3fa7dc75-a210-4325-b11f-519f7a07b8f7" />
+        </node>
       </node>
       <node concept="1E1JtA" id="30QAtkedp05" role="2G$12L">
         <property role="BnDLt" value="true" />
@@ -547,6 +616,12 @@
       </node>
       <node concept="L2wRC" id="2LuGVbI_FyD" role="39821P">
         <ref role="L2wRA" node="2LuGVbI_Fnh" resolve="jetbrains.mps.debugger.java.runtime.tests" />
+      </node>
+      <node concept="L2wRC" id="_jn24S31sT" role="39821P">
+        <ref role="L2wRA" node="3vfBydmDZ3c" resolve="testLangWithRT" />
+      </node>
+      <node concept="L2wRC" id="_jn24S31sZ" role="39821P">
+        <ref role="L2wRA" node="3vfBydmDYXe" resolve="testLangWithRT.runtime" />
       </node>
     </node>
     <node concept="10PD9b" id="30QAtkedp0B" role="10PD9s" />
