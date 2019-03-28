@@ -5,6 +5,7 @@
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="-1" />
     <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="-1" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
+    <use id="2e4f876d-c394-4f48-93c5-b5f4c0ec9b51" name="testLangWithRT" version="0" />
   </languages>
   <imports>
     <import index="u9u1" ref="r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)" />
@@ -75,6 +76,9 @@
         <child id="1081773367579" name="rightExpression" index="3uHU7w" />
         <child id="1081773367580" name="leftExpression" index="3uHU7B" />
       </concept>
+    </language>
+    <language id="2e4f876d-c394-4f48-93c5-b5f4c0ec9b51" name="testLangWithRT">
+      <concept id="8398707621307281464" name="testLangWithRT.structure.Sout" flags="ng" index="wVcgH" />
     </language>
     <language id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest">
       <concept id="8427750732757990717" name="jetbrains.mps.baseLanguage.unitTest.structure.BinaryAssert" flags="nn" index="3tpDYu">
@@ -206,6 +210,21 @@
         </node>
         <node concept="3vFxKo" id="3P4ieJEE8Py" role="3cqZAp">
           <node concept="3clFbT" id="3P4ieJEE8Pz" role="3vFALc" />
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="1lH9Xt" id="3nltER8R_$p">
+    <property role="TrG5h" value="UsingLangTestCase" />
+    <node concept="1LZb2c" id="3nltER8R__a" role="1SL9yI">
+      <property role="TrG5h" value="asdf" />
+      <node concept="3cqZAl" id="3nltER8R__b" role="3clF45" />
+      <node concept="3clFbS" id="3nltER8R__f" role="3clF47">
+        <node concept="3clFbF" id="3nltER8R_In" role="3cqZAp">
+          <node concept="wVcgH" id="3nltER8R_Il" role="3clFbG" />
+        </node>
+        <node concept="3vFxKo" id="3nltER8R__S" role="3cqZAp">
+          <node concept="3clFbT" id="3nltER8R__W" role="3vFALc" />
         </node>
       </node>
     </node>

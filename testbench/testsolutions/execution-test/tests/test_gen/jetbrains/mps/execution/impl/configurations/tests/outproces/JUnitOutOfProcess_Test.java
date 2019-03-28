@@ -60,6 +60,10 @@ public class JUnitOutOfProcess_Test extends BaseTransformationTest {
   public void test_programParametersArePassedToTheTest() throws Throwable {
     new JUnitOutOfProcess_Test.TestBody(this).test_programParametersArePassedToTheTest();
   }
+  @Test
+  public void test_startUsingLangTestCase() throws Throwable {
+    new JUnitOutOfProcess_Test.TestBody(this).test_startUsingLangTestCase();
+  }
 
   /*package*/ static class TestBody extends BaseTestBody {
 
@@ -83,6 +87,11 @@ public class JUnitOutOfProcess_Test extends BaseTransformationTest {
       junitRC.getJavaRunParameters().getJavaParameters().setVmOptions(vmParams);
       this.runTestsWithSettings(junitRC, testsToSucceed, this.emptyList());
     }
+    public void test_startUsingLangTestCase() throws Exception {
+      List<ITestNodeWrapper> testsToSucceed = new TestNodeWrapHelper(myProject.getRepository()).discover(new SNodePointer("r:bbc844ac-dcda-4460-9717-8eb5d64b4778(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox2@tests)", "3879137142820985113"));
+      JUnitTests_Configuration junitRC = this.createDefaultJUnitRC();
+      this.runTestsWithSettings(junitRC, testsToSucceed, this.emptyList());
+    }
 
 
     public void runTestsWithSettings(JUnitTests_Configuration junit, List<ITestNodeWrapper> testsToSucceed, List<ITestNodeWrapper> testsToFail) {
@@ -97,7 +106,7 @@ public class JUnitOutOfProcess_Test extends BaseTransformationTest {
         CheckTestStateListener checkListener = new CheckTestStateListener(testsToSucceed, testsToFail);
         runState.addListener(checkListener);
         process.addProcessListener(listener);
-        int exitCode = ProcessHandlerBuilder.startAndWait(process, TimeUnit.MINUTES.toMillis(2));
+        int exitCode = ProcessHandlerBuilder.startAndWait(process, TimeUnit.MINUTES.toMillis(4));
         if (exitCode != ListSequence.fromList(testsToFail).count()) {
           Assert.fail("Exit code must be equal to " + ListSequence.fromList(testsToFail).count() + ", but " + exitCode);
         } else if (exitCode < 0) {

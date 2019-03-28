@@ -557,6 +557,8 @@
       <modulePath path="$PROJECT_DIR$/testbench/testsolutions/testlangs/editor.tableTests.testLang/jetbrains.mps.lang.editor.tableTests.mpl" folder="core.aspects.editor" />
       <modulePath path="$PROJECT_DIR$/testbench/testsolutions/testlangs/jetbrains.mps.lang.editor.imageGen.testLanguage/jetbrains.mps.lang.editor.imageGen.testLanguage.mpl" folder="core.aspects.editor" />
       <modulePath path="$PROJECT_DIR$/testbench/testsolutions/testlangs/lang.actions.testLang/jetbrains.mps.lang.actions.testLanguage.mpl" folder="core.aspects.actions" />
+      <modulePath path="$PROJECT_DIR$/testbench/testsolutions/testlangs/test.lang.with.RT/runtime/testLangWithRT.runtime.msd" folder="workbench.execution" />
+      <modulePath path="$PROJECT_DIR$/testbench/testsolutions/testlangs/test.lang.with.RT/testLangWithRT.mpl" folder="workbench.execution" />
       <modulePath path="$PROJECT_DIR$/testbench/testsolutions/text.test/jetbrains.mps.lang.text.test.msd" folder="core.languages.text" />
       <modulePath path="$PROJECT_DIR$/testbench/testsolutions/traceInfo.test/jetbrains.mps.traceInfo.test.msd" folder="tests" />
       <modulePath path="$PROJECT_DIR$/testbench/testsolutions/traceInfo.testWeaving/jetbrains.mps.traceInfo.testWeaving.msd" folder="platform.traceInfo" />
