@@ -5,13 +5,13 @@ package jetbrains.mps.baseLanguage.unitTest.execution.settings;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import jetbrains.mps.project.Project;
 import org.jetbrains.mps.openapi.module.SModuleReference;
-import org.jetbrains.mps.openapi.module.FindUsagesFacade;
-import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.findUsages.FindUsagesManager;
+import org.jetbrains.annotations.Nullable;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import jetbrains.mps.ide.ui.dialogs.properties.choosers.CommonChoosers;
+import jetbrains.mps.findUsages.FindUsagesManager;
 import java.util.List;
+import java.util.Collections;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -19,38 +19,45 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Set;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.ide.findusages.model.scopes.ProjectScope;
-import java.util.Collections;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.ArrayList;
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;
 
 public final class ModuleChooser extends TextFieldWithBrowseButton.NoPathCompletion {
   private final Project myMpsProject;
   private SModuleReference myModuleRef;
-  private final FindUsagesFacade myFindUsages;
 
-  public ModuleChooser(@NotNull final Project mpsProject) {
+  public ModuleChooser(@Nullable final Project mpsProject) {
     myMpsProject = mpsProject;
-    // FIXME unfortunately, FindUsagesFacade is not CoreComponent, therefore have to use FindUsagesManager 
-    myFindUsages = mpsProject.getComponent(FindUsagesManager.class);
-    addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent p0) {
-        SModuleReference ref = CommonChoosers.showModuleChooser(mpsProject, "Choose Module To Run Tests", ModuleChooser.this.collectModules());
-        if (ref != null) {
-          setModule(ref);
+    if (mpsProject != null) {
+      addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent p0) {
+          SModuleReference ref = CommonChoosers.showModuleChooser(mpsProject, "Choose Module To Run Tests", ModuleChooser.this.collectModules());
+          if (ref != null) {
+            setModule(ref);
+          }
         }
-      }
-    });
+      });
+    }
+  }
+
+  private FindUsagesManager getFindUsagesManager() {
+    // FIXME unfortunately, FindUsagesFacade is not CoreComponent, therefore have to use FindUsagesManager 
+    assert myMpsProject != null;
+    return myMpsProject.getComponent(FindUsagesManager.class);
   }
 
   private List<SModuleReference> collectModules() {
+    if (myMpsProject == null) {
+      return Collections.<SModuleReference>emptyList();
+    }
     final Collection<SModuleReference> moduleRefs = new LinkedHashSet<SModuleReference>();
     myMpsProject.getModelAccess().runReadAction(new Runnable() {
       public void run() {
         SAbstractConcept concept = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
-        Set<SNode> usages = myFindUsages.findInstances(new ProjectScope(myMpsProject), Collections.singleton(concept), false, new EmptyProgressMonitor());
+        Set<SNode> usages = getFindUsagesManager().findInstances(new ProjectScope(myMpsProject), Collections.singleton(concept), false, new EmptyProgressMonitor());
         for (SNode node : usages) {
           SModuleReference module = SNodeOperations.getModel(node).getModule().getModuleReference();
           moduleRefs.add(module);

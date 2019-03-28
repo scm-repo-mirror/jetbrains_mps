@@ -206,28 +206,29 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
     final ClonableList<String> testCases = new ClonableList<String>();
     final Wrappers._T<String> model = new Wrappers._T<String>();
     final Wrappers._T<String> module = new Wrappers._T<String>();
+    if (myProject != null) {
+      myProject.getModelAccess().runReadAction(new Runnable() {
+        public void run() {
+          for (ITestNodeWrapper testMethod : methods) {
+            testMethods.add(PointerUtils.pointerToString(testMethod.getNodePointer()));
+          }
 
-    myProject.getModelAccess().runReadAction(new Runnable() {
-      public void run() {
-        for (ITestNodeWrapper testMethod : methods) {
-          testMethods.add(PointerUtils.pointerToString(testMethod.getNodePointer()));
-        }
+          for (ITestNodeWrapper testCase : classes) {
+            testCases.add(PointerUtils.pointerToString(testCase.getNodePointer()));
+          }
 
-        for (ITestNodeWrapper testCase : classes) {
-          testCases.add(PointerUtils.pointerToString(testCase.getNodePointer()));
+          SModelReference modelRef = myModelChooser.getReference();
+          if (modelRef != null) {
+            model.value = PersistenceRegistry.getInstance().asString(modelRef);
+          }
+          SModuleReference moduleRef = myModuleChooser.getReference();
+          if (moduleRef != null) {
+            module.value = moduleRef.toString();
+          }
         }
+      });
 
-        SModelReference modelRef = myModelChooser.getReference();
-        if (modelRef != null) {
-          model.value = PersistenceRegistry.getInstance().asString(modelRef);
-        }
-        SModuleReference moduleRef = myModuleChooser.getReference();
-        if (moduleRef != null) {
-          module.value = moduleRef.toString();
-        }
-      }
-    });
-
+    }
     configuration.setRunType(myRunKind.ordinal());
 
     configuration.setTestMethods(testMethods);
@@ -270,29 +271,33 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
 
   private List<ITestNodeWrapper> loadMethodsFromPersistence(final JUnitSettings_Configuration settings) {
     final List<ITestNodeWrapper> methods = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
-    myProject.getModelAccess().runReadAction(new Runnable() {
-      public void run() {
-        ListSequence.fromList(TestUtils.wrapPointerStrings(myProject, settings.getTestMethods())).visitAll(new IVisitor<ITestNodeWrapper>() {
-          public void visit(ITestNodeWrapper it) {
-            ListSequence.fromList(methods).addElement(it);
-          }
-        });
-      }
-    });
+    if (myProject != null) {
+      myProject.getModelAccess().runReadAction(new Runnable() {
+        public void run() {
+          ListSequence.fromList(TestUtils.wrapPointerStrings(myProject, settings.getTestMethods())).visitAll(new IVisitor<ITestNodeWrapper>() {
+            public void visit(ITestNodeWrapper it) {
+              ListSequence.fromList(methods).addElement(it);
+            }
+          });
+        }
+      });
+    }
     return methods;
   }
 
   private List<ITestNodeWrapper> loadTestCasesFromPersistence(final JUnitSettings_Configuration settings) {
     final List<ITestNodeWrapper> classes = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
-    myProject.getModelAccess().runReadAction(new Runnable() {
-      public void run() {
-        ListSequence.fromList(TestUtils.wrapPointerStrings(myProject, settings.getTestCases())).visitAll(new IVisitor<ITestNodeWrapper>() {
-          public void visit(ITestNodeWrapper it) {
-            ListSequence.fromList(classes).addElement(it);
-          }
-        });
-      }
-    });
+    if (myProject != null) {
+      myProject.getModelAccess().runReadAction(new Runnable() {
+        public void run() {
+          ListSequence.fromList(TestUtils.wrapPointerStrings(myProject, settings.getTestCases())).visitAll(new IVisitor<ITestNodeWrapper>() {
+            public void visit(ITestNodeWrapper it) {
+              ListSequence.fromList(classes).addElement(it);
+            }
+          });
+        }
+      });
+    }
     return classes;
   }
 

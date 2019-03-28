@@ -64,13 +64,14 @@ public final class InProcessJBCheckBox extends JBCheckBox {
       syncComponent(myComp, !(InProcessJBCheckBox.this.isSelected()));
     }
 
-    private void syncComponent(Component component, boolean flag) {
-      component.setEnabled(flag);
-      if (component instanceof Container) {
-        Component[] children = ((Container) component).getComponents();
-        for (Component comp : children) {
-          syncComponent(comp, flag);
-        }
+  }
+
+  private static void syncComponent(Component component, boolean flag) {
+    component.setEnabled(flag);
+    if (component instanceof Container) {
+      Component[] children = ((Container) component).getComponents();
+      for (Component comp : children) {
+        syncComponent(comp, flag);
       }
     }
   }

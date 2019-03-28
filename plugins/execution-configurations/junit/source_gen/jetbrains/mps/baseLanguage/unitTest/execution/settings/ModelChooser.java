@@ -5,12 +5,13 @@ package jetbrains.mps.baseLanguage.unitTest.execution.settings;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import jetbrains.mps.project.Project;
 import org.jetbrains.mps.openapi.model.SModelReference;
-import org.jetbrains.mps.openapi.module.FindUsagesFacade;
-import jetbrains.mps.findUsages.FindUsagesManager;
+import org.jetbrains.annotations.Nullable;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import jetbrains.mps.ide.ui.dialogs.properties.choosers.CommonChoosers;
+import jetbrains.mps.findUsages.FindUsagesManager;
 import java.util.List;
+import java.util.Collections;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -18,7 +19,6 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.ide.findusages.model.scopes.ProjectScope;
 import java.util.Set;
 import org.jetbrains.mps.openapi.model.SNode;
-import java.util.Collections;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -26,35 +26,41 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.smodel.SModelStereotype;
 import java.util.ArrayList;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public class ModelChooser extends TextFieldWithBrowseButton.NoPathCompletion {
   private final Project myMpsProject;
   private SModelReference myModelRef;
-  private final FindUsagesFacade myFindUsages;
 
-  public ModelChooser(final Project mpsProject) {
+  public ModelChooser(@Nullable final Project mpsProject) {
     myMpsProject = mpsProject;
-    // FIXME unfortunately, FindUsagesFacade is not CoreComponent, therefore have to use FindUsagesManager 
-    myFindUsages = mpsProject.getComponent(FindUsagesManager.class);
-    addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent p0) {
-        SModelReference modelRef = CommonChoosers.showModelChooser(mpsProject, "Choose The Model To Run Tests", ModelChooser.this.collectModels());
-        if (modelRef != null) {
-          setModel(modelRef);
+    if (mpsProject != null) {
+      addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent p0) {
+          SModelReference modelRef = CommonChoosers.showModelChooser(mpsProject, "Choose The Model To Run Tests", ModelChooser.this.collectModels());
+          if (modelRef != null) {
+            setModel(modelRef);
+          }
         }
-      }
-    });
+      });
+    }
+  }
+
+  private FindUsagesManager getFindUsagesManager() {
+    assert myMpsProject != null;
+    return myMpsProject.getComponent(FindUsagesManager.class);
   }
 
   private List<SModelReference> collectModels() {
+    if (myMpsProject == null) {
+      return Collections.<SModelReference>emptyList();
+    }
     final Collection<SModelReference> modelRefs = new LinkedHashSet<SModelReference>();
     myMpsProject.getModelAccess().runReadAction(new Runnable() {
       public void run() {
         SAbstractConcept concept = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
         ProjectScope scope = new ProjectScope(myMpsProject);
-        Set<SNode> usages = myFindUsages.findInstances(scope, Collections.singleton(concept), false, new EmptyProgressMonitor());
+        Set<SNode> usages = getFindUsagesManager().findInstances(scope, Collections.singleton(concept), false, new EmptyProgressMonitor());
         for (SNode node : usages) {
           SModel model = SNodeOperations.getModel(node);
           SModelReference md = SModelOperations.getPointer(model);

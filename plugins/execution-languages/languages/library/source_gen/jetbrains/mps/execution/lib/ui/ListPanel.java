@@ -9,6 +9,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import java.awt.event.ActionListener;
 import com.intellij.openapi.project.Project;
+import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.project.ProjectHelper;
 import java.awt.GridBagLayout;
@@ -48,6 +49,7 @@ public abstract class ListPanel<T> extends JBPanel {
   private ActionListener myListener;
   private final ListPanel.MyAbstractListModel myListModel;
   protected Project myProject;
+  @Nullable
   private final MPSProject myMpsProject;
   private final String myTitle;
   private boolean isEditable = true;
@@ -69,7 +71,7 @@ public abstract class ListPanel<T> extends JBPanel {
     AnAction add = new ListPanel.MyListAddAction(myListComponent);
     AnAction remove = new ListPanel.MyListRemoveAction(this.myListComponent);
     DefaultActionGroup group = ActionUtils.groupFromActions(add, remove);
-    ActionToolbar toolbar = ActionManager.getInstance().createActionToolbar(ActionPlaces.UNKNOWN, group, false);
+    ActionToolbar toolbar = ActionManager.getInstance().createActionToolbar(ActionPlaces.RUN_CONFIGURATIONS_COMBOBOX, group, false);
     mainPanel.add(toolbar.getComponent(), BorderLayout.EAST);
 
     this.add(new JBLabel(myTitle + ":"), LayoutUtil.createLabelConstraints(0));
@@ -148,18 +150,22 @@ public abstract class ListPanel<T> extends JBPanel {
   private class MyAbstractListModel extends AbstractListModel {
     public MyAbstractListModel() {
     }
+
     @Override
     public Object getElementAt(int p0) {
       return getFqName(ListSequence.fromList(ListPanel.this.myValues).getElement(p0));
     }
+
     @Override
     public int getSize() {
       return ListSequence.fromList(ListPanel.this.myValues).count();
     }
+
     public void fireSomethingChanged() {
       fireContentsChanged(this, 0, ListSequence.fromList(myValues).count());
     }
   }
+
   private class MyListAddAction extends AnAction {
     private final JList myList;
 
@@ -171,6 +177,9 @@ public abstract class ListPanel<T> extends JBPanel {
 
     @Override
     public void actionPerformed(AnActionEvent event) {
+      if (myMpsProject == null) {
+        return;
+      }
       List<SNodeReference> nodesList = getCandidates();
 
       NodeChooserDialog chooserDialog = ListPanel.this.createNodeChooserDialog(nodesList);
@@ -203,7 +212,7 @@ public abstract class ListPanel<T> extends JBPanel {
     @Override
     public void update(AnActionEvent event) {
       super.update(event);
-      event.getPresentation().setEnabled(isEditable);
+      event.getPresentation().setEnabled(isEditable && myMpsProject != null);
     }
   }
 
@@ -218,6 +227,9 @@ public abstract class ListPanel<T> extends JBPanel {
 
     @Override
     public void actionPerformed(AnActionEvent event) {
+      if (myMpsProject == null) {
+        return;
+      }
       int minSelectionIndex = myList.getMinSelectionIndex();
       // XXX I cried with blood tears over the code below. 
       //  ListPanel.this.myListComponent == myList,  
@@ -248,7 +260,7 @@ public abstract class ListPanel<T> extends JBPanel {
     @Override
     public void update(AnActionEvent event) {
       super.update(event);
-      event.getPresentation().setEnabled(isEditable && myList.getSelectedIndices().length != 0);
+      event.getPresentation().setEnabled(isEditable && myMpsProject != null && myList.getSelectedIndices().length != 0);
     }
   }
 }

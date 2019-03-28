@@ -2182,6 +2182,9 @@
       <node concept="3uibUv" id="2_AUN5Goh1J" role="1tU5fm">
         <ref role="3uigEE" to="z1c4:~MPSProject" resolve="MPSProject" />
       </node>
+      <node concept="2AHcQZ" id="4zlCqr6PcBQ" role="2AJF6D">
+        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
+      </node>
     </node>
     <node concept="312cEg" id="1uIykzNJCyf" role="jymVt">
       <property role="34CwA1" value="false" />
@@ -2405,8 +2408,8 @@
               </node>
               <node concept="liA8E" id="7OiZBHE04_Y" role="2OqNvi">
                 <ref role="37wK5l" to="qkt:~ActionManager.createActionToolbar(java.lang.String,com.intellij.openapi.actionSystem.ActionGroup,boolean)" resolve="createActionToolbar" />
-                <node concept="10M0yZ" id="7OiZBHE04_Z" role="37wK5m">
-                  <ref role="3cqZAo" to="qkt:~ActionPlaces.UNKNOWN" resolve="UNKNOWN" />
+                <node concept="10M0yZ" id="4zlCqr6Pjov" role="37wK5m">
+                  <ref role="3cqZAo" to="qkt:~ActionPlaces.RUN_CONFIGURATIONS_COMBOBOX" resolve="RUN_CONFIGURATIONS_COMBOBOX" />
                   <ref role="1PxDUh" to="qkt:~ActionPlaces" resolve="ActionPlaces" />
                 </node>
                 <node concept="37vLTw" id="7OiZBHE04A0" role="37wK5m">
@@ -2500,7 +2503,7 @@
         <node concept="17QB3L" id="1uIykzNJCEU" role="1tU5fm" />
       </node>
     </node>
-    <node concept="2tJIrI" id="2_AUN5GnHkZ" role="jymVt" />
+    <node concept="2tJIrI" id="4zlCqr6TuIG" role="jymVt" />
     <node concept="3clFb_" id="1DeqbSMDT0W" role="jymVt">
       <property role="1EzhhJ" value="true" />
       <property role="TrG5h" value="wrap" />
@@ -2991,6 +2994,7 @@
         <node concept="3clFbS" id="1DeqbSMDT57" role="3clF47" />
       </node>
       <node concept="3Tm6S6" id="1DeqbSMDT58" role="1B3o_S" />
+      <node concept="2tJIrI" id="4zlCqr6P9Jw" role="jymVt" />
       <node concept="3clFb_" id="1DeqbSMDT59" role="jymVt">
         <property role="1EzhhJ" value="false" />
         <property role="TrG5h" value="getElementAt" />
@@ -3028,6 +3032,7 @@
           <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
+      <node concept="2tJIrI" id="4zlCqr6P9Jx" role="jymVt" />
       <node concept="3clFb_" id="1DeqbSMDT5o" role="jymVt">
         <property role="1EzhhJ" value="false" />
         <property role="TrG5h" value="getSize" />
@@ -3052,6 +3057,7 @@
           <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
+      <node concept="2tJIrI" id="4zlCqr6P9Jy" role="jymVt" />
       <node concept="3clFb_" id="1DeqbSMDT5z" role="jymVt">
         <property role="TrG5h" value="fireSomethingChanged" />
         <node concept="3clFbS" id="1DeqbSMDT5$" role="3clF47">
@@ -3075,6 +3081,7 @@
         <node concept="3cqZAl" id="1DeqbSMDT5H" role="3clF45" />
       </node>
     </node>
+    <node concept="2tJIrI" id="4zlCqr6OZP4" role="jymVt" />
     <node concept="3Tm1VV" id="1DeqbSMDT5I" role="1B3o_S" />
     <node concept="16euLQ" id="1DeqbSMDT5K" role="16eVyc">
       <property role="TrG5h" value="T" />
@@ -3142,6 +3149,17 @@
           </node>
         </node>
         <node concept="3clFbS" id="5kWneGv3E9E" role="3clF47">
+          <node concept="3clFbJ" id="4zlCqr6OPVE" role="3cqZAp">
+            <node concept="3clFbS" id="4zlCqr6OPVG" role="3clFbx">
+              <node concept="3cpWs6" id="4zlCqr6OZOx" role="3cqZAp" />
+            </node>
+            <node concept="3clFbC" id="4zlCqr6OU8_" role="3clFbw">
+              <node concept="10Nm6u" id="4zlCqr6OYTh" role="3uHU7w" />
+              <node concept="37vLTw" id="4zlCqr6OSfo" role="3uHU7B">
+                <ref role="3cqZAo" node="2_AUN5Goh6w" resolve="myMpsProject" />
+              </node>
+            </node>
+          </node>
           <node concept="3cpWs8" id="1DeqbSMDT5X" role="3cqZAp">
             <node concept="3cpWsn" id="1DeqbSMDT5Y" role="3cpWs9">
               <property role="TrG5h" value="nodesList" />
@@ -3431,8 +3449,16 @@
               </node>
               <node concept="liA8E" id="7XbeqBA_E$J" role="2OqNvi">
                 <ref role="37wK5l" to="qkt:~Presentation.setEnabled(boolean)" resolve="setEnabled" />
-                <node concept="37vLTw" id="7XbeqBA_E$K" role="37wK5m">
-                  <ref role="3cqZAo" node="7XbeqBAyo8l" resolve="isEditable" />
+                <node concept="1Wc70l" id="2nr0n4UcYhN" role="37wK5m">
+                  <node concept="3y3z36" id="2nr0n4Ud50q" role="3uHU7w">
+                    <node concept="10Nm6u" id="2nr0n4Ud5Ra" role="3uHU7w" />
+                    <node concept="37vLTw" id="2nr0n4Ud2cm" role="3uHU7B">
+                      <ref role="3cqZAo" node="2_AUN5Goh6w" resolve="myMpsProject" />
+                    </node>
+                  </node>
+                  <node concept="37vLTw" id="7XbeqBA_E$K" role="3uHU7B">
+                    <ref role="3cqZAo" node="7XbeqBAyo8l" resolve="isEditable" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -3510,6 +3536,17 @@
           </node>
         </node>
         <node concept="3clFbS" id="5kWneGv2sce" role="3clF47">
+          <node concept="3clFbJ" id="4zlCqr6Pfe_" role="3cqZAp">
+            <node concept="3clFbS" id="4zlCqr6PfeA" role="3clFbx">
+              <node concept="3cpWs6" id="4zlCqr6PfeB" role="3cqZAp" />
+            </node>
+            <node concept="3clFbC" id="4zlCqr6PfeC" role="3clFbw">
+              <node concept="10Nm6u" id="4zlCqr6PfeD" role="3uHU7w" />
+              <node concept="37vLTw" id="4zlCqr6PfeE" role="3uHU7B">
+                <ref role="3cqZAo" node="2_AUN5Goh6w" resolve="myMpsProject" />
+              </node>
+            </node>
+          </node>
           <node concept="3cpWs8" id="5kWneGv2Y25" role="3cqZAp">
             <node concept="3cpWsn" id="5kWneGv2Y26" role="3cpWs9">
               <property role="TrG5h" value="minSelectionIndex" />
@@ -3793,8 +3830,16 @@
               <node concept="liA8E" id="7XbeqBA_EoR" role="2OqNvi">
                 <ref role="37wK5l" to="qkt:~Presentation.setEnabled(boolean)" resolve="setEnabled" />
                 <node concept="1Wc70l" id="5kWneGv2oyk" role="37wK5m">
-                  <node concept="37vLTw" id="7XbeqBA_ExF" role="3uHU7B">
-                    <ref role="3cqZAo" node="7XbeqBAyo8l" resolve="isEditable" />
+                  <node concept="1Wc70l" id="2nr0n4UdaXU" role="3uHU7B">
+                    <node concept="37vLTw" id="7XbeqBA_ExF" role="3uHU7B">
+                      <ref role="3cqZAo" node="7XbeqBAyo8l" resolve="isEditable" />
+                    </node>
+                    <node concept="3y3z36" id="2nr0n4Udcg1" role="3uHU7w">
+                      <node concept="10Nm6u" id="2nr0n4Udcg2" role="3uHU7w" />
+                      <node concept="37vLTw" id="2nr0n4Udcg3" role="3uHU7B">
+                        <ref role="3cqZAo" node="2_AUN5Goh6w" resolve="myMpsProject" />
+                      </node>
+                    </node>
                   </node>
                   <node concept="3y3z36" id="1mBiRF0LBRY" role="3uHU7w">
                     <node concept="2OqwBi" id="1mBiRF0LBRZ" role="3uHU7B">

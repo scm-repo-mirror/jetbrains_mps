@@ -12,10 +12,11 @@ import java.util.List;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import java.util.ArrayList;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
-import java.util.ArrayList;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Set;
@@ -23,7 +24,6 @@ import org.jetbrains.mps.openapi.module.FindUsagesFacade;
 import jetbrains.mps.ide.findusages.model.scopes.ProjectScope;
 import java.util.Collections;
 import org.jetbrains.mps.openapi.util.SubProgressKind;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -51,6 +51,9 @@ public class TestListPanel extends ListPanel<ITestNodeWrapper> {
   @Override
   protected List<ITestNodeWrapper> collectCandidates(final ProgressMonitor progress) {
     final MPSProject mpsProject = ProjectHelper.fromIdeaProject(myProject);
+    if (mpsProject == null) {
+      return ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
+    }
     final SRepository repo = mpsProject.getRepository();
     return new ModelAccessHelper(repo).runReadAction(new Computable<List<ITestNodeWrapper>>() {
       public List<ITestNodeWrapper> compute() {
