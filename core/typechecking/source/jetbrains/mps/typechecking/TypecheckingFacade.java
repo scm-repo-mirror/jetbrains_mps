@@ -15,8 +15,6 @@
  */
 package jetbrains.mps.typechecking;
 
-import jetbrains.mps.components.ComponentHost;
-import jetbrains.mps.components.ComponentPlugin;
 import jetbrains.mps.lang.pattern.INodeMatchingPattern;
 import jetbrains.mps.typechecking.backend.TypecheckingBackend;
 import org.jetbrains.annotations.NotNull;
@@ -45,12 +43,14 @@ public abstract class TypecheckingFacade implements TypecheckingQueries {
   }
 
   @Override
-  public SNode getTypeOf(@NotNull SNode expression) {
+  public SNode getTypeOf(SNode expression) {
+    if (expression == null) return null;
     return getTypecheckingBackend().selectProvider(expression).getTypeOf(expression);
   }
 
   @Override
-  public SNode getInferredType(@NotNull SNode expression) {
+  public SNode getInferredType(SNode expression) {
+    if (expression == null) return null;
     return getTypecheckingBackend().selectProvider(expression).getInferredType(expression);
   }
 
@@ -60,12 +60,14 @@ public abstract class TypecheckingFacade implements TypecheckingQueries {
   }
 
   @Override
-  public boolean isSubtype(@NotNull SNode typeA, @NotNull SNode typeB) {
+  public boolean isSubtype(SNode typeA, SNode typeB) {
+    if (typeA == null || typeB == null) return false;
     return getTypecheckingBackend().selectProvider(typeA, typeB).isSubtype(typeA, typeB);
   }
 
   @Override
-  public boolean isStrongSubtype(@NotNull SNode typeA, @NotNull SNode typeB) {
+  public boolean isStrongSubtype(SNode typeA, SNode typeB) {
+    if (typeA == null || typeB == null) return false;
     return getTypecheckingBackend().selectProvider(typeA, typeB).isStrongSubtype(typeA, typeB);
   }
 
@@ -76,24 +78,28 @@ public abstract class TypecheckingFacade implements TypecheckingQueries {
   }
 
   @Override
-  public SNode coerceType(@NotNull SNode type, @NotNull SConcept typeConcept) {
+  public SNode coerceType(SNode type, @NotNull SConcept typeConcept) {
+    if (type == null) return null;
     return getTypecheckingBackend().selectProvider(type, typeConcept).coerceType(type, typeConcept);
   }
 
   @Nullable
   @Override
-  public SNode coerceType(@NotNull SNode type, @NotNull INodeMatchingPattern targetPattern) {
+  public SNode coerceType(SNode type, @NotNull INodeMatchingPattern targetPattern) {
+    if (type == null) return null;
     return getTypecheckingBackend().selectProvider(type, targetPattern.getConcept()).coerceType(type, targetPattern);
   }
 
   @Override
-  public SNode strongCoerceType(@NotNull SNode type, @NotNull SConcept typeConcept) {
+  public SNode strongCoerceType(SNode type, @NotNull SConcept typeConcept) {
+    if (type == null) return null;
     return getTypecheckingBackend().selectProvider(type, typeConcept).strongCoerceType(type, typeConcept);
   }
 
   @Nullable
   @Override
-  public SNode strongCoerceType(@NotNull SNode type, @NotNull INodeMatchingPattern targetPattern) {
+  public SNode strongCoerceType(SNode type, @NotNull INodeMatchingPattern targetPattern) {
+    if (type == null) return null;
     return getTypecheckingBackend().selectProvider(type, targetPattern.getConcept()).strongCoerceType(type, targetPattern);
   }
 

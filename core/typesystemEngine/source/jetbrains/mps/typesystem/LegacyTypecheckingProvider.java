@@ -50,12 +50,14 @@ public class LegacyTypecheckingProvider implements TypecheckingProvider {
   }
 
   @Override
-  public SNode getTypeOf(@NotNull SNode expression) {
+  public SNode getTypeOf(SNode expression) {
+    if (expression == null) return null;
     return TypeChecker.getInstance().getTypeOf(expression);
   }
 
   @Override
-  public SNode getInferredType(@NotNull SNode expression) {
+  public SNode getInferredType(SNode expression) {
+    if (expression == null) return null;
     return TypeChecker.getInstance().getInferredTypeOf(expression);
   }
 
@@ -65,12 +67,14 @@ public class LegacyTypecheckingProvider implements TypecheckingProvider {
   }
 
   @Override
-  public boolean isSubtype(@NotNull SNode typeA, @NotNull SNode typeB) {
+  public boolean isSubtype(SNode typeA, SNode typeB) {
+    if (typeA == null || typeB == null) return false;
     return TypeChecker.getInstance().getSubtypingManager().isSubtype(typeA, typeB, true);
   }
 
   @Override
-  public boolean isStrongSubtype(@NotNull SNode typeA, @NotNull SNode typeB) {
+  public boolean isStrongSubtype(SNode typeA, SNode typeB) {
+    if (typeA == null || typeB == null) return false;
     return TypeChecker.getInstance().getSubtypingManager().isSubtype(typeA, typeB, false);
   }
 
@@ -82,24 +86,28 @@ public class LegacyTypecheckingProvider implements TypecheckingProvider {
   }
 
   @Override
-  public SNode coerceType(@NotNull SNode type, @NotNull SConcept typeConcept) {
+  public SNode coerceType(SNode type, @NotNull SConcept typeConcept) {
+    if (type == null) return null;
     return TypeChecker.getInstance().getRuntimeSupport().coerce_(type, new ConceptMatchingPattern(typeConcept), true);
   }
 
   @Nullable
   @Override
-  public SNode coerceType(@NotNull SNode type, @NotNull INodeMatchingPattern targetPattern) {
+  public SNode coerceType(SNode type, @NotNull INodeMatchingPattern targetPattern) {
+    if (type == null) return null;
     return TypeChecker.getInstance().getRuntimeSupport().coerce_(type, targetPattern, true);
   }
 
   @Override
-  public SNode strongCoerceType(@NotNull SNode type, @NotNull SConcept typeConcept) {
+  public SNode strongCoerceType(SNode type, @NotNull SConcept typeConcept) {
+    if (type == null) return null;
     return TypeChecker.getInstance().getRuntimeSupport().coerce_(type, new ConceptMatchingPattern(typeConcept), false);
   }
 
   @Nullable
   @Override
-  public SNode strongCoerceType(@NotNull SNode type, @NotNull INodeMatchingPattern targetPattern) {
+  public SNode strongCoerceType(SNode type, @NotNull INodeMatchingPattern targetPattern) {
+    if (type == null) return null;
     return TypeChecker.getInstance().getRuntimeSupport().coerce_(type, targetPattern, false);
   }
   

@@ -33,15 +33,18 @@ public interface TypecheckingQueries {
 
   /**
    * Returns either inferred or cached type of the expression, depending on the context, or null if there is no type.
+   * To support the legacy contract, nullable parameter is accepted, in which case null is returned.
    */
   @Nullable
-  SNode getTypeOf(@NotNull SNode expression);
+  SNode getTypeOf(SNode expression);
 
   /**
    * Provided for compatibility with the legacy system. Is essentially the same as {@code getType()}.
+   * To support the legacy contract, nullable parameter is accepted, in which case null is returned.
    */
   @Nullable
-  default SNode getInferredType(@NotNull SNode expression) {
+  default SNode getInferredType(SNode expression) {
+    if (expression == null) return null;
     return getTypeOf(expression);
   }
 
@@ -52,15 +55,21 @@ public interface TypecheckingQueries {
 
   /**
    * Provided for compatibility with the legacy system. Is essentially the same as {@code convertsTo()}.
+   * To support the legacy contract, nullable parameters are accepted.
+   * If either parameter is null, the returned value is false.
    */
-  default boolean isSubtype(@NotNull SNode typeA, @NotNull SNode typeB) {
+  default boolean isSubtype(SNode typeA, SNode typeB) {
+    if (typeA == null || typeB == null) return false;
     return convertsTo(typeA, typeB);
   }
 
   /**
    * Provided for compatibility with the legacy system. Is essentially the same as {@code convertsTo()}.
+   * To support the legacy contract, nullable parameters are accepted.
+   * If either parameter is null, the returned value is false.
    */
-  default boolean isStrongSubtype(@NotNull SNode typeA, @NotNull SNode typeB) {
+  default boolean isStrongSubtype(SNode typeA, SNode typeB) {
+    if (typeA == null || typeB == null) return false;
     return convertsTo(typeA, typeB);
   }
 
@@ -79,9 +88,10 @@ public interface TypecheckingQueries {
    * If conversion is possible, the result of the conversion is the coerced type.
    *
    * Returns the coerced type or null, if the type can't be coerced to the specified form.
+   * To support the legacy contract, nullable type parameter is accepted, in which case null is returned.
    */
   @Nullable
-  SNode coerceType(@NotNull SNode type, @NotNull SConcept targetConcept);
+  SNode coerceType(SNode type, @NotNull SConcept targetConcept);
 
   /**
    * Tries to coerce a type to the form corresponding to the specified {@code targetPattern}.
@@ -89,23 +99,28 @@ public interface TypecheckingQueries {
    * in addition to the target concept one can specify one or more features of the target type.
    *
    * Returns the coerced type or null, if the type can't be coerced to the specified form.
+   * To support the legacy contract, nullable type parameter is accepted, in which case null is returned.
    */
   @Nullable
-  SNode coerceType(@NotNull SNode type, @NotNull INodeMatchingPattern targetPattern);
+  SNode coerceType(SNode type, @NotNull INodeMatchingPattern targetPattern);
 
   /**
    * Provided for compatibility with the legacy system. Is essentially the same as {@link TypecheckingQueries#coerceType(SNode, SConcept)}.
+   * To support the legacy contract, nullable type parameter is accepted, in which case null is returned.
    */
   @Nullable
-  default SNode strongCoerceType(@NotNull SNode type, @NotNull SConcept targetConcept) {
+  default SNode strongCoerceType(SNode type, @NotNull SConcept targetConcept) {
+    if (type == null) return null;
     return coerceType(type, targetConcept);
   }
 
   /**
    * Provided for compatibility with the legacy system. Is essentially the same as {@link TypecheckingQueries#coerceType(SNode, INodeMatchingPattern)}.
+   * To support the legacy contract, nullable type parameter is accepted, in which case null is returned.
    */
   @Nullable
-  default SNode strongCoerceType(@NotNull SNode type,  @NotNull INodeMatchingPattern targetPattern) {
+  default SNode strongCoerceType(SNode type,  @NotNull INodeMatchingPattern targetPattern) {
+    if (type == null) return null;
     return coerceType(type, targetPattern);
   }
 

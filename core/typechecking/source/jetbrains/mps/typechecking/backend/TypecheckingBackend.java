@@ -88,7 +88,7 @@ public class TypecheckingBackend implements CoreComponent {
    * @throws IllegalStateException if no provider is available.
    */
   @NotNull
-  public TypecheckingProvider selectProvider(SNode src) {
+  public TypecheckingProvider selectProvider(@NotNull SNode src) {
     for (TypecheckingProvider candidate: providersSortedDescending()) {
       if (candidate.select(src)) return candidate;
     }
@@ -100,7 +100,7 @@ public class TypecheckingBackend implements CoreComponent {
    * @throws IllegalStateException if no provider is available.
    */
   @NotNull
-  public TypecheckingProvider selectProvider(SNode src, SNode trg) {
+  public TypecheckingProvider selectProvider(@NotNull SNode src, @NotNull SNode trg) {
     for (TypecheckingProvider candidate: providersSortedDescending()) {
       if (candidate.select(src, trg)) return candidate;
     }
@@ -112,7 +112,7 @@ public class TypecheckingBackend implements CoreComponent {
    * @throws IllegalStateException if no provider is available.
    */
   @NotNull
-  public TypecheckingProvider selectProvider(SNode src, SConcept trg) {
+  public TypecheckingProvider selectProvider(@NotNull SNode src, @NotNull SConcept trg) {
     for (TypecheckingProvider candidate: providersSortedDescending()) {
       if (candidate.select(src, trg)) return candidate;
     }
