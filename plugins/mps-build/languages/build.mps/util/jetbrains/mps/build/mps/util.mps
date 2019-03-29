@@ -10942,8 +10942,8 @@
                         </node>
                         <node concept="2OqwBi" id="7QNcMbqxpd$" role="37wK5m">
                           <node concept="2ShNRf" id="7QNcMbqxpd_" role="2Oq$k0">
-                            <node concept="HV5vD" id="7QNcMbqxpdA" role="2ShVmc">
-                              <ref role="HV5vE" node="ECLZhkrFpC" resolve="MPSModulesClosure.ModuleDependenciesOptions" />
+                            <node concept="1pGfFk" id="3vfBydn3a4H" role="2ShVmc">
+                              <ref role="37wK5l" node="1BCLQMpCXII" resolve="MPSModulesClosure.ModuleDependenciesOptions" />
                             </node>
                           </node>
                           <node concept="liA8E" id="7QNcMbqxpdB" role="2OqNvi">
