@@ -99,7 +99,7 @@ public class NewSubModel_Action extends BaseAction {
     ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
         String stereotype = SModelStereotype.getStereotype(((SModel) MapSequence.fromMap(_params).get("model")));
-        dialog.value = new NewModelDialog(((MPSProject) MapSequence.fromMap(_params).get("project")), (AbstractModule) ((SModel) MapSequence.fromMap(_params).get("model")).getModule(), namespace, stereotype, true);
+        dialog.value = NewModelDialog.createForNewModel(((MPSProject) MapSequence.fromMap(_params).get("project")), (AbstractModule) ((SModel) MapSequence.fromMap(_params).get("model")).getModule(), namespace, stereotype, true);
       }
     });
 

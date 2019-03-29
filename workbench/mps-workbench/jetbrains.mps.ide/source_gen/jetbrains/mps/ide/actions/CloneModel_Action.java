@@ -81,7 +81,7 @@ public class CloneModel_Action extends BaseAction {
     final Wrappers._T<NewModelDialog> dialog = new Wrappers._T<NewModelDialog>();
     ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        dialog.value = new NewModelDialog(((MPSProject) MapSequence.fromMap(_params).get("project")), ((SModel) MapSequence.fromMap(_params).get("model")));
+        dialog.value = NewModelDialog.createForCloneModel(((MPSProject) MapSequence.fromMap(_params).get("project")), ((SModel) MapSequence.fromMap(_params).get("model")));
       }
     });
     dialog.value.show();

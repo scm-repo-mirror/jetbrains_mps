@@ -133,7 +133,7 @@ public class MoveModel_Action extends BaseAction {
         final Wrappers._T<NewModelDialog> dialog = new Wrappers._T<NewModelDialog>();
         ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository().getModelAccess().runReadAction(new Runnable() {
           public void run() {
-            dialog.value = new NewModelDialog(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), (AbstractModule) selectedModule.resolve(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository()), ((SModel) MapSequence.fromMap(_params).get("model")));
+            dialog.value = NewModelDialog.createForMoveModel(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), (AbstractModule) selectedModule.resolve(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository()), ((SModel) MapSequence.fromMap(_params).get("model")));
           }
         });
         dialog.value.show();

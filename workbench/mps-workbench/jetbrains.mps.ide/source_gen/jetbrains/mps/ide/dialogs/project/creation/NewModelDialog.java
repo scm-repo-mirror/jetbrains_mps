@@ -16,11 +16,9 @@ import org.jetbrains.mps.openapi.persistence.ModelRoot;
 import org.jetbrains.mps.openapi.persistence.ModelFactoryType;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import jetbrains.mps.project.Project;
+import org.jetbrains.mps.openapi.model.SModelName;
 import java.awt.HeadlessException;
 import jetbrains.mps.ide.project.ProjectHelper;
-import org.jetbrains.mps.openapi.model.SModelName;
-import jetbrains.mps.persistence.ModelCannotBeCreatedException;
-import com.intellij.openapi.ui.Messages;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import java.awt.Dimension;
 import com.intellij.uiDesigner.core.GridConstraints;
@@ -67,13 +65,24 @@ public class NewModelDialog extends DialogWrapper {
   private ModelCreateHelper myResultHelper;
   private EditableSModel myResult;
 
-  public NewModelDialog(Project project, AbstractModule module, String namespace, String stereotype, boolean strict) throws HeadlessException {
-    this(project, module, namespace, stereotype, strict, null, false);
+  public static NewModelDialog createForNewModel(Project project, AbstractModule module, String namespace, String stereotype, boolean strict) {
+    NewModelDialog dialog = new NewModelDialog(project, module, namespace, stereotype, strict, null, false, "New Model", (namespace == null || namespace.length() == 0 ? namespace : namespace + "."), false);
+    return dialog;
+
   }
 
-  public NewModelDialog(Project project, @NotNull AbstractModule module, final String namespace, String stereotype, boolean strict, @Nullable SModel clone, boolean preserveIds) throws HeadlessException {
+  public static NewModelDialog createForCloneModel(Project project, @NotNull SModel cloneModel) {
+    NewModelDialog dialog = new NewModelDialog(project, (AbstractModule) cloneModel.getModule(), null, cloneModel.getName().getStereotype(), false, cloneModel, false, String.format("Clone Model %s", cloneModel.getName().getValue()), new SModelName(cloneModel.getName().getLongName() + "_clone").getValue(), true);
+    return dialog;
+  }
+
+  public static NewModelDialog createForMoveModel(Project project, AbstractModule module, @NotNull SModel cloneModel) {
+    NewModelDialog dialog = new NewModelDialog(project, module, null, cloneModel.getName().getStereotype(), false, cloneModel, true, String.format("Move Model %s", cloneModel.getName().getValue()), cloneModel.getName().getLongName(), true);
+    return dialog;
+  }
+
+  /*package*/ NewModelDialog(Project project, @NotNull AbstractModule module, String namespace, String stereotype, boolean strict, @Nullable SModel clone, boolean preserveIds, String title, String modelName, boolean checkInitial) throws HeadlessException {
     super(ProjectHelper.toIdeaProject(project));
-    setTitle("New Model");
     myProject = (MPSProject) project;
     myPreserveIds = preserveIds;
     myClone = clone;
@@ -81,7 +90,7 @@ public class NewModelDialog extends DialogWrapper {
     project.getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
         assert myModule.getModelRoots().iterator().hasNext() : "Can't create a model in solution with no model roots";
-        initContentPane(namespace);
+        initContentPane();
       }
     });
     if (stereotype != null) {
@@ -92,29 +101,9 @@ public class NewModelDialog extends DialogWrapper {
     init();
   }
 
-  public NewModelDialog(Project project, @NotNull SModel cloneModel) {
-    this(project, (AbstractModule) cloneModel.getModule(), null, cloneModel.getName().getStereotype(), false, cloneModel, false);
-    SModelName originalName = cloneModel.getName();
-    setTitle(String.format("Clone Model %s", originalName.getValue()));
-    myModelName.setText(new SModelName(originalName.getLongName() + "_clone").getValue());
-    check();
-  }
-
-  public NewModelDialog(Project project, AbstractModule module, @NotNull SModel cloneModel) {
-    this(project, module, null, cloneModel.getName().getStereotype(), false, cloneModel, true);
-    SModelName originalName = cloneModel.getName();
-    setTitle(String.format("Move Model %s", originalName.getValue()));
-    myModelName.setText(originalName.getLongName());
-    check();
-  }
-
   public EditableSModel createModel() {
     if (myResult == null && myResultHelper != null) {
-      try {
-        myResult = myResultHelper.createModel(myClone, myPreserveIds);
-      } catch (ModelCannotBeCreatedException ex) {
-        Messages.showErrorDialog(myProject.getProject(), "Could not create a new model because '" + ex.getMessage() + "'", "Error");
-      }
+      myResultHelper.createModelHandleExceptions(myClone, myPreserveIds);
     }
     return myResult;
   }
@@ -122,7 +111,7 @@ public class NewModelDialog extends DialogWrapper {
     return myResultHelper;
   }
 
-  private void initContentPane(String namespace) {
+  private void initContentPane() {
     JPanel mainPanel = new JPanel(new GridLayoutManager(6, 1));
     mainPanel.setPreferredSize(new Dimension(200, 50));
 
@@ -154,8 +143,6 @@ public class NewModelDialog extends DialogWrapper {
       }
     });
     myModelRoots.setModel(model);
-
-    myModelName.setText((namespace == null || namespace.length() == 0 ? namespace : namespace + "."));
 
     constraints.setRow(constraints.getRow() + 1);
     mainPanel.add(new JLabel("Model name:"), constraints);

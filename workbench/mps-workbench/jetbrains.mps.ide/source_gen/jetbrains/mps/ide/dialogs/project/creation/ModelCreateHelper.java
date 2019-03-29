@@ -18,6 +18,7 @@ import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.persistence.ModelCannotBeCreatedException;
+import com.intellij.openapi.ui.Messages;
 import jetbrains.mps.util.Reference;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.persistence.DefaultModelRoot;
@@ -67,6 +68,15 @@ public class ModelCreateHelper {
         }
       }
     });
+  }
+
+  public EditableSModel createModelHandleExceptions(@Nullable final SModel myClone, final boolean myPreserveIds) {
+    try {
+      return createModel(myClone, myPreserveIds);
+    } catch (ModelCannotBeCreatedException e) {
+      Messages.showErrorDialog(myProject.getProject(), "Could not create a new model because '" + e.getMessage() + "'", "Error");
+      return null;
+    }
   }
 
   public EditableSModel createModel(@Nullable final SModel myClone, final boolean myPreserveIds) throws ModelCannotBeCreatedException {
