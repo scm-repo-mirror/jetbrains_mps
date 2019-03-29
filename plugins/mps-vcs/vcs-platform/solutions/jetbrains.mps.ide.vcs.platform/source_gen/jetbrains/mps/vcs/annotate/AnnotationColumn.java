@@ -240,13 +240,13 @@ public class AnnotationColumn extends AbstractLeftColumn {
 
       int height = (pseudoLine == ListSequence.fromList(myPseudoLinesY).count() - 1 ? getEditorComponent().getHeight() - ListSequence.fromList(myPseudoLinesY).last() : ListSequence.fromList(myPseudoLinesY).getElement(pseudoLine + 1) - ListSequence.fromList(myPseudoLinesY).getElement(pseudoLine));
       if (myAuthorAnnotationAspect != null && ViewAction.isSet(ViewAction.COLORS)) {
-        String author = MapSequence.fromMap(myRevisionNumberToRevision).get(record.rev).getAuthor();
+        String author = record.rev.getAuthor();
         graphics.setColor(MapSequence.fromMap(myAuthorsToColors).get(author));
         graphics.fillRect(getX(), ListSequence.fromList(myPseudoLinesY).getElement(pseudoLine), getWidth(), height);
       }
 
       graphics.setColor(ANNOTATION_COLOR);
-      if (myRevisionRange.isRevisionHighlighted(MapSequence.fromMap(myRevisionNumberToRevision).get(record.rev))) {
+      if (myRevisionRange.isRevisionHighlighted(record.rev)) {
         graphics.setFont(boldFont);
       } else {
         graphics.setFont(myFont);
@@ -404,7 +404,7 @@ __switch__:
         // It seems the reason for model read is getPseudoLinedForContent->findCellForContent that deals with model of edited node 
         for (int fileLine = 0; fileLine < ListSequence.fromList(myFileLineToContent).count(); fileLine++) {
           LineContent lineContent = ListSequence.fromList(myFileLineToContent).getElement(fileLine);
-          final VcsRevisionNumber fileLineRev = myFileAnnotation.getLineRevisionNumber(fileLine);
+          final VcsFileRevision fileLineRev = fileRevForLine(fileLine);
           for (int pseudoLine : getPseudoLinesForContent(lineContent)) {
             final AnnotationColumn.LineRevisionRecord lr = ListSequence.fromList(myEditorLineRecords).getElement(pseudoLine);
             if (lr == null) {
@@ -415,8 +415,7 @@ __switch__:
               // we've got info for the editor line already, and it's attributed to some node and a revision 
               if (lr.nodeId.equals(lineContent.getNodeId())) {
                 // same node is reported, but different revision, perhaps? Update if newer, keep previous otherwise 
-                // XXX I assume 'less than' means 'earlier' 
-                if (lr.rev.compareTo(fileLineRev) < 0) {
+                if (lr.rev.getRevisionDate().before(fileLineRev.getRevisionDate())) {
                   lr.rev = fileLineRev;
                   lr.fileLine = fileLine;
                 }
@@ -617,10 +616,11 @@ __switch__:
     /*package*/ final SNodeId nodeId;
 
     /**
-     * Perhaps, shall stick to VcsFileRevision instead, as it gives both vcsRevNumber and author
+     * VcsFileRevision, not VcsRevisionNumber, as it gives both vcsRevNumber and author and facilitates ordering (VcsRevisionNumber.compareTo uses 
+     * timestamp field which doesn't reflect revision date but rather the moment annotate was constructed)
      * Intentionally not final as it's updated if we find newer revision for the node
      */
-    /*package*/ VcsRevisionNumber rev;
+    /*package*/ VcsFileRevision rev;
     /**
      * provisional, just to get legacy code that relies on file line number working
      * indicates file line where we picked rev from
@@ -628,14 +628,14 @@ __switch__:
     /*package*/ int fileLine;
     private final List<SNodeId> prevRecordNodeId;
 
-    /*package*/ LineRevisionRecord(SNodeId nid, VcsRevisionNumber n, int fileLineNumber) {
+    /*package*/ LineRevisionRecord(SNodeId nid, VcsFileRevision n, int fileLineNumber) {
       nodeId = nid;
       rev = n;
       fileLine = fileLineNumber;
       prevRecordNodeId = null;
     }
 
-    /*package*/ LineRevisionRecord(SNodeId nid, VcsRevisionNumber n, int fileLineNumber, AnnotationColumn.LineRevisionRecord prev) {
+    /*package*/ LineRevisionRecord(SNodeId nid, VcsFileRevision n, int fileLineNumber, AnnotationColumn.LineRevisionRecord prev) {
       nodeId = nid;
       rev = n;
       fileLine = fileLineNumber;

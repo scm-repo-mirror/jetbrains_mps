@@ -2189,21 +2189,16 @@
                     <property role="TrG5h" value="author" />
                     <node concept="17QB3L" id="6lB4qfV6pTv" role="1tU5fm" />
                     <node concept="2OqwBi" id="7c_FJUhKOxM" role="33vP2m">
-                      <node concept="3EllGN" id="7c_FJUhK_u5" role="2Oq$k0">
-                        <node concept="2OqwBi" id="7c_FJUhKAry" role="3ElVtu">
-                          <node concept="37vLTw" id="7c_FJUhKAg0" role="2Oq$k0">
-                            <ref role="3cqZAo" node="7c_FJUhJTwP" resolve="record" />
-                          </node>
-                          <node concept="2OwXpG" id="7c_FJUhKOe1" role="2OqNvi">
-                            <ref role="2Oxat5" node="430k_vD3$kl" resolve="rev" />
-                          </node>
-                        </node>
-                        <node concept="37vLTw" id="7c_FJUhK$6l" role="3ElQJh">
-                          <ref role="3cqZAo" node="Te4SXnwXJt" resolve="myRevisionNumberToRevision" />
-                        </node>
-                      </node>
                       <node concept="liA8E" id="7c_FJUhKP0$" role="2OqNvi">
                         <ref role="37wK5l" to="yah0:~VcsRevisionDescription.getAuthor()" resolve="getAuthor" />
+                      </node>
+                      <node concept="2OqwBi" id="7c_FJUhKAry" role="2Oq$k0">
+                        <node concept="37vLTw" id="7c_FJUhKAg0" role="2Oq$k0">
+                          <ref role="3cqZAo" node="7c_FJUhJTwP" resolve="record" />
+                        </node>
+                        <node concept="2OwXpG" id="7c_FJUhKOe1" role="2OqNvi">
+                          <ref role="2Oxat5" node="430k_vD3$kl" resolve="rev" />
+                        </node>
                       </node>
                     </node>
                   </node>
@@ -2288,17 +2283,12 @@
               <node concept="2OqwBi" id="6lB4qfV6pUB" role="3clFbw">
                 <node concept="liA8E" id="6lB4qfV6pUD" role="2OqNvi">
                   <ref role="37wK5l" node="7c_FJUhL1lE" resolve="isRevisionHighlighted" />
-                  <node concept="3EllGN" id="7c_FJUhLx4o" role="37wK5m">
-                    <node concept="2OqwBi" id="7c_FJUhLx4p" role="3ElVtu">
-                      <node concept="37vLTw" id="7c_FJUhLx4q" role="2Oq$k0">
-                        <ref role="3cqZAo" node="7c_FJUhJTwP" resolve="record" />
-                      </node>
-                      <node concept="2OwXpG" id="7c_FJUhLx4r" role="2OqNvi">
-                        <ref role="2Oxat5" node="430k_vD3$kl" resolve="rev" />
-                      </node>
+                  <node concept="2OqwBi" id="7c_FJUhLx4p" role="37wK5m">
+                    <node concept="37vLTw" id="7c_FJUhLx4q" role="2Oq$k0">
+                      <ref role="3cqZAo" node="7c_FJUhJTwP" resolve="record" />
                     </node>
-                    <node concept="37vLTw" id="7c_FJUhLx4s" role="3ElQJh">
-                      <ref role="3cqZAo" node="Te4SXnwXJt" resolve="myRevisionNumberToRevision" />
+                    <node concept="2OwXpG" id="7c_FJUhLx4r" role="2OqNvi">
+                      <ref role="2Oxat5" node="430k_vD3$kl" resolve="rev" />
                     </node>
                   </node>
                 </node>
@@ -3371,18 +3361,13 @@
                         <node concept="3cpWsn" id="430k_vD9Huo" role="3cpWs9">
                           <property role="TrG5h" value="fileLineRev" />
                           <property role="3TUv4t" value="true" />
-                          <node concept="3uibUv" id="430k_vD9Hul" role="1tU5fm">
-                            <ref role="3uigEE" to="yah0:~VcsRevisionNumber" resolve="VcsRevisionNumber" />
+                          <node concept="3uibUv" id="31ayz1qwRZc" role="1tU5fm">
+                            <ref role="3uigEE" to="yah0:~VcsFileRevision" resolve="VcsFileRevision" />
                           </node>
-                          <node concept="2OqwBi" id="430k_vD9Hup" role="33vP2m">
-                            <node concept="37vLTw" id="430k_vD9Huq" role="2Oq$k0">
-                              <ref role="3cqZAo" node="3DzKymJJdjl" resolve="myFileAnnotation" />
-                            </node>
-                            <node concept="liA8E" id="430k_vD9Hur" role="2OqNvi">
-                              <ref role="37wK5l" to="8voc:~FileAnnotation.getLineRevisionNumber(int)" resolve="getLineRevisionNumber" />
-                              <node concept="37vLTw" id="430k_vD9Hus" role="37wK5m">
-                                <ref role="3cqZAo" node="1KUoCipvxeo" resolve="fileLine" />
-                              </node>
+                          <node concept="1rXfSq" id="31ayz1qwNJq" role="33vP2m">
+                            <ref role="37wK5l" node="7c_FJUhNRgj" resolve="fileRevForLine" />
+                            <node concept="37vLTw" id="31ayz1qwO_y" role="37wK5m">
+                              <ref role="3cqZAo" node="1KUoCipvxeo" resolve="fileLine" />
                             </node>
                           </node>
                         </node>
@@ -3473,11 +3458,6 @@
                                         <property role="3SKdUp" value="same node is reported, but different revision, perhaps? Update if newer, keep previous otherwise" />
                                       </node>
                                     </node>
-                                    <node concept="3SKdUt" id="430k_vDdlrF" role="3cqZAp">
-                                      <node concept="3SKdUq" id="430k_vDdlrH" role="3SKWNk">
-                                        <property role="3SKdUp" value="XXX I assume 'less than' means 'earlier'" />
-                                      </node>
-                                    </node>
                                     <node concept="3clFbJ" id="430k_vD70PJ" role="3cqZAp">
                                       <node concept="3clFbS" id="430k_vD70PL" role="3clFbx">
                                         <node concept="3clFbF" id="430k_vD9X0j" role="3cqZAp">
@@ -3511,11 +3491,8 @@
                                           </node>
                                         </node>
                                       </node>
-                                      <node concept="3eOVzh" id="430k_vD9PvZ" role="3clFbw">
-                                        <node concept="3cmrfG" id="430k_vD9Pw6" role="3uHU7w">
-                                          <property role="3cmrfH" value="0" />
-                                        </node>
-                                        <node concept="2OqwBi" id="430k_vD8Nlu" role="3uHU7B">
+                                      <node concept="2OqwBi" id="430k_vD8Nlu" role="3clFbw">
+                                        <node concept="2OqwBi" id="31ayz1qy0VV" role="2Oq$k0">
                                           <node concept="2OqwBi" id="430k_vD71Zf" role="2Oq$k0">
                                             <node concept="37vLTw" id="430k_vD71nS" role="2Oq$k0">
                                               <ref role="3cqZAo" node="430k_vD47lJ" resolve="lr" />
@@ -3524,10 +3501,18 @@
                                               <ref role="2Oxat5" node="430k_vD3$kl" resolve="rev" />
                                             </node>
                                           </node>
-                                          <node concept="liA8E" id="430k_vD9FFu" role="2OqNvi">
-                                            <ref role="37wK5l" to="wyt6:~Comparable.compareTo(java.lang.Object)" resolve="compareTo" />
-                                            <node concept="37vLTw" id="430k_vD9Hut" role="37wK5m">
+                                          <node concept="liA8E" id="31ayz1qy1Ep" role="2OqNvi">
+                                            <ref role="37wK5l" to="yah0:~VcsRevisionDescription.getRevisionDate()" resolve="getRevisionDate" />
+                                          </node>
+                                        </node>
+                                        <node concept="liA8E" id="430k_vD9FFu" role="2OqNvi">
+                                          <ref role="37wK5l" to="33ny:~Date.before(java.util.Date)" resolve="before" />
+                                          <node concept="2OqwBi" id="31ayz1qy3qq" role="37wK5m">
+                                            <node concept="37vLTw" id="430k_vD9Hut" role="2Oq$k0">
                                               <ref role="3cqZAo" node="430k_vD9Huo" resolve="fileLineRev" />
+                                            </node>
+                                            <node concept="liA8E" id="31ayz1qy534" role="2OqNvi">
+                                              <ref role="37wK5l" to="yah0:~VcsRevisionDescription.getRevisionDate()" resolve="getRevisionDate" />
                                             </node>
                                           </node>
                                         </node>
@@ -5170,13 +5155,18 @@
       <node concept="2tJIrI" id="430k_vD3HRG" role="jymVt" />
       <node concept="312cEg" id="430k_vD3$kl" role="jymVt">
         <property role="TrG5h" value="rev" />
-        <node concept="3uibUv" id="430k_vD3HF4" role="1tU5fm">
-          <ref role="3uigEE" to="yah0:~VcsRevisionNumber" resolve="VcsRevisionNumber" />
+        <node concept="3uibUv" id="31ayz1qwIRf" role="1tU5fm">
+          <ref role="3uigEE" to="yah0:~VcsFileRevision" resolve="VcsFileRevision" />
         </node>
         <node concept="z59LJ" id="430k_vD3Isc" role="lGtFl">
           <node concept="TZ5HA" id="430k_vD3Isd" role="TZ5H$">
             <node concept="1dT_AC" id="430k_vD3Ise" role="1dT_Ay">
-              <property role="1dT_AB" value="Perhaps, shall stick to VcsFileRevision instead, as it gives both vcsRevNumber and author" />
+              <property role="1dT_AB" value="VcsFileRevision, not VcsRevisionNumber, as it gives both vcsRevNumber and author and facilitates ordering (VcsRevisionNumber.compareTo uses " />
+            </node>
+          </node>
+          <node concept="TZ5HA" id="31ayz1qwJFo" role="TZ5H$">
+            <node concept="1dT_AC" id="31ayz1qwJFp" role="1dT_Ay">
+              <property role="1dT_AB" value="timestamp field which doesn't reflect revision date but rather the moment annotate was constructed)" />
             </node>
           </node>
           <node concept="TZ5HA" id="430k_vD49uv" role="TZ5H$">
@@ -5263,8 +5253,8 @@
         </node>
         <node concept="37vLTG" id="430k_vD3K1e" role="3clF46">
           <property role="TrG5h" value="n" />
-          <node concept="3uibUv" id="430k_vD3Kgx" role="1tU5fm">
-            <ref role="3uigEE" to="yah0:~VcsRevisionNumber" resolve="VcsRevisionNumber" />
+          <node concept="3uibUv" id="31ayz1qwKyp" role="1tU5fm">
+            <ref role="3uigEE" to="yah0:~VcsFileRevision" resolve="VcsFileRevision" />
           </node>
         </node>
         <node concept="37vLTG" id="7c_FJUhH05i" role="3clF46">
@@ -5378,8 +5368,8 @@
         </node>
         <node concept="37vLTG" id="7c_FJUhDaKB" role="3clF46">
           <property role="TrG5h" value="n" />
-          <node concept="3uibUv" id="7c_FJUhDaKC" role="1tU5fm">
-            <ref role="3uigEE" to="yah0:~VcsRevisionNumber" resolve="VcsRevisionNumber" />
+          <node concept="3uibUv" id="31ayz1qwLe2" role="1tU5fm">
+            <ref role="3uigEE" to="yah0:~VcsFileRevision" resolve="VcsFileRevision" />
           </node>
         </node>
         <node concept="37vLTG" id="7c_FJUhH8ou" role="3clF46">
