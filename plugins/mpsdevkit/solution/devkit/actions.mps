@@ -134,6 +134,7 @@
     <import index="1l1f" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ide.util.gotoByName(MPS.IDEA/)" />
     <import index="35tq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.scope(MPS.Core/)" />
     <import index="yha4" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.workbench.choose(MPS.Platform/)" />
+    <import index="6f4m" ref="528ff3b9-5fc4-40dd-931f-c6ce3650640e/r:f69c3fa1-0e30-4980-84e2-190ae44e4c3d(jetbrains.mps.lang.migration.runtime/jetbrains.mps.lang.migration.runtime.base)" />
   </imports>
   <registry>
     <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
@@ -14136,9 +14137,10 @@
   <node concept="sE7Ow" id="z$IXO4dqwO">
     <property role="TrG5h" value="NewRuntimeModule" />
     <property role="72QZ$" value="false" />
-    <property role="2uzpH1" value="New Runtime Module" />
+    <property role="2uzpH1" value="Add Runtime Module" />
     <property role="3GE5qa" value="New" />
     <property role="1teQrl" value="true" />
+    <property role="1WHSii" value="Introduce a dependency to language's runtime code" />
     <node concept="tnohg" id="z$IXO4dqwP" role="tncku">
       <node concept="3clFbS" id="z$IXO4dqwQ" role="2VODD2">
         <node concept="3cpWs8" id="3JyrSD6h3aj" role="3cqZAp">
@@ -14449,6 +14451,55 @@
                                             <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
                                           </node>
                                         </node>
+                                      </node>
+                                    </node>
+                                  </node>
+                                  <node concept="3SKdUt" id="5Iq6O663v_T" role="3cqZAp">
+                                    <node concept="3SKdUq" id="5Iq6O663v_V" role="3SKWNk">
+                                      <property role="3SKdUp" value="next code has been copied from ModulePropertiesConfigurable.RuntimeTableModel#apply()" />
+                                    </node>
+                                  </node>
+                                  <node concept="1DcWWT" id="5Iq6O6631XC" role="3cqZAp">
+                                    <node concept="3clFbS" id="5Iq6O6631XF" role="2LFqv$">
+                                      <node concept="3clFbF" id="5Iq6O6632Gi" role="3cqZAp">
+                                        <node concept="2OqwBi" id="5Iq6O663syO" role="3clFbG">
+                                          <node concept="2ShNRf" id="5Iq6O6632Gg" role="2Oq$k0">
+                                            <node concept="1pGfFk" id="5Iq6O663pzy" role="2ShVmc">
+                                              <ref role="37wK5l" to="6f4m:5gIiJF05pI8" resolve="VersionFixer" />
+                                              <node concept="2OqwBi" id="5Iq6O663pYB" role="37wK5m">
+                                                <node concept="2WthIp" id="5Iq6O663pYE" role="2Oq$k0">
+                                                  <ref role="32nkFo" node="z$IXO4dqwO" resolve="NewRuntimeModule" />
+                                                </node>
+                                                <node concept="1DTwFV" id="5Iq6O663pYG" role="2OqNvi">
+                                                  <ref role="2WH_rO" node="4oi2Bf2pHLP" resolve="project" />
+                                                </node>
+                                              </node>
+                                              <node concept="37vLTw" id="5Iq6O663qMW" role="37wK5m">
+                                                <ref role="3cqZAo" node="5Iq6O6631XG" resolve="g" />
+                                              </node>
+                                              <node concept="3clFbT" id="5Iq6O663rhj" role="37wK5m">
+                                                <property role="3clFbU" value="true" />
+                                              </node>
+                                            </node>
+                                          </node>
+                                          <node concept="liA8E" id="5Iq6O663tw0" role="2OqNvi">
+                                            <ref role="37wK5l" to="6f4m:2V3ml1v0Uym" resolve="updateImportVersions" />
+                                          </node>
+                                        </node>
+                                      </node>
+                                    </node>
+                                    <node concept="3cpWsn" id="5Iq6O6631XG" role="1Duv9x">
+                                      <property role="TrG5h" value="g" />
+                                      <node concept="3uibUv" id="5Iq6O6631XK" role="1tU5fm">
+                                        <ref role="3uigEE" to="w1kc:~Generator" resolve="Generator" />
+                                      </node>
+                                    </node>
+                                    <node concept="2OqwBi" id="5Iq6O6631XL" role="1DdaDG">
+                                      <node concept="37vLTw" id="5Iq6O6631XM" role="2Oq$k0">
+                                        <ref role="3cqZAo" node="fwenio0Ov7" resolve="language" />
+                                      </node>
+                                      <node concept="liA8E" id="5Iq6O6631XN" role="2OqNvi">
+                                        <ref role="37wK5l" to="w1kc:~Language.getOwnedGenerators()" resolve="getOwnedGenerators" />
                                       </node>
                                     </node>
                                   </node>

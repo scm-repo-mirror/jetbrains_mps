@@ -37,5 +37,6 @@
     <orderEntry type="module" module-name="behavior-api" />
     <orderEntry type="module" module-name="behavior-runtime" />
     <orderEntry type="module" module-name="module" />
+    <orderEntry type="module" module-name="migrations-runtime" />
   </component>
 </module>

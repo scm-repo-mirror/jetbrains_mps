@@ -29,13 +29,15 @@ import jetbrains.mps.workbench.choose.ModulesPresentation;
 import com.intellij.ide.util.gotoByName.ChooseByNamePopup;
 import jetbrains.mps.workbench.goTo.ui.MpsPopupFactory;
 import com.intellij.ide.util.gotoByName.ChooseByNamePopupComponent;
+import jetbrains.mps.smodel.Generator;
+import jetbrains.mps.lang.migration.runtime.base.VersionFixer;
 import com.intellij.openapi.application.ModalityState;
 
 public class NewRuntimeModule_Action extends BaseAction {
   private static final Icon ICON = null;
 
   public NewRuntimeModule_Action() {
-    super("New Runtime Module", "", ICON);
+    super("Add Runtime Module", "Introduce a dependency to language's runtime code", ICON);
     this.setIsAlwaysVisible(false);
     this.setExecuteOutsideCommand(false);
   }
@@ -110,6 +112,10 @@ public class NewRuntimeModule_Action extends BaseAction {
         repo.getModelAccess().runWriteInEDT(new Runnable() {
           public void run() {
             language.getModuleDescriptor().getRuntimeModules().add((SModuleReference) p0);
+            // next code has been copied from ModulePropertiesConfigurable.RuntimeTableModel#apply() 
+            for (Generator g : language.getOwnedGenerators()) {
+              new VersionFixer(((MPSProject) MapSequence.fromMap(_params).get("project")), g, true).updateImportVersions();
+            }
             language.save();
             mpsTree.rebuildLater();
           }
