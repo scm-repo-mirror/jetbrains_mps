@@ -83,7 +83,7 @@
     <orderEntry type="module" module-name="migration-workbench" />
     <orderEntry type="module" module-name="misc-tests" />
     <orderEntry type="module" module-name="model" />
-    <orderEntry type="module" module-name="modelchecker" />
+    <orderEntry type="module" module-name="mps-modelchecker" />
     <orderEntry type="module" module-name="module" />
     <orderEntry type="module" module-name="mps" />
     <orderEntry type="module" module-name="mps-annotations" />

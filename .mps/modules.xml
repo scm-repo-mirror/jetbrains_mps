@@ -235,8 +235,8 @@
       <modulePath path="$PROJECT_DIR$/plugins/httpsupport/solutions/runtime/jetbrains.mps.ide.httpsupport.runtime.msd" folder="platform.httpsupport" />
       <modulePath path="$PROJECT_DIR$/plugins/ideaIntegration/MPSPlugin/jetbrains.mps.ideaIntegration.msd" folder="platform" />
       <modulePath path="$PROJECT_DIR$/plugins/jetpad/solutions/jetbrains.jetpad/jetbrains.jetpad.msd" folder="core.aspects.editor.diagram" />
-      <modulePath path="$PROJECT_DIR$/plugins/modelchecker/platform/jetbrains.mps.ide.modelchecker.platform.msd" folder="platform.modelchecker" />
-      <modulePath path="$PROJECT_DIR$/plugins/modelchecker/solution/jetbrains.mps.ide.modelchecker.msd" folder="platform.modelchecker" />
+      <modulePath path="$PROJECT_DIR$/plugins/mps-modelchecker/platform/jetbrains.mps.ide.modelchecker.platform.msd" folder="platform.modelchecker" />
+      <modulePath path="$PROJECT_DIR$/plugins/mps-modelchecker/solution/jetbrains.mps.ide.modelchecker.msd" folder="platform.modelchecker" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-build/languages/build.mps.runner/jetbrains.mps.build.mps.runner.mpl" folder="platform.build" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-build/languages/build.mps.testManifest/jetbrains.mps.build.mps.testManifest.mpl" folder="platform.build" />
       <modulePath path="$PROJECT_DIR$/plugins/mps-build/languages/build.mps.tests/jetbrains.mps.build.mps.tests.mpl" folder="platform.build" />

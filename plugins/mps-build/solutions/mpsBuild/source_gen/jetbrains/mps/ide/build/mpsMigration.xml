@@ -342,7 +342,7 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-icons.jar" />
         <fileset file="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" />
-        <fileset file="${artifacts.mpsPlugins}/modelchecker/lib/modelchecker.jar" />
+        <fileset file="${artifacts.mpsPlugins}/mps-modelchecker/lib/modelchecker.jar" />
         <fileset file="${artifacts.mpsMigrationCore}/migration-platform/lib/migration-platform.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -386,7 +386,7 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-icons.jar" />
         <fileset file="${artifacts.mpsWorkbench}/lib/mps-workbench.jar" />
-        <fileset file="${artifacts.mpsPlugins}/modelchecker/lib/modelchecker.jar" />
+        <fileset file="${artifacts.mpsPlugins}/mps-modelchecker/lib/modelchecker.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />

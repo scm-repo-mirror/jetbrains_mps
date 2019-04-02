@@ -1439,7 +1439,7 @@
     <orderEntry type="module" module-name="ideaIntegration" />
     <orderEntry type="module" module-name="make-facets" />
     <orderEntry type="module" module-name="make-runtime" />
-    <orderEntry type="module" module-name="modelchecker" />
+    <orderEntry type="module" module-name="mps-modelchecker" />
     <orderEntry type="module" module-name="mps-workbench" />
     <orderEntry type="module" module-name="openapi" />
     <orderEntry type="module" module-name="smodel" />
@@ -1472,4 +1472,3 @@
     <orderEntry type="module" module-name="project-check" />
   </component>
 </module>
-

@@ -22,7 +22,7 @@
     <orderEntry type="module" module-name="closures-runtime" />
     <orderEntry type="module" module-name="migrations-runtime" />
     <orderEntry type="module" module-name="findUsages-runtime" />
-    <orderEntry type="module" module-name="modelchecker" />
+    <orderEntry type="module" module-name="mps-modelchecker" />
     <orderEntry type="module" module-name="make-runtime" />
     <orderEntry type="module" module-name="smodelquery-runtime" />
     <orderEntry type="module" module-name="refactoring" />

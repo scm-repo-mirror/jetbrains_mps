@@ -20031,14 +20031,14 @@
       </node>
     </node>
     <node concept="398b33" id="1nJh0raVm57" role="3989C9">
-      <property role="TrG5h" value="modelchecker" />
+      <property role="TrG5h" value="mps-modelchecker" />
       <node concept="398b2D" id="1nJh0raVm58" role="398b2p">
         <node concept="398BVA" id="1nJh0raVm5a" role="398b2C">
           <ref role="398BVh" node="5yMuYWFN8P8" resolve="mps_home" />
           <node concept="2Ry0Ak" id="1nJh0raVm5b" role="iGT6I">
             <property role="2Ry0Am" value="plugins" />
             <node concept="2Ry0Ak" id="1nJh0raVm5c" role="2Ry0An">
-              <property role="2Ry0Am" value="modelchecker" />
+              <property role="2Ry0Am" value="mps-modelchecker" />
             </node>
           </node>
         </node>
@@ -20058,7 +20058,7 @@
             <node concept="2Ry0Ak" id="3NkcTj4zC9j" role="iGT6I">
               <property role="2Ry0Am" value="plugins" />
               <node concept="2Ry0Ak" id="3NkcTj4zC9k" role="2Ry0An">
-                <property role="2Ry0Am" value="modelchecker" />
+                <property role="2Ry0Am" value="mps-modelchecker" />
                 <node concept="2Ry0Ak" id="3NkcTj4zC_1" role="2Ry0An">
                   <property role="2Ry0Am" value="platform" />
                   <node concept="2Ry0Ak" id="3NkcTj4zCOZ" role="2Ry0An">
@@ -20088,7 +20088,7 @@
             <node concept="2Ry0Ak" id="EpEP7iii3U" role="iGT6I">
               <property role="2Ry0Am" value="plugins" />
               <node concept="2Ry0Ak" id="EpEP7iii3V" role="2Ry0An">
-                <property role="2Ry0Am" value="modelchecker" />
+                <property role="2Ry0Am" value="mps-modelchecker" />
                 <node concept="2Ry0Ak" id="EpEP7iii3W" role="2Ry0An">
                   <property role="2Ry0Am" value="platform" />
                 </node>
@@ -20101,7 +20101,7 @@
         <node concept="2Ry0Ak" id="4IP11oWmB_3" role="iGT6I">
           <property role="2Ry0Am" value="plugins" />
           <node concept="2Ry0Ak" id="4IP11oWmBF8" role="2Ry0An">
-            <property role="2Ry0Am" value="modelchecker" />
+            <property role="2Ry0Am" value="mps-modelchecker" />
             <node concept="2Ry0Ak" id="4IP11oWmBLd" role="2Ry0An">
               <property role="2Ry0Am" value="platform" />
               <node concept="2Ry0Ak" id="4IP11oWmBRi" role="2Ry0An">
@@ -20173,7 +20173,7 @@
       </node>
       <node concept="1E1SXE" id="2JGPlbYz2rw" role="3bR37C">
         <property role="1E1SXH" value="true" />
-        <ref role="1E1SXG" node="1nJh0raVm57" resolve="modelchecker" />
+        <ref role="1E1SXG" node="1nJh0raVm57" resolve="mps-modelchecker" />
       </node>
     </node>
     <node concept="m$_wf" id="5lGJ4Taqfsl" role="3989C9">
@@ -20185,7 +20185,7 @@
       </node>
       <node concept="3_J27D" id="5lGJ4Taqfsp" role="m_cZH">
         <node concept="3Mxwew" id="5lGJ4TaqfI2" role="3MwsjC">
-          <property role="3MwjfP" value="modelchecker" />
+          <property role="3MwjfP" value="mps-modelchecker" />
         </node>
       </node>
       <node concept="3_J27D" id="5lGJ4Taqfsr" role="m$_w8">
@@ -20255,7 +20255,7 @@
         <node concept="2Ry0Ak" id="5lGJ4TaqfAL" role="iGT6I">
           <property role="2Ry0Am" value="plugins" />
           <node concept="2Ry0Ak" id="5lGJ4TaqfBe" role="2Ry0An">
-            <property role="2Ry0Am" value="modelchecker" />
+            <property role="2Ry0Am" value="mps-modelchecker" />
           </node>
         </node>
       </node>
@@ -20283,7 +20283,7 @@
                   <node concept="2Ry0Ak" id="1nJh0raVyYr" role="iGT6I">
                     <property role="2Ry0Am" value="plugins" />
                     <node concept="2Ry0Ak" id="1nJh0raVyYs" role="2Ry0An">
-                      <property role="2Ry0Am" value="modelchecker" />
+                      <property role="2Ry0Am" value="mps-modelchecker" />
                       <node concept="2Ry0Ak" id="1nJh0raVyYt" role="2Ry0An">
                         <property role="2Ry0Am" value="META-INF" />
                         <node concept="2Ry0Ak" id="1nJh0raVyYu" role="2Ry0An">
@@ -20301,7 +20301,7 @@
               </node>
             </node>
             <node concept="Saw0i" id="1nJh0raVyYm" role="39821P">
-              <ref role="Saw0g" node="1nJh0raVm57" resolve="modelchecker" />
+              <ref role="Saw0g" node="1nJh0raVm57" resolve="mps-modelchecker" />
             </node>
             <node concept="398223" id="4IP11oWmC8g" role="39821P">
               <node concept="3_J27D" id="4IP11oWmC8i" role="Nbhlr">
@@ -33669,7 +33669,7 @@
         <ref role="nCB5Y" node="1FaKCGJSzEy" resolve="mps-kernel" />
       </node>
       <node concept="nCB5N" id="73P1SyspSpF" role="nCB5Z">
-        <ref role="nCB5Y" node="1nJh0raVm57" resolve="modelchecker" />
+        <ref role="nCB5Y" node="1nJh0raVm57" resolve="mps-modelchecker" />
       </node>
       <node concept="nCB5N" id="3_S1WmROVUd" role="nCB5Z">
         <ref role="nCB5Y" node="1nJh0raUWjx" resolve="migration-platform" />
@@ -33700,7 +33700,7 @@
         <ref role="nCB5Y" node="2eDSGe9d1oD" resolve="mps-workbench" />
       </node>
       <node concept="nCB5N" id="1CY6j2K6aZQ" role="nCB5Z">
-        <ref role="nCB5Y" node="1nJh0raVm57" resolve="modelchecker" />
+        <ref role="nCB5Y" node="1nJh0raVm57" resolve="mps-modelchecker" />
       </node>
     </node>
     <node concept="m$_wf" id="5lGJ4TajoV9" role="3989C9">
