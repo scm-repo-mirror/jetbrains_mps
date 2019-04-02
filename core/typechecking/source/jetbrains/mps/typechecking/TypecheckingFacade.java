@@ -16,13 +16,14 @@
 package jetbrains.mps.typechecking;
 
 import jetbrains.mps.lang.pattern.INodeMatchingPattern;
-import jetbrains.mps.typechecking.backend.TypecheckingBackend;
+import jetbrains.mps.typechecking.backend.TypecheckingController;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 
 import java.util.Collection;
+import java.util.function.Supplier;
 
 /**
  * The façade to all things related to type checking.
@@ -31,11 +32,13 @@ import java.util.Collection;
  *
  * @author Fedor Isakov
  */
-public abstract class TypecheckingFacade implements TypecheckingQueries {
+public abstract class TypecheckingFacade implements TypecheckingQueries, jetbrains.mps.typechecking.TypecheckingSessionHandler {
 
   /**
    * Provides access to an instance of {@code TypecheckingFacade} that is made available by the environment.
    * @throws IllegalStateException if no instance is available in the current context.
+   *
+   * TODO provide definition of Context.
    */
   @NotNull
   public static TypecheckingFacade getFromContext() {
@@ -45,81 +48,85 @@ public abstract class TypecheckingFacade implements TypecheckingQueries {
   @Override
   public SNode getTypeOf(SNode expression) {
     if (expression == null) return null;
-    return getTypecheckingBackend().selectProvider(expression).getTypeOf(expression);
+    return getController().getSession(expression, null, null).getTypeOf(expression);
   }
 
   @Override
   public SNode getInferredType(SNode expression) {
     if (expression == null) return null;
-    return getTypecheckingBackend().selectProvider(expression).getInferredType(expression);
+    return getController().getSession(expression, null, null).getInferredType(expression);
   }
 
   @Override
   public boolean convertsTo(@NotNull SNode typeA, @NotNull SNode typeB) {
-    return getTypecheckingBackend().selectProvider(typeA, typeB).convertsTo(typeA, typeB);
+    return getController().getSession(typeA, typeB, null).convertsTo(typeA, typeB);
   }
 
   @Override
   public boolean isSubtype(SNode typeA, SNode typeB) {
     if (typeA == null || typeB == null) return false;
-    return getTypecheckingBackend().selectProvider(typeA, typeB).isSubtype(typeA, typeB);
+    return getController().getSession(typeA, typeB, null).isSubtype(typeA, typeB);
   }
 
   @Override
   public boolean isStrongSubtype(SNode typeA, SNode typeB) {
     if (typeA == null || typeB == null) return false;
-    return getTypecheckingBackend().selectProvider(typeA, typeB).isStrongSubtype(typeA, typeB);
+    return getController().getSession(typeA, typeB, null).isStrongSubtype(typeA, typeB);
   }
 
   @NotNull
   @Override
   public Collection<SNode> getImmediateSupertypes(@NotNull SNode type) {
-    return getTypecheckingBackend().selectProvider(type).getImmediateSupertypes(type);
+    return getController().getSession(type, null, null).getImmediateSupertypes(type);
   }
 
   @Override
   public SNode coerceType(SNode type, @NotNull SConcept typeConcept) {
     if (type == null) return null;
-    return getTypecheckingBackend().selectProvider(type, typeConcept).coerceType(type, typeConcept);
+    return getController().getSession(type, null, typeConcept).coerceType(type, typeConcept);
   }
 
   @Nullable
   @Override
   public SNode coerceType(SNode type, @NotNull INodeMatchingPattern targetPattern) {
     if (type == null) return null;
-    return getTypecheckingBackend().selectProvider(type, targetPattern.getConcept()).coerceType(type, targetPattern);
+    return getController().getSession(type, null, targetPattern.getConcept()).coerceType(type, targetPattern);
   }
 
   @Override
   public SNode strongCoerceType(SNode type, @NotNull SConcept typeConcept) {
     if (type == null) return null;
-    return getTypecheckingBackend().selectProvider(type, typeConcept).strongCoerceType(type, typeConcept);
+    return getController().getSession(type, null, typeConcept).strongCoerceType(type, typeConcept);
   }
 
   @Nullable
   @Override
   public SNode strongCoerceType(SNode type, @NotNull INodeMatchingPattern targetPattern) {
     if (type == null) return null;
-    return getTypecheckingBackend().selectProvider(type, targetPattern.getConcept()).strongCoerceType(type, targetPattern);
+    return getController().getSession(type, null, targetPattern.getConcept()).strongCoerceType(type, targetPattern);
   }
 
   @NotNull
-  protected abstract TypecheckingBackend getTypecheckingBackend();
-
-  protected static void setContextInstance(TypecheckingFacade contextInstance) {
-//    CONTEXT_INSTANCE.set(contextInstance);
-    GLOBAL_INSTANCE = contextInstance;
-  }
+  protected abstract TypecheckingController getController();
 
   protected static TypecheckingFacade getContextInstance() {
-//    TypecheckingFacade facade = CONTEXT_INSTANCE.get();
-    TypecheckingFacade facade = GLOBAL_INSTANCE;
+    TypecheckingFacade facade = CONTEXT_INSTANCE.get();
     if (facade == null) throw new IllegalStateException("No TypecheckingFacade instance in the context");
     return facade;
   }
 
-  private static TypecheckingFacade GLOBAL_INSTANCE;
+  // initialized by TypecheckingFacadeComponent
+  protected static Supplier<TypecheckingFacade> FACTORY_INSTANCE;
 
-  private static ThreadLocal<TypecheckingFacade> CONTEXT_INSTANCE = new ThreadLocal<>();
+  private static ThreadLocal<TypecheckingFacade> CONTEXT_INSTANCE = ThreadLocal.withInitial(
+      () -> {
+        if (FACTORY_INSTANCE != null) {
+          return FACTORY_INSTANCE.get();
+
+        } else {
+          throw new IllegalStateException("TypecheckingFacade factory not initialized");
+        }
+      }
+  );
 
 }

@@ -19,45 +19,102 @@ import jetbrains.mps.components.CoreComponent;
 import jetbrains.mps.languageScope.LanguageScopeFactory;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.typechecking.TypecheckingFacade;
+import jetbrains.mps.typechecking.backend.BasicTypecheckingController;
 import jetbrains.mps.typechecking.backend.TypecheckingBackend;
+import jetbrains.mps.typechecking.backend.TypecheckingController;
+import jetbrains.mps.typechecking.backend.TypecheckingSession.Flags;
+import jetbrains.mps.typechecking.backend.WorkbenchTypecheckingController;
+import jetbrains.mps.util.containers.ConcurrentHashSet;
 import org.jetbrains.annotations.NotNull;
+
+import javax.swing.SwingUtilities;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.function.Supplier;
 
 /**
  * @author Fedor Isakov
  */
-public class TypecheckingFacadeComponent extends TypecheckingFacade implements CoreComponent {
+public class TypecheckingFacadeComponent implements CoreComponent {
 
   // dependencies
   private final LanguageRegistry myLanguageRegistry;
-  private final TypecheckingBackend myTypecheckingBackend;
   private final LanguageScopeFactory myLanguageScopeFactory;
+  private final TypecheckingBackend myTypecheckingBackend;
+
+  // managed stuff
+  private ConcurrentLinkedQueue<ContextTypecheckingFacade> myFacadeQueue = new ConcurrentLinkedQueue<>();
 
   /**
-   * Created by MPSTypechecking.
+   * Created by {@link MPSTypechecking}.
    */ 
   public TypecheckingFacadeComponent(@NotNull LanguageRegistry languageRegistry,
-                                     @NotNull TypecheckingBackend typecheckingBackend,
-                                     @NotNull LanguageScopeFactory languageScopeFactory) {
+                                     @NotNull LanguageScopeFactory languageScopeFactory,
+                                     @NotNull TypecheckingBackend typecheckingBackend) {
     this.myLanguageRegistry = languageRegistry;
-    this.myTypecheckingBackend = typecheckingBackend;
     this.myLanguageScopeFactory = languageScopeFactory;
+    this.myTypecheckingBackend = typecheckingBackend;
   }
 
   @Override
   public void init() {
     // TODO: context instance is supposed to be provided by the environment running the user code, it's not meant to be a static field
-    setContextInstance(this);
+//    this.myTypecheckingController = new BasicTypecheckingController(myTypecheckingBackend);
+//    this.myTypecheckingFacade = new ContextTypecheckingFacade(myTypecheckingController);
+    ContextTypecheckingFacade.setFactoryInstance(
+        () -> {
+          if (SwingUtilities.isEventDispatchThread()) {
+            // TODO correctly initialize facade for AWT thread
+            return createFacade(() -> new WorkbenchTypecheckingController(myTypecheckingBackend));
+
+          } else {
+            // TODO correctly initialize facade for threads other than AWT
+            return createFacade(() -> new BasicTypecheckingController(myTypecheckingBackend));
+          }
+        });
   }
 
   @Override
   public void dispose() {
-    setContextInstance(null);
+    while (!myFacadeQueue.isEmpty()) {
+      myFacadeQueue.remove().dispose();
+    }
   }
 
-  @NotNull
-  @Override
-  protected TypecheckingBackend getTypecheckingBackend() {
-    return myTypecheckingBackend;
+  private ContextTypecheckingFacade createFacade(Supplier<TypecheckingController> controllerSupplier) {
+    ContextTypecheckingFacade facade = new ContextTypecheckingFacade(controllerSupplier);
+    myFacadeQueue.add(facade);
+    return facade;
   }
-  
+
+  protected static class ContextTypecheckingFacade extends TypecheckingFacade {
+
+    protected static void setFactoryInstance(Supplier<TypecheckingFacade> factoryInstance) {
+      FACTORY_INSTANCE = factoryInstance;
+    }
+
+    private final TypecheckingController myTypecheckingController;
+
+    public ContextTypecheckingFacade(Supplier<TypecheckingController> controllerSupplier) {
+      myTypecheckingController = controllerSupplier.get();
+    }
+
+    public void dispose() {
+      myTypecheckingController.dispose();
+    }
+
+    @NotNull
+    @Override
+    protected TypecheckingController getController() {
+      return myTypecheckingController;
+    }
+    @NotNull
+    @Override
+    public SessionToken requestNewSession(@NotNull Flags flags) {
+      return myTypecheckingController.requestNewSession(flags);
+    }
+
+  }
+
+
 }

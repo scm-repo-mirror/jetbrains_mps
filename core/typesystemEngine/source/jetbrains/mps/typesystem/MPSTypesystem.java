@@ -56,7 +56,7 @@ public final class MPSTypesystem extends ComponentPlugin implements ComponentHos
     super.init();
     myTypeChecker = init(new TypeChecker(myLanguageRegistry));
     myTypeContextManager = init(new TypeContextManager(myTypeChecker, myClassLoaderManager));
-    myProviderToken = myMPSTypechecking.getTypecheckingBackend().installProvider(new LegacyTypecheckingProvider(), new DefaultProviderLevel());
+    myProviderToken = myMPSTypechecking.getBackend().installProvider(new LegacyTypecheckingProvider(myClassLoaderManager), new DefaultProviderLevel());
   }
 
   @Override

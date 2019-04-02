@@ -20,34 +20,24 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 
-import java.util.List;
-
 /**
  * Backend interface of a type checker.
  */
-public interface TypecheckingProvider extends TypecheckingQueries {
+public interface TypecheckingProvider {
 
   /**
-   * The three overloaded {@code select()} methods are responsible for selecting the appropriate typechecking provided given
-   * the specified query parameters:
-   * <li> the single {@link SNode} parameter {@code src} corresponds to a query accepting a single source node;
+   * This methods are responsible for selecting the appropriate typechecking provided given the specified query parameters:
+   * <li> the single {@link SNode} parameter {@code src} corresponds to a query accepting a single source node, never a null value;
    * <li> two {@link SNode} parameters {@code src} and {@code trg} correspond to a query with two nodes: the source and the target;
-   * <li> two parameters {@link SNode} {@code src} and {@link SConcept} {@code trg} correspond to a query with a source node and a target concept.
+   * <li> two parameters {@link SNode} {@code src} and {@link SConcept} {@code trgConcept} correspond to a query with a source node and a target concept.
    *
-   * The provider is expected to return {@code true} in case it is responsible for the feature with given parameters, {@code false} otherwise.
-   *
-   * Returns the provider that is to be used to run the actual query.
+   * The provider is expected to return {@code true} in case it is relevant for the feature with given parameters, {@code false} otherwise.
    */
-  boolean select(@NotNull SNode src);
+  boolean isRelevant(@NotNull SNode src, SNode trg, SConcept trgConcept);
+  
+  @NotNull
+  TypecheckingSession newSession(@NotNull TypecheckingSession.Flags flags);
 
-  /**
-   * See {@link TypecheckingProvider#select(SNode)}
-   */
-  boolean select(@NotNull SNode src, @NotNull SNode trg);
-
-  /**
-   * See {@link TypecheckingProvider#select(SNode)}
-   */
-  boolean select(@NotNull SNode src, @NotNull SConcept concept);
+  void closeSession(@NotNull TypecheckingSession session);
 
 }

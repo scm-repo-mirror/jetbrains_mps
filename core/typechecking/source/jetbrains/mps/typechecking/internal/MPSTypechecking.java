@@ -40,8 +40,8 @@ public class MPSTypechecking extends ComponentPlugin implements ComponentHost {
   private final ClassLoaderManager myClassLoaderManager;
 
   // internal components
-  private TypecheckingFacadeComponent myTypecheckingFacade;
   private LanguageScopeFactory myLanguageScopeFactory;
+  private TypecheckingFacadeComponent myTypecheckingFacadeComponent;
   private TypecheckingBackend myTypecheckingBackend;
 
   /**
@@ -54,7 +54,7 @@ public class MPSTypechecking extends ComponentPlugin implements ComponentHost {
   }
 
   @NotNull
-  public TypecheckingBackend getTypecheckingBackend() {
+  public TypecheckingBackend getBackend() {
     return myTypecheckingBackend;
   }
 
@@ -63,7 +63,7 @@ public class MPSTypechecking extends ComponentPlugin implements ComponentHost {
     super.init();
     this.myTypecheckingBackend = init(new TypecheckingBackend());
     this.myLanguageScopeFactory = init(new LanguageScopeFactory(myLanguageRegistry));
-    this.myTypecheckingFacade = init(new TypecheckingFacadeComponent(myLanguageRegistry, myTypecheckingBackend, myLanguageScopeFactory));
+    this.myTypecheckingFacadeComponent = init(new TypecheckingFacadeComponent(myLanguageRegistry, myLanguageScopeFactory, myTypecheckingBackend));
   }
 
   @Override
@@ -71,13 +71,13 @@ public class MPSTypechecking extends ComponentPlugin implements ComponentHost {
     super.dispose();
     this.myTypecheckingBackend = null;
     this.myLanguageScopeFactory = null;
-    this.myTypecheckingFacade = null;
+    this.myTypecheckingFacadeComponent = null;
   }
 
   @Override
   public <T extends CoreComponent> T findComponent(@NotNull Class<T> componentClass) {
     if (TypecheckingFacade.class.equals(componentClass)) {
-      return componentClass.cast(myTypecheckingFacade);
+      return componentClass.cast(myTypecheckingFacadeComponent);
     }
     if (LanguageScopeFactory.class.equals(componentClass)) {
       return componentClass.cast(myLanguageScopeFactory);

@@ -23,7 +23,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -88,38 +87,19 @@ public class TypecheckingBackend implements CoreComponent {
    * @throws IllegalStateException if no provider is available.
    */
   @NotNull
-  public TypecheckingProvider selectProvider(@NotNull SNode src) {
+  public TypecheckingProvider selectProvider(@NotNull SNode src, SNode trg, SConcept trgConcept) {
     for (TypecheckingProvider candidate: providersSortedDescending()) {
-      if (candidate.select(src)) return candidate;
+      try {
+        if (candidate.isRelevant(src, trg, trgConcept)) return candidate;
+        
+      } catch (Error e) {
+        // TODO skip on error: the provider can be misconfigured
+      }
     }
 
     throw new IllegalStateException("No available TypecheckingProvider");
   }
-
-  /**
-   * @throws IllegalStateException if no provider is available.
-   */
-  @NotNull
-  public TypecheckingProvider selectProvider(@NotNull SNode src, @NotNull SNode trg) {
-    for (TypecheckingProvider candidate: providersSortedDescending()) {
-      if (candidate.select(src, trg)) return candidate;
-    }
-
-    throw new IllegalStateException("No available TypecheckingProvider");
-  }
-
-  /**
-   * @throws IllegalStateException if no provider is available.
-   */
-  @NotNull
-  public TypecheckingProvider selectProvider(@NotNull SNode src, @NotNull SConcept trg) {
-    for (TypecheckingProvider candidate: providersSortedDescending()) {
-      if (candidate.select(src, trg)) return candidate;
-    }
-
-    throw new IllegalStateException("No available TypecheckingProvider");
-  }
-
+  
   private ArrayList<TypecheckingProvider> providersSortedDescending() {
     ArrayList<TypecheckingProvider> providers = new ArrayList<>(myProviders.values());
     Collections.reverse(providers);
@@ -127,7 +107,7 @@ public class TypecheckingBackend implements CoreComponent {
   }
 
   /**
-   * Provides a means to uninstall an installed provider.
+   * Provides the means to uninstall an installed provider.
    */
   public class ProviderToken {
 
