@@ -28519,7 +28519,7 @@
             <node concept="2Ry0Ak" id="EpEP7iihMD" role="iGT6I">
               <property role="2Ry0Am" value="plugins" />
               <node concept="2Ry0Ak" id="EpEP7iihME" role="2Ry0An">
-                <property role="2Ry0Am" value="mpsmake" />
+                <property role="2Ry0Am" value="mps-make" />
               </node>
             </node>
           </node>
@@ -28530,7 +28530,7 @@
         <node concept="2Ry0Ak" id="71aLKqdKvPE" role="iGT6I">
           <property role="2Ry0Am" value="plugins" />
           <node concept="2Ry0Ak" id="71aLKqdK$lm" role="2Ry0An">
-            <property role="2Ry0Am" value="mpsmake" />
+            <property role="2Ry0Am" value="mps-make" />
             <node concept="2Ry0Ak" id="71aLKqdK$lo" role="2Ry0An">
               <property role="2Ry0Am" value="jetbrains.mps.ide.make.msd" />
             </node>
@@ -28629,7 +28629,7 @@
         <node concept="2Ry0Ak" id="6EN03E8oStg" role="iGT6I">
           <property role="2Ry0Am" value="plugins" />
           <node concept="2Ry0Ak" id="6EN03E8oSth" role="2Ry0An">
-            <property role="2Ry0Am" value="mpsmake" />
+            <property role="2Ry0Am" value="mps-make" />
             <node concept="2Ry0Ak" id="6EN03E8oTOn" role="2Ry0An">
               <property role="2Ry0Am" value="META-INF" />
               <node concept="2Ry0Ak" id="6EN03E8oTOt" role="2Ry0An">
