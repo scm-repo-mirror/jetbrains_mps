@@ -24,6 +24,7 @@
     <classNode dependClassName="jetbrains.mps.project.Project" />
     <classNode dependClassName="jetbrains.mps.tool.builder.WorkerHelper" />
     <classNode dependClassName="jetbrains.mps.tool.common.Script" />
+    <classNode dependClassName="jetbrains.mps.tool.environment.EnvironmentConfig" />
     <classNode dependClassName="jetbrains.mps.util.IterableUtil" />
     <classNode extendsClassName="jetbrains.mps.tool.builder.PlatformWorker" />
   </dependency>

@@ -8236,63 +8236,6 @@
             </node>
           </node>
         </node>
-        <node concept="3SKdUt" id="4OPNMy23ta6" role="3cqZAp">
-          <node concept="3SKdUq" id="4OPNMy23ta8" role="3SKWNk">
-            <property role="3SKdUp" value=" migration plugin depends on modelchecker" />
-          </node>
-        </node>
-        <node concept="3SKdUt" id="28$8eDna1$c" role="3cqZAp">
-          <node concept="3SKdUq" id="28$8eDna1$e" role="3SKWNk">
-            <property role="3SKdUp" value="we don't care about proper plugin path as these are pre-installed MPS plugins and get loaded by native IDEA code from PathManager.getPreInstalledPluginsPath()" />
-          </node>
-        </node>
-        <node concept="3SKdUt" id="28$8eDna4sg" role="3cqZAp">
-          <node concept="3SKdUq" id="28$8eDna4si" role="3SKWNk">
-            <property role="3SKdUp" value="as long as headless IdeaApplication doesn't start in unittest mode." />
-          </node>
-        </node>
-        <node concept="3clFbF" id="4OPNMy23jjR" role="3cqZAp">
-          <node concept="2OqwBi" id="4OPNMy23kl4" role="3clFbG">
-            <node concept="37vLTw" id="4OPNMy23jjO" role="2Oq$k0">
-              <ref role="3cqZAo" node="3ufQioQQtje" resolve="myWhatToDo" />
-            </node>
-            <node concept="liA8E" id="4OPNMy23lwc" role="2OqNvi">
-              <ref role="37wK5l" to="asz6:r$A3E5tFQu" resolve="addPlugin" />
-              <node concept="2ShNRf" id="4OPNMy23l$s" role="37wK5m">
-                <node concept="1pGfFk" id="4OPNMy23mjW" role="2ShVmc">
-                  <ref role="37wK5l" to="asz6:4OPNMy23eT$" resolve="PluginData" />
-                  <node concept="Xl_RD" id="4OPNMy23mvv" role="37wK5m">
-                    <property role="Xl_RC" value="modelchecker" />
-                  </node>
-                  <node concept="Xl_RD" id="4142FbgXDnC" role="37wK5m">
-                    <property role="Xl_RC" value="jetbrains.mps.ide.modelchecker" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="4OPNMy23ncE" role="3cqZAp">
-          <node concept="2OqwBi" id="4OPNMy23ncF" role="3clFbG">
-            <node concept="37vLTw" id="4OPNMy23ncG" role="2Oq$k0">
-              <ref role="3cqZAo" node="3ufQioQQtje" resolve="myWhatToDo" />
-            </node>
-            <node concept="liA8E" id="4OPNMy23ncH" role="2OqNvi">
-              <ref role="37wK5l" to="asz6:r$A3E5tFQu" resolve="addPlugin" />
-              <node concept="2ShNRf" id="4OPNMy23ncI" role="37wK5m">
-                <node concept="1pGfFk" id="4OPNMy23ncJ" role="2ShVmc">
-                  <ref role="37wK5l" to="asz6:4OPNMy23eT$" resolve="PluginData" />
-                  <node concept="Xl_RD" id="4OPNMy23ncK" role="37wK5m">
-                    <property role="Xl_RC" value="migration" />
-                  </node>
-                  <node concept="Xl_RD" id="4OPNMy23ncL" role="37wK5m">
-                    <property role="Xl_RC" value="jetbrains.mps.ide.migration.workbench" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
       </node>
     </node>
     <node concept="2tJIrI" id="75eqTYkrI0w" role="jymVt" />

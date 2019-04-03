@@ -175,7 +175,7 @@
       <node id="6183000554725946165" at="67,5,68,0" concept="11" />
       <node id="6183000554725943323" at="68,0,69,54" concept="9" />
       <node id="6132171475560143380" at="72,0,73,0" concept="7" trace="createEnvironment#()Ljetbrains/mps/tool/environment/Environment;" />
-      <node id="6986506486492475610" at="74,78,75,105" concept="8" />
+      <node id="6986506486492475610" at="74,72,75,105" concept="8" />
       <node id="6986506486492475618" at="75,105,76,61" concept="8" />
       <node id="6986506486492475628" at="77,23,78,67" concept="2" />
       <node id="6986506486492475639" at="78,67,79,40" concept="10" />
@@ -486,7 +486,7 @@
         <var name="modules" id="878521226300774273" />
         <var name="repo" id="6479297625123427136" />
       </scope>
-      <scope id="6986506486492475609" at="74,78,114,18">
+      <scope id="6986506486492475609" at="74,72,114,18">
         <var name="config" id="6986506486492475611" />
         <var name="repo" id="6986506486492475619" />
       </scope>

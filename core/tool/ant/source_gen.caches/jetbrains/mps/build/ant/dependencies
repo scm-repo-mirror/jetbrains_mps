@@ -75,7 +75,6 @@
     <classNode dependClassName="java.util.Objects" />
     <classNode dependClassName="java.util.Properties" />
     <classNode dependClassName="java.util.Set" />
-    <classNode dependClassName="jetbrains.mps.tool.common.PluginData" />
     <classNode dependClassName="jetbrains.mps.tool.common.RepositoryDescriptor" />
     <classNode dependClassName="org.apache.tools.ant.BuildException" />
     <classNode extendsClassName="jetbrains.mps.build.ant.MpsLoadTask" />

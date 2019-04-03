@@ -71,7 +71,7 @@ public abstract class WorkerBase {
 
   protected abstract Environment createEnvironment();
 
-  protected final EnvironmentConfig createEnvironmentConfig(Script whatToDo) {
+  protected EnvironmentConfig createEnvironmentConfig(Script whatToDo) {
     EnvironmentConfig config = EnvironmentConfig.emptyConfig().withDefaultSamples().withDefaultPlugins();
     RepositoryDescriptor repo = whatToDo.getRepoDescriptor();
     if (repo != null) {

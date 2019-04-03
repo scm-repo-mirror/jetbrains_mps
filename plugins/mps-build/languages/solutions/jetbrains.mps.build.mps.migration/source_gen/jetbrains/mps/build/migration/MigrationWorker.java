@@ -4,6 +4,7 @@ package jetbrains.mps.build.migration;
 
 import jetbrains.mps.tool.builder.PlatformWorker;
 import jetbrains.mps.tool.common.Script;
+import jetbrains.mps.tool.environment.EnvironmentConfig;
 import jetbrains.mps.tool.builder.WorkerHelper;
 import java.io.File;
 import jetbrains.mps.project.Project;
@@ -27,6 +28,11 @@ public class MigrationWorker extends PlatformWorker {
 
   public MigrationWorker(Script whatToDo) {
     super(whatToDo);
+  }
+
+  @Override
+  protected EnvironmentConfig createEnvironmentConfig(Script whatToDo) {
+    return super.createEnvironmentConfig(whatToDo).withMigrationPlugin();
   }
 
   @Override
