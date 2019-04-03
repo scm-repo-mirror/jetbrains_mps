@@ -52,6 +52,9 @@
   <target name="checkAll" depends="compileTestClasses">
     <migrate project="${project.simpleMigration}">
       <macro name="mps_home" path="${mps_build_home}"/>
+      <jvmargs>
+        <arg value="-ea" />
+      </jvmargs>
     </migrate>
 
     <junit fork="true" dir="${mps_build_home}" showoutput="true">
@@ -63,6 +66,9 @@
 
     <migrate project="${project.consMigrations}">
       <macro name="mps_home" path="${mps_build_home}"/>
+      <jvmargs>
+        <arg value="-ea" />
+      </jvmargs>
     </migrate>
 
     <junit fork="true" dir="${mps_build_home}" showoutput="true">
@@ -75,6 +81,9 @@
     <migrate project="${project.migrationTaskPlugin}">
       <macro name="mps_home" path="${mps_build_home}"/>
       <plugin path="${mps_build_home}/plugins/mps-httpsupport/" id="jetbrains.mps.ide.httpsupport"/>
+      <jvmargs>
+        <arg value="-ea" />
+      </jvmargs>
     </migrate>
 
     <junit fork="true" dir="${mps_build_home}" showoutput="true">
