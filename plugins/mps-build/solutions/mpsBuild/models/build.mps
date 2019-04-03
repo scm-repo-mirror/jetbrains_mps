@@ -19095,7 +19095,7 @@
         </node>
         <node concept="NbPM2" id="6Iq8148f_YW" role="HFWMp">
           <node concept="3Mxwew" id="6Iq8148f_YX" role="3MwsjC">
-            <property role="3MwjfP" value="MPS191EAP" />
+            <property role="3MwjfP" value="MPS191" />
           </node>
         </node>
       </node>
