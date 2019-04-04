@@ -12,8 +12,6 @@ import jetbrains.mps.smodel.runtime.impl.CheckingNodeContextImpl;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.project.validation.ConceptFeatureMissingError;
 import jetbrains.mps.smodel.constraints.ModelConstraints;
@@ -52,8 +50,6 @@ public class ConstraintsChecker extends AbstractNodeCheckerInEditor implements I
   public void checkNodeInEditor(final SNode node, LanguageErrorsCollector errorsCollector, SRepository repository) {
     final SAbstractConcept nodeConcept = SNodeOperations.getConcept(node);
     final SNode parent = SNodeOperations.getParent(node);
-
-    ConstraintsDescriptor constraintsDescriptor = ConceptRegistry.getInstance().getConstraintsDescriptor(nodeConcept);
 
     if (parent != null) {
       errorsCollector.addDependency(parent);
@@ -118,16 +114,15 @@ public class ConstraintsChecker extends AbstractNodeCheckerInEditor implements I
     // Properties validation 
     Iterable<SProperty> props = nodeConcept.getProperties();
     for (final SProperty property : Sequence.fromIterable(props)) {
-      final Object value = SNodeAccessUtil.getPropertyValue(node, property);
-      boolean canSetValue = errorsCollector.runCheckingAction(new _FunctionTypes._return_P0_E0<Boolean>() {
-        public Boolean invoke() {
-          return ModelConstraints.validatePropertyValue(node, property, value);
+      runCheck(errorsCollector, new _FunctionTypes._return_P1_E0<Boolean, CheckingNodeContext>() {
+        public Boolean invoke(CheckingNodeContext context) {
+          return ModelConstraints.validatePropertyValue(node, property, SNodeAccessUtil.getPropertyValue(node, property), context);
+        }
+      }, new _FunctionTypes._return_P1_E0<ConstraintsReportItem.PropertyConstraintReportItem, RuleIdFlavouredItem.TypesystemRuleId>() {
+        public ConstraintsReportItem.PropertyConstraintReportItem invoke(RuleIdFlavouredItem.TypesystemRuleId ruleId) {
+          return new ConstraintsReportItem.PropertyConstraintReportItem(node, property, ruleId);
         }
       });
-      if (!(canSetValue)) {
-        // todo find a rule 
-        errorsCollector.addError(new ConstraintsReportItem.PropertyConstraintReportItem(node, property));
-      }
     }
   }
 }

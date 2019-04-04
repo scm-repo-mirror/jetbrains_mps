@@ -53,8 +53,8 @@ public abstract class ConstraintsReportItem extends NodeReportItemBase implement
 
   public static class PropertyConstraintReportItem extends ConstraintsReportItem implements NodeFeatureReportItem {
     private SProperty myProperty;
-    public PropertyConstraintReportItem(@NotNull SNode node, SProperty property) {
-      super(node, getMessage(property));
+    public PropertyConstraintReportItem(@NotNull SNode node, SProperty property, TypesystemRuleId ruleId) {
+      super(node, getMessage(property), ruleId);
       myProperty = property;
     }
     public static String getMessage(SProperty property) {
