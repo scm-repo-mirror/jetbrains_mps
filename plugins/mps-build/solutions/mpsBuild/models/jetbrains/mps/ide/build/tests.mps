@@ -3927,7 +3927,7 @@
               <node concept="2Ry0Ak" id="EpEP7iihU9" role="iGT6I">
                 <property role="2Ry0Am" value="plugins" />
                 <node concept="2Ry0Ak" id="EpEP7iihUa" role="2Ry0An">
-                  <property role="2Ry0Am" value="diagramEditor" />
+                  <property role="2Ry0Am" value="mps-diagram-editor" />
                   <node concept="2Ry0Ak" id="EpEP7iihUb" role="2Ry0An">
                     <property role="2Ry0Am" value="test" />
                     <node concept="2Ry0Ak" id="EpEP7iihUc" role="2Ry0An">
@@ -3943,7 +3943,7 @@
           <node concept="2Ry0Ak" id="4lIfGX7ClF3" role="iGT6I">
             <property role="2Ry0Am" value="plugins" />
             <node concept="2Ry0Ak" id="4lIfGX7ClF7" role="2Ry0An">
-              <property role="2Ry0Am" value="diagramEditor" />
+              <property role="2Ry0Am" value="mps-diagram-editor" />
               <node concept="2Ry0Ak" id="4lIfGX7ClFb" role="2Ry0An">
                 <property role="2Ry0Am" value="test" />
                 <node concept="2Ry0Ak" id="4lIfGX7ClFf" role="2Ry0An">
@@ -3996,7 +3996,7 @@
               <node concept="2Ry0Ak" id="EpEP7iihLs" role="iGT6I">
                 <property role="2Ry0Am" value="plugins" />
                 <node concept="2Ry0Ak" id="EpEP7iihLt" role="2Ry0An">
-                  <property role="2Ry0Am" value="diagramEditor" />
+                  <property role="2Ry0Am" value="mps-diagram-editor" />
                   <node concept="2Ry0Ak" id="EpEP7iihLu" role="2Ry0An">
                     <property role="2Ry0Am" value="test" />
                     <node concept="2Ry0Ak" id="EpEP7iihLv" role="2Ry0An">
@@ -4012,7 +4012,7 @@
           <node concept="2Ry0Ak" id="4lIfGX7Clsn" role="iGT6I">
             <property role="2Ry0Am" value="plugins" />
             <node concept="2Ry0Ak" id="4lIfGX7Cltf" role="2Ry0An">
-              <property role="2Ry0Am" value="diagramEditor" />
+              <property role="2Ry0Am" value="mps-diagram-editor" />
               <node concept="2Ry0Ak" id="4lIfGX7CltH" role="2Ry0An">
                 <property role="2Ry0Am" value="test" />
                 <node concept="2Ry0Ak" id="4lIfGX7CltL" role="2Ry0An">
@@ -4082,7 +4082,7 @@
               <node concept="2Ry0Ak" id="EpEP7iii0Z" role="iGT6I">
                 <property role="2Ry0Am" value="plugins" />
                 <node concept="2Ry0Ak" id="EpEP7iii10" role="2Ry0An">
-                  <property role="2Ry0Am" value="diagramEditor" />
+                  <property role="2Ry0Am" value="mps-diagram-editor" />
                   <node concept="2Ry0Ak" id="EpEP7iii11" role="2Ry0An">
                     <property role="2Ry0Am" value="test" />
                     <node concept="2Ry0Ak" id="EpEP7iii12" role="2Ry0An">
@@ -4098,7 +4098,7 @@
           <node concept="2Ry0Ak" id="4lIfGX7Bgxb" role="iGT6I">
             <property role="2Ry0Am" value="plugins" />
             <node concept="2Ry0Ak" id="4lIfGX7Bgxf" role="2Ry0An">
-              <property role="2Ry0Am" value="diagramEditor" />
+              <property role="2Ry0Am" value="mps-diagram-editor" />
               <node concept="2Ry0Ak" id="4lIfGX7Bgxj" role="2Ry0An">
                 <property role="2Ry0Am" value="test" />
                 <node concept="2Ry0Ak" id="4lIfGX7BgP9" role="2Ry0An">

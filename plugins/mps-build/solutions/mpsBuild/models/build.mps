@@ -30665,7 +30665,7 @@
               <node concept="2Ry0Ak" id="EpEP7iihOw" role="iGT6I">
                 <property role="2Ry0Am" value="plugins" />
                 <node concept="2Ry0Ak" id="EpEP7iihOx" role="2Ry0An">
-                  <property role="2Ry0Am" value="diagramEditor" />
+                  <property role="2Ry0Am" value="mps-diagram-editor" />
                   <node concept="2Ry0Ak" id="EpEP7iihOy" role="2Ry0An">
                     <property role="2Ry0Am" value="runtime" />
                   </node>
@@ -30679,7 +30679,7 @@
           <node concept="2Ry0Ak" id="1L8vb48W8rW" role="iGT6I">
             <property role="2Ry0Am" value="plugins" />
             <node concept="2Ry0Ak" id="1L8vb48W8A6" role="2Ry0An">
-              <property role="2Ry0Am" value="diagramEditor" />
+              <property role="2Ry0Am" value="mps-diagram-editor" />
               <node concept="2Ry0Ak" id="1L8vb48W8Kg" role="2Ry0An">
                 <property role="2Ry0Am" value="runtime" />
                 <node concept="2Ry0Ak" id="19URHtMw6$h" role="2Ry0An">
@@ -30747,7 +30747,7 @@
               <node concept="2Ry0Ak" id="EpEP7iihL3" role="iGT6I">
                 <property role="2Ry0Am" value="plugins" />
                 <node concept="2Ry0Ak" id="EpEP7iihL4" role="2Ry0An">
-                  <property role="2Ry0Am" value="diagramEditor" />
+                  <property role="2Ry0Am" value="mps-diagram-editor" />
                   <node concept="2Ry0Ak" id="EpEP7iihL5" role="2Ry0An">
                     <property role="2Ry0Am" value="solutions" />
                     <node concept="2Ry0Ak" id="EpEP7iihL6" role="2Ry0An">
@@ -30764,7 +30764,7 @@
           <node concept="2Ry0Ak" id="4lIfGX7BjB4" role="iGT6I">
             <property role="2Ry0Am" value="plugins" />
             <node concept="2Ry0Ak" id="4lIfGX7BjB8" role="2Ry0An">
-              <property role="2Ry0Am" value="diagramEditor" />
+              <property role="2Ry0Am" value="mps-diagram-editor" />
               <node concept="2Ry0Ak" id="4lIfGX7BjBc" role="2Ry0An">
                 <property role="2Ry0Am" value="solutions" />
                 <node concept="2Ry0Ak" id="4lIfGX7BjBg" role="2Ry0An">
@@ -30805,7 +30805,7 @@
               <node concept="2Ry0Ak" id="EpEP7iihZ7" role="iGT6I">
                 <property role="2Ry0Am" value="plugins" />
                 <node concept="2Ry0Ak" id="EpEP7iihZ8" role="2Ry0An">
-                  <property role="2Ry0Am" value="diagramEditor" />
+                  <property role="2Ry0Am" value="mps-diagram-editor" />
                   <node concept="2Ry0Ak" id="EpEP7iihZ9" role="2Ry0An">
                     <property role="2Ry0Am" value="languages" />
                     <node concept="2Ry0Ak" id="EpEP7iihZa" role="2Ry0An">
@@ -30822,7 +30822,7 @@
           <node concept="2Ry0Ak" id="3J16QdQGABP" role="iGT6I">
             <property role="2Ry0Am" value="plugins" />
             <node concept="2Ry0Ak" id="3J16QdQGAC1" role="2Ry0An">
-              <property role="2Ry0Am" value="diagramEditor" />
+              <property role="2Ry0Am" value="mps-diagram-editor" />
               <node concept="2Ry0Ak" id="3J16QdQGAC3" role="2Ry0An">
                 <property role="2Ry0Am" value="languages" />
                 <node concept="2Ry0Ak" id="3J16QdQGAC5" role="2Ry0An">
@@ -31025,7 +31025,7 @@
               <node concept="2Ry0Ak" id="EpEP7iihGF" role="iGT6I">
                 <property role="2Ry0Am" value="plugins" />
                 <node concept="2Ry0Ak" id="EpEP7iihGG" role="2Ry0An">
-                  <property role="2Ry0Am" value="diagramEditor" />
+                  <property role="2Ry0Am" value="mps-diagram-editor" />
                   <node concept="2Ry0Ak" id="EpEP7iihGH" role="2Ry0An">
                     <property role="2Ry0Am" value="languages" />
                     <node concept="2Ry0Ak" id="EpEP7iihGI" role="2Ry0An">
@@ -31042,7 +31042,7 @@
           <node concept="2Ry0Ak" id="3J16QdQGADw" role="iGT6I">
             <property role="2Ry0Am" value="plugins" />
             <node concept="2Ry0Ak" id="3J16QdQGADy" role="2Ry0An">
-              <property role="2Ry0Am" value="diagramEditor" />
+              <property role="2Ry0Am" value="mps-diagram-editor" />
               <node concept="2Ry0Ak" id="3J16QdQGAD$" role="2Ry0An">
                 <property role="2Ry0Am" value="languages" />
                 <node concept="2Ry0Ak" id="3J16QdQGADA" role="2Ry0An">
@@ -31101,7 +31101,7 @@
       </node>
       <node concept="3_J27D" id="3J16QdQGGTO" role="m_cZH">
         <node concept="3Mxwew" id="3J16QdQGGX8" role="3MwsjC">
-          <property role="3MwjfP" value="diagramEditor" />
+          <property role="3MwjfP" value="mps-diagram-editor" />
         </node>
       </node>
       <node concept="3_J27D" id="3J16QdQGGTQ" role="m$_w8">
@@ -31114,7 +31114,7 @@
         <node concept="2Ry0Ak" id="3J16QdQGH32" role="iGT6I">
           <property role="2Ry0Am" value="plugins" />
           <node concept="2Ry0Ak" id="3J16QdQGH34" role="2Ry0An">
-            <property role="2Ry0Am" value="diagramEditor" />
+            <property role="2Ry0Am" value="mps-diagram-editor" />
             <node concept="2Ry0Ak" id="3J16QdQGH60" role="2Ry0An">
               <property role="2Ry0Am" value="META-INF" />
               <node concept="2Ry0Ak" id="3J16QdQGJ8d" role="2Ry0An">
