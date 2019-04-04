@@ -20186,7 +20186,7 @@
       </node>
     </node>
     <node concept="398b33" id="1nJh0raW9Ox" role="3989C9">
-      <property role="TrG5h" value="samples" />
+      <property role="TrG5h" value="mps-samples" />
       <node concept="2GAZfH" id="1nJh0raW9Oy" role="398b2p">
         <node concept="TIC1d" id="1nJh0raW9Oz" role="2GAZfG">
           <node concept="398BVA" id="1nJh0raW9O_" role="TIC6M">
@@ -20194,7 +20194,7 @@
             <node concept="2Ry0Ak" id="1nJh0raW9OB" role="iGT6I">
               <property role="2Ry0Am" value="plugins" />
               <node concept="2Ry0Ak" id="1nJh0raW9OC" role="2Ry0An">
-                <property role="2Ry0Am" value="samples" />
+                <property role="2Ry0Am" value="mps-samples" />
                 <node concept="2Ry0Ak" id="1nJh0raW9OD" role="2Ry0An">
                   <property role="2Ry0Am" value="sources" />
                 </node>
@@ -20294,37 +20294,51 @@
           </node>
         </node>
       </node>
-      <node concept="3981dx" id="1nJh0raW9OF" role="39821P">
-        <node concept="3_J27D" id="1nJh0raW9OG" role="Nbhlr">
-          <node concept="3Mxwew" id="1nJh0raW9OH" role="3MwsjC">
-            <property role="3MwjfP" value="samples.jar" />
-          </node>
-        </node>
-        <node concept="Saw0i" id="1nJh0raW9OI" role="39821P">
-          <ref role="Saw0g" node="1nJh0raW9Ox" resolve="samples" />
-        </node>
-        <node concept="398223" id="1nJh0raW9OJ" role="39821P">
-          <node concept="28jJK3" id="35zoHQHRZ3q" role="39821P">
-            <node concept="398BVA" id="1nJh0raW9OM" role="28jJRO">
-              <ref role="398BVh" node="5yMuYWFN8P8" resolve="mps_home" />
-              <node concept="2Ry0Ak" id="1nJh0raW9ON" role="iGT6I">
-                <property role="2Ry0Am" value="plugins" />
-                <node concept="2Ry0Ak" id="1nJh0raW9OO" role="2Ry0An">
-                  <property role="2Ry0Am" value="samples" />
-                  <node concept="2Ry0Ak" id="1nJh0raW9OP" role="2Ry0An">
-                    <property role="2Ry0Am" value="META-INF" />
-                    <node concept="2Ry0Ak" id="1nJh0raW9OQ" role="2Ry0An">
-                      <property role="2Ry0Am" value="plugin.xml" />
+      <node concept="398223" id="5wA$GPhPvKv" role="39821P">
+        <node concept="398223" id="5wA$GPhPvLf" role="39821P">
+          <node concept="3981dx" id="1nJh0raW9OF" role="39821P">
+            <node concept="3_J27D" id="1nJh0raW9OG" role="Nbhlr">
+              <node concept="3Mxwew" id="1nJh0raW9OH" role="3MwsjC">
+                <property role="3MwjfP" value="mps-samples.jar" />
+              </node>
+            </node>
+            <node concept="Saw0i" id="1nJh0raW9OI" role="39821P">
+              <ref role="Saw0g" node="1nJh0raW9Ox" resolve="mps-samples" />
+            </node>
+            <node concept="398223" id="1nJh0raW9OJ" role="39821P">
+              <node concept="28jJK3" id="35zoHQHRZ3q" role="39821P">
+                <node concept="398BVA" id="1nJh0raW9OM" role="28jJRO">
+                  <ref role="398BVh" node="5yMuYWFN8P8" resolve="mps_home" />
+                  <node concept="2Ry0Ak" id="1nJh0raW9ON" role="iGT6I">
+                    <property role="2Ry0Am" value="plugins" />
+                    <node concept="2Ry0Ak" id="1nJh0raW9OO" role="2Ry0An">
+                      <property role="2Ry0Am" value="mps-samples" />
+                      <node concept="2Ry0Ak" id="1nJh0raW9OP" role="2Ry0An">
+                        <property role="2Ry0Am" value="META-INF" />
+                        <node concept="2Ry0Ak" id="1nJh0raW9OQ" role="2Ry0An">
+                          <property role="2Ry0Am" value="plugin.xml" />
+                        </node>
+                      </node>
                     </node>
                   </node>
                 </node>
               </node>
+              <node concept="3_J27D" id="1nJh0raW9OR" role="Nbhlr">
+                <node concept="3Mxwew" id="1nJh0raW9OS" role="3MwsjC">
+                  <property role="3MwjfP" value="META-INF" />
+                </node>
+              </node>
             </node>
           </node>
-          <node concept="3_J27D" id="1nJh0raW9OR" role="Nbhlr">
-            <node concept="3Mxwew" id="1nJh0raW9OS" role="3MwsjC">
-              <property role="3MwjfP" value="META-INF" />
+          <node concept="3_J27D" id="5wA$GPhPvLh" role="Nbhlr">
+            <node concept="3Mxwew" id="5wA$GPhPvLl" role="3MwsjC">
+              <property role="3MwjfP" value="lib" />
             </node>
+          </node>
+        </node>
+        <node concept="3_J27D" id="5wA$GPhPvKx" role="Nbhlr">
+          <node concept="3Mxwew" id="5wA$GPhPvLb" role="3MwsjC">
+            <property role="3MwjfP" value="mps-samples" />
           </node>
         </node>
       </node>

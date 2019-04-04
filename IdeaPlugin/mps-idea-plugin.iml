@@ -101,7 +101,7 @@
     <orderEntry type="module" module-name="refactoring" />
     <orderEntry type="module" module-name="resources" />
     <orderEntry type="module" module-name="resources_en" />
-    <orderEntry type="module" module-name="samples" />
+    <orderEntry type="module" module-name="mps-samples" />
     <orderEntry type="module" module-name="scripts-runtime" />
     <orderEntry type="module" module-name="smodel" />
     <orderEntry type="module" module-name="smodelquery-runtime" />
