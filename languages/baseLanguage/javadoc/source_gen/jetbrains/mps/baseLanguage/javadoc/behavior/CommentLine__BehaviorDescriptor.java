@@ -21,6 +21,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -30,8 +31,9 @@ public final class CommentLine__BehaviorDescriptor extends BaseBHDescriptor {
   private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
   public static final SMethod<NodeCaretPair> tryMergeToRight_idooaTF_3fF3 = new SMethodBuilder<NodeCaretPair>(new SJavaCompoundTypeImpl(NodeCaretPair.class)).name("tryMergeToRight").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("ooaTF_3fF3").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(Integer.TYPE, ""));
+  public static final SMethod<String> buildCommentText_id7Qt73fl2z8k = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("buildCommentText").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7Qt73fl2z8k").registry(REGISTRY).build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(tryMergeToRight_idooaTF_3fF3);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(tryMergeToRight_idooaTF_3fF3, buildCommentText_id7Qt73fl2z8k);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -47,6 +49,13 @@ public final class CommentLine__BehaviorDescriptor extends BaseBHDescriptor {
       return new NodeCaretPair(leftPart, offset);
     }
     return null;
+  }
+  /*package*/ static String buildCommentText_id7Qt73fl2z8k(@NotNull SNode __thisNode__) {
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL, 0x7c7f5b2f3199028dL, "part"))).foldLeft("", new ILeftCombinator<SNode, String>() {
+      public String combine(String s, SNode it) {
+        return s + CommentLinePart__BehaviorDescriptor.buildCommentText_id7Qt73fl2F3N.invoke(it);
+      }
+    });
   }
 
   /*package*/ CommentLine__BehaviorDescriptor() {
@@ -67,6 +76,8 @@ public final class CommentLine__BehaviorDescriptor extends BaseBHDescriptor {
     switch (methodIndex) {
       case 0:
         return (T) ((NodeCaretPair) tryMergeToRight_idooaTF_3fF3(node, ((int) (Integer) parameters[0])));
+      case 1:
+        return (T) ((String) buildCommentText_id7Qt73fl2z8k(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

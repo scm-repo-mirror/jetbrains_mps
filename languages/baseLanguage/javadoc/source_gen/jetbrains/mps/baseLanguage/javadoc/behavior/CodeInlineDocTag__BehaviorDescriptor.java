@@ -8,7 +8,6 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
 import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
-import jetbrains.mps.baseLanguage.javadoc.editor.NodeCaretPair;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.SModifiersImpl;
@@ -17,29 +16,42 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.internal.collections.runtime.ISelector;
+import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
-public final class CommentLinePart__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990286L, "jetbrains.mps.baseLanguage.javadoc.structure.CommentLinePart");
+public final class CodeInlineDocTag__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252a7b73L, "jetbrains.mps.baseLanguage.javadoc.structure.CodeInlineDocTag");
   private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<NodeCaretPair> smartDelete_id7PYAiugbmRz = new SMethodBuilder<NodeCaretPair>(new SJavaCompoundTypeImpl(NodeCaretPair.class)).name("smartDelete").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7PYAiugbmRz").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
-  public static final SMethod<String> buildCommentText_id7Qt73fl2F3N = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("buildCommentText").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7Qt73fl2F3N").registry(REGISTRY).build();
+  public static final SMethod<String> buildCommentText_id7Qt73fl50wX = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("buildCommentText").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7Qt73fl50wX").registry(REGISTRY).build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(smartDelete_id7PYAiugbmRz, buildCommentText_id7Qt73fl2F3N);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(buildCommentText_id7Qt73fl50wX);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static NodeCaretPair smartDelete_id7PYAiugbmRz(@NotNull SNode __thisNode__, boolean isBeginning) {
-    SNodeOperations.deleteNode(__thisNode__);
-    return null;
+  /*package*/ static String buildCommentText_id7Qt73fl50wX(@NotNull SNode __thisNode__) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252a7b73L, 0x2b1cb7939650a121L, "line"))).isNotEmpty()) {
+      return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252a7b73L, 0x2b1cb7939650a121L, "line"))).select(new ISelector<SNode, String>() {
+        public String select(SNode it) {
+          return (String) CommentLine__BehaviorDescriptor.buildCommentText_id7Qt73fl2z8k.invoke(it);
+        }
+      }).foldLeft("code: ", new ILeftCombinator<String, String>() {
+        public String combine(String s, String it) {
+          return s + "\n" + it;
+        }
+      });
+    } else {
+      return "code:\n";
+    }
   }
 
-  /*package*/ CommentLinePart__BehaviorDescriptor() {
+  /*package*/ CodeInlineDocTag__BehaviorDescriptor() {
     super(REGISTRY);
   }
 
@@ -56,7 +68,7 @@ public final class CommentLinePart__BehaviorDescriptor extends BaseBHDescriptor 
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((NodeCaretPair) smartDelete_id7PYAiugbmRz(node, ((boolean) (Boolean) parameters[0])));
+        return (T) ((String) buildCommentText_id7Qt73fl50wX(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
