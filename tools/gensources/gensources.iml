@@ -2,10 +2,7 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../core">
-      <sourceFolder url="file://$MODULE_DIR$/../../core/analyzers/solutions/sandbox/source_gen" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/../../core/analyzers/solutions/sandbox/classes_gen" />
-    </content>
+    <content url="file://$MODULE_DIR$/../../core" />
     <content url="file://$MODULE_DIR$/../../languages">
       <sourceFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/baseLanguage/generator/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/baseLanguage/baseLanguage/sandbox/source_gen" isTestSource="false" />
@@ -60,6 +57,8 @@
       <sourceFolder url="file://$MODULE_DIR$/../../languages/languageDesign/actions/generator/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/languageDesign/actions/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/languageDesign/analyzers/generator/source_gen" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../languages/languageDesign/analyzers/runtime/source_gen" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../languages/languageDesign/analyzers/sandbox/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/languageDesign/analyzers/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/languageDesign/behavior/languages/behavior/generator/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../languages/languageDesign/behavior/languages/behavior/source_gen" isTestSource="false" />
@@ -238,6 +237,8 @@
       <excludeFolder url="file://$MODULE_DIR$/../../languages/languageDesign/actions/generator/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../languages/languageDesign/analyzers/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../languages/languageDesign/analyzers/generator/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../languages/languageDesign/analyzers/runtime/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../languages/languageDesign/analyzers/sandbox/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../languages/languageDesign/behavior/languages/behavior/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../languages/languageDesign/behavior/languages/behavior/generator/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../languages/languageDesign/behavior/languages/testlang/classes_gen" />
@@ -1426,7 +1427,6 @@
     <orderEntry type="module" module-name="typesystemEngine" />
     <orderEntry type="module" module-name="typesystemEngine" />
     <orderEntry type="module" module-name="editorlang-runtime" />
-    <orderEntry type="module" module-name="analyzers" />
     <orderEntry type="module" module-name="editor-runtime" />
     <orderEntry type="module" module-name="mps-editor" />
     <orderEntry type="module" module-name="intentions-runtime" />
@@ -1469,4 +1469,3 @@
     <orderEntry type="module" module-name="project-check" />
   </component>
 </module>
-
