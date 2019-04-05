@@ -30,9 +30,6 @@ import java.util.Set;
 
 public abstract class ConstraintsReportItem extends NodeReportItemBase implements RuleIdFlavouredItem, IssueKindReportItem, NodeReportItem {
   private final TypesystemRuleId myRuleNode;
-  public ConstraintsReportItem(@NotNull SNode node, String message) {
-    this(node, message, null);
-  }
   public ConstraintsReportItem(@NotNull SNode node, String message, @Nullable TypesystemRuleId ruleNode) {
     super(MessageStatus.ERROR, node.getReference(), message);
     myRuleNode = ruleNode;
