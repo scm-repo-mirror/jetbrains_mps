@@ -22,7 +22,7 @@ import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Map;
-import jetbrains.mps.baseLanguage.util.IdentifierConstraintsUtil;
+import jetbrains.mps.util.JavaNameUtil;
 import jetbrains.mps.util.NameUtil;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
@@ -169,7 +169,7 @@ public class OverrideImplementMethodsHelper {
       SNode nodeType = SLinkOperations.getTarget(variable, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"));
       if (nodeType != null) {
         String name = ListSequence.fromList(((List<String>) BHReflection.invoke0(nodeType, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"), SMethodTrimmedId.create("getVariableSuffixes", null, "hEwIzNo")))).first();
-        if (IdentifierConstraintsUtil.isJavaReserved(name)) {
+        if (JavaNameUtil.isJavaReserved(name)) {
           name = "a" + NameUtil.capitalize(NameUtil.toValidIdentifier(name));
         }
         if (MapSequence.fromMap(usedNames).containsKey(name)) {

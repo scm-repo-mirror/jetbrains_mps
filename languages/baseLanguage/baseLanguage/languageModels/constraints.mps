@@ -17,7 +17,6 @@
     <import index="o8zo" ref="r:314576fc-3aee-4386-a0a5-a38348ac317d(jetbrains.mps.scope)" />
     <import index="6xgk" ref="r:6e9ad488-5df2-49e4-8c01-8a7f3812adf7(jetbrains.mps.lang.scopes.runtime)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
-    <import index="pz2c" ref="r:2a308ea0-c7e3-4fa5-a624-ad74ee5cfab5(jetbrains.mps.baseLanguage.util)" />
     <import index="unno" ref="r:61e3d524-8c49-4491-b5e3-f6d6e9364527(jetbrains.mps.util)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="l46t" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.compiler(MPS.Core/)" />
@@ -1901,8 +1900,8 @@
             <node concept="1Wc70l" id="DxJezr2fbp" role="3clFbG">
               <node concept="3fqX7Q" id="DxJezr2fbs" role="3uHU7w">
                 <node concept="2YIFZM" id="DxJezr2qvJ" role="3fr31v">
-                  <ref role="1Pybhc" to="pz2c:6FltliuC5is" resolve="IdentifierConstraintsUtil" />
-                  <ref role="37wK5l" to="pz2c:DxJezr2d4j" resolve="isJavaReserved" />
+                  <ref role="1Pybhc" to="18ew:~JavaNameUtil" resolve="JavaNameUtil" />
+                  <ref role="37wK5l" to="18ew:~JavaNameUtil.isJavaReserved(java.lang.String)" resolve="isJavaReserved" />
                   <node concept="1Wqviy" id="DxJezr2qvK" role="37wK5m" />
                 </node>
               </node>

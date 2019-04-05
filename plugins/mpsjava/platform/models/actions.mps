@@ -13914,8 +13914,8 @@
                     </node>
                   </node>
                   <node concept="2YIFZM" id="kNPVeWBwYq" role="3clFbw">
-                    <ref role="1Pybhc" to="pz2c:6FltliuC5is" resolve="IdentifierConstraintsUtil" />
-                    <ref role="37wK5l" to="pz2c:DxJezr2d4j" resolve="isJavaReserved" />
+                    <ref role="1Pybhc" to="18ew:~JavaNameUtil" resolve="JavaNameUtil" />
+                    <ref role="37wK5l" to="18ew:~JavaNameUtil.isJavaReserved(java.lang.String)" resolve="isJavaReserved" />
                     <node concept="37vLTw" id="kNPVeWBBJB" role="37wK5m">
                       <ref role="3cqZAo" node="7ECFGRPAHIX" resolve="name" />
                     </node>

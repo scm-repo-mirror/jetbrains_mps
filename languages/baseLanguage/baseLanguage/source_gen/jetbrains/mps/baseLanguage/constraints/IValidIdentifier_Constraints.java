@@ -12,7 +12,7 @@ import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.baseLanguage.util.IdentifierConstraintsUtil;
+import jetbrains.mps.util.JavaNameUtil;
 
 public class IValidIdentifier_Constraints extends BaseConstraintsDescriptor {
   public IValidIdentifier_Constraints() {
@@ -30,7 +30,7 @@ public class IValidIdentifier_Constraints extends BaseConstraintsDescriptor {
       @Override
       public boolean validateValue(SNode node, String propertyValue) {
         String propertyName = "name";
-        return (SPropertyOperations.getString(propertyValue)).matches("[a-zA-Z$[_]][a-zA-Z0-9$[_]]*") && !(IdentifierConstraintsUtil.isJavaReserved((SPropertyOperations.getString(propertyValue))));
+        return (SPropertyOperations.getString(propertyValue)).matches("[a-zA-Z$[_]][a-zA-Z0-9$[_]]*") && !(JavaNameUtil.isJavaReserved((SPropertyOperations.getString(propertyValue))));
       }
     });
     return properties;

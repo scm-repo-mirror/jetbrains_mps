@@ -16,6 +16,7 @@
     <import index="tpek" ref="r:00000000-0000-4000-0000-011c895902c0(jetbrains.mps.baseLanguage.behavior)" />
     <import index="5h2r" ref="r:e985db5c-6ba2-43f6-94fe-1b4547c2cc5c(jetbrains.mps.baseLanguage.search)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
+    <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -137,10 +138,6 @@
       <concept id="1081516740877" name="jetbrains.mps.baseLanguage.structure.NotExpression" flags="nn" index="3fqX7Q">
         <child id="1081516765348" name="expression" index="3fr31v" />
       </concept>
-      <concept id="1154542696413" name="jetbrains.mps.baseLanguage.structure.ArrayCreatorWithInitializer" flags="nn" index="3g6Rrh">
-        <child id="1154542793668" name="componentType" index="3g7fb8" />
-        <child id="1154542803372" name="initValue" index="3g7hyw" />
-      </concept>
       <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
@@ -188,11 +185,25 @@
       </concept>
     </language>
     <language id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc">
+      <concept id="2546654756694997551" name="jetbrains.mps.baseLanguage.javadoc.structure.LinkInlineDocTag" flags="ng" index="92FcH">
+        <child id="2546654756694997556" name="reference" index="92FcQ" />
+        <child id="3106559687488913694" name="line" index="2XjZqd" />
+      </concept>
       <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
         <child id="8465538089690331502" name="body" index="TZ5H$" />
+        <child id="5383422241790532083" name="tags" index="3nqlJM" />
       </concept>
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
+      </concept>
+      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
+        <child id="2667874559098216723" name="text" index="3HnX3l" />
+      </concept>
+      <concept id="2217234381367530195" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocReference" flags="ng" index="VXe0Z">
+        <reference id="2217234381367530196" name="methodDeclaration" index="VXe0S" />
+      </concept>
+      <concept id="8970989240999019145" name="jetbrains.mps.baseLanguage.javadoc.structure.InlineTagCommentLinePart" flags="ng" index="1dT_AA">
+        <child id="6962838954693749192" name="tag" index="qph3F" />
       </concept>
       <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
         <property id="8970989240999019144" name="text" index="1dT_AB" />
@@ -283,7 +294,6 @@
       </concept>
       <concept id="1237721394592" name="jetbrains.mps.baseLanguage.collections.structure.AbstractContainerCreator" flags="nn" index="HWqM0">
         <child id="1237721435807" name="elementType" index="HW$YZ" />
-        <child id="1237731803878" name="copyFrom" index="I$8f6" />
       </concept>
       <concept id="1201306600024" name="jetbrains.mps.baseLanguage.collections.structure.ContainsKeyOperation" flags="nn" index="2Nt0df">
         <child id="1201654602639" name="key" index="38cxEo" />
@@ -2126,182 +2136,6 @@
   </node>
   <node concept="312cEu" id="6FltliuC5is">
     <property role="TrG5h" value="IdentifierConstraintsUtil" />
-    <node concept="Wx3nA" id="DxJezr2fa9" role="jymVt">
-      <property role="TrG5h" value="javaKeywordsAndConstants" />
-      <node concept="3Tm6S6" id="DxJezr2faa" role="1B3o_S" />
-      <node concept="2hMVRd" id="DxJezr2fac" role="1tU5fm">
-        <node concept="17QB3L" id="DxJezr2fae" role="2hN53Y" />
-      </node>
-      <node concept="2ShNRf" id="DxJezr2fag" role="33vP2m">
-        <node concept="2i4dXS" id="DxJezr2fah" role="2ShVmc">
-          <node concept="17QB3L" id="DxJezr2fai" role="HW$YZ" />
-          <node concept="2ShNRf" id="DxJezr2uTz" role="I$8f6">
-            <node concept="3g6Rrh" id="DxJezr2$3_" role="2ShVmc">
-              <node concept="Xl_RD" id="DxJezr2$3B" role="3g7hyw">
-                <property role="Xl_RC" value="abstract" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3C" role="3g7hyw">
-                <property role="Xl_RC" value="continue" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3D" role="3g7hyw">
-                <property role="Xl_RC" value="for" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3E" role="3g7hyw">
-                <property role="Xl_RC" value="new" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3F" role="3g7hyw">
-                <property role="Xl_RC" value="switch" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3G" role="3g7hyw">
-                <property role="Xl_RC" value="assert" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3H" role="3g7hyw">
-                <property role="Xl_RC" value="default" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3I" role="3g7hyw">
-                <property role="Xl_RC" value="if" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3J" role="3g7hyw">
-                <property role="Xl_RC" value="package" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3K" role="3g7hyw">
-                <property role="Xl_RC" value="synchronized" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3L" role="3g7hyw">
-                <property role="Xl_RC" value="boolean" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3M" role="3g7hyw">
-                <property role="Xl_RC" value="do" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3N" role="3g7hyw">
-                <property role="Xl_RC" value="goto" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3O" role="3g7hyw">
-                <property role="Xl_RC" value="private" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3P" role="3g7hyw">
-                <property role="Xl_RC" value="this" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3Q" role="3g7hyw">
-                <property role="Xl_RC" value="break" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3R" role="3g7hyw">
-                <property role="Xl_RC" value="double" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3S" role="3g7hyw">
-                <property role="Xl_RC" value="implements" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3T" role="3g7hyw">
-                <property role="Xl_RC" value="protected" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3U" role="3g7hyw">
-                <property role="Xl_RC" value="throw" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3V" role="3g7hyw">
-                <property role="Xl_RC" value="byte" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3W" role="3g7hyw">
-                <property role="Xl_RC" value="else" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3X" role="3g7hyw">
-                <property role="Xl_RC" value="import" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3Y" role="3g7hyw">
-                <property role="Xl_RC" value="public" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$3Z" role="3g7hyw">
-                <property role="Xl_RC" value="throws" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$40" role="3g7hyw">
-                <property role="Xl_RC" value="case" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$41" role="3g7hyw">
-                <property role="Xl_RC" value="enum" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$42" role="3g7hyw">
-                <property role="Xl_RC" value="instanceof" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$43" role="3g7hyw">
-                <property role="Xl_RC" value="return" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$44" role="3g7hyw">
-                <property role="Xl_RC" value="transient" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$45" role="3g7hyw">
-                <property role="Xl_RC" value="catch" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$46" role="3g7hyw">
-                <property role="Xl_RC" value="extends" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$47" role="3g7hyw">
-                <property role="Xl_RC" value="int" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$48" role="3g7hyw">
-                <property role="Xl_RC" value="short" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$49" role="3g7hyw">
-                <property role="Xl_RC" value="try" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$4a" role="3g7hyw">
-                <property role="Xl_RC" value="char" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$4b" role="3g7hyw">
-                <property role="Xl_RC" value="final" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$4c" role="3g7hyw">
-                <property role="Xl_RC" value="interface" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$4d" role="3g7hyw">
-                <property role="Xl_RC" value="static" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$4e" role="3g7hyw">
-                <property role="Xl_RC" value="void" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$4f" role="3g7hyw">
-                <property role="Xl_RC" value="class" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$4g" role="3g7hyw">
-                <property role="Xl_RC" value="finally" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$4h" role="3g7hyw">
-                <property role="Xl_RC" value="long" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$4i" role="3g7hyw">
-                <property role="Xl_RC" value="strictfp" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$4j" role="3g7hyw">
-                <property role="Xl_RC" value="volatile" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$4k" role="3g7hyw">
-                <property role="Xl_RC" value="const" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$4l" role="3g7hyw">
-                <property role="Xl_RC" value="float" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$4m" role="3g7hyw">
-                <property role="Xl_RC" value="native" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$4n" role="3g7hyw">
-                <property role="Xl_RC" value="super" />
-              </node>
-              <node concept="Xl_RD" id="DxJezr2$4o" role="3g7hyw">
-                <property role="Xl_RC" value="while" />
-              </node>
-              <node concept="Xl_RD" id="vYRqsVhUeQ" role="3g7hyw">
-                <property role="Xl_RC" value="true" />
-              </node>
-              <node concept="Xl_RD" id="vYRqsVhUeS" role="3g7hyw">
-                <property role="Xl_RC" value="false" />
-              </node>
-              <node concept="Xl_RD" id="vYRqsVhUeU" role="3g7hyw">
-                <property role="Xl_RC" value="null" />
-              </node>
-              <node concept="17QB3L" id="DxJezr2$3$" role="3g7fb8" />
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
     <node concept="3clFbW" id="6FltliuC6w$" role="jymVt">
       <node concept="3cqZAl" id="6FltliuC6w_" role="3clF45" />
       <node concept="3clFbS" id="6FltliuC6wB" role="3clF47" />
@@ -2313,14 +2147,11 @@
       <node concept="3Tm1VV" id="DxJezr2d4l" role="1B3o_S" />
       <node concept="3clFbS" id="DxJezr2d4m" role="3clF47">
         <node concept="3cpWs6" id="DxJezr2f9X" role="3cqZAp">
-          <node concept="2OqwBi" id="DxJezr2fbg" role="3cqZAk">
-            <node concept="37vLTw" id="6FltliuC78g" role="2Oq$k0">
-              <ref role="3cqZAo" node="DxJezr2fa9" resolve="javaKeywordsAndConstants" />
-            </node>
-            <node concept="3JPx81" id="DxJezr2fbk" role="2OqNvi">
-              <node concept="37vLTw" id="2BHiRxgm8ul" role="25WWJ7">
-                <ref role="3cqZAo" node="DxJezr2f8C" resolve="s" />
-              </node>
+          <node concept="2YIFZM" id="4E1FVglvg2_" role="3cqZAk">
+            <ref role="37wK5l" to="18ew:~JavaNameUtil.isJavaReserved(java.lang.String)" resolve="isJavaReserved" />
+            <ref role="1Pybhc" to="18ew:~JavaNameUtil" resolve="JavaNameUtil" />
+            <node concept="37vLTw" id="4E1FVglvg3r" role="37wK5m">
+              <ref role="3cqZAo" node="DxJezr2f8C" resolve="s" />
             </node>
           </node>
         </node>
@@ -2331,6 +2162,34 @@
       </node>
     </node>
     <node concept="3Tm1VV" id="6FltliuC5it" role="1B3o_S" />
+    <node concept="3UR2Jj" id="4E1FVglv8Of" role="lGtFl">
+      <node concept="TZ5HA" id="4E1FVglv8Og" role="TZ5H$">
+        <node concept="1dT_AC" id="4E1FVglv8Oh" role="1dT_Ay">
+          <property role="1dT_AB" value="This class will be removed in MPS 2019.2" />
+        </node>
+      </node>
+      <node concept="TZ5HI" id="4E1FVglv8O$" role="3nqlJM">
+        <node concept="TZ5HA" id="4E1FVglv8O_" role="3HnX3l">
+          <node concept="1dT_AC" id="4E1FVglv8Rn" role="1dT_Ay">
+            <property role="1dT_AB" value="use " />
+          </node>
+          <node concept="1dT_AA" id="4E1FVglvg43" role="1dT_Ay">
+            <node concept="92FcH" id="4E1FVglvg49" role="qph3F">
+              <node concept="TZ5HA" id="4E1FVglvg4b" role="2XjZqd" />
+              <node concept="VXe0Z" id="4E1FVglvEG3" role="92FcQ">
+                <ref role="VXe0S" to="18ew:~JavaNameUtil.isJavaReserved(java.lang.String)" resolve="isJavaReserved" />
+              </node>
+            </node>
+          </node>
+          <node concept="1dT_AC" id="4E1FVglvg42" role="1dT_Ay">
+            <property role="1dT_AB" value=" instead" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2AHcQZ" id="4E1FVglv8R4" role="2AJF6D">
+      <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
+    </node>
   </node>
 </model>
 
