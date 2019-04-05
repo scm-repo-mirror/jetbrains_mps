@@ -47,7 +47,6 @@
     <orderEntry type="module" module-name="migrations-runtime" />
     <orderEntry type="module" module-name="refactoring-runtime" />
     <orderEntry type="module" module-name="actions-runtime" />
-    <orderEntry type="module" module-name="analyzers" />
     <orderEntry type="module" module-name="ant-mps" />
     <orderEntry type="module" module-name="ant-mps-common" />
     <orderEntry type="module" module-name="baseLanguage-util" />
