@@ -6370,6 +6370,48 @@
       </node>
       <node concept="10P_77" id="7cOEBlPPwir" role="3clF45" />
     </node>
+    <node concept="13i0hz" id="59NBlcH$zBr" role="13h7CS">
+      <property role="TrG5h" value="reexportsFromJar" />
+      <ref role="13i0hy" to="vbkb:5bqm540K$Gb" resolve="reexportsFromJar" />
+      <node concept="3Tm1VV" id="59NBlcH$zBs" role="1B3o_S" />
+      <node concept="3clFbS" id="59NBlcH$zBx" role="3clF47">
+        <node concept="3SKdUt" id="59NBlcH$ELJ" role="3cqZAp">
+          <node concept="3SKdUq" id="59NBlcH$ELL" role="3SKWNk">
+            <property role="3SKdUp" value="XXX We imply here parent node is BuildLayout_Jar as it's the only place to use InJarNode.reexportsFromJar" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="59NBlcH$EWU" role="3cqZAp">
+          <node concept="3SKdUq" id="59NBlcH$EWW" role="3SKWNk">
+            <property role="3SKdUp" value="    For folder with BML_PD, #exports shall work, and I don't care yet to remove that as (a) for folder, no unneccesary unzip (in dependants) happens" />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="59NBlcH$F89" role="3cqZAp">
+          <node concept="3SKdUq" id="59NBlcH$F8b" role="3SKWNk">
+            <property role="3SKdUp" value="    (b) no idea how to let BL_Folder know about BML_PD without introducing something like BL_InFolderNode similar to BL_InJarNode" />
+          </node>
+        </node>
+        <node concept="3cpWs6" id="59NBlcH$Aty" role="3cqZAp">
+          <node concept="3clFbC" id="59NBlcH$Cfj" role="3cqZAk">
+            <node concept="2OqwBi" id="59NBlcH$D3C" role="3uHU7w">
+              <node concept="13iPFW" id="59NBlcH$CDw" role="2Oq$k0" />
+              <node concept="3TrEf2" id="59NBlcH$DVg" role="2OqNvi">
+                <ref role="3Tt5mk" to="kdzh:5HVSRHdV$dX" resolve="plugin" />
+              </node>
+            </node>
+            <node concept="37vLTw" id="59NBlcH$EAI" role="3uHU7B">
+              <ref role="3cqZAo" node="59NBlcH$zBy" resolve="o" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="59NBlcH$zBy" role="3clF46">
+        <property role="TrG5h" value="o" />
+        <node concept="3uibUv" id="59NBlcH$zBz" role="1tU5fm">
+          <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+        </node>
+      </node>
+      <node concept="10P_77" id="59NBlcH$zB$" role="3clF45" />
+    </node>
     <node concept="13i0hz" id="7cOEBlPPwix" role="13h7CS">
       <property role="13i0iv" value="false" />
       <property role="TrG5h" value="location" />

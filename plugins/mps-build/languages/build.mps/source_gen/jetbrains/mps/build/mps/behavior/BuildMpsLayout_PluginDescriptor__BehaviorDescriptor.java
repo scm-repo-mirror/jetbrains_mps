@@ -31,12 +31,13 @@ public final class BuildMpsLayout_PluginDescriptor__BehaviorDescriptor extends B
   private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
   public static final SMethod<Boolean> exports_id5FtnUVJQES1 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("exports").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5FtnUVJQES1").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(Object.class, ""));
+  public static final SMethod<Boolean> reexportsFromJar_id5bqm540K$Gb = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("reexportsFromJar").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5bqm540K$Gb").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(Object.class, ""));
   public static final SMethod<String> location_id6b4RkXS8sT2 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("location").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6b4RkXS8sT2").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(DependenciesHelper.class, ""), SMethodBuilder.createJavaParameter(Object.class, ""));
   public static final SMethod<Void> appendName_id1bWeed$ownT = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("appendName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1bWeed$ownT").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(StringBuilder.class, ""));
   public static final SMethod<Void> unpack_id6IqTD4bJTWZ = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("unpack").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6IqTD4bJTWZ").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(UnpackHelper.class, ""));
   public static final SMethod<String> pluginXml_idQkG2t1cwfm = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("pluginXml").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("QkG2t1cwfm").registry(REGISTRY).build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(exports_id5FtnUVJQES1, location_id6b4RkXS8sT2, appendName_id1bWeed$ownT, unpack_id6IqTD4bJTWZ, pluginXml_idQkG2t1cwfm);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(exports_id5FtnUVJQES1, reexportsFromJar_id5bqm540K$Gb, location_id6b4RkXS8sT2, appendName_id1bWeed$ownT, unpack_id6IqTD4bJTWZ, pluginXml_idQkG2t1cwfm);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -51,6 +52,12 @@ public final class BuildMpsLayout_PluginDescriptor__BehaviorDescriptor extends B
       }
     }
     return ((boolean) BuildLayout_Node__BehaviorDescriptor.exports_id5FtnUVJQES1.invokeSuper(__thisNode__, MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4dee437cL, "jetbrains.mps.build.mps.structure.BuildMpsLayout_PluginDescriptor"), artifactId));
+  }
+  /*package*/ static boolean reexportsFromJar_id5bqm540K$Gb(@NotNull SNode __thisNode__, Object o) {
+    // XXX We imply here parent node is BuildLayout_Jar as it's the only place to use InJarNode.reexportsFromJar 
+    //     For folder with BML_PD, #exports shall work, and I don't care yet to remove that as (a) for folder, no unneccesary unzip (in dependants) happens 
+    //     (b) no idea how to let BL_Folder know about BML_PD without introducing something like BL_InFolderNode similar to BL_InJarNode 
+    return o == SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4dee437cL, 0x5b7be37b4dee437dL, "plugin"));
   }
   /*package*/ static String location_id6b4RkXS8sT2(@NotNull SNode __thisNode__, DependenciesHelper helper, Object artifactId) {
     if (artifactId instanceof jetbrains.mps.smodel.SNode) {
@@ -94,11 +101,13 @@ public final class BuildMpsLayout_PluginDescriptor__BehaviorDescriptor extends B
       case 0:
         return (T) ((Boolean) exports_id5FtnUVJQES1(node, (Object) parameters[0]));
       case 1:
-        return (T) ((String) location_id6b4RkXS8sT2(node, (DependenciesHelper) parameters[0], (Object) parameters[1]));
+        return (T) ((Boolean) reexportsFromJar_id5bqm540K$Gb(node, (Object) parameters[0]));
       case 2:
+        return (T) ((String) location_id6b4RkXS8sT2(node, (DependenciesHelper) parameters[0], (Object) parameters[1]));
+      case 3:
         appendName_id1bWeed$ownT(node, (SNode) parameters[0], (StringBuilder) parameters[1]);
         return null;
-      case 3:
+      case 4:
         unpack_id6IqTD4bJTWZ(node, (UnpackHelper) parameters[0]);
         return null;
       default:
@@ -113,7 +122,7 @@ public final class BuildMpsLayout_PluginDescriptor__BehaviorDescriptor extends B
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
-      case 4:
+      case 5:
         return (T) ((String) pluginXml_idQkG2t1cwfm(concept));
       default:
         throw new BHMethodNotFoundException(this, method);

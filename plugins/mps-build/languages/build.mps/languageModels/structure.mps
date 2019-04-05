@@ -1214,6 +1214,9 @@
       <property role="IQ2ns" value="6592112598314795901" />
       <ref role="20lvS9" node="5HVSRHdUrHO" resolve="BuildMps_IdeaPlugin" />
     </node>
+    <node concept="PrWs8" id="59NBlcH$yds" role="PzmwI">
+      <ref role="PrY4T" to="3ior:5bqm540K$G7" resolve="BuildLayout_InJarNode" />
+    </node>
   </node>
   <node concept="1TIwiD" id="3vXGXT8byGB">
     <property role="TrG5h" value="BuildMps_IdeaPluginGroupCustomModule" />
