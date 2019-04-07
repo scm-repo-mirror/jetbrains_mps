@@ -97,11 +97,11 @@
     <file name="check_StringSwitchStatement_NonTypesystemRule.java">
       <node id="400642802550421655" at="24,128,25,186" concept="6" />
       <node id="400642802550421663" at="26,22,27,13" concept="7" />
-      <node id="400642802550421669" at="29,221,30,13" concept="7" />
+      <node id="400642802550421669" at="29,231,30,13" concept="7" />
       <node id="400642802550421676" at="31,5,32,0" concept="9" />
-      <node id="400642802550421681" at="34,544,35,15" concept="7" />
+      <node id="400642802550421681" at="34,554,35,15" concept="7" />
       <node id="400642802550421697" at="37,5,38,0" concept="9" />
-      <node id="400642802550421711" at="40,484,41,15" concept="7" />
+      <node id="400642802550421711" at="40,494,41,15" concept="7" />
       <node id="400642802550421742" at="43,5,44,0" concept="9" />
       <node id="400642802550421743" at="45,5,46,58" concept="6" />
       <node id="400642802550421743" at="46,58,47,258" concept="6" />
@@ -111,8 +111,8 @@
       <node id="400642802550421653" at="22,0,24,0" concept="1" trace="check_StringSwitchStatement_NonTypesystemRule#()V" />
       <node id="400642802550421661" at="25,186,28,5" concept="4" />
       <node id="400642802550421667" at="28,5,31,5" concept="4" />
-      <node id="400642802550421679" at="33,225,36,7" concept="4" />
-      <node id="400642802550421700" at="39,242,42,7" concept="4" />
+      <node id="400642802550421679" at="33,235,36,7" concept="4" />
+      <node id="400642802550421700" at="39,252,42,7" concept="4" />
       <node id="400642802550421653" at="50,0,53,0" concept="5" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
       <node id="400642802550421653" at="53,0,56,0" concept="5" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
       <node id="400642802550421653" at="56,0,59,0" concept="5" trace="overrides#()Z" />
@@ -122,9 +122,9 @@
       <node id="400642802550421653" at="24,0,50,0" concept="5" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
       <scope id="400642802550421653" at="22,58,22,58" />
       <scope id="400642802550421662" at="26,22,27,13" />
-      <scope id="400642802550421668" at="29,221,30,13" />
-      <scope id="400642802550421680" at="34,544,35,15" />
-      <scope id="400642802550421710" at="40,484,41,15" />
+      <scope id="400642802550421668" at="29,231,30,13" />
+      <scope id="400642802550421680" at="34,554,35,15" />
+      <scope id="400642802550421710" at="40,494,41,15" />
       <scope id="400642802550421653" at="50,50,51,170" />
       <scope id="400642802550421653" at="53,68,54,102" />
       <scope id="400642802550421653" at="56,30,57,16" />
@@ -133,8 +133,8 @@
         <var name="_reporter_2309309498" id="400642802550421743" />
         <var name="errorTarget" id="400642802550421743" />
       </scope>
-      <scope id="400642802550421678" at="33,225,36,7" />
-      <scope id="400642802550421699" at="39,242,42,7" />
+      <scope id="400642802550421678" at="33,235,36,7" />
+      <scope id="400642802550421699" at="39,252,42,7" />
       <scope id="400642802550421653" at="50,0,53,0" />
       <scope id="400642802550421653" at="53,0,56,0">
         <var name="argument" id="400642802550421653" />

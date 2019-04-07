@@ -24,7 +24,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.pattern.GeneratedMatchingPattern;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -79,7 +79,7 @@ public final class IMethodCall__BehaviorDescriptor extends BaseBHDescriptor {
         final SNode methodClassifier = SNodeOperations.getNodeAncestor(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration")), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier"), false, false);
         {
           GeneratedMatchingPattern pattern_fq0410_f0c0b0b = new Pattern_fq0410_a0a0f0c0b0b(_quotation_createNode_fq0410_a0a0a0f0c0b0b(methodClassifier));
-          SNode coercedNode_fq0410_f0c0b0b = TypeChecker.getInstance().getRuntimeSupport().coerce_(instanceType, pattern_fq0410_f0c0b0b);
+          SNode coercedNode_fq0410_f0c0b0b = TypecheckingFacade.getFromContext().coerceType(instanceType, pattern_fq0410_f0c0b0b);
           if (coercedNode_fq0410_f0c0b0b != null) {
             SNode resultType;
             if (SNodeOperations.isInstanceOf(rawType, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, "jetbrains.mps.baseLanguage.structure.TypeVariableReference"))) {

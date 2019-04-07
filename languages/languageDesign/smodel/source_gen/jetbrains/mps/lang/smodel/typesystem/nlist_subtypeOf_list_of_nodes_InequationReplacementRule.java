@@ -10,7 +10,7 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicable2Status;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
@@ -36,7 +36,7 @@ public class nlist_subtypeOf_list_of_nodes_InequationReplacementRule extends Abs
   public boolean checkInequation(final SNode subtype, final SNode supertype, final EquationInfo equationInfo, IsApplicable2Status status, final boolean inequalityIsWeak, final boolean inequalityIsLessThan) {
     boolean result_14532009 = true;
     if (!(SNodeOperations.isInstanceOf(status.getPattern2().getMatchedNode("ELEMENT"), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x110dae5f4a3L, "jetbrains.mps.baseLanguage.structure.WildCardType")))) {
-      result_14532009 = result_14532009 && TypeChecker.getInstance().getSubtypingManager().isSubtype((SNode) _quotation_createNode_9szvhv_a0a0a0a0a0a0b0e(status.getPattern1().getMatchedNode("CONCEPT")), (SNode) status.getPattern2().getMatchedNode("ELEMENT"), true);
+      result_14532009 = result_14532009 && TypecheckingFacade.getFromContext().isSubtype((SNode) _quotation_createNode_9szvhv_a0a0a0a0a0a0b0e(status.getPattern1().getMatchedNode("CONCEPT")), (SNode) status.getPattern2().getMatchedNode("ELEMENT"));
     }
     return result_14532009;
   }

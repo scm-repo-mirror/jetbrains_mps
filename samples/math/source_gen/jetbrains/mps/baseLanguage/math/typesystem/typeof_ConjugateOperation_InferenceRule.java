@@ -15,7 +15,7 @@ import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
@@ -52,7 +52,7 @@ public class typeof_ConjugateOperation_InferenceRule extends AbstractInferenceRu
               IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(operation, "Operation defined for matrices/vectors only", "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "7388416617632229354", null, errorTarget);
             }
           }
-          if (!(TypeChecker.getInstance().getSubtypingManager().isSubtype(MathTypeUtil.qComplex, typeCheckingContext.getExpandedNode(t)))) {
+          if (!(TypecheckingFacade.getFromContext().isSubtype(MathTypeUtil.qComplex, typeCheckingContext.getExpandedNode(t)))) {
             {
               MessageTarget errorTarget = new NodeMessageTarget();
               IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(operation, "Usage of conjugation instead of transposition only makes sense for complex matrices", "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "7388416617632229387", null, errorTarget);

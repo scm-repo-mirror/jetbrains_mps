@@ -470,9 +470,9 @@
       <node id="1213877222908" at="30,0,31,0" concept="12" trace="REGISTRY" />
       <node id="1213877222908" at="32,0,33,0" concept="12" trace="getInputNodeTypeInsideOfMacro_idhEwIosJ" />
       <node id="1213877222908" at="34,0,35,0" concept="12" trace="BH_METHODS" />
-      <node id="1213877222913" at="39,97,40,232" concept="8" />
+      <node id="1213877222913" at="39,97,40,242" concept="8" />
       <node id="1213877222921" at="41,5,42,121" concept="8" />
-      <node id="1213877222921" at="42,121,43,122" concept="8" />
+      <node id="1213877222921" at="42,121,43,115" concept="8" />
       <node id="1213877222924" at="44,43,45,60" concept="9" />
       <node id="1213877222921" at="46,12,47,7" concept="0" />
       <node id="1213877222931" at="48,5,49,16" concept="9" />
@@ -498,13 +498,13 @@
       <node id="1213877222908" at="52,0,55,0" concept="2" trace="CopySrcListMacro__BehaviorDescriptor#()V" />
       <node id="1213877222908" at="63,49,66,5" concept="6" />
       <node id="1213877222908" at="77,49,80,5" concept="6" />
-      <node id="1213877222921" at="43,122,47,7" concept="6" />
+      <node id="1213877222921" at="43,115,47,7" concept="6" />
       <node id="1213877222908" at="56,0,60,0" concept="7" trace="initNode#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SConstructor;[Ljava/lang/Object;)V" />
       <node id="1213877222908" at="80,5,84,5" concept="15" />
       <node id="1213877222908" at="87,0,92,0" concept="7" trace="getDeclaredMethods#()Ljava/util/List;" />
       <node id="1213877222908" at="93,0,98,0" concept="7" trace="getConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
       <node id="1213877222908" at="66,5,72,5" concept="15" />
-      <node id="1213877222921" at="40,232,48,5" concept="0" />
+      <node id="1213877222921" at="40,242,48,5" concept="0" />
       <node id="8519118779653927017" at="98,0,107,0" concept="13" trace="_quotation_createNode_26ny8p_a0a0a0b0a#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="1213877222908" at="75,0,86,0" concept="7" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
       <node id="1213877222908" at="39,0,51,0" concept="13" trace="getInputNodeTypeInsideOfMacro_idhEwIosJ#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
@@ -733,7 +733,7 @@
       <node id="1213877284681" at="32,0,33,0" concept="12" trace="getInputNodeTypeInsideOfMacro_idhEwIosJ" />
       <node id="1213877284681" at="34,0,35,0" concept="12" trace="BH_METHODS" />
       <node id="1213877284684" at="40,5,41,121" concept="8" />
-      <node id="1213877284684" at="41,121,42,322" concept="8" />
+      <node id="1213877284684" at="41,121,42,325" concept="8" />
       <node id="1213877284696" at="43,43,44,60" concept="9" />
       <node id="1213877284684" at="45,12,46,7" concept="0" />
       <node id="1213877284698" at="47,5,48,16" concept="9" />
@@ -759,7 +759,7 @@
       <node id="1213877284681" at="51,0,54,0" concept="2" trace="MapSrcListMacro__BehaviorDescriptor#()V" />
       <node id="1213877284681" at="62,49,65,5" concept="6" />
       <node id="1213877284681" at="76,49,79,5" concept="6" />
-      <node id="1213877284684" at="42,322,46,7" concept="6" />
+      <node id="1213877284684" at="42,325,46,7" concept="6" />
       <node id="1213877284681" at="55,0,59,0" concept="7" trace="initNode#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SConstructor;[Ljava/lang/Object;)V" />
       <node id="1213877284681" at="79,5,83,5" concept="15" />
       <node id="1213877284681" at="86,0,91,0" concept="7" trace="getDeclaredMethods#()Ljava/util/List;" />
@@ -1178,7 +1178,7 @@
       <node id="1213877361819" at="45,0,46,0" concept="12" trace="suppress_id2WmWrdnSpX7" />
       <node id="1213877361819" at="47,0,48,0" concept="12" trace="BH_METHODS" />
       <node id="1213877361822" at="53,5,54,121" concept="8" />
-      <node id="1213877361822" at="54,121,55,322" concept="8" />
+      <node id="1213877361822" at="54,121,55,325" concept="8" />
       <node id="1213877361834" at="56,43,57,60" concept="9" />
       <node id="1213877361822" at="58,12,59,7" concept="0" />
       <node id="1213877361836" at="60,5,61,16" concept="9" />
@@ -1225,7 +1225,7 @@
       <node id="1213877361819" at="98,49,101,5" concept="6" />
       <node id="1213877361819" at="118,49,121,5" concept="6" />
       <node id="7430509679014900088" at="153,0,156,0" concept="13" trace="isEmptyString#(Ljava/lang/String;)Z" />
-      <node id="1213877361822" at="55,322,59,7" concept="6" />
+      <node id="1213877361822" at="55,325,59,7" concept="6" />
       <node id="1213877361819" at="63,0,67,0" concept="13" trace="getCounterVarName_id5KmckUrI7Lz#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
       <node id="1213877361819" at="91,0,95,0" concept="7" trace="initNode#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SConstructor;[Ljava/lang/Object;)V" />
       <node id="1213877361819" at="121,5,125,5" concept="15" />
@@ -1349,7 +1349,7 @@
       <node id="1213877378066" at="32,0,33,0" concept="12" trace="getInputNodeTypeInsideOfMacro_idhEwIosJ" />
       <node id="1213877378066" at="34,0,35,0" concept="12" trace="BH_METHODS" />
       <node id="1213877378069" at="40,5,41,121" concept="8" />
-      <node id="1213877378069" at="41,121,42,321" concept="8" />
+      <node id="1213877378069" at="41,121,42,324" concept="8" />
       <node id="1213877378080" at="43,43,44,60" concept="9" />
       <node id="1213877378069" at="45,12,46,7" concept="0" />
       <node id="1213877378082" at="47,5,48,251" concept="9" />
@@ -1372,7 +1372,7 @@
       <node id="1213877378066" at="51,0,54,0" concept="2" trace="IncludeMacro__BehaviorDescriptor#()V" />
       <node id="1213877378066" at="62,49,65,5" concept="6" />
       <node id="1213877378066" at="76,49,79,5" concept="6" />
-      <node id="1213877378069" at="42,321,46,7" concept="6" />
+      <node id="1213877378069" at="42,324,46,7" concept="6" />
       <node id="1213877378066" at="55,0,59,0" concept="7" trace="initNode#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SConstructor;[Ljava/lang/Object;)V" />
       <node id="1213877378066" at="79,5,83,5" concept="15" />
       <node id="1213877378066" at="86,0,91,0" concept="7" trace="getDeclaredMethods#()Ljava/util/List;" />
@@ -1456,7 +1456,7 @@
       <node id="1213877426757" at="32,0,33,0" concept="12" trace="getInputNodeTypeInsideOfMacro_idhEwIosJ" />
       <node id="1213877426757" at="34,0,35,0" concept="12" trace="BH_METHODS" />
       <node id="1213877426761" at="40,5,41,118" concept="8" />
-      <node id="1213877426761" at="41,118,42,319" concept="8" />
+      <node id="1213877426761" at="41,118,42,322" concept="8" />
       <node id="1213877426772" at="43,42,44,59" concept="9" />
       <node id="1213877426761" at="45,12,46,7" concept="0" />
       <node id="1213877426774" at="47,5,48,16" concept="9" />
@@ -1479,7 +1479,7 @@
       <node id="1213877426757" at="51,0,54,0" concept="2" trace="CopySrcNodeMacro__BehaviorDescriptor#()V" />
       <node id="1213877426757" at="62,49,65,5" concept="6" />
       <node id="1213877426757" at="76,49,79,5" concept="6" />
-      <node id="1213877426761" at="42,319,46,7" concept="6" />
+      <node id="1213877426761" at="42,322,46,7" concept="6" />
       <node id="1213877426757" at="55,0,59,0" concept="7" trace="initNode#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SConstructor;[Ljava/lang/Object;)V" />
       <node id="1213877426757" at="79,5,83,5" concept="15" />
       <node id="1213877426757" at="86,0,91,0" concept="7" trace="getDeclaredMethods#()Ljava/util/List;" />
@@ -3299,7 +3299,7 @@
       <node id="1510949579266902209" at="34,0,35,0" concept="12" trace="getTemplate_idQzR6ThtTpS" />
       <node id="1510949579266902209" at="36,0,37,0" concept="12" trace="BH_METHODS" />
       <node id="1510949579266902214" at="42,5,43,121" concept="8" />
-      <node id="1510949579266902214" at="43,121,44,331" concept="8" />
+      <node id="1510949579266902214" at="43,121,44,334" concept="8" />
       <node id="1510949579266902225" at="45,43,46,60" concept="9" />
       <node id="1510949579266902214" at="47,12,48,7" concept="0" />
       <node id="1510949579266902227" at="49,5,50,261" concept="9" />
@@ -3325,7 +3325,7 @@
       <node id="1510949579266902209" at="56,0,59,0" concept="2" trace="TemplateCallMacro__BehaviorDescriptor#()V" />
       <node id="1510949579266902209" at="67,49,70,5" concept="6" />
       <node id="1510949579266902209" at="83,49,86,5" concept="6" />
-      <node id="1510949579266902214" at="44,331,48,7" concept="6" />
+      <node id="1510949579266902214" at="44,334,48,7" concept="6" />
       <node id="1510949579266902209" at="60,0,64,0" concept="7" trace="initNode#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SConstructor;[Ljava/lang/Object;)V" />
       <node id="1510949579266902209" at="86,5,90,5" concept="15" />
       <node id="1510949579266902209" at="93,0,98,0" concept="7" trace="getDeclaredMethods#()Ljava/util/List;" />
@@ -4225,9 +4225,9 @@
       <node id="3462145372628083275" at="30,0,31,0" concept="12" trace="REGISTRY" />
       <node id="3462145372628083275" at="32,0,33,0" concept="12" trace="getInputNodeTypeInsideOfMacro_idhEwIosJ" />
       <node id="3462145372628083275" at="34,0,35,0" concept="12" trace="BH_METHODS" />
-      <node id="3850501259760041187" at="39,97,40,243" concept="8" />
+      <node id="3850501259760041187" at="39,97,40,253" concept="8" />
       <node id="3850501259760043553" at="41,5,42,121" concept="8" />
-      <node id="3850501259760043553" at="42,121,43,122" concept="8" />
+      <node id="3850501259760043553" at="42,121,43,115" concept="8" />
       <node id="3850501259760043556" at="44,43,45,60" concept="9" />
       <node id="3850501259760043553" at="46,12,47,7" concept="0" />
       <node id="3850501259760044032" at="48,5,49,254" concept="9" />
@@ -4253,13 +4253,13 @@
       <node id="3462145372628083275" at="52,0,55,0" concept="2" trace="WeaveMacro__BehaviorDescriptor#()V" />
       <node id="3462145372628083275" at="63,49,66,5" concept="6" />
       <node id="3462145372628083275" at="77,49,80,5" concept="6" />
-      <node id="3850501259760043553" at="43,122,47,7" concept="6" />
+      <node id="3850501259760043553" at="43,115,47,7" concept="6" />
       <node id="3462145372628083275" at="56,0,60,0" concept="7" trace="initNode#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SConstructor;[Ljava/lang/Object;)V" />
       <node id="3462145372628083275" at="80,5,84,5" concept="15" />
       <node id="3462145372628083275" at="87,0,92,0" concept="7" trace="getDeclaredMethods#()Ljava/util/List;" />
       <node id="3462145372628083275" at="93,0,98,0" concept="7" trace="getConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
       <node id="3462145372628083275" at="66,5,72,5" concept="15" />
-      <node id="3850501259760043553" at="40,243,48,5" concept="0" />
+      <node id="3850501259760043553" at="40,253,48,5" concept="0" />
       <node id="8519118779653927018" at="98,0,107,0" concept="13" trace="_quotation_createNode_bvvctf_a0a0a0b0a#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="3462145372628083275" at="75,0,86,0" concept="7" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
       <node id="3462145372628083275" at="39,0,51,0" concept="13" trace="getInputNodeTypeInsideOfMacro_idhEwIosJ#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
@@ -5287,7 +5287,7 @@
       <node id="6635545314668025207" at="32,0,33,0" concept="12" trace="getInputNodeTypeInsideOfMacro_idhEwIosJ" />
       <node id="6635545314668025207" at="34,0,35,0" concept="12" trace="BH_METHODS" />
       <node id="6635545314668025525" at="40,5,41,121" concept="8" />
-      <node id="6635545314668025525" at="41,121,42,321" concept="8" />
+      <node id="6635545314668025525" at="41,121,42,324" concept="8" />
       <node id="6635545314668025536" at="43,43,44,60" concept="9" />
       <node id="6635545314668025525" at="45,12,46,7" concept="0" />
       <node id="6635545314668025538" at="47,5,48,16" concept="9" />
@@ -5310,7 +5310,7 @@
       <node id="6635545314668025207" at="51,0,54,0" concept="2" trace="MapSrcNodeMacro__BehaviorDescriptor#()V" />
       <node id="6635545314668025207" at="62,49,65,5" concept="6" />
       <node id="6635545314668025207" at="76,49,79,5" concept="6" />
-      <node id="6635545314668025525" at="42,321,46,7" concept="6" />
+      <node id="6635545314668025525" at="42,324,46,7" concept="6" />
       <node id="6635545314668025207" at="55,0,59,0" concept="7" trace="initNode#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SConstructor;[Ljava/lang/Object;)V" />
       <node id="6635545314668025207" at="79,5,83,5" concept="15" />
       <node id="6635545314668025207" at="86,0,91,0" concept="7" trace="getDeclaredMethods#()Ljava/util/List;" />

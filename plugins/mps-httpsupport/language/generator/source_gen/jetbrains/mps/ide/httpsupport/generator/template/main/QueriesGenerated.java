@@ -5,7 +5,7 @@ package jetbrains.mps.ide.httpsupport.generator.template.main;
 import jetbrains.mps.generator.runtime.Generated;
 import jetbrains.mps.generator.impl.query.QueryProviderBase;
 import jetbrains.mps.generator.template.BaseMappingRuleContext;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -57,88 +57,88 @@ public class QueriesGenerated extends QueryProviderBase {
     super(1);
   }
   public static boolean rule_Condition_1_0(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(TypeChecker.getInstance().getTypeOf(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x5f91294323b64fc1L, 0x5f91294323b6503fL, "buffer"))), _quotation_createNode_x583g4_b0a0a1());
+    return TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x5f91294323b64fc1L, 0x5f91294323b6503fL, "buffer"))), _quotation_createNode_x583g4_b0a0a1());
   }
   public static boolean rule_Condition_1_1(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(TypeChecker.getInstance().getTypeOf(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x5f91294323b64fc1L, 0x5f91294323b6503fL, "buffer"))), _quotation_createNode_x583g4_b0a0a2());
+    return TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x5f91294323b64fc1L, 0x5f91294323b6503fL, "buffer"))), _quotation_createNode_x583g4_b0a0a2());
   }
   public static boolean rule_Condition_1_2(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(TypeChecker.getInstance().getTypeOf(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x5f91294323b64fc1L, 0x5f91294323b6503fL, "buffer"))), _quotation_createNode_x583g4_b0a0a3());
+    return TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x5f91294323b64fc1L, 0x5f91294323b6503fL, "buffer"))), _quotation_createNode_x583g4_b0a0a3());
   }
   public static boolean rule_Condition_3_0(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a4());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a4());
   }
   public static boolean rule_Condition_3_1(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a5());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a5());
   }
   public static boolean rule_Condition_3_2(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a6());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a6());
   }
   public static boolean rule_Condition_3_3(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a7());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a7());
   }
   public static boolean rule_Condition_3_4(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a8());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a8());
   }
   public static boolean rule_Condition_3_5(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a9());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a9());
   }
   public static boolean rule_Condition_3_6(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a01());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a01());
   }
   public static boolean rule_Condition_3_7(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a11());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a11());
   }
   public static boolean rule_Condition_3_8(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a21());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a21());
   }
   public static boolean rule_Condition_3_9(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a31());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a31());
   }
   public static boolean rule_Condition_3_10(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a41());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a41());
   }
   public static boolean rule_Condition_3_11(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a51());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a51());
   }
   public static boolean rule_Condition_5_0(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a61());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a61());
   }
   public static boolean rule_Condition_5_1(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a71());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a71());
   }
   public static boolean rule_Condition_5_2(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a81());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a81());
   }
   public static boolean rule_Condition_5_3(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a91());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a91());
   }
   public static boolean rule_Condition_5_4(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a02());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a02());
   }
   public static boolean rule_Condition_5_5(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a12());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a12());
   }
   public static boolean rule_Condition_5_6(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a22());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a22());
   }
   public static boolean rule_Condition_5_7(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a32());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a32());
   }
   public static boolean rule_Condition_5_8(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a42());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a42());
   }
   public static boolean rule_Condition_5_9(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a52());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a52());
   }
   public static boolean rule_Condition_5_10(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a62());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a62());
   }
   public static boolean rule_Condition_5_11(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a72());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a72());
   }
   public static boolean rule_Condition_11_0(final BaseMappingRuleContext _context) {
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a82());
+    return TypecheckingFacade.getFromContext().isSubtype(_context.getNode(), _quotation_createNode_x583g4_b0a0a82());
   }
   public static boolean rule_Condition_13_0(final BaseMappingRuleContext _context) {
     return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation")), MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x1962d3cabd393132L, "jetbrains.mps.ide.httpsupport.structure.Node_getURLOperation"));

@@ -16,7 +16,7 @@ import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.typesystem.runtime.HUtil;
 import java.util.Iterator;
 import jetbrains.mps.baseLanguage.tuples.behavior.NamedTupleDeclaration__BehaviorDescriptor;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
@@ -68,7 +68,7 @@ public class namedTuple_assignableTo_namedTuple_InequationReplacementRule extend
         while (lp_it.hasNext() && rp_it.hasNext()) {
           lp_var = lp_it.next();
           rp_var = rp_it.next();
-          result_14532009 = result_14532009 && TypeChecker.getInstance().getSubtypingManager().isSubtype((SNode) lp_var, (SNode) rp_var, true);
+          result_14532009 = result_14532009 && TypecheckingFacade.getFromContext().isSubtype((SNode) lp_var, (SNode) rp_var);
         }
       }
     } else {

@@ -13,7 +13,7 @@ import jetbrains.mps.errors.IRuleConflictWarningProducer;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import jetbrains.mps.typesystem.inference.SubtypingManager;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 
 public class TypesystemDescriptor extends BaseHelginsDescriptor {
   public TypesystemDescriptor() {
@@ -145,7 +145,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       return createSimpleMathFloatType_3ist9o_a0a1c();
     }
     public boolean isApplicable(SubtypingManager subtypingManager, SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      return !(TypeChecker.getInstance().getSubtypingManager().isSubtype(leftOperandType, createSimpleMathLongType_3ist9o_b0a0a0a2c_0())) || !(TypeChecker.getInstance().getSubtypingManager().isSubtype(rightOperandType, createSimpleMathLongType_3ist9o_b0a0a0a2c()));
+      return !(TypecheckingFacade.getFromContext().isSubtype(leftOperandType, createSimpleMathLongType_3ist9o_b0a0a0a2c_0())) || !(TypecheckingFacade.getFromContext().isSubtype(rightOperandType, createSimpleMathLongType_3ist9o_b0a0a0a2c()));
     }
     @Override
     public void reportConflict(IRuleConflictWarningProducer producer) {
@@ -193,7 +193,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       return createSimpleMathNumberType_3ist9o_a0a1d();
     }
     public boolean isApplicable(SubtypingManager subtypingManager, SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      return !(TypeChecker.getInstance().getSubtypingManager().isSubtype(leftOperandType, createSimpleMathFloatType_3ist9o_b0a0a0a2d_0())) || !(TypeChecker.getInstance().getSubtypingManager().isSubtype(rightOperandType, createSimpleMathFloatType_3ist9o_b0a0a0a2d()));
+      return !(TypecheckingFacade.getFromContext().isSubtype(leftOperandType, createSimpleMathFloatType_3ist9o_b0a0a0a2d_0())) || !(TypecheckingFacade.getFromContext().isSubtype(rightOperandType, createSimpleMathFloatType_3ist9o_b0a0a0a2d()));
     }
     @Override
     public void reportConflict(IRuleConflictWarningProducer producer) {
@@ -241,7 +241,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       return createSimpleMathLongType_3ist9o_a0a1e();
     }
     public boolean isApplicable(SubtypingManager subtypingManager, SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      return !(TypeChecker.getInstance().getSubtypingManager().isSubtype(leftOperandType, createSimpleMathIntegerType_3ist9o_b0a0a0a2e_0())) || !(TypeChecker.getInstance().getSubtypingManager().isSubtype(rightOperandType, createSimpleMathIntegerType_3ist9o_b0a0a0a2e()));
+      return !(TypecheckingFacade.getFromContext().isSubtype(leftOperandType, createSimpleMathIntegerType_3ist9o_b0a0a0a2e_0())) || !(TypecheckingFacade.getFromContext().isSubtype(rightOperandType, createSimpleMathIntegerType_3ist9o_b0a0a0a2e()));
     }
     @Override
     public void reportConflict(IRuleConflictWarningProducer producer) {

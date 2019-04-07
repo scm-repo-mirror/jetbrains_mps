@@ -10,7 +10,7 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
@@ -32,7 +32,7 @@ public class typeof_SNodeTypeCastExpression_InferenceRule extends AbstractInfere
       final SNode ignore1 = typeCheckingContext.getRepresentative(LeftType_typevar_1186061665928);
       typeCheckingContext.whenConcrete(ignore1, new Runnable() {
         public void run() {
-          final boolean isConceptNode = TypeChecker.getInstance().getSubtypingManager().isSubtype(typeCheckingContext.getRepresentative(LeftType_typevar_1186061665928), _quotation_createNode_x0jg87_b0a0a0a0a1a0b0d0b(), false);
+          final boolean isConceptNode = TypecheckingFacade.getFromContext().isStrongSubtype(typeCheckingContext.getRepresentative(LeftType_typevar_1186061665928), _quotation_createNode_x0jg87_b0a0a0a0a1a0b0d0b());
           if ((SLinkOperations.getTarget(expr, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10975850da7L, 0x10975873562L, "concept_old")) != null)) {
             {
               SNode _nodeToCheck_1029348928467 = expr;

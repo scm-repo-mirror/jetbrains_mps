@@ -10,7 +10,7 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
@@ -28,7 +28,7 @@ public class typeof_AbsExpression_InferenceRule extends AbstractInferenceRule_Ru
       final SNode t1v = typeCheckingContext.getRepresentative(t1_typevar_1238331597992);
       typeCheckingContext.whenConcrete(t1v, new Runnable() {
         public void run() {
-          if (TypeChecker.getInstance().getSubtypingManager().isSubtype(typeCheckingContext.getRepresentative(t1_typevar_1238331597992), MathTypeUtil.qInt)) {
+          if (TypecheckingFacade.getFromContext().isSubtype(typeCheckingContext.getRepresentative(t1_typevar_1238331597992), MathTypeUtil.qInt)) {
             {
               SNode _nodeToCheck_1029348928467 = expression;
               EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1238331671776", 0, null);

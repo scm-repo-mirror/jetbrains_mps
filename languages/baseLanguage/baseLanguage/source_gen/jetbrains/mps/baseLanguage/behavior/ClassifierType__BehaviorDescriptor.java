@@ -29,7 +29,7 @@ import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.pattern.GeneratedMatchingPattern;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import java.util.Iterator;
 import jetbrains.mps.lang.pattern.util.MatchingUtil;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
@@ -175,7 +175,7 @@ public final class ClassifierType__BehaviorDescriptor extends BaseBHDescriptor {
     }
     {
       GeneratedMatchingPattern pattern_hz3823_b0j = new Pattern_hz3823_a0a0b0j(_quotation_createNode_hz3823_a0a0a0b0j(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"))));
-      SNode coercedNode_hz3823_b0j = TypeChecker.getInstance().getRuntimeSupport().coerce_(t, pattern_hz3823_b0j);
+      SNode coercedNode_hz3823_b0j = TypecheckingFacade.getFromContext().coerceType(t, pattern_hz3823_b0j);
       if (coercedNode_hz3823_b0j != null) {
         {
           Iterator<SNode> typeParam_it = ListSequence.fromList(pattern_hz3823_b0j.getMatchedList("l")).iterator();
@@ -219,7 +219,7 @@ public final class ClassifierType__BehaviorDescriptor extends BaseBHDescriptor {
     }
     {
       GeneratedMatchingPattern pattern_hz3823_b0k = new Pattern_hz3823_a0a0b0k(_quotation_createNode_hz3823_a0a0a0b0k(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"))));
-      SNode coercedNode_hz3823_b0k = TypeChecker.getInstance().getRuntimeSupport().coerce_(t, pattern_hz3823_b0k);
+      SNode coercedNode_hz3823_b0k = TypecheckingFacade.getFromContext().coerceType(t, pattern_hz3823_b0k);
       if (coercedNode_hz3823_b0k != null) {
         {
           Iterator<SNode> typeParam_it = ListSequence.fromList(pattern_hz3823_b0k.getMatchedList("l")).iterator();

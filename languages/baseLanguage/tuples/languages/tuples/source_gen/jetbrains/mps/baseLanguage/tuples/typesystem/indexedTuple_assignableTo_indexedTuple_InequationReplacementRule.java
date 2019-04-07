@@ -15,7 +15,7 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.typesystem.runtime.HUtil;
 import java.util.Iterator;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
@@ -58,7 +58,7 @@ public class indexedTuple_assignableTo_indexedTuple_InequationReplacementRule ex
       while (lmt_it.hasNext() && rmt_it.hasNext()) {
         lmt_var = lmt_it.next();
         rmt_var = rmt_it.next();
-        result_14532009 = result_14532009 && TypeChecker.getInstance().getSubtypingManager().isSubtype((SNode) lmt_var, (SNode) rmt_var, true);
+        result_14532009 = result_14532009 && TypecheckingFacade.getFromContext().isSubtype((SNode) lmt_var, (SNode) rmt_var);
       }
     }
     return result_14532009;

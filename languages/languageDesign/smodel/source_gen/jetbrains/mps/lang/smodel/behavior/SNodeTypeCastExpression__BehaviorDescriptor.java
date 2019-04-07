@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
@@ -40,13 +40,13 @@ public final class SNodeTypeCastExpression__BehaviorDescriptor extends BaseBHDes
 
   @Deprecated
   /*package*/ static boolean isSNodeCast_idi1Btg5H(@NotNull SNode __thisNode__) {
-    SNode leftType = TypeChecker.getInstance().getTypeOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x2143399c0554e687L, 0x5d71a86e0b67cd19L, "leftExpression")));
-    return !(TypeChecker.getInstance().getSubtypingManager().isSubtype(leftType, _quotation_createNode_cjhknp_b0a0b0a(), false));
+    SNode leftType = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x2143399c0554e687L, 0x5d71a86e0b67cd19L, "leftExpression")));
+    return !(TypecheckingFacade.getFromContext().isStrongSubtype(leftType, _quotation_createNode_cjhknp_b0a0b0a()));
   }
   @Deprecated
   /*package*/ static boolean hasValidType_id3$jHpAYjQYh(@NotNull SNode __thisNode__) {
-    SNode leftType = TypeChecker.getInstance().getTypeOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x2143399c0554e687L, 0x5d71a86e0b67cd19L, "leftExpression")));
-    return TypeChecker.getInstance().getSubtypingManager().isSubtype(leftType, _quotation_createNode_cjhknp_b0a1a1());
+    SNode leftType = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x2143399c0554e687L, 0x5d71a86e0b67cd19L, "leftExpression")));
+    return TypecheckingFacade.getFromContext().isSubtype(leftType, _quotation_createNode_cjhknp_b0a1a1());
   }
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
     return (SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10975850da7L, 0x12067573bc7L, "asCast")) ? "as" : ":");

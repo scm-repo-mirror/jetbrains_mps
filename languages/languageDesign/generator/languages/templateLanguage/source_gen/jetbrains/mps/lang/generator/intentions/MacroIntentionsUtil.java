@@ -6,7 +6,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.generator.helper.QueriesUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.pattern.GeneratedMatchingPattern;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
@@ -34,12 +34,12 @@ public final class MacroIntentionsUtil {
   }
   private static SNode getConceptFrom(SNode macro) {
     SNode query = QueriesUtil.getQueryFunction_fromSourceSubstituteMacro(macro);
-    SNode returnType = TypeChecker.getInstance().getTypeOf(query);
+    SNode returnType = TypecheckingFacade.getFromContext().getTypeOf(query);
     // ====== 
     if (SNodeOperations.isInstanceOf(query, MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10ff3acfa74L, "jetbrains.mps.lang.generator.structure.SourceSubstituteMacro_SourceNodeQuery"))) {
       {
         GeneratedMatchingPattern pattern_iiuth6_a0d0b = new Pattern_iiuth6_a0a0a0d0b(_quotation_createNode_iiuth6_a0a0a0a0d0b());
-        SNode coercedNode_iiuth6_a0d0b = TypeChecker.getInstance().getRuntimeSupport().coerce_(returnType, pattern_iiuth6_a0d0b);
+        SNode coercedNode_iiuth6_a0d0b = TypecheckingFacade.getFromContext().coerceType(returnType, pattern_iiuth6_a0d0b);
         if (coercedNode_iiuth6_a0d0b != null) {
           return pattern_iiuth6_a0d0b.getMatchedNode("concept");
         } else {
@@ -49,7 +49,7 @@ public final class MacroIntentionsUtil {
     } else if (SNodeOperations.isInstanceOf(query, MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fef5bd603L, "jetbrains.mps.lang.generator.structure.SourceSubstituteMacro_SourceNodesQuery"))) {
       {
         GeneratedMatchingPattern pattern_iiuth6_a0a3a1 = new Pattern_iiuth6_a0a0a0a3a1(_quotation_createNode_iiuth6_a0a0a0a0a3a1());
-        SNode coercedNode_iiuth6_a0a3a1 = TypeChecker.getInstance().getRuntimeSupport().coerce_(returnType, pattern_iiuth6_a0a3a1);
+        SNode coercedNode_iiuth6_a0a3a1 = TypecheckingFacade.getFromContext().coerceType(returnType, pattern_iiuth6_a0a3a1);
         if (coercedNode_iiuth6_a0a3a1 != null) {
           return pattern_iiuth6_a0a3a1.getMatchedNode("concept");
         } else {

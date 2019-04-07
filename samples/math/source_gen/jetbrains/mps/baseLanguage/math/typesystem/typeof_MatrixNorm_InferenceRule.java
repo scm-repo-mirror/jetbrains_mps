@@ -15,7 +15,7 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.baseLanguage.math.behavior.MathUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.pattern.util.MatchingUtil;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -39,7 +39,7 @@ public class typeof_MatrixNorm_InferenceRule extends AbstractInferenceRule_Runti
           } else {
             SNode t = MathUtil.getUnboxedElementType(typeCheckingContext.getExpandedNode(mT));
             boolean floatResult = SPropertyOperations.getInteger(norm, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0xcc7e1ce69847db2L, 0xa87de0e72c3a3efL, "deg")) == 2;
-            if (TypeChecker.getInstance().getSubtypingManager().isSubtype(t, MathTypeUtil.qBigInteger)) {
+            if (TypecheckingFacade.getFromContext().isSubtype(t, MathTypeUtil.qBigInteger)) {
               SNode f = null;
               SNode i = null;
               if (MatchingUtil.matchNodes(t, _quotation_createNode_8pyikg_a0a0c0c0a0a0a0b0a1a0a1_0()) || MatchingUtil.matchNodes(t, _quotation_createNode_8pyikg_a0a0c0c0a0a0a0b0a1a0a1_1()) || MatchingUtil.matchNodes(t, _quotation_createNode_8pyikg_a0a2a2a0a0a0a1a0b0a0b())) {

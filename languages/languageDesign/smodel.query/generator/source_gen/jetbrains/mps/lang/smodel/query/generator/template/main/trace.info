@@ -156,8 +156,8 @@
   </root>
   <root nodeRef="r:443bf6a4-9266-4251-8983-0f2d347a9c11(jetbrains.mps.lang.smodel.query.generator.template.main@generator)/5308946314780128204">
     <file name="QueriesGenerated.java">
-      <node id="5308946314780163355" at="51,84,52,165" concept="2" />
-      <node id="5308946314780193566" at="54,84,55,165" concept="2" />
+      <node id="5308946314780163355" at="51,84,52,163" concept="2" />
+      <node id="5308946314780193566" at="54,84,55,163" concept="2" />
       <node id="5308946314780158238" at="136,73,137,73" concept="0" />
       <node id="5308946314780193560" at="137,73,138,73" concept="0" />
       <node id="5308946314780158238" at="161,15,162,59" concept="2" />
@@ -177,8 +177,8 @@
       <node id="5308946314780193564" at="54,0,57,0" concept="3" trace="rule_Condition_12_1#(Ljetbrains/mps/generator/template/BaseMappingRuleContext;)Z" />
       <node id="5308946314780166156" at="367,0,373,0" concept="3" trace="_quotation_createNode_x583g4_b0a0a3#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="5308946314780193571" at="373,0,382,0" concept="3" trace="_quotation_createNode_x583g4_b0a0a4#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <scope id="5308946314780158243" at="51,84,52,165" />
-      <scope id="5308946314780193565" at="54,84,55,165" />
+      <scope id="5308946314780158243" at="51,84,52,163" />
+      <scope id="5308946314780193565" at="54,84,55,163" />
       <scope id="5308946314780158238" at="161,15,162,59" />
       <scope id="5308946314780193560" at="163,15,164,59" />
       <scope id="5308946314780158242" at="51,0,54,0">
@@ -202,8 +202,8 @@
   </root>
   <root nodeRef="r:443bf6a4-9266-4251-8983-0f2d347a9c11(jetbrains.mps.lang.smodel.query.generator.template.main@generator)/5308946314780204124">
     <file name="QueriesGenerated.java">
-      <node id="5308946314780204171" at="45,84,46,165" concept="2" />
-      <node id="5308946314780204158" at="48,84,49,165" concept="2" />
+      <node id="5308946314780204171" at="45,84,46,163" concept="2" />
+      <node id="5308946314780204158" at="48,84,49,163" concept="2" />
       <node id="5308946314780204168" at="134,14,135,73" concept="0" />
       <node id="5308946314780204155" at="135,73,136,73" concept="0" />
       <node id="5308946314780204168" at="157,15,158,59" concept="2" />
@@ -225,8 +225,8 @@
       <node id="5308946314780204156" at="48,0,51,0" concept="3" trace="rule_Condition_11_1#(Ljetbrains/mps/generator/template/BaseMappingRuleContext;)Z" />
       <node id="5308946314780204176" at="350,0,357,0" concept="3" trace="_quotation_createNode_x583g4_b0a0a1#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="5308946314780204163" at="357,0,367,0" concept="3" trace="_quotation_createNode_x583g4_b0a0a2#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <scope id="5308946314780204170" at="45,84,46,165" />
-      <scope id="5308946314780204157" at="48,84,49,165" />
+      <scope id="5308946314780204170" at="45,84,46,163" />
+      <scope id="5308946314780204157" at="48,84,49,163" />
       <scope id="5308946314780204168" at="157,15,158,59" />
       <scope id="5308946314780204155" at="159,15,160,59" />
       <scope id="5308946314780204169" at="45,0,48,0">

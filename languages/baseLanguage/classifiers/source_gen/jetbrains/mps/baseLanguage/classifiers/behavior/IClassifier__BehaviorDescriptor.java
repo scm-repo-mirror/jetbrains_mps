@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.baseLanguage.util.plugin.refactorings.AbstractExtractMethodRefactoringProcessor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -77,7 +77,7 @@ public final class IClassifier__BehaviorDescriptor extends BaseBHDescriptor {
       }
       if (SNodeOperations.isInstanceOf(IMember__BehaviorDescriptor.getVisiblity_idhEwIBC5.invoke(member), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af958b686L, "jetbrains.mps.baseLanguage.structure.ProtectedVisibility"))) {
         SNode contextClassifier = IClassifier__BehaviorDescriptor.getContextClassifier_idhEwJim4.invoke(SNodeOperations.asSConcept(MetaAdapterFactory.getInterfaceConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc6b2af5L, "jetbrains.mps.baseLanguage.classifiers.structure.IClassifier")), contextNode);
-        if (contextClassifier != null && TypeChecker.getInstance().getSubtypingManager().isSubtype(IClassifier__BehaviorDescriptor.createType_idhEwJimy.invoke(contextClassifier), IClassifier__BehaviorDescriptor.createType_idhEwJimy.invoke(__thisNode__))) {
+        if (contextClassifier != null && TypecheckingFacade.getFromContext().isSubtype(IClassifier__BehaviorDescriptor.createType_idhEwJimy.invoke(contextClassifier), IClassifier__BehaviorDescriptor.createType_idhEwJimy.invoke(__thisNode__))) {
           ListSequence.fromList(result).addElement(member);
         }
       }

@@ -13,7 +13,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
@@ -30,8 +30,8 @@ public class check_CompositeWithParentScopeExpression_NonTypesystemRule extends 
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(expr, "Should be in getScope method", "r:c2d05fc3-fe25-4093-95ce-8e3356e61084(jetbrains.mps.lang.scopes.typesystem)", "8077936094962969214", null, errorTarget);
       }
     }
-    SNode type = TypeChecker.getInstance().getTypeOf(expr);
-    if (!((TypeChecker.getInstance().getSubtypingManager().isSubtype(type, _quotation_createNode_f3933j_b0a0a0a3a1()) || TypeChecker.getInstance().getSubtypingManager().isSubtype(type, _quotation_createNode_f3933j_b0a0a0a3a1_0()) || TypeChecker.getInstance().getSubtypingManager().isSubtype(type, _quotation_createNode_f3933j_b0a0a0d0b())))) {
+    SNode type = TypecheckingFacade.getFromContext().getTypeOf(expr);
+    if (!((TypecheckingFacade.getFromContext().isSubtype(type, _quotation_createNode_f3933j_b0a0a0a3a1()) || TypecheckingFacade.getFromContext().isSubtype(type, _quotation_createNode_f3933j_b0a0a0a3a1_0()) || TypecheckingFacade.getFromContext().isSubtype(type, _quotation_createNode_f3933j_b0a0a0d0b())))) {
       {
         MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(expr, "Parameter should be subtype of Scope or node<> or sequence<node<>>", "r:c2d05fc3-fe25-4093-95ce-8e3356e61084(jetbrains.mps.lang.scopes.typesystem)", "8077936094962969415", null, errorTarget);

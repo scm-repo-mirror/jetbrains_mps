@@ -7,7 +7,7 @@ import jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -25,7 +25,7 @@ public class check_ForeachWithErasure_NonTypesystemRule extends AbstractNonTypes
   public check_ForeachWithErasure_NonTypesystemRule() {
   }
   public void applyRule(final SNode foreachStatement, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode iterableType = TypeChecker.getInstance().getTypeOf(SLinkOperations.getTarget(foreachStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a6933ce33L, 0x10a6934ab66L, "iterable")));
+    SNode iterableType = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(foreachStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a6933ce33L, 0x10a6934ab66L, "iterable")));
     if (SNodeOperations.isInstanceOf(iterableType, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, "jetbrains.mps.baseLanguage.structure.ArrayType"))) {
       return;
     }
@@ -34,7 +34,7 @@ public class check_ForeachWithErasure_NonTypesystemRule extends AbstractNonTypes
     }
     {
       GeneratedMatchingPattern pattern_gn1qzs_d0 = new Pattern_aftnu9_a0a0d0b(_quotation_createNode_aftnu9_a0a0a0d0b());
-      SNode coercedNode_gn1qzs_d0 = TypeChecker.getInstance().getRuntimeSupport().coerce_(iterableType, pattern_gn1qzs_d0);
+      SNode coercedNode_gn1qzs_d0 = TypecheckingFacade.getFromContext().coerceType(iterableType, pattern_gn1qzs_d0);
       if (coercedNode_gn1qzs_d0 != null) {
       } else {
         SNode variableType = SLinkOperations.getTarget(SLinkOperations.getTarget(foreachStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a697996feL, 0x10a6979f36bL, "variable")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"));

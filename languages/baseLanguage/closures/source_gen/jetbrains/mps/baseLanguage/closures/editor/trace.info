@@ -4847,7 +4847,7 @@
       <node id="1741258697587180506" at="69,124,70,156" concept="7" />
       <node id="1741258697587180511" at="71,138,72,59" concept="2" />
       <node id="1741258697587180506" at="73,5,74,18" concept="8" />
-      <node id="1741258697587180514" at="79,72,80,1123" concept="8" />
+      <node id="1741258697587180514" at="79,72,80,1133" concept="8" />
       <node id="1741258697587180511" at="85,97,86,51" concept="2" />
       <node id="1741258697587180511" at="86,51,87,235" concept="2" />
       <node id="1741258697587180511" at="88,11,89,42" concept="8" />
@@ -4910,7 +4910,7 @@
       <scope id="1741258697587180506" at="60,9,61,44" />
       <scope id="1741258697587180506" at="62,15,63,50" />
       <scope id="1741258697587180507" at="71,138,72,59" />
-      <scope id="1741258697587180513" at="79,72,80,1123" />
+      <scope id="1741258697587180513" at="79,72,80,1133" />
       <scope id="1741258697587180511" at="88,11,89,42" />
       <scope id="1741258697587180511" at="90,17,91,52" />
       <scope id="1741258697587180511" at="95,92,96,379" />
@@ -5466,7 +5466,7 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590336(jetbrains.mps.baseLanguage.closures.editor)/4347515475159511344">
     <file name="InvokeFunctionOperation_parameters.java">
-      <node id="4347515475159511353" at="19,78,20,311" concept="8" />
+      <node id="4347515475159511353" at="19,78,20,321" concept="8" />
       <node id="4347515475159511382" at="22,137,23,105" concept="2" />
       <node id="4347515475159511380" at="25,98,26,16" concept="8" />
       <node id="4347515475159511344" at="17,0,19,0" concept="1" trace="InvokeFunctionOperation_parameters#()V" />
@@ -5474,7 +5474,7 @@
       <node id="4347515475159511344" at="22,0,25,0" concept="6" trace="getStyledMethodPresentation#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/editor/runtime/style/StyledTextPrinter;)V" />
       <node id="4347515475159511344" at="25,0,28,0" concept="6" trace="isMethodCurrent#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <scope id="4347515475159511344" at="17,47,17,47" />
-      <scope id="4347515475159511347" at="19,78,20,311" />
+      <scope id="4347515475159511347" at="19,78,20,321" />
       <scope id="4347515475159511344" at="22,137,23,105" />
       <scope id="4347515475159511344" at="25,98,26,16" />
       <scope id="4347515475159511344" at="17,0,19,0" />
@@ -5498,7 +5498,7 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590336(jetbrains.mps.baseLanguage.closures.editor)/4347515475159511413">
     <file name="CompactInvokeFunctionExpression_parameters.java">
-      <node id="4347515475159511422" at="19,78,20,403" concept="8" />
+      <node id="4347515475159511422" at="19,78,20,413" concept="8" />
       <node id="4347515475159511448" at="22,137,23,105" concept="2" />
       <node id="4347515475159511455" at="25,98,26,16" concept="8" />
       <node id="4347515475159511413" at="17,0,19,0" concept="1" trace="CompactInvokeFunctionExpression_parameters#()V" />
@@ -5506,7 +5506,7 @@
       <node id="4347515475159511413" at="22,0,25,0" concept="6" trace="getStyledMethodPresentation#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/editor/runtime/style/StyledTextPrinter;)V" />
       <node id="4347515475159511413" at="25,0,28,0" concept="6" trace="isMethodCurrent#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <scope id="4347515475159511413" at="17,55,17,55" />
-      <scope id="4347515475159511416" at="19,78,20,403" />
+      <scope id="4347515475159511416" at="19,78,20,413" />
       <scope id="4347515475159511413" at="22,137,23,105" />
       <scope id="4347515475159511413" at="25,98,26,16" />
       <scope id="4347515475159511413" at="17,0,19,0" />

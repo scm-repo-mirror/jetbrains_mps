@@ -4,7 +4,7 @@ package jetbrains.mps.console.base.typesystem;
 
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
@@ -91,21 +91,21 @@ public enum ShowingKind {
 
 
   public static ShowingKind getKind(SNode type) {
-    SNode seqType = TypeChecker.getInstance().getRuntimeSupport().coerce_(type, new Pattern_jbl8q4_b0a0a0b(_quotation_createNode_jbl8q4_a0b0a0a0b()), true);
+    SNode seqType = TypecheckingFacade.getFromContext().coerceType(type, new Pattern_jbl8q4_b0a0a0b(_quotation_createNode_jbl8q4_a0b0a0a0b()));
     if (seqType == null) {
       return null;
     }
     SNode elementType = SLinkOperations.getTarget(seqType, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c260e9444L, 0x10c260ee40eL, "elementType"));
-    if (TypeChecker.getInstance().getSubtypingManager().isSubtype(elementType, _quotation_createNode_jbl8q4_b0a3a1())) {
+    if (TypecheckingFacade.getFromContext().isSubtype(elementType, _quotation_createNode_jbl8q4_b0a3a1())) {
       return ShowingKind.NODE;
     }
-    if (TypeChecker.getInstance().getSubtypingManager().isSubtype(elementType, _quotation_createNode_jbl8q4_b0a4a1())) {
+    if (TypecheckingFacade.getFromContext().isSubtype(elementType, _quotation_createNode_jbl8q4_b0a4a1())) {
       return ShowingKind.REFERENCE;
     }
-    if (TypeChecker.getInstance().getSubtypingManager().isSubtype(elementType, _quotation_createNode_jbl8q4_b0a5a1())) {
+    if (TypecheckingFacade.getFromContext().isSubtype(elementType, _quotation_createNode_jbl8q4_b0a5a1())) {
       return ShowingKind.MODEL;
     }
-    if (TypeChecker.getInstance().getSubtypingManager().isSubtype(elementType, _quotation_createNode_jbl8q4_b0a6a1())) {
+    if (TypecheckingFacade.getFromContext().isSubtype(elementType, _quotation_createNode_jbl8q4_b0a6a1())) {
       return ShowingKind.MODULE;
     }
     return null;

@@ -20,7 +20,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.editor.menus.substitute.SingleItemSubstituteMenuPart;
@@ -87,7 +87,7 @@ public class SubstituteAbstractStyledTextOperation_Contribution extends Substitu
       if (operand == null) {
         return emptyList;
       }
-      final SNode type = TypeChecker.getInstance().getTypeOf(operand);
+      final SNode type = TypecheckingFacade.getFromContext().getTypeOf(operand);
       List<SConcept> list = SConceptOperations.getAllSubConcepts2(MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3ee423fc2ad10eceL, "jetbrains.mps.lang.editor.structure.AbstractStyledTextOperation"), _context.getModel());
       ListSequence.fromList(list).removeElement(MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3ee423fc2ad10eceL, "jetbrains.mps.lang.editor.structure.AbstractStyledTextOperation"));
       return ListSequence.fromList(list).where(new IWhereFilter<SConcept>() {

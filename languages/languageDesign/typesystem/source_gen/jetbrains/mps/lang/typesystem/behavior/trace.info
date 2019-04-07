@@ -2505,7 +2505,7 @@
       <node id="4214710807058415619" at="32,0,33,0" concept="10" trace="BH_METHODS" />
       <node id="4214710807058415781" at="37,92,38,281" concept="8" />
       <node id="4214710807058415865" at="39,409,40,193" concept="8" />
-      <node id="4214710807058417108" at="40,193,41,72" concept="8" />
+      <node id="4214710807058417108" at="40,193,41,82" concept="8" />
       <node id="1102525929548718861" at="43,351,44,23" concept="9" />
       <node id="1102525929548718871" at="47,362,48,23" concept="9" />
       <node id="1102525929548718843" at="50,14,51,21" concept="9" />
@@ -2533,7 +2533,7 @@
       <node id="4214710807058415619" at="92,0,97,0" concept="7" trace="getDeclaredMethods#()Ljava/util/List;" />
       <node id="4214710807058415619" at="98,0,103,0" concept="7" trace="getConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
       <node id="4214710807058415619" at="71,5,77,5" concept="13" />
-      <node id="4214710807058415856" at="41,72,52,7" concept="6" />
+      <node id="4214710807058415856" at="41,82,52,7" concept="6" />
       <node id="4214710807058415619" at="80,0,91,0" concept="7" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
       <node id="4214710807058415619" at="66,0,79,0" concept="7" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
       <node id="4214710807058415806" at="38,281,53,5" concept="5" />

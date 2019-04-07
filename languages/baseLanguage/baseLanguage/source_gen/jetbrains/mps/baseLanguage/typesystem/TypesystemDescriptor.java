@@ -21,9 +21,7 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import jetbrains.mps.smodel.SReference;
-import jetbrains.mps.lang.pattern.IMatchingPattern;
-import jetbrains.mps.lang.typesystem.runtime.HUtil;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 
 public class TypesystemDescriptor extends BaseHelginsDescriptor {
   public TypesystemDescriptor() {
@@ -1495,8 +1493,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
     }
     public SNode getOperationType(SNode operation, SNode leftOperandType, SNode rightOperandType) {
       {
-        IMatchingPattern pattern_r12mo3_a0a7 = HUtil.createMatchingPatternByConcept(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType"));
-        SNode coercedNode_r12mo3_a0a7 = TypeChecker.getInstance().getRuntimeSupport().coerce_(leftOperandType, pattern_r12mo3_a0a7);
+        SNode coercedNode_r12mo3_a0a7 = TypecheckingFacade.getFromContext().coerceType(leftOperandType, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType"));
         if (coercedNode_r12mo3_a0a7 != null) {
           return coercedNode_r12mo3_a0a7;
         } else {
@@ -1536,7 +1533,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       this.myRuleNodeId = "4957392803029379669";
     }
     public SNode getOperationType(SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      if (TypeChecker.getInstance().getSubtypingManager().isSubtype(rightOperandType, leftOperandType)) {
+      if (TypecheckingFacade.getFromContext().isSubtype(rightOperandType, leftOperandType)) {
         return leftOperandType;
       } else {
         return null;

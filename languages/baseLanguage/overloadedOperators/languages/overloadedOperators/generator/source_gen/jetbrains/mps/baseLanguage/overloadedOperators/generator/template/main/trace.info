@@ -16,14 +16,14 @@
   </root>
   <root nodeRef="r:28e834a9-8b65-474e-9087-1e117e68bbbb(jetbrains.mps.baseLanguage.overloadedOperators.generator.template.main@generator)/3100399657864694362">
     <file name="QueriesGenerated.java">
-      <node id="3524394717035465458" at="50,88,51,553" concept="2" />
-      <node id="3524394717035465476" at="51,553,52,315" concept="3" />
-      <node id="2673276898228775833" at="54,88,55,553" concept="2" />
-      <node id="3524394717035465519" at="55,553,56,106" concept="3" />
-      <node id="7363434029342758760" at="70,92,71,542" concept="0" />
+      <node id="3524394717035465458" at="50,88,51,573" concept="2" />
+      <node id="3524394717035465476" at="51,573,52,315" concept="3" />
+      <node id="2673276898228775833" at="54,88,55,573" concept="2" />
+      <node id="3524394717035465519" at="55,573,56,106" concept="3" />
+      <node id="7363434029342758760" at="70,92,71,562" concept="0" />
       <node id="2673276898228775967" at="72,67,73,189" concept="3" />
       <node id="3524394717035465529" at="74,5,75,186" concept="3" />
-      <node id="7363434029342770693" at="77,92,78,542" concept="0" />
+      <node id="7363434029342770693" at="77,92,78,562" concept="0" />
       <node id="2673276898228776005" at="79,67,80,188" concept="3" />
       <node id="2673276898228776017" at="81,5,82,187" concept="3" />
       <node id="3524394717035465527" at="122,73,123,73" concept="0" />
@@ -34,8 +34,8 @@
       <node id="3524394717035465439" at="194,209,195,207" concept="0" />
       <node id="3524394717035465436" at="219,15,220,66" concept="3" />
       <node id="3524394717035465439" at="221,15,222,66" concept="3" />
-      <node id="2673276898228775946" at="71,542,74,5" concept="1" />
-      <node id="2673276898228776003" at="78,542,81,5" concept="1" />
+      <node id="2673276898228775946" at="71,562,74,5" concept="1" />
+      <node id="2673276898228776003" at="78,562,81,5" concept="1" />
       <node id="3524394717035465437" at="50,0,54,0" concept="4" trace="propertyMacro_GetValue_2_0#(Ljetbrains/mps/generator/template/PropertyMacroContext;)Ljava/lang/Object;" />
       <node id="3524394717035465440" at="54,0,58,0" concept="4" trace="propertyMacro_GetValue_2_1#(Ljetbrains/mps/generator/template/PropertyMacroContext;)Ljava/lang/Object;" />
       <node id="3524394717035465527" at="70,0,77,0" concept="4" trace="sourceNodeQuery_2_0#(Ljetbrains/mps/generator/template/SourceSubstituteMacroNodeContext;)Lorg/jetbrains/mps/openapi/model/SNode;" />
@@ -70,11 +70,11 @@
   </root>
   <root nodeRef="r:28e834a9-8b65-474e-9087-1e117e68bbbb(jetbrains.mps.baseLanguage.overloadedOperators.generator.template.main@generator)/6677452554239629696">
     <file name="QueriesGenerated.java">
-      <node id="7363434029342569477" at="41,83,42,531" concept="3" />
+      <node id="7363434029342569477" at="41,83,42,551" concept="3" />
       <node id="3100399657864692789" at="89,14,90,73" concept="0" />
       <node id="3100399657864692789" at="109,15,110,58" concept="3" />
       <node id="3100399657864717070" at="41,0,44,0" concept="4" trace="rule_Condition_0_0#(Ljetbrains/mps/generator/template/BaseMappingRuleContext;)Z" />
-      <scope id="3100399657864717071" at="41,83,42,531" />
+      <scope id="3100399657864717071" at="41,83,42,551" />
       <scope id="3100399657864692789" at="109,15,110,58" />
       <scope id="3100399657864717070" at="41,0,44,0">
         <var name="_context" id="3100399657864717070" />

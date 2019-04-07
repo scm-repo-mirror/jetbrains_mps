@@ -47,7 +47,7 @@ import java.util.stream.Collectors;
 import jetbrains.mps.smodel.IOperationContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.baseLanguage.behavior.Type__BehaviorDescriptor;
 
 /*package*/ class ForEachVariable_EditorBuilder_a extends AbstractEditorBuilder {
@@ -130,8 +130,8 @@ import jetbrains.mps.baseLanguage.behavior.Type__BehaviorDescriptor;
 
     public List<String> getPostfixes(SNode node, IOperationContext operationContext, EditorContext editorContext) {
       List<String> postfixes = ListSequence.fromList(new ArrayList<String>());
-      if (SNodeOperations.isInstanceOf(TypeChecker.getInstance().getTypeOf(node), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"))) {
-        ListSequence.fromList(postfixes).addSequence(ListSequence.fromList(Type__BehaviorDescriptor.getVariableSuffixes_idhEwIzNo.invoke(SNodeOperations.cast(TypeChecker.getInstance().getTypeOf(node), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type")))));
+      if (SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(node), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"))) {
+        ListSequence.fromList(postfixes).addSequence(ListSequence.fromList(Type__BehaviorDescriptor.getVariableSuffixes_idhEwIzNo.invoke(SNodeOperations.cast(TypecheckingFacade.getFromContext().getTypeOf(node), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type")))));
       }
       return postfixes;
     }

@@ -9,9 +9,7 @@ import java.util.Arrays;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.lang.pattern.IMatchingPattern;
-import jetbrains.mps.lang.typesystem.runtime.HUtil;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 
 public class Queries {
   private Queries() {
@@ -25,8 +23,7 @@ public class Queries {
     }
     SNode type = leastCommonSupertypes.iterator().next();
     {
-      IMatchingPattern pattern_j6k1pf_d0b = HUtil.createMatchingPatternByConcept(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType"));
-      SNode coercedNode_j6k1pf_d0b = TypeChecker.getInstance().getRuntimeSupport().coerce_(type, pattern_j6k1pf_d0b);
+      SNode coercedNode_j6k1pf_d0b = TypecheckingFacade.getFromContext().coerceType(type, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType"));
       if (coercedNode_j6k1pf_d0b != null) {
         return coercedNode_j6k1pf_d0b;
       } else {

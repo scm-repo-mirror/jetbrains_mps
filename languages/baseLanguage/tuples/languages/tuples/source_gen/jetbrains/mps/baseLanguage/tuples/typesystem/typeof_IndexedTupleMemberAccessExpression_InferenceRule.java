@@ -15,9 +15,7 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.pattern.IMatchingPattern;
-import jetbrains.mps.lang.typesystem.runtime.HUtil;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -46,8 +44,7 @@ public class typeof_IndexedTupleMemberAccessExpression_InferenceRule extends Abs
           typeCheckingContext.whenConcrete(tupleType, new Runnable() {
             public void run() {
               {
-                IMatchingPattern pattern_2aq6od_a0c0a0c0 = HUtil.createMatchingPatternByConcept(MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, "jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleType"));
-                SNode coercedNode_2aq6od_a0c0a0c0 = TypeChecker.getInstance().getRuntimeSupport().coerce_(typeCheckingContext.getExpandedNode(tupleType), pattern_2aq6od_a0c0a0c0);
+                SNode coercedNode_2aq6od_a0c0a0c0 = TypecheckingFacade.getFromContext().coerceType(typeCheckingContext.getExpandedNode(tupleType), MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, "jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleType"));
                 if (coercedNode_2aq6od_a0c0a0c0 != null) {
                   if (!(index >= 0 && index < ListSequence.fromList(SLinkOperations.getChildren(coercedNode_2aq6od_a0c0a0c0, MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, 0x1207158795cL, "componentType"))).count())) {
                     MessageTarget errorTarget = new NodeMessageTarget();

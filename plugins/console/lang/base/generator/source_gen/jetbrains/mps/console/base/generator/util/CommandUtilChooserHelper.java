@@ -6,14 +6,14 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.console.base.typesystem.ShowingKind;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.template.TemplateQueryContext;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 
 public class CommandUtilChooserHelper {
 
   private static <T> T getKindPropertyOrShowError(_FunctionTypes._return_P1_E0<? extends T, ? super ShowingKind> kindProperty, SNode nodeWithType, TemplateQueryContext gencontext) {
-    ShowingKind kind = ShowingKind.getKind(TypeChecker.getInstance().getTypeOf(nodeWithType));
+    ShowingKind kind = ShowingKind.getKind(TypecheckingFacade.getFromContext().getTypeOf(nodeWithType));
     if (kind == null) {
       gencontext.showErrorMessage(nodeWithType, "#show is applicable only to sequences of " + Sequence.fromIterable(Sequence.fromArray(ShowingKind.values())).select(new ISelector<ShowingKind, String>() {
         public String select(ShowingKind it) {
@@ -41,7 +41,7 @@ public class CommandUtilChooserHelper {
     }, nodeWithType, gencontext);
   }
   public static boolean isSModelSequence(SNode nodeWithType) {
-    return ShowingKind.getKind(TypeChecker.getInstance().getTypeOf(nodeWithType)) != null;
+    return ShowingKind.getKind(TypecheckingFacade.getFromContext().getTypeOf(nodeWithType)) != null;
   }
   public static SNode getReferenceType(SNode nodeWithType, TemplateQueryContext gencontext) {
     return getKindPropertyOrShowError(new _FunctionTypes._return_P1_E0<SNode, ShowingKind>() {

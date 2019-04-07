@@ -9,8 +9,7 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.typesystem.inference.TypeChecker;
-import jetbrains.mps.lang.typesystem.runtime.HUtil;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -31,11 +30,11 @@ public class check_UsingStatement_NonTypesystemRule extends AbstractNonTypesyste
   public void applyRule(final SNode usingStatement, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
 outer:
     for (SNode resource : SLinkOperations.getChildren(usingStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d0053f19bL, 0x11d0053f19dL, "resource"))) {
-      SNode type = TypeChecker.getInstance().getTypeOf(resource);
-      if (TypeChecker.getInstance().getSubtypingManager().isSubtype(type, _quotation_createNode_o2kqy_b0a1a0a1())) {
+      SNode type = TypecheckingFacade.getFromContext().getTypeOf(resource);
+      if (TypecheckingFacade.getFromContext().isSubtype(type, _quotation_createNode_o2kqy_b0a1a0a1())) {
         continue;
       }
-      SNode classifierType = TypeChecker.getInstance().getRuntimeSupport().coerce_(type, HUtil.createMatchingPatternByConcept(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType")), false);
+      SNode classifierType = TypecheckingFacade.getFromContext().strongCoerceType(type, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType"));
       if (classifierType == null || SLinkOperations.getTarget(classifierType, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")) == null) {
         {
           MessageTarget errorTarget = new NodeMessageTarget();

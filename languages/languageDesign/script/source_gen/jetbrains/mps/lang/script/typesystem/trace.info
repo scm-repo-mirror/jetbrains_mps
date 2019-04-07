@@ -84,7 +84,7 @@
       </scope>
     </file>
     <file name="check_FactoryMigrationScriptPath_NonTypesystemRule.java">
-      <node id="2598676492883176318" at="25,117,26,231" concept="5" />
+      <node id="2598676492883176318" at="25,117,26,241" concept="5" />
       <node id="2598676492883176352" at="28,7,29,60" concept="5" />
       <node id="2598676492883176352" at="29,60,30,387" concept="5" />
       <node id="2598676492883170109" at="34,50,35,169" concept="6" />
@@ -103,8 +103,8 @@
       <node id="2598676492883170109" at="34,0,37,0" concept="4" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
       <node id="2598676492883170109" at="37,0,40,0" concept="4" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
       <node id="2598676492883170109" at="40,0,43,0" concept="4" trace="overrides#()Z" />
-      <node id="2598676492883176352" at="27,123,31,7" concept="0" />
-      <node id="2598676492883176341" at="26,231,32,5" concept="3" />
+      <node id="2598676492883176352" at="27,111,31,7" concept="0" />
+      <node id="2598676492883176341" at="26,241,32,5" concept="3" />
       <node id="2598676492883170109" at="25,0,34,0" concept="4" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
       <node id="2598676492883176348" at="43,0,54,0" concept="7" trace="_quotation_createNode_5hdosv_b0a0b0b#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <scope id="2598676492883170109" at="23,63,23,63" />
@@ -121,7 +121,7 @@
         <var name="argument" id="2598676492883170109" />
       </scope>
       <scope id="2598676492883170109" at="40,0,43,0" />
-      <scope id="2598676492883176342" at="27,123,31,7" />
+      <scope id="2598676492883176342" at="27,111,31,7" />
       <scope id="2598676492883170110" at="25,117,32,5">
         <var name="returnType" id="2598676492883176319" />
       </scope>

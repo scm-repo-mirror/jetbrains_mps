@@ -14,7 +14,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.errors.IRuleConflictWarningProducer;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typesystem.inference.SubtypingManager;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.baseLanguage.math.behavior.MathUtil;
 
 public class TypesystemDescriptor extends BaseHelginsDescriptor {
@@ -637,7 +637,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       this.myRuleNodeId = "7676695779583588212";
     }
     public SNode getOperationType(SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      if (TypeChecker.getInstance().getSubtypingManager().isSubtype(MathUtil.getUnboxedElementType(leftOperandType), rightOperandType)) {
+      if (TypecheckingFacade.getFromContext().isSubtype(MathUtil.getUnboxedElementType(leftOperandType), rightOperandType)) {
         return MathTypeUtil.qMatrix(rightOperandType);
       } else {
         return leftOperandType;
@@ -661,7 +661,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       this.myRuleNodeId = "7676695779583590396";
     }
     public SNode getOperationType(SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      if (TypeChecker.getInstance().getSubtypingManager().isSubtype(MathUtil.getUnboxedElementType(leftOperandType), rightOperandType)) {
+      if (TypecheckingFacade.getFromContext().isSubtype(MathUtil.getUnboxedElementType(leftOperandType), rightOperandType)) {
         return MathTypeUtil.qMatrix(rightOperandType);
       } else {
         return leftOperandType;
