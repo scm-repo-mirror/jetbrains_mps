@@ -90,7 +90,7 @@ public interface TypecheckingSession extends TypecheckingQueries {
 
     @Override
     public String toString() {
-      return "[root=" + myRoot + ", flags=" + myFlags + "]";
+      return "[root=" + myRoot + (myRoot != null ? " (" + myRoot.getReference() + ")" : "") + ", flags=" + myFlags + "]";
     }
 
     private Flags(SNode root, long flags) {
