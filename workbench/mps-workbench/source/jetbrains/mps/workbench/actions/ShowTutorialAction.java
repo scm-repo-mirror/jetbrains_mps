@@ -19,7 +19,6 @@ import com.intellij.icons.AllIcons.Nodes;
 import com.intellij.openapi.application.ApplicationInfo;
 
 public class ShowTutorialAction extends ShowSiteAction {
-
   // TODO: revert to simple major + minor version after MPS-26466 is fixed
   private final String myMajorMinorVersion =
       ApplicationInfo.getInstance().getMajorVersion() + "." +
@@ -31,8 +30,7 @@ public class ShowTutorialAction extends ShowSiteAction {
       );
 
   public ShowTutorialAction() {
-    super("Show Tutorial");
-    getTemplatePresentation().setIcon(Nodes.PpWeb);
+    super(null);
   }
 
   @Override

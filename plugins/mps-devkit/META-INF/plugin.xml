@@ -77,21 +77,21 @@
     </group>
     <group id="MPSHelpMenu">
       <separator/>
-      <action id="ShowUserGuide"
-              class="jetbrains.mps.ide.devkit.help.ShowUserGuideAction"
-              text="User Guide"/>
-      <reference ref="MPSTutorial"/>
-      <separator/>
       <action id="ShowHomepage"
               class="jetbrains.mps.ide.devkit.help.ShowHomepageAction"
-              text="MPS Home"/>
+              text="Homepage"/>
+      <action id="ShowMPSTutorial"
+              class="jetbrains.mps.workbench.actions.ShowTutorialAction"
+              text="Tutorial"/>
+      <action id="ShowUserGuide"
+              class="jetbrains.mps.ide.devkit.help.ShowUserGuideAction"
+              text="User Guide for Language Designers"/>
       <action id="ShowMPSBlogAction"
               class="jetbrains.mps.ide.devkit.help.ShowBlogAction"
               text="Blog"/>
       <action id="ShowCommunitySite"
               class="jetbrains.mps.ide.devkit.help.ShowCommunitySiteAction"
-              text="Community"/>
-      <separator/>
+              text="Community Site"/>
       <action id="ShowTrackerAction"
               class="jetbrains.mps.ide.devkit.help.ShowTrackerAction"
               text="Issue Tracker"/>

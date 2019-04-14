@@ -19,7 +19,7 @@ import jetbrains.mps.workbench.actions.ShowSiteAction;
 
 public class ShowCommunitySiteAction extends ShowSiteAction {
   public ShowCommunitySiteAction() {
-    super("Community");
+    super(null);
   }
 
   protected String getSiteURL() {

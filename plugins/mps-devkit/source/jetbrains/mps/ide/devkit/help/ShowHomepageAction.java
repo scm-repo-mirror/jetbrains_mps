@@ -19,7 +19,7 @@ import jetbrains.mps.workbench.actions.ShowSiteAction;
 
 public class ShowHomepageAction extends ShowSiteAction {
   public ShowHomepageAction() {
-    super("MPS Home");
+    super(null);
   }
 
   protected String getSiteURL() {

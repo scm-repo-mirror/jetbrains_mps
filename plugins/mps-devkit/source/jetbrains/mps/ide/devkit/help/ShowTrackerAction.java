@@ -20,7 +20,7 @@ import jetbrains.mps.workbench.actions.ShowSiteAction;
 
 public class ShowTrackerAction extends ShowSiteAction {
   public ShowTrackerAction() {
-    super("Issue Tracker");
+    super(null);
   }
 
   protected String getSiteURL() {

@@ -20,7 +20,7 @@ import jetbrains.mps.workbench.actions.ShowSiteAction;
 
 public class ShowUserGuideAction extends ShowSiteAction {
   public ShowUserGuideAction() {
-    super("User Guide");
+    super(null);
   }
 
   protected String getSiteURL() {

@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.workbench.actions;
 
+import com.intellij.icons.AllIcons.Nodes;
 import com.intellij.ide.BrowserUtil;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.DumbAware;
@@ -27,6 +28,7 @@ public abstract class ShowSiteAction extends BaseAction implements DumbAware {
     super(name);
     setExecuteOutsideCommand(true);
     setDisableOnNoProject(false);
+    getTemplatePresentation().setIcon(Nodes.PpWeb);
   }
 
   protected void doExecute(AnActionEvent e, Map<String, Object> _params) {
