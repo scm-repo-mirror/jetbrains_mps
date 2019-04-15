@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:4133014c-7275-4ce9-a7b8-ec59b3bf11b3(jetbrains.mps.ide.java.platform.highlighters.methodcallsfixer)">
+<model ref="r:4133014c-7275-4ce9-a7b8-ec59b3bf11b3(jetbrains.mps.java.platform.highlighters.methodcallsfixer)">
   <persistence version="9" />
   <languages>
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="8" />

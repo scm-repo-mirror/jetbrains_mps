@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<solution name="jetbrains.mps.ide.java" uuid="8a2e464f-d2c2-485e-a2ed-8b50c6327795" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="false">
+<solution name="jetbrains.mps.java.workbench" uuid="8a2e464f-d2c2-485e-a2ed-8b50c6327795" moduleVersion="0" pluginKind="PLUGIN_OTHER" compileInMPS="false">
   <compileInIDEA />
   <models>
     <modelRoot contentPath="${module}" type="default">
@@ -24,7 +24,7 @@
     <dependency reexport="false">8d29d73f-ed99-4652-ae0a-083cdfe53c34(jetbrains.mps.ide.platform)</dependency>
     <dependency reexport="false">ceab5195-25ea-4f22-9b92-103b95ca8c0c(jetbrains.mps.lang.core)</dependency>
     <dependency reexport="false">25092e07-e655-497c-92fb-558a8e3080ed(jetbrains.mps.ide.ui)</dependency>
-    <dependency reexport="false">f33a6c9c-f660-4bdb-aecd-2d144c61f7d2(jetbrains.mps.ide.java.platform)</dependency>
+    <dependency reexport="false">f33a6c9c-f660-4bdb-aecd-2d144c61f7d2(jetbrains.mps.java.platform)</dependency>
   </dependencies>
   <languageVersions>
     <language slang="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" version="8" />
@@ -55,11 +55,11 @@
     <module reference="fdaaf35f-8ee3-4c37-b09d-9efaeaaa7a41(jetbrains.mps.core.tool.environment)" version="0" />
     <module reference="34e84b8f-afa8-4364-abcd-a279fddddbe7(jetbrains.mps.editor.runtime)" version="0" />
     <module reference="019b622b-0aef-4dd3-86d0-4eef01f3f6bb(jetbrains.mps.ide)" version="0" />
-    <module reference="8a2e464f-d2c2-485e-a2ed-8b50c6327795(jetbrains.mps.ide.java)" version="0" />
-    <module reference="f33a6c9c-f660-4bdb-aecd-2d144c61f7d2(jetbrains.mps.ide.java.platform)" version="0" />
     <module reference="8d29d73f-ed99-4652-ae0a-083cdfe53c34(jetbrains.mps.ide.platform)" version="0" />
     <module reference="25092e07-e655-497c-92fb-558a8e3080ed(jetbrains.mps.ide.ui)" version="0" />
     <module reference="65557aaa-5381-435d-b705-3f8d546e0f40(jetbrains.mps.java.core)" version="0" />
+    <module reference="f33a6c9c-f660-4bdb-aecd-2d144c61f7d2(jetbrains.mps.java.platform)" version="0" />
+    <module reference="8a2e464f-d2c2-485e-a2ed-8b50c6327795(jetbrains.mps.java.workbench)" version="0" />
     <module reference="2d3c70e9-aab2-4870-8d8d-6036800e4103(jetbrains.mps.kernel)" version="0" />
     <module reference="ceab5195-25ea-4f22-9b92-103b95ca8c0c(jetbrains.mps.lang.core)" version="0" />
     <module reference="9ded098b-ad6a-4657-bfd9-48636cfe8bc3(jetbrains.mps.lang.traceable)" version="0" />
