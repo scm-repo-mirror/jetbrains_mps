@@ -39,6 +39,7 @@
     <import index="g3l6" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.extapi.model(MPS.Core/)" />
     <import index="rfhd" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.util.registry(MPS.IDEA/)" />
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
+    <import index="3a50" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide(MPS.Platform/)" />
   </imports>
   <registry>
     <language id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin">
@@ -862,18 +863,14 @@
                     </node>
                   </node>
                 </node>
-                <node concept="3clFbF" id="12oNA5U01fi" role="3cqZAp">
-                  <node concept="2OqwBi" id="12oNA5U02NV" role="3clFbG">
-                    <node concept="2OqwBi" id="12oNA5U01CK" role="2Oq$k0">
-                      <node concept="3_PKRz" id="12oNA5U01fg" role="2Oq$k0">
-                        <ref role="3_PKRw" node="21vgRr5y35D" resolve="project" />
-                      </node>
-                      <node concept="liA8E" id="12oNA5U02Hk" role="2OqNvi">
-                        <ref role="37wK5l" to="z1c3:~Project.getModelAccess()" resolve="getModelAccess" />
-                      </node>
+                <node concept="3clFbF" id="71N0yF1OoFf" role="3cqZAp">
+                  <node concept="2OqwBi" id="71N0yF1OuKF" role="3clFbG">
+                    <node concept="2YIFZM" id="71N0yF1Ot6$" role="2Oq$k0">
+                      <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
+                      <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
                     </node>
-                    <node concept="liA8E" id="12oNA5U03qq" role="2OqNvi">
-                      <ref role="37wK5l" to="lui2:~ModelAccess.runWriteInEDT(java.lang.Runnable)" resolve="runWriteInEDT" />
+                    <node concept="liA8E" id="71N0yF1Oxus" role="2OqNvi">
+                      <ref role="37wK5l" to="bd8o:~Application.invokeLater(java.lang.Runnable)" resolve="invokeLater" />
                       <node concept="1bVj0M" id="12oNA5U03tq" role="37wK5m">
                         <node concept="3clFbS" id="12oNA5U03tr" role="1bW5cS">
                           <node concept="3clFbF" id="5gBxemGe7rH" role="3cqZAp">
@@ -1826,27 +1823,17 @@
           </node>
         </node>
         <node concept="3clFbH" id="12oNA5TZV5y" role="3cqZAp" />
-        <node concept="3SKdUt" id="6ETkb2gUhQf" role="3cqZAp">
-          <node concept="3SKdUq" id="6ETkb2gUhQh" role="3SKWNk">
-            <property role="3SKdUp" value="XXX it's requestFocus() responsibility to ensure proper thread, if needed. Just need to refactor other calls to the method." />
-          </node>
-        </node>
-        <node concept="3clFbF" id="6ETkb2gToXZ" role="3cqZAp">
-          <node concept="2OqwBi" id="6ETkb2gTrd1" role="3clFbG">
-            <node concept="2YIFZM" id="6ETkb2gTpUx" role="2Oq$k0">
-              <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
-              <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
-            </node>
-            <node concept="liA8E" id="6ETkb2gTsqx" role="2OqNvi">
-              <ref role="37wK5l" to="bd8o:~Application.invokeLater(java.lang.Runnable)" resolve="invokeLater" />
-              <node concept="1bVj0M" id="6ETkb2gTttG" role="37wK5m">
-                <node concept="3clFbS" id="6ETkb2gTttH" role="1bW5cS">
-                  <node concept="3clFbF" id="6ETkb2gTuFr" role="3cqZAp">
-                    <node concept="1rXfSq" id="6ETkb2gTuFq" role="3clFbG">
-                      <ref role="37wK5l" node="3whKZwB1k79" resolve="requestFocus" />
-                      <node concept="37vLTw" id="6ETkb2gTvIb" role="37wK5m">
-                        <ref role="3cqZAo" node="3naYLZo3_71" resolve="project" />
-                      </node>
+        <node concept="3clFbF" id="71N0yF1Nt3Y" role="3cqZAp">
+          <node concept="2YIFZM" id="71N0yF1NwbW" role="3clFbG">
+            <ref role="37wK5l" to="3a50:~ThreadUtils.runInUIThreadNoWait(java.lang.Runnable)" resolve="runInUIThreadNoWait" />
+            <ref role="1Pybhc" to="3a50:~ThreadUtils" resolve="ThreadUtils" />
+            <node concept="1bVj0M" id="71N0yF1Ny9m" role="37wK5m">
+              <node concept="3clFbS" id="71N0yF1Ny9n" role="1bW5cS">
+                <node concept="3clFbF" id="6ETkb2gTuFr" role="3cqZAp">
+                  <node concept="1rXfSq" id="6ETkb2gTuFq" role="3clFbG">
+                    <ref role="37wK5l" node="3whKZwB1k79" resolve="requestFocus" />
+                    <node concept="37vLTw" id="6ETkb2gTvIb" role="37wK5m">
+                      <ref role="3cqZAo" node="3naYLZo3_71" resolve="project" />
                     </node>
                   </node>
                 </node>
@@ -1914,6 +1901,11 @@
       <property role="od$2w" value="false" />
       <property role="2aFKle" value="false" />
       <node concept="3clFbS" id="3whKZwB1k7b" role="3clF47">
+        <node concept="3SKdUt" id="71N0yF1O4Ed" role="3cqZAp">
+          <node concept="3SKdUq" id="71N0yF1O4Ef" role="3SKWNk">
+            <property role="3SKdUp" value="requires EDT" />
+          </node>
+        </node>
         <node concept="3clFbJ" id="3whKZwB1k7c" role="3cqZAp">
           <node concept="2ZW3vV" id="3whKZwB1k7d" role="3clFbw">
             <node concept="3uibUv" id="3whKZwB1k7e" role="2ZW6by">
@@ -1924,6 +1916,12 @@
             </node>
           </node>
           <node concept="3clFbS" id="3whKZwB1k7g" role="3clFbx">
+            <node concept="3clFbF" id="71N0yF1O1AA" role="3cqZAp">
+              <node concept="2YIFZM" id="71N0yF1O2zq" role="3clFbG">
+                <ref role="37wK5l" to="3a50:~ThreadUtils.assertEDT()" resolve="assertEDT" />
+                <ref role="1Pybhc" to="3a50:~ThreadUtils" resolve="ThreadUtils" />
+              </node>
+            </node>
             <node concept="3clFbF" id="3whKZwB1k7h" role="3cqZAp">
               <node concept="2YIFZM" id="3whKZwB1k7i" role="3clFbG">
                 <ref role="37wK5l" to="btn2:~ProjectUtil.focusProjectWindow(com.intellij.openapi.project.Project,boolean)" resolve="focusProjectWindow" />
@@ -1954,11 +1952,11 @@
       <node concept="3cqZAl" id="3whKZwB1k7r" role="3clF45" />
       <node concept="37vLTG" id="3whKZwB1k7s" role="3clF46">
         <property role="TrG5h" value="project" />
+        <property role="3TUv4t" value="true" />
         <node concept="3uibUv" id="3whKZwB1k7t" role="1tU5fm">
           <ref role="3uigEE" to="z1c3:~Project" resolve="Project" />
         </node>
       </node>
-      <node concept="3Tm1VV" id="3whKZwB1k7q" role="1B3o_S" />
     </node>
     <node concept="2tJIrI" id="4vg7_weVKgc" role="jymVt" />
     <node concept="2YIFZL" id="5ueUq77W2gO" role="jymVt">
@@ -2492,18 +2490,14 @@
                     <node concept="10Nm6u" id="xSXmQZy_pj" role="3uHU7w" />
                   </node>
                   <node concept="3clFbS" id="xSXmQZy_pk" role="3clFbx">
-                    <node concept="3clFbF" id="12oNA5TYEhJ" role="3cqZAp">
-                      <node concept="2OqwBi" id="12oNA5TYFrG" role="3clFbG">
-                        <node concept="2OqwBi" id="12oNA5TYErh" role="2Oq$k0">
-                          <node concept="3_PKRz" id="12oNA5TYEhH" role="2Oq$k0">
-                            <ref role="3_PKRw" node="xSXmQZy0Q7" resolve="project" />
-                          </node>
-                          <node concept="liA8E" id="12oNA5TYF2j" role="2OqNvi">
-                            <ref role="37wK5l" to="z1c3:~Project.getModelAccess()" resolve="getModelAccess" />
-                          </node>
+                    <node concept="3clFbF" id="71N0yF1NLVz" role="3cqZAp">
+                      <node concept="2OqwBi" id="71N0yF1NPPG" role="3clFbG">
+                        <node concept="2YIFZM" id="71N0yF1NNQX" role="2Oq$k0">
+                          <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
+                          <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
                         </node>
-                        <node concept="liA8E" id="12oNA5TYFL1" role="2OqNvi">
-                          <ref role="37wK5l" to="lui2:~ModelAccess.runWriteInEDT(java.lang.Runnable)" resolve="runWriteInEDT" />
+                        <node concept="liA8E" id="71N0yF1NR3f" role="2OqNvi">
+                          <ref role="37wK5l" to="bd8o:~Application.invokeLater(java.lang.Runnable)" resolve="invokeLater" />
                           <node concept="1bVj0M" id="12oNA5TYGkE" role="37wK5m">
                             <node concept="3clFbS" id="12oNA5TYGkF" role="1bW5cS">
                               <node concept="3clFbF" id="xSXmQZy_pl" role="3cqZAp">

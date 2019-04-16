@@ -7,11 +7,12 @@ import jetbrains.mps.project.Project;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
-import com.intellij.openapi.application.ApplicationManager;
+import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.project.MPSProject;
 import com.intellij.ide.impl.ProjectUtil;
+import com.intellij.openapi.application.ApplicationManager;
 import javax.swing.JComponent;
 import com.intellij.openapi.wm.WindowManager;
 import com.intellij.openapi.wm.IdeFrame;
@@ -47,8 +48,7 @@ public class HandlerUtil {
 
     new EditorNavigator(project).shallFocus(true).shallSelect(true).open(nodeReference);
 
-    // XXX it's requestFocus() responsibility to ensure proper thread, if needed. Just need to refactor other calls to the method. 
-    ApplicationManager.getApplication().invokeLater(new Runnable() {
+    ThreadUtils.runInUIThreadNoWait(new Runnable() {
       public void run() {
         requestFocus(project);
       }
@@ -61,8 +61,10 @@ public class HandlerUtil {
     });
   }
 
-  public static void requestFocus(Project project) {
+  /*package*/ static void requestFocus(final Project project) {
+    // requires EDT 
     if (project instanceof MPSProject) {
+      ThreadUtils.assertEDT();
       ProjectUtil.focusProjectWindow(((MPSProject) project).getProject(), true);
     }
   }

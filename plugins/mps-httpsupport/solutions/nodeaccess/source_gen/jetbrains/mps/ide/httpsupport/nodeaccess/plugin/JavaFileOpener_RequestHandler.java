@@ -22,6 +22,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.ide.common.FileOpenUtil;
+import com.intellij.openapi.application.ApplicationManager;
 
 public class JavaFileOpener_RequestHandler extends HttpRequestHandlerBase {
 
@@ -121,7 +122,7 @@ public class JavaFileOpener_RequestHandler extends HttpRequestHandlerBase {
       final VirtualFile virtualFile = FileOpenUtil.findFile(ideaProject, unitName, fileName);
       if (virtualFile != null) {
         this.request.sendResponse(HttpResponseStatus.OK, "image/gif", Unpooled.copiedBuffer(HandlerUtil.SUCCESS_STREAM));
-        this.project.getModelAccess().runWriteInEDT(new Runnable() {
+        ApplicationManager.getApplication().invokeLater(new Runnable() {
           public void run() {
             FileOpenUtil.openFile(ideaProject, virtualFile, (JavaFileOpener_RequestHandler.this.line == null ? 1 : JavaFileOpener_RequestHandler.this.line));
             HandlerUtil.requestFocus(JavaFileOpener_RequestHandler.this.project);
