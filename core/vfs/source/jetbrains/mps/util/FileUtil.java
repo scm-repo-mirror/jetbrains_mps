@@ -210,7 +210,8 @@ public class FileUtil {
           continue next_occ;
         }
       }
-      assert false : "Unexpected path: can't get parent: " + path;
+      currentPath = currentPath.replaceFirst("/\\.\\./", "/");
+      LOG.warn("Unexpected path: can't get parent: " + path);
     }
 
     if (currentPath.endsWith("/") && !PathUtil.isRoot(currentPath)) {
@@ -566,6 +567,9 @@ public class FileUtil {
 
     while (path.endsWith(Path.UNIX_SEPARATOR) || path.endsWith(Path.WIN_SEPARATOR)) {
       if (path.endsWith(Path.ARCHIVE_SEPARATOR)) {
+        break;
+      }
+      if (PathUtil.isRoot(path)) {
         break;
       }
       path = path.substring(0, path.length() - 1);
