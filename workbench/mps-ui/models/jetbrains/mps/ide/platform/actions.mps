@@ -567,7 +567,7 @@
             <node concept="17QB3L" id="7m$uTO7nm$k" role="1tU5fm" />
             <node concept="2YIFZM" id="7V0LQUAybSW" role="33vP2m">
               <ref role="1Pybhc" to="jkm4:~Messages" resolve="Messages" />
-              <ref role="37wK5l" to="jkm4:~Messages.showInputDialog(com.intellij.openapi.project.Project,java.lang.String,java.lang.String,javax.swing.Icon,java.lang.String,com.intellij.openapi.ui.InputValidator):java.lang.String" resolve="showInputDialog" />
+              <ref role="37wK5l" to="jkm4:~Messages.showInputDialog(com.intellij.openapi.project.Project,java.lang.String,java.lang.String,javax.swing.Icon,java.lang.String,com.intellij.openapi.ui.InputValidator)" resolve="showInputDialog" />
               <node concept="2OqwBi" id="7V0LQUAybSX" role="37wK5m">
                 <node concept="2WthIp" id="7V0LQUAybSY" role="2Oq$k0" />
                 <node concept="1DTwFV" id="7V0LQUAybSZ" role="2OqNvi">
@@ -587,11 +587,11 @@
                       </node>
                     </node>
                     <node concept="liA8E" id="7V0LQUAybT6" role="2OqNvi">
-                      <ref role="37wK5l" to="mhbf:~SModel.getName():org.jetbrains.mps.openapi.model.SModelName" resolve="getName" />
+                      <ref role="37wK5l" to="mhbf:~SModel.getName()" resolve="getName" />
                     </node>
                   </node>
                   <node concept="liA8E" id="7V0LQUAybT7" role="2OqNvi">
-                    <ref role="37wK5l" to="mhbf:~SModelName.getLongName():java.lang.String" resolve="getLongName" />
+                    <ref role="37wK5l" to="mhbf:~SModelName.getLongName()" resolve="getLongName" />
                   </node>
                 </node>
                 <node concept="Xl_RD" id="7V0LQUAybT8" role="3uHU7B">
@@ -599,7 +599,7 @@
                 </node>
               </node>
               <node concept="2YIFZM" id="7V0LQUAybTb" role="37wK5m">
-                <ref role="37wK5l" to="jkm4:~Messages.getQuestionIcon():javax.swing.Icon" resolve="getQuestionIcon" />
+                <ref role="37wK5l" to="jkm4:~Messages.getQuestionIcon()" resolve="getQuestionIcon" />
                 <ref role="1Pybhc" to="jkm4:~Messages" resolve="Messages" />
               </node>
               <node concept="Xl_RD" id="7V0LQUAybTa" role="37wK5m">
@@ -651,7 +651,7 @@
                             </node>
                           </node>
                           <node concept="liA8E" id="2afM9rJmdAy" role="2OqNvi">
-                            <ref role="37wK5l" to="mhbf:~SModel.getNode(org.jetbrains.mps.openapi.model.SNodeId):org.jetbrains.mps.openapi.model.SNode" resolve="getNode" />
+                            <ref role="37wK5l" to="mhbf:~SModel.getNode(org.jetbrains.mps.openapi.model.SNodeId)" resolve="getNode" />
                             <node concept="2OqwBi" id="2afM9rJmdAz" role="37wK5m">
                               <node concept="2OqwBi" id="2afM9rJmdA$" role="2Oq$k0">
                                 <node concept="2WthIp" id="2afM9rJmdA_" role="2Oq$k0" />
@@ -669,7 +669,7 @@
                           </node>
                         </node>
                         <node concept="liA8E" id="2afM9rJnSHz" role="2OqNvi">
-                          <ref role="37wK5l" to="mhbf:~SNode.getReference():org.jetbrains.mps.openapi.model.SNodeReference" resolve="getReference" />
+                          <ref role="37wK5l" to="mhbf:~SNode.getReference()" resolve="getReference" />
                         </node>
                       </node>
                     </node>
@@ -695,7 +695,7 @@
             <node concept="3clFbF" id="cAZ8XC9QOj" role="3cqZAp">
               <node concept="2YIFZM" id="7V0LQUAyWO1" role="3clFbG">
                 <ref role="1Pybhc" to="jkm4:~Messages" resolve="Messages" />
-                <ref role="37wK5l" to="jkm4:#Messages.showWarningDialog(com.intellij.openapi.project.Project,java.lang.String,java.lang.String):void" resolve="showWarningDialog" />
+                <ref role="37wK5l" to="jkm4:~Messages.showWarningDialog(com.intellij.openapi.project.Project,java.lang.String,java.lang.String)" resolve="showWarningDialog" />
                 <node concept="2OqwBi" id="7V0LQUAyWO2" role="37wK5m">
                   <node concept="2WthIp" id="7V0LQUAyWO3" role="2Oq$k0" />
                   <node concept="1DTwFV" id="7V0LQUAyXDR" role="2OqNvi">
@@ -703,7 +703,7 @@
                   </node>
                 </node>
                 <node concept="2YIFZM" id="5DQLGimLHG2" role="37wK5m">
-                  <ref role="37wK5l" to="wyt6:#String.format(java.lang.String,java.lang.Object...):java.lang.String" resolve="format" />
+                  <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
                   <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
                   <node concept="Xl_RD" id="7V0LQUAyWO7" role="37wK5m">
                     <property role="Xl_RC" value="Can't find node with id '%s'" />
@@ -742,21 +742,21 @@
                   </node>
                 </node>
                 <node concept="liA8E" id="1GFZonKzYiu" role="2OqNvi">
-                  <ref role="37wK5l" to="kz9k:#EditorNavigator.shallFocus(boolean):jetbrains.mps.openapi.navigation.EditorNavigator" resolve="shallFocus" />
+                  <ref role="37wK5l" to="kz9k:~EditorNavigator.shallFocus(boolean)" resolve="shallFocus" />
                   <node concept="3clFbT" id="1GFZonKzYv0" role="37wK5m">
                     <property role="3clFbU" value="true" />
                   </node>
                 </node>
               </node>
               <node concept="liA8E" id="1GFZonKzYUJ" role="2OqNvi">
-                <ref role="37wK5l" to="kz9k:#EditorNavigator.shallSelect(boolean):jetbrains.mps.openapi.navigation.EditorNavigator" resolve="shallSelect" />
+                <ref role="37wK5l" to="kz9k:~EditorNavigator.shallSelect(boolean)" resolve="shallSelect" />
                 <node concept="3clFbT" id="1GFZonKzZ4W" role="37wK5m">
                   <property role="3clFbU" value="true" />
                 </node>
               </node>
             </node>
             <node concept="liA8E" id="1GFZonKzZtR" role="2OqNvi">
-              <ref role="37wK5l" to="kz9k:#EditorNavigator.open(org.jetbrains.mps.openapi.model.SNodeReference):void" resolve="open" />
+              <ref role="37wK5l" to="kz9k:~EditorNavigator.open(org.jetbrains.mps.openapi.model.SNodeReference)" resolve="open" />
               <node concept="37vLTw" id="1GFZonKzZES" role="37wK5m">
                 <ref role="3cqZAo" node="1W$PCympJUO" resolve="nodeRef" />
               </node>
@@ -800,11 +800,11 @@
                 </node>
                 <node concept="2OqwBi" id="7V0LQUAyiKM" role="37vLTx">
                   <node concept="2YIFZM" id="7V0LQUAyiKN" role="2Oq$k0">
-                    <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance():org.jetbrains.mps.openapi.persistence.PersistenceFacade" resolve="getInstance" />
+                    <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
                     <ref role="1Pybhc" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
                   </node>
                   <node concept="liA8E" id="7V0LQUAyiKO" role="2OqNvi">
-                    <ref role="37wK5l" to="dush:~PersistenceFacade.createNodeId(java.lang.String):org.jetbrains.mps.openapi.model.SNodeId" resolve="createNodeId" />
+                    <ref role="37wK5l" to="dush:~PersistenceFacade.createNodeId(java.lang.String)" resolve="createNodeId" />
                     <node concept="37vLTw" id="7V0LQUAyiKP" role="37wK5m">
                       <ref role="3cqZAo" node="7V0LQUAyib4" resolve="inputString" />
                     </node>
@@ -869,7 +869,7 @@
                         </node>
                       </node>
                       <node concept="liA8E" id="7V0LQUAyiLh" role="2OqNvi">
-                        <ref role="37wK5l" to="mw71:~IdEncoder.parseNodeId(java.lang.String):org.jetbrains.mps.openapi.model.SNodeId" resolve="parseNodeId" />
+                        <ref role="37wK5l" to="mw71:~IdEncoder.parseNodeId(java.lang.String)" resolve="parseNodeId" />
                         <node concept="37vLTw" id="7V0LQUAyiLi" role="37wK5m">
                           <ref role="3cqZAo" node="7V0LQUAyib4" resolve="inputString" />
                         </node>
