@@ -17,7 +17,7 @@ package jetbrains.mps.ide.java;
 
 import com.intellij.openapi.components.ApplicationComponent;
 import jetbrains.mps.ide.MPSCoreComponents;
-import jetbrains.mps.ide.java.actions.ExtensionDescriptor;
+import jetbrains.mps.java.platform.actions.ExtensionDescriptor;
 import jetbrains.mps.smodel.language.ExtensionRegistry;
 import org.jetbrains.annotations.NotNull;
 

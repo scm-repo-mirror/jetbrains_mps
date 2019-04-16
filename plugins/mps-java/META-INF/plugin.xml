@@ -21,12 +21,12 @@
   <vendor url="http://www.jetbrains.com/mps/">JetBrains</vendor>
   <depends>com.intellij.modules.mps</depends>
 
-  <xi:include href="workbench/actions/JavaWorkbenchActions.xml" xpointer="xpointer(/components/*)"/>
-  <xi:include href="JavaPlatform.xml" xpointer="xpointer(/components/*)"/>
+  <xi:include href="JavaWorkbenchActions.xml" xpointer="xpointer(/components/*)"/>
+  <xi:include href="JavaPlatformActions.xml" xpointer="xpointer(/components/*)"/>
 
   <application-components>
     <component>
-      <implementation-class>jetbrains.mps.ide.java.sourceStubs.EmptyJavaSourcetubsFindUsages</implementation-class>
+      <implementation-class>jetbrains.mps.java.core.sourceStubs.EmptyJavaSourcetubsFindUsages</implementation-class>
     </component>
   </application-components>
 
