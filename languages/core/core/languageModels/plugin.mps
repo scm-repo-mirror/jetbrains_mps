@@ -994,6 +994,32 @@
               </node>
             </node>
             <node concept="3clFbH" id="7A08csWbOAQ" role="3cqZAp" />
+            <node concept="3clFbJ" id="acrwirUcXl" role="3cqZAp">
+              <node concept="3clFbS" id="acrwirUcXn" role="3clFbx">
+                <node concept="3SKdUt" id="acrwirVV8E" role="3cqZAp">
+                  <node concept="3SKdUq" id="acrwirVV8G" role="3SKWNk">
+                    <property role="3SKdUp" value="jftr, ArrayBlockingQueue doesn't tolerate 0 size" />
+                  </node>
+                </node>
+                <node concept="1daRAt" id="acrwirUxKd" role="3cqZAp">
+                  <property role="1daRAr" value="INFO" />
+                  <node concept="Xl_RD" id="acrwirUAMQ" role="1daK9t">
+                    <property role="Xl_RC" value="No models to generate text from" />
+                  </node>
+                </node>
+                <node concept="3D7k6m" id="acrwirVqXh" role="3cqZAp">
+                  <property role="3D7k6l" value="SUCCESS" />
+                </node>
+              </node>
+              <node concept="3clFbC" id="acrwirVGPf" role="3clFbw">
+                <node concept="3cmrfG" id="acrwirVLkr" role="3uHU7w">
+                  <property role="3cmrfH" value="0" />
+                </node>
+                <node concept="37vLTw" id="acrwirUgF3" role="3uHU7B">
+                  <ref role="3cqZAo" node="7A08csWcBKP" resolve="modelsCount" />
+                </node>
+              </node>
+            </node>
             <node concept="3clFbH" id="22g6WSZGsg" role="3cqZAp" />
             <node concept="3SKdUt" id="7_czR37Hi87" role="3cqZAp">
               <node concept="3SKdUq" id="7_czR37Hihi" role="3SKWNk">
