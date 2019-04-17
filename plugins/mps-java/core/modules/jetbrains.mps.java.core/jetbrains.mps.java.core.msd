@@ -9,6 +9,9 @@
   <facets>
     <facet pluginId="jetbrains.mps.ide.java" type="ideaPlugin" />
   </facets>
+  <stubModelEntries>
+    <stubModelEntry path="${mps_home}/plugins/mps-java/lib/java-core.jar" />
+  </stubModelEntries>
   <sourcePath />
   <dependencies>
     <dependency reexport="false">6ed54515-acc8-4d1e-a16c-9fd6cfe951ea(MPS.Core)</dependency>
