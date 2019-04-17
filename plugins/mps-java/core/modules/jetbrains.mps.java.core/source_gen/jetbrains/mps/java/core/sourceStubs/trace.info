@@ -509,7 +509,7 @@
     </file>
   </root>
   <root nodeRef="r:39747a8f-4d04-48b7-83c5-4b4f5e43330c(jetbrains.mps.java.core.sourceStubs)/9207707776056494296">
-    <file name="EmptyJavaSourcetubsFindUsages.java">
+    <file name="EmptyJavaSourceStubsFindUsages.java">
       <node id="9207707776056494487" at="26,136,27,60" concept="12" />
       <node id="9207707776056494489" at="27,60,28,64" concept="12" />
       <node id="9207707776056494328" at="30,59,31,41" concept="4" />
@@ -518,7 +518,7 @@
       <node id="9207707776056494372" at="41,31,42,67" concept="4" />
       <node id="9207707776056494382" at="44,34,45,70" concept="4" />
       <node id="9207707776056494394" at="49,36,50,57" concept="11" />
-      <node id="9207707776056494301" at="24,0,26,0" concept="2" trace="EmptyJavaSourcetubsFindUsages#()V" />
+      <node id="9207707776056494301" at="24,0,26,0" concept="2" trace="EmptyJavaSourceStubsFindUsages#()V" />
       <node id="9207707776056494322" at="29,33,32,7" concept="8" />
       <node id="9207707776056494338" at="35,0,38,0" concept="9" trace="findInstances#(Ljava/util/Collection;Ljava/util/Set;Lorg/jetbrains/mps/openapi/util/Consumer;Lorg/jetbrains/mps/openapi/util/Consumer;)V" />
       <node id="9207707776056494354" at="38,0,41,0" concept="9" trace="findModelUsages#(Ljava/util/Collection;Ljava/util/Set;Lorg/jetbrains/mps/openapi/util/Consumer;Lorg/jetbrains/mps/openapi/util/Consumer;)V" />
@@ -527,7 +527,7 @@
       <node id="9207707776056494319" at="28,64,33,5" concept="7" />
       <node id="9207707776056494390" at="47,0,52,0" concept="9" trace="getComponentName#()Ljava/lang/String;" />
       <node id="9207707776056494305" at="26,0,35,0" concept="9" trace="findUsages#(Ljava/util/Collection;Ljava/util/Set;Lorg/jetbrains/mps/openapi/util/Consumer;Lorg/jetbrains/mps/openapi/util/Consumer;)V" />
-      <scope id="9207707776056494303" at="24,42,24,42" />
+      <scope id="9207707776056494303" at="24,43,24,43" />
       <scope id="9207707776056494327" at="30,59,31,41" />
       <scope id="9207707776056494351" at="35,141,36,66" />
       <scope id="9207707776056494367" at="38,143,39,66" />
@@ -561,7 +561,7 @@
         <var name="processedConsumer" id="9207707776056494315" />
         <var name="set" id="9207707776056494309" />
       </scope>
-      <unit id="9207707776056494296" at="23,0,53,0" name="jetbrains.mps.java.core.sourceStubs.EmptyJavaSourcetubsFindUsages" />
+      <unit id="9207707776056494296" at="23,0,53,0" name="jetbrains.mps.java.core.sourceStubs.EmptyJavaSourceStubsFindUsages" />
     </file>
   </root>
 </debug-info>

@@ -3041,7 +3041,7 @@
     </node>
   </node>
   <node concept="312cEu" id="7Z8mn0jsKzo">
-    <property role="TrG5h" value="EmptyJavaSourcetubsFindUsages" />
+    <property role="TrG5h" value="EmptyJavaSourceStubsFindUsages" />
     <property role="1sVAO0" value="false" />
     <property role="1EXbeo" value="false" />
     <node concept="3Tm1VV" id="7Z8mn0jsKzq" role="1B3o_S" />

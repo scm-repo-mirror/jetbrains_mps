@@ -20,8 +20,8 @@ import org.jetbrains.annotations.NotNull;
  * Will be gone when I implement find usages for source stubs.
  * For now MPS seems to do the default thing: goes through the model nodes which turns out to be very slow
  */
-public class EmptyJavaSourcetubsFindUsages implements FindUsagesParticipant, ApplicationComponent {
-  public EmptyJavaSourcetubsFindUsages() {
+public class EmptyJavaSourceStubsFindUsages implements FindUsagesParticipant, ApplicationComponent {
+  public EmptyJavaSourceStubsFindUsages() {
   }
   public void findUsages(Collection<SModel> models, Set<SNode> set, Consumer<SReference> consumer, Consumer<SModel> processedConsumer) {
     // just skipping java psi stub models from find usages  
