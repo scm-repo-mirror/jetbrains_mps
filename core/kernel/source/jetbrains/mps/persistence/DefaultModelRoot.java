@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -79,23 +79,10 @@ import java.util.List;
  * @author evgeny
  * @since 11/9/12
  */
-public /*final*/ class DefaultModelRoot extends FileBasedModelRoot implements CopyableModelRoot<DefaultModelRoot> {
+public final class DefaultModelRoot extends FileBasedModelRoot implements CopyableModelRoot<DefaultModelRoot> {
   private static final Logger LOG = LogManager.getLogger(DefaultModelRoot.class);
   private final ModelFactoryRegistry myModelFactoryRegistry;
   private final DataSourceFactoryRuleService myDataSourceRegistry;
-
-  /**
-   * FIXME must be made package-local or protected (as long as there's subclass)
-   * FIXME one must have either factory creation or a public constructor not both [AP]
-   * @deprecated Use {@link #createDescriptor(IFile, IFile...)} if you need to populate ModuleDescriptor. Proper cons (package-local) shall get
-   *             invoked from ModelRootFactory only.
-   */
-  @Deprecated
-  @ToRemove(version = 2018.2)
-  public DefaultModelRoot() {
-    this(ModelFactoryService.getInstance(), DataSourceFactoryRuleService.getInstance());
-    LOG.error(String.format("Class DefaultModelRoot would become final in the next release, please fix %s accordingly", getClass().getName()));
-  }
 
   /**
    * Use {@link ModelRootFactory#create()} to obtain instance of the class

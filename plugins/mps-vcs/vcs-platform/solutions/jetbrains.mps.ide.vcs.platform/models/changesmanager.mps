@@ -30,13 +30,11 @@
     <import index="9w4s" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util(MPS.IDEA/)" />
     <import index="hdhb" ref="r:07568eb8-30c0-4bb3-9dcb-50ee4b8de59a(jetbrains.mps.vcs.diff.ui.common)" />
     <import index="jlff" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vfs(MPS.IDEA/)" />
-    <import index="fy1h" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vcs.diff(MPS.IDEA/)" />
     <import index="1m72" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.components(MPS.IDEA/)" />
     <import index="1037" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vcs.changes(MPS.IDEA/)" />
     <import index="4nm9" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project(MPS.IDEA/)" />
     <import index="j86o" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vcs.impl(MPS.IDEA/)" />
     <import index="s9o5" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.editor(MPS.IDEA/)" />
-    <import index="yah0" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.vcs.history(MPS.IDEA/)" />
     <import index="bmv6" ref="r:e9c4e128-4808-4224-a92b-dbeed02eb860(jetbrains.mps.vcs.diff.merge)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="j9co" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.event(MPS.Core/)" />
@@ -53,6 +51,7 @@
     <import index="alof" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.project(MPS.Platform/)" />
     <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" />
     <import index="bxo2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence.datasource(MPS.OpenAPI/)" />
+    <import index="wyuk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.components(MPS.Core/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
   </imports>
@@ -2077,6 +2076,27 @@
               </node>
               <node concept="3clFbJ" id="2Q$tfOPWse_" role="3cqZAp">
                 <node concept="3clFbS" id="2Q$tfOPWseB" role="3clFbx">
+                  <node concept="3cpWs8" id="ku3LtoUCuc" role="3cqZAp">
+                    <node concept="3cpWsn" id="ku3LtoUCud" role="3cpWs9">
+                      <property role="TrG5h" value="mpsPlatform" />
+                      <property role="3TUv4t" value="true" />
+                      <node concept="3uibUv" id="ku3LtoV7cv" role="1tU5fm">
+                        <ref role="3uigEE" to="wyuk:~ComponentHost" resolve="ComponentHost" />
+                      </node>
+                      <node concept="2OqwBi" id="ku3LtoV3oy" role="33vP2m">
+                        <node concept="2YIFZM" id="ku3LtoUCue" role="2Oq$k0">
+                          <ref role="1Pybhc" to="alof:~ProjectHelper" resolve="ProjectHelper" />
+                          <ref role="37wK5l" to="alof:~ProjectHelper.fromIdeaProject(com.intellij.openapi.project.Project)" resolve="fromIdeaProject" />
+                          <node concept="37vLTw" id="ku3LtoUCuf" role="37wK5m">
+                            <ref role="3cqZAo" node="2LgKyNJ4mcC" resolve="project" />
+                          </node>
+                        </node>
+                        <node concept="liA8E" id="ku3LtoV5y6" role="2OqNvi">
+                          <ref role="37wK5l" to="z1c4:~ProjectBase.getPlatform()" resolve="getPlatform" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
                   <node concept="3SKdUt" id="2Q$tfOPW$60" role="3cqZAp">
                     <node concept="3SKdUq" id="2Q$tfOPW$62" role="3SKWNk">
                       <property role="3SKdUp" value="no base version for &quot;.model&quot; file means there was no model" />
@@ -2085,6 +2105,9 @@
                   <node concept="3cpWs6" id="2LgKyNJnCnG" role="3cqZAp">
                     <node concept="1rXfSq" id="7l6b$Kxshvy" role="3cqZAk">
                       <ref role="37wK5l" node="7l6b$Kxs8dT" resolve="loadPerRootModel" />
+                      <node concept="37vLTw" id="ku3LtoVjlw" role="37wK5m">
+                        <ref role="3cqZAo" node="ku3LtoUCud" resolve="mpsPlatform" />
+                      </node>
                       <node concept="37vLTw" id="7l6b$Kxsqtn" role="37wK5m">
                         <ref role="3cqZAo" node="2LgKyNJn9MT" resolve="content" />
                       </node>
@@ -2131,6 +2154,12 @@
       <property role="TrG5h" value="loadPerRootModel" />
       <property role="DiZV1" value="false" />
       <property role="od$2w" value="false" />
+      <node concept="37vLTG" id="ku3LtoTEo8" role="3clF46">
+        <property role="TrG5h" value="mpsPlatform" />
+        <node concept="3uibUv" id="ku3LtoU3OV" role="1tU5fm">
+          <ref role="3uigEE" to="wyuk:~ComponentHost" resolve="ComponentHost" />
+        </node>
+      </node>
       <node concept="37vLTG" id="7l6b$Kxs8dU" role="3clF46">
         <property role="TrG5h" value="content" />
         <property role="3TUv4t" value="true" />
@@ -2153,9 +2182,16 @@
               <ref role="3uigEE" to="dush:~ModelFactory" resolve="ModelFactory" />
             </node>
             <node concept="2OqwBi" id="7l6b$Kxs8e2" role="33vP2m">
-              <node concept="2YIFZM" id="7l6b$Kxs8fK" role="2Oq$k0">
-                <ref role="1Pybhc" to="ends:~ModelFactoryService" resolve="ModelFactoryService" />
-                <ref role="37wK5l" to="ends:~ModelFactoryService.getInstance()" resolve="getInstance" />
+              <node concept="2OqwBi" id="ku3LtoUny9" role="2Oq$k0">
+                <node concept="37vLTw" id="ku3LtoUldz" role="2Oq$k0">
+                  <ref role="3cqZAo" node="ku3LtoTEo8" resolve="mpsPlatform" />
+                </node>
+                <node concept="liA8E" id="ku3LtoUpLU" role="2OqNvi">
+                  <ref role="37wK5l" to="wyuk:~ComponentHost.findComponent(java.lang.Class)" resolve="findComponent" />
+                  <node concept="3VsKOn" id="ku3LtoUtHC" role="37wK5m">
+                    <ref role="3VsUkX" to="ends:~ModelFactoryService" resolve="ModelFactoryService" />
+                  </node>
+                </node>
               </node>
               <node concept="liA8E" id="7l6b$Kxs8e4" role="2OqNvi">
                 <ref role="37wK5l" to="ends:~ModelFactoryService.getFactoryByType(org.jetbrains.mps.openapi.persistence.ModelFactoryType)" resolve="getFactoryByType" />

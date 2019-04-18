@@ -30,6 +30,8 @@ import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import jetbrains.mps.project.MPSExtentions;
+import jetbrains.mps.components.ComponentHost;
+import jetbrains.mps.ide.project.ProjectHelper;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
 import jetbrains.mps.extapi.persistence.ModelFactoryService;
 import jetbrains.mps.persistence.PreinstalledModelFactoryTypes;
@@ -129,15 +131,16 @@ public class BaseVersionUtil {
         MapSequence.fromMap(content).put(stream, o);
       }
       if (MapSequence.fromMap(content).containsKey(MPSExtentions.DOT_MODEL_HEADER)) {
+        final ComponentHost mpsPlatform = ProjectHelper.fromIdeaProject(project).getPlatform();
         // no base version for ".model" file means there was no model 
-        return loadPerRootModel(content);
+        return loadPerRootModel(mpsPlatform, content);
       }
     }
     return null;
   }
 
-  private static SModel loadPerRootModel(final Map<String, Object> content) {
-    ModelFactory factory = ModelFactoryService.getInstance().getFactoryByType(PreinstalledModelFactoryTypes.PER_ROOT_XML);
+  private static SModel loadPerRootModel(ComponentHost mpsPlatform, final Map<String, Object> content) {
+    ModelFactory factory = mpsPlatform.findComponent(ModelFactoryService.class).getFactoryByType(PreinstalledModelFactoryTypes.PER_ROOT_XML);
     if (factory == null) {
       return null;
     }

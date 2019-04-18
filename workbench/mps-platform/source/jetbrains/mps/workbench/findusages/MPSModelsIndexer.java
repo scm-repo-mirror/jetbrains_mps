@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,8 +27,10 @@ import com.intellij.util.indexing.FileContent;
 import com.intellij.util.indexing.ID;
 import com.intellij.util.indexing.ScalarIndexExtension;
 import com.intellij.util.io.KeyDescriptor;
+import jetbrains.mps.core.platform.Platform;
 import jetbrains.mps.extapi.persistence.ModelFactoryService;
 import jetbrains.mps.fileTypes.MPSFileTypeFactory;
+import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.persistence.IndexAwareModelFactory;
 import jetbrains.mps.persistence.IndexAwareModelFactory.Callback;
 import jetbrains.mps.smodel.adapter.ids.SConceptId;
@@ -62,8 +64,9 @@ public class MPSModelsIndexer extends ScalarIndexExtension<UsageEntry> {
     return FileBasedIndex.getInstance().getContainingFiles(NAME, entry, allFiles);
   }
 
-  public MPSModelsIndexer() {
-    for (ModelFactory mf : ModelFactoryService.getInstance().getFactories()) {
+  public MPSModelsIndexer(MPSCoreComponents mpsCoreComponents) {
+    final Platform mpsPlatform = mpsCoreComponents.getPlatform();
+    for (ModelFactory mf : mpsPlatform.findComponent(ModelFactoryService.class).getFactories()) {
       if (mf instanceof IndexAwareModelFactory) {
         for (DataSourceType type : mf.getPreferredDataSourceTypes()) {
           if (type instanceof FileExtensionDataSourceType) {
