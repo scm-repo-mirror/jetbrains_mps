@@ -85,6 +85,7 @@ public class Generator extends ReloadableModuleBase {
   //models will be named like xxx.modelName, where xxx is a part of newName before sharp symbol
   @Override
   public void rename(@NotNull String newModuleName) {
+    assertCanChange();
     final String oldModuleName = getModuleName();
     final String oldModuleNameStem = nameUpToSharp(oldModuleName);
     newModuleName = nameUpToSharp(newModuleName);
@@ -108,6 +109,8 @@ public class Generator extends ReloadableModuleBase {
       myGeneratorDescriptor.setNamespace(sharpIndexOld > 0 ? newModuleName + oldModuleName.substring(sharpIndexOld) : newModuleName);
     }
     // FIXME why there's no fireModuleRenamed() as in super.rename()???
+    //       it seems that the only client of the notification, ProjectBase, assumes there are no generator modules coming in notification (IAE when
+    //       descriptor file is null)
 
     final IFile moduleFolder = getModuleSourceDir();
     // Only rename generation output path if we expect language folder rename (is equal to language name)
@@ -120,6 +123,10 @@ public class Generator extends ReloadableModuleBase {
         // FIXME who's responsible to rename the fs folder?
         ProjectPathUtil.setGeneratorOutputPath(myGeneratorDescriptor, generatorOutputPath.replace(oldModuleNameStem, nameUpToSharp(newModuleName)));
       }
+    }
+    if (!isChanged()) {
+      setChanged();
+      fireChanged();
     }
   }
 
