@@ -56,6 +56,6 @@ public final class WordIndexEntry {
 
   @Override
   public boolean equals(Object obj) {
-    return obj instanceof WordIndexEntry && super.equals(((WordIndexEntry) obj).myWordHash == myWordHash);
+    return obj instanceof WordIndexEntry && ((WordIndexEntry) obj).myWordHash == myWordHash;
   }
 }

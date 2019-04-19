@@ -18,6 +18,7 @@ package jetbrains.mps.workbench.index;
 import gnu.trove.THashSet;
 import org.jetbrains.mps.openapi.model.SNodeId;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Objects;
@@ -53,5 +54,15 @@ public final class ModelNodesData {
       return myElements.equals(((ModelNodesData) obj).myElements);
     }
     return false;
+  }
+
+  /*package*/ ModelNodesData intersect(ModelNodesData other) {
+    ArrayList<SNodeId> l = new ArrayList<>(myElements.size());
+    for (SNodeId nid : myElements) {
+      if (other.myElements.contains(nid)) {
+        l.add(nid);
+      }
+    }
+    return new ModelNodesData(l);
   }
 }

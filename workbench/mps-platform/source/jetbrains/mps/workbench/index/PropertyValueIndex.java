@@ -16,9 +16,15 @@
 package jetbrains.mps.workbench.index;
 
 import com.intellij.openapi.fileTypes.FileType;
+import com.intellij.openapi.module.Module;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.psi.search.GlobalSearchScope;
+import com.intellij.util.CommonProcessors.CollectProcessor;
 import com.intellij.util.indexing.DataIndexer;
 import com.intellij.util.indexing.DefaultFileTypeSpecificInputFilter;
+import com.intellij.util.indexing.FileBasedIndex;
 import com.intellij.util.indexing.FileBasedIndex.InputFilter;
+import com.intellij.util.indexing.FileBasedIndex.ValueProcessor;
 import com.intellij.util.indexing.FileBasedIndexExtension;
 import com.intellij.util.indexing.FileContent;
 import com.intellij.util.indexing.ID;
@@ -33,12 +39,17 @@ import jetbrains.mps.extapi.persistence.ModelFactoryService;
 import jetbrains.mps.fileTypes.MPSFileTypeFactory;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.persistence.IndexAwareModelFactory;
+import jetbrains.mps.project.MPSProject;
+import jetbrains.mps.smodel.SModelFileTracker;
 import jetbrains.mps.smodel.adapter.ids.SConceptId;
+import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.workbench.findusages.MPSModelsIndexer;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
+import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
 import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
@@ -52,6 +63,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 
@@ -70,6 +82,81 @@ public class PropertyValueIndex extends FileBasedIndexExtension<WordIndexEntry, 
   private static final ID<WordIndexEntry, ModelNodesData> NAME = ID.create("mps.propvalue");
 
   private final Map<FileType, IndexAwareModelFactory> myIndexAwareFileTypes = new HashMap<>();
+
+  public static void processValues(String text, final Consumer<SNode> sink, MPSProject mpsProject) {
+    // Can not use ProjectAndLibrariesScope as MPS project sources are not recognized as part of IDEA projects
+    // see RootIndex#buildRootInfo(). It's unfortunate as the RootIndex (suddenly!) knows about excluded classes_gen and source_gen locations
+    // and as such is capable to exclude checkpoint models
+    final GlobalSearchScope scope = new GlobalSearchScope(mpsProject.getProject()) {
+      @Override
+      public boolean isSearchInModuleContent(@NotNull Module aModule) {
+        return false;
+      }
+
+      @Override
+      public boolean isSearchInLibraries() {
+        return false;
+      }
+
+      @Override
+      public boolean contains(@NotNull VirtualFile file) {
+        return true;
+      }
+    };
+    THashSet<WordIndexEntry> keys = new THashSet<>();
+    for (String word : text.split("\\s")) {
+      if (word.isEmpty()) {
+        continue;
+      }
+      keys.add(new WordIndexEntry(word, 0, word.length()));
+    }
+    ArrayList<VirtualFile> files = new ArrayList<>();
+    FileBasedIndex.getInstance().processFilesContainingAllKeys(NAME, keys, scope, null, new CollectProcessor<>(files));
+    if (files.isEmpty()) {
+      return;
+    }
+    SModelFileTracker modelFileTracker = SModelFileTracker.getInstance(mpsProject.getRepository());
+    class IntersectDataProcessor implements ValueProcessor<ModelNodesData> {
+      /*package*/ ModelNodesData intersection;
+
+      @Override
+      public boolean process(@NotNull VirtualFile file, ModelNodesData value) {
+        if (intersection == null) {
+          intersection = value;
+        } else  {
+          intersection = intersection.intersect(value);
+        }
+        return true;
+      }
+    };
+    for (VirtualFile vf : files) {
+      // only nodes that are mentioned for all keys
+
+      IntersectDataProcessor valueProcessor = new IntersectDataProcessor();
+      for (WordIndexEntry w : keys) {
+        FileBasedIndex.getInstance().processValues(NAME, w, vf, valueProcessor, scope);
+      }
+      if (valueProcessor.intersection.count() == 0) {
+        // though vf has to contain all keys (I assume #processFilesContainingAllKeys() does that)
+        // it's still possible that the values belong to different nodes
+        continue;
+      }
+      final IFile mpsFile = mpsProject.getFileSystem().fromVirtualFile(vf);
+      mpsProject.getModelAccess().runReadAction(() -> {
+        final SModel model = modelFileTracker.findModel(mpsFile);
+        if (model == null) {
+          return;
+        }
+        for (SNodeId nid : valueProcessor.intersection.elements()) {
+          final SNode node = model.getNode(nid);
+          if (node == null) {
+            continue;
+          }
+          sink.accept(node);
+        }
+      });
+    }
+  }
 
   public PropertyValueIndex(MPSCoreComponents mpsCoreComponents) {
     // copied from MPSModelsIndexer
