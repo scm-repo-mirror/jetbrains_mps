@@ -2,11 +2,11 @@
 <model ref="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)">
   <persistence version="9" />
   <languages>
-    <use id="798100da-4f0a-421a-b991-71f8c50ce5d2" name="jetbrains.mps.build" version="0" />
-    <use id="d5033cee-f632-44b6-b308-89d4fbde34ff" name="jetbrains.mps.build.startup" version="0" />
-    <use id="0cf935df-4699-4e9c-a132-fa109541cba3" name="jetbrains.mps.build.mps" version="7" />
-    <use id="698a8d22-a104-47a0-ba8d-10e3ec237f13" name="jetbrains.mps.build.workflow" version="0" />
-    <use id="479c7a8c-02f9-43b5-9139-d910cb22f298" name="jetbrains.mps.core.xml" version="0" />
+    <use id="798100da-4f0a-421a-b991-71f8c50ce5d2" name="jetbrains.mps.build" version="-1" />
+    <use id="d5033cee-f632-44b6-b308-89d4fbde34ff" name="jetbrains.mps.build.startup" version="-1" />
+    <use id="0cf935df-4699-4e9c-a132-fa109541cba3" name="jetbrains.mps.build.mps" version="-1" />
+    <use id="698a8d22-a104-47a0-ba8d-10e3ec237f13" name="jetbrains.mps.build.workflow" version="-1" />
+    <use id="479c7a8c-02f9-43b5-9139-d910cb22f298" name="jetbrains.mps.core.xml" version="-1" />
   </languages>
   <imports />
   <registry>
@@ -540,7 +540,7 @@
             <node concept="2Ry0Ak" id="1s0vtrx9SbO" role="iGT6I">
               <property role="2Ry0Am" value="lib" />
               <node concept="2Ry0Ak" id="3DoJIjdXZwS" role="2Ry0An">
-                <property role="2Ry0Am" value="asm-all-7.0.jar" />
+                <property role="2Ry0Am" value="asm-all-7.0.1.jar" />
               </node>
             </node>
           </node>
@@ -17166,7 +17166,7 @@
       <node concept="13uQ2_" id="4Xk_ETUiPTn" role="39821P">
         <node concept="3_J27D" id="4Xk_ETUiPTp" role="13uQ07">
           <node concept="3Mxwew" id="4Xk_ETUiPU7" role="3MwsjC">
-            <property role="3MwjfP" value="asm-all-7.0.jar" />
+            <property role="3MwjfP" value="asm-all-7.0.1.jar" />
           </node>
         </node>
       </node>
