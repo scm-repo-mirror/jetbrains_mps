@@ -550,20 +550,13 @@
   <root nodeRef="r:00000000-0000-4000-0000-011c895902b0(jetbrains.mps.lang.typesystem.editor)/1174643207657">
     <file name="InferenceRule_Editor.java">
       <node id="1174643207657" at="11,79,12,79" concept="8" />
-      <node id="1174643207657" at="14,82,15,82" concept="8" />
       <node id="1174643207657" at="11,0,14,0" concept="6" trace="createEditorCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="1174643207657" at="14,0,17,0" concept="6" trace="createInspectedCell#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
       <scope id="1174643207657" at="11,79,12,79" />
-      <scope id="1174643207657" at="14,82,15,82" />
       <scope id="1174643207657" at="11,0,14,0">
         <var name="editorContext" id="1174643207657" />
         <var name="node" id="1174643207657" />
       </scope>
-      <scope id="1174643207657" at="14,0,17,0">
-        <var name="editorContext" id="1174643207657" />
-        <var name="node" id="1174643207657" />
-      </scope>
-      <unit id="1174643207657" at="10,0,18,0" name="jetbrains.mps.lang.typesystem.editor.InferenceRule_Editor" />
+      <unit id="1174643207657" at="10,0,15,0" name="jetbrains.mps.lang.typesystem.editor.InferenceRule_Editor" />
     </file>
     <file name="InferenceRule_EditorBuilder_a.java">
       <node id="1174643207657" at="78,93,79,19" concept="13" />
@@ -1394,149 +1387,6 @@
       <unit id="1174643207657" at="632,0,683,0" name="jetbrains.mps.lang.typesystem.editor.InferenceRule_EditorBuilder_a$bodySingleRoleHandler_robprv_b6b1a" />
       <unit id="1174643207657" at="255,0,309,0" name="jetbrains.mps.lang.typesystem.editor.InferenceRule_EditorBuilder_a$applicableNodeSingleRoleHandler_robprv_c0b1a" />
       <unit id="1174643207657" at="74,0,705,0" name="jetbrains.mps.lang.typesystem.editor.InferenceRule_EditorBuilder_a" />
-    </file>
-    <file name="InferenceRule_InspectorBuilder_a.java">
-      <node id="1174643207657" at="37,96,38,19" concept="13" />
-      <node id="1174643207657" at="38,19,39,18" concept="2" />
-      <node id="1174643207657" at="44,26,45,18" concept="8" />
-      <node id="1174643207657" at="48,39,49,32" concept="8" />
-      <node id="1174643207657" at="52,43,53,120" concept="7" />
-      <node id="1174643207657" at="53,120,54,48" concept="2" />
-      <node id="1174643207657" at="54,48,55,28" concept="2" />
-      <node id="1174643207657" at="55,28,56,31" concept="2" />
-      <node id="2995323193947542206" at="57,37,58,53" concept="2" />
-      <node id="1193744398989" at="60,37,61,54" concept="2" />
-      <node id="1174643207657" at="62,5,63,22" concept="8" />
-      <node id="2995323193947542210" at="65,46,66,210" concept="8" />
-      <node id="2995323193947574258" at="68,46,69,229" concept="8" />
-      <node id="1174643207657" at="71,43,72,122" concept="7" />
-      <node id="1174643207657" at="72,122,73,48" concept="2" />
-      <node id="1193744398988" at="73,48,74,49" concept="2" />
-      <node id="1174643207657" at="74,49,75,22" concept="8" />
-      <node id="1193744398988" at="77,41,78,129" concept="7" />
-      <node id="1193744398988" at="78,129,79,46" concept="2" />
-      <node id="1193744398988" at="79,46,80,34" concept="7" />
-      <node id="3831921434281686237" at="80,34,81,48" concept="2" />
-      <node id="1193744398988" at="81,48,82,40" concept="2" />
-      <node id="1193744398988" at="82,40,83,34" concept="2" />
-      <node id="1193744398988" at="83,34,84,22" concept="8" />
-      <node id="1174643207657" at="86,44,87,135" concept="7" />
-      <node id="1174643207657" at="87,135,88,93" concept="7" />
-      <node id="1174643207657" at="88,93,89,51" concept="2" />
-      <node id="1174643207657" at="89,51,90,35" concept="2" />
-      <node id="1174643207657" at="90,35,91,51" concept="2" />
-      <node id="1174643207657" at="91,51,92,22" concept="8" />
-      <node id="1174643207657" at="98,84,99,28" concept="13" />
-      <node id="1174643207657" at="99,28,100,25" concept="2" />
-      <node id="1174643207657" at="104,28,105,20" concept="8" />
-      <node id="1174643207657" at="107,40,108,139" concept="8" />
-      <node id="1174643207657" at="110,48,111,150" concept="8" />
-      <node id="1174643207657" at="114,57,115,83" concept="7" />
-      <node id="1174643207657" at="115,83,116,65" concept="2" />
-      <node id="1174643207657" at="116,65,117,25" concept="8" />
-      <node id="1174643207657" at="119,41,120,41" concept="2" />
-      <node id="1174643207657" at="120,41,121,251" concept="2" />
-      <node id="1174643207657" at="122,11,123,36" concept="7" />
-      <node id="1174643207657" at="123,36,124,44" concept="2" />
-      <node id="1174643207657" at="124,44,125,57" concept="2" />
-      <node id="1174643207657" at="125,57,126,34" concept="2" />
-      <node id="1174643207657" at="126,34,127,25" concept="8" />
-      <node id="1174643207657" at="128,17,129,42" concept="2" />
-      <node id="1174643207657" at="133,96,134,134" concept="2" />
-      <node id="1174643207657" at="135,34,136,142" concept="2" />
-      <node id="1174643207657" at="136,142,137,146" concept="2" />
-      <node id="1174643207657" at="139,122,140,146" concept="2" />
-      <node id="1174643207657" at="34,0,36,0" concept="3" trace="myNode" />
-      <node id="1174643207657" at="95,0,97,0" concept="3" trace="myNode" />
-      <node id="1174643207657" at="48,0,51,0" concept="6" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="2995323193947542206" at="56,31,59,5" concept="5" />
-      <node id="1193744398989" at="59,5,62,5" concept="5" />
-      <node id="2995323193947542208" at="65,0,68,0" concept="6" trace="nodeCondition_robprv_a0a#()Z" />
-      <node id="2995323193947574256" at="68,0,71,0" concept="6" trace="nodeCondition_robprv_a1a#()Z" />
-      <node id="1174643207657" at="107,0,110,0" concept="6" trace="getSLink#()Lorg/jetbrains/mps/openapi/language/SContainmentLink;" />
-      <node id="1174643207657" at="110,0,113,0" concept="6" trace="getChildSConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="1174643207657" at="138,9,141,9" concept="5" />
-      <node id="1174643207657" at="37,0,41,0" concept="1" trace="InferenceRule_InspectorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="1174643207657" at="98,0,102,0" concept="1" trace="dependencyListHandler_robprv_b0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/EditorContext;)V" />
-      <node id="1174643207657" at="103,0,107,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="1174643207657" at="134,134,138,9" concept="5" />
-      <node id="1174643207657" at="42,0,47,0" concept="6" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="1174643207657" at="114,0,119,0" concept="6" trace="createNodeCell#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="1174643207657" at="71,0,77,0" concept="6" trace="createCollection_1#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="1174643207657" at="86,0,94,0" concept="6" trace="createRefNodeList_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="1193744398988" at="77,0,86,0" concept="6" trace="createConstant_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="1174643207657" at="121,251,130,7" concept="15" />
-      <node id="1174643207657" at="132,107,142,7" concept="5" />
-      <node id="1174643207657" at="132,0,144,0" concept="6" trace="installElementCellActions#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/openapi/editor/cells/EditorCell;Z)V" />
-      <node id="1174643207657" at="52,0,65,0" concept="6" trace="createCollection_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="1174643207657" at="119,0,132,0" concept="6" trace="createEmptyCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <scope id="1174643207657" at="44,26,45,18" />
-      <scope id="1174643207657" at="48,39,49,32" />
-      <scope id="2995323193947542206" at="57,37,58,53" />
-      <scope id="1193744398989" at="60,37,61,54" />
-      <scope id="2995323193947542209" at="65,46,66,210" />
-      <scope id="2995323193947574257" at="68,46,69,229" />
-      <scope id="1174643207657" at="104,28,105,20" />
-      <scope id="1174643207657" at="107,40,108,139" />
-      <scope id="1174643207657" at="110,48,111,150" />
-      <scope id="1174643207657" at="128,17,129,42" />
-      <scope id="1174643207657" at="139,122,140,146" />
-      <scope id="1174643207657" at="37,96,39,18" />
-      <scope id="1174643207657" at="98,84,100,25" />
-      <scope id="1174643207657" at="135,34,137,146" />
-      <scope id="1174643207657" at="48,0,51,0" />
-      <scope id="2995323193947542208" at="65,0,68,0" />
-      <scope id="2995323193947574256" at="68,0,71,0" />
-      <scope id="1174643207657" at="107,0,110,0" />
-      <scope id="1174643207657" at="110,0,113,0" />
-      <scope id="1174643207657" at="114,57,117,25">
-        <var name="elementCell" id="1174643207657" />
-      </scope>
-      <scope id="1174643207657" at="37,0,41,0">
-        <var name="context" id="1174643207657" />
-        <var name="node" id="1174643207657" />
-      </scope>
-      <scope id="1174643207657" at="71,43,75,22">
-        <var name="editorCell" id="1174643207657" />
-      </scope>
-      <scope id="1174643207657" at="98,0,102,0">
-        <var name="context" id="1174643207657" />
-        <var name="ownerNode" id="1174643207657" />
-      </scope>
-      <scope id="1174643207657" at="103,0,107,0" />
-      <scope id="1174643207657" at="42,0,47,0" />
-      <scope id="1174643207657" at="114,0,119,0">
-        <var name="elementNode" id="1174643207657" />
-      </scope>
-      <scope id="1174643207657" at="122,11,127,25">
-        <var name="emptyCell" id="1174643207657" />
-      </scope>
-      <scope id="1174643207657" at="71,0,77,0" />
-      <scope id="1174643207657" at="86,44,92,22">
-        <var name="editorCell" id="1174643207657" />
-        <var name="handler" id="1174643207657" />
-      </scope>
-      <scope id="1193744398988" at="77,41,84,22">
-        <var name="editorCell" id="1193744398988" />
-        <var name="style" id="1193744398988" />
-      </scope>
-      <scope id="1174643207657" at="86,0,94,0" />
-      <scope id="1174643207657" at="133,96,141,9" />
-      <scope id="1193744398988" at="77,0,86,0" />
-      <scope id="1174643207657" at="132,107,142,7" />
-      <scope id="1174643207657" at="52,43,63,22">
-        <var name="editorCell" id="1174643207657" />
-      </scope>
-      <scope id="1174643207657" at="119,41,130,7" />
-      <scope id="1174643207657" at="132,0,144,0">
-        <var name="elementCell" id="1174643207657" />
-        <var name="elementNode" id="1174643207657" />
-        <var name="isEmptyCell" id="1174643207657" />
-      </scope>
-      <scope id="1174643207657" at="52,0,65,0" />
-      <scope id="1174643207657" at="119,0,132,0" />
-      <unit id="1174643207657" at="94,0,145,0" name="jetbrains.mps.lang.typesystem.editor.InferenceRule_InspectorBuilder_a$dependencyListHandler_robprv_b0" />
-      <unit id="1174643207657" at="33,0,146,0" name="jetbrains.mps.lang.typesystem.editor.InferenceRule_InspectorBuilder_a" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902b0(jetbrains.mps.lang.typesystem.editor)/1174650485278">

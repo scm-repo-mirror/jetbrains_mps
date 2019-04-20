@@ -7,7 +7,7 @@ import jetbrains.mps.smodel.runtime.IconResource;
 public class IconContainer {
   protected static IconResource RESOURCE_a0a2a0a51b0le = new IconResource("comparison.png", IconContainer.class);
   protected static IconResource RESOURCE_a0a2a0a83b0le = new IconResource("replacement.png", IconContainer.class);
-  protected static IconResource RESOURCE_a0a3a0a93b0le = new IconResource("rule.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a2a0a93b0le = new IconResource("rule.png", IconContainer.class);
   protected static IconResource RESOURCE_a0a2a0a95b0le = new IconResource("nontypesystem.png", IconContainer.class);
   protected static IconResource RESOURCE_a0a2a0a56b0le = new IconResource("overloadedRules.png", IconContainer.class);
   protected static IconResource RESOURCE_a0a2a0a49b0le = new IconResource("substitute.png", IconContainer.class);
