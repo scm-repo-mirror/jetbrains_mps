@@ -923,7 +923,7 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590339(jetbrains.mps.baseLanguage.closures.helper)/1201861621557">
     <file name="ClosureLiteralUtil.java">
-      <node id="1229018864233" at="24,581,25,20" concept="12" />
+      <node id="1229018864233" at="24,427,25,20" concept="12" />
       <node id="1201861798344" at="27,5,28,17" concept="12" />
       <node id="1202833745035" at="30,75,31,70" concept="11" />
       <node id="1202835350107" at="33,407,34,351" concept="11" />
@@ -957,7 +957,7 @@
       <node id="1202833632887" at="31,70,41,5" concept="8" />
       <node id="1202833632881" at="30,0,44,0" concept="15" trace="collectNonFinalVariableDeclarations#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/util/List;" />
       <node id="100821637069110950" at="44,0,71,0" concept="15" trace="fillParams#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <scope id="1229018807135" at="24,581,25,20" />
+      <scope id="1229018807135" at="24,427,25,20" />
       <scope id="1202833868264" at="36,546,37,385" />
       <scope id="2684739085678641662" at="47,25,48,18" />
       <scope id="2684739085678641514" at="50,507,51,272" />

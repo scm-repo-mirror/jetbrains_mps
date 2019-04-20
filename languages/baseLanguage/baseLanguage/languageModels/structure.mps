@@ -2097,34 +2097,6 @@
       <ref role="20lvS9" node="fz3vP1J" resolve="Expression" />
     </node>
   </node>
-  <node concept="1TIwiD" id="h8u8gbX">
-    <property role="TrG5h" value="CommentedStatementsBlock" />
-    <property role="2_RsDV" value="none" />
-    <property role="3GE5qa" value="comments" />
-    <property role="34LRSv" value="/*" />
-    <property role="EcuMT" value="1177326519037" />
-    <ref role="1TJDcQ" node="fzclF8l" resolve="Statement" />
-    <node concept="1TJgyj" id="h8u8lv$" role="1TKVEi">
-      <property role="20lmBu" value="aggregation" />
-      <property role="20kJfa" value="statement" />
-      <property role="20lbJX" value="0..n" />
-      <property role="IQ2ns" value="1177326540772" />
-      <ref role="20lvS9" node="fzclF8l" resolve="Statement" />
-    </node>
-    <node concept="PrWs8" id="154Bg$Afjja" role="PzmwI">
-      <ref role="PrY4T" node="i1I$4rA" resolve="ILocalVariableElementList" />
-    </node>
-    <node concept="PrWs8" id="U99cpalq9I" role="PzmwI">
-      <ref role="PrY4T" to="tpck:2WmWrdnSpX3" resolve="ISuppressErrors" />
-    </node>
-    <node concept="PrWs8" id="6KqaYzPD5fU" role="PzmwI">
-      <ref role="PrY4T" to="tpck:3$Sh7m_tmYK" resolve="IOldCommentContainer" />
-    </node>
-    <node concept="asaX9" id="6KqaYzPCRAK" role="lGtFl">
-      <property role="YLPcu" value="3.3" />
-      <property role="YLQ7P" value="Use BaseCommentAttribute instead" />
-    </node>
-  </node>
   <node concept="1TIwiD" id="h8MpOA8">
     <property role="R4oN_" value="do... while loop" />
     <property role="TrG5h" value="DoWhileStatement" />

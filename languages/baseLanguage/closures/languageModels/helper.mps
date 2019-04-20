@@ -7312,9 +7312,6 @@
                       <node concept="3gn64h" id="hSBeRSe" role="3gmYPZ">
                         <ref role="3gnhBz" to="tpee:htgVS9_" resolve="IStatementListContainer" />
                       </node>
-                      <node concept="3gn64h" id="hSBeSIK" role="3gmYPZ">
-                        <ref role="3gnhBz" to="tpee:h8u8gbX" resolve="CommentedStatementsBlock" />
-                      </node>
                     </node>
                   </node>
                 </node>

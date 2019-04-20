@@ -240,9 +240,6 @@
         <reference id="2644386474302386081" name="conceptDeclaration" index="355D3t" />
         <reference id="2644386474302386082" name="propertyDeclaration" index="355D3u" />
       </concept>
-      <concept id="2644386474300074836" name="jetbrains.mps.lang.smodel.structure.ConceptIdRefExpression" flags="nn" index="35c_gC">
-        <reference id="2644386474300074837" name="conceptDeclaration" index="35c_gD" />
-      </concept>
       <concept id="1139613262185" name="jetbrains.mps.lang.smodel.structure.Node_GetParentOperation" flags="nn" index="1mfA1w" />
       <concept id="1139621453865" name="jetbrains.mps.lang.smodel.structure.Node_IsInstanceOfOperation" flags="nn" index="1mIQ4w">
         <child id="1177027386292" name="conceptArgument" index="cj9EA" />
@@ -1491,22 +1488,9 @@
       <ref role="2VtyIY" to="slm6:4ubqdNOF9cA" resolve="execute" />
       <node concept="3Tm1VV" id="2LYh6L3fbxf" role="1B3o_S" />
       <node concept="3clFbS" id="2LYh6L3fbxg" role="3clF47">
-        <node concept="3clFbF" id="2LYh6L3fbxh" role="3cqZAp">
-          <node concept="2OqwBi" id="2LYh6L3fbxi" role="3clFbG">
-            <node concept="2ShNRf" id="2LYh6L3fbxj" role="2Oq$k0">
-              <node concept="1pGfFk" id="2LYh6L3fbxk" role="2ShVmc">
-                <ref role="37wK5l" to="uubw:ANVkWUi_$c" resolve="OldCommentContainerMigration" />
-                <node concept="35c_gC" id="2LYh6L3fbx8" role="37wK5m">
-                  <ref role="35c_gD" to="tpee:h8u8gbX" resolve="CommentedStatementsBlock" />
-                </node>
-                <node concept="37vLTw" id="2LYh6L3fbxl" role="37wK5m">
-                  <ref role="3cqZAo" node="2LYh6L3fbxn" resolve="m" />
-                </node>
-              </node>
-            </node>
-            <node concept="liA8E" id="2LYh6L3fbxm" role="2OqNvi">
-              <ref role="37wK5l" to="uubw:ANVkWUiA8L" resolve="migrate" />
-            </node>
+        <node concept="3SKdUt" id="1MqieoZ2M1r" role="3cqZAp">
+          <node concept="3SKdUq" id="1MqieoZ2M1s" role="3SKWNk">
+            <property role="3SKdUp" value="concept completely removed" />
           </node>
         </node>
       </node>
@@ -1534,42 +1518,9 @@
       <property role="3tTeZt" value="&lt;description&gt;" />
       <ref role="3tTeZr" to="slm6:1_lSsE3RFpE" resolve="description" />
     </node>
-    <node concept="q3mfD" id="4JdgAL_5b4B" role="jymVt">
-      <property role="TrG5h" value="check" />
-      <ref role="2VtyIY" to="slm6:1JWcQ2VeXpD" resolve="check" />
-      <node concept="3Tm1VV" id="4JdgAL_5b4D" role="1B3o_S" />
-      <node concept="3clFbS" id="4JdgAL_5b4F" role="3clF47">
-        <node concept="3clFbF" id="4JdgAL_5b5x" role="3cqZAp">
-          <node concept="2OqwBi" id="4JdgAL_5b5y" role="3clFbG">
-            <node concept="2ShNRf" id="4JdgAL_5b5z" role="2Oq$k0">
-              <node concept="1pGfFk" id="4JdgAL_5b5$" role="2ShVmc">
-                <ref role="37wK5l" to="uubw:ANVkWUi_$c" resolve="OldCommentContainerMigration" />
-                <node concept="35c_gC" id="4JdgAL_5b5_" role="37wK5m">
-                  <ref role="35c_gD" to="tpee:h8u8gbX" resolve="CommentedStatementsBlock" />
-                </node>
-                <node concept="37vLTw" id="4JdgAL_5b5A" role="37wK5m">
-                  <ref role="3cqZAo" node="4JdgAL_5b4H" resolve="m" />
-                </node>
-              </node>
-            </node>
-            <node concept="liA8E" id="4JdgAL_5b5B" role="2OqNvi">
-              <ref role="37wK5l" to="uubw:4JdgAL_59l8" resolve="check" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="ffn8J" id="4JdgAL_5b4H" role="3clF46">
-        <property role="TrG5h" value="m" />
-        <ref role="ffrpq" to="slm6:1JWcQ2VeXI5" resolve="m" />
-        <node concept="3uibUv" id="4JdgAL_5b4G" role="1tU5fm">
-          <ref role="3uigEE" to="lui2:~SModule" resolve="SModule" />
-        </node>
-      </node>
-      <node concept="A3Dl8" id="4JdgAL_5b4I" role="3clF45">
-        <node concept="3uibUv" id="4JdgAL_5b4J" role="A3Ik2">
-          <ref role="3uigEE" to="6f4m:3n7MNzO_IjP" resolve="Problem" />
-        </node>
-      </node>
+    <node concept="3tTeZs" id="1MqieoZ2LPm" role="jymVt">
+      <property role="3tTeZt" value="&lt;no result checking&gt;" />
+      <ref role="3tTeZr" to="slm6:1JWcQ2VeXpD" resolve="check" />
     </node>
   </node>
   <node concept="3SyAh_" id="4NuDqbiG261">

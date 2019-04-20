@@ -61,7 +61,7 @@ public class typeof_ClosureLiteral_InferenceRule extends AbstractInferenceRule_R
         ListSequence.fromList(allYlds).addElement(c);
       } else if (SNodeOperations.isInstanceOf(c, MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x11e25fc6c63L, "jetbrains.mps.baseLanguage.closures.structure.YieldAllStatement"))) {
         ListSequence.fromList(allYldAlls).addElement(c);
-      } else if (!(SNodeOperations.isInstanceOf(c, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1121e2102fdL, "jetbrains.mps.baseLanguage.structure.CommentedStatementsBlock"))) && !(SNodeOperations.isInstanceOf(c, MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L, "jetbrains.mps.baseLanguage.structure.IStatementListContainer")))) {
+      } else if (!(SNodeOperations.isInstanceOf(c, MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L, "jetbrains.mps.baseLanguage.structure.IStatementListContainer")))) {
         ListSequence.fromList(allStmts).addElement(c);
       }
     }
@@ -124,7 +124,7 @@ public class typeof_ClosureLiteral_InferenceRule extends AbstractInferenceRule_R
           SNode c = ListSequence.fromList(allChildren).removeElementAt(0);
           if (SNodeOperations.isInstanceOf(c, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList"))) {
             for (SNode cstmt : SLinkOperations.getChildren(SNodeOperations.cast(c, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))) {
-              if (!(SNodeOperations.isInstanceOf(cstmt, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1121e2102fdL, "jetbrains.mps.baseLanguage.structure.CommentedStatementsBlock"))) && !(SNodeOperations.isInstanceOf(cstmt, MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L, "jetbrains.mps.baseLanguage.structure.IStatementListContainer")))) {
+              if (!(SNodeOperations.isInstanceOf(cstmt, MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L, "jetbrains.mps.baseLanguage.structure.IStatementListContainer")))) {
                 ListSequence.fromList(allStmts).addElement(cstmt);
               }
             }

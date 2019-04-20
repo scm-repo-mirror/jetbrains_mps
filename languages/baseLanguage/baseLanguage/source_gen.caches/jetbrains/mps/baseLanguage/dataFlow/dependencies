@@ -157,11 +157,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilder" />
   </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.dataFlow.CommentedStatementsBlock_DataFlow">
-    <classNode dependClassName="java.lang.Runnable" />
-    <classNode dependClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilderContext" />
-    <classNode extendsClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilder" />
-  </dependency>
   <dependency className="jetbrains.mps.baseLanguage.dataFlow.ConceptFunction_DataFlow">
     <classNode dependClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilderContext" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
@@ -200,7 +195,6 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.dataFlow.CastExpression_DataFlow" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.dataFlow.CatchClause_DataFlow" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.dataFlow.Closure_DataFlow" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.dataFlow.CommentedStatementsBlock_DataFlow" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.dataFlow.ConceptFunction_DataFlow" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.dataFlow.ContinueStatement_DataFlow" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.dataFlow.DimensionExpression_DataFlow" />

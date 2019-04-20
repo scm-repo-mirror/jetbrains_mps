@@ -5,10 +5,8 @@ package jetbrains.mps.baseLanguage.migration;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptBase;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SModule;
-import jetbrains.mps.lang.core.util.OldCommentContainerMigration;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.lang.migration.runtime.base.Problem;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ReplaceOldCommentWithGenericComment_CommentedStatementsBlock extends MigrationScriptBase {
   public String getCaption() {
@@ -23,11 +21,7 @@ public class ReplaceOldCommentWithGenericComment_CommentedStatementsBlock extend
     return null;
   }
   public void doExecute(final SModule m) {
-    new OldCommentContainerMigration(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1121e2102fdL, "jetbrains.mps.baseLanguage.structure.CommentedStatementsBlock"), m).migrate();
-  }
-  @Override
-  public Iterable<Problem> check(SModule m) {
-    return new OldCommentContainerMigration(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1121e2102fdL, "jetbrains.mps.baseLanguage.structure.CommentedStatementsBlock"), m).check();
+    // concept completely removed 
   }
   public MigrationScriptReference getDescriptor() {
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 3);

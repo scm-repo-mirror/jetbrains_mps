@@ -67,9 +67,6 @@
     <action id="jetbrains.mps.ide.java.actions.ShowMembers_Action" class="jetbrains.mps.ide.java.actions.ShowMembers_Action">
       <keyboard-shortcut first-keystroke="ctrl F12" keymap="$default" />
     </action>
-    <action id="jetbrains.mps.ide.java.actions.UncommentStatements_Action" class="jetbrains.mps.ide.java.actions.UncommentStatements_Action">
-      <keyboard-shortcut first-keystroke="ctrl shift SLASH" keymap="$default" />
-    </action>
     <group id="jetbrains.mps.ide.java.actions.RefactoringAdditions_ActionGroup">
       <reference ref="jetbrains.mps.ide.java.actions.ExtractMethod_Action" />
       <reference ref="jetbrains.mps.ide.java.actions.InlineLocalVariable_Action" />
@@ -124,7 +121,6 @@
       <add-to-group group-id="Code_ActionGroupoverrideImplement" anchor="last" />
     </group>
     <group id="jetbrains.mps.ide.java.actions.CodeCommentMenu_ActionGroup">
-      <reference ref="jetbrains.mps.ide.java.actions.UncommentStatements_Action" />
       <reference ref="jetbrains.mps.ide.editor.actions.Comment_Action" />
       <add-to-group group-id="Code_ActionGroupcomments" anchor="last" />
     </group>

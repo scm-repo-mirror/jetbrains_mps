@@ -17372,9 +17372,6 @@
                         <node concept="3gn64h" id="xKs37tEZl9" role="hTh3Z">
                           <ref role="3gnhBz" to="tpee:htgVS9_" resolve="IStatementListContainer" />
                         </node>
-                        <node concept="3gn64h" id="xKs37tEZla" role="hTh3Z">
-                          <ref role="3gnhBz" to="tpee:h8u8gbX" resolve="CommentedStatementsBlock" />
-                        </node>
                       </node>
                     </node>
                   </node>
@@ -17402,9 +17399,6 @@
                         </node>
                         <node concept="3gn64h" id="xKs37tEZll" role="hTh3Z">
                           <ref role="3gnhBz" to="tpee:htgVS9_" resolve="IStatementListContainer" />
-                        </node>
-                        <node concept="3gn64h" id="xKs37tEZlm" role="hTh3Z">
-                          <ref role="3gnhBz" to="tpee:h8u8gbX" resolve="CommentedStatementsBlock" />
                         </node>
                       </node>
                     </node>
