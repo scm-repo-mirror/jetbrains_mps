@@ -594,7 +594,7 @@
       <property role="IQ2nx" value="1197893615481" />
       <ref role="AX2Wp" node="hrC158_" resolve="_CaretPosition_Enum" />
       <node concept="asaX9" id="2XU9kLxRcf" role="lGtFl">
-        <property role="YLPcu" value="MPS 3.5" />
+        <property role="YLPcu" value="3.5" />
         <property role="YLQ7P" value="Not used anymore since MPS 3.5" />
       </node>
     </node>

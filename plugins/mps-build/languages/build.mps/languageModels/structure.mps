@@ -1153,8 +1153,8 @@
       <property role="IQ2nx" value="4034578608468849375" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
       <node concept="asaX9" id="36cV00Cx3at" role="lGtFl">
-        <property role="YLPcu" value="183" />
         <property role="YLQ7P" value="please choose the packaging type in the BuildMpsLayout_Plugin instance instead" />
+        <property role="YLPcu" value="2018.3" />
       </node>
     </node>
     <node concept="1TJgyj" id="5HVSRHdUrJt" role="1TKVEi">

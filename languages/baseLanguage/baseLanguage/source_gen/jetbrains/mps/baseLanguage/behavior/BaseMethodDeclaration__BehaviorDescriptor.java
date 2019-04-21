@@ -245,7 +245,7 @@ public final class BaseMethodDeclaration__BehaviorDescriptor extends BaseBHDescr
     }
     return sb.toString();
   }
-  @ToRemove(version = 182)
+  @ToRemove(version = 2018.2)
   @Deprecated
   /*package*/ static boolean isAbstract_idhWjv7RO(@NotNull SNode __thisNode__) {
     return false;

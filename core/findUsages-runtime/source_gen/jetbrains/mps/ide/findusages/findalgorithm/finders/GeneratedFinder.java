@@ -91,7 +91,7 @@ public abstract class GeneratedFinder extends BaseFinder implements IInterfacedF
    * I suggest #getXXX method to return smth instead of this
    * @deprecated
    */
-  @ToRemove(version = 183)
+  @ToRemove(version = 2018.3)
   @Deprecated
   public void getSearchedNodes(SNode node, SearchScope scope, List<SNode> _results) {
     _results.add(node);

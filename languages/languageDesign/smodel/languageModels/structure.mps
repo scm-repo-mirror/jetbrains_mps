@@ -1236,7 +1236,7 @@
       <ref role="20lvS9" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
     <node concept="asaX9" id="1t9Fffggnzf" role="lGtFl">
-      <property role="YLPcu" value="MPS 3.3" />
+      <property role="YLPcu" value="3.3" />
       <property role="YLQ7P" value="This reference has no information where to resolve it. Unless we introduce SRepository parameter here, use NodePointerExpression instead." />
     </node>
   </node>
@@ -1584,7 +1584,7 @@
     <property role="EcuMT" value="5692182839349412519" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="asaX9" id="7cdZoO_MeqH" role="lGtFl">
-      <property role="YLPcu" value="MPS 3.3" />
+      <property role="YLPcu" value="3.3" />
       <property role="YLQ7P" value="use getLink() method" />
     </node>
     <node concept="PrWs8" id="4VYGy97ZKb3" role="PzmwI">
@@ -1615,8 +1615,8 @@
     <property role="EcuMT" value="1960721196051541146" />
     <ref role="1TJDcQ" node="g$eCIIG" resolve="SNodeOperation" />
     <node concept="asaX9" id="7cdZoO_MeDD" role="lGtFl">
-      <property role="YLPcu" value="MPS 3.3" />
       <property role="YLQ7P" value="use SNode.getContainmentLink() method or &quot;link&quot; operation after 3.5" />
+      <property role="YLPcu" value="3.3" />
     </node>
   </node>
   <node concept="1TIwiD" id="38ovo3PI8w0">
@@ -1981,7 +1981,7 @@
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
     <node concept="asaX9" id="1t9FffgewUl" role="lGtFl">
-      <property role="YLPcu" value="MPS 3.3" />
+      <property role="YLPcu" value="3.3" />
       <property role="YLQ7P" value="Global module repository shall cease soon. Use ModuleRefExpression instead." />
     </node>
   </node>
@@ -1997,7 +1997,7 @@
     <ref role="1TJDcQ" node="3wj3sjzQPFL" resolve="ModuleReferenceExpression" />
     <node concept="asaX9" id="1t9FffgewUn" role="lGtFl">
       <property role="YLQ7P" value="Module instance is accessed through global repository which would cease soon. Use LanguageRefExpression instead" />
-      <property role="YLPcu" value="MPS 3.3" />
+      <property role="YLPcu" value="3.3" />
     </node>
   </node>
   <node concept="1TIwiD" id="v3WHCwUiHy">

@@ -6662,7 +6662,7 @@
                         </node>
                         <node concept="asaX9" id="BM" role="lGtFl">
                           <property role="YLQ7P" value="Module instance is accessed through global repository which would cease soon. Use LanguageRefExpression instead" />
-                          <property role="YLPcu" value="MPS 3.3" />
+                          <property role="YLPcu" value="3.3" />
                           <node concept="cd27G" id="BQ" role="lGtFl">
                             <node concept="3u3nmq" id="BR" role="cd27D">
                               <property role="3u3nmv" value="1678062499342716567" />
@@ -9109,7 +9109,7 @@
                           </node>
                         </node>
                         <node concept="asaX9" id="QD" role="lGtFl">
-                          <property role="YLPcu" value="MPS 3.3" />
+                          <property role="YLPcu" value="3.3" />
                           <property role="YLQ7P" value="Global module repository shall cease soon. Use ModuleRefExpression instead." />
                           <node concept="cd27G" id="QH" role="lGtFl">
                             <node concept="3u3nmq" id="QI" role="cd27D">
@@ -9798,7 +9798,7 @@
                           </node>
                         </node>
                         <node concept="asaX9" id="UP" role="lGtFl">
-                          <property role="YLPcu" value="MPS 3.3" />
+                          <property role="YLPcu" value="3.3" />
                           <property role="YLQ7P" value="This reference has no information where to resolve it. Unless we introduce SRepository parameter here, use NodePointerExpression instead." />
                           <node concept="cd27G" id="UT" role="lGtFl">
                             <node concept="3u3nmq" id="UU" role="cd27D">
@@ -10985,8 +10985,8 @@
                           </node>
                         </node>
                         <node concept="asaX9" id="122" role="lGtFl">
-                          <property role="YLPcu" value="MPS 3.3" />
                           <property role="YLQ7P" value="use SNode.getContainmentLink() method or &quot;link&quot; operation after 3.5" />
+                          <property role="YLPcu" value="3.3" />
                           <node concept="cd27G" id="126" role="lGtFl">
                             <node concept="3u3nmq" id="127" role="cd27D">
                               <property role="3u3nmv" value="8290561271725091433" />
@@ -15041,7 +15041,7 @@
                           </node>
                         </node>
                         <node concept="asaX9" id="1qM" role="lGtFl">
-                          <property role="YLPcu" value="MPS 3.3" />
+                          <property role="YLPcu" value="3.3" />
                           <property role="YLQ7P" value="use getLink() method" />
                           <node concept="cd27G" id="1qQ" role="lGtFl">
                             <node concept="3u3nmq" id="1qR" role="cd27D">

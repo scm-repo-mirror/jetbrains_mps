@@ -643,7 +643,7 @@
                           </node>
                         </node>
                         <node concept="asaX9" id="2J" role="lGtFl">
-                          <property role="YLPcu" value="MPS 3.4" />
+                          <property role="YLPcu" value="3.4" />
                           <property role="YLQ7P" value="IOperationContext has been deprecated for long time and shall fade away soon, don't use it!" />
                           <node concept="cd27G" id="2N" role="lGtFl">
                             <node concept="3u3nmq" id="2O" role="cd27D">

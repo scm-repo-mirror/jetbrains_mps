@@ -468,7 +468,7 @@
                       <node concept="liA8E" id="1P" role="2OqNvi">
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.presentationByName()" resolve="presentationByName" />
                         <node concept="asaX9" id="1Q" role="lGtFl">
-                          <property role="YLPcu" value="MPS 3.3" />
+                          <property role="YLPcu" value="3.3" />
                           <property role="YLQ7P" value="use Extension instead" />
                           <node concept="cd27G" id="1S" role="lGtFl">
                             <node concept="3u3nmq" id="1T" role="cd27D">
@@ -556,7 +556,7 @@
                       <node concept="liA8E" id="2n" role="2OqNvi">
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.presentationByName()" resolve="presentationByName" />
                         <node concept="asaX9" id="2o" role="lGtFl">
-                          <property role="YLPcu" value="MPS 3.3" />
+                          <property role="YLPcu" value="3.3" />
                           <node concept="cd27G" id="2q" role="lGtFl">
                             <node concept="3u3nmq" id="2r" role="cd27D">
                               <property role="3u3nmv" value="8081424694066920807" />
@@ -699,7 +699,7 @@
                           </node>
                         </node>
                         <node concept="asaX9" id="31" role="lGtFl">
-                          <property role="YLPcu" value="MPS 3.3" />
+                          <property role="YLPcu" value="3.3" />
                           <node concept="cd27G" id="3h" role="lGtFl">
                             <node concept="3u3nmq" id="3i" role="cd27D">
                               <property role="3u3nmv" value="8081424694066920809" />
@@ -794,7 +794,7 @@
                           </node>
                         </node>
                         <node concept="asaX9" id="3M" role="lGtFl">
-                          <property role="YLPcu" value="MPS 3.3" />
+                          <property role="YLPcu" value="3.3" />
                           <node concept="cd27G" id="3Q" role="lGtFl">
                             <node concept="3u3nmq" id="3R" role="cd27D">
                               <property role="3u3nmv" value="3364452211985679835" />
@@ -889,7 +889,7 @@
                           </node>
                         </node>
                         <node concept="asaX9" id="4n" role="lGtFl">
-                          <property role="YLPcu" value="MPS 3.3" />
+                          <property role="YLPcu" value="3.3" />
                           <node concept="cd27G" id="4r" role="lGtFl">
                             <node concept="3u3nmq" id="4s" role="cd27D">
                               <property role="3u3nmv" value="8081424694066920811" />

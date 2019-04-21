@@ -98,7 +98,7 @@
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
     <node concept="asaX9" id="70AZf4CVrP_" role="lGtFl">
-      <property role="YLPcu" value="MPS 3.3" />
+      <property role="YLPcu" value="3.3" />
       <property role="YLQ7P" value="use Extension instead" />
     </node>
   </node>
@@ -135,7 +135,7 @@
     <property role="EcuMT" value="8029776554053043557" />
     <ref role="1TJDcQ" to="tpee:gyVMwX8" resolve="ConceptFunction" />
     <node concept="asaX9" id="70AZf4CVrPF" role="lGtFl">
-      <property role="YLPcu" value="MPS 3.3" />
+      <property role="YLPcu" value="3.3" />
     </node>
   </node>
   <node concept="1TIwiD" id="5JRjEZJSe_0">
@@ -160,7 +160,7 @@
     <property role="EcuMT" value="7036359038356050927" />
     <ref role="1TJDcQ" to="tpee:gyVMwX8" resolve="ConceptFunction" />
     <node concept="asaX9" id="2UKVRofbKnr" role="lGtFl">
-      <property role="YLPcu" value="MPS 3.3" />
+      <property role="YLPcu" value="3.3" />
     </node>
   </node>
   <node concept="1TIwiD" id="66AaOfxkOUp">
@@ -178,7 +178,7 @@
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
     <node concept="asaX9" id="70AZf4CVrPB" role="lGtFl">
-      <property role="YLPcu" value="MPS 3.3" />
+      <property role="YLPcu" value="3.3" />
     </node>
   </node>
   <node concept="1TIwiD" id="66AaOfxkOUu">
@@ -194,7 +194,7 @@
       <ref role="20lvS9" node="66AaOfxkOUp" resolve="ExtensionFieldDeclaration" />
     </node>
     <node concept="asaX9" id="70AZf4CVrPD" role="lGtFl">
-      <property role="YLPcu" value="MPS 3.3" />
+      <property role="YLPcu" value="3.3" />
     </node>
   </node>
   <node concept="1TIwiD" id="2KgYA8kbFkS">

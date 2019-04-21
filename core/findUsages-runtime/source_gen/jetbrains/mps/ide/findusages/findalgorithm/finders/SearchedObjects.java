@@ -26,7 +26,7 @@ public class SearchedObjects<K> {
    * 
    * @deprecated mutates
    */
-  @ToRemove(version = 183)
+  @ToRemove(version = 2018.3)
   @Deprecated
   public Set<K> getElements0() {
     return mySearchedNodes;

@@ -29,7 +29,6 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.smodel.MPSModuleRepository;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
-import jetbrains.mps.util.NameUtil;
 import org.jetbrains.mps.openapi.model.SReference;
 import java.util.Collections;
 import jetbrains.mps.util.ConditionalIterable;
@@ -565,22 +564,6 @@ public class SNodeOperations {
   public static SNode as(SNode node, SAbstractConcept castTo) {
     if (!(SNodeOperations.isInstanceOf(node, castTo))) {
       return null;
-    }
-    return node;
-  }
-  @Deprecated
-  @ToRemove(version = 3.4)
-  public static SNode castConcept(SNode node, SAbstractConcept castTo) {
-    if (node == null) {
-      return null;
-    }
-    if (!(MetaAdapterByDeclaration.getConcept(node).isSubConceptOf(castTo))) {
-      String message = "Can't cast concept: " + node.getNodeId().toString() + ", FQName: " + NameUtil.nodeFQName(node) + " to concept: " + castTo;
-      if (ourCastExceptionsEnabled) {
-        throw new NodeCastException(message);
-      } else {
-        LOG.warning(message);
-      }
     }
     return node;
   }
