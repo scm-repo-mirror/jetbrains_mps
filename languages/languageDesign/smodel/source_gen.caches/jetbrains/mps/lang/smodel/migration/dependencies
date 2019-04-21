@@ -333,7 +333,7 @@
     <classNode dependClassName="jetbrains.mps.lang.smodel.migration.NodePointersTypesystem" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.migration.RemoveLanguageIdVersionProperty" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.migration.RemoveNodeConceptMethodCallDirectCallProperty" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.migration.SNodeTypeCastExpression" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.migration.SNodeTypeCastExpression_completelyRemoved" />
     <classNode extendsClassName="jetbrains.mps.lang.migration.runtime.base.MigrationAspectDescriptor" />
   </dependency>
   <dependency className="jetbrains.mps.lang.smodel.migration.NodePointersTypesystem">
@@ -525,22 +525,14 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SearchScope" />
     <classNode extendsClassName="jetbrains.mps.lang.migration.runtime.base.MigrationScriptBase" />
   </dependency>
-  <dependency className="jetbrains.mps.lang.smodel.migration.SNodeTypeCastExpression">
+  <dependency className="jetbrains.mps.lang.smodel.migration.SNodeTypeCastExpression_completelyRemoved">
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.util.Iterator" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator" />
-    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ISelector" />
-    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ISequenceClosure" />
-    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IVisitor" />
-    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IWhereFilter" />
+    <classNode dependClassName="java.util.Collections" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
-    <classNode dependClassName="jetbrains.mps.lang.migration.runtime.base.DeprecatedConceptMemberNotMigratedProblem" />
     <classNode dependClassName="jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference" />
     <classNode dependClassName="jetbrains.mps.lang.migration.runtime.base.Problem" />
-    <classNode dependClassName="jetbrains.mps.lang.migration.runtime.base.RefactoringRuntime" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.query.runtime.CommandUtil" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext" />
     <classNode dependClassName="jetbrains.mps.project.EditableFilteringScope" />

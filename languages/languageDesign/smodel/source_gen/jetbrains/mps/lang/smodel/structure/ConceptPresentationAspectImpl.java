@@ -1544,9 +1544,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_SNodeType;
       case LanguageConceptSwitch.SNodeTypeCastExpression:
         if (props_SNodeTypeCastExpression == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10975850da7L);
-          cpb.deprecateAssociation(0x10975873562L, "concept_old");
-          cpb.deprecateAggregation(0x109758722b4L, "leftExpression_old");
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.rawPresentation(":");
           props_SNodeTypeCastExpression = cpb.create();
         }
