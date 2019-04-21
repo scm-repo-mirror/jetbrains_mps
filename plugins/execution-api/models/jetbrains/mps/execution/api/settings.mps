@@ -26,17 +26,11 @@
         <child id="1068498886295" name="lValue" index="37vLTJ" />
       </concept>
       <concept id="1202948039474" name="jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation" flags="nn" index="liA8E" />
-      <concept id="5293379017992965193" name="jetbrains.mps.baseLanguage.structure.StubStatementList" flags="ig" index="2lzX1y" />
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
-        <child id="1188214630783" name="value" index="2B76xF" />
       </concept>
       <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
-      </concept>
-      <concept id="1188214545140" name="jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue" flags="ng" index="2B6LJw">
-        <reference id="1188214555875" name="key" index="2B6OnR" />
-        <child id="1188214607812" name="value" index="2B70Vg" />
       </concept>
       <concept id="1197027756228" name="jetbrains.mps.baseLanguage.structure.DotExpression" flags="nn" index="2OqwBi">
         <child id="1197027771414" name="operand" index="2Oq$k0" />
@@ -93,9 +87,6 @@
       <concept id="1225271177708" name="jetbrains.mps.baseLanguage.structure.StringType" flags="in" index="17QB3L" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
-      </concept>
-      <concept id="1111509017652" name="jetbrains.mps.baseLanguage.structure.FloatingPointConstant" flags="nn" index="3b6qkQ">
-        <property id="1113006610751" name="value" index="$nhwW" />
       </concept>
       <concept id="1068580123132" name="jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration" flags="ng" index="3clF44">
         <child id="1164879685961" name="throwsItem" index="Sfmx6" />
@@ -171,9 +162,6 @@
       <concept id="5349172909345532724" name="jetbrains.mps.baseLanguage.javadoc.structure.MethodDocComment" flags="ng" index="P$JXv" />
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
-      </concept>
-      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
-        <child id="2667874559098216723" name="text" index="3HnX3l" />
       </concept>
       <concept id="2217234381367530212" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocReference" flags="ng" index="VXe08">
         <reference id="2217234381367530213" name="classifier" index="VXe09" />
@@ -596,48 +584,6 @@
       </node>
       <node concept="2AHcQZ" id="3tYsUK_RXUn" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-  </node>
-  <node concept="3HP615" id="3oW7HLfqDre">
-    <property role="TrG5h" value="ITemplatePersistentConfiguration" />
-    <node concept="3Tm1VV" id="3oW7HLfqDrf" role="1B3o_S" />
-    <node concept="3uibUv" id="3oW7HLfqDrg" role="3HQHJm">
-      <ref role="3uigEE" node="3oW7HLfqDqW" resolve="IPersistentConfiguration" />
-    </node>
-    <node concept="3clFb_" id="3oW7HLfqDrh" role="jymVt">
-      <property role="1EzhhJ" value="false" />
-      <property role="TrG5h" value="getEditorEx" />
-      <node concept="2lzX1y" id="3oW7HLfqDri" role="3clF47" />
-      <node concept="3Tm1VV" id="3oW7HLfqDrj" role="1B3o_S" />
-      <node concept="3uibUv" id="3oW7HLfqDrk" role="3clF45">
-        <ref role="3uigEE" node="3oW7HLfqDrn" resolve="SettingsEditorEx" />
-        <node concept="3qUE_q" id="3oW7HLfqDrl" role="11_B2D">
-          <node concept="3uibUv" id="3oW7HLfqDrm" role="3qUE_r">
-            <ref role="3uigEE" node="3oW7HLfqDqW" resolve="IPersistentConfiguration" />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="3UR2Jj" id="4aB4InNTh0t" role="lGtFl">
-      <node concept="TZ5HI" id="4aB4InNTh0u" role="3nqlJM">
-        <node concept="TZ5HA" id="4aB4InNTh0v" role="3HnX3l">
-          <node concept="1dT_AC" id="4aB4InNTh0O" role="1dT_Ay">
-            <property role="1dT_AB" value="This interface left for compatibility with generated code of execution configurations, there are no uses now in MPS. Once 3.5 is out, drop it." />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2AHcQZ" id="4aB4InNTh0w" role="2AJF6D">
-      <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-    </node>
-    <node concept="2AHcQZ" id="4aB4InNTh0Q" role="2AJF6D">
-      <ref role="2AI5Lk" to="ncw5:~ToRemove" resolve="ToRemove" />
-      <node concept="2B6LJw" id="4aB4InNTh7j" role="2B76xF">
-        <ref role="2B6OnR" to="ncw5:~ToRemove.version()" resolve="version" />
-        <node concept="3b6qkQ" id="4aB4InNThdx" role="2B70Vg">
-          <property role="$nhwW" value="3.5" />
-        </node>
       </node>
     </node>
   </node>

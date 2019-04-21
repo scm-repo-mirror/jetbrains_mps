@@ -19,13 +19,6 @@
       <unit id="3908032508224771772" at="8,0,28,0" name="jetbrains.mps.execution.api.settings.IPersistentConfiguration" />
     </file>
   </root>
-  <root nodeRef="r:76273c4a-4818-4f7c-8673-bfc2aeb6debb(jetbrains.mps.execution.api.settings)/3908032508224771790">
-    <file name="ITemplatePersistentConfiguration.java">
-      <node id="3908032508224771793" at="14,0,15,0" concept="3" trace="getEditorEx#()Ljetbrains/mps/execution/api/settings/SettingsEditorEx;" />
-      <scope id="3908032508224771793" at="14,0,15,0" />
-      <unit id="3908032508224771790" at="11,0,16,0" name="jetbrains.mps.execution.api.settings.ITemplatePersistentConfiguration" />
-    </file>
-  </root>
   <root nodeRef="r:76273c4a-4818-4f7c-8673-bfc2aeb6debb(jetbrains.mps.execution.api.settings)/3908032508224771799">
     <file name="SettingsEditorEx.java">
       <node id="2013126310013254461" at="13,54,14,19" concept="4" />

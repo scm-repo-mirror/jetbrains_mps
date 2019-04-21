@@ -17,12 +17,6 @@
     <classNode dependClassName="jetbrains.mps.execution.api.settings.SettingsEditorEx" />
     <classNode extendsClassName="com.intellij.openapi.util.JDOMExternalizable" />
   </dependency>
-  <dependency className="jetbrains.mps.execution.api.settings.ITemplatePersistentConfiguration">
-    <classNode dependClassName="java.lang.Deprecated" />
-    <classNode dependClassName="jetbrains.mps.execution.api.settings.SettingsEditorEx" />
-    <classNode dependClassName="jetbrains.mps.util.annotation.ToRemove" />
-    <classNode extendsClassName="jetbrains.mps.execution.api.settings.IPersistentConfiguration" />
-  </dependency>
   <dependency className="jetbrains.mps.execution.api.settings.PersistentConfigurationContext">
     <classNode dependClassName="jetbrains.mps.project.Project" />
   </dependency>

@@ -5,7 +5,6 @@ package jetbrains.mps.execution.api.configurations;
 import com.intellij.execution.BeforeRunTaskProvider;
 import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
-import jetbrains.mps.util.annotation.ToRemove;
 import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.execution.runners.ExecutionEnvironment;
@@ -25,15 +24,6 @@ public abstract class BaseMpsBeforeTaskProvider<T extends BaseMpsBeforeTaskProvi
   private static final Logger LOG = LogManager.getLogger(BaseMpsBeforeTaskProvider.class);
   private final String myName;
   private final String myCaption;
-  /**
-   * 
-   * @deprecated moved to language level. Use constructor with 2 parameters
-   */
-  @Deprecated
-  @ToRemove(version = 3.5)
-  public BaseMpsBeforeTaskProvider(String name) {
-    this(name, name);
-  }
   public BaseMpsBeforeTaskProvider(String name, String caption) {
     myName = name;
     myCaption = caption;

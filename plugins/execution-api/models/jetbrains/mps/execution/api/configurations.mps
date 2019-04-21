@@ -54,14 +54,9 @@
       <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="ng" index="2tJIrI" />
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
-        <child id="1188214630783" name="value" index="2B76xF" />
       </concept>
       <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
-      </concept>
-      <concept id="1188214545140" name="jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue" flags="ng" index="2B6LJw">
-        <reference id="1188214555875" name="key" index="2B6OnR" />
-        <child id="1188214607812" name="value" index="2B70Vg" />
       </concept>
       <concept id="1154032098014" name="jetbrains.mps.baseLanguage.structure.AbstractLoopStatement" flags="nn" index="2LF5Ji">
         <child id="1154032183016" name="body" index="2LFqv$" />
@@ -150,9 +145,6 @@
       <concept id="1225271283259" name="jetbrains.mps.baseLanguage.structure.NPEEqualsExpression" flags="nn" index="17R0WA" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
-      </concept>
-      <concept id="1111509017652" name="jetbrains.mps.baseLanguage.structure.FloatingPointConstant" flags="nn" index="3b6qkQ">
-        <property id="1113006610751" name="value" index="$nhwW" />
       </concept>
       <concept id="1068580123132" name="jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration" flags="ng" index="3clF44">
         <property id="4276006055363816570" name="isSynchronized" index="od$2w" />
@@ -267,7 +259,6 @@
       <concept id="1116615150612" name="jetbrains.mps.baseLanguage.structure.ClassifierClassExpression" flags="nn" index="3VsKOn">
         <reference id="1116615189566" name="classifier" index="3VsUkX" />
       </concept>
-      <concept id="1178893518978" name="jetbrains.mps.baseLanguage.structure.ThisConstructorInvocation" flags="nn" index="1VxSAg" />
       <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
       <concept id="1170345865475" name="jetbrains.mps.baseLanguage.structure.AnonymousClass" flags="ig" index="1Y3b0j">
         <reference id="1170346070688" name="classifier" index="1Y3XeK" />
@@ -308,9 +299,6 @@
       </concept>
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
-      </concept>
-      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
-        <child id="2667874559098216723" name="text" index="3HnX3l" />
       </concept>
       <concept id="2217234381367530212" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocReference" flags="ng" index="VXe08">
         <reference id="2217234381367530213" name="classifier" index="VXe09" />
@@ -1036,46 +1024,6 @@
       <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="5z4Y2AE1aoX" role="1B3o_S" />
       <node concept="17QB3L" id="5z4Y2AE1aoY" role="1tU5fm" />
-    </node>
-    <node concept="3clFbW" id="66CJzfk0NG2" role="jymVt">
-      <node concept="2AHcQZ" id="7Ift4HfrKH5" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-      </node>
-      <node concept="2AHcQZ" id="7Ift4HfrKSa" role="2AJF6D">
-        <ref role="2AI5Lk" to="ncw5:~ToRemove" resolve="ToRemove" />
-        <node concept="2B6LJw" id="7Ift4HfrN8B" role="2B76xF">
-          <ref role="2B6OnR" to="ncw5:~ToRemove.version()" resolve="version" />
-          <node concept="3b6qkQ" id="7Ift4HfrNc1" role="2B70Vg">
-            <property role="$nhwW" value="3.5" />
-          </node>
-        </node>
-      </node>
-      <node concept="P$JXv" id="7Ift4HfrKH2" role="lGtFl">
-        <node concept="TZ5HI" id="7Ift4HfrKH3" role="3nqlJM">
-          <node concept="TZ5HA" id="7Ift4HfrKH4" role="3HnX3l">
-            <node concept="1dT_AC" id="7Ift4HfrKS8" role="1dT_Ay">
-              <property role="1dT_AB" value="moved to language level. Use constructor with 2 parameters" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="37vLTG" id="66CJzfk0Vqr" role="3clF46">
-        <property role="TrG5h" value="name" />
-        <node concept="17QB3L" id="66CJzfk0Vqt" role="1tU5fm" />
-      </node>
-      <node concept="3Tm1VV" id="66CJzfk0NG3" role="1B3o_S" />
-      <node concept="3cqZAl" id="66CJzfk0NG4" role="3clF45" />
-      <node concept="3clFbS" id="66CJzfk0NG5" role="3clF47">
-        <node concept="1VxSAg" id="5z4Y2AE1aoZ" role="3cqZAp">
-          <ref role="37wK5l" node="5z4Y2AE1aoJ" resolve="BaseMpsBeforeTaskProvider" />
-          <node concept="37vLTw" id="2BHiRxgmFjP" role="37wK5m">
-            <ref role="3cqZAo" node="66CJzfk0Vqr" resolve="name" />
-          </node>
-          <node concept="37vLTw" id="2BHiRxglt6s" role="37wK5m">
-            <ref role="3cqZAo" node="66CJzfk0Vqr" resolve="name" />
-          </node>
-        </node>
-      </node>
     </node>
     <node concept="3clFbW" id="5z4Y2AE1aoJ" role="jymVt">
       <node concept="37vLTG" id="5z4Y2AE1aoK" role="3clF46">
