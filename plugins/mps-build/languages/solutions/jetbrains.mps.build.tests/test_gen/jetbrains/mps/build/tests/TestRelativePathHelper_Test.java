@@ -35,10 +35,23 @@ public class TestRelativePathHelper_Test extends TestCase {
 
     // 3 one level up 
     String oneUp = baseDir.getParentFile().getCanonicalPath();
-    Assert.assertEquals("../", new RelativePathHelper(scriptsFolder).makeRelative(oneUp));
+    Assert.assertEquals("..", new RelativePathHelper(scriptsFolder).makeRelative(oneUp));
 
     // back 
     Assert.assertEquals(oneUp.replace("\\", "/"), new RelativePathHelper(scriptsFolder).makeAbsolute(".."));
     Assert.assertEquals(oneUp.replace("\\", "/"), new RelativePathHelper(scriptsFolder).makeAbsolute("../"));
+  }
+  public void test_nonExistentPath() throws Exception {
+    // rph assumes its initial path is directory, i.e. "someFolder/" 
+    RelativePathHelper rph = new RelativePathHelper("common-root/build/someFolder");
+    // makeRelative doesn's assume whether it's file or directory, and shall keep result the same 
+    String r1 = rph.makeRelative("common-root/code/other");
+    String r2 = rph.makeRelative("common-root/code/other/");
+    Assert.assertEquals("../../code/other", r1);
+    Assert.assertEquals("../../code/other/", r2);
+    String r3 = rph.makeRelative("common-root/build/someFolder");
+    String r4 = rph.makeRelative("common-root/build/someFolder/");
+    Assert.assertEquals("", r3);
+    Assert.assertEquals("", r4);
   }
 }

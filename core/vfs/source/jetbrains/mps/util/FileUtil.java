@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -453,8 +453,10 @@ public class FileUtil {
   }
 
   /**
+   * @deprecated Use of this method is discouraged, as it gives inconsistent results depending on File(basePath) existence, e.g. see MPS-29999
    * @throws PathResolutionException if the paths do not intersect
    */
+  @Deprecated
   public static String getRelativePath(@NotNull String targetPath, @NotNull String basePath, @NotNull String pathSeparator) {
     String[] base = basePath.split(Pattern.quote(pathSeparator));
     String[] target = targetPath.split(Pattern.quote(pathSeparator));
