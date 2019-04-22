@@ -131,6 +131,7 @@ public final class CommonPaths {
     addIfExists(result, "lib/extensions.jar");
     addIfExists(result, "lib/picocontainer-1.2.jar");
     addIfExists(result, "lib/forms_rt.jar");
+    addIfExists(result, "lib/jdom.jar");
   }
 
   private static void addPlatformJars(Collection<QualifiedPath> result) {
