@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.smodel.persistence.lines;
 
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.model.SNodeId;
 
@@ -23,20 +24,32 @@ import org.jetbrains.mps.openapi.model.SNodeId;
  * @since 11/22/10
  */
 public final class PropertyLineContent extends LineContent {
-  private String myName;
+  private final String myName;
+  private final SProperty myProperty;
 
+  /**
+   * Legacy persistence, just property name kept
+   */
   public PropertyLineContent(SNodeId nodeId, String name) {
     super(nodeId);
     myName = name;
+    myProperty = null;
   }
 
+  // both arguments are not null
   public PropertyLineContent(SNodeId nodeId, SProperty property) {
     super(nodeId);
-    myName = property.getName();
+    myName = null;
+    myProperty = property;
   }
 
   public String getName() {
-    return myName;
+    return myProperty == null ? myName : myProperty.getName();
+  }
+
+  @Nullable
+  public SProperty getProperty() {
+    return myProperty;
   }
 
   @Override

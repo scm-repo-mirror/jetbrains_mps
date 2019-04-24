@@ -54,7 +54,9 @@ import java.awt.FontMetrics;
 import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
+import org.jetbrains.mps.util.Condition;
 import jetbrains.mps.nodeEditor.messageTargets.CellFinder;
+import jetbrains.mps.nodeEditor.cells.CellFinderUtil;
 import java.util.Collections;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
@@ -278,12 +280,32 @@ public class AnnotationColumn extends AbstractLeftColumn {
       return null;
     }
 
+    jetbrains.mps.nodeEditor.cells.EditorCell bigCellForNode = editor.getBigValidCellForNode(node);
+    if (bigCellForNode == null) {
+      return null;
+    }
+
     if (content instanceof NodeLineContent) {
-      return editor.getBigValidCellForNode(node);
+      // FIXME treat node annotations so that they don't grab chnages of the annotated node just because they are 'big' cells 
+      return bigCellForNode;
     } else if (content instanceof PropertyLineContent) {
-      return CellFinder.getCellForProperty(editor, node, ((PropertyLineContent) content).getName());
+      PropertyLineContent plc = (PropertyLineContent) content;
+      final Condition<EditorCell> isPropCell;
+      if (plc.getProperty() != null) {
+        isPropCell = new CellFinder.CellForPropertyCondition(node, plc.getProperty());
+      } else {
+        isPropCell = new CellFinder.CellForPropertyLegacyCondition(node, plc.getName());
+      }
+      return CellFinderUtil.findChildByCondition(bigCellForNode, isPropCell, true, true);
     } else if (content instanceof ReferenceLineContent) {
-      return CellFinder.getCellForReference(editor, node, ((ReferenceLineContent) content).getRole());
+      ReferenceLineContent rlc = (ReferenceLineContent) content;
+      final Condition<EditorCell> isRefCell;
+      if (rlc.getLink() != null) {
+        isRefCell = new CellFinder.CellForReferenceCondition(node, rlc.getLink());
+      } else {
+        isRefCell = new CellFinder.CellForReferenceLegacyCondition(node, rlc.getRole());
+      }
+      return CellFinderUtil.findChildByCondition(bigCellForNode, isRefCell, true, true);
     } else {
       return null;
     }
