@@ -209,17 +209,6 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
     return myDependencies;
   }
 
-  /**
-   * @deprecated Now, used languages of a module are derived from models it owns, and thus
-   * this list is generally empty. Although generally there might be modules that keep their used languages, and ModuleDescriptor
-   * may keep the list, it shall be the list of SLanguage anyway.
-   */
-  @Deprecated
-  @ToRemove(version = 3.3)
-  public final Collection<SModuleReference> getUsedLanguages() {
-    return myUsedLanguages;
-  }
-
   public final Map<SLanguage, Integer> getLanguageVersions() {
     return myLanguageVersions;
   }
@@ -447,7 +436,6 @@ public class ModuleDescriptor implements CopyableDescriptor<ModuleDescriptor>  {
     Copyable.deepCopy(getModelRootDescriptors(), descriptorCopy.getModelRootDescriptors());
     Copyable.deepCopy(getModuleFacetDescriptors(), descriptorCopy.getModuleFacetDescriptors());
     Copyable.deepCopy(getDependencies(), descriptorCopy.getDependencies());
-    descriptorCopy.getUsedLanguages().addAll(getUsedLanguages());
     descriptorCopy.getUsedDevkits().addAll(getUsedDevkits());
     descriptorCopy.getLanguageVersions().putAll(getLanguageVersions());
     descriptorCopy.getDependencyVersions().putAll(getDependencyVersions());

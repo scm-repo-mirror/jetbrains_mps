@@ -420,7 +420,7 @@ public final class ModulesMiner {
    */
   private ModuleDescriptor loadDeploymentDescriptor(IFile moduleHome, IFile file) {
     try {
-      DeploymentDescriptor deploymentDescriptor = DeploymentDescriptorPersistence.loadDeploymentDescriptor(file);
+      DeploymentDescriptor deploymentDescriptor = new DeploymentDescriptorPersistence().load(file);
       ModuleDescriptor result = null;
       IFile sourceDescriptorFile = getSourceDescriptorFile(file, deploymentDescriptor);
       if (sourceDescriptorFile != null) {

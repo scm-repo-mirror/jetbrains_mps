@@ -18,9 +18,11 @@ package jetbrains.mps.project.structure.modules;
 import jetbrains.mps.util.io.ModelInputStream;
 import jetbrains.mps.util.io.ModelOutputStream;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.language.SLanguage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -100,6 +102,8 @@ public class DeploymentDescriptor extends ModuleDescriptor {
   private final List<String> myLibraries = new ArrayList<>(3);
   private final List<String> myClasspath = new ArrayList<>(3);
 
+  private final List<SLanguage> myLanguagesInUse = new ArrayList<>();
+
   public final String getSourcesJar() {
     return mySourcesJar;
   }
@@ -148,6 +152,20 @@ public class DeploymentDescriptor extends ModuleDescriptor {
   @NotNull
   public List<String> getClasspath() {
     return myClasspath;
+  }
+
+  /**
+   * PROVISIONAL API, DO NOT USE OUTSIDE OF MPS
+   *
+   * It's not certain whether we need to tell used languages for a deployed module, and, if yes, if SLanguage is sufficient to capture this dependency
+   * (e.g. not some LanguageInUseElement that could hold more information, like version). Besides, we might want to expose used languages from regular
+   * MD as well (even though MPS modules by default collect languages from models, it might be reasonable to keep an option to specify some additional
+   * languages right in MD, e.g. for stub modules).
+   * @return
+   */
+  @NotNull
+  public Collection<SLanguage> getLanguagesInUse() {
+    return myLanguagesInUse;
   }
 
   @Override
