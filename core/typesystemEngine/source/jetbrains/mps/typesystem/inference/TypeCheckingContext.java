@@ -56,6 +56,8 @@ public abstract class TypeCheckingContext {
 
   public abstract SNode createNewRuntimeTypesVariable();
 
+  public abstract void printToTrace(String message);
+
   //for special cases
   public abstract SNode typeOf(SNode node);
 
@@ -63,65 +65,12 @@ public abstract class TypeCheckingContext {
 
   public abstract void addDependencyForCurrent(SNode node);
 
-  //deprecated eqs
-  @Deprecated
-  public abstract void createEquation(SNode node1,
-                                      SNode node2,
-                                      SNode nodeToCheck,
-                                      String errorString,
-                                      String ruleModel,
-                                      String ruleId,
-                                      QuickFixProvider intentionProvider);
-
-  @Deprecated
-  public abstract void createLessThanInequationStrong(SNode node1,
-                                                      SNode node2,
-                                                      SNode nodeToCheck,
-                                                      String errorString,
-                                                      String ruleModel,
-                                                      String ruleId,
-                                                      boolean checkOnly,
-                                                      int inequationPriority,
-                                                      QuickFixProvider intentionProvider);
-
-  @Deprecated
-  public abstract void createGreaterThanInequation(SNode node1,
-                                                   SNode node2,
-                                                   SNode nodeToCheck,
-                                                   String errorString,
-                                                   String ruleModel,
-                                                   String ruleId,
-                                                   boolean checkOnly,
-                                                   int inequationPriority,
-                                                   QuickFixProvider intentionProvider);
-
-  @Deprecated
-  public abstract void createComparableEquation(SNode node1,
-                                                SNode node2,
-                                                SNode nodeToCheck,
-                                                String errorString,
-                                                String ruleModel,
-                                                String ruleId,
-                                                QuickFixProvider intentionProvider);
-
   //new eqs
   public void createEquation(SNode node1, SNode node2, EquationInfo equationInfo) {
     createEquation(node1, node2, false, equationInfo);
   }
 
-  public abstract void printToTrace(String message);
-
   public abstract void createEquation(SNode node1, SNode node2, boolean checkOnly, EquationInfo equationInfo);
-
-  public abstract void createLessThanInequation(SNode node1, SNode node2, boolean checkOnly, EquationInfo equationInfo);
-
-  public abstract void createLessThanInequationStrong(SNode node1, SNode node2, boolean checkOnly, EquationInfo equationInfo);
-
-  public abstract void createGreaterThanInequation(SNode node1, SNode node2, boolean checkOnly, EquationInfo equationInfo);
-
-  public abstract void createGreaterThanInequationStrong(SNode node1, SNode node2, boolean checkOnly, EquationInfo equationInfo);
-
-  public abstract void createComparableEquation(SNode node1, SNode node2, EquationInfo equationInfo);
 
   public abstract void createComparableEquation(SNode node1, SNode node2, boolean inference, EquationInfo equationInfo);
 
