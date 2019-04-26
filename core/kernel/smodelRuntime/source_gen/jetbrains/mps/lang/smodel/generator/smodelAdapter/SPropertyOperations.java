@@ -216,7 +216,7 @@ public class SPropertyOperations {
     return false;
   }
 
-  private static Object upgradeToEnumMember(SProperty property, Object propertyValue) {
+  public static Object upgradeToEnumMember(SProperty property, Object propertyValue) {
     SDataType type = property.getType();
     if (type instanceof SEnumerationAdapter) {
       return ((SEnumerationAdapter) type).convertValueToLiteral(propertyValue);

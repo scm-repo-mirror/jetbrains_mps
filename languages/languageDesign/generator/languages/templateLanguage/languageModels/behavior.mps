@@ -35,7 +35,7 @@
     <import index="inbo" ref="r:22db907b-8239-4180-8797-e91cea0b9573(jetbrains.mps.smodel.search)" />
     <import index="tpeu" ref="r:00000000-0000-4000-0000-011c895902fa(jetbrains.mps.lang.smodel.behavior)" />
     <import index="d6hs" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.errors.item(MPS.Core/)" />
-    <import index="tpeq" ref="r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)" implicit="true" />
+    <import index="tpeq" ref="r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)" />
     <import index="tp3r" ref="r:00000000-0000-4000-0000-011c8959034b(jetbrains.mps.lang.quotation.structure)" implicit="true" />
   </imports>
   <registry>
@@ -2452,22 +2452,12 @@
               <ref role="ehGHo" to="tpce:fKAxPRU" resolve="DataTypeDeclaration" />
             </node>
             <node concept="2OqwBi" id="4p32Qz$q53r" role="33vP2m">
-              <node concept="1PxgMI" id="5q7UjaiU31x" role="2Oq$k0">
-                <node concept="chp4Y" id="714IaVdGYug" role="3oSUPX">
-                  <ref role="cht4Q" to="tpce:f_TJgxF" resolve="PropertyDeclaration" />
+              <node concept="2OqwBi" id="121FNPYD23Z" role="2Oq$k0">
+                <node concept="37vLTw" id="121FNPYD1O4" role="2Oq$k0">
+                  <ref role="3cqZAo" node="hEwJ4VF" resolve="propertyMacro" />
                 </node>
-                <node concept="2OqwBi" id="5q7UjaiU2Q6" role="1m5AlR">
-                  <node concept="2OqwBi" id="5q7UjaiU2vn" role="2Oq$k0">
-                    <node concept="37vLTw" id="5q7UjaiU2qQ" role="2Oq$k0">
-                      <ref role="3cqZAo" node="hEwJ4VF" resolve="propertyMacro" />
-                    </node>
-                    <node concept="2qgKlT" id="5q7UjaiU2Ld" role="2OqNvi">
-                      <ref role="37wK5l" to="tpcu:1avfQ4BBzOo" resolve="getProperty" />
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="5q7UjaiU2W3" role="2OqNvi">
-                    <ref role="37wK5l" to="c17a:~SProperty.getDeclarationNode():org.jetbrains.mps.openapi.model.SNode" resolve="getDeclarationNode" />
-                  </node>
+                <node concept="2qgKlT" id="121FNPYD2YV" role="2OqNvi">
+                  <ref role="37wK5l" to="tpcu:121FNPYBLc9" resolve="getPropertyDeclaration" />
                 </node>
               </node>
               <node concept="3TrEf2" id="4p32Qz$q5gp" role="2OqNvi">
