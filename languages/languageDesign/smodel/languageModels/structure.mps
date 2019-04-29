@@ -2137,7 +2137,7 @@
     <property role="TrG5h" value="PropertyIdRefExpression" />
     <property role="2_RsDV" value="none" />
     <property role="3GE5qa" value="reference" />
-    <property role="34LRSv" value="property/&lt;name&gt;/" />
+    <property role="34LRSv" value="property/&lt;concept&gt;:&lt;name&gt;/" />
     <property role="R4oN_" value="openapi SProperty" />
     <property role="EcuMT" value="2644386474302386080" />
     <ref role="1TJDcQ" to="tpee:fz3vP1J" resolve="Expression" />

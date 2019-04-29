@@ -2022,7 +2022,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.associate("conceptDeclaration", 0x24b2bf7ce1a42fa1L).target(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL).optional(false).origin("2644386474302386081").done();
     b.associate("propertyDeclaration", 0x24b2bf7ce1a42fa2L).target(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL).optional(false).origin("2644386474302386082").done();
     b.kind(ConceptKind.NORMAL, StaticScope.NONE);
-    b.alias("property/<name>/");
+    b.alias("property/<concept>:<name>/");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForPropertyIdentity() {

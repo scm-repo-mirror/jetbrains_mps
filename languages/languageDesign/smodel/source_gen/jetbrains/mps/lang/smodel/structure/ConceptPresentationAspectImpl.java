@@ -1232,7 +1232,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_PropertyIdRefExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.shortDesc("openapi SProperty");
-          cpb.rawPresentation("property/<name>/");
+          cpb.rawPresentation("property/<concept>:<name>/");
           props_PropertyIdRefExpression = cpb.create();
         }
         return props_PropertyIdRefExpression;

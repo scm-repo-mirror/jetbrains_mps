@@ -13548,7 +13548,7 @@
                       <node concept="liA8E" id="1hJ" role="2OqNvi">
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.rawPresentation(java.lang.String)" resolve="rawPresentation" />
                         <node concept="Xl_RD" id="1hK" role="37wK5m">
-                          <property role="Xl_RC" value="property/&lt;name&gt;/" />
+                          <property role="Xl_RC" value="property/&lt;concept&gt;:&lt;name&gt;/" />
                           <node concept="cd27G" id="1hM" role="lGtFl">
                             <node concept="3u3nmq" id="1hN" role="cd27D">
                               <property role="3u3nmv" value="2644386474302386080" />
@@ -51924,7 +51924,7 @@
             <node concept="liA8E" id="4Mq" role="2OqNvi">
               <ref role="37wK5l" to="bzg8:~ConceptDescriptorBuilder2.alias(java.lang.String)" resolve="alias" />
               <node concept="Xl_RD" id="4Mr" role="37wK5m">
-                <property role="Xl_RC" value="property/&lt;name&gt;/" />
+                <property role="Xl_RC" value="property/&lt;concept&gt;:&lt;name&gt;/" />
               </node>
             </node>
           </node>
