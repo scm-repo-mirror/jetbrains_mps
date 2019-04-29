@@ -3486,7 +3486,7 @@
     <classNode dependClassName="jetbrains.mps.ide.findusages.view.FindUtils" />
     <classNode dependClassName="jetbrains.mps.ide.findusages.view.UsagesView" />
     <classNode dependClassName="jetbrains.mps.ide.findusages.view.treeholder.tree.TextOptions" />
-    <classNode dependClassName="jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator" />
+    <classNode dependClassName="jetbrains.mps.ide.findusages.view.treeholder.treeview.NodeRepresentatorBase" />
     <classNode dependClassName="jetbrains.mps.ide.findusages.view.treeholder.treeview.ViewOptions" />
     <classNode dependClassName="jetbrains.mps.ide.icons.IdeIcons" />
     <classNode dependClassName="jetbrains.mps.plugins.tool.BaseGeneratedTool" />

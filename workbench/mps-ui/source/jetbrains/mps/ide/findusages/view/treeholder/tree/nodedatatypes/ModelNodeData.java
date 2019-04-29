@@ -38,8 +38,8 @@ public class ModelNodeData extends AbstractResultNodeData {
 
   public SModelReference myModelReference;
 
-  public ModelNodeData(PathItemRole role, @Nullable String caption, @NotNull SModelReference modelReference, boolean isResult, boolean resultsSection) {
-    super(role, caption != null ? caption : modelReference.getModelName(), "", false, isResult, resultsSection);
+  public ModelNodeData(PathItemRole role, @Nullable String caption, @Nullable String info, @NotNull SModelReference modelReference, boolean isResult, boolean resultsSection) {
+    super(role, caption != null ? caption : modelReference.getModelName(), info == null ? "" : info, false, isResult, resultsSection);
     myModelReference = modelReference;
   }
 

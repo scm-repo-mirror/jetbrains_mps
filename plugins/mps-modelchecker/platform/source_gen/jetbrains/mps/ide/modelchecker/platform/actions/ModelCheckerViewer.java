@@ -45,7 +45,7 @@ import jetbrains.mps.ide.findusages.model.SearchTask;
 import com.intellij.openapi.actionSystem.ActionPlaces;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.ide.findusages.model.SearchResults;
-import jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator;
+import jetbrains.mps.ide.findusages.view.treeholder.treeview.NodeRepresentatorBase;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.TextOptions;
 import jetbrains.mps.util.NameUtil;
 import javax.swing.Icon;
@@ -210,7 +210,7 @@ public class ModelCheckerViewer extends JPanel {
   private ModelCheckerIssueFinder newModelChecker() {
     return new ModelCheckerIssueFinder(myProject.getRepository(), ModelCheckerSettings.getInstance().getSpecificCheckers(myProject));
   }
-  public static class MyNodeRepresentator implements INodeRepresentator<IssueKindReportItem> {
+  public static class MyNodeRepresentator extends NodeRepresentatorBase<IssueKindReportItem> {
     public MyNodeRepresentator() {
     }
     @Override

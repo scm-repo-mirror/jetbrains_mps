@@ -36,8 +36,8 @@ public class ModuleNodeData extends AbstractResultNodeData {
 
   private SModuleReference myModuleReference;
 
-  public ModuleNodeData(PathItemRole role, @Nullable String caption, @NotNull SModuleReference moduleRef, boolean isResult, boolean resultsSection) {
-    super(role, caption != null ? caption : getCaption(moduleRef), "", true, isResult, resultsSection);
+  public ModuleNodeData(PathItemRole role, @Nullable String caption, @Nullable String info, @NotNull SModuleReference moduleRef, boolean isResult, boolean resultsSection) {
+    super(role, caption != null ? caption : getCaption(moduleRef), info == null ? "" : info, true, isResult, resultsSection);
     myModuleReference = moduleRef;
   }
 

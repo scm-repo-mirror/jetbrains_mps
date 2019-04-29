@@ -45,8 +45,10 @@ public class NodeNodeData extends AbstractResultNodeData {
   private SNodeReference myNodePointer;
   private boolean myIsRootNode;
 
-  public NodeNodeData(PathItemRole role, @Nullable String caption, @NotNull SNode pathObject, boolean isPathTail, boolean resultsSection) {
-    super(role, caption != null ? caption : snodeRepresentation(pathObject), nodeAdditionalInfo(pathObject), false, isPathTail, resultsSection);
+  public NodeNodeData(PathItemRole role, @Nullable String caption, @Nullable String info, @NotNull SNode pathObject, boolean isPathTail,
+                      boolean resultsSection) {
+    super(role, caption != null ? caption : snodeRepresentation(pathObject), info != null ? info : nodeAdditionalInfo(pathObject), false, isPathTail,
+          resultsSection);
     myNodePointer = pathObject.getReference();
     myIsRootNode = pathObject.getModel() != null && pathObject.getParent() == null;
   }
@@ -104,16 +106,18 @@ public class NodeNodeData extends AbstractResultNodeData {
   }
 
   private static String nodeAdditionalInfo(final SNode node) {
-    if (node.getParent() == null) return "";
+    if (node.getParent() == null) {
+      return "";
+    }
     return "role: " +
-      "<i>" +
-      StringUtil.escapeXml(node.getRoleInParent()) +
-      "</i>" +
-      "; " +
-      "in: " +
-      "<i>" +
-      snodeRepresentation(node.getParent()) +
-      "</i>";
+           "<i>" +
+           StringUtil.escapeXml(node.getRoleInParent()) +
+           "</i>" +
+           "; " +
+           "in: " +
+           "<i>" +
+           snodeRepresentation(node.getParent()) +
+           "</i>";
   }
 
   public boolean isRootNode() {

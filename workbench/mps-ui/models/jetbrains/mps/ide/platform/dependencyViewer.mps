@@ -3488,12 +3488,6 @@
       <property role="TrG5h" value="MyNodeRepresentator" />
       <property role="2bfB8j" value="true" />
       <node concept="3Tm1VV" id="7ctIhG_bUCZ" role="1B3o_S" />
-      <node concept="3uibUv" id="7ctIhG_bUD4" role="EKbjA">
-        <ref role="3uigEE" to="dsdj:~INodeRepresentator" resolve="INodeRepresentator" />
-        <node concept="3uibUv" id="7ctIhG_bUD5" role="11_B2D">
-          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
-        </node>
-      </node>
       <node concept="3clFbW" id="7ctIhG_bUD0" role="jymVt">
         <node concept="3cqZAl" id="7ctIhG_bUD1" role="3clF45" />
         <node concept="3Tm1VV" id="7ctIhG_bUD2" role="1B3o_S" />
@@ -3698,6 +3692,12 @@
         <node concept="3clFbS" id="7ctIhG_bUEb" role="3clF47" />
         <node concept="2AHcQZ" id="3tYsUK_RZ8n" role="2AJF6D">
           <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+        </node>
+      </node>
+      <node concept="3uibUv" id="30S9H56jS2D" role="1zkMxy">
+        <ref role="3uigEE" to="dsdj:~NodeRepresentatorBase" resolve="NodeRepresentatorBase" />
+        <node concept="3uibUv" id="30S9H56jT22" role="11_B2D">
+          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
         </node>
       </node>
     </node>
@@ -5723,12 +5723,6 @@
       <property role="TrG5h" value="MyNodeRepresentator" />
       <property role="2bfB8j" value="true" />
       <node concept="3Tm1VV" id="7ctIhG_bUNJ" role="1B3o_S" />
-      <node concept="3uibUv" id="7ctIhG_bUNO" role="EKbjA">
-        <ref role="3uigEE" to="dsdj:~INodeRepresentator" resolve="INodeRepresentator" />
-        <node concept="3uibUv" id="7ctIhG_bUNP" role="11_B2D">
-          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
-        </node>
-      </node>
       <node concept="3clFbW" id="7ctIhG_bUNK" role="jymVt">
         <node concept="3cqZAl" id="7ctIhG_bUNL" role="3clF45" />
         <node concept="3Tm1VV" id="7ctIhG_bUNM" role="1B3o_S" />
@@ -5993,6 +5987,12 @@
         <node concept="3clFbS" id="7ctIhG_bUP1" role="3clF47" />
         <node concept="2AHcQZ" id="3tYsUK_RUka" role="2AJF6D">
           <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+        </node>
+      </node>
+      <node concept="3uibUv" id="30S9H56jHYm" role="1zkMxy">
+        <ref role="3uigEE" to="dsdj:~NodeRepresentatorBase" resolve="NodeRepresentatorBase" />
+        <node concept="3uibUv" id="30S9H56jMQy" role="11_B2D">
+          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
         </node>
       </node>
     </node>

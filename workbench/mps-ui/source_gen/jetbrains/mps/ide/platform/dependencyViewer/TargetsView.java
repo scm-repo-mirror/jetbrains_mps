@@ -18,7 +18,7 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.tree.TreePath;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.ModelNodeData;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.NodeNodeData;
-import jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator;
+import jetbrains.mps.ide.findusages.view.treeholder.treeview.NodeRepresentatorBase;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import jetbrains.mps.ide.findusages.model.CategoryKind;
@@ -101,7 +101,7 @@ public class TargetsView extends UsagesView {
       myDependenciesComponent.updateReferencesView(scope);
     }
   }
-  public class MyNodeRepresentator implements INodeRepresentator<SNode> {
+  public class MyNodeRepresentator extends NodeRepresentatorBase<SNode> {
     public MyNodeRepresentator() {
     }
     @Override

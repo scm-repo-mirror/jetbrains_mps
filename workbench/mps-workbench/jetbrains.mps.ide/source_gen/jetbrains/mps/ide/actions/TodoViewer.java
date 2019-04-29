@@ -27,7 +27,7 @@ import jetbrains.mps.ide.findusages.view.FindUtils;
 import jetbrains.mps.ide.findusages.model.SearchQuery;
 import jetbrains.mps.ide.findusages.model.holders.GenericHolder;
 import com.intellij.openapi.actionSystem.ActionPlaces;
-import jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator;
+import jetbrains.mps.ide.findusages.view.treeholder.treeview.NodeRepresentatorBase;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -96,7 +96,7 @@ public class TodoViewer extends JPanel {
     searchTodoAction.actionPerformed(AnActionEvent.createFromInputEvent(searchTodoAction, null, ActionPlaces.TODO_VIEW_TOOLBAR));
     getTool().openToolLater(true);
   }
-  public static class MyNodeRepresentator implements INodeRepresentator<SNode> {
+  public static class MyNodeRepresentator extends NodeRepresentatorBase<SNode> {
     public MyNodeRepresentator() {
     }
     @NotNull

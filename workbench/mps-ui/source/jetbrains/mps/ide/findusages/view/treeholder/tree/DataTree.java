@@ -92,7 +92,9 @@ public class DataTree implements IExternalizeable, IChangeListener {
   private void setExcludedRecursively(Set<DataNode> doNotProcess, DataNode node, boolean value) {
     node.getData().setExcluded(value);
     for (DataNode child : node.getChildren()) {
-      if (doNotProcess.contains(child)) continue;
+      if (doNotProcess.contains(child)) {
+        continue;
+      }
       setExcludedRecursively(doNotProcess, child, value);
     }
   }
@@ -185,26 +187,26 @@ public class DataTree implements IExternalizeable, IChangeListener {
   }
 
   private DataNode build(final SearchResults<?> results, final INodeRepresentator nodeRepresentator) {
-      myRebuildCache = new HashMap<>();
+    myRebuildCache = new HashMap<>();
 
-      DataNode root = createTreeRoot();
+    DataNode root = createTreeRoot();
 
-      DataNode nodesRoot = new DataNode(new SearchedNodesNodeData(PathItemRole.ROLE_MAIN_SEARCHED_NODES));
-      for (Object node : results.getSearchedObjects().getElements()) {
-        if (node != null) {
-          addSearchedNode(nodesRoot, node);
-        }
+    DataNode nodesRoot = new DataNode(new SearchedNodesNodeData(PathItemRole.ROLE_MAIN_SEARCHED_NODES));
+    for (Object node : results.getSearchedObjects().getElements()) {
+      if (node != null) {
+        addSearchedNode(nodesRoot, node);
       }
-      root.add(nodesRoot);
+    }
+    root.add(nodesRoot);
 
-      DataNode resultsRoot = new DataNode(new ResultsNodeData(PathItemRole.ROLE_MAIN_RESULTS, nodeRepresentator));
-      for (SearchResult<?> result : results.getNotNullResults()) {
-        addResultWithPresentation(resultsRoot, result, nodeRepresentator);
-      }
-      root.add(resultsRoot);
+    DataNode resultsRoot = new DataNode(new ResultsNodeData(PathItemRole.ROLE_MAIN_RESULTS, nodeRepresentator));
+    for (SearchResult<?> result : results.getNotNullResults()) {
+      addResultWithPresentation(resultsRoot, result, nodeRepresentator);
+    }
+    root.add(resultsRoot);
 
-      myRebuildCache = null;
-      return root;
+    myRebuildCache = null;
+    return root;
   }
 
   private void addSearchedNode(DataNode root, Object node) {
@@ -218,7 +220,7 @@ public class DataTree implements IExternalizeable, IChangeListener {
   }
 
   private void createPath(List<PathItem> path, DataNode parent, @Nullable INodeRepresentator<Object> nodeRepresentator,
-      boolean results, @Nullable SearchResult result) {
+                          boolean results, @Nullable SearchResult result) {
 
     assert !path.isEmpty();
     final PathItem pathTail = path.get(path.size() - 1);
@@ -228,6 +230,13 @@ public class DataTree implements IExternalizeable, IChangeListener {
       tailCustomCaption = nodeRepresentator.getPresentation(result.getObject());
     } else {
       tailCustomCaption = null;
+    }
+
+    final String tailCustomAdditionalInfo;
+    if (result != null && nodeRepresentator != null) {
+      tailCustomAdditionalInfo = nodeRepresentator.getAdditionalInfo(result.getObject());
+    } else {
+      tailCustomAdditionalInfo = null;
     }
 
 
@@ -242,18 +251,19 @@ public class DataTree implements IExternalizeable, IChangeListener {
         BaseNodeData data = null;
 
         final String caption = isPathTail ? tailCustomCaption : null;
+        final String info = isPathTail ? tailCustomAdditionalInfo : null;
 
         if (currentIdObject instanceof SModule) {
-          data = new ModuleNodeData(creator, caption, ((SModule) currentIdObject).getModuleReference(), isPathTail, results);
+          data = new ModuleNodeData(creator, caption, info, ((SModule) currentIdObject).getModuleReference(), isPathTail, results);
         } else if (currentIdObject instanceof SModuleReference) {
-          data = new ModuleNodeData(creator, caption, (SModuleReference) currentIdObject, isPathTail, results);
+          data = new ModuleNodeData(creator, caption, info, (SModuleReference) currentIdObject, isPathTail, results);
         } else if (currentIdObject instanceof SModelReference) {
-          data = new ModelNodeData(creator, caption, (SModelReference) currentIdObject, isPathTail, results);
+          data = new ModelNodeData(creator, caption, info, (SModelReference) currentIdObject, isPathTail, results);
         } else if (currentIdObject instanceof SNode) {
-          data = new NodeNodeData(creator, caption, (SNode) currentIdObject, isPathTail, results);
+          data = new NodeNodeData(creator, caption, info, (SNode) currentIdObject, isPathTail, results);
         } else if (currentIdObject instanceof SLanguage) {
           final SLanguage l = (SLanguage) currentIdObject;
-          data = new AbstractResultNodeData(creator, caption == null ? l.getQualifiedName() : caption, "", false, isPathTail, results) {
+          data = new AbstractResultNodeData(creator, caption == null ? l.getQualifiedName() : caption, info == null ? "" : info, false, isPathTail, results) {
             @Override
             protected String createIdObject() {
               return l.toString();

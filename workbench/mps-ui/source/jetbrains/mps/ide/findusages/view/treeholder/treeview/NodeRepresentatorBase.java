@@ -24,6 +24,7 @@ import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.util.NameUtil;
 import org.jdom.Element;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.Icon;
 import java.util.List;
@@ -31,12 +32,12 @@ import java.util.List;
 //todo [MM] make a default node representator, move all "default" code there. There should be no code like "if(myNoeRepresenqtator==null){...}"
 public abstract class NodeRepresentatorBase<N> implements INodeRepresentator<N> {
   @Override
-  public String getPresentation(N node) {
+  public String getAdditionalInfo(N node) {
     return null;
   }
 
   @Override
-  public String getAdditionalInfo(N node) {
+  public String getPresentation(N node) {
     return null;
   }
 

@@ -6,7 +6,7 @@ import jetbrains.mps.ide.findusages.view.UsagesView;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.ide.findusages.view.treeholder.treeview.ViewOptions;
 import jetbrains.mps.ide.findusages.view.treeholder.treeview.UsagesTree;
-import jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator;
+import jetbrains.mps.ide.findusages.view.treeholder.treeview.NodeRepresentatorBase;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import jetbrains.mps.ide.findusages.model.CategoryKind;
@@ -27,7 +27,7 @@ public class ReferencesView extends UsagesView {
     usagesTree.setSelectionRow(0);
     usagesTree.setShowPopupMenu(false);
   }
-  public class MyNodeRepresentator implements INodeRepresentator<SNode> {
+  public class MyNodeRepresentator extends NodeRepresentatorBase<SNode> {
     public MyNodeRepresentator() {
     }
     @Override

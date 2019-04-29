@@ -7025,12 +7025,6 @@
         <node concept="3Tm1VV" id="3etVqSRRN_0" role="1B3o_S" />
         <node concept="3clFbS" id="3etVqSRRN_1" role="3clF47" />
       </node>
-      <node concept="3uibUv" id="3etVqSRRN_2" role="EKbjA">
-        <ref role="3uigEE" to="dsdj:~INodeRepresentator" resolve="INodeRepresentator" />
-        <node concept="3uibUv" id="13muGfOGWE3" role="11_B2D">
-          <ref role="3uigEE" to="d6hs:~IssueKindReportItem" resolve="IssueKindReportItem" />
-        </node>
-      </node>
       <node concept="3Tm1VV" id="3etVqSRRN_4" role="1B3o_S" />
       <node concept="3clFb_" id="3etVqSRRN_5" role="jymVt">
         <property role="TrG5h" value="getResultsText" />
@@ -7410,6 +7404,12 @@
         </node>
         <node concept="2AHcQZ" id="3etVqSRRNBr" role="2AJF6D">
           <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+        </node>
+      </node>
+      <node concept="3uibUv" id="3$3jTcdbk0Z" role="1zkMxy">
+        <ref role="3uigEE" to="dsdj:~NodeRepresentatorBase" resolve="NodeRepresentatorBase" />
+        <node concept="3uibUv" id="3$3jTcdbqCq" role="11_B2D">
+          <ref role="3uigEE" to="d6hs:~IssueKindReportItem" resolve="IssueKindReportItem" />
         </node>
       </node>
     </node>
