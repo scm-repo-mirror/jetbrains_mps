@@ -24,8 +24,9 @@ import javax.swing.Icon;
 import java.util.List;
 
 public interface INodeRepresentator<N> extends IExternalizeable {
-  @NotNull
   String getPresentation(N node);
+
+  String getAdditionalInfo(N node);
 
   String getResultsText(TextOptions options);
 

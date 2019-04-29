@@ -49,23 +49,27 @@ public class ResultsNodeData extends BaseNodeData {
 
   @Override
   public Icon getIcon(PresentationContext presentationContext) {
-    if (myNodeRepresentator == null) {
-      return Nodes.UsagesFinder;
-    } else {
-      return myNodeRepresentator.getResultsIcon();
+    if (myNodeRepresentator != null) {
+      Icon res = myNodeRepresentator.getResultsIcon();
+      if (res != null) {
+        return res;
+      }
     }
+    return Nodes.UsagesFinder;
   }
 
   @Override
   public String getText(TextOptions options) {
-    if (myNodeRepresentator == null) {
-      return "<b>" + sizeRepresentation(options.mySubresultsCount) + " found" + "</b>";
-    } else {
-      return myNodeRepresentator.getResultsText(options);
+    if (myNodeRepresentator != null) {
+      String res = myNodeRepresentator.getResultsText(options);
+      if (res != null) {
+        return res;
+      }
     }
+    return "<b>" + sizeRepresentation(options.mySubresultsCount) + " found" + "</b>";
   }
 
   private static String sizeRepresentation(int size) {
-    return "<b>" + Integer.toString(size) + " usage" + (size == 1 ? "" : "s") + "</b>";
+    return "<b>" + size + " usage" + (size == 1 ? "" : "s") + "</b>";
   }
 }

@@ -287,7 +287,7 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
       public void navigate(boolean requestFocus) {
         // Show nodes directly in editor instead of project pane
         boolean useProjectTree = !(data instanceof NodeNodeData);
-        if(data instanceof ModelNodeData || data instanceof ModuleNodeData) {
+        if (data instanceof ModelNodeData || data instanceof ModuleNodeData) {
           // Leave focus in UsagesView or it became unusable
           requestFocus = false;
         }
@@ -456,7 +456,10 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
             new CategoryKind(CategoryKind.DEFAULT_CATEGORY_KIND.getName(), General.Filter, CategoryKind.DEFAULT_CATEGORY_KIND.getTooltip())
         );
         if (myNodeRepresentator != null) {
-          categoryKinds = ((INodeRepresentator<?>) myNodeRepresentator).getCategoryKinds();
+          List<CategoryKind> kinds = ((INodeRepresentator<?>) myNodeRepresentator).getCategoryKinds();
+          if (kinds != null) {
+            categoryKinds = kinds;
+          }
         }
 
         myCategoryPathButtons.clear();

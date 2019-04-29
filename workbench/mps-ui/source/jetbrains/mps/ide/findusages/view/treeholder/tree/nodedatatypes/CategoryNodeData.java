@@ -36,7 +36,7 @@ public class CategoryNodeData extends BaseNodeData {
   private INodeRepresentator myNodeRepresentator;
 
   public CategoryNodeData(PathItemRole role, String categoryKindName, String category, boolean resultsSection,
-      INodeRepresentator nodeRepresentator) {
+                          INodeRepresentator nodeRepresentator) {
     super(role, "<b>" + category + "</b>", "", true, false, resultsSection);
     myCategoryKindName = categoryKindName;
     myCategory = category;
@@ -49,11 +49,13 @@ public class CategoryNodeData extends BaseNodeData {
 
   @Override
   public Icon getIcon(PresentationContext presentationContext) {
-    if (myNodeRepresentator == null) {
-      return IdeIcons.CLOSED_FOLDER;
-    } else {
-      return myNodeRepresentator.getCategoryIcon(myCategory);
+    if (myNodeRepresentator != null) {
+      Icon res = myNodeRepresentator.getCategoryIcon(myCategory);
+      if (res != null) {
+        return res;
+      }
     }
+    return IdeIcons.CLOSED_FOLDER;
   }
 
   @Override
@@ -83,14 +85,17 @@ public class CategoryNodeData extends BaseNodeData {
 
   @Override
   public String getText(TextOptions options) {
-    if (myNodeRepresentator == null) {
-      String counter = "";
-      if (options.myCounters && isResultsSection()) {
-        counter = (" <b>(" + NameUtil.formatNumericalString(options.mySubresultsCount, "usage") + ")</b>");
+    if (myNodeRepresentator != null) {
+      String res = myNodeRepresentator.getCategoryText(options, myCategory, isResultsSection());
+      if (res != null) {
+        return res;
       }
-      return super.getText(options) + counter;
-    } else {
-      return myNodeRepresentator.getCategoryText(options, myCategory, isResultsSection());
     }
+
+    String counter = "";
+    if (options.myCounters && isResultsSection()) {
+      counter = (" <b>(" + NameUtil.formatNumericalString(options.mySubresultsCount, "usage") + ")</b>");
+    }
+    return super.getText(options) + counter;
   }
 }
