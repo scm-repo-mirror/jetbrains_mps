@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -101,15 +101,6 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
   private final GenPlanActiveStep myPlanStep;
   private final DelayedChanges myDelayedChanges;
   private final Map<SNode, SNode> myNewToOldRoot = new HashMap<>();
-  /**
-   * Input nodes coming from a model other than input model (or no model at all), e.g. if
-   * input node query follows a reference from an input model to some outer model.
-   * We track these nodes, including children, to facilitate reference resolution (i.e. if there's
-   * a reference in an input model pointing somewhere to subtree of a foreign node, we redirect
-   * that reference to the copied counterpart). Generally, this approach might not be everyone's
-   * desire, but it's the way it was so far.
-   */
-  private final Set<SNode> myAdditionalInputNodes = new HashSet<>();
   protected final List<SNode> myOutputRoots;
 
   private final QueryExecutionContext myExecutionContext;
@@ -634,7 +625,6 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
     ArrayList<SNode> outputNodes = new ArrayList<>();
     while(it.hasNext()) {
       SNode newInputNode = it.next();
-      trackIfForeign(newInputNode);
 
       if (myDeltaBuilder != null) {
         myDeltaBuilder.enterNestedCopySrc(newInputNode);
@@ -648,7 +638,7 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
           }
           outputNodes.addAll(_outputNodes);
         } else {
-          FullCopyFacility copyFacility = new FullCopyFacility(env, new HashSet<>(getForeignNodes()));
+          FullCopyFacility copyFacility = new FullCopyFacility(env);
           SNode copiedNode = copyFacility.copyInputNode(newInputNode);
           addOutputNodeByInputAndTemplateNode(newInputNode, templateId, copiedNode);
           if (mappingName != null) {
@@ -664,25 +654,6 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
     }
     return outputNodes;
 
-  }
-
-  private Set<SNode> getForeignNodes() {
-    synchronized (myAdditionalInputNodes) {
-      return new HashSet<>(myAdditionalInputNodes);
-    }
-  }
-
-  private void trackIfForeign(@NotNull SNode inputNode) {
-    SModel model = inputNode.getModel();
-    if (model != getInputModel() || model == null) {
-      synchronized (myAdditionalInputNodes) {
-        if (!myAdditionalInputNodes.contains(inputNode)) {
-          for (SNode n : SNodeUtil.getDescendants(inputNode, null, true)) {
-            myAdditionalInputNodes.add(n);
-          }
-        }
-      }
-    }
   }
 
   BlockedReductionsData getBlockedReductionsData() {
@@ -847,7 +818,7 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
         //       Perhaps, shall refactor FCF to support two modes, with/without nested reductions.
         // XXX Likely, current approach does't allow references to attributes to resolve magically (i.e. by matched node id)
         // Is it important, do we care about references to attributes at all?
-        final SNode attrCopy = new FullCopyFacility(env, getForeignNodes()).copyInputNode(attr);
+        final SNode attrCopy = new FullCopyFacility(env).copyInputNode(attr);
         output.addChild(jetbrains.mps.smodel.SNodeUtil.link_BaseConcept_smodelAttribute, attrCopy);
       }
     }
@@ -1051,17 +1022,12 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
   }
 
   private static class FullCopyFacility extends NodeCopyFacility {
-    private final Set<SNode> myAdditionalInputNodes;
     private final SModel myInputModel;
     private final SModelReference myOutputModelRef;
     private final Factory myNodeFactory;
 
     public FullCopyFacility(TemplateExecutionEnvironmentImpl env) {
-      this(env, Collections.emptySet());
-    }
-    public FullCopyFacility(TemplateExecutionEnvironmentImpl env, Set<SNode> additionalInputs) {
       super(env);
-      myAdditionalInputNodes = additionalInputs;
       myInputModel = env.getGenerator().getInputModel();
       myOutputModelRef = env.getOutputModel().getReference();
       myNodeFactory = new RegularSModelFactory();
@@ -1169,7 +1135,7 @@ public class TemplateGenerator extends AbstractTemplateGenerator {
           continue;
         }
 
-        if (refTarget.getModel() != null && refTarget.getModel().equals(myInputModel) || myAdditionalInputNodes.contains(refTarget)) {
+        if (refTarget.getModel() != null && refTarget.getModel().equals(myInputModel) || myEnv.isForeignNode(refTarget)) {
           ReferenceInfo_CopiedInputNode refInfo = new ReferenceInfo_CopiedInputNode(inputNode, refTarget);
           new PostponedReference(inputReference.getLink(), outputNode, refInfo).registerWith(myEnv.getGenerator());
         } else if (refTarget.getModel() != null) {
