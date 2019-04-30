@@ -454,9 +454,11 @@
   </registry>
   <node concept="312cEu" id="3eE6dTgTyYL">
     <property role="TrG5h" value="SimpleCommandQueue" />
+    <property role="1EXbeo" value="true" />
     <node concept="3Tm1VV" id="3eE6dTgTyYM" role="1B3o_S" />
     <node concept="312cEg" id="3eE6dTgTzae" role="jymVt">
       <property role="TrG5h" value="myThread" />
+      <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="3eE6dTgTzaf" role="1B3o_S" />
       <node concept="3uibUv" id="3eE6dTgTzLj" role="1tU5fm">
         <ref role="3uigEE" to="wyt6:~Thread" resolve="Thread" />
@@ -497,6 +499,7 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="xzqpZZZBhb" role="jymVt" />
     <node concept="3clFbW" id="3eE6dTgTyYN" role="jymVt">
       <node concept="3cqZAl" id="3eE6dTgTyYO" role="3clF45" />
       <node concept="3Tm1VV" id="3eE6dTgTyYP" role="1B3o_S" />
@@ -516,6 +519,20 @@
             </node>
           </node>
         </node>
+      </node>
+      <node concept="37vLTG" id="3eE6dTgTGvY" role="3clF46">
+        <property role="TrG5h" value="threadName" />
+        <node concept="17QB3L" id="3eE6dTgTGvZ" role="1tU5fm" />
+        <node concept="2AHcQZ" id="f7MobKgkFk" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="xzqpZZZIVr" role="jymVt" />
+    <node concept="3clFb_" id="xzqpZZZRCQ" role="jymVt">
+      <property role="TrG5h" value="startThread" />
+      <node concept="3cqZAl" id="xzqpZZZRCS" role="3clF45" />
+      <node concept="3clFbS" id="xzqpZZZRCU" role="3clF47">
         <node concept="3clFbF" id="3eE6dTgTRlG" role="3cqZAp">
           <node concept="2OqwBi" id="3eE6dTgTRlK" role="3clFbG">
             <node concept="37vLTw" id="2BHiRxeuoZH" role="2Oq$k0">
@@ -527,14 +544,8 @@
           </node>
         </node>
       </node>
-      <node concept="37vLTG" id="3eE6dTgTGvY" role="3clF46">
-        <property role="TrG5h" value="threadName" />
-        <node concept="17QB3L" id="3eE6dTgTGvZ" role="1tU5fm" />
-        <node concept="2AHcQZ" id="f7MobKgkFk" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-        </node>
-      </node>
     </node>
+    <node concept="2tJIrI" id="xzqpZZZEp_" role="jymVt" />
     <node concept="3clFb_" id="3eE6dTgUd0h" role="jymVt">
       <property role="TrG5h" value="runTask" />
       <node concept="3cqZAl" id="3eE6dTgUd0i" role="3clF45" />
@@ -586,6 +597,7 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="xzqpZZZHkX" role="jymVt" />
     <node concept="3clFb_" id="3eE6dTgTRlP" role="jymVt">
       <property role="TrG5h" value="addTask" />
       <node concept="3cqZAl" id="3eE6dTgTRlQ" role="3clF45" />
@@ -611,6 +623,7 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="xzqpZZZFPe" role="jymVt" />
     <node concept="3clFb_" id="4DPIwUs8cj$" role="jymVt">
       <property role="TrG5h" value="addTask" />
       <node concept="3cqZAl" id="4DPIwUs8cj_" role="3clF45" />
@@ -2992,9 +3005,6 @@
     <property role="TrG5h" value="CurrentDifferenceRegistry" />
     <property role="3GE5qa" value="" />
     <node concept="3Tm1VV" id="2JwSLRbyYPI" role="1B3o_S" />
-    <node concept="3uibUv" id="2JwSLRbyYXz" role="1zkMxy">
-      <ref role="3uigEE" to="1m72:~AbstractProjectComponent" resolve="AbstractProjectComponent" />
-    </node>
     <node concept="312cEg" id="2JwSLRbyYPl" role="jymVt">
       <property role="TrG5h" value="myCurrentDifferences" />
       <property role="3TUv4t" value="true" />
@@ -3105,12 +3115,6 @@
       <node concept="3cqZAl" id="2JwSLRbyYWM" role="3clF45" />
       <node concept="3Tm1VV" id="2JwSLRbyYWN" role="1B3o_S" />
       <node concept="3clFbS" id="2JwSLRbyYWO" role="3clF47">
-        <node concept="XkiVB" id="2JwSLRbyYWP" role="3cqZAp">
-          <ref role="37wK5l" to="1m72:~AbstractProjectComponent.&lt;init&gt;(com.intellij.openapi.project.Project)" resolve="AbstractProjectComponent" />
-          <node concept="37vLTw" id="2BHiRxglkdu" role="37wK5m">
-            <ref role="3cqZAo" node="2JwSLRbyYWR" resolve="project" />
-          </node>
-        </node>
         <node concept="3clFbF" id="6y_kxB1UoDP" role="3cqZAp">
           <node concept="37vLTI" id="6y_kxB1UoDR" role="3clFbG">
             <node concept="37vLTw" id="6y_kxB1UvHJ" role="37vLTJ">
@@ -3150,15 +3154,6 @@
               </node>
             </node>
           </node>
-        </node>
-      </node>
-      <node concept="37vLTG" id="2JwSLRbyYWR" role="3clF46">
-        <property role="TrG5h" value="project" />
-        <node concept="3uibUv" id="2JwSLRbyYWS" role="1tU5fm">
-          <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
-        </node>
-        <node concept="2AHcQZ" id="2JwSLRbyYWT" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
         </node>
       </node>
       <node concept="37vLTG" id="6y_kxB1UvNc" role="3clF46">
@@ -3219,6 +3214,49 @@
             </node>
             <node concept="liA8E" id="1nctWZUYQg2" role="2OqNvi">
               <ref role="37wK5l" to="w1kc:~RepoListenerRegistrar.attach()" resolve="attach" />
+            </node>
+          </node>
+        </node>
+        <node concept="3SKdUt" id="xzqq001Kpf" role="3cqZAp">
+          <node concept="3SKdUq" id="xzqq001Kph" role="3SKWNk">
+            <property role="3SKdUp" value="do not start the command thread immediately, let project refresh its structures and components." />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="xzqq002NaK" role="3cqZAp">
+          <node concept="3SKdUq" id="xzqq002NaM" role="3SKWNk">
+            <property role="3SKdUp" value="Not sure whether to use StartupManager.registerPostStartupActivity or runWhenSmart; chose latter as its javadoc " />
+          </node>
+        </node>
+        <node concept="3SKdUt" id="xzqq003CrH" role="3cqZAp">
+          <node concept="3SKdUq" id="xzqq003CrI" role="3SKWNk">
+            <property role="3SKdUp" value="promises initialized project in addition to indexing done (to some extent)." />
+          </node>
+        </node>
+        <node concept="3clFbF" id="xzqq001WB3" role="3cqZAp">
+          <node concept="2OqwBi" id="xzqq0024D5" role="3clFbG">
+            <node concept="2YIFZM" id="xzqq001ZwD" role="2Oq$k0">
+              <ref role="37wK5l" to="4nm9:~DumbService.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
+              <ref role="1Pybhc" to="4nm9:~DumbService" resolve="DumbService" />
+              <node concept="1rXfSq" id="xzqq0021nV" role="37wK5m">
+                <ref role="37wK5l" node="10zdeIyjETe" resolve="getProject" />
+              </node>
+            </node>
+            <node concept="liA8E" id="xzqq0027YQ" role="2OqNvi">
+              <ref role="37wK5l" to="4nm9:~DumbService.runWhenSmart(java.lang.Runnable)" resolve="runWhenSmart" />
+              <node concept="1bVj0M" id="xzqq001s11" role="37wK5m">
+                <node concept="3clFbS" id="xzqq001s12" role="1bW5cS">
+                  <node concept="3clFbF" id="xzqq001v07" role="3cqZAp">
+                    <node concept="2OqwBi" id="xzqq001wLg" role="3clFbG">
+                      <node concept="37vLTw" id="xzqq001v06" role="2Oq$k0">
+                        <ref role="3cqZAo" node="2JwSLRbyYPC" resolve="myCommandQueue" />
+                      </node>
+                      <node concept="liA8E" id="xzqq001zKh" role="2OqNvi">
+                        <ref role="37wK5l" node="xzqpZZZRCQ" resolve="startThread" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
             </node>
           </node>
         </node>
@@ -3340,8 +3378,13 @@
       <node concept="3Tm1VV" id="10zdeIyjETg" role="1B3o_S" />
       <node concept="3clFbS" id="10zdeIyjETh" role="3clF47">
         <node concept="3clFbF" id="10zdeIyjHu6" role="3cqZAp">
-          <node concept="37vLTw" id="2BHiRxeudER" role="3clFbG">
-            <ref role="3cqZAo" to="1m72:~AbstractProjectComponent.myProject" resolve="myProject" />
+          <node concept="2OqwBi" id="xzqq0017LD" role="3clFbG">
+            <node concept="37vLTw" id="xzqq0013Pg" role="2Oq$k0">
+              <ref role="3cqZAo" node="6y_kxB1UvQg" resolve="myMpsProject" />
+            </node>
+            <node concept="liA8E" id="xzqq001bHC" role="2OqNvi">
+              <ref role="37wK5l" to="z1c3:~MPSProject.getProject()" resolve="getProject" />
+            </node>
           </node>
         </node>
       </node>
@@ -4725,6 +4768,9 @@
         </node>
       </node>
       <node concept="3Tm6S6" id="6h1S4muEZzk" role="1B3o_S" />
+    </node>
+    <node concept="3uibUv" id="xzqq000LQy" role="EKbjA">
+      <ref role="3uigEE" to="1m72:~ProjectComponent" resolve="ProjectComponent" />
     </node>
   </node>
   <node concept="312cEu" id="2JwSLRbyUxe">

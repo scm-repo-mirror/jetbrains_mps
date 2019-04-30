@@ -8,16 +8,21 @@ import java.util.LinkedList;
 import org.jetbrains.annotations.NotNull;
 import org.apache.log4j.Level;
 
-public class SimpleCommandQueue {
+public final class SimpleCommandQueue {
   private static final Logger LOG = LogManager.getLogger(SimpleCommandQueue.class);
-  private Thread myThread;
+  private final Thread myThread;
   private boolean myDisposed = false;
   private boolean myHadExceptions = false;
   private final LinkedList<SimpleCommandQueue.QueueElem> myQueue = new LinkedList<SimpleCommandQueue.QueueElem>();
+
   public SimpleCommandQueue(@NotNull String threadName) {
     myThread = new SimpleCommandQueue.MyExecutorThread(threadName);
+  }
+
+  /*package*/ void startThread() {
     myThread.start();
   }
+
   public void runTask(@NotNull Runnable task) {
     if (Thread.currentThread() == myThread) {
       task.run();
@@ -25,9 +30,11 @@ public class SimpleCommandQueue {
       addTask(task);
     }
   }
+
   public void addTask(@NotNull Runnable task) {
     addTask(task, null);
   }
+
   public void addTask(@NotNull Runnable task, Object key) {
     // removes task with the same key if any 
     synchronized (myQueue) {
