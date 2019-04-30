@@ -27,8 +27,8 @@ import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.ui.content.Content;
-import com.intellij.ui.content.ContentFactoryImpl;
 import com.intellij.ui.content.ContentManager;
+import com.intellij.util.ui.update.UiNotifyConnector;
 import jetbrains.mps.ide.ThreadUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -41,7 +41,6 @@ import javax.swing.KeyStroke;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -93,12 +92,8 @@ public abstract class BaseTool {
     return myIcon;
   }
 
-  synchronized private boolean isRegistered() {
+  private boolean isRegistered() {
     return myIsRegistered;
-  }
-
-  synchronized private void setIsRegistered(boolean isRegistered) {
-    myIsRegistered = isRegistered;
   }
 
   public boolean toolIsOpened() {
@@ -233,7 +228,7 @@ public abstract class BaseTool {
       return;
     }
     ThreadUtils.assertEDT();
-    setIsRegistered(true);
+    myIsRegistered = true;
 
     myWindowManager = ToolWindowManager.getInstance(myProject);
 
@@ -280,18 +275,20 @@ public abstract class BaseTool {
       toolWindow.setIcon(myIcon);
     }
 
-    if (myComponent == null) {
-      myComponent = getComponent();
-    }
-    if (myComponent != null) {
-      addContent(myComponent, "", null, false);
-    }
-
     toolWindow.setToHideOnEmptyContent(true);
     toolWindow.installWatcher(toolWindow.getContentManager());
     setAvailable(isInitiallyAvailable());
 
     doRegister();
+
+    UiNotifyConnector.doWhenFirstShown(toolWindow.getComponent(), () -> {
+      if (myComponent == null) {
+        myComponent = getComponent();
+      }
+      if (myComponent != null) {
+        addContent(myComponent, "", null, false);
+      }
+    });
   }
 
   /**
