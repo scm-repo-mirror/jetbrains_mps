@@ -3222,66 +3222,73 @@
   </root>
   <root nodeRef="r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/4403068512914877423">
     <file name="IntentionActionsProviderImpl.java">
-      <node id="6783372269476760316" at="27,87,28,89" concept="10" />
-      <node id="6783372269476757573" at="28,89,29,0" concept="13" />
-      <node id="816097550964882423" at="31,7,32,33" concept="5" />
-      <node id="6783372269476651385" at="35,77,36,79" concept="10" />
-      <node id="6783372269476417506" at="36,79,37,93" concept="10" />
-      <node id="816097550965036483" at="38,52,39,17" concept="11" />
-      <node id="816097550965127950" at="40,9,41,60" concept="10" />
-      <node id="816097550965082820" at="43,36,44,49" concept="11" />
-      <node id="6783372269476417554" at="46,14,47,222" concept="5" />
-      <node id="816097550964896899" at="48,16,49,91" concept="5" />
-      <node id="816097550965096552" at="49,91,50,63" concept="5" />
-      <node id="816097550964856474" at="55,76,56,108" concept="5" />
-      <node id="6783372269476682939" at="60,77,61,108" concept="5" />
-      <node id="6783372269476386914" at="63,7,64,0" concept="13" />
-      <node id="6783372269476174395" at="64,0,65,19" concept="11" />
-      <node id="816097550965022629" at="37,93,40,9" concept="8" />
-      <node id="816097550965082818" at="43,0,46,0" concept="9" trace="compute#()Ljava/lang/Boolean;" />
-      <node id="816097550965087050" at="48,14,51,9" concept="1" />
-      <node id="816097550964856458" at="54,0,58,0" concept="9" trace="doUpdate#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
-      <node id="6783372269476676773" at="59,0,63,0" concept="9" trace="doExecute#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
-      <node id="816097550965075185" at="41,60,51,9" concept="8" />
-      <node id="6783372269476408388" at="34,0,53,0" concept="9" trace="doExecute#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
-      <node id="6783372269476173814" at="29,0,63,7" concept="10" />
-      <node id="6783372269475797256" at="26,0,67,0" concept="9" trace="getIntentionActions#(Ljetbrains/mps/openapi/intentions/IntentionExecutable;)[Lcom/intellij/openapi/actionSystem/AnAction;" />
-      <scope id="816097550964877520" at="31,7,32,33" />
-      <scope id="816097550965022631" at="38,52,39,17" />
-      <scope id="816097550965082819" at="43,36,44,49" />
-      <scope id="816097550965075187" at="46,14,47,222" />
-      <scope id="816097550964856469" at="55,76,56,108" />
-      <scope id="6783372269476676781" at="60,77,61,108" />
-      <scope id="816097550965087051" at="48,16,50,63" />
-      <scope id="816097550965082818" at="43,0,46,0" />
-      <scope id="816097550964856458" at="54,0,58,0">
+      <node id="6783372269476760316" at="28,87,29,89" concept="10" />
+      <node id="6783372269476757573" at="29,89,30,0" concept="13" />
+      <node id="816097550964882423" at="32,7,33,33" concept="5" />
+      <node id="6783372269476651385" at="36,77,37,79" concept="10" />
+      <node id="6783372269476417506" at="37,79,38,93" concept="10" />
+      <node id="816097550965036483" at="39,52,40,17" concept="11" />
+      <node id="816097550965127950" at="41,9,42,60" concept="10" />
+      <node id="816097550965082820" at="44,36,45,49" concept="11" />
+      <node id="6783372269476417554" at="47,14,48,222" concept="5" />
+      <node id="816097550964896899" at="49,16,50,91" concept="5" />
+      <node id="816097550965096552" at="50,91,51,63" concept="5" />
+      <node id="816097550964856474" at="56,76,57,108" concept="5" />
+      <node id="6783372269476682939" at="61,77,62,108" concept="5" />
+      <node id="7481895826810656621" at="65,76,66,102" concept="5" />
+      <node id="6783372269476386914" at="68,7,69,0" concept="13" />
+      <node id="6783372269476174395" at="69,0,70,19" concept="11" />
+      <node id="816097550965022629" at="38,93,41,9" concept="8" />
+      <node id="816097550965082818" at="44,0,47,0" concept="9" trace="compute#()Ljava/lang/Boolean;" />
+      <node id="816097550965087050" at="49,14,52,9" concept="1" />
+      <node id="816097550964856458" at="55,0,59,0" concept="9" trace="doUpdate#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
+      <node id="6783372269476676773" at="60,0,64,0" concept="9" trace="doExecute#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
+      <node id="7481895826810656611" at="64,0,68,0" concept="9" trace="doUpdate#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
+      <node id="816097550965075185" at="42,60,52,9" concept="8" />
+      <node id="6783372269476408388" at="35,0,54,0" concept="9" trace="doExecute#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
+      <node id="6783372269476173814" at="30,0,68,7" concept="10" />
+      <node id="6783372269475797256" at="27,0,72,0" concept="9" trace="getIntentionActions#(Ljetbrains/mps/openapi/intentions/IntentionExecutable;)[Lcom/intellij/openapi/actionSystem/AnAction;" />
+      <scope id="816097550964877520" at="32,7,33,33" />
+      <scope id="816097550965022631" at="39,52,40,17" />
+      <scope id="816097550965082819" at="44,36,45,49" />
+      <scope id="816097550965075187" at="47,14,48,222" />
+      <scope id="816097550964856469" at="56,76,57,108" />
+      <scope id="6783372269476676781" at="61,77,62,108" />
+      <scope id="7481895826810656620" at="65,76,66,102" />
+      <scope id="816097550965087051" at="49,16,51,63" />
+      <scope id="816097550965082818" at="44,0,47,0" />
+      <scope id="816097550964856458" at="55,0,59,0">
         <var name="e" id="816097550964856462" />
         <var name="params" id="816097550964856464" />
       </scope>
-      <scope id="6783372269476676773" at="59,0,63,0">
+      <scope id="6783372269476676773" at="60,0,64,0">
         <var name="e" id="6783372269476676775" />
         <var name="params" id="6783372269476676777" />
       </scope>
-      <scope id="6783372269476408396" at="35,77,51,9">
+      <scope id="7481895826810656611" at="64,0,68,0">
+        <var name="e" id="7481895826810656614" />
+        <var name="params" id="7481895826810656616" />
+      </scope>
+      <scope id="6783372269476408396" at="36,77,52,9">
         <var name="mpsProject" id="6783372269476651386" />
         <var name="nodeRef" id="6783372269476417507" />
         <var name="repo" id="816097550965127951" />
       </scope>
-      <scope id="6783372269476408388" at="34,0,53,0">
+      <scope id="6783372269476408388" at="35,0,54,0">
         <var name="e" id="6783372269476408390" />
         <var name="params" id="6783372269476408392" />
       </scope>
-      <scope id="6783372269475797265" at="27,87,65,19">
+      <scope id="6783372269475797265" at="28,87,70,19">
         <var name="actions" id="6783372269476173815" />
         <var name="icon" id="6783372269476760315" />
       </scope>
-      <scope id="6783372269475797256" at="26,0,67,0">
+      <scope id="6783372269475797256" at="27,0,72,0">
         <var name="intention" id="6783372269475797261" />
       </scope>
-      <unit id="816097550965082818" at="42,60,46,9" name="jetbrains.mps.ide.devkit.actions.IntentionActionsProviderImpl$1$1" />
-      <unit id="6783372269476676771" at="58,11,63,5" name="jetbrains.mps.ide.devkit.actions.IntentionActionsProviderImpl$2" />
-      <unit id="6783372269476408386" at="30,30,58,5" name="jetbrains.mps.ide.devkit.actions.IntentionActionsProviderImpl$1" />
-      <unit id="4403068512914877423" at="25,0,68,0" name="jetbrains.mps.ide.devkit.actions.IntentionActionsProviderImpl" />
+      <unit id="816097550965082818" at="43,60,47,9" name="jetbrains.mps.ide.devkit.actions.IntentionActionsProviderImpl$1$1" />
+      <unit id="6783372269476676771" at="59,11,68,5" name="jetbrains.mps.ide.devkit.actions.IntentionActionsProviderImpl$2" />
+      <unit id="6783372269476408386" at="31,30,59,5" name="jetbrains.mps.ide.devkit.actions.IntentionActionsProviderImpl$1" />
+      <unit id="4403068512914877423" at="26,0,73,0" name="jetbrains.mps.ide.devkit.actions.IntentionActionsProviderImpl" />
     </file>
   </root>
   <root nodeRef="r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/448482297237178280">

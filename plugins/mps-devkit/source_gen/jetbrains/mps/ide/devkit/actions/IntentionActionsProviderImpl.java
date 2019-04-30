@@ -21,6 +21,7 @@ import com.intellij.openapi.ui.Messages;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
 import jetbrains.mps.intentions.IntentionsManager;
+import jetbrains.mps.intentions.QuickFixAdapter;
 
 public class IntentionActionsProviderImpl implements IntentionActionsProvider {
   @NotNull
@@ -59,6 +60,10 @@ public class IntentionActionsProviderImpl implements IntentionActionsProvider {
       @Override
       protected void doExecute(AnActionEvent e, Map<String, Object> params) {
         IntentionsManager.getInstance().disableIntention(intention.getDescriptor().getPersistentStateKey());
+      }
+      @Override
+      protected void doUpdate(AnActionEvent e, Map<String, Object> params) {
+        setEnabledState(e.getPresentation(), !(intention.getDescriptor() instanceof QuickFixAdapter));
       }
     }};
 

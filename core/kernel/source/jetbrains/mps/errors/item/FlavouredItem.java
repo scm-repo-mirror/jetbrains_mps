@@ -194,7 +194,8 @@ public interface FlavouredItem {
     flavourKeys.add(ReportItem.FLAVOUR_MESSAGE);
     List<FlavourPredicate<?, ?>> predicates = flavourKeys.stream()
                                                          .map(flavour -> extractPredicate(this, flavour))
-                                                         .sorted(Comparator.comparing(o -> Objects.requireNonNull(o).getFlavour().getId()))
+                                                         .filter(Objects::nonNull)
+                                                         .sorted(Comparator.comparing(o -> o.getFlavour().getId()))
                                                          .collect(Collectors.toList());
     LinkedHashMap<String, String> result = new LinkedHashMap<>();
     for (FlavourPredicate<?, ?> predicate : predicates) {
