@@ -153,7 +153,17 @@ public class DependenciesPanel extends JPanel {
     });
   }
 
+  public void dispose() {
+    myInitTree.dispose();
+    myTargetsView.dispose();
+    myReferencesView.dispose();
+    myInitialScope = null;
+    myActiveScope = null;
+    myReferencesFinder = null;
+  }
+
   public void close() {
+    // hides the tool but leaves its button in the buttons strip 
     myTool.close();
   }
 

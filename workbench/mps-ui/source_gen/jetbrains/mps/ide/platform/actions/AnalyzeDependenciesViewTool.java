@@ -22,6 +22,16 @@ public class AnalyzeDependenciesViewTool extends BaseProjectTool {
     super(project, "Dependencies Viewer", null, AllIcons.Toolwindows.ToolWindowInspection, ToolWindowAnchor.BOTTOM, false, false);
   }
 
+
+  @Override
+  public void disposeComponent() {
+    super.disposeComponent();
+    if (myDependenciesPanel != null) {
+      myDependenciesPanel.dispose();
+      myDependenciesPanel = null;
+    }
+  }
+
   @Override
   protected void createTool() {
     // FIXME construct UI lazily, on demand 

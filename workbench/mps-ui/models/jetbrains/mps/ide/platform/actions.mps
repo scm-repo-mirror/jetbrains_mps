@@ -272,6 +272,7 @@
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
+      <concept id="1073063089578" name="jetbrains.mps.baseLanguage.structure.SuperMethodCall" flags="nn" index="3nyPlj" />
       <concept id="1212685548494" name="jetbrains.mps.baseLanguage.structure.ClassCreator" flags="nn" index="1pGfFk">
         <child id="1212687122400" name="typeParameter" index="1pMfVU" />
       </concept>
@@ -1519,6 +1520,51 @@
         <node concept="3uibUv" id="2Ic4of8PAv1" role="1tU5fm">
           <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
         </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="3JwmKU$POEB" role="jymVt" />
+    <node concept="2tJIrI" id="3JwmKU$POGb" role="jymVt" />
+    <node concept="3clFb_" id="3JwmKU$PP23" role="jymVt">
+      <property role="TrG5h" value="disposeComponent" />
+      <node concept="3Tm1VV" id="3JwmKU$PP24" role="1B3o_S" />
+      <node concept="3cqZAl" id="3JwmKU$PP26" role="3clF45" />
+      <node concept="3clFbS" id="3JwmKU$PP27" role="3clF47">
+        <node concept="3clFbF" id="3JwmKU$PP2a" role="3cqZAp">
+          <node concept="3nyPlj" id="3JwmKU$PP29" role="3clFbG">
+            <ref role="37wK5l" to="71xd:~BaseProjectTool.disposeComponent()" resolve="disposeComponent" />
+          </node>
+        </node>
+        <node concept="3clFbJ" id="3JwmKU$PTae" role="3cqZAp">
+          <node concept="3clFbS" id="3JwmKU$PTag" role="3clFbx">
+            <node concept="3clFbF" id="3JwmKU$PPNF" role="3cqZAp">
+              <node concept="2OqwBi" id="3JwmKU$PQHX" role="3clFbG">
+                <node concept="37vLTw" id="3JwmKU$PPND" role="2Oq$k0">
+                  <ref role="3cqZAo" node="2Ic4of8PY$$" resolve="myDependenciesPanel" />
+                </node>
+                <node concept="liA8E" id="3JwmKU$PSko" role="2OqNvi">
+                  <ref role="37wK5l" to="69zs:3JwmKU$OECe" resolve="dispose" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="3JwmKU$PWzX" role="3cqZAp">
+              <node concept="37vLTI" id="3JwmKU$PXqc" role="3clFbG">
+                <node concept="10Nm6u" id="3JwmKU$PXNg" role="37vLTx" />
+                <node concept="37vLTw" id="3JwmKU$PWzV" role="37vLTJ">
+                  <ref role="3cqZAo" node="2Ic4of8PY$$" resolve="myDependenciesPanel" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3y3z36" id="3JwmKU$PUA3" role="3clFbw">
+            <node concept="10Nm6u" id="3JwmKU$PUUI" role="3uHU7w" />
+            <node concept="37vLTw" id="3JwmKU$PTxw" role="3uHU7B">
+              <ref role="3cqZAo" node="2Ic4of8PY$$" resolve="myDependenciesPanel" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="3JwmKU$PP28" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
     <node concept="2tJIrI" id="2Ic4of8Qih7" role="jymVt" />

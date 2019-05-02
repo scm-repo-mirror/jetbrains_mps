@@ -1454,12 +1454,79 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="3JwmKU$OBAb" role="jymVt" />
+    <node concept="3clFb_" id="3JwmKU$OECe" role="jymVt">
+      <property role="TrG5h" value="dispose" />
+      <node concept="3cqZAl" id="3JwmKU$OECg" role="3clF45" />
+      <node concept="3Tm1VV" id="3JwmKU$OECh" role="1B3o_S" />
+      <node concept="3clFbS" id="3JwmKU$OECi" role="3clF47">
+        <node concept="3clFbF" id="3JwmKU$PwER" role="3cqZAp">
+          <node concept="2OqwBi" id="3JwmKU$PzvJ" role="3clFbG">
+            <node concept="37vLTw" id="3JwmKU$PwEP" role="2Oq$k0">
+              <ref role="3cqZAo" node="7ctIhG_bUtk" resolve="myInitTree" />
+            </node>
+            <node concept="liA8E" id="3JwmKU$PBrB" role="2OqNvi">
+              <ref role="37wK5l" to="7e8u:~MPSTree.dispose()" resolve="dispose" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="3JwmKU$OKjq" role="3cqZAp">
+          <node concept="2OqwBi" id="3JwmKU$OOEW" role="3clFbG">
+            <node concept="37vLTw" id="3JwmKU$OKjp" role="2Oq$k0">
+              <ref role="3cqZAo" node="7ctIhG_bUtn" resolve="myTargetsView" />
+            </node>
+            <node concept="liA8E" id="3JwmKU$ORIA" role="2OqNvi">
+              <ref role="37wK5l" to="ngmm:~UsagesView.dispose()" resolve="dispose" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="3JwmKU$OWx9" role="3cqZAp">
+          <node concept="2OqwBi" id="3JwmKU$OYUD" role="3clFbG">
+            <node concept="37vLTw" id="3JwmKU$OWx7" role="2Oq$k0">
+              <ref role="3cqZAo" node="7ctIhG_bUtq" resolve="myReferencesView" />
+            </node>
+            <node concept="liA8E" id="3JwmKU$P14I" role="2OqNvi">
+              <ref role="37wK5l" to="ngmm:~UsagesView.dispose()" resolve="dispose" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="3JwmKU$Pmsq" role="3cqZAp">
+          <node concept="37vLTI" id="3JwmKU$Pq_K" role="3clFbG">
+            <node concept="10Nm6u" id="3JwmKU$PqXw" role="37vLTx" />
+            <node concept="37vLTw" id="3JwmKU$Pmso" role="37vLTJ">
+              <ref role="3cqZAo" node="y5fyHoEGTc" resolve="myInitialScope" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="3JwmKU$PcTW" role="3cqZAp">
+          <node concept="37vLTI" id="3JwmKU$Pho9" role="3clFbG">
+            <node concept="10Nm6u" id="3JwmKU$PhJT" role="37vLTx" />
+            <node concept="37vLTw" id="3JwmKU$PcTU" role="37vLTJ">
+              <ref role="3cqZAo" node="7ctIhG_bUtw" resolve="myActiveScope" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="3JwmKU$P6Il" role="3cqZAp">
+          <node concept="37vLTI" id="3JwmKU$P7a5" role="3clFbG">
+            <node concept="10Nm6u" id="3JwmKU$P7xP" role="37vLTx" />
+            <node concept="37vLTw" id="3JwmKU$P6Ij" role="37vLTJ">
+              <ref role="3cqZAo" node="7ctIhG_bUtH" resolve="myReferencesFinder" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
     <node concept="2tJIrI" id="1O8DjCqjozx" role="jymVt" />
     <node concept="3clFb_" id="7ctIhG_bUtc" role="jymVt">
       <property role="TrG5h" value="close" />
       <node concept="3cqZAl" id="7ctIhG_bUtd" role="3clF45" />
       <node concept="3Tm1VV" id="7ctIhG_bUte" role="1B3o_S" />
       <node concept="3clFbS" id="7ctIhG_bUtf" role="3clF47">
+        <node concept="3SKdUt" id="3JwmKU$Oeeb" role="3cqZAp">
+          <node concept="3SKdUq" id="3JwmKU$Oeed" role="3SKWNk">
+            <property role="3SKdUp" value="hides the tool but leaves its button in the buttons strip" />
+          </node>
+        </node>
         <node concept="3clFbF" id="7ctIhG_bUtg" role="3cqZAp">
           <node concept="2OqwBi" id="7ctIhG_bUth" role="3clFbG">
             <node concept="37vLTw" id="2BHiRxeung6" role="2Oq$k0">
