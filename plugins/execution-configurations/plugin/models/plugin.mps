@@ -111,6 +111,7 @@
     <import index="eibu" ref="r:49e72ff8-8ace-42fd-8f9f-5961eed9792e(jetbrains.mps.execution.api.configurations)" />
     <import index="lhc4" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.annotations(MPS.OpenAPI/)" />
     <import index="eurq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs.path(MPS.Core/)" />
+    <import index="z0rn" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util.xmlb.annotations(MPS.IDEA/)" />
     <import index="tprs" ref="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)" implicit="true" />
     <import index="v23q" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi(MPS.IDEA/)" implicit="true" />
     <import index="hypd" ref="r:aa31e43e-9240-4f4d-b6db-5c1c9a86c59e(jetbrains.mps.lang.project.structure)" implicit="true" />
@@ -534,7 +535,6 @@
       <concept id="7806358006983738927" name="jetbrains.mps.execution.configurations.structure.ConfigurationFromExecutorReference" flags="nn" index="RBKsg" />
       <concept id="4482357619022381603" name="jetbrains.mps.execution.configurations.structure.SModelSource" flags="ng" index="2SbcEy" />
       <concept id="4482357619022394489" name="jetbrains.mps.execution.configurations.structure.SModuleSource" flags="ng" index="2SbfNS" />
-      <concept id="33324785353654116" name="jetbrains.mps.execution.configurations.structure.EnvironmentExpression" flags="nn" index="TjxJj" />
       <concept id="3642991921658122718" name="jetbrains.mps.execution.configurations.structure.RunConfigurationCreator" flags="nn" index="30w_07">
         <reference id="3642991921658122719" name="configuration" index="30w_06" />
         <child id="529406319400385974" name="configurationName" index="uV2A8" />
@@ -4979,6 +4979,7 @@
     <ref role="yIonz" node="5gyVhZ18biM" resolve="MPS Instance" />
     <node concept="yYvg6" id="3djbh3B5Adk" role="yYvgT">
       <ref role="yYvg7" node="3djbh3B5ov9" resolve="ClearSettingsDirectoryBeforeRunTask" />
+      <node concept="3clFbT" id="rF4cadxQM6" role="1ZwhtC" />
       <node concept="2ShNRf" id="3djbh3Bb69Z" role="1ZwhtC">
         <node concept="1pGfFk" id="3djbh3BbngV" role="2ShVmc">
           <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String)" resolve="File" />
@@ -4998,6 +4999,7 @@
     </node>
     <node concept="yYvg6" id="1QpbsT7Bnx" role="yYvgT">
       <ref role="yYvg7" node="1QpbsTfWh5" resolve="AssemblePluginsBeforeTask" />
+      <node concept="3clFbT" id="rF4cadxQ4R" role="1ZwhtC" />
       <node concept="2OqwBi" id="1QpbsTfSG0" role="1ZwhtC">
         <node concept="2OqwBi" id="1QpbsTfQY5" role="2Oq$k0">
           <node concept="RBKsg" id="1QpbsT9sY7" role="2Oq$k0" />
@@ -11142,15 +11144,9 @@
             <node concept="3uibUv" id="3HMibU_rHJN" role="1tU5fm">
               <ref role="3uigEE" node="4oL4a6slLxo" resolve="DeployScript" />
             </node>
-            <node concept="2OqwBi" id="mSHDyFseG1" role="33vP2m">
-              <node concept="TjxJj" id="mSHDyFsedC" role="2Oq$k0" />
-              <node concept="liA8E" id="mSHDyFsguv" role="2OqNvi">
-                <ref role="37wK5l" to="zn9m:~UserDataHolderBase.getUserData(com.intellij.openapi.util.Key)" resolve="getUserData" />
-                <node concept="10M0yZ" id="mSHDyFsh2E" role="37wK5m">
-                  <ref role="3cqZAo" node="mSHDyFs9FE" resolve="KEY" />
-                  <ref role="1PxDUh" node="4oL4a6slLxo" resolve="DeployScript" />
-                </node>
-              </node>
+            <node concept="10M0yZ" id="iwb5mFs6Zb" role="33vP2m">
+              <ref role="3cqZAo" node="iwb5mFrVTx" resolve="ourScript" />
+              <ref role="1PxDUh" node="iwb5mFrV_W" resolve="ScriptsHolder" />
             </node>
           </node>
         </node>
@@ -11158,7 +11154,7 @@
           <node concept="3clFbS" id="3HMibU_rILk" role="3clFbx">
             <node concept="2LYoGF" id="3HMibU_rJI5" role="3cqZAp">
               <node concept="Xl_RD" id="3HMibU_rJI6" role="2LYoNm">
-                <property role="Xl_RC" value="Could not deploy plugins" />
+                <property role="Xl_RC" value="The deploy script is null: probably the make is failed" />
               </node>
             </node>
           </node>
@@ -11207,22 +11203,18 @@
                 </node>
               </node>
             </node>
-            <node concept="3clFbF" id="mSHDyFsiww" role="3cqZAp">
-              <node concept="2OqwBi" id="mSHDyFsiZH" role="3clFbG">
-                <node concept="TjxJj" id="mSHDyFsiwu" role="2Oq$k0" />
-                <node concept="liA8E" id="mSHDyFsmQv" role="2OqNvi">
-                  <ref role="37wK5l" to="zn9m:~UserDataHolderBase.putUserData(com.intellij.openapi.util.Key,java.lang.Object)" resolve="putUserData" />
-                  <node concept="10M0yZ" id="mSHDyFsnma" role="37wK5m">
-                    <ref role="3cqZAo" node="mSHDyFs9FE" resolve="KEY" />
-                    <ref role="1PxDUh" node="4oL4a6slLxo" resolve="DeployScript" />
-                  </node>
-                  <node concept="10Nm6u" id="mSHDyFsojq" role="37wK5m" />
+            <node concept="3clFbF" id="iwb5mFs4OR" role="3cqZAp">
+              <node concept="37vLTI" id="iwb5mFs5vW" role="3clFbG">
+                <node concept="10Nm6u" id="iwb5mFs5Io" role="37vLTx" />
+                <node concept="10M0yZ" id="iwb5mFs53g" role="37vLTJ">
+                  <ref role="3cqZAo" node="iwb5mFrVTx" resolve="ourScript" />
+                  <ref role="1PxDUh" node="iwb5mFrV_W" resolve="ScriptsHolder" />
                 </node>
               </node>
             </node>
             <node concept="2LYoGF" id="5b26T8O5qDd" role="3cqZAp">
               <node concept="Xl_RD" id="5b26T8O5sz_" role="2LYoNm">
-                <property role="Xl_RC" value="Can not generate deploy script" />
+                <property role="Xl_RC" value="The deploy script is not found at the provided location" />
               </node>
             </node>
           </node>
@@ -11354,7 +11346,6 @@
                                       <property role="3SKdUp" value="using the same &quot;advanced&quot; technique we use for copying current project in mps command" />
                                     </node>
                                   </node>
-                                  <node concept="3clFbH" id="7hyJFw2BzoN" role="3cqZAp" />
                                   <node concept="3SKdUt" id="7hyJFw2AxKa" role="3cqZAp">
                                     <node concept="3SKdUq" id="7hyJFw2AxKN" role="3SKWNk">
                                       <property role="3SKdUp" value="configuration supports only plugin construction" />
@@ -11536,16 +11527,12 @@
                                   </node>
                                 </node>
                               </node>
-                              <node concept="3clFbF" id="6RaoPJosHmv" role="3cqZAp">
-                                <node concept="2OqwBi" id="mSHDyFsoLV" role="3clFbG">
-                                  <node concept="TjxJj" id="mSHDyFsoLW" role="2Oq$k0" />
-                                  <node concept="liA8E" id="mSHDyFsoLX" role="2OqNvi">
-                                    <ref role="37wK5l" to="zn9m:~UserDataHolderBase.putUserData(com.intellij.openapi.util.Key,java.lang.Object)" resolve="putUserData" />
-                                    <node concept="10M0yZ" id="mSHDyFsoLY" role="37wK5m">
-                                      <ref role="1PxDUh" node="4oL4a6slLxo" resolve="DeployScript" />
-                                      <ref role="3cqZAo" node="mSHDyFs9FE" resolve="KEY" />
-                                    </node>
-                                    <node concept="10Nm6u" id="mSHDyFsoLZ" role="37wK5m" />
+                              <node concept="3clFbF" id="iwb5mFs5XW" role="3cqZAp">
+                                <node concept="37vLTI" id="iwb5mFs5XX" role="3clFbG">
+                                  <node concept="10Nm6u" id="iwb5mFs5XY" role="37vLTx" />
+                                  <node concept="10M0yZ" id="iwb5mFs5XZ" role="37vLTJ">
+                                    <ref role="1PxDUh" node="iwb5mFrV_W" resolve="ScriptsHolder" />
+                                    <ref role="3cqZAo" node="iwb5mFrVTx" resolve="ourScript" />
                                   </node>
                                 </node>
                               </node>
@@ -11822,18 +11809,14 @@
             <node concept="17RlXB" id="3HMibU_rhR7" role="2OqNvi" />
           </node>
         </node>
-        <node concept="3clFbF" id="mSHDyFrZdX" role="3cqZAp">
-          <node concept="2OqwBi" id="mSHDyFrZIi" role="3clFbG">
-            <node concept="TjxJj" id="mSHDyFrZdV" role="2Oq$k0" />
-            <node concept="liA8E" id="mSHDyFs0$E" role="2OqNvi">
-              <ref role="37wK5l" to="zn9m:~UserDataHolderBase.putUserData(com.intellij.openapi.util.Key,java.lang.Object)" resolve="putUserData" />
-              <node concept="10M0yZ" id="mSHDyFsvR2" role="37wK5m">
-                <ref role="3cqZAo" node="mSHDyFs9FE" resolve="KEY" />
-                <ref role="1PxDUh" node="4oL4a6slLxo" resolve="DeployScript" />
-              </node>
-              <node concept="37vLTw" id="mSHDyFswjA" role="37wK5m">
-                <ref role="3cqZAo" node="3HMibU_rhQp" resolve="script" />
-              </node>
+        <node concept="3clFbF" id="iwb5mFqHG8" role="3cqZAp">
+          <node concept="37vLTI" id="iwb5mFrWZq" role="3clFbG">
+            <node concept="37vLTw" id="iwb5mFrX6Z" role="37vLTx">
+              <ref role="3cqZAo" node="3HMibU_rhQp" resolve="script" />
+            </node>
+            <node concept="10M0yZ" id="iwb5mFrWoq" role="37vLTJ">
+              <ref role="3cqZAo" node="iwb5mFrVTx" resolve="ourScript" />
+              <ref role="1PxDUh" node="iwb5mFrV_W" resolve="ScriptsHolder" />
             </node>
           </node>
         </node>
@@ -15167,6 +15150,26 @@
     <node concept="3Tm1VV" id="1T5iP2aaCPi" role="1B3o_S" />
     <node concept="3uibUv" id="1T5iP2aaD4x" role="1zkMxy">
       <ref role="3uigEE" to="qqrq:~JBPanel" resolve="JBPanel" />
+    </node>
+  </node>
+  <node concept="312cEu" id="iwb5mFrV_W">
+    <property role="3GE5qa" value="mps.deployPlugins.configuration" />
+    <property role="TrG5h" value="ScriptsHolder" />
+    <node concept="Wx3nA" id="iwb5mFrVTx" role="jymVt">
+      <property role="TrG5h" value="ourScript" />
+      <property role="2dlcS1" value="true" />
+      <node concept="3Tm1VV" id="iwb5mFrVGH" role="1B3o_S" />
+      <node concept="3uibUv" id="iwb5mFrVTl" role="1tU5fm">
+        <ref role="3uigEE" node="4oL4a6slLxo" resolve="DeployScript" />
+      </node>
+    </node>
+    <node concept="3Tm1VV" id="iwb5mFrV_X" role="1B3o_S" />
+    <node concept="3UR2Jj" id="iwb5mFrVAM" role="lGtFl">
+      <node concept="TZ5HA" id="iwb5mFrVAN" role="TZ5H$">
+        <node concept="1dT_AC" id="iwb5mFrVAO" role="1dT_Ay">
+          <property role="1dT_AB" value="the current exec language setup does not allow us to get rid of this yet" />
+        </node>
+      </node>
     </node>
   </node>
 </model>

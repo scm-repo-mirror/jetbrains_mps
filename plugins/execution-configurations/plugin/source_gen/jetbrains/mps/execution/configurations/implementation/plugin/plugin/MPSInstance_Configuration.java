@@ -137,9 +137,9 @@ public class MPSInstance_Configuration extends BaseMpsRunConfiguration implement
     return MPSInstance_Configuration_RunProfileState.canExecute(executorId);
   }
   public Object[] createClearSettingsDirectoryBeforeRunTaskTask() {
-    return new Object[]{new File(this.getMpsSettings().getExpandedSettingsPath())};
+    return new Object[]{false, new File(this.getMpsSettings().getExpandedSettingsPath())};
   }
   public Object[] createAssemblePluginsBeforeTaskTask() {
-    return new Object[]{this.getPluginsSettings().getPluginsListToDeploy(), this.getMpsSettings().getPluginsPath()};
+    return new Object[]{false, this.getPluginsSettings().getPluginsListToDeploy(), this.getMpsSettings().getPluginsPath()};
   }
 }

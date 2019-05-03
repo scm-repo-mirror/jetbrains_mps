@@ -63,7 +63,7 @@ public class MakeDeployScripts_BeforeTask extends BaseMpsBeforeTaskProvider<Make
         script.value.dispose();
         return false;
       }
-      environment.putUserData(DeployScript.KEY, script.value);
+      ScriptsHolder.ourScript = script.value;
 
       return true;
     }

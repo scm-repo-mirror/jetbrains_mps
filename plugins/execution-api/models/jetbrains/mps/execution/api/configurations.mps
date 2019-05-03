@@ -38,6 +38,7 @@
     <import index="ic0f" ref="r:76273c4a-4818-4f7c-8673-bfc2aeb6debb(jetbrains.mps.execution.api.settings)" />
     <import index="mmaq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.jdom(MPS.Core/)" />
     <import index="z1c4" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
+    <import index="z0rn" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util.xmlb.annotations(MPS.IDEA/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -169,7 +170,6 @@
       <concept id="1068580123155" name="jetbrains.mps.baseLanguage.structure.ExpressionStatement" flags="nn" index="3clFbF">
         <child id="1068580123156" name="expression" index="3clFbG" />
       </concept>
-      <concept id="1068580123157" name="jetbrains.mps.baseLanguage.structure.Statement" flags="nn" index="3clFbH" />
       <concept id="1068580123159" name="jetbrains.mps.baseLanguage.structure.IfStatement" flags="nn" index="3clFbJ">
         <child id="1082485599094" name="ifFalseStatement" index="9aQIa" />
         <child id="1068580123160" name="condition" index="3clFbw" />
@@ -4213,7 +4213,6 @@
       </node>
     </node>
     <node concept="2tJIrI" id="CZHNfvx1Lu" role="jymVt" />
-    <node concept="2tJIrI" id="CZHNfvx24W" role="jymVt" />
     <node concept="3clFb_" id="CZHNfvx3D8" role="jymVt">
       <property role="TrG5h" value="canExecute" />
       <property role="1EzhhJ" value="false" />
@@ -4397,7 +4396,6 @@
             <property role="3SKdUp" value="IPersistentConfiguration" />
           </node>
         </node>
-        <node concept="3clFbH" id="79O2sWFP$kJ" role="3cqZAp" />
         <node concept="3clFbF" id="79O2sWFPygo" role="3cqZAp">
           <node concept="10Nm6u" id="79O2sWFPygn" role="3clFbG" />
         </node>

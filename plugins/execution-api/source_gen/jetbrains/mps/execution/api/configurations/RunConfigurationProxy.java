@@ -57,7 +57,6 @@ import jetbrains.mps.execution.api.settings.SettingsEditorEx;
     });
   }
 
-
   @Override
   public boolean canExecute(String executorId) {
     return myDelegate.canExecute(executorId);
@@ -89,7 +88,6 @@ import jetbrains.mps.execution.api.settings.SettingsEditorEx;
   @Override
   public IPersistentConfiguration createCloneTemplate() {
     // IPersistentConfiguration 
-
     return null;
   }
 }
