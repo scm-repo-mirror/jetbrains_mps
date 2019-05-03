@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,6 @@ import jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator;
 import jetbrains.mps.ide.findusages.view.treeholder.treeview.path.PathItemRole;
 import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.project.Project;
-import jetbrains.mps.util.NameUtil;
 import org.jdom.Element;
 
 import javax.swing.Icon;
@@ -37,7 +36,7 @@ public class CategoryNodeData extends BaseNodeData {
 
   public CategoryNodeData(PathItemRole role, String categoryKindName, String category, boolean resultsSection,
                           INodeRepresentator nodeRepresentator) {
-    super(role, "<b>" + category + "</b>", "", true, false, resultsSection);
+    super(role, category, "", true, false, resultsSection);
     myCategoryKindName = categoryKindName;
     myCategory = category;
     myNodeRepresentator = nodeRepresentator;
@@ -91,11 +90,6 @@ public class CategoryNodeData extends BaseNodeData {
         return res;
       }
     }
-
-    String counter = "";
-    if (options.myCounters && isResultsSection()) {
-      counter = (" <b>(" + NameUtil.formatNumericalString(options.mySubresultsCount, "usage") + ")</b>");
-    }
-    return super.getText(options) + counter;
+    return super.getText(options);
   }
 }

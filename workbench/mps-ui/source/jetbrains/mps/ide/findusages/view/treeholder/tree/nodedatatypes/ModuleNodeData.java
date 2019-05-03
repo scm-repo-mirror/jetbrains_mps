@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -75,17 +75,6 @@ public class ModuleNodeData extends AbstractResultNodeData {
   public void read(Element element, Project project) throws CantLoadSomethingException {
     super.read(element, project);
     myModuleReference = PersistenceFacade.getInstance().createModuleReference(element.getAttributeValue(MODULE_REF));
-  }
-
-  @Override
-  public String getText(TextOptions options) {
-    boolean showCounter = options.myCounters && isResultsSection();
-    String counter = showCounter ? " " + sizeRepresentation(options.mySubresultsCount) : "";
-    return super.getText(options) + counter;
-  }
-
-  private static String sizeRepresentation(int size) {
-    return "<font color='gray'>(" + Integer.toString(size) + ")</font>";
   }
 
   @Override

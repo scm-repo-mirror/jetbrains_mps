@@ -18,6 +18,7 @@ package jetbrains.mps.ide.findusages.view;
 import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.pom.Navigatable;
+import com.intellij.ui.JBColor;
 import com.intellij.ui.LayeredIcon;
 import jetbrains.mps.icons.MPSIcons.Nodes;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.DataNode;
@@ -33,6 +34,7 @@ import jetbrains.mps.ide.ui.tree.MPSTree;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.smodel.ModelReadRunnable;
+import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.Nullable;
 
@@ -40,6 +42,7 @@ import javax.swing.Icon;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
+import java.awt.font.TextAttribute;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -49,7 +52,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -80,6 +82,7 @@ public class UsagesTree extends MPSTree {
         openNewlySelectedNodeLink(e, false, false);
       }
     });
+    setCellRenderer(new UsagesCellRenderer());
   }
 
   @Override
@@ -236,7 +239,6 @@ public class UsagesTree extends MPSTree {
     buildCounters(child);
     sortByCaption(children);
     setUIProperties(child);
-    makeNodesHTML(child);
 
     return child;
   }
@@ -274,7 +276,7 @@ public class UsagesTree extends MPSTree {
 
     BaseNodeData data = root.getData();
     if (nodeCategories.contains(data.getRole()) || data.isPathTail()) {
-      UsagesTreeNode node = new UsagesTreeNode(root);
+      UsagesTreeNode node = new UsagesTreeNode(root, data);
 
       for (UsagesTreeNode child : children) {
         node.add(child);
@@ -333,37 +335,13 @@ public class UsagesTree extends MPSTree {
 
   private void setUIProperties(UsagesTreeNode root) {
     // FIXME why do we need to do it here, why not in UsageTreeNode rendering code?
-    BaseNodeData data = root.getUsageData();
+    //       we show counters if UsagesTreeNode has children, it's sort of information we can not get at construction time
+    //       XXX what about renewPresentation/doUpdatePresentation() - perhaps, could utilize onAdd() event if subtree is built completely
+    //       before adding to MPSTree(UsagesTree). I don't want to use renewPresentation() here as it sends out event for each node, which is too much
+    root.updateText();
 
-    Icon icon = data.getIcon(() -> myProject.getRepository());
-    if (data.isResultNode()) {
-      final LayeredIcon result = new LayeredIcon(2);
-      result.setIcon(icon, 0);
-      result.setIcon(Nodes.UsagesResultOverlay, 1);
-
-      icon = result;
-    }
-
-    root.setIcon(icon);
-
-    String invalid = data.isInvalid() ? "<font color=red>[Invalid]</font> " : "";
-    String caption = data.getText(new TextOptions(myAdditionalInfoNeeded, !root.isLeaf(), root.getSubresultsCount()));
-    if (data.isExcluded()) {
-      root.setText(invalid + "<font color=gray><s>" + caption + "</s></font>");
-    } else {
-      root.setText(invalid + caption);
-    }
-
-    for (int i = 0; i < root.getChildCount(); i++) {
-      setUIProperties((UsagesTreeNode) root.getChildAt(i));
-    }
-  }
-
-  private void makeNodesHTML(UsagesTreeNode root) {
-    root.setText("<html>" + root.getText() + "</html>");
-    for (int i = 0; i < root.getChildCount(); i++) {
-      UsagesTreeNode child = (UsagesTreeNode) root.getChildAt(i);
-      makeNodesHTML(child);
+    for (UsagesTreeNode tn : root.getChildren()) {
+      setUIProperties(tn);
     }
   }
 
@@ -476,18 +454,33 @@ public class UsagesTree extends MPSTree {
 
 
 
-  public class UsagesTreeNode extends MPSTreeNode {
+  public final class UsagesTreeNode extends MPSTreeNode {
     private int mySubresultsCount = 0;
 
     public UsagesTreeNode() {
       setNodeIdentifier("");
     }
 
-    public UsagesTreeNode(DataNode userObj) {
+    public UsagesTreeNode(DataNode userObj, BaseNodeData data) {
       super(userObj);
-      if (userObj != null) {
-        setNodeIdentifier(userObj.getData().getPlainText());
+      setNodeIdentifier(data.getPlainText());
+      Icon icon = data.getIcon(() -> myProject.getRepository());
+      if (data.isResultNode()) {
+        final LayeredIcon result = new LayeredIcon(2);
+        result.setIcon(icon, 0);
+        result.setIcon(Nodes.UsagesResultOverlay, 1);
+        icon = result;
       }
+      setIcon(icon);
+    }
+
+    /*package*/ void updateText() {
+      BaseNodeData data = getUsageData();
+      if (data == null) {
+        return;
+      }
+      String caption = data.getText(new TextOptions(myAdditionalInfoNeeded, false /*counter handled in UsagesCellRenderer*/, 0));
+      setText(caption);
     }
 
     @Override
@@ -502,6 +495,7 @@ public class UsagesTree extends MPSTree {
 
     @Override
     public int getToggleClickCount() {
+      // FIXME use setToggleClickCount
       return isPathTail() ? -1 : 2;
     }
 
@@ -511,6 +505,7 @@ public class UsagesTree extends MPSTree {
 
     @Override
     public void doubleClick() {
+      // FIXME move to UsagesTree
       if (isPathTail()) {
         goByNodeLink(false, true);
       }
@@ -528,11 +523,11 @@ public class UsagesTree extends MPSTree {
       return super.getUserObject() instanceof DataNode ? ((DataNode) super.getUserObject()).getData() : null;
     }
 
-    public int getSubresultsCount() {
+    /*package*/ int getSubresultsCount() {
       return mySubresultsCount;
     }
 
-    public void setSubresultsCount(int subresultsCount) {
+    /*package*/ void setSubresultsCount(int subresultsCount) {
       mySubresultsCount = subresultsCount;
     }
 

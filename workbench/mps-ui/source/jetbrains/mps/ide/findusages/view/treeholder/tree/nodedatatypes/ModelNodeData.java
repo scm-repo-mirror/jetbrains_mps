@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -82,17 +82,6 @@ public class ModelNodeData extends AbstractResultNodeData {
     } catch (IllegalArgumentException ex) {
       throw new CantLoadSomethingException("cannot parse model reference", ex);
     }
-  }
-
-  @Override
-  public String getText(TextOptions options) {
-    boolean showCounter = options.myCounters && isResultsSection();
-    String counter = showCounter ? " " + sizeRepresentation(options.mySubresultsCount) : "";
-    return super.getText(options) + counter;
-  }
-
-  private static String sizeRepresentation(int size) {
-    return "<font color='gray'>(" + Integer.toString(size) + ")</font>";
   }
 
   @Override

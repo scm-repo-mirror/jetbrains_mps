@@ -21,6 +21,7 @@ import jetbrains.mps.ide.findusages.view.treeholder.tree.TextOptions;
 import jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator;
 import jetbrains.mps.ide.findusages.view.treeholder.treeview.path.PathItemRole;
 import jetbrains.mps.project.Project;
+import jetbrains.mps.util.NameUtil;
 import org.jdom.Element;
 
 import javax.swing.Icon;
@@ -66,10 +67,6 @@ public class ResultsNodeData extends BaseNodeData {
         return res;
       }
     }
-    return "<b>" + sizeRepresentation(options.mySubresultsCount) + " found" + "</b>";
-  }
-
-  private static String sizeRepresentation(int size) {
-    return "<b>" + size + " usage" + (size == 1 ? "" : "s") + "</b>";
+    return NameUtil.formatNumericalString(options.mySubresultsCount, "usage") + " found";
   }
 }

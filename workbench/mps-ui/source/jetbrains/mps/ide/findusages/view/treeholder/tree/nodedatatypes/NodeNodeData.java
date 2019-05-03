@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -109,30 +109,11 @@ public class NodeNodeData extends AbstractResultNodeData {
     if (node.getParent() == null) {
       return "";
     }
-    return "role: " +
-           "<i>" +
-           StringUtil.escapeXml(node.getRoleInParent()) +
-           "</i>" +
-           "; " +
-           "in: " +
-           "<i>" +
-           snodeRepresentation(node.getParent()) +
-           "</i>";
+    return String.format("role %s in %s", node.getContainmentLink().getName(), snodeRepresentation(node.getParent()));
   }
 
   public boolean isRootNode() {
     return myIsRootNode;
-  }
-
-  @Override
-  public String getText(TextOptions options) {
-    boolean showCounter = options.myCounters && isResultsSection();
-    String counter = showCounter ? " " + sizeRepresentation(options.mySubresultsCount) : "";
-    return super.getText(options) + counter;
-  }
-
-  private static String sizeRepresentation(int size) {
-    return "<font color='gray'>(" + Integer.toString(size) + ")</font>";
   }
 
   @Override
