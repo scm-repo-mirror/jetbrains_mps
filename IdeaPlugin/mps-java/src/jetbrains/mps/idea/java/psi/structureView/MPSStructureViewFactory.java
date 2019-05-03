@@ -22,7 +22,7 @@ import com.intellij.ide.structureView.newStructureView.StructureViewComponent;
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.ide.editor.NodeStructureViewProvider;
-import jetbrains.mps.ide.java.actions.MemberContainerStructureModel;
+import jetbrains.mps.java.platform.actions.MemberContainerStructureModel;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.SNodeUtil;
