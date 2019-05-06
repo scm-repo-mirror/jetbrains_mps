@@ -19433,7 +19433,7 @@
           <ref role="3_I8Xa" node="3vXGXT89g4o" resolve="mps-trove" />
         </node>
         <node concept="3_I8Xc" id="2pZ8abj52Mr" role="39821P">
-          <ref role="3_I8Xa" node="6WtY9M1bDOQ" resolve="mps-java-workbench" />
+          <ref role="3_I8Xa" node="6WtY9M1bDOQ" resolve="mps-java" />
         </node>
         <node concept="3_J27D" id="3IKDaVZn4ni" role="Nbhlr">
           <node concept="3Mxwew" id="3IKDaVZn4nj" role="3MwsjC">
@@ -32784,7 +32784,7 @@
       </node>
       <node concept="3_J27D" id="6WtY9M1bDOC" role="m_cZH">
         <node concept="3Mxwew" id="6WtY9M1bDOD" role="3MwsjC">
-          <property role="3MwjfP" value="mps-java-workbench" />
+          <property role="3MwjfP" value="mps-java" />
         </node>
       </node>
       <node concept="3_J27D" id="6WtY9M1bDOE" role="m$_w8">
