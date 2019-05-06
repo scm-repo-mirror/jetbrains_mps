@@ -644,10 +644,7 @@
                         </node>
                         <node concept="2OqwBi" id="1xyr94TjHAt" role="37vLTx">
                           <node concept="liA8E" id="1xyr94TjHAu" role="2OqNvi">
-                            <ref role="37wK5l" to="tqvn:~TemporaryModels.create(boolean,jetbrains.mps.smodel.tempmodel.TempModuleOptions)" resolve="create" />
-                            <node concept="3clFbT" id="1xyr94TjHAv" role="37wK5m">
-                              <property role="3clFbU" value="true" />
-                            </node>
+                            <ref role="37wK5l" to="tqvn:~TemporaryModels.createReadOnly(jetbrains.mps.smodel.tempmodel.TempModuleOptions)" resolve="createReadOnly" />
                             <node concept="2YIFZM" id="1xyr94TjHAw" role="37wK5m">
                               <ref role="1Pybhc" to="tqvn:~TempModuleOptions" resolve="TempModuleOptions" />
                               <ref role="37wK5l" to="tqvn:~TempModuleOptions.forDefaultModule()" resolve="forDefaultModule" />

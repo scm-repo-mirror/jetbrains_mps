@@ -630,10 +630,7 @@
                     <node concept="37vLTI" id="1KUoCiqEI12" role="3clFbG">
                       <node concept="2OqwBi" id="1KUoCiqEI13" role="37vLTx">
                         <node concept="liA8E" id="1KUoCiqEI14" role="2OqNvi">
-                          <ref role="37wK5l" to="tqvn:~TemporaryModels.create(boolean,jetbrains.mps.smodel.tempmodel.TempModuleOptions)" resolve="create" />
-                          <node concept="3clFbT" id="1KUoCiqEI15" role="37wK5m">
-                            <property role="3clFbU" value="true" />
-                          </node>
+                          <ref role="37wK5l" to="tqvn:~TemporaryModels.createReadOnly(jetbrains.mps.smodel.tempmodel.TempModuleOptions)" resolve="createReadOnly" />
                           <node concept="2YIFZM" id="1KUoCiqEI16" role="37wK5m">
                             <ref role="37wK5l" to="tqvn:~TempModuleOptions.forDefaultModule()" resolve="forDefaultModule" />
                             <ref role="1Pybhc" to="tqvn:~TempModuleOptions" resolve="TempModuleOptions" />

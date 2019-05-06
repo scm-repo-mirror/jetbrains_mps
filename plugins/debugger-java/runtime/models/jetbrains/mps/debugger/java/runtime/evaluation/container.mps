@@ -687,8 +687,10 @@
                       </node>
                       <node concept="2OqwBi" id="6N7oOgwRa63" role="33vP2m">
                         <node concept="liA8E" id="6N7oOgwRbMb" role="2OqNvi">
-                          <ref role="37wK5l" to="tqvn:~TemporaryModels.create(boolean,jetbrains.mps.smodel.tempmodel.TempModuleOptions)" resolve="create" />
-                          <node concept="3clFbT" id="6N7oOgwRcPp" role="37wK5m" />
+                          <ref role="37wK5l" to="tqvn:~TemporaryModels.createLongTerm(java.lang.String,jetbrains.mps.smodel.tempmodel.TempModuleOptions)" resolve="createLongTerm" />
+                          <node concept="Xl_RD" id="5wjl$8BC3fJ" role="37wK5m">
+                            <property role="Xl_RC" value="DebuggerModel" />
+                          </node>
                           <node concept="2YIFZM" id="6N7oOgwReRI" role="37wK5m">
                             <ref role="1Pybhc" to="tqvn:~TempModuleOptions" resolve="TempModuleOptions" />
                             <ref role="37wK5l" to="tqvn:~TempModuleOptions.forExistingModule(org.jetbrains.mps.openapi.module.SModule)" resolve="forExistingModule" />

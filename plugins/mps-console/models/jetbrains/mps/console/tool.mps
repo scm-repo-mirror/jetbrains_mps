@@ -5287,8 +5287,10 @@
           <node concept="37vLTI" id="6ysF3v1j_k3" role="3clFbG">
             <node concept="2OqwBi" id="6ysF3v1j_k4" role="37vLTx">
               <node concept="liA8E" id="6ysF3v1j_k5" role="2OqNvi">
-                <ref role="37wK5l" to="tqvn:~TemporaryModels.create(boolean,jetbrains.mps.smodel.tempmodel.TempModuleOptions)" resolve="create" />
-                <node concept="3clFbT" id="6ysF3v1j_k6" role="37wK5m" />
+                <ref role="37wK5l" to="tqvn:~TemporaryModels.createLongTerm(java.lang.String,jetbrains.mps.smodel.tempmodel.TempModuleOptions)" resolve="createLongTerm" />
+                <node concept="Xl_RD" id="5wjl$8BBzfW" role="37wK5m">
+                  <property role="Xl_RC" value="ConsoleModel" />
+                </node>
                 <node concept="2YIFZM" id="6ysF3v1j_k7" role="37wK5m">
                   <ref role="1Pybhc" to="tqvn:~TempModuleOptions" resolve="TempModuleOptions" />
                   <ref role="37wK5l" to="tqvn:~TempModuleOptions.forDefaultModuleWithSourceAndClassesGen()" resolve="forDefaultModuleWithSourceAndClassesGen" />
