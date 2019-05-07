@@ -345,6 +345,9 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
     public final void performPaste(@NotNull final DataContext context) {
       myProject.getModelAccess().executeCommand(new EditorCommand(myEditor) {
         protected void doExecute() {
+          if (!(isPastePossible(context))) {
+            return;
+          }
           SNodeReference pastingNodeReference = null;
           try {
             for (Transferable trf : CopyPasteManagerEx.getInstanceEx().getAllContents()) {
@@ -357,8 +360,8 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
           } catch (IOException ignored) {
           }
           EditorCell currentCell = myEditor.getSelectedCell();
-          SNode referenceTarget = check_6q36mf_a0d0a0a0a0a0f65(pastingNodeReference, myProject);
-          if (referenceTarget != null && currentCell != null && !(check_6q36mf_a0a4a0a0a0a0a5ec(check_6q36mf_a0a0e0a0a0a0a0f65(pastingNodeReference), myModel))) {
+          SNode referenceTarget = check_6q36mf_a0e0a0a0a0a0f65(pastingNodeReference, myProject);
+          if (referenceTarget != null && currentCell != null && !(check_6q36mf_a0a5a0a0a0a0a5ec(check_6q36mf_a0a0f0a0a0a0a0f65(pastingNodeReference), myModel))) {
             SNode refContainer = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x51132a123c89fa7eL, "jetbrains.mps.console.base.structure.PastedNodeReference"));
             SLinkOperations.setTarget(refContainer, MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target"), referenceTarget);
             NodePaster paster = new NodePaster(ListSequence.fromListAndArray(new ArrayList<SNode>(), refContainer));
@@ -371,16 +374,16 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
             myEditor.getUpdater().flushModelEvents();
             SelectionUtil.selectLabelCellAnSetCaret(myEditor.getEditorContext(), refContainer, SelectionManager.LAST_CELL, -1);
           } else {
-            check_6q36mf_a0a0e0a0a0a0a0f65_0(myDefaultPasteProvider, context);
+            check_6q36mf_a0a0f0a0a0a0a0f65_0(myDefaultPasteProvider, context);
           }
         }
       });
     }
     public boolean isPastePossible(@NotNull DataContext context) {
-      return true;
+      return myDefaultPasteProvider.isPastePossible(context);
     }
     public boolean isPasteEnabled(@NotNull DataContext context) {
-      return true;
+      return myDefaultPasteProvider.isPasteEnabled(context);
     }
   }
 
@@ -519,25 +522,25 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
     }
 
   }
-  private static SNode check_6q36mf_a0d0a0a0a0a0f65(SNodeReference checkedDotOperand, MPSProject myProject) {
+  private static SNode check_6q36mf_a0e0a0a0a0a0f65(SNodeReference checkedDotOperand, MPSProject myProject) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.resolve(myProject.getRepository());
     }
     return null;
   }
-  private static boolean check_6q36mf_a0a4a0a0a0a0a5ec(SModelReference checkedDotOperand, SModel myModel) {
+  private static boolean check_6q36mf_a0a5a0a0a0a0a5ec(SModelReference checkedDotOperand, SModel myModel) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.equals(SModelOperations.getPointer(myModel));
     }
     return false;
   }
-  private static SModelReference check_6q36mf_a0a0e0a0a0a0a0f65(SNodeReference checkedDotOperand) {
+  private static SModelReference check_6q36mf_a0a0f0a0a0a0a0f65(SNodeReference checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModelReference();
     }
     return null;
   }
-  private static void check_6q36mf_a0a0e0a0a0a0a0f65_0(PasteProvider checkedDotOperand, DataContext context) {
+  private static void check_6q36mf_a0a0f0a0a0a0a0f65_0(PasteProvider checkedDotOperand, DataContext context) {
     if (null != checkedDotOperand) {
       checkedDotOperand.performPaste(context);
     }

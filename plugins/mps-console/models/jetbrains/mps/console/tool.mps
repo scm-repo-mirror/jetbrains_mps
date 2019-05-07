@@ -6780,6 +6780,19 @@
                         <node concept="3Tmbuc" id="3HoEUX_YG8G" role="1B3o_S" />
                         <node concept="3cqZAl" id="3HoEUX_YG8I" role="3clF45" />
                         <node concept="3clFbS" id="3HoEUX_YG8J" role="3clF47">
+                          <node concept="3clFbJ" id="6ogOzzX3ywC" role="3cqZAp">
+                            <node concept="3clFbS" id="6ogOzzX3ywE" role="3clFbx">
+                              <node concept="3cpWs6" id="6ogOzzX4788" role="3cqZAp" />
+                            </node>
+                            <node concept="3fqX7Q" id="6ogOzzX40S0" role="3clFbw">
+                              <node concept="1rXfSq" id="6ogOzzX40S2" role="3fr31v">
+                                <ref role="37wK5l" node="6ysF3v1j_yx" resolve="isPastePossible" />
+                                <node concept="37vLTw" id="6ogOzzX40S3" role="37wK5m">
+                                  <ref role="3cqZAo" node="6ysF3v1j_wk" resolve="context" />
+                                </node>
+                              </node>
+                            </node>
+                          </node>
                           <node concept="3cpWs8" id="6ysF3v1j_wr" role="3cqZAp">
                             <node concept="3cpWsn" id="6ysF3v1j_ws" role="3cpWs9">
                               <property role="TrG5h" value="pastingNodeReference" />
@@ -7175,9 +7188,17 @@
           </node>
         </node>
         <node concept="3clFbS" id="6ysF3v1j_yB" role="3clF47">
-          <node concept="3clFbF" id="6ysF3v1j_yC" role="3cqZAp">
-            <node concept="3clFbT" id="6ysF3v1j_yD" role="3clFbG">
-              <property role="3clFbU" value="true" />
+          <node concept="3clFbF" id="6ogOzzX3eKO" role="3cqZAp">
+            <node concept="2OqwBi" id="6ogOzzX3eKP" role="3clFbG">
+              <node concept="37vLTw" id="6ogOzzX3eKQ" role="2Oq$k0">
+                <ref role="3cqZAo" node="6ysF3v1j_w0" resolve="myDefaultPasteProvider" />
+              </node>
+              <node concept="liA8E" id="6ogOzzX3eKR" role="2OqNvi">
+                <ref role="37wK5l" to="ddhc:~PasteProvider.isPastePossible(com.intellij.openapi.actionSystem.DataContext)" resolve="isPastePossible" />
+                <node concept="37vLTw" id="6ogOzzX3eKS" role="37wK5m">
+                  <ref role="3cqZAo" node="6ysF3v1j_y$" resolve="context" />
+                </node>
+              </node>
             </node>
           </node>
         </node>
@@ -7198,9 +7219,17 @@
           </node>
         </node>
         <node concept="3clFbS" id="6ysF3v1j_yK" role="3clF47">
-          <node concept="3clFbF" id="6ysF3v1j_yL" role="3cqZAp">
-            <node concept="3clFbT" id="6ysF3v1j_yM" role="3clFbG">
-              <property role="3clFbU" value="true" />
+          <node concept="3clFbF" id="6ogOzzX2zXs" role="3cqZAp">
+            <node concept="2OqwBi" id="6ogOzzX2G4b" role="3clFbG">
+              <node concept="37vLTw" id="6ogOzzX2zXr" role="2Oq$k0">
+                <ref role="3cqZAo" node="6ysF3v1j_w0" resolve="myDefaultPasteProvider" />
+              </node>
+              <node concept="liA8E" id="6ogOzzX2Rgx" role="2OqNvi">
+                <ref role="37wK5l" to="ddhc:~PasteProvider.isPasteEnabled(com.intellij.openapi.actionSystem.DataContext)" resolve="isPasteEnabled" />
+                <node concept="37vLTw" id="6ogOzzX338q" role="37wK5m">
+                  <ref role="3cqZAo" node="6ysF3v1j_yH" resolve="context" />
+                </node>
+              </node>
             </node>
           </node>
         </node>
