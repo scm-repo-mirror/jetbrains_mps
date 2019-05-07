@@ -248,19 +248,7 @@ public class UsagesTree extends MPSTree {
     UsagesTreeNode child = children.get(0);
 
     buildCounters(child);
-    sortByCaption(children);
-    if (getPresentationProvider() != null) {
-      // XXX INodeRepresentation may override text for certain elements, let's give it a chance
-      // though this is not something I'd like to do, just can not refactor every piece of this mess at once
-      // we need to keep this as long as DataTree.build() can not evaluate proper text at construction time
-      setUIProperties(child);
-    }
-
-    return child;
-  }
-
-  private void sortByCaption(List<? extends UsagesTreeNode> children) {
-    children.sort(new Comparator<UsagesTreeNode>() {
+    sortByCaption(children, new Comparator<UsagesTreeNode>() {
       private boolean isIgnored(UsagesTreeNode node) {
         // need to keep order of non-root nodes as they seen in an editor (see MPS-6113)
         BaseNodeData data = node.getUsageData();
@@ -279,8 +267,20 @@ public class UsagesTree extends MPSTree {
         return s1.compareTo(s2);
       }
     });
+    if (getPresentationProvider() != null) {
+      // XXX INodeRepresentation may override text for certain elements, let's give it a chance
+      // though this is not something I'd like to do, just can not refactor every piece of this mess at once
+      // we need to keep this as long as DataTree.build() can not evaluate proper text at construction time
+      setUIProperties(child);
+    }
+
+    return child;
+  }
+
+  private static void sortByCaption(List<? extends UsagesTreeNode> children, Comparator<UsagesTreeNode> comparator) {
+    children.sort(comparator);
     for (UsagesTreeNode child : children) {
-      sortByCaption(child.getChildren());
+      sortByCaption(child.getChildren(), comparator);
     }
   }
 
