@@ -61,7 +61,7 @@ public class ModuleNodeData extends AbstractResultNodeData {
 
   @Override
   public String createIdObject() {
-    return getModuleReference().toString() + "/" + getPlainText();
+    return getModuleReference().toString();
   }
 
   @Override

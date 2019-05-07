@@ -57,9 +57,9 @@ public class ModelNodeData extends AbstractResultNodeData {
 
   @Override
   protected String createIdObject() {
-    // FIXME use of getPlainText() here traces back to 59c49957 and https://youtrack.jetbrains.net/issue/MPS-15200 (MPS-10988)
-    // FIXME check if it's still valid
-    return getModelReference().toString() + "/" + getPlainText();
+    // JFTR, getPlainText() was part of id here, see 59c49957 and https://youtrack.jetbrains.net/issue/MPS-15200 (MPS-10988)
+    // however, I don't feel it make any sense now (getIdObject() is not in use for anything but MPSTreeNode identifier)
+    return getModelReference().toString();
   }
 
   public SModelReference getModelReference() {

@@ -67,7 +67,7 @@ public class NodeNodeData extends AbstractResultNodeData {
 
   @Override
   public String createIdObject() {
-    return myNodePointer.toString() + "/" + getPlainText();
+    return myNodePointer.toString();
   }
 
   @Override
