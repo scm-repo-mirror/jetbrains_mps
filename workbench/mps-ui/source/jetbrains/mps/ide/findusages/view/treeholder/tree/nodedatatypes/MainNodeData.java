@@ -24,7 +24,7 @@ import javax.swing.Icon;
 
 public class MainNodeData extends BaseNodeData {
   public MainNodeData(PathItemRole role) {
-    super(role, "", "", false, false);
+    super(role, "", null, false, false);
   }
 
   public MainNodeData(Element element, Project project) throws CantLoadSomethingException {

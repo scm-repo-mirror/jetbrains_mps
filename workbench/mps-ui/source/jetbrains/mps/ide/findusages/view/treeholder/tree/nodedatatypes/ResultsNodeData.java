@@ -29,7 +29,7 @@ public class ResultsNodeData extends BaseNodeData {
   private final Icon myIcon;
 
   public ResultsNodeData(PathItemRole role, @Nullable Icon icon, @NotNull String text) {
-    super(role, text, "", false, false);
+    super(role, text, null, false, false);
     myIcon = icon;
   }
 

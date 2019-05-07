@@ -262,8 +262,8 @@ public class UsagesTree extends MPSTree {
         if (i1 || i2) {
           return i1 ? (i2 ? 0 : -1) : 1;
         }
-        String s1 = o1.getUsageData().getPlainText();
-        String s2 = o2.getUsageData().getPlainText();
+        String s1 = o1.getUsageData().getCaption();
+        String s2 = o2.getUsageData().getCaption();
         return s1.compareTo(s2);
       }
     });
@@ -343,7 +343,7 @@ public class UsagesTree extends MPSTree {
       TextOptions to = new TextOptions(myAdditionalInfoNeeded, !root.isLeaf(), root.getSubresultsCount());
       // used to be in CategoryNodeData.getText
       // CategoryNodeData.myCategory == BaseNodeData.caption, hence getPlainText
-      final String text = myPresentationProvider.getCategoryText(to, root.getUsageData().getPlainText(), root.getUsageData().isResultsSection());
+      final String text = myPresentationProvider.getCategoryText(to, root.getUsageData().getCaption(), root.getUsageData().isResultsSection());
       if (text != null) {
         root.setText(text);
         // assume INodeRepresentator could use count in caption, if needed
@@ -504,7 +504,7 @@ public class UsagesTree extends MPSTree {
 
     public UsagesTreeNode(DataNode userObj, BaseNodeData data) {
       super(userObj);
-      setNodeIdentifier(data.getPlainText());
+      setNodeIdentifier(data.getIdObject() instanceof String ? (String) data.getIdObject() : data.getCaption());
       setToggleClickCount(data.isPathTail() ? -1 : 2);
       showCounter(data.isResultsSection());
     }

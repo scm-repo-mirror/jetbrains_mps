@@ -27,7 +27,7 @@ public class SearchedNodesNodeData extends BaseNodeData {
   public static final String CATEGORY_NAME = "Searched nodes";
 
   public SearchedNodesNodeData(PathItemRole role) {
-    super(role, CATEGORY_NAME, "", false, false);
+    super(role, CATEGORY_NAME, null, false, false);
   }
 
   public SearchedNodesNodeData(Element element, Project project) throws CantLoadSomethingException {

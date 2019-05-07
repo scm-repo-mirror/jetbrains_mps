@@ -98,6 +98,11 @@ public abstract class BaseNodeData implements IExternalizeable {
     return myAdditionalInfo;
   }
 
+  /**
+   * @deprecated use {@link #getCaption()}  instead. there are no longer html tags in the values
+   */
+  @Deprecated
+  @ToRemove(version = 2019.2)
   public String getPlainText() {
     return myCaption.replaceAll("<[^>]*>", "");
   }
