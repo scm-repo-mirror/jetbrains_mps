@@ -929,12 +929,6 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode {
     return ((ConceptMetaInfoConverter) myConcept).convertProperty(name);
   }
 
-  private static final class AlreadyConstructedException extends RuntimeException {
-    public AlreadyConstructedException(@NotNull SNode node) {
-      super("The node " + node + " has already been constructed.");
-    }
-  }
-
   private static class ChildrenList extends AbstractSequentialList<SNode> {
     @Nullable
     private final SContainmentLink myRole;
