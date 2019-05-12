@@ -20,8 +20,6 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.tempmodel.TempModuleOptions;
 import jetbrains.mps.generator.impl.CloneUtil;
 import jetbrains.mps.smodel.ModelDependencyUpdate;
-import jetbrains.mps.tool.environment.EnvironmentSetupException;
-import org.junit.AssumptionViolatedException;
 
 /**
  * Th problem is: we need to initialize, dispose and share data between instances of the same class (JUnit by default gets new instance for each test method).
@@ -105,7 +103,8 @@ public final class TestParametersCache implements TestRule {
   }
 
   private void initCachedValues(Environment environment) throws Exception {
-    // MPS's in-process, out-of-process and ant script executors supply Environment through EnvironmentAware and custom RunnerBuilder  
+    // MPS's in-process, out-of-process and ant script executors 
+    // supply Environment through EnvironmentAware and custom RunnerBuilder  
     // namely, PushEnvironmentRunnerBuilder. IDEA MPS plugin and IDEA test configurations use this RunnerBuilder, too. 
     if (environment == null) {
       throw new EnvironmentIsNullException(this.getClass().getName(), myProjectPath);
@@ -122,40 +121,36 @@ public final class TestParametersCache implements TestRule {
     if ((expandedProjectPath == null || expandedProjectPath.length() == 0)) {
       throw new ExpandedProjectPathIsNullException(myProjectPath);
     }
-    try {
-      File projectToOpen = new File(expandedProjectPath);
-      Project p = environment.openProject(projectToOpen);
-      if (myReOpenProject) {
-        environment.closeProject(p);
-        p = environment.openProject(projectToOpen);
-      }
-      myProject = p;
-      final SRepository repository = p.getRepository();
-      Exception exception = ThreadUtils.runInUIThreadAndWait(new Runnable() {
-        public void run() {
-          // FIXME drop command, needed for transient/temp model initialization only 
-          repository.getModelAccess().executeCommand(new Runnable() {
-            @Override
-            public void run() {
-              SModelReference modelRef = PersistenceFacade.getInstance().createModelReference(myModelRef);
-              SModel modelDescriptor = modelRef.resolve(repository);
-              if (modelDescriptor == null) {
-                throw new CouldNotFindModelException(String.format("Can't find model %s in supplied repository %s.", myModelRef, repository));
-              }
-              myTestModel = modelDescriptor;
-              SModel transientModel = TemporaryModels.getInstance().create(false, TempModuleOptions.nonReloadableModule());
-              new CloneUtil(modelDescriptor, transientModel).cloneModelWithImports();
-              new ModelDependencyUpdate(transientModel).updateModuleDependencies(repository);
-              myTransientModel = transientModel;
+    File projectToOpen = new File(expandedProjectPath);
+    Project p = environment.openProject(projectToOpen);
+    if (myReOpenProject) {
+      environment.closeProject(p);
+      p = environment.openProject(projectToOpen);
+    }
+    myProject = p;
+    final SRepository repository = p.getRepository();
+    Exception exception = ThreadUtils.runInUIThreadAndWait(new Runnable() {
+      public void run() {
+        // FIXME drop command, needed for transient/temp model initialization only 
+        repository.getModelAccess().executeCommand(new Runnable() {
+          @Override
+          public void run() {
+            SModelReference modelRef = PersistenceFacade.getInstance().createModelReference(myModelRef);
+            SModel modelDescriptor = modelRef.resolve(repository);
+            if (modelDescriptor == null) {
+              throw new CouldNotFindModelException(String.format("Can't find model %s in supplied repository %s.", myModelRef, repository));
             }
-          });
-        }
-      });
-      if (exception != null) {
-        throw new MPSTestModelInitializationException("Exception during model initialization", exception);
+            myTestModel = modelDescriptor;
+            SModel transientModel = TemporaryModels.getInstance().create(false, TempModuleOptions.nonReloadableModule());
+            new CloneUtil(modelDescriptor, transientModel).cloneModelWithImports();
+            new ModelDependencyUpdate(transientModel).updateModuleDependencies(repository);
+            myTransientModel = transientModel;
+          }
+        });
       }
-    } catch (EnvironmentSetupException envException) {
-      throw new AssumptionViolatedException("Failed to open the project using the given environemnt", envException);
+    });
+    if (exception != null) {
+      throw new MPSTestModelInitializationException("Exception during model initialization", exception);
     }
   }
 }

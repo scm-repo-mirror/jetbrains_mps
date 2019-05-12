@@ -4099,7 +4099,7 @@
           <node concept="YS8fn" id="5Jy6yRTQi2J" role="3cqZAp">
             <node concept="2ShNRf" id="5Jy6yRTQi6q" role="YScLw">
               <node concept="1pGfFk" id="5Jy6yRTQj2W" role="2ShVmc">
-                <ref role="37wK5l" to="rjhg:~AssumptionViolatedException.&lt;init&gt;(java.lang.String)" resolve="AssumptionViolatedException" />
+                <ref role="37wK5l" to="wyt6:~RuntimeException.&lt;init&gt;(java.lang.String)" resolve="RuntimeException" />
                 <node concept="2YIFZM" id="5R7ko6d2zAU" role="37wK5m">
                   <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
                   <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
