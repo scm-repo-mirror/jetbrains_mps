@@ -82,7 +82,7 @@ final class ImmutableChildrenList extends AbstractSequentialList<SNode> {
     }
 
     @Override
-    protected SNode getNext(SNode node) {
+    protected SNode getNext(SNode node, int index) {
       node.assertCanRead();
 
       if (myRole == null) {
@@ -96,7 +96,7 @@ final class ImmutableChildrenList extends AbstractSequentialList<SNode> {
     }
 
     @Override
-    protected SNode getPrev(SNode node) {
+    protected SNode getPrev(SNode node, int index) {
       node.assertCanRead();
 
       if (node.treeParent() == null) {
