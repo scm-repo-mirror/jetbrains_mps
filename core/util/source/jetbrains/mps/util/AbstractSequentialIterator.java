@@ -18,82 +18,72 @@ package jetbrains.mps.util;
 import java.util.ListIterator;
 
 public abstract class AbstractSequentialIterator<T> implements ListIterator<T> {
-
-  private T myCurrent;
+  private T myNext;
   private T myPrev;
-  private int myIndex;
+  private int myNextIndex;
 
-  public AbstractSequentialIterator(T node) {
-    assert node != null;
-    myCurrent = node;
+  public AbstractSequentialIterator(T next) {
+    assert next != null;
+    myNext = next;
     myPrev = null;
-    myIndex = 0;
+    myNextIndex = 0;
   }
 
+  /**
+   * Must be invoked in, and only in, next() method
+   */
   protected abstract T getNext(T node);
 
+  /**
+   * Must be invoked in, and only in, previous() method
+   */
   protected abstract T getPrev(T node);
-
-  protected T getCurrent() {
-    return myCurrent;
-  }
-
-  protected void setCurrent(T current) {
-    myCurrent = current;
-  }
-
-  protected T getPrev() {
-    return myPrev;
-  }
-
-  protected void setPrev(T prev) {
-    myPrev = prev;
-  }
 
   @Override
   public boolean hasNext() {
-    return getCurrent() != null;
+    return myNext != null;
   }
 
   @Override
   public T next() {
-    T result = getCurrent();
+    T result = myNext;
     if (result == null) {
       //TODO: throw new NoSuchElementException();
       return null;
     }
-    setPrev(result);
-    myIndex++;
-    setCurrent(getNext(result));
+    myPrev = result;
+    myNextIndex++;
+    myNext = getNext(result);
     return result;
   }
 
   @Override
   public boolean hasPrevious() {
-    return getPrev() != null;
+    return myPrev != null;
   }
 
   @Override
   public T previous() {
-    T result = getPrev();
+    T result = myPrev;
     if (result == null) {
       //TODO: throw new NoSuchElementException();
       return null;
     }
-    setCurrent(result);
-    myIndex--;
-    setPrev(myIndex == 0 ? null : getPrev(result));
+    myNext = result;
+    myNextIndex--;
+    T prev = myNextIndex == 0 ? null : getPrev(result);
+    myPrev = prev;
     return result;
   }
 
   @Override
   public int nextIndex() {
-    return myIndex;
+    return myNextIndex;
   }
 
   @Override
   public int previousIndex() {
-    return myIndex - 1;
+    return myNextIndex - 1;
   }
 
   @Override
