@@ -14,6 +14,12 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.plugins.runconfigs.MPSPsiElement;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.annotations.NotNull;
+import com.intellij.execution.configurations.RunConfiguration;
+import com.intellij.execution.actions.ConfigurationContext;
+import jetbrains.mps.smodel.ModelAccessHelper;
+import jetbrains.mps.util.Computable;
+import java.util.Objects;
 
 public final class BuildScript_Producer {
 
@@ -64,6 +70,34 @@ public final class BuildScript_Producer {
       return null;
     }
 
+    @Override
+    protected boolean isConfigurationFromContext(@NotNull RunConfiguration configuration0, @NotNull ConfigurationContext context) {
+      if (!(configuration0 instanceof BuildScript_Configuration)) {
+        return false;
+      }
+      BuildScript_Configuration configuration = (BuildScript_Configuration) configuration0;
+      if (context.getPsiLocation() instanceof MPSPsiElement) {
+        final MPSPsiElement element = (MPSPsiElement) context.getPsiLocation();
+        ModelAccessHelper mah = new ModelAccessHelper(element.getMPSProject().getRepository());
+        Object mpsItem = mah.runReadAction(new Computable<Object>() {
+          public Object compute() {
+            return element.getMPSItem();
+          }
+        });
+        if (!(mpsItem instanceof SNode)) {
+          return false;
+        }
+        final SNode sourceNode = (SNode) mpsItem;
+        SNode rootNode = mah.runReadAction(new Computable<SNode>() {
+          public SNode compute() {
+            return SNodeOperations.getContainingRoot(sourceNode);
+          }
+        });
+
+        return Objects.equals(configuration.getNodePointer().getNodeRef(), rootNode.getReference());
+      }
+      return false;
+    }
 
     @Override
     public BuildScript_Producer.ProducerPart_Node_3e34ca_a clone() {
