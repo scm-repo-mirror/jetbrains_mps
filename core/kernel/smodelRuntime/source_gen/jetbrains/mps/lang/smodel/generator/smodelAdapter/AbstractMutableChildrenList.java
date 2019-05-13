@@ -29,7 +29,26 @@ public abstract class AbstractMutableChildrenList extends AbstractList<SNode> {
 
   @Override
   public Iterator<SNode> iterator() {
-    return childrenIterator();
+    return new Iterator<SNode>() {
+      private SNode last = null;
+      private Iterator<SNode> ci = childrenIterator();
+
+      @Override
+      public boolean hasNext() {
+        return ci.hasNext();
+      }
+
+      @Override
+      public SNode next() {
+        last = ci.next();
+        return last;
+      }
+
+      @Override
+      public void remove() {
+        AbstractMutableChildrenList.this.remove(last);
+      }
+    };
   }
 
   @Override
