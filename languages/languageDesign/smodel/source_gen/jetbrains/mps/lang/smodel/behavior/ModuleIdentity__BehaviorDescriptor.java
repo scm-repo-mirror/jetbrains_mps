@@ -35,7 +35,7 @@ public final class ModuleIdentity__BehaviorDescriptor extends BaseBHDescriptor {
 
   @Nullable
   /*package*/ static SModuleReference getModuleReference_idnJmxU5cSSU(@NotNull SNode __thisNode__) {
-    return null;
+    return ((SModuleReference) jetbrains.mps.lang.modelapi.behavior.ModuleIdentity__BehaviorDescriptor.toModuleReference_id1Bs_61$mqDd.invoke(__thisNode__));
   }
 
   /*package*/ ModuleIdentity__BehaviorDescriptor() {

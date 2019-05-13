@@ -27,7 +27,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.modelapi.behavior.ModulePointer__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
+import jetbrains.mps.util.PatternUtil;
 import jetbrains.mps.smodel.runtime.IconResource;
+import jetbrains.mps.project.Solution;
+import jetbrains.mps.smodel.Language;
+import jetbrains.mps.smodel.Generator;
+import jetbrains.mps.project.DevKit;
 
 public class ContextRepositoryModules_SM extends SubstituteMenuBase {
   @NotNull
@@ -139,13 +144,48 @@ public class ContextRepositoryModules_SM extends SubstituteMenuBase {
         }
         @Nullable
         @Override
-        public IconResource getIcon(@NotNull String pattern) {
-          return null;
+        public String getMatchingText(@NotNull String pattern) {
+          return myParameterObject.getModuleName();
+        }
+        @Override
+        public boolean canExecute(@NotNull String pattern) {
+          return canExecute_internal(pattern, false);
+        }
+        @Override
+        public boolean canExecuteStrictly(@NotNull String pattern) {
+          return canExecute_internal(pattern, true);
+        }
+        public boolean canExecute_internal(@NotNull String pattern, boolean strictly) {
+          // copied from lang.smodel.editor.RepositoryModules_Substitute, not sure what it does 
+          String moduleName = myParameterObject.getModuleName();
+          if (moduleName == null) {
+            return false;
+          }
+          if (strictly) {
+            return moduleName.equals(pattern);
+          } else if ((pattern == null || pattern.length() == 0)) {
+            return true;
+          } else {
+            return !(PatternUtil.getIndexes(pattern, true, moduleName).isEmpty());
+          }
         }
         @Nullable
         @Override
-        public String getMatchingText(@NotNull String pattern) {
-          return myParameterObject.getModuleName();
+        public IconResource getIcon(@NotNull String pattern) {
+          SModule module = myParameterObject.resolve(_context.getEditorContext().getRepository());
+          if (module instanceof Solution) {
+            return IconContainer.RESOURCE_a0a1a51e3f;
+          }
+          if (module instanceof Language) {
+            return IconContainer.RESOURCE_a0a2a51e3f;
+          }
+          if (module instanceof Generator) {
+            return IconContainer.RESOURCE_a0a3a51e3f;
+          }
+          if (module instanceof DevKit) {
+            return IconContainer.RESOURCE_a0a4a51e3f;
+          }
+          return null;
         }
       }
     }
