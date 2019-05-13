@@ -152,6 +152,7 @@
           <module ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5(MPS.IDEA)" kind="cl" />
           <module ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)" kind="cl" />
           <module ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61(MPS.Platform)" kind="cl" />
+          <module ref="86441d7a-e194-42da-81a5-2161ec62a379(MPS.Workbench)" kind="cl" />
           <module ref="268ae620-360b-4da4-bb01-fad761632e6c(jetbrains.mps.ant.execution)" kind="cl" />
           <module ref="798100da-4f0a-421a-b991-71f8c50ce5d2(jetbrains.mps.build)" kind="cl" />
           <module ref="933a68f9-aab6-401b-b5c5-5ca7783dce5f(jetbrains.mps.execution.configurations.pluginSolution)" kind="cl" />

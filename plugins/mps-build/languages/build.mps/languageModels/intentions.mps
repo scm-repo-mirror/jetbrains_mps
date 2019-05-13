@@ -4,7 +4,7 @@
   <languages>
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
     <use id="d7a92d38-f7db-40d0-8431-763b0c3c9f20" name="jetbrains.mps.lang.intentions" version="-1" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="15" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="-1" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
   </languages>
   <imports>
@@ -270,7 +270,7 @@
       <node concept="3clFbS" id="3vXGXT8byI3" role="2VODD2">
         <node concept="3clFbF" id="3vXGXT8byI6" role="3cqZAp">
           <node concept="Xl_RD" id="3vXGXT8byI7" role="3clFbG">
-            <property role="Xl_RC" value="Customize Packaging for modules (deprecated, use the packaging type in the 'plugin' construction instead)" />
+            <property role="Xl_RC" value="Customize Packaging for Modules (deprecated, Use the Packaging Type in the 'plugin' Construction Instead)" />
           </node>
         </node>
       </node>

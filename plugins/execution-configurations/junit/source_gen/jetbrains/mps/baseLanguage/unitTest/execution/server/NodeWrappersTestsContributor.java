@@ -30,7 +30,6 @@ import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.project.Project;
 import java.io.File;
 import jetbrains.mps.project.ProjectManager;
-import org.junit.AssumptionViolatedException;
 import jetbrains.mps.ide.ThreadUtils;
 import java.io.IOException;
 
@@ -170,7 +169,7 @@ public class NodeWrappersTestsContributor implements TestsContributor {
         }
       }
       // todo show balloon and ignore the tests 
-      throw new AssumptionViolatedException(String.format("Test project '%s' is not opened. Aborted.", projectFile));
+      throw new RuntimeException(String.format("Test project '%s' is not opened. Aborted.", projectFile));
     }
 
     @Override

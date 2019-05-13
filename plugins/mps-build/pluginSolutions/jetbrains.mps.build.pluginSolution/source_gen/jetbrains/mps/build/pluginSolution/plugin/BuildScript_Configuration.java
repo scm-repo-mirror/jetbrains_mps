@@ -35,6 +35,9 @@ import com.intellij.execution.runners.ProgramRunner;
 import com.intellij.execution.configurations.ConfigurationInfoProvider;
 import jetbrains.mps.execution.api.settings.SettingsEditorEx;
 import jetbrains.mps.ide.project.ProjectHelper;
+import com.intellij.openapi.util.Key;
+import com.intellij.execution.BeforeRunTask;
+import jetbrains.mps.execution.configurations.pluginSolution.plugin.MakeNodePointers_BeforeTask;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 
@@ -164,6 +167,11 @@ public class BuildScript_Configuration extends BaseMpsRunConfiguration implement
   @Override
   public boolean canExecute(String executorId) {
     return BuildScript_Configuration_RunProfileState.canExecute(executorId);
+  }
+  public static void configureBeforeTaskDefaults(Key<? extends BeforeRunTask> providerID, BeforeRunTask task) {
+    if (providerID == MakeNodePointers_BeforeTask.KEY) {
+      task.setEnabled(true);
+    }
   }
   public Object[] createMakeNodePointersTask() {
     return new Object[]{ListSequence.fromListAndArray(new ArrayList<SNodeReference>(), this.getNodePointer().getNodeRef())};
