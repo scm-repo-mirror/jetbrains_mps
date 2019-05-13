@@ -26388,7 +26388,6 @@
         </node>
       </node>
       <node concept="1E1JtA" id="78GwwOvFiRN" role="2G$12L">
-        <property role="BnDLt" value="true" />
         <property role="TrG5h" value="jetbrains.mps.build.pluginSolution" />
         <property role="3LESm3" value="111204cc-c25e-4ae1-9c79-b7af36c083cc" />
         <node concept="3rtmxn" id="EpEP7iihKI" role="3bR31x">
@@ -26474,6 +26473,11 @@
         <node concept="1SiIV0" id="B6nJXVycia" role="3bR37C">
           <node concept="3bR9La" id="B6nJXVycib" role="1SiIV1">
             <ref role="3bR37D" node="mXGwHwhVPj" resolve="JDK" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="3tfg2WyVi5P" role="3bR37C">
+          <node concept="3bR9La" id="3tfg2WyVi5Q" role="1SiIV1">
+            <ref role="3bR37D" node="2eDSGe9d1q1" resolve="MPS.Workbench" />
           </node>
         </node>
       </node>
