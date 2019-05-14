@@ -370,9 +370,10 @@
         <path location="${mps_home}/plugins/mps-migration/migration-workbench/solutions/migration.workbench/source_gen" />
       </src>
       <classpath>
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-annotations.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-openapi.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-core.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-logging.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-closures.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-collections.jar" />
@@ -415,6 +416,7 @@
       </src>
       <classpath>
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-annotations.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-openapi.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-logging.jar" />

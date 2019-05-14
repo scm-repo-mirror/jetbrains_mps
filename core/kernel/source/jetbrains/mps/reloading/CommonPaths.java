@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -95,6 +95,10 @@ public final class CommonPaths {
     addIfExists(result, "lib/mps-collections.jar");
     addIfExists(result, "lib/mps-tuples.jar");
     addIfExists(result, "lib/mps-project-check.jar");
+    // XXX likely, generator and textgen deserve their own stub modules, but for the time being, there classes are resolved through MPS.Core
+    // OTOH, if we are ok with missing reference targets in MPS.Core, perhaps, it doesn't make sense to use a lot of different stub modules?
+    addIfExists(result, "lib/mps-generator.jar");
+    addIfExists(result, "lib/mps-textgen.jar");
     addIfExists(result, "lib/log4j.jar");
     addIfExists(result, "lib/trove4j.jar");
     addIfExists(result, "lib/jdom.jar");

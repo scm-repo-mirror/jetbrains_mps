@@ -986,6 +986,7 @@
       </src>
       <classpath>
         <fileset file="${artifacts.mps}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mps}/lib/mps-annotations.jar" />
         <fileset file="${artifacts.mps}/lib/mps-openapi.jar" />
         <fileset file="${artifacts.mps}/lib/mps-logging.jar" />
@@ -998,6 +999,7 @@
         <fileset file="${artifacts.mps}/lib/mps-messaging.jar" />
         <fileset file="${artifacts.mps}/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
@@ -1022,6 +1024,7 @@
       <src path="${basedir}/testbench/testsolutions/generator.test/test_gen/" />
       <classpath>
         <fileset file="${artifacts.mps}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mps}/lib/mps-annotations.jar" />
         <fileset file="${artifacts.mps}/lib/mps-openapi.jar" />
         <fileset file="${artifacts.mps}/lib/mps-logging.jar" />
@@ -1034,6 +1037,7 @@
         <fileset file="${artifacts.mps}/lib/mps-messaging.jar" />
         <fileset file="${artifacts.mps}/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.generator.crossmodel.sandbox" />
         <fileset file="${artifacts.mps}/lib/mps-platform.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor.jar" />
@@ -1088,6 +1092,7 @@
         <fileset file="${artifacts.mps}/lib/mps-closures.jar" />
         <fileset file="${artifacts.mps}/lib/mps-collections.jar" />
         <fileset file="${artifacts.mps}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mps}/lib/mps-annotations.jar" />
         <fileset file="${artifacts.mps}/lib/mps-openapi.jar" />
         <fileset file="${artifacts.mps}/lib/mps-logging.jar" />
@@ -1096,6 +1101,7 @@
         <fileset file="${artifacts.mps}/lib/mps-messaging.jar" />
         <fileset file="${artifacts.mps}/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.property" />
         <fileset file="${artifacts.mps}/lib/mps-platform.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor.jar" />
@@ -1144,8 +1150,10 @@
         <fileset file="${artifacts.mps}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mps}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.entity" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.property" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.property#5533782486491461721" />
@@ -1179,6 +1187,7 @@
         <fileset file="${artifacts.mps}/lib/mps-closures.jar" />
         <fileset file="${artifacts.mps}/lib/mps-collections.jar" />
         <fileset file="${artifacts.mps}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mps}/lib/mps-annotations.jar" />
         <fileset file="${artifacts.mps}/lib/mps-openapi.jar" />
         <fileset file="${artifacts.mps}/lib/mps-logging.jar" />
@@ -1187,6 +1196,7 @@
         <fileset file="${artifacts.mps}/lib/mps-messaging.jar" />
         <fileset file="${artifacts.mps}/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
@@ -1220,6 +1230,7 @@
         <fileset file="${artifacts.mps}/lib/mps-closures.jar" />
         <fileset file="${artifacts.mps}/lib/mps-collections.jar" />
         <fileset file="${artifacts.mps}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mps}/lib/mps-annotations.jar" />
         <fileset file="${artifacts.mps}/lib/mps-openapi.jar" />
         <fileset file="${artifacts.mps}/lib/mps-logging.jar" />
@@ -1228,6 +1239,7 @@
         <fileset file="${artifacts.mps}/lib/mps-messaging.jar" />
         <fileset file="${artifacts.mps}/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.property" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -1272,8 +1284,10 @@
         <fileset file="${artifacts.mps}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mps}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.entity" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.property" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
@@ -1305,6 +1319,7 @@
         <fileset file="${artifacts.mps}/lib/mps-closures.jar" />
         <fileset file="${artifacts.mps}/lib/mps-collections.jar" />
         <fileset file="${artifacts.mps}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mps}/lib/mps-annotations.jar" />
         <fileset file="${artifacts.mps}/lib/mps-openapi.jar" />
         <fileset file="${artifacts.mps}/lib/mps-logging.jar" />
@@ -1313,6 +1328,7 @@
         <fileset file="${artifacts.mps}/lib/mps-messaging.jar" />
         <fileset file="${artifacts.mps}/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.generator.test.crossmodel.property" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -1355,8 +1371,10 @@
         <fileset file="${artifacts.mps}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mps}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingGenerated.data" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingInterpreted.data" />
         <fileset file="${artifacts.mps}/lib/mps-test.jar" />
@@ -1412,8 +1430,10 @@
         <fileset file="${artifacts.mps}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mps}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -1459,8 +1479,10 @@
         <fileset file="${artifacts.mps}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mps}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingGenerated.data" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -1506,8 +1528,10 @@
         <fileset file="${artifacts.mps}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mps}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -1553,8 +1577,10 @@
         <fileset file="${artifacts.mps}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mps}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.traceInfo.testWeavingInterpreted.data" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -1603,8 +1629,10 @@
         <fileset file="${artifacts.mps}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mps}/lib/mps-editor-runtime.jar" />
         <fileset file="${artifacts.mps}/lib/mps-environment.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
         <fileset file="${artifacts.mps}/lib/mps-test.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
         <fileset file="${artifacts.IDEA}/lib/ant/lib/ant.jar" />
         <fileset file="${artifacts.IDEA}/lib/hamcrest-core-1.3.jar" />
         <fileset file="${artifacts.IDEA}/lib/junit-4.12.jar" />

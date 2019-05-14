@@ -1425,8 +1425,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.workflow" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -1473,8 +1475,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.workflow" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.workflow#2769948622284786808" />
@@ -1521,8 +1525,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -1568,8 +1574,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.workflow" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -1615,8 +1623,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.workflow" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
@@ -1663,8 +1673,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build#3595702787188034882" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.mps" />
@@ -1712,8 +1724,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.mps" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.workflow" />
@@ -1762,8 +1776,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build#3595702787188034882" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.mps" />
@@ -1813,8 +1829,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -1864,8 +1882,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.mps.testManifest" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -1909,8 +1929,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.mps" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.workflow" />
@@ -1961,8 +1983,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build#3595702787188034882" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.mps" />
@@ -2013,7 +2037,9 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-tool.jar" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -2054,8 +2080,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.mps" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.workflow" />
@@ -2104,8 +2132,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.mps" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.startup" />
@@ -2168,8 +2198,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -2214,8 +2246,10 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.tips" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />

@@ -366,6 +366,7 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-closures.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-collections.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-annotations.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-openapi.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-logging.jar" />
@@ -374,6 +375,7 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-messaging.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <fileset file="${mps_home}/languages/baseLanguage/collections/languages/trove/runtime/lib/trove-2.1.0.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -410,6 +412,7 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-closures.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-collections.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-annotations.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-openapi.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-logging.jar" />
@@ -418,6 +421,7 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-messaging.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-textgen.jar" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.baseLanguage.collections.trove" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />

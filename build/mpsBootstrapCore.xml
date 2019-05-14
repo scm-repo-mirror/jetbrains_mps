@@ -189,9 +189,6 @@
     <copyModels todir="${build.tmp}/customProcessors/copyModels/core-typesystemEngine-solutions-jetbrains.mps.typesystemEngine">
       <fileset dir="${mps_home}/core/typesystemEngine/solutions/jetbrains.mps.typesystemEngine" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
     </copyModels>
-    <copyModels todir="${build.tmp}/customProcessors/copyModels/core-generator-solutions-generator-models">
-      <fileset dir="${mps_home}/core/generator/solutions/generator/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
-    </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/core-make-runtime-solutions-jetbrains.mps.make.runtime-jetbrains">
       <fileset dir="${mps_home}/core/make-runtime/solutions/jetbrains.mps.make.runtime/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
     </copyModels>
@@ -212,11 +209,9 @@
       <fileset dir="${build.tmp}/java/out/mps-kernel" />
       <fileset dir="${build.tmp}/java/out/mps-persistence" />
       <fileset dir="${build.tmp}/java/out/mps-smodel" />
-      <fileset dir="${build.tmp}/java/out/mps-generator" />
       <fileset dir="${build.tmp}/java/out/mps-debuginfo-api" />
       <fileset dir="${build.tmp}/java/out/mps-debuginfo-impl" />
       <fileset dir="${build.tmp}/java/out/mps-project" />
-      <fileset dir="${build.tmp}/java/out/mps-textgen" />
       <fileset dir="${build.tmp}/java/out/mps-make-rt" />
       <fileset dir="${build.tmp}/java/out/kernel-resources" />
       <fileset dir="${build.tmp}/java/out/mps-migration" />
@@ -252,9 +247,6 @@
       <zipfileset file="${mps_home}/core/typesystemEngine/solutions/jetbrains.mps.typesystemEngine/jetbrains.mps.typesystemEngine.msd" prefix="modules/jetbrains.mps.typesystemEngine" />
       <zipfileset dir="${mps_home}/core/typesystemEngine/solutions/jetbrains.mps.typesystemEngine" includes="icons/**, resources/**" prefix="modules/jetbrains.mps.typesystemEngine" />
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/core-typesystemEngine-solutions-jetbrains.mps.typesystemEngine" prefix="modules/jetbrains.mps.typesystemEngine/" />
-      <zipfileset file="${mps_home}/core/generator/solutions/generator/jetbrains.mps.generator.msd" prefix="modules/jetbrains.mps.generator" />
-      <zipfileset dir="${mps_home}/core/generator/solutions/generator" includes="icons/**, resources/**" prefix="modules/jetbrains.mps.generator" />
-      <zipfileset dir="${build.tmp}/customProcessors/copyModels/core-generator-solutions-generator-models" prefix="modules/jetbrains.mps.generator/models" />
       <zipfileset file="${mps_home}/core/make-runtime/solutions/jetbrains.mps.make.runtime/jetbrains.mps.make.runtime.msd" prefix="modules/jetbrains.mps.make.runtime" />
       <zipfileset dir="${mps_home}/core/make-runtime/solutions/jetbrains.mps.make.runtime" includes="icons/**, resources/**" prefix="modules/jetbrains.mps.make.runtime" />
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/core-make-runtime-solutions-jetbrains.mps.make.runtime-jetbrains" prefix="modules/jetbrains.mps.make.runtime/jetbrains" />
@@ -269,6 +261,18 @@
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/core-make-runtime-solutions-jetbrains.mps.make.facets-models" prefix="modules/jetbrains.mps.make.facets/models" />
       <zipfileset file="${mps_home}/languages/core/stub/MPS.Core/MPS.Core.msd" prefix="modules/MPS.Core" />
       <zipfileset dir="${mps_home}/languages/core/stub/MPS.Core" includes="icons/**, resources/**" prefix="modules/MPS.Core" />
+    </jar>
+    <copyModels todir="${build.tmp}/customProcessors/copyModels/core-generator-solutions-generator-models">
+      <fileset dir="${mps_home}/core/generator/solutions/generator/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+    </copyModels>
+    <jar destfile="${build.layout}/lib/mps-generator.jar" duplicate="preserve">
+      <fileset dir="${build.tmp}/java/out/mps-generator" />
+      <zipfileset file="${mps_home}/core/generator/solutions/generator/jetbrains.mps.generator.msd" prefix="modules/jetbrains.mps.generator" />
+      <zipfileset dir="${mps_home}/core/generator/solutions/generator" includes="icons/**, resources/**" prefix="modules/jetbrains.mps.generator" />
+      <zipfileset dir="${build.tmp}/customProcessors/copyModels/core-generator-solutions-generator-models" prefix="modules/jetbrains.mps.generator/models" />
+    </jar>
+    <jar destfile="${build.layout}/lib/mps-textgen.jar" duplicate="preserve">
+      <fileset dir="${build.tmp}/java/out/mps-textgen" />
     </jar>
     <jar destfile="${build.layout}/lib/mps-project-check.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/mps-project-check" />
