@@ -37,6 +37,7 @@ import org.jetbrains.annotations.NotNull;
     myNode.removeChild(n);
     return true;
   }
+
   protected Iterable<? extends SNode> children() {
     return myNode.getChildren(myRole);
   }
@@ -47,6 +48,11 @@ import org.jetbrains.annotations.NotNull;
     }
     detach(node);
     myNode.insertChildBefore(myRole, node, anchor);
+  }
+
+  @Override
+  protected void addFirst(SNode node) {
+    insertBefore(node, myNode.getFirstChild());
   }
 
   private void detach(SNode node) {

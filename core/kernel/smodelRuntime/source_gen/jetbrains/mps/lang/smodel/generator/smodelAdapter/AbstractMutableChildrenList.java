@@ -59,6 +59,13 @@ public abstract class AbstractMutableChildrenList extends AbstractList<SNode> {
 
   @Override
   public boolean addAll(int index, Collection<? extends SNode> c) {
+    if (index == 0) {
+      for (SNode node : CollectionSequence.fromCollection(c)) {
+        addFirst(node);
+      }
+      return true;
+    }
+
     Iterator<SNode> iter = childrenIteratorShifted(index);
     if (iter.hasNext()) {
       SNode anchor = iter.next();
@@ -109,6 +116,10 @@ public abstract class AbstractMutableChildrenList extends AbstractList<SNode> {
 
   @Override
   public void add(int index, SNode node) {
+    if (index == 0) {
+      addFirst(node);
+      return;
+    }
     Iterator<SNode> iter = childrenIteratorShifted(index);
     if (iter.hasNext()) {
       SNode anchor = iter.next();
@@ -221,4 +232,6 @@ public abstract class AbstractMutableChildrenList extends AbstractList<SNode> {
   protected abstract Iterable<? extends SNode> children();
 
   protected abstract void insertBefore(SNode node, SNode anchor);
+
+  protected abstract void addFirst(SNode node);
 }

@@ -1736,6 +1736,7 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="2tJIrI" id="wpMwLOSegY" role="jymVt" />
     <node concept="3clFb_" id="5kAj9bZcnBr" role="jymVt">
       <property role="TrG5h" value="children" />
       <node concept="3Tmbuc" id="5kAj9bZd8SB" role="1B3o_S" />
@@ -1822,6 +1823,39 @@
       </node>
     </node>
     <node concept="2tJIrI" id="5kAj9bZq40G" role="jymVt" />
+    <node concept="3clFb_" id="wpMwLOUtBn" role="jymVt">
+      <property role="TrG5h" value="addFirst" />
+      <node concept="3Tmbuc" id="wpMwLOUtBo" role="1B3o_S" />
+      <node concept="3cqZAl" id="wpMwLOUtBp" role="3clF45" />
+      <node concept="37vLTG" id="wpMwLOUtBq" role="3clF46">
+        <property role="TrG5h" value="node" />
+        <node concept="3uibUv" id="wpMwLOUtBr" role="1tU5fm">
+          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="wpMwLOUtBt" role="3clF47">
+        <node concept="3clFbF" id="wpMwLOW8xu" role="3cqZAp">
+          <node concept="1rXfSq" id="wpMwLOW8xs" role="3clFbG">
+            <ref role="37wK5l" node="5kAj9bZgbgk" resolve="insertBefore" />
+            <node concept="37vLTw" id="wpMwLOW9d5" role="37wK5m">
+              <ref role="3cqZAo" node="wpMwLOUtBq" resolve="node" />
+            </node>
+            <node concept="2OqwBi" id="wpMwLOWcIV" role="37wK5m">
+              <node concept="37vLTw" id="wpMwLOWbWO" role="2Oq$k0">
+                <ref role="3cqZAo" node="5IkW5anEKuf" resolve="myNode" />
+              </node>
+              <node concept="liA8E" id="wpMwLOWdrk" role="2OqNvi">
+                <ref role="37wK5l" to="mhbf:~SNode.getFirstChild()" resolve="getFirstChild" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="wpMwLOUtBu" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="wpMwLOUu9p" role="jymVt" />
     <node concept="3clFb_" id="5kAj9bZpYzk" role="jymVt">
       <property role="TrG5h" value="detach" />
       <node concept="3Tm6S6" id="5kAj9bZpYzl" role="1B3o_S" />
@@ -15244,6 +15278,41 @@
         </node>
       </node>
       <node concept="2tJIrI" id="5kAj9bZj3Iq" role="jymVt" />
+      <node concept="3clFb_" id="wpMwLOUOm5" role="jymVt">
+        <property role="TrG5h" value="addFirst" />
+        <node concept="3Tmbuc" id="wpMwLOUOm6" role="1B3o_S" />
+        <node concept="3cqZAl" id="wpMwLOUOm7" role="3clF45" />
+        <node concept="37vLTG" id="wpMwLOUOm8" role="3clF46">
+          <property role="TrG5h" value="node" />
+          <node concept="3uibUv" id="wpMwLOUOm9" role="1tU5fm">
+            <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
+          </node>
+        </node>
+        <node concept="3clFbS" id="wpMwLOUOmb" role="3clF47">
+          <node concept="3clFbF" id="wpMwLOViAt" role="3cqZAp">
+            <node concept="1rXfSq" id="wpMwLOViAr" role="3clFbG">
+              <ref role="37wK5l" node="5kAj9bZihp4" resolve="insertBefore" />
+              <node concept="37vLTw" id="wpMwLOVWMj" role="37wK5m">
+                <ref role="3cqZAo" node="wpMwLOUOm8" resolve="node" />
+              </node>
+              <node concept="2OqwBi" id="wpMwLOVB77" role="37wK5m">
+                <node concept="liA8E" id="wpMwLOVGAa" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SNode.getFirstChild()" resolve="getFirstChild" />
+                </node>
+                <node concept="2JrnkZ" id="wpMwLOVB7c" role="2Oq$k0">
+                  <node concept="37vLTw" id="wpMwLOVlWj" role="2JrQYb">
+                    <ref role="3cqZAo" node="5kAj9bZhX5s" resolve="myNode" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="2AHcQZ" id="wpMwLOUOmc" role="2AJF6D">
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+        </node>
+      </node>
+      <node concept="2tJIrI" id="wpMwLOUVg5" role="jymVt" />
       <node concept="3clFb_" id="5kAj9bZj3Ir" role="jymVt">
         <property role="TrG5h" value="remove" />
         <node concept="3Tm1VV" id="5kAj9bZj3Is" role="1B3o_S" />
@@ -16880,6 +16949,42 @@
         </node>
       </node>
       <node concept="3clFbS" id="5kAj9bZdoei" role="3clF47">
+        <node concept="3clFbJ" id="wpMwLOT0gt" role="3cqZAp">
+          <node concept="3clFbS" id="wpMwLOT0gv" role="3clFbx">
+            <node concept="2Gpval" id="wpMwLOThRJ" role="3cqZAp">
+              <node concept="2GrKxI" id="wpMwLOThRK" role="2Gsz3X">
+                <property role="TrG5h" value="node" />
+              </node>
+              <node concept="37vLTw" id="wpMwLOThRL" role="2GsD0m">
+                <ref role="3cqZAo" node="5kAj9bZdoee" resolve="c" />
+              </node>
+              <node concept="3clFbS" id="wpMwLOThRM" role="2LFqv$">
+                <node concept="3clFbF" id="wpMwLOThRN" role="3cqZAp">
+                  <node concept="1rXfSq" id="wpMwLOThRO" role="3clFbG">
+                    <ref role="37wK5l" node="wpMwLOSmte" resolve="addFirst" />
+                    <node concept="2GrUjf" id="wpMwLOThRP" role="37wK5m">
+                      <ref role="2Gs0qQ" node="wpMwLOThRK" resolve="node" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3cpWs6" id="wpMwLOTmYV" role="3cqZAp">
+              <node concept="3clFbT" id="wpMwLOTs9N" role="3cqZAk">
+                <property role="3clFbU" value="true" />
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbC" id="wpMwLOT7yV" role="3clFbw">
+            <node concept="3cmrfG" id="wpMwLOTcqx" role="3uHU7w">
+              <property role="3cmrfH" value="0" />
+            </node>
+            <node concept="37vLTw" id="wpMwLOT4JU" role="3uHU7B">
+              <ref role="3cqZAo" node="5kAj9bZdoec" resolve="index" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbH" id="wpMwLOTxGg" role="3cqZAp" />
         <node concept="3cpWs8" id="5kAj9bZdoej" role="3cqZAp">
           <node concept="3cpWsn" id="5kAj9bZdoek" role="3cpWs9">
             <property role="TrG5h" value="iter" />
@@ -17230,6 +17335,27 @@
         </node>
       </node>
       <node concept="3clFbS" id="5kAj9bZdogD" role="3clF47">
+        <node concept="3clFbJ" id="wpMwLOTROW" role="3cqZAp">
+          <node concept="3clFbS" id="wpMwLOTROY" role="3clFbx">
+            <node concept="3clFbF" id="wpMwLOU8lQ" role="3cqZAp">
+              <node concept="1rXfSq" id="wpMwLOU8lO" role="3clFbG">
+                <ref role="37wK5l" node="wpMwLOSmte" resolve="addFirst" />
+                <node concept="37vLTw" id="wpMwLOUdu4" role="37wK5m">
+                  <ref role="3cqZAo" node="5kAj9bZdogB" resolve="node" />
+                </node>
+              </node>
+            </node>
+            <node concept="3cpWs6" id="wpMwLOUnu0" role="3cqZAp" />
+          </node>
+          <node concept="3clFbC" id="wpMwLOTY30" role="3clFbw">
+            <node concept="3cmrfG" id="wpMwLOU31j" role="3uHU7w">
+              <property role="3cmrfH" value="0" />
+            </node>
+            <node concept="37vLTw" id="wpMwLOTWNr" role="3uHU7B">
+              <ref role="3cqZAo" node="5kAj9bZdog_" resolve="index" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="5kAj9bZdogE" role="3cqZAp">
           <node concept="3cpWsn" id="5kAj9bZdogF" role="3cpWs9">
             <property role="TrG5h" value="iter" />
@@ -17971,6 +18097,20 @@
         </node>
       </node>
       <node concept="3clFbS" id="5kAj9bZetT9" role="3clF47" />
+    </node>
+    <node concept="2tJIrI" id="wpMwLOSrda" role="jymVt" />
+    <node concept="3clFb_" id="wpMwLOSmte" role="jymVt">
+      <property role="TrG5h" value="addFirst" />
+      <property role="1EzhhJ" value="true" />
+      <node concept="3Tmbuc" id="wpMwLOSmtf" role="1B3o_S" />
+      <node concept="3cqZAl" id="wpMwLOSmtg" role="3clF45" />
+      <node concept="37vLTG" id="wpMwLOSmth" role="3clF46">
+        <property role="TrG5h" value="node" />
+        <node concept="3uibUv" id="wpMwLOSmti" role="1tU5fm">
+          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="wpMwLOSmtl" role="3clF47" />
     </node>
     <node concept="3Tm1VV" id="5kAj9bZcBdC" role="1B3o_S" />
     <node concept="3uibUv" id="5kAj9bZcQpA" role="1zkMxy">

@@ -203,6 +203,11 @@ public class AttributeOperations {
     }
 
     @Override
+    protected void addFirst(SNode node) {
+      insertBefore(node, myNode.getFirstChild());
+    }
+
+    @Override
     public boolean remove(Object o) {
       if (!((o instanceof SNode))) {
         return false;
