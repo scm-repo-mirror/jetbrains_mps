@@ -89,11 +89,18 @@ public abstract class BaseTransformationTest implements TransformationTest, Envi
 
   /**
    * This is an alternative to a setup() method annotated with @Before, to deal with peculiarities of JUnit processing of @Rule and @Before.
-   * Subclasses of BaseTransformationTest may use own @Rule, and their statement would wrap not only test method itself, but also @Before and @After methods as well (see BlockJUnit4ClassRunner#methodBlock).
-   * Therefore, if we place initialization code in @Before method of this class, it's invoked from inside a statement created by TestRule of a subclass. If that TestRule uses any facilities of the base class
-   * (e.g. project/transient model), it fails as these are not yet initialized. With AlternativeBefore rule, we get into regular @Rule sequence. Rules are processed from child to parent (see TestClass#scanAnnotatedMembers())
-   * therefore @Rule from superclass gives outer Statement and is executed first. Therefore, AlternativeBefore from BTT is executed sooner than any rule from test subclass and initialize the test properly.
-   * NOTE, we have to use field with @Rule, not method with @Rule annotation as BlockJUnit4ClassRunner#getTestRules() adds methods with @Rule first, therefore placing their Statements in the end of execution chain.
+   * Subclasses of BaseTransformationTest may use own @Rule, and their statement would wrap not only test method itself,
+   * but also @Before and @After methods as well (see BlockJUnit4ClassRunner#methodBlock).
+   * Therefore, if we place initialization code in @Before method of this class,
+   * it's invoked from inside a statement created by TestRule of a subclass.
+   * If that TestRule uses any facilities of the base class (e.g. project/transient model),
+   * it fails as these are not yet initialized.
+   * With AlternativeBefore rule, we get into regular @Rule sequence.
+   * Rules are processed from child to parent (see TestClass#scanAnnotatedMembers()) therefore @Rule from superclass
+   * gives outer Statement and is executed first.
+   * Therefore, AlternativeBefore from BTT is executed sooner than any rule from test subclass and initialize the test properly.
+   * NOTE, we have to use field with @Rule, not method with @Rule annotation as BlockJUnit4ClassRunner#getTestRules() 
+   * adds methods with @Rule first, therefore placing their Statements in the end of execution chain.
    */
   private static class AlternativeBefore implements TestRule {
     private final BaseTransformationTest myTest;

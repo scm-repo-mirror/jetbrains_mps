@@ -26,10 +26,9 @@ import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.LanguageAspect;
 import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.tool.environment.EnvironmentAware;
-import jetbrains.mps.util.CollectionUtil;
+import jetbrains.mps.util.IFileUtil;
 import jetbrains.mps.util.Reference;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.vfs.IFileUtils;
 import jetbrains.mps.workbench.dialogs.project.newproject.ProjectFactory;
 import jetbrains.mps.workbench.dialogs.project.newproject.ProjectFactory.ProjectNotCreatedException;
 import jetbrains.mps.workbench.dialogs.project.newproject.ProjectOptions;
@@ -65,14 +64,14 @@ public class ProjectCreationTest implements EnvironmentAware {
   private static final List<String> PROJECT_PROPERTIES_DIR_CONTENT = Arrays.asList(
       PROJECT_PROPERTIES_DIR + "/modules.xml",
       PROJECT_PROPERTIES_DIR + "/misc.xml",
-      PROJECT_PROPERTIES_DIR + "/encodings.xml");
+      PROJECT_PROPERTIES_DIR + "/workspace.xml");
 
   private static final List<String> EMPTY_PROJECT_PATH_LIST_FB = Arrays.asList(
-      PROJECT_NAME + "/" + PROJECT_NAME + MPSExtentions.DOT_MPS_PROJECT);
+      PROJECT_NAME + "/" + PROJECT_NAME + MPSExtentions.DOT_MPS_PROJECT,
+      PROJECT_NAME + "/" + PROJECT_NAME + MPSExtentions.DOT_IDEAWORKSPACE);
   private static final List<String> EMPTY_PROJECT_PATH_LIST_DB = PROJECT_PROPERTIES_DIR_CONTENT;
   static final String LANGUAGES_ROOT = "languages";
   static final String SOLUTIONS_ROOT = "solutions";
-  private static List<String> PROJECT_WITH_MODULES_PATH_LIST_TEMPLATE;
   private static List<String> PROJECT_WITH_MODULES_PATH_LIST_FB;
   private static List<String> PROJECT_WITH_MODULES_PATH_LIST_DB;
 
@@ -86,8 +85,7 @@ public class ProjectCreationTest implements EnvironmentAware {
     };
     String[] rv = new String[aspects.length + 1];
     for (int i = 0; i < aspects.length; i++) {
-      rv[i] =
-          String.format(PATH_IN_PROJECT, projectName, LANGUAGES_ROOT, languageNamespace, Language.LANGUAGE_MODELS, aspects[i].getName(), MPSExtentions.MODEL);
+      rv[i] = String.format(PATH_IN_PROJECT, projectName, LANGUAGES_ROOT, languageNamespace, Language.LANGUAGE_MODELS, languageNamespace + "." + aspects[i].getName(), MPSExtentions.MODEL);
     }
     rv[aspects.length] =
         String.format(PATH_IN_PROJECT, projectName, LANGUAGES_ROOT, languageNamespace, "generator/template", "main@generator", MPSExtentions.MODEL);
@@ -96,7 +94,7 @@ public class ProjectCreationTest implements EnvironmentAware {
 
   private static List<String> solutionModels(String projectName, String solutionNamespace) {
     return Collections.singletonList(
-        String.format(PATH_IN_PROJECT, projectName, SOLUTIONS_ROOT, solutionNamespace, Solution.SOLUTION_MODELS, "sandbox", MPSExtentions.MODEL));
+        String.format(PATH_IN_PROJECT, projectName, SOLUTIONS_ROOT, solutionNamespace, Solution.SOLUTION_MODELS, solutionNamespace + "." + "sandbox", MPSExtentions.MODEL));
   }
 
   private IFile myTmpDir;
@@ -109,17 +107,19 @@ public class ProjectCreationTest implements EnvironmentAware {
 
   @BeforeClass
   public static void init() {
-    PROJECT_WITH_MODULES_PATH_LIST_TEMPLATE = new ArrayList<>();
+    List<String> template = new ArrayList<>();
     final String languageModule = PROJECT_NAME + "/" + LANGUAGES_ROOT + "/" + LANGUAGE_NAMESPACE + "/" + LANGUAGE_NAMESPACE + MPSExtentions.DOT_LANGUAGE;
     final String solutionModule = PROJECT_NAME + "/" + SOLUTIONS_ROOT + "/" + SOLUTION_NAMESPACE + "/" + SOLUTION_NAMESPACE + MPSExtentions.DOT_SOLUTION;
-    PROJECT_WITH_MODULES_PATH_LIST_TEMPLATE.add(languageModule);
-    PROJECT_WITH_MODULES_PATH_LIST_TEMPLATE.add(solutionModule);
-    PROJECT_WITH_MODULES_PATH_LIST_TEMPLATE.addAll(languageModels(PROJECT_NAME, LANGUAGE_NAMESPACE));
-    PROJECT_WITH_MODULES_PATH_LIST_TEMPLATE.addAll(solutionModels(PROJECT_NAME, SOLUTION_NAMESPACE));
-    PROJECT_WITH_MODULES_PATH_LIST_FB = CollectionUtil.union(
-        Arrays.asList(PROJECT_NAME + "/" + PROJECT_NAME + MPSExtentions.DOT_MPS_PROJECT),
-        PROJECT_WITH_MODULES_PATH_LIST_TEMPLATE);
-    PROJECT_WITH_MODULES_PATH_LIST_DB = CollectionUtil.union(PROJECT_PROPERTIES_DIR_CONTENT, PROJECT_WITH_MODULES_PATH_LIST_TEMPLATE);
+    template.add(languageModule);
+    template.add(solutionModule);
+    template.addAll(languageModels(PROJECT_NAME, LANGUAGE_NAMESPACE));
+    template.addAll(solutionModels(PROJECT_NAME, SOLUTION_NAMESPACE));
+
+    PROJECT_WITH_MODULES_PATH_LIST_FB = new ArrayList<>(EMPTY_PROJECT_PATH_LIST_FB);
+    PROJECT_WITH_MODULES_PATH_LIST_FB.addAll(template);
+
+    PROJECT_WITH_MODULES_PATH_LIST_DB = new ArrayList<>(PROJECT_PROPERTIES_DIR_CONTENT);
+    PROJECT_WITH_MODULES_PATH_LIST_DB.addAll(template);
   }
 
   @Test
@@ -151,7 +151,7 @@ public class ProjectCreationTest implements EnvironmentAware {
           @Override
           public void run() {
             try {
-              myTmpDir = IFileUtils.createTmpDir();
+              myTmpDir = IFileUtil.createTmpDir();
               try {
                 ProjectFactory factory = new ProjectFactory(projectOptionsProvider.getProjectOptions(myTmpDir));
                 myProject = factory.createProject();
@@ -240,7 +240,7 @@ public class ProjectCreationTest implements EnvironmentAware {
       ProjectOptions options = new ProjectOptions();
 
       options.setProjectName(PROJECT_NAME);
-      options.setProjectPath(containingDir.getDescendant(PROJECT_NAME).getPath());
+      options.setProjectPath(containingDir.findChild(PROJECT_NAME).getPath());
       options.setStorageScheme(myDefaultScheme);
 
       options.setCreateNewLanguage(false);
@@ -260,7 +260,7 @@ public class ProjectCreationTest implements EnvironmentAware {
 
     @Override
     public ProjectOptions getProjectOptions(IFile containingFile) {
-      IFile projectDir = containingFile.getDescendant(PROJECT_NAME);
+      IFile projectDir = containingFile.findChild(PROJECT_NAME);
 
       ProjectOptions options = new ProjectOptions();
       options.setProjectName(PROJECT_NAME);
@@ -269,11 +269,11 @@ public class ProjectCreationTest implements EnvironmentAware {
 
       options.setCreateNewLanguage(true);
       options.setLanguageNamespace(LANGUAGE_NAMESPACE);
-      options.setLanguagePath(projectDir.getDescendant(LANGUAGES_ROOT).getDescendant(LANGUAGE_NAMESPACE).getPath());
+      options.setLanguagePath(projectDir.findChild(LANGUAGES_ROOT).findChild(LANGUAGE_NAMESPACE).getPath());
 
       options.setCreateNewSolution(true);
       options.setSolutionNamespace(SOLUTION_NAMESPACE);
-      options.setSolutionPath(projectDir.getDescendant(SOLUTIONS_ROOT).getDescendant(SOLUTION_NAMESPACE).getPath());
+      options.setSolutionPath(projectDir.findChild(SOLUTIONS_ROOT).findChild(SOLUTION_NAMESPACE).getPath());
       options.setCreateModel(true);
 
       return options;

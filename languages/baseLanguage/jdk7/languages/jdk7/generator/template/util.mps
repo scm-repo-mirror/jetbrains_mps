@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="2" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="0" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -278,7 +278,7 @@
                     <node concept="2OqwBi" id="1R1KclLA1dz" role="3uHU7w">
                       <node concept="2OqwBi" id="1R1KclLA1d$" role="2Oq$k0">
                         <node concept="liA8E" id="24cAaiVCalb" role="2OqNvi">
-                          <ref role="37wK5l" to="mhbf:~SNode.getNodeId():org.jetbrains.mps.openapi.model.SNodeId" resolve="getNodeId" />
+                          <ref role="37wK5l" to="mhbf:~SNode.getNodeId()" resolve="getNodeId" />
                         </node>
                         <node concept="2JrnkZ" id="1R1KclLA1d_" role="2Oq$k0">
                           <node concept="37vLTw" id="2BHiRxghfUn" role="2JrQYb">
@@ -287,7 +287,7 @@
                         </node>
                       </node>
                       <node concept="liA8E" id="1R1KclLA1dC" role="2OqNvi">
-                        <ref role="37wK5l" to="wyt6:~Object.toString():java.lang.String" resolve="toString" />
+                        <ref role="37wK5l" to="wyt6:~Object.toString()" resolve="toString" />
                       </node>
                     </node>
                   </node>
@@ -409,7 +409,7 @@
                   <node concept="2OqwBi" id="1R1KclLA19S" role="3uHU7w">
                     <node concept="2OqwBi" id="1R1KclLA19T" role="2Oq$k0">
                       <node concept="liA8E" id="24cAaiVCamZ" role="2OqNvi">
-                        <ref role="37wK5l" to="mhbf:~SNode.getNodeId():org.jetbrains.mps.openapi.model.SNodeId" resolve="getNodeId" />
+                        <ref role="37wK5l" to="mhbf:~SNode.getNodeId()" resolve="getNodeId" />
                       </node>
                       <node concept="2JrnkZ" id="1R1KclLA19U" role="2Oq$k0">
                         <node concept="37vLTw" id="2BHiRxglawp" role="2JrQYb">
@@ -418,7 +418,7 @@
                       </node>
                     </node>
                     <node concept="liA8E" id="1R1KclLA19X" role="2OqNvi">
-                      <ref role="37wK5l" to="wyt6:~Object.toString():java.lang.String" resolve="toString" />
+                      <ref role="37wK5l" to="wyt6:~Object.toString()" resolve="toString" />
                     </node>
                   </node>
                 </node>

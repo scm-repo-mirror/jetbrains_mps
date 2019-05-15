@@ -12,10 +12,9 @@ import java.util.ArrayList;
 import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.substitute.ConstraintsFilteringSubstituteMenuPartDecorator;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ParameterizedMenuPart;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.annotations.Nullable;
@@ -30,6 +29,7 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.presentation.NodePresentationUtil;
 import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.smodel.runtime.IconResourceUtil;
@@ -44,7 +44,6 @@ public class PersistentConfigurationType_Contribution extends SubstituteMenuBase
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
     result.add(new PersistentConfigurationType_Contribution.SMP_Group_67nl4b_a());
-    result.add(new PersistentConfigurationType_Contribution.SMP_Group_67nl4b_b());
     return result;
   }
 
@@ -62,10 +61,6 @@ public class PersistentConfigurationType_Contribution extends SubstituteMenuBase
 
 
   public class SMP_Group_67nl4b_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
-    @Override
-    protected boolean isApplicable(SubstituteMenuContext _context) {
-      return SNodeOperations.isInstanceOf(_context.getParentNode(), MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910119L, "jetbrains.mps.execution.settings.structure.PersistentPropertyDeclaration"));
-    }
     @NotNull
     @Override
     public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
@@ -141,7 +136,7 @@ public class PersistentConfigurationType_Contribution extends SubstituteMenuBase
           private final SubstituteMenuContext _context;
           private EditorMenuTraceInfo myTraceInfo;
           public Item(SubstituteMenuContext context) {
-            super(MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9100fdL, "jetbrains.mps.execution.settings.structure.TemplatePersistentConfigurationType"), context.getParentNode(), context.getCurrentTargetNode(), context.getEditorContext());
+            super(MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9100fdL, "jetbrains.mps.execution.settings.structure.TemplatePersistentConfigurationType"), context);
             _context = context;
           }
 
@@ -160,6 +155,10 @@ public class PersistentConfigurationType_Contribution extends SubstituteMenuBase
           @Override
           public EditorMenuTraceInfo getTraceInfo() {
             return myTraceInfo;
+          }
+          @NotNull
+          protected CompletionItemInformation createInformation(String pattern) {
+            return new CompletionItemInformation(myParameterObject, MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9100fdL, "jetbrains.mps.execution.settings.structure.TemplatePersistentConfigurationType"), getMatchingText(pattern), getDescriptionText(pattern));
           }
           @Nullable
           @Override
@@ -181,132 +180,6 @@ public class PersistentConfigurationType_Contribution extends SubstituteMenuBase
           @Override
           public String getDescriptionText(@NotNull String pattern) {
             return "template<" + SPropertyOperations.getString(myParameterObject, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ">";
-          }
-        }
-      }
-
-    }
-  }
-  public class SMP_Group_67nl4b_b extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
-    @Override
-    protected boolean isApplicable(SubstituteMenuContext _context) {
-      return !(SNodeOperations.isInstanceOf(_context.getParentNode(), MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910119L, "jetbrains.mps.execution.settings.structure.PersistentPropertyDeclaration")));
-    }
-    @NotNull
-    @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-      context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("substitute menu group", new SNodePointer("r:328ff5ee-9330-4068-906e-6e3bb50e6e1d(jetbrains.mps.execution.settings.editor)", "1741258697586930583")));
-      try {
-        return super.createItems(context);
-      } finally {
-        context.getEditorMenuTrace().popTraceInfo();
-      }
-    }
-
-    @Override
-    protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new PersistentConfigurationType_Contribution.SMP_Group_67nl4b_b.SMP_Param_67nl4b_a1(), MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, "jetbrains.mps.execution.settings.structure.PersistentConfigurationType")));
-    }
-    private class SMP_Param_67nl4b_a1 extends ParameterizedMenuPart<SNode, SubstituteMenuItem, SubstituteMenuContext> {
-      @NotNull
-      @Override
-      protected List<SubstituteMenuItem> createItems(SNode parameter, SubstituteMenuContext context) {
-        return new PersistentConfigurationType_Contribution.SMP_Group_67nl4b_b.SMP_Param_67nl4b_a1.SMP_Action_67nl4b_a0b(parameter).createItems(context);
-      }
-      @NotNull
-      @Override
-      public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
-        context.getEditorMenuTrace().pushTraceInfo();
-        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:328ff5ee-9330-4068-906e-6e3bb50e6e1d(jetbrains.mps.execution.settings.editor)", "1741258697586930619")));
-        try {
-          return super.createItems(context);
-        } finally {
-          context.getEditorMenuTrace().popTraceInfo();
-        }
-      }
-      @Nullable
-      @Override
-      protected Iterable<? extends SNode> getParameters(SubstituteMenuContext _context) {
-        return ListSequence.fromList(SModelOperations.rootsIncludingImported(_context.getModel(), MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910020L, "jetbrains.mps.execution.settings.structure.PersistentConfiguration"))).where(new IWhereFilter<SNode>() {
-          public boolean accept(SNode it) {
-            return (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0x7f8de21e263f5819L, "jetbrains.mps.execution.settings.structure.DeprecatedAnnotation"))) == null);
-          }
-        }).toListSequence();
-      }
-      private class SMP_Action_67nl4b_a0b extends SingleItemSubstituteMenuPart {
-        private final SNode myParameterObject;
-        public SMP_Action_67nl4b_a0b(SNode parameterObject) {
-          myParameterObject = parameterObject;
-        }
-
-        @Nullable
-        @Override
-        protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-          PersistentConfigurationType_Contribution.SMP_Group_67nl4b_b.SMP_Param_67nl4b_a1.SMP_Action_67nl4b_a0b.Item item = new PersistentConfigurationType_Contribution.SMP_Group_67nl4b_b.SMP_Param_67nl4b_a1.SMP_Action_67nl4b_a0b.Item(_context);
-          String description;
-          try {
-            description = "Substitute item: " + item.getMatchingText("");
-            description += ". Parameter object: " + myParameterObject;
-          } catch (Throwable t) {
-            Logger.getLogger(getClass()).error("Exception while executing getMatchingText() of the item " + item, t);
-            return null;
-          }
-
-          _context.getEditorMenuTrace().pushTraceInfo();
-          try {
-            _context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase(description, new SNodePointer("r:328ff5ee-9330-4068-906e-6e3bb50e6e1d(jetbrains.mps.execution.settings.editor)", "1741258697586930669")));
-            item.setTraceInfo(_context.getEditorMenuTrace().getTraceInfo());
-          } finally {
-            _context.getEditorMenuTrace().popTraceInfo();
-          }
-
-          return item;
-        }
-        private class Item extends DefaultSubstituteMenuItem {
-          private final SubstituteMenuContext _context;
-          private EditorMenuTraceInfo myTraceInfo;
-          public Item(SubstituteMenuContext context) {
-            super(MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, "jetbrains.mps.execution.settings.structure.PersistentConfigurationType"), context.getParentNode(), context.getCurrentTargetNode(), context.getEditorContext());
-            _context = context;
-          }
-
-          private void setTraceInfo(EditorMenuTraceInfo traceInfo) {
-            myTraceInfo = traceInfo;
-          }
-
-          @Nullable
-          @Override
-          public SNode createNode(@NotNull String pattern) {
-            SNode node = SNodeFactoryOperations.createNewNode(MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, "jetbrains.mps.execution.settings.structure.PersistentConfigurationType"), null);
-            SLinkOperations.setTarget(node, MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, 0xd244b712f91001dL, "persistentConfiguration"), myParameterObject);
-            return node;
-          }
-
-          @Override
-          public EditorMenuTraceInfo getTraceInfo() {
-            return myTraceInfo;
-          }
-          @Nullable
-          @Override
-          public String getMatchingText(@NotNull String pattern) {
-            if (myParameterObject instanceof SNode) {
-              return NodePresentationUtil.visibleMatchingText((SNode) myParameterObject, null);
-            }
-            return "" + myParameterObject;
-          }
-          @Nullable
-          @Override
-          public IconResource getIcon(@NotNull String pattern) {
-            if (myParameterObject instanceof SNode) {
-              return IconResourceUtil.getIconResourceForNode(((SNode) myParameterObject));
-            }
-            return null;
-          }
-          @Nullable
-          @Override
-          public String getDescriptionText(@NotNull String pattern) {
-            return "configuration<" + SPropertyOperations.getString(myParameterObject, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ">";
           }
         }
       }

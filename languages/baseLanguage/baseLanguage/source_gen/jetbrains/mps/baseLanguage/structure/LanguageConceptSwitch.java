@@ -64,14 +64,14 @@ public final class LanguageConceptSwitch {
   public static final int Classifier = 52;
   public static final int ClassifierClassExpression = 53;
   public static final int ClassifierMember = 54;
-  public static final int ClassifierType = 55;
-  public static final int Closure = 56;
-  public static final int ClosureParameter = 57;
-  public static final int ClosureParameterReference = 58;
-  public static final int Closureoid = 59;
-  public static final int CommentPart = 60;
-  public static final int CommentedStatement = 61;
-  public static final int CommentedStatementsBlock = 62;
+  public static final int ClassifierMethodMember = 55;
+  public static final int ClassifierType = 56;
+  public static final int Closure = 57;
+  public static final int ClosureParameter = 58;
+  public static final int ClosureParameterReference = 59;
+  public static final int Closureoid = 60;
+  public static final int CommentPart = 61;
+  public static final int CommentedStatement = 62;
   public static final int ConceptFunction = 63;
   public static final int ConceptFunctionParameter = 64;
   public static final int ConstructorDeclaration = 65;
@@ -354,6 +354,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x101d9d3ca30L, Classifier);
     builder.put(0x103fb730c14L, ClassifierClassExpression);
     builder.put(0x112574373bdL, ClassifierMember);
+    builder.put(0x7c416a65e467a66L, ClassifierMethodMember);
     builder.put(0x101de48bf9eL, ClassifierType);
     builder.put(0x10c63f4f3f3L, Closure);
     builder.put(0x10c7edb2aa8L, ClosureParameter);
@@ -361,7 +362,6 @@ public final class LanguageConceptSwitch {
     builder.put(0x1192e7dfdd1L, Closureoid);
     builder.put(0x57d533a7af15ed3bL, CommentPart);
     builder.put(0x11ef4675fccL, CommentedStatement);
-    builder.put(0x1121e2102fdL, CommentedStatementsBlock);
     builder.put(0x108bbca0f48L, ConceptFunction);
     builder.put(0x101c66e2c0bL, ConceptFunctionParameter);
     builder.put(0xf8cc56b204L, ConstructorDeclaration);

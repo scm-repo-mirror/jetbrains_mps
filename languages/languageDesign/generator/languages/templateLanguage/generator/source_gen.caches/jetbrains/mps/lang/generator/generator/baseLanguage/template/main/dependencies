@@ -66,6 +66,7 @@
     <classNode dependClassName="jetbrains.mps.lang.generator.behavior.LoopMacro__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.generator.behavior.NodeMacro__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.generator.behavior.TemplateSwitchMacro__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.lang.generator.behavior.VarDeclaration__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.generator.behavior.VarMacro__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.generator.generationContext.behavior.GenerationContextOp_PatternRef__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.generator.generator.baseLanguage.template.util.GenUtil" />
@@ -86,7 +87,7 @@
     <classNode dependClassName="jetbrains.mps.smodel.SReference" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.ids.MetaIdHelper" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
-    <classNode dependClassName="jetbrains.mps.typesystem.inference.TypeChecker" />
+    <classNode dependClassName="jetbrains.mps.typechecking.TypecheckingFacade" />
     <classNode dependClassName="jetbrains.mps.util.IterableUtil" />
     <classNode dependClassName="jetbrains.mps.util.NameUtil" />
     <classNode dependClassName="jetbrains.mps.util.SNodeOperations" />

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@ import jetbrains.mps.persistence.PreinstalledModelFactoryTypes;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.ModelsAutoImportsManager;
+import jetbrains.mps.project.Project;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.util.Computable;
@@ -91,7 +92,8 @@ public class NewModelAction extends NewModelActionBase {
 
             EditableSModel model = null;
             try {
-              ModelFactory modelFactory = ModelFactoryService.getInstance().getFactoryByType(PreinstalledModelFactoryTypes.PLAIN_XML);
+              // repository != null means there's MPSProject, and its getComponent is capable to answer CoreComponents
+              ModelFactory modelFactory = ProjectHelper.fromIdeaProject(myProject).getComponent(ModelFactoryService.class).getFactoryByType(PreinstalledModelFactoryTypes.PLAIN_XML);
               SModelName sModelName = new SModelName(modelName);
               model = (EditableSModel) myModelRoot.createModel(sModelName, mySourceRoot, createDataSourceFactory(), modelFactory);
               model.setChanged(true);
@@ -195,12 +197,12 @@ public class NewModelAction extends NewModelActionBase {
 
       @NotNull
       @Override
-      public DataSource create(@NotNull SModelName modelName, @NotNull SourceRoot sourceRoot, @Nullable ModelRoot modelRoot) {
+      public DataSource create(@NotNull SModelName modelName, @NotNull SourceRoot sourceRoot) {
         String modelFilePath = modelName.getLongName();
         modelFilePath = modelFilePath.replace('.', File.separatorChar) + MPSExtentions.DOT_MODEL;
         modelFilePath = sourceRoot.getAbsolutePath().getPath() + File.separator + modelFilePath;
         IFile modelFile = sourceRoot.getAbsolutePath().getFileSystem().getFile(modelFilePath);
-        return new FileDataSource(modelFile, modelRoot);
+        return new FileDataSource(modelFile);
       }
     };
   }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2014 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ package jetbrains.mps.persistence;
 import jetbrains.mps.extapi.model.SModelData;
 import jetbrains.mps.smodel.adapter.ids.SConceptId;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
@@ -28,7 +29,7 @@ import java.io.InputStream;
 /**
  * PROVISIONAL API
  *
- * Extension to model factory to distinguish model persistence that cares about (usually platform) indexing support and knows ho to extract
+ * Extension to model factory to distinguish model persistence that cares about (usually platform) indexing support and knows how to extract
  * appropriate pieces from actual model persistence state.
  *
  * @author Artem Tikhomirov
@@ -83,5 +84,9 @@ public interface IndexAwareModelFactory extends ModelFactory {
      * Report indexed model references node with a given id that resides in the indexed model
      */
     void localNodeRef(@NotNull SNodeId node);
+
+    // FIXME remove default once all subclasses override
+    // null node means we can not attribute property value to any specific node, but at least we know the value comes from active model
+    default void propertyValue(@Nullable SNodeId node, String value) {}
   }
 }

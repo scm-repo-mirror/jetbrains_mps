@@ -40,7 +40,7 @@ public final class RequiredAnnotationDataDeclaration__BehaviorDescriptor extends
   /*package*/ static void populateMember_id6r77ob2UW9O(@NotNull SNode __thisNode__, final MembersPopulatingContext context, SNode classifier) {
     ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2ad9bc0L, 0x5e7aa366c2ad9bc1L, "dependencies"))).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
-        context.addMember(it, null);
+        context.exposeMember(it, null);
       }
     });
   }

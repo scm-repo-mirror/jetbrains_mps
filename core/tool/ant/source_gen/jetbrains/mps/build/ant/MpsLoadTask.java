@@ -18,13 +18,14 @@ import org.apache.tools.ant.taskdefs.Execute;
 import java.net.URL;
 import java.net.MalformedURLException;
 import java.net.URLClassLoader;
-import java.lang.reflect.Method;
-import org.jetbrains.annotations.NotNull;
 import java.lang.reflect.InvocationTargetException;
+import org.jetbrains.annotations.NotNull;
 import java.lang.reflect.Constructor;
 import org.apache.tools.ant.ProjectComponent;
+import java.lang.reflect.Method;
 import java.util.Collections;
 import java.io.FileInputStream;
+import org.jetbrains.annotations.Nullable;
 import java.util.LinkedHashSet;
 import java.io.InputStream;
 import java.io.BufferedReader;
@@ -33,15 +34,28 @@ import org.apache.tools.ant.types.EnumeratedAttribute;
 import org.apache.log4j.Level;
 import java.util.Scanner;
 
-public abstract class MpsLoadTask extends Task {
+/**
+ * Ant task that is capable to execute an MPS-aware 'worker' class.
+ * Generally, MPS Ant tasks have very limited classpath (j.m.tool.common and j.m.tool.ant, respectively [ant-mps] and [ant-mps-common])
+ * while actual 'worker' class likely to employ full power of MPS (either with MpsEnvironment or IdeaEnvironment).
+ * Hence, the idea of the task is to get worker's classpath ready to use whatever MPS functionality needed.
+ * Specific task subclasses may control exact classpath with {@link jetbrains.mps.build.ant.MpsLoadTask#calculateClassPath(boolean) } based on their worker's demand.
+ */
+public class MpsLoadTask extends Task {
   public static final String CONFIGURATION_NAME = "configuration.name";
   public static final String BUILD_NUMBER = "build.number";
   private File myMpsHome;
   protected final Script myWhatToDo = new Script();
   private boolean myUsePropertiesAsMacro = false;
   private boolean myFork = true;
+  private String myWorkerClass;
   private final List<String> myJvmArgs = new ArrayList<String>();
+
   public MpsLoadTask() {
+  }
+
+  public MpsLoadTask(String workerClass) {
+    myWorkerClass = workerClass;
   }
 
   public void setMpsHome(File mpsHome) {
@@ -101,10 +115,55 @@ public abstract class MpsLoadTask extends Task {
     myJvmArgs.addAll(jvmArg.getArgs());
   }
 
+  public void addConfiguredPlugin(Plugin plugin) {
+    myWhatToDo.addPlugin(plugin.getDescriptor());
+  }
+
+  /**
+   * handy alternative to myWhatToDo.addLibraryJar(), with hardcoded knowledge about generator modules distributed in distinct jars
+   */
+  protected final void addLibraryJar(File file) {
+    if (file == null) {
+      return;
+    }
+    myWhatToDo.addLibraryJar(file.getAbsolutePath());
+    String fname = file.getName();
+    if (file.isFile() && fname.endsWith(".jar")) {
+      // perhaps, it's a language.jar, register corresponding generator.jar, if any. 
+      // FIXME note, this is a hack as build language doesn't record generators among MPSModulesClosure.generationDependenciesClosure() 
+      //       (check MPSModulesPartitioner.buildExternalDependencies() and <generate> task template. 
+      //       MPS used to guess (aka 'derive') generator module from language's module (ProjectPathUtil gave file with "-generator.jar" suffix 
+      //       as classpath for packaged Generator module), in 2017.1 we try to switch to 'honest' modules, gradually moving towards generators listed 
+      //       inside <generate> task. For the transition period, however, the code below mimics what we would have explicitly specified in <generate>. 
+      final String stem = fname.substring(0, fname.length() - 4);
+      final int maxGeneratorNumberToStopForSure = 10;
+      for (int i = 0; i < maxGeneratorNumberToStopForSure; i++) {
+        // XXX Unless I fix build language templates to list generator.jar explicitly, shall account for lang-N-generator.jar here to support multiple generators per language case. 
+        File generatorJar = new File(file.getParent(), stem + ((i == 0 ? "" : '-' + String.valueOf(i))) + "-generator.jar");
+        if (generatorJar.isFile()) {
+          myWhatToDo.addLibraryJar(generatorJar.getAbsolutePath());
+        } else {
+          // expect consecutive mudule numbering 
+          break;
+        }
+        // FIXME there's similar code in MpsTestSuite, but not in jUnit launcher 
+      }
+    }
+  }
+
+  public final void setWorker(String workerClass) {
+    myWorkerClass = workerClass;
+  }
+
+  public final String getWorker() {
+    return myWorkerClass;
+  }
+
   @Override
   public void execute() throws BuildException {
-    // XXX classpath contains MPS jars, which is odd in 'fork' scenario where AntBootstrap class adds 
-    // relevant MPS jars again (it also re-uses urls of the calculated classpath). Is there's any reason to do that? 
+    // By default, we build a classpath that presumably contains all necessary MPS jars (expecting MpsEnvironment or even IdeaEnvironment to fire up) 
+    // though specific task subclasses have control over what to include there. Unfortunately, there's no yet fine-grained control e.g. to include 
+    // only jars sufficient for MpsEnvironment (i.e. not to include any IDEA stuff) 
     Set<File> classPaths = calculateClassPath(myFork);
     if (myUsePropertiesAsMacro) {
       Hashtable properties = getProject().getProperties();
@@ -145,7 +204,6 @@ public abstract class MpsLoadTask extends Task {
       }
       commandLine.add("-classpath");
       commandLine.add(sb.toString());
-      commandLine.add("jetbrains.mps.tool.builder.AntBootstrap");
       commandLine.add(getWorkerClass());
       dumpPropertiesToWhatToDo();
       try {
@@ -156,6 +214,7 @@ public abstract class MpsLoadTask extends Task {
       for (String s : getAdditionalArgs()) {
         commandLine.add(s);
       }
+      checkHasEAOption(commandLine);
       Execute exe = new Execute(new MyExecuteStreamHandler(this));
       exe.setAntRun(this.getProject());
       exe.setWorkingDirectory(this.getProject().getBaseDir());
@@ -172,25 +231,61 @@ public abstract class MpsLoadTask extends Task {
       List<URL> classPathUrls = new ArrayList<URL>();
       for (File path : classPaths) {
         try {
-          classPathUrls.add(new URL("file:///" + path + ((path.isDirectory() ? "/" : ""))));
+          classPathUrls.add(fileToUrl(path));
         } catch (MalformedURLException e) {
           throw new BuildException(e);
         }
       }
       URLClassLoader classLoader = new URLClassLoader(classPathUrls.toArray(new URL[classPathUrls.size()]), getClass().getClassLoader());
-      Thread.currentThread().setContextClassLoader(classLoader);
+      final ClassLoader threadContextCL = Thread.currentThread().getContextClassLoader();
       try {
+        Thread.currentThread().setContextClassLoader(classLoader);
         Class<?> workerClass = classLoader.loadClass(getWorkerClass());
-        Object worker = instantiateInProcessWorker(workerClass);
-        Method method = workerClass.getMethod("work");
-        method.invoke(worker);
+        doInProcessWork(workerClass);
+      } catch (BuildException ex) {
+        throw ex;
       } catch (Throwable t) {
-        throw new BuildException(t.getMessage() + "\n" + "Used class path: " + classPathUrls.toString());
+        if (t instanceof RuntimeException && t.getCause() instanceof IOException) {
+          t = t.getCause();
+        } else if (t instanceof InvocationTargetException) {
+          t = ((InvocationTargetException) t).getTargetException();
+        }
+        log(String.format("Task [%s] failed with exception", getTaskName()), t, Project.MSG_ERR);
+        log("Used class path: " + classPathUrls.toString(), Project.MSG_ERR);
+        throw new BuildException(t, getLocation());
+      } finally {
+        Thread.currentThread().setContextClassLoader(threadContextCL);
       }
     }
   }
 
-  protected Object instantiateInProcessWorker(@NotNull Class<?> workerClass) throws IllegalAccessException, InvocationTargetException, InstantiationException {
+  private void checkHasEAOption(List<String> cmdLine) {
+    for (String arg : cmdLine) {
+      if (arg.contains("-ea")) {
+        return;
+      }
+    }
+    log("The executed worker's command line does not have the -ea option, which is highly recommended. Task: " + this.getClass().getSimpleName(), Project.MSG_WARN);
+  }
+
+  private URL fileToUrl(File file) throws MalformedURLException {
+    return file.toURI().toURL();
+  }
+
+  /**
+   * Receives properly loaded worker class and may start worker as appropriate.
+   * By default, instantiates an object and fires its no-arg "work" method, see {@link jetbrains.mps.build.ant.MpsLoadTask#instantiateInProcessWorker(Class<?>) } and {@link jetbrains.mps.build.ant.MpsLoadTask#invokeInProcessMain(Class<?>, Object) }
+   */
+  protected void doInProcessWork(@NotNull Class<?> workerClass) throws Exception {
+    Object worker = instantiateInProcessWorker(workerClass);
+    invokeInProcessMain(workerClass, worker);
+  }
+
+  /**
+   * Controls construction of a new worker instance, subclasses may override e.g. to pass arguments to a worker through constructor.
+   * This method is part of {@link jetbrains.mps.build.ant.MpsLoadTask#doInProcessWork(Class<?>) }.
+   */
+  protected Object instantiateInProcessWorker(@NotNull Class<?> workerClass) throws Exception {
     // First, check if there's a desire to get ProjectComponent, i.e. a worker that is Ant-aware 
     for (Constructor<?> constructor : workerClass.getConstructors()) {
       if (constructor.getParameterCount() != 2) {
@@ -215,12 +310,21 @@ public abstract class MpsLoadTask extends Task {
     return workerClass.newInstance();
   }
 
-  @NotNull
-  protected List<String> getAdditionalArgs() {
-    return Collections.emptyList();
+  /**
+   * Controls execution of a worker code, by default just invokes "work" no-arg method for supplied worker instance.
+   * Subclasses may override. This method is part of {@link jetbrains.mps.build.ant.MpsLoadTask#doInProcessWork(Class<?>) }.
+   */
+  protected void invokeInProcessMain(@NotNull Class<?> workerClass, @NotNull Object workerInstance) throws Exception {
+    Method method = workerClass.getMethod("work");
+    method.invoke(workerInstance);
   }
 
-  private void outputBuildNumber() {
+  @NotNull
+  protected List<String> getAdditionalArgs() {
+    return Collections.<String>emptyList();
+  }
+
+  private void outputBuildNumber(File mpsHome) {
     String antTaskBuildNumber;
     URL resource = getClass().getResource("/build.number");
     if (resource == null) {
@@ -239,7 +343,7 @@ public abstract class MpsLoadTask extends Task {
     }
     String mpsBuildNumber;
     try {
-      mpsBuildNumber = MpsLoadTask.readBuildNumber(new FileInputStream(new File(myMpsHome.getAbsolutePath() + File.separator + "build.number")));
+      mpsBuildNumber = MpsLoadTask.readBuildNumber(new FileInputStream(new File(mpsHome.getAbsolutePath() + File.separator + "build.number")));
       if (mpsBuildNumber == null || mpsBuildNumber.isEmpty()) {
         log("Can't determine version of MPS.", Project.MSG_DEBUG);
         return;
@@ -266,15 +370,23 @@ public abstract class MpsLoadTask extends Task {
     }
   }
 
-  protected void checkMpsHome() {
-    if (myMpsHome == null) {
-      myMpsHome = MPSClasspathUtil.resolveMPSHome(getProject(), true);
+  @Nullable
+  protected final File getMpsHome_Checked() {
+    File mpsHome = myMpsHome;
+    if (mpsHome == null) {
+      // myMpsHome serves as an indicator whether user set its location explicitly (hence, with desire to force its own and ignore default home lookup logic 
+      // presently in MPSClasspathUtil, see #calculateClassPath(boolean)). This method shall not assign myMpsHome value. 
     }
+    mpsHome = MPSClasspathUtil.resolveMPSHome(getProject(), true);
+    checkMpsHome(mpsHome);
+    return mpsHome;
+  }
 
+  private void checkMpsHome(File mpsHome) {
     // the following code checks mps home is specified correctly 
-    assert myMpsHome != null : "MPS home folder must be specified. Use either mpshome task attribute or mps_home or mps.home Ant property to specify home folder.";
+    assert mpsHome != null : "MPS home folder must be specified. Use either mpshome task attribute or mps_home or mps.home Ant property to specify home folder.";
     boolean containsBuildTxt = false;
-    for (File child : myMpsHome.listFiles()) {
+    for (File child : mpsHome.listFiles()) {
       if (child.getPath().equals("build.txt")) {
         containsBuildTxt = true;
         break;
@@ -282,21 +394,51 @@ public abstract class MpsLoadTask extends Task {
     }
     assert containsBuildTxt : "MPS home folder is the folder where build.txt file is located. Please correct mpshome attribute, mps_home/mps.home property, depending on which was set";
 
-    outputBuildNumber();
+    outputBuildNumber(mpsHome);
   }
 
   private boolean startsWith(String path, String prefix) {
     return path.startsWith(prefix) && (path.length() == prefix.length() || prefix.endsWith(File.separator) || path.charAt(prefix.length()) == File.separatorChar);
   }
 
+  /**
+   * subclasses shall override in case they got better idea how worker classpath shall look like.
+   * Generally, subclasses use properties of the {@link org.apache.tools.ant.Target#getProject() ant project} to access information about environment
+   */
   protected Set<File> calculateClassPath(boolean fork) {
-    checkMpsHome();
-    LinkedHashSet<File> result = new LinkedHashSet<File>();
-    result.addAll(MPSClasspathUtil.buildClasspath(getProject(), myMpsHome, fork));
-    return result;
+    List<File> classPathRoots;
+    if (myMpsHome != null) {
+      // if user set mps home location explicitly, assume he knows what he's doing and wishes to force it 
+      // XXX perhaps, would be better to have nested <mps> element with rich set of options? 
+      classPathRoots = Collections.singletonList(new File(myMpsHome, "lib/"));
+    } else {
+      classPathRoots = MPSClasspathUtil.getClassPathRootsFromDependencies(getProject());
+      if (classPathRoots.isEmpty()) {
+        String m = "Dependency on MPS build scripts (e.g. 'mps', 'mpsWorkbench' or 'mpsPlugin' is required to generate MPS modules in project %s.";
+        throw new BuildException(String.format(m, getProject().getName()));
+      }
+    }
+    Set<File> classPath = new LinkedHashSet<File>();
+    for (File file : classPathRoots) {
+      MPSClasspathUtil.gatherAllClassesAndJarsUnder(file, classPath);
+    }
+    return classPath;
   }
 
-  protected abstract String getWorkerClass();
+  /**
+   * 
+   * @deprecated pass worker class name as cons argument or using #setWorker
+   */
+  @Deprecated
+  protected String getWorkerClass() {
+    // I'd like to keep getWorkerClass(), but can't make it public to satisfy Ant and not break binary code compatibility. 
+    // Left for compatibility, just in case there are other subclasses of MpsLoadTask that override the method 
+    String rv = getWorker();
+    if (rv == null) {
+      throw new IllegalStateException("Please specify 'worker' class to execute");
+    }
+    return rv;
+  }
 
   public static String readBuildNumber(InputStream stream) {
     BufferedReader bufferedReader = null;

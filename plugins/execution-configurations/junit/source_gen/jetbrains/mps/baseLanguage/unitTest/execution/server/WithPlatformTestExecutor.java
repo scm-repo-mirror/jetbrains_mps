@@ -5,7 +5,6 @@ package jetbrains.mps.baseLanguage.unitTest.execution.server;
 import org.jdom.Document;
 import jetbrains.mps.tool.common.JDOMUtil;
 import java.io.File;
-import jetbrains.mps.util.test.CachesUtil;
 import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.tool.environment.IdeaEnvironment;
 import jetbrains.mps.tool.common.ScriptData;
@@ -14,6 +13,8 @@ import org.apache.log4j.Logger;
 import jetbrains.mps.tool.common.RepositoryDescriptor;
 import jetbrains.mps.internal.collections.runtime.IMapping;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
+import jetbrains.mps.tool.common.PluginData;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 
 /**
  * Command-line front-end to launch MPS tests that need MPS environment (ITestable, incliding BTestCase, and JUnit3/JUnit4 ClassConcept with respective annotation/superclass) 
@@ -39,7 +40,6 @@ public class WithPlatformTestExecutor extends DefaultTestExecutor {
       throw new RuntimeException("Need MPS startup arguments to launch tests that require MPS environment");
     }
 
-    CachesUtil.setupCaches();
     Environment env = startIdea(execScript.getStartupArguments());
 
     //  Instead of WithPlatformTestExecutor+TestContributor, could use Suite/ParentRunner without need to wrap my runners into Request (much like MpsTestsSuite does) 
@@ -48,7 +48,6 @@ public class WithPlatformTestExecutor extends DefaultTestExecutor {
       executor.run();
     } finally {
       env.dispose();
-      CachesUtil.cleanupCaches();
       executor.exit();
     }
   }
@@ -76,6 +75,9 @@ public class WithPlatformTestExecutor extends DefaultTestExecutor {
     for (String l : startupArguments.getLibraryJars()) {
       cfg.addLib(l);
     }
+    for (PluginData p : ListSequence.fromList(startupArguments.getPlugins())) {
+      cfg.addPlugin(p.path, p.id);
+    }
     for (IMapping<String, String> m : MapSequence.fromMap(startupArguments.getMacros())) {
       cfg.addMacro(m.key(), new File(m.value()));
     }
@@ -83,5 +85,4 @@ public class WithPlatformTestExecutor extends DefaultTestExecutor {
     rv.init();
     return rv;
   }
-
 }

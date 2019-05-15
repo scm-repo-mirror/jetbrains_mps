@@ -33,7 +33,7 @@ import jetbrains.mps.vfs.FileSystems;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.util.FileUtil;
 import com.intellij.openapi.ui.Messages;
-import jetbrains.mps.vfs.IFileUtils;
+import jetbrains.mps.util.IFileUtil;
 import java.awt.Dimension;
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -130,7 +130,7 @@ public class EditorUtil {
           final Wrappers._boolean success = new Wrappers._boolean(true);
           context.getRepository().getModelAccess().runWriteAction(new Runnable() {
             public void run() {
-              IFile copiedFile = moduleDir.value.getDescendant("icons").getDescendant(chosenFile.getName());
+              IFile copiedFile = moduleDir.value.findChild("icons").findChild(chosenFile.getName());
               if (copiedFile.exists()) {
                 int rewriteAnswer = Messages.showYesNoDialog("File alread exists.\nRewrite?", "Error", Messages.getWarningIcon());
                 if (rewriteAnswer != Messages.YES) {
@@ -138,7 +138,7 @@ public class EditorUtil {
                   return;
                 }
               }
-              IFileUtils.copyFileContent(result.value, copiedFile);
+              IFileUtil.copyFileContent(result.value, copiedFile);
               result.value = copiedFile;
             }
           });

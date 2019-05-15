@@ -5,12 +5,13 @@ package jetbrains.mps.ide.platform.dependencyViewer;
 import jetbrains.mps.ide.findusages.view.UsagesView;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.ide.findusages.view.treeholder.treeview.ViewOptions;
-import jetbrains.mps.ide.findusages.view.treeholder.treeview.UsagesTree;
+import jetbrains.mps.ide.findusages.view.UsagesTree;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import java.util.Enumeration;
-import jetbrains.mps.ide.findusages.view.treeholder.tree.DataNode;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.BaseNodeData;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.ModuleNodeData;
 import javax.swing.event.TreeSelectionListener;
@@ -18,7 +19,7 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.tree.TreePath;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.ModelNodeData;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.NodeNodeData;
-import jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator;
+import jetbrains.mps.ide.findusages.view.treeholder.treeview.NodeRepresentatorBase;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import jetbrains.mps.ide.findusages.model.CategoryKind;
@@ -26,48 +27,63 @@ import java.util.Collections;
 import javax.swing.Icon;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.TextOptions;
 import jetbrains.mps.ide.icons.IdeIcons;
-import org.jetbrains.annotations.NotNull;
 import org.jdom.Element;
 import jetbrains.mps.ide.findusages.CantLoadSomethingException;
 import jetbrains.mps.ide.findusages.CantSaveSomethingException;
 
 public class TargetsView extends UsagesView {
-  private DependenciesPanel myParent;
+  private final DependenciesPanel myParent;
+  private DependencyViewerScope myLimitedTo;
+
   public TargetsView(Project project, DependenciesPanel parent) {
     super(project, new ViewOptions(true, true, false, false, false, false));
+    myParent = parent;
     UsagesTree usagesTree = getTreeComponent().getTree();
     usagesTree.addTreeSelectionListener(new TargetsView.MyTreeSelectionListener(usagesTree, parent));
-    myParent = parent;
     setCustomNodeRepresentator(new TargetsView.MyNodeRepresentator());
     usagesTree.setSelectionRow(0);
     usagesTree.setShowPopupMenu(false);
   }
+
+  /**
+   * Usually, all reference targets external to initial nodes are represented in this view. However, in certain scenarios
+   * we are interested in specific targets only, and therefore here's the scope to limit nodes of this view. 
+   * \Generally null, which means all external reference targets.
+   */
+  /*package*/ void limitTo(@Nullable DependencyViewerScope scope) {
+    myLimitedTo = scope;
+  }
+
+  @Nullable
+  /*package*/ DependencyViewerScope limitedTo() {
+    return myLimitedTo;
+  }
+
   public void selectModule(SModule module) {
     MPSTreeNode node = findModule(module.getModuleReference());
     if (node != null) {
       getTreeComponent().getTree().selectNode(node);
     }
   }
-  private MPSTreeNode findModule(SModuleReference module) {
+
+  private MPSTreeNode findModule(@NotNull SModuleReference module) {
     UsagesTree usagesTree = getTreeComponent().getTree();
     Enumeration nodes = usagesTree.getRootNode().breadthFirstEnumeration();
     while (nodes.hasMoreElements()) {
-      MPSTreeNode treeNode = as_w7qo2b_a0a0a2a3(nodes.nextElement(), MPSTreeNode.class);
+      UsagesTree.UsagesTreeNode treeNode = as_w7qo2b_a0a0a2a11(nodes.nextElement(), UsagesTree.UsagesTreeNode.class);
       if (treeNode == null) {
         continue;
       }
-      Object userObject = treeNode.getUserObject();
-      if (userObject instanceof DataNode) {
-        BaseNodeData data = ((DataNode) userObject).getData();
-        if (data instanceof ModuleNodeData) {
-          if (module.equals(((ModuleNodeData) data).getModuleReference())) {
-            return treeNode;
-          }
+      BaseNodeData data = treeNode.getUsageData();
+      if (data instanceof ModuleNodeData) {
+        if (module.equals(((ModuleNodeData) data).getModuleReference())) {
+          return treeNode;
         }
       }
     }
     return null;
   }
+
   public class MyTreeSelectionListener implements TreeSelectionListener {
     private UsagesTree myTree;
     private DependenciesPanel myDependenciesComponent;
@@ -83,25 +99,24 @@ public class TargetsView extends UsagesView {
       }
       DependencyViewerScope scope = new DependencyViewerScope(getProject().getRepository());
       for (TreePath path : paths) {
-        MPSTreeNode node = (MPSTreeNode) path.getLastPathComponent();
-        Object userObject = node.getUserObject();
-        if (userObject instanceof DataNode) {
-          BaseNodeData data = ((DataNode) userObject).getData();
-          if (data instanceof ModelNodeData) {
-            scope.add(((ModelNodeData) data).getModelReference());
-          }
-          if (data instanceof ModuleNodeData) {
-            scope.add(((ModuleNodeData) data).getModuleReference());
-          }
-          if (data instanceof NodeNodeData) {
-            scope.add(((NodeNodeData) data).getNodePointer());
-          }
+        if (!(path.getLastPathComponent() instanceof UsagesTree.UsagesTreeNode)) {
+          continue;
+        }
+        BaseNodeData data = ((UsagesTree.UsagesTreeNode) path.getLastPathComponent()).getUsageData();
+        if (data instanceof ModelNodeData) {
+          scope.add(((ModelNodeData) data).getModelReference());
+        }
+        if (data instanceof ModuleNodeData) {
+          scope.add(((ModuleNodeData) data).getModuleReference());
+        }
+        if (data instanceof NodeNodeData) {
+          scope.add(((NodeNodeData) data).getNodePointer());
         }
       }
       myDependenciesComponent.updateReferencesView(scope);
     }
   }
-  public class MyNodeRepresentator implements INodeRepresentator<SNode> {
+  public class MyNodeRepresentator extends NodeRepresentatorBase<SNode> {
     public MyNodeRepresentator() {
     }
     @Override
@@ -122,7 +137,7 @@ public class TargetsView extends UsagesView {
     }
     @Override
     public String getResultsText(TextOptions options) {
-      String presentation = myParent.getCurrentScope().getPresentation();
+      String presentation = check_w7qo2b_a0a0f41(myParent.getCurrentScope());
       if ((presentation == null || presentation.length() == 0)) {
         presentation = "the left tree scope selection";
       }
@@ -141,7 +156,13 @@ public class TargetsView extends UsagesView {
     public void write(Element element, jetbrains.mps.project.Project project) throws CantSaveSomethingException {
     }
   }
-  private static <T> T as_w7qo2b_a0a0a2a3(Object o, Class<T> type) {
+  private static String check_w7qo2b_a0a0f41(DependencyViewerScope checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getPresentation();
+    }
+    return null;
+  }
+  private static <T> T as_w7qo2b_a0a0a2a11(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 }

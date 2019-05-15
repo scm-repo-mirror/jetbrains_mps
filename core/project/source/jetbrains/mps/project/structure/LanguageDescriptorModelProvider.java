@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -131,7 +131,7 @@ public class LanguageDescriptorModelProvider extends DescriptorModelProvider {
       // it doesn't hurt if I refresh a bit more than utterly necessary.
       myModels.forEach((mr, lmd) -> {
         Set<SLanguage> moduleUsedLanguages = lmd.getModule().getUsedLanguages();
-        if (moduleUsedLanguages.stream().anyMatch(loadedLanguages::contains)) {
+        if (!Collections.disjoint(moduleUsedLanguages, loadedLanguages)) {
           lmd.updateGenerationLanguages();
         }
       });
@@ -320,11 +320,6 @@ public class LanguageDescriptorModelProvider extends DescriptorModelProvider {
       myHash = hash;
       myHashTimestamp = hashTimestamp;
       return hash;
-    }
-
-    @Override
-    public Map<String, String> getGenerationHashes() {
-      return Collections.singletonMap(GeneratableSModel.FILE, getModelHash());
     }
 
     @Override

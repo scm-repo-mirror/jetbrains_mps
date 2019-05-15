@@ -194,6 +194,16 @@
       <property role="IQ2ns" value="3189788309731917348" />
       <ref role="20lvS9" node="2L4pT56gSBR" resolve="BuildMps_ModuleRuntime" />
     </node>
+    <node concept="1TJgyj" id="6SHOJj4KY$t" role="1TKVEi">
+      <property role="IQ2ns" value="7939233666839079197" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="accessory" />
+      <property role="20lbJX" value="0..n" />
+      <ref role="20lvS9" node="6SHOJj4KY$q" resolve="BuildMps_ModuleRef" />
+      <node concept="t5JxF" id="6SHOJj4KY$M" role="lGtFl">
+        <property role="t5JxN" value="modules of accessory models hosted externally to the language" />
+      </node>
+    </node>
     <node concept="1TJgyj" id="7YI57w6gNwB" role="1TKVEi">
       <property role="20lmBu" value="aggregation" />
       <property role="20kJfa" value="generator" />
@@ -1016,7 +1026,7 @@
       <property role="IQ2ns" value="3570488090019868128" />
       <property role="20lmBu" value="aggregation" />
       <property role="20kJfa" value="packagingType" />
-      <property role="20lbJX" value="0..1" />
+      <property role="20lbJX" value="1" />
       <ref role="20lvS9" node="36cV00CpqQv" resolve="BuildMpsLayout_PluginLayoutTypeBase" />
     </node>
     <node concept="1TJgyj" id="5HVSRHdV_$p" role="1TKVEi">
@@ -1143,8 +1153,8 @@
       <property role="IQ2nx" value="4034578608468849375" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
       <node concept="asaX9" id="36cV00Cx3at" role="lGtFl">
-        <property role="YLPcu" value="183" />
         <property role="YLQ7P" value="please choose the packaging type in the BuildMpsLayout_Plugin instance instead" />
+        <property role="YLPcu" value="2018.3" />
       </node>
     </node>
     <node concept="1TJgyj" id="5HVSRHdUrJt" role="1TKVEi">
@@ -1179,8 +1189,8 @@
       <property role="IQ2ns" value="4034578608468929327" />
       <ref role="20lvS9" node="3vXGXT8byGB" resolve="BuildMps_IdeaPluginGroupCustomModule" />
       <node concept="asaX9" id="36cV00Cx3ap" role="lGtFl">
-        <property role="YLPcu" value="183" />
         <property role="YLQ7P" value="please choose the packaging type in the BuildMpsLayout_Plugin construction instead" />
+        <property role="YLPcu" value="2018.3" />
       </node>
     </node>
     <node concept="1TJgyj" id="5HVSRHdUL82" role="1TKVEi">
@@ -1203,6 +1213,9 @@
       <property role="20lbJX" value="1" />
       <property role="IQ2ns" value="6592112598314795901" />
       <ref role="20lvS9" node="5HVSRHdUrHO" resolve="BuildMps_IdeaPlugin" />
+    </node>
+    <node concept="PrWs8" id="59NBlcH$yds" role="PzmwI">
+      <ref role="PrY4T" to="3ior:5bqm540K$G7" resolve="BuildLayout_InJarNode" />
     </node>
   </node>
   <node concept="1TIwiD" id="3vXGXT8byGB">
@@ -1658,6 +1671,36 @@
     <property role="R5$K7" value="true" />
     <property role="R5$K2" value="false" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+  </node>
+  <node concept="1TIwiD" id="3a3EL8RY1L9">
+    <property role="TrG5h" value="GeneratorInternal_PluginExpanded" />
+    <property role="3GE5qa" value="GeneratorInternal" />
+    <property role="EcuMT" value="3639941018582260809" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyi" id="3a3EL8RY1La" role="1TKVEl">
+      <property role="TrG5h" value="path" />
+      <property role="IQ2nx" value="3639941018582260810" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyi" id="3a3EL8RY1Lb" role="1TKVEl">
+      <property role="IQ2nx" value="3639941018582260811" />
+      <property role="TrG5h" value="id" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="6SHOJj4KY$q">
+    <property role="EcuMT" value="7939233666839079194" />
+    <property role="TrG5h" value="BuildMps_ModuleRef" />
+    <property role="3GE5qa" value="Project" />
+    <property role="R4oN_" value="'smart' reference to a module" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="6SHOJj4KY$r" role="1TKVEi">
+      <property role="IQ2ns" value="7939233666839079195" />
+      <property role="20lmBu" value="reference" />
+      <property role="20kJfa" value="module" />
+      <property role="20lbJX" value="1" />
+      <ref role="20lvS9" node="4zCbl23cpcc" resolve="BuildMps_Module" />
+    </node>
   </node>
 </model>
 

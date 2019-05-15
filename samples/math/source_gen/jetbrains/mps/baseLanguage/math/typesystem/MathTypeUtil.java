@@ -6,7 +6,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.pattern.util.MatchingUtil;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.baseLanguage.math.behavior.MathUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.baseLanguage.behavior.Type__BehaviorDescriptor;
@@ -18,7 +18,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import jetbrains.mps.smodel.SReference;
-import jetbrains.mps.lang.typesystem.runtime.HUtil;
 
 public class MathTypeUtil {
   public static final SNode qBigComplex = _quotation_createNode_i9t80i_a0();
@@ -53,9 +52,9 @@ public class MathTypeUtil {
     return SNodeOperations.isInstanceOf(t, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d327fdL, "jetbrains.mps.baseLanguage.structure.FloatType")) || SNodeOperations.isInstanceOf(t, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d451a6L, "jetbrains.mps.baseLanguage.structure.DoubleType")) || SNodeOperations.isInstanceOf(t, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120095d7138L, "jetbrains.mps.baseLanguage.math.structure.ComplexType")) || SNodeOperations.isInstanceOf(t, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12009449465L, "jetbrains.mps.baseLanguage.math.structure.BigDecimalType")) || SNodeOperations.isInstanceOf(t, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120096f8e4cL, "jetbrains.mps.baseLanguage.math.structure.BigComplexType")) || MatchingUtil.matchNodes(t, _quotation_createNode_i9t80i_a0a0a0t()) || MatchingUtil.matchNodes(t, _quotation_createNode_i9t80i_a0a0a91());
   }
   public static SNode join(SNode t1, SNode t2) {
-    if (TypeChecker.getInstance().getSubtypingManager().isSubtype(t1, t2)) {
+    if (TypecheckingFacade.getFromContext().isSubtype(t1, t2)) {
       return t2;
-    } else if (TypeChecker.getInstance().getSubtypingManager().isSubtype(t2, t1)) {
+    } else if (TypecheckingFacade.getFromContext().isSubtype(t2, t1)) {
       return t1;
     } else {
       boolean bf = bigType(t1) || bigType(t2);
@@ -91,11 +90,11 @@ public class MathTypeUtil {
   public static int binaryOperationRequiresWidening(SNode binOp, SNode expr) {
     boolean left = SNodeOperations.hasRole(expr, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"));
     boolean right = SNodeOperations.hasRole(expr, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"));
-    if (!(SNodeOperations.isInstanceOf(TypeChecker.getInstance().getTypeOf(binOp), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"))) || !(SNodeOperations.isInstanceOf(TypeChecker.getInstance().getTypeOf(expr), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type")))) {
+    if (!(SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(binOp), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"))) || !(SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(expr), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type")))) {
       return 0;
     }
-    SNode opType = SNodeOperations.cast(TypeChecker.getInstance().getTypeOf(binOp), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"));
-    SNode exprType = SNodeOperations.cast(TypeChecker.getInstance().getTypeOf(expr), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"));
+    SNode opType = SNodeOperations.cast(TypecheckingFacade.getFromContext().getTypeOf(binOp), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"));
+    SNode exprType = SNodeOperations.cast(TypecheckingFacade.getFromContext().getTypeOf(expr), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"));
     SNode oppositeOp = null;
     if (left) {
       oppositeOp = SLinkOperations.getTarget(binOp, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"));
@@ -103,8 +102,8 @@ public class MathTypeUtil {
     if (right) {
       oppositeOp = SLinkOperations.getTarget(binOp, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"));
     }
-    SNode oppExprType = SNodeOperations.cast(TypeChecker.getInstance().getTypeOf(oppositeOp), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"));
-    if (SNodeOperations.isInstanceOf(TypeChecker.getInstance().getTypeOf(binOp), MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, "jetbrains.mps.baseLanguage.math.structure.MatrixType")) && (SNodeOperations.isInstanceOf(binOp, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfe476b758fL, "jetbrains.mps.baseLanguage.structure.MulExpression")) || SNodeOperations.isInstanceOf(binOp, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7fbL, "jetbrains.mps.baseLanguage.structure.PlusExpression")) || SNodeOperations.isInstanceOf(binOp, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f5L, "jetbrains.mps.baseLanguage.structure.MinusExpression")))) {
+    SNode oppExprType = SNodeOperations.cast(TypecheckingFacade.getFromContext().getTypeOf(oppositeOp), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"));
+    if (SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(binOp), MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, "jetbrains.mps.baseLanguage.math.structure.MatrixType")) && (SNodeOperations.isInstanceOf(binOp, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfe476b758fL, "jetbrains.mps.baseLanguage.structure.MulExpression")) || SNodeOperations.isInstanceOf(binOp, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7fbL, "jetbrains.mps.baseLanguage.structure.PlusExpression")) || SNodeOperations.isInstanceOf(binOp, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f5L, "jetbrains.mps.baseLanguage.structure.MinusExpression")))) {
       return 0;
     } else {
       if (SNodeOperations.isInstanceOf(oppExprType, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200ff11214L, "jetbrains.mps.baseLanguage.math.structure.MathPrimitiveType")) || SNodeOperations.isInstanceOf(exprType, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200ff11214L, "jetbrains.mps.baseLanguage.math.structure.MathPrimitiveType"))) {
@@ -159,7 +158,7 @@ public class MathTypeUtil {
     if (SNodeOperations.isInstanceOf(narrower, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1185ff468caL, "jetbrains.mps.baseLanguage.structure.NullType"))) {
       return 0;
     }
-    if (TypeChecker.getInstance().getSubtypingManager().isSubtype(wider, qBCMatrix) && TypeChecker.getInstance().getSubtypingManager().isSubtype(narrower, qBCMatrix) && !((MatchingUtil.matchNodes(Type__BehaviorDescriptor.getBoxedType_idhEwIzNC.invoke(getElementType(wider)), Type__BehaviorDescriptor.getBoxedType_idhEwIzNC.invoke(getElementType(narrower)))))) {
+    if (TypecheckingFacade.getFromContext().isSubtype(wider, qBCMatrix) && TypecheckingFacade.getFromContext().isSubtype(narrower, qBCMatrix) && !((MatchingUtil.matchNodes(Type__BehaviorDescriptor.getBoxedType_idhEwIzNC.invoke(getElementType(wider)), Type__BehaviorDescriptor.getBoxedType_idhEwIzNC.invoke(getElementType(narrower)))))) {
       if (MatchingUtil.matchNodes(Type__BehaviorDescriptor.getBoxedType_idhEwIzNC.invoke(getElementType(wider)), bInt)) {
         return 9;
       }
@@ -185,19 +184,19 @@ public class MathTypeUtil {
         return 16;
       }
     }
-    if (SNodeOperations.isInstanceOf(wider, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200944b8b7L, "jetbrains.mps.baseLanguage.math.structure.BigIntegerType")) && TypeChecker.getInstance().getSubtypingManager().isSubtype(narrower, qLong)) {
+    if (SNodeOperations.isInstanceOf(wider, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200944b8b7L, "jetbrains.mps.baseLanguage.math.structure.BigIntegerType")) && TypecheckingFacade.getFromContext().isSubtype(narrower, qLong)) {
       return 1;
     }
-    if (SNodeOperations.isInstanceOf(wider, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120095d7138L, "jetbrains.mps.baseLanguage.math.structure.ComplexType")) && TypeChecker.getInstance().getSubtypingManager().isSubtype(narrower, qDouble)) {
+    if (SNodeOperations.isInstanceOf(wider, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120095d7138L, "jetbrains.mps.baseLanguage.math.structure.ComplexType")) && TypecheckingFacade.getFromContext().isSubtype(narrower, qDouble)) {
       return 2;
     }
-    if (SNodeOperations.isInstanceOf(wider, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12009449465L, "jetbrains.mps.baseLanguage.math.structure.BigDecimalType")) && TypeChecker.getInstance().getSubtypingManager().isSubtype(narrower, qDouble)) {
+    if (SNodeOperations.isInstanceOf(wider, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12009449465L, "jetbrains.mps.baseLanguage.math.structure.BigDecimalType")) && TypecheckingFacade.getFromContext().isSubtype(narrower, qDouble)) {
       return 3;
     }
     if (SNodeOperations.isInstanceOf(wider, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12009449465L, "jetbrains.mps.baseLanguage.math.structure.BigDecimalType")) && SNodeOperations.isInstanceOf(narrower, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200944b8b7L, "jetbrains.mps.baseLanguage.math.structure.BigIntegerType"))) {
       return 4;
     }
-    if (SNodeOperations.isInstanceOf(wider, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120096f8e4cL, "jetbrains.mps.baseLanguage.math.structure.BigComplexType")) && TypeChecker.getInstance().getSubtypingManager().isSubtype(narrower, qDouble)) {
+    if (SNodeOperations.isInstanceOf(wider, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120096f8e4cL, "jetbrains.mps.baseLanguage.math.structure.BigComplexType")) && TypecheckingFacade.getFromContext().isSubtype(narrower, qDouble)) {
       return 5;
     }
     if (SNodeOperations.isInstanceOf(wider, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120096f8e4cL, "jetbrains.mps.baseLanguage.math.structure.BigComplexType")) && SNodeOperations.isInstanceOf(narrower, MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200944b8b7L, "jetbrains.mps.baseLanguage.math.structure.BigIntegerType"))) {
@@ -241,7 +240,7 @@ public class MathTypeUtil {
   }
   public static SNode typeOfMatrixScalarMultiplication(SNode scalarType, SNode vT) {
     SNode e = MathTypeUtil.getElementType(vT);
-    if (TypeChecker.getInstance().getSubtypingManager().isSubtype(e, scalarType) && SNodeOperations.isInstanceOf(scalarType, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"))) {
+    if (TypecheckingFacade.getFromContext().isSubtype(e, scalarType) && SNodeOperations.isInstanceOf(scalarType, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"))) {
       e = SNodeOperations.cast(scalarType, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"));
     }
     {
@@ -284,8 +283,8 @@ public class MathTypeUtil {
     }
   }
   public static boolean checkAdditiveOperationDimensions(SNode binOp) {
-    SNode lEt = TypeChecker.getInstance().getTypeOf(SLinkOperations.getTarget(binOp, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression")));
-    SNode rEt = TypeChecker.getInstance().getTypeOf(SLinkOperations.getTarget(binOp, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression")));
+    SNode lEt = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(binOp, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression")));
+    SNode rEt = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(binOp, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression")));
     if (SNodeOperations.isInstanceOf(lEt, MetaAdapterFactory.getInterfaceConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x513c04200c187a63L, "jetbrains.mps.baseLanguage.math.structure.MatrixOrVectorType")) && SNodeOperations.isInstanceOf(rEt, MetaAdapterFactory.getInterfaceConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x513c04200c187a63L, "jetbrains.mps.baseLanguage.math.structure.MatrixOrVectorType"))) {
       int lr = DimensionUtil.dimr(lEt);
       int lc = DimensionUtil.dimc(lEt);
@@ -410,7 +409,7 @@ public class MathTypeUtil {
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, "jetbrains.mps.baseLanguage.math"), 0x42d5783a6267f776L, "MatrixType"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62684653L, "elementType"), HUtil.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62684653L, "elementType"), SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }
@@ -421,7 +420,7 @@ public class MathTypeUtil {
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, "jetbrains.mps.baseLanguage.math"), 0x42d5783a6267f775L, "VectorType"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466fL, "elementType"), HUtil.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466fL, "elementType"), SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }

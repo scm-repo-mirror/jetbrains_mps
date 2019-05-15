@@ -14,7 +14,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="kernel" />
-    <orderEntry type="module" module-name="analyzers" scope="TEST" />
     <orderEntry type="module" module-name="closures-runtime" />
     <orderEntry type="module" module-name="collections-runtime" />
     <orderEntry type="module" module-name="generator-engine" />
@@ -39,7 +38,7 @@
     <orderEntry type="module" module-name="environment" />
     <orderEntry type="module" module-name="editorlang-runtime" scope="TEST" />
     <orderEntry type="module" module-name="persistence" scope="TEST" />
-    <orderEntry type="module" module-name="vcs" scope="TEST" />
+    <orderEntry type="module" module-name="mps-vcs" scope="TEST" />
     <orderEntry type="module" module-name="kernel-resources" scope="TEST" />
     <orderEntry type="library" name="PicoContainer" level="project" />
     <orderEntry type="library" name="Log4j" level="project" />
@@ -61,9 +60,10 @@
     <orderEntry type="module" module-name="execution-api" scope="TEST" />
     <orderEntry type="module" module-name="openapi" />
     <orderEntry type="module" module-name="project" />
+    <orderEntry type="module" module-name="project-check" />
     <orderEntry type="module" module-name="vcs-core" scope="TEST" />
     <orderEntry type="module" module-name="editor-runtime" scope="TEST" />
-    <orderEntry type="module" module-name="console" scope="RUNTIME" />
+    <orderEntry type="module" module-name="mps-console" scope="RUNTIME" />
     <orderEntry type="module" module-name="migrations-runtime" scope="TEST" />
     <orderEntry type="module" module-name="textgen" scope="TEST" />
     <orderEntry type="module" module-name="components" />
@@ -72,14 +72,15 @@
     <orderEntry type="module" module-name="behavior-api" />
     <orderEntry type="module" module-name="behavior-runtime" />
     <orderEntry type="module" module-name="vfs" scope="TEST" />
-    <orderEntry type="module" module-name="mps-java-platform" scope="RUNTIME" />
-    <orderEntry type="module" module-name="mps-java-platform-base" scope="RUNTIME" />
-    <orderEntry type="module" module-name="mps-java-workbench" scope="RUNTIME" />
     <orderEntry type="module" module-name="module" scope="TEST" />
-    <orderEntry type="module" module-name="modelchecker" />
+    <orderEntry type="module" module-name="mps-modelchecker" />
     <orderEntry type="module" module-name="migration-platform" scope="TEST" />
     <orderEntry type="module" module-name="mps-testing" scope="TEST" />
     <orderEntry type="module" module-name="vcs-platform" scope="TEST" />
     <orderEntry type="module" module-name="util-core" scope="TEST" />
+    <orderEntry type="module" module-name="mps-tips" />
+    <orderEntry type="module" module-name="mps-java-core" scope="TEST" />
+    <orderEntry type="module" module-name="mps-java-platform" scope="TEST" />
+    <orderEntry type="module" module-name="mps-java-workbench" scope="TEST" />
   </component>
 </module>

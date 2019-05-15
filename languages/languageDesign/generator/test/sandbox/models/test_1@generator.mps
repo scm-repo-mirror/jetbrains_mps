@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="2" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="0" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
     <use id="d4615e3b-d671-4ba9-af01-2b78369b0ba7" name="jetbrains.mps.lang.pattern" version="1" />
     <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="1" />
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="1" />
@@ -522,7 +522,7 @@
                 </node>
               </node>
               <node concept="liA8E" id="hz41eRI" role="2OqNvi">
-                <ref role="37wK5l" to="wyt6:~Object.getClass():java.lang.Class" resolve="getClass" />
+                <ref role="37wK5l" to="wyt6:~Object.getClass()" resolve="getClass" />
               </node>
             </node>
             <node concept="raruj" id="hPzQK0E" role="lGtFl" />
@@ -536,7 +536,7 @@
                     <ref role="3cqZAo" node="hz41cEJ" resolve="c" />
                   </node>
                   <node concept="liA8E" id="hPzR8v0" role="2OqNvi">
-                    <ref role="37wK5l" to="wyt6:~Object.getClass():java.lang.Class" resolve="getClass" />
+                    <ref role="37wK5l" to="wyt6:~Object.getClass()" resolve="getClass" />
                   </node>
                 </node>
               </node>
@@ -554,7 +554,7 @@
         <node concept="2c44tf" id="7oTZmjkCrbn" role="HM535">
           <node concept="2OqwBi" id="1GF9yVLIU0Q" role="2c44tc">
             <node concept="liA8E" id="1GF9yVLIXWa" role="2OqNvi">
-              <ref role="37wK5l" to="wyt6:~String.hashCode():int" resolve="hashCode" />
+              <ref role="37wK5l" to="wyt6:~String.hashCode()" resolve="hashCode" />
               <node concept="2DMOqr" id="1GF9yVLIYdm" role="lGtFl">
                 <property role="2DMOqs" value="x" />
               </node>
@@ -597,7 +597,7 @@
         <node concept="2c44tf" id="7oTZmjkCrbm" role="HM535">
           <node concept="2OqwBi" id="1GF9yVLIZkz" role="2c44tc">
             <node concept="liA8E" id="1GF9yVLJ0LC" role="2OqNvi">
-              <ref role="37wK5l" to="wyt6:~String.hashCode():int" resolve="hashCode" />
+              <ref role="37wK5l" to="wyt6:~String.hashCode()" resolve="hashCode" />
               <node concept="2DMOqr" id="1GF9yVLJ17g" role="lGtFl">
                 <property role="2DMOqs" value="right" />
               </node>
@@ -1032,7 +1032,7 @@
           <node concept="2OqwBi" id="hISH0Sv" role="3clFbG">
             <node concept="Xjq3P" id="hISH0gc" role="2Oq$k0" />
             <node concept="liA8E" id="GPlTP7FuUd" role="2OqNvi">
-              <ref role="37wK5l" to="wyt6:~Object.getClass():java.lang.Class" resolve="getClass" />
+              <ref role="37wK5l" to="wyt6:~Object.getClass()" resolve="getClass" />
             </node>
           </node>
         </node>

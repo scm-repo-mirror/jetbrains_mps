@@ -96,8 +96,11 @@ public class EnumerationDescriptor_CastTargetDescriptor extends EnumerationDescr
 
   @Nullable
   @Override
-  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {int index = myIndex.index(idValue);
-if (index == -1) { return null; }
-    return myMembers.get(myIndex.index(idValue));
+  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {
+    int index = myIndex.index(idValue);
+    if (index == -1) {
+      return null;
+    }
+    return myMembers.get(index);
   }
 }

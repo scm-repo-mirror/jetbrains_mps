@@ -15,12 +15,8 @@
  */
 package jetbrains.mps.extapi.persistence.datasource;
 
-import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.persistence.DataSource;
-import org.jetbrains.mps.openapi.persistence.ModelRoot;
 
 import java.net.URL;
 
@@ -40,20 +36,11 @@ public interface DataSourceFactoryFromURL {
    * Creates a new <code>DataSource</code>
    *
    * @param url -- the abstract absolute location
-   * @param modelRoot -- @deprecated DataSource is a simple location entity
-   *                  must not know anything about outer world
-   *                  The file system listening mechanism in implementing data sources
-   *                  (that is the reason we are passing ModelRoot parameter here) ought to be done on the ModelRoot side.
-   *                  [Probably {@link FileSystemBasedDataSource#getAffectedFiles()} is the way to go there]
-   *
    * @return new <code>DataSource</code> which represents the <code>file</code> on the disk
    * @throws URLNotSupportedException iff {@link #supports} returns false
    */
   @NotNull
-  DataSource create(@NotNull URL url,
-
-                    @ToRemove(version = 0)
-                    @Nullable ModelRoot modelRoot) throws URLNotSupportedException;
+  DataSource create(@NotNull URL url) throws URLNotSupportedException;
 
   /**
    * Returns whether this factory is able to create a data source from the specified uri.

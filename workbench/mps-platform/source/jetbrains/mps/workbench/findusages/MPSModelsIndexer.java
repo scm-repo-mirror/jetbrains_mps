@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.util.Consumer;
 import com.intellij.util.indexing.DataIndexer;
+import com.intellij.util.indexing.DefaultFileTypeSpecificInputFilter;
 import com.intellij.util.indexing.FileBasedIndex;
 import com.intellij.util.indexing.FileBasedIndex.FileTypeSpecificInputFilter;
 import com.intellij.util.indexing.FileBasedIndex.InputFilter;
@@ -27,7 +28,10 @@ import com.intellij.util.indexing.FileContent;
 import com.intellij.util.indexing.ID;
 import com.intellij.util.indexing.ScalarIndexExtension;
 import com.intellij.util.io.KeyDescriptor;
+import jetbrains.mps.core.platform.Platform;
+import jetbrains.mps.extapi.persistence.ModelFactoryService;
 import jetbrains.mps.fileTypes.MPSFileTypeFactory;
+import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.persistence.IndexAwareModelFactory;
 import jetbrains.mps.persistence.IndexAwareModelFactory.Callback;
 import jetbrains.mps.smodel.adapter.ids.SConceptId;
@@ -39,7 +43,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
+import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
+import org.jetbrains.mps.openapi.persistence.datasource.FileExtensionDataSourceType;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -60,14 +65,18 @@ public class MPSModelsIndexer extends ScalarIndexExtension<UsageEntry> {
     return FileBasedIndex.getInstance().getContainingFiles(NAME, entry, allFiles);
   }
 
-  public MPSModelsIndexer() {
-    PersistenceFacade persistenceRegistry = PersistenceFacade.getInstance();
-    for (String ext : persistenceRegistry.getModelFactoryExtensions()) {
-      final ModelFactory mf = persistenceRegistry.getModelFactory(ext);
+  public MPSModelsIndexer(MPSCoreComponents mpsCoreComponents) {
+    final Platform mpsPlatform = mpsCoreComponents.getPlatform();
+    for (ModelFactory mf : mpsPlatform.findComponent(ModelFactoryService.class).getFactories()) {
       if (mf instanceof IndexAwareModelFactory) {
-        final FileType ft = MPSFileTypeFactory.findByExtension(ext);
-        if (ft != null) {
-          myIndexAwareFileTypes.put(ft, (IndexAwareModelFactory) mf);
+        for (DataSourceType type : mf.getPreferredDataSourceTypes()) {
+          if (type instanceof FileExtensionDataSourceType) {
+            String fileExt = ((FileExtensionDataSourceType) type).getFileExtension();
+            final FileType ft = MPSFileTypeFactory.findByExtension(fileExt);
+            if (ft != null) {
+              myIndexAwareFileTypes.put(ft, (IndexAwareModelFactory) mf);
+            }
+          }
         }
       }
     }
@@ -100,7 +109,7 @@ public class MPSModelsIndexer extends ScalarIndexExtension<UsageEntry> {
   @NotNull
   @Override
   public InputFilter getInputFilter() {
-    return new MyFilter();
+    return new DefaultFileTypeSpecificInputFilter(myIndexAwareFileTypes.keySet().toArray(new FileType[0]));
   }
 
   @Override
@@ -138,23 +147,6 @@ public class MPSModelsIndexer extends ScalarIndexExtension<UsageEntry> {
     @Override
     public void localNodeRef(@NotNull SNodeId node) {
       myResult.put(new NodeUse(node), null);
-    }
-  }
-
-  private class MyFilter implements FileTypeSpecificInputFilter {
-
-    @Override
-    public void registerFileTypesUsedForIndexing(@NotNull Consumer<FileType> fileTypeSink) {
-      for (FileType ft : myIndexAwareFileTypes.keySet()) {
-        fileTypeSink.consume(ft);
-      }
-    }
-
-    @Override
-    public boolean acceptInput(@NotNull VirtualFile file) {
-      // AFAIU, FileBasedIndex does filtering according to file types supplied in #registerFileTypesUsedForIndexing
-      // unfortunately, it doesn't state it clearly in the javadoc.
-      return true;
     }
   }
 

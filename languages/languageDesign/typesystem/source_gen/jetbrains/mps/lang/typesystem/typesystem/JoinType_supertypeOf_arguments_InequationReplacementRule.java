@@ -10,7 +10,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.pattern.util.MatchingUtil;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.typesystemEngine.util.CoerceUtil;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
@@ -32,7 +32,7 @@ public class JoinType_supertypeOf_arguments_InequationReplacementRule extends Ab
       }
     }
     for (SNode arg : SLinkOperations.getChildren(supertype, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1129e737f02L, 0x1129e73a76aL, "argument"))) {
-      if (TypeChecker.getInstance().getSubtypingManager().isSubtype(subtype, arg)) {
+      if (TypecheckingFacade.getFromContext().isSubtype(subtype, arg)) {
         return true;
       }
     }
@@ -56,7 +56,7 @@ public class JoinType_supertypeOf_arguments_InequationReplacementRule extends Ab
       }
     }
     for (SNode arg : SLinkOperations.getChildren(supertype, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1129e737f02L, 0x1129e73a76aL, "argument"))) {
-      if (TypeChecker.getInstance().getSubtypingManager().isSubtype(subtype, arg)) {
+      if (TypecheckingFacade.getFromContext().isSubtype(subtype, arg)) {
         {
           SNode _nodeToCheck_1029348928467 = equationInfo.getNodeWithError();
           EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "4903733294584216031", 0, null);
@@ -93,25 +93,25 @@ public class JoinType_supertypeOf_arguments_InequationReplacementRule extends Ab
     boolean result_14532009 = true;
     for (SNode arg : SLinkOperations.getChildren(supertype, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1129e737f02L, 0x1129e73a76aL, "argument"))) {
       if (MatchingUtil.matchNodes(arg, subtype)) {
-        result_14532009 = result_14532009 && TypeChecker.getInstance().getSubtypingManager().isSubtype((SNode) subtype, (SNode) arg, true);
+        result_14532009 = result_14532009 && TypecheckingFacade.getFromContext().isSubtype((SNode) subtype, (SNode) arg);
         return result_14532009;
       }
     }
     for (SNode arg : SLinkOperations.getChildren(supertype, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1129e737f02L, 0x1129e73a76aL, "argument"))) {
-      if (TypeChecker.getInstance().getSubtypingManager().isSubtype(subtype, arg)) {
-        result_14532009 = result_14532009 && TypeChecker.getInstance().getSubtypingManager().isSubtype((SNode) subtype, (SNode) arg, true);
+      if (TypecheckingFacade.getFromContext().isSubtype(subtype, arg)) {
+        result_14532009 = result_14532009 && TypecheckingFacade.getFromContext().isSubtype((SNode) subtype, (SNode) arg);
         return result_14532009;
       }
     }
     for (SNode arg : SLinkOperations.getChildren(supertype, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1129e737f02L, 0x1129e73a76aL, "argument"))) {
       if (Objects.equals(SNodeOperations.getConcept(arg), SNodeOperations.getConcept(subtype))) {
-        result_14532009 = result_14532009 && TypeChecker.getInstance().getSubtypingManager().isSubtype((SNode) subtype, (SNode) arg, true);
+        result_14532009 = result_14532009 && TypecheckingFacade.getFromContext().isSubtype((SNode) subtype, (SNode) arg);
         return result_14532009;
       }
     }
     for (SNode arg : SLinkOperations.getChildren(supertype, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1129e737f02L, 0x1129e73a76aL, "argument"))) {
       if (CoerceUtil.canBeCoerced(subtype, SNodeOperations.getConcept(arg)) && CoerceUtil.canBeCoerced(arg, SNodeOperations.getConcept(subtype))) {
-        result_14532009 = result_14532009 && TypeChecker.getInstance().getSubtypingManager().isSubtype((SNode) subtype, (SNode) arg, true);
+        result_14532009 = result_14532009 && TypecheckingFacade.getFromContext().isSubtype((SNode) subtype, (SNode) arg);
         break;
       }
     }

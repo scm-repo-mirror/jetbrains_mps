@@ -21,14 +21,8 @@ import jetbrains.mps.smodel.SModelUtil_new;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.module.SModule;
-import org.jetbrains.mps.openapi.module.SRepository;
-import jetbrains.mps.project.structure.ProjectStructureModule;
-import jetbrains.mps.smodel.Generator;
-import jetbrains.mps.smodel.Language;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import java.util.Objects;
+import jetbrains.mps.project.AbstractModule;
+import jetbrains.mps.project.structure.stub.ProjectStructureBuilder;
 import org.jetbrains.mps.openapi.model.SModelReference;
 
 public final class SModelOperations {
@@ -132,27 +126,18 @@ public final class SModelOperations {
     return model.getName().getLongName();
   }
   public static SNode getModuleStub(SModel model) {
-    final SModule module = model.getModule();
-    SRepository repo = model.getRepository();
-    if (repo == null || ProjectStructureModule.getInstance(repo) == null) {
-      return null;
+    SModule module = model.getModule();
+    // FIXME  we have to reference javastub classes, as we don't want j.m.runtime solution to depend from j.m.project 
+    // FIXME     though the true defect is that Model_GetModule operation (which uses this rt code) lives in lang.smodel that doesn't  
+    // FIXME     expose j.m.project as its runtime. Likely, shall move Model_GetModule operation to a distinct language with j.m.project as RT 
+    // FIXME     or to specify j.m.project as lang.smodel's RT. This method has to get moved into respective solution regardless. 
+    // I don't want to create blank model so provide the original one as a node factory. As long as PSB doesn't change it, it's all the same. 
+    // XXX the only defect with stateless approach is that each query gets a new instance, therefore n1.model.module != n1.model.module 
+    // XXX Guess, we shall support any SModule here, but at the moment PSB deals with AbstractModule only 
+    if (module instanceof AbstractModule) {
+      return (SNode) new ProjectStructureBuilder((AbstractModule) module, model).convert();
     }
-    if (module instanceof Generator) {
-      Language lang = ((Generator) module).getSourceLanguage();
-      SModel m = ProjectStructureModule.getInstance(repo).getModelByModule(lang);
-      if (m == null) {
-        return null;
-      }
-      SNode l = ListSequence.fromList(SModelOperations.roots(m, MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1fL, "jetbrains.mps.lang.project.structure.Language"))).first();
-      return (l == null ? null : ListSequence.fromList(SLinkOperations.getChildren(l, MetaAdapterFactory.getContainmentLink(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1fL, 0x5869770da61dfe37L, "generator"))).findFirst(new IWhereFilter<SNode>() {
-        public boolean accept(SNode it) {
-          return Objects.equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1eL, 0x5869770da61dfe22L, "uuid")), module.getModuleReference().getModuleId().toString());
-        }
-      }));
-    } else {
-      SModel m = ProjectStructureModule.getInstance(repo).getModelByModule(module);
-      return (m == null ? null : ListSequence.fromList(SModelOperations.roots(m, MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1eL, "jetbrains.mps.lang.project.structure.Module"))).first());
-    }
+    return null;
   }
   public static SModelReference getPointer(SModel model) {
     if (model == null) {

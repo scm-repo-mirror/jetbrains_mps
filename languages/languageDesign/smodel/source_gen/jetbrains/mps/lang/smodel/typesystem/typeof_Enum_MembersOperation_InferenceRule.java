@@ -22,7 +22,7 @@ public class typeof_Enum_MembersOperation_InferenceRule extends AbstractInferenc
     {
       SNode _nodeToCheck_1029348928467 = operation;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "7029133697938612328", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "7029133697938612337", true), (SNode) _quotation_createNode_1zfhay_a1a2a0a1(EnumOperation__BehaviorDescriptor.getEnumDecl_id66cvXGSmQgk.invoke(operation)), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "7029133697938612337", true), (SNode) _quotation_createNode_1zfhay_a1a0c0a0b(EnumOperation__BehaviorDescriptor.getEnumDecl_id66cvXGSmQgk.invoke(operation)), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
@@ -34,7 +34,7 @@ public class typeof_Enum_MembersOperation_InferenceRule extends AbstractInferenc
   public boolean overrides() {
     return false;
   }
-  private static SNode _quotation_createNode_1zfhay_a1a2a0a1(Object parameter_1) {
+  private static SNode _quotation_createNode_1zfhay_a1a0c0a0b(Object parameter_1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     SNode quotedNode_3 = null;

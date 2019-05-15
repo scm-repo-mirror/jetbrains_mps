@@ -21,7 +21,6 @@ import com.intellij.openapi.util.SystemInfo;
 import jetbrains.mps.util.ClassPathReader;
 
 import java.io.File;
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,8 +28,6 @@ public class Launcher {
   public static void main(String[] args) throws Exception {
     String mpsInternal = System.getProperty("mps.internal");
     System.setProperty("idea.is.internal", mpsInternal != null ? mpsInternal : "false");
-    System.setProperty("idea.no.jre.check", "true");
-    System.setProperty("idea.load.plugins", "true");
 
     String fsNotifierKey = "idea.filewatcher.executable.path";
     String altExecPath = System.getProperty(fsNotifierKey);

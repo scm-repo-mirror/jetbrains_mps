@@ -51,7 +51,7 @@ import java.util.stream.Stream;
 public class EditorCellFactoryImpl implements EditorCellFactory {
   private static final Logger LOG = Logger.wrap(LogManager.getLogger(EditorCellFactoryImpl.class));
 
-  private static final EditorCellContext DEFAULT_CELL_CONTEXT = () -> Collections.emptySet();
+  private static final EditorCellContext DEFAULT_CELL_CONTEXT = Collections::emptySet;
   public static final String BASE_COMMENT_HINT = "jetbrains.mps.lang.core.editor.BaseEditorContextHints.comment";
 
   private final EditorContext myEditorContext;
@@ -91,6 +91,7 @@ public class EditorCellFactoryImpl implements EditorCellFactory {
     EditorCellContext cellContext = getCellContext();
     assert cellContext != null;
     boolean shouldShowReflectiveEditor = ReflectiveHintsManager.shouldShowReflectiveEditor(cellContext);
+    boolean wasReflectiveEditorForParentCell = ReflectiveHintsManager.shouldShowReflectiveEditor(getParentCellContext());
     EditorCell result = null;
     SConcept concept = node.getConcept();
     ConceptEditor editor = shouldShowReflectiveEditor ? null : getCachedEditor(concept, excludedEditors);
@@ -98,14 +99,14 @@ public class EditorCellFactoryImpl implements EditorCellFactory {
       try {
         result = createCell(node, isInspector, editor);
         assert result.isBig() : "Non-big " + (isInspector ? "inspector " : "") + "cell was created by " + editor.getClass().getName() + " ConceptEditor.";
-      } catch (RuntimeException | AssertionError | NoClassDefFoundError e) {
+      } catch (RuntimeException | AssertionError | LinkageError e) {
         LOG.warning("Failed to create cell for node: " + SNodeOperations.getDebugText(node) + " using default editor", e, node);
       }
     }
 
     if (result == null) {
       boolean shouldShowInterfaceEditor = concept.isValid() && concept.isAbstract() && !shouldShowReflectiveEditor;
-      editor = shouldShowInterfaceEditor ? new DefaultInterfaceEditor(getCellContext()) : AbstractDefaultEditor.createEditor(node);
+      editor = shouldShowInterfaceEditor ? new DefaultInterfaceEditor(getCellContext()) : AbstractDefaultEditor.createEditor(node, !wasReflectiveEditorForParentCell);
       result = createCell(node, isInspector, editor);
       assert result.isBig() : "Non-big " + (isInspector ? "inspector " : "") + "cell was created by DefaultEditor: " + editor.getClass().getName();
     }
@@ -140,6 +141,21 @@ public class EditorCellFactoryImpl implements EditorCellFactory {
   @Override
   public EditorCellContext getCellContext() {
     return myCellContextStack == null ? DEFAULT_CELL_CONTEXT : myCellContextStack.getLast();
+  }
+
+  private EditorCellContext getParentCellContext() {
+    // Todo: this method is a hack needed to show attributes as children in default editor.
+    // When reflective editor is enabled for subtree of the attribute itself, it encloses the cell for attributed node.
+    // But when the attributed node itself is shown in reflective editor, the most straight way to show its attributes is to display them in underlying cells.
+    // This method does its best to distinguish such situations, but might fail in some situations.
+    if (myCellContextStack == null || myCellContextStack.isEmpty()) {
+      return DEFAULT_CELL_CONTEXT;
+    } else {
+      EditorCellContextImpl current = myCellContextStack.pollLast();
+      EditorCellContextImpl parent = myCellContextStack.peekLast();
+      myCellContextStack.addLast(current);
+      return parent == null ? DEFAULT_CELL_CONTEXT : parent;
+    }
   }
 
   @Override

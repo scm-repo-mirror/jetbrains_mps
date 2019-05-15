@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,6 @@ import jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryFromURL;
 import jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryRuleService;
 import jetbrains.mps.extapi.persistence.datasource.PreinstalledDataSourceTypes;
 import jetbrains.mps.extapi.persistence.datasource.URLNotSupportedException;
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -53,16 +52,6 @@ public final class DataSourceFactoryBridge {
   @Immutable
   private final FileBasedModelRoot myModelRoot;
   private final DataSourceFactoryRuleService myDataSourceFactoryRuleService;
-
-  /**
-   * @deprecated use {@link #DataSourceFactoryBridge(FileBasedModelRoot, DataSourceFactoryRuleService)} instead
-   */
-  @Deprecated
-  @ToRemove(version = 2018.3)
-  public DataSourceFactoryBridge(@NotNull FileBasedModelRoot modelRoot) {
-    this(modelRoot, DataSourceFactoryRuleService.getInstance());
-    LOG.error("This ctor would be removed in the next release!", new Throwable());
-  }
 
   public DataSourceFactoryBridge(@NotNull FileBasedModelRoot modelRoot, @NotNull DataSourceFactoryRuleService dsFactorySerice) {
     myModelRoot = modelRoot;
@@ -117,7 +106,7 @@ public final class DataSourceFactoryBridge {
     }
     checkSourceRootIsAttachedToTheModelRoot(sourceRoot);
     ModelCreationOptions parameters = new ParametersCalculator(myModelRoot).calculate(modelName);
-    DataSource dataSource = factory.create(modelName, sourceRoot, myModelRoot);
+    DataSource dataSource = factory.create(modelName, sourceRoot);
     return build(dataSource, parameters);
   }
 
@@ -147,7 +136,7 @@ public final class DataSourceFactoryBridge {
         throw new RuntimeException(new DataSourceFactoryNotFoundException("Could not find factory using the url " + url));
       }
       if (factory.supports(url)) {
-        dataSource = factory.create(url, myModelRoot);
+        dataSource = factory.create(url);
       }
     } catch (URLNotSupportedException | MalformedURLException e) {
       LOG.error("Could not get URL from IFile : '" + file + "'", e);

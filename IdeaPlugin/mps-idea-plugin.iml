@@ -41,12 +41,11 @@
     <orderEntry type="module" module-name="vfs" />
     <orderEntry type="module" module-name="baseLanguage-search" />
     <orderEntry type="module" module-name="mps-ui" />
-    <orderEntry type="module" module-name="mps-java-platform-base" />
     <orderEntry type="module" module-name="debuginfo-api" />
+    <orderEntry type="module" module-name="debuginfo-impl" />
     <orderEntry type="module" module-name="migrations-runtime" />
     <orderEntry type="module" module-name="refactoring-runtime" />
     <orderEntry type="module" module-name="actions-runtime" />
-    <orderEntry type="module" module-name="analyzers" />
     <orderEntry type="module" module-name="ant-mps" />
     <orderEntry type="module" module-name="ant-mps-common" />
     <orderEntry type="module" module-name="baseLanguage-util" />
@@ -55,7 +54,7 @@
     <orderEntry type="module" module-name="closures-runtime" />
     <orderEntry type="module" module-name="collections-runtime" />
     <orderEntry type="module" module-name="components" />
-    <orderEntry type="module" module-name="console" />
+    <orderEntry type="module" module-name="mps-console" />
     <orderEntry type="module" module-name="dataflow-rt" />
     <orderEntry type="module" module-name="debugger-api-api" />
     <orderEntry type="module" module-name="debugger-api-runtime" />
@@ -71,8 +70,8 @@
     <orderEntry type="module" module-name="execution-impl" />
     <orderEntry type="module" module-name="findUsages-runtime" />
     <orderEntry type="module" module-name="gensources" />
-    <orderEntry type="module" module-name="httpsupport" />
-    <orderEntry type="module" module-name="ideaIntegration" />
+    <orderEntry type="module" module-name="mps-httpsupport" />
+    <orderEntry type="module" module-name="mps-idea-integration" />
     <orderEntry type="module" module-name="ideaIntegrationCommon" />
     <orderEntry type="module" module-name="IDEAPlugin" />
     <orderEntry type="module" module-name="instrumentation" />
@@ -82,7 +81,7 @@
     <orderEntry type="module" module-name="migration-workbench" />
     <orderEntry type="module" module-name="misc-tests" />
     <orderEntry type="module" module-name="model" />
-    <orderEntry type="module" module-name="modelchecker" />
+    <orderEntry type="module" module-name="mps-modelchecker" />
     <orderEntry type="module" module-name="module" />
     <orderEntry type="module" module-name="mps" />
     <orderEntry type="module" module-name="mps-annotations" />
@@ -91,17 +90,15 @@
     <orderEntry type="module" module-name="mps-devkit" />
     <orderEntry type="module" module-name="mps-editor" />
     <orderEntry type="module" module-name="mps-icons" />
-    <orderEntry type="module" module-name="mps-java-platform" />
-    <orderEntry type="module" module-name="mps-java-workbench" />
     <orderEntry type="module" module-name="mps-messaging" />
     <orderEntry type="module" module-name="mps-project-excludes" />
     <orderEntry type="module" module-name="mps-testing" />
     <orderEntry type="module" module-name="mps-workbench" />
-    <orderEntry type="module" module-name="projectMigrations" />
+    <orderEntry type="module" module-name="mps-project-migrations" />
     <orderEntry type="module" module-name="refactoring" />
     <orderEntry type="module" module-name="resources" />
     <orderEntry type="module" module-name="resources_en" />
-    <orderEntry type="module" module-name="samples" />
+    <orderEntry type="module" module-name="mps-samples" />
     <orderEntry type="module" module-name="scripts-runtime" />
     <orderEntry type="module" module-name="smodel" />
     <orderEntry type="module" module-name="smodelquery-runtime" />
@@ -115,7 +112,7 @@
     <orderEntry type="module" module-name="typesystemIntegration" />
     <orderEntry type="module" module-name="typesystemUi" />
     <orderEntry type="module" module-name="util-core" />
-    <orderEntry type="module" module-name="vcs" />
+    <orderEntry type="module" module-name="mps-vcs" />
     <orderEntry type="module" module-name="vcs-core" />
     <orderEntry type="module" module-name="vcs-platform" />
   </component>

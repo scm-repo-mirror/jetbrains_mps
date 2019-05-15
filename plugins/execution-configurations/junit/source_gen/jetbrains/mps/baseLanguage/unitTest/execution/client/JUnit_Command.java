@@ -11,41 +11,15 @@ import java.util.List;
 import jetbrains.mps.baseLanguage.execution.api.JavaRunParameters;
 import com.intellij.execution.ExecutionException;
 import org.apache.log4j.Level;
+import jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitTests_Configuration;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
+import jetbrains.mps.baseLanguage.execution.api.Java_Command;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.smodel.MPSModuleRepository;
-import jetbrains.mps.baseLanguage.execution.api.Java_Command;
 import jetbrains.mps.internal.collections.runtime.IterableUtils;
 import jetbrains.mps.debug.api.IDebugger;
-import jetbrains.mps.baseLanguage.unitTest.execution.server.ExecutorScript;
-import jetbrains.mps.tool.common.ScriptData;
-import jetbrains.mps.tool.common.RepositoryDescriptor;
-import java.util.Set;
-import org.jetbrains.mps.openapi.module.SModule;
-import java.util.HashSet;
-import org.jetbrains.mps.openapi.module.SModuleReference;
-import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager;
-import java.util.Collection;
-import jetbrains.mps.internal.collections.runtime.CollectionSequence;
-import jetbrains.mps.project.AbstractModule;
-import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.project.PathMacros;
-import org.jdom.Element;
-import jetbrains.mps.tool.common.JDOMUtil;
-import org.jdom.Document;
-import java.io.IOException;
-import java.util.ArrayList;
-import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.internal.collections.runtime.SetSequence;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
-import java.util.LinkedList;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import java.net.URL;
-import jetbrains.mps.core.tool.environment.classloading.ClassloaderUtil;
-import java.net.URISyntaxException;
 import com.intellij.openapi.application.PathManager;
+import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.debug.api.run.IDebuggerConfiguration;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.debug.api.IDebuggerSettings;
@@ -100,7 +74,20 @@ public class JUnit_Command {
     }
     return new JUnit_Command().setProject_Project(myProject_Project).setVirtualMachineParameter_String(check_txeh3_a2a1a0a(javaRunParameters)).setJrePath_String((check_txeh3_a0d0b0a0(javaRunParameters) ? javaRunParameters.jrePath() : null)).setWorkingDirectory_File((isEmptyString(check_txeh3_a0a4a1a0a(javaRunParameters)) ? null : new File(javaRunParameters.workingDirectory()))).setDebuggerSettings_String(myDebuggerSettings_String).createProcess(tests);
   }
+  public ProcessHandler createProcess(Project project, List<ITestNodeWrapper> tests, JUnitTests_Configuration junitRC) throws ExecutionException {
+    JavaRunParameters javaParams = junitRC.getJavaRunParameters().getJavaParameters();
+    TestsWithParameters testsWithParams = TestsWithParameters.createFromTest2RunList(tests);
+    TestsWithParametersAndConfiguration settings = new TestsWithParametersAndConfiguration(project.getRepository(), testsWithParams, junitRC);
+
+    String updatedVmParams = JUnit_Command.getUpdatedVMParameters(settings);
+    List<String> calculatedCP = ListSequence.fromList(JUnit_Command.getClasspath(settings)).toListSequence();
+    String workingDir = javaParams.workingDirectory();
+    return new Java_Command().setVirtualMachineParameter_String(updatedVmParams).setClassPath_ListString(calculatedCP).setJrePath_String((check_txeh3_a0c0h0a1(javaParams) ? javaParams.jrePath() : null)).setWorkingDirectory_File((workingDir == null ? null : new File(workingDir))).setProgramParameter_String(JUnit_Command.getProgramParameters(settings)).setDebuggerSettings_String(myDebuggerSettings_String).createProcess(testsWithParams.getParameters().getExecutorClass().getName());
+  }
   public ProcessHandler createProcess(List<ITestNodeWrapper> tests) throws ExecutionException {
+    //  
+    // NOT TO BE USED 
+    //  
     if (myProject_Project == null) {
       // XXX we tolerate null project for transition period, clients have to supply one always 
       //     we shall fail with exception once legacy usages gone 
@@ -109,252 +96,41 @@ public class JUnit_Command {
         LOG.warn("This is deprecated (since MPS 2018.3) way to execute JUnit tests, please refactor", new Throwable());
       }
     }
-    if (tests == null) {
-      throw new ExecutionException("Tests to run are null.");
-    }
-    List<ITestNodeWrapper> testsNoNull = ListSequence.fromList(tests).where(new NotNullWhereFilter<ITestNodeWrapper>()).toListSequence();
-    if (ListSequence.fromList(testsNoNull).isEmpty()) {
-      throw new ExecutionException("No tests to run");
-    }
-    TestsWithParameters testsToRun = JUnit_Command.getTestsToRunWithParameters(testsNoNull);
-    if (ListSequence.fromList(tests).isEmpty()) {
-      throw new ExecutionException("Could not find tests to run.");
-    }
+    TestsWithParameters testsWithParams = TestsWithParameters.createFromTest2RunList(tests);
     // XXX use of global repository here is provisional, until legacy calls are here. 
     // It's fine to demand an MPS project when we launch MPS tests from ITestNodeWrapper 
     SRepository repo = (myProject_Project == null ? MPSModuleRepository.getInstance() : myProject_Project.getRepository());
-    return new Java_Command().setVirtualMachineParameter_String(IterableUtils.join(ListSequence.fromList(testsToRun.getParameters().getJvmArgs()), " ") + (((myVirtualMachineParameter_String != null && myVirtualMachineParameter_String.length() > 0) ? " " + myVirtualMachineParameter_String : ""))).setClassPath_ListString(ListSequence.fromList(JUnit_Command.getClasspath(testsToRun, repo)).toListSequence()).setJrePath_String(myJrePath_String).setWorkingDirectory_File(myWorkingDirectory_File).setProgramParameter_String(JUnit_Command.getProgramParameters(testsToRun, repo)).setDebuggerSettings_String(myDebuggerSettings_String).createProcess(testsToRun.getParameters().getExecutorClass().getName());
+    TestsWithParametersAndConfiguration settings = new TestsWithParametersAndConfiguration(repo, testsWithParams, null);
+
+    String vmArgs = IterableUtils.join(ListSequence.fromList(testsWithParams.getParameters().getJvmArgs()), " ") + (((myVirtualMachineParameter_String != null && myVirtualMachineParameter_String.length() > 0) ? " " + myVirtualMachineParameter_String : ""));
+    return new Java_Command().setVirtualMachineParameter_String(vmArgs).setClassPath_ListString(ListSequence.fromList(JUnit_Command.getClasspath(settings)).toListSequence()).setJrePath_String(myJrePath_String).setWorkingDirectory_File(myWorkingDirectory_File).setProgramParameter_String(JUnit_Command.getProgramParameters(settings)).setDebuggerSettings_String(myDebuggerSettings_String).createProcess(testsWithParams.getParameters().getExecutorClass().getName());
   }
 
   public static IDebugger getDebugger() {
     return getDebuggerConfiguration().getDebugger();
   }
 
-  private static String getProgramParameters(final TestsWithParameters testsToRun, final SRepository repo) throws ExecutionException {
-    if (testsToRun.getParameters().needsMPS()) {
-      ExecutorScript args = new ExecutorScript();
-      ScriptData startupArgs = args.addStartupArguments();
-      final RepositoryDescriptor rd = new RepositoryDescriptor();
-      // I've got set of reference to modules I need to present in a new MPS instance 
-      // and now have to guess their locations to pass to the new instance. 
-      // XXX here, we exploit the assumption module descriptor file resides under a module root 
-      repo.getModelAccess().runReadAction(new Runnable() {
-        public void run() {
-          Set<SModule> modules = new HashSet<SModule>();
-          for (SModuleReference testModule : testsToRun.getRequiredModules()) {
-            SModule tm = testModule.resolve(repo);
-            if (tm != null) {
-              modules.add(tm);
-            }
-          }
-          GlobalModuleDependenciesManager gmdm = new GlobalModuleDependenciesManager(modules);
-          Collection<SModule> execClosure = gmdm.getModules(GlobalModuleDependenciesManager.Deptype.EXECUTE);
-          for (SModule m : CollectionSequence.fromCollection(execClosure)) {
-            if (false == m instanceof AbstractModule) {
-              continue;
-            }
-            IFile descriptorFile = ((AbstractModule) m).getDescriptorFile();
-            if (descriptorFile == null) {
-              continue;
-            }
-            // XXX in fact, for non-deployed module this would end up with a module source dir, which is not 'file' per se, but as long as there's 
-            // no distinction in processing rd.files and rd.folders (ModulesMiner doesn't care), I don't bother here either. 
-            rd.files.add(descriptorFile.getBundleHome().getPath());
-          }
-        }
-      });
-      startupArgs.setRepo(rd);
-      // FIXME Shall use proper ComponentHost.findComponent to access PathMacros instance 
-      PathMacros pathMacros = PathMacros.getInstance();
-      // XXX not sure why we iterate over user names only (not getNames()), it's the way it used to be in LanguageTestWrapper/AbstractTestWrapper for a long time 
-      for (String key : pathMacros.getUserNames()) {
-        String value = pathMacros.getValue(key);
-        if (value != null) {
-          startupArgs.addMacro(key, value);
-        } else {
-          // XXX EnvironmentBase is not quite friendly to null macro values. I can't decide whether it's better to relax this restriction (who cares what macro value is 
-          // except its consumer?), to report a warning here or to let EnvironmentBase do that. 
-          if (LOG.isEnabledFor(Level.WARN)) {
-            LOG.warn(String.format("No value for macro %s, ignored", key));
-          }
-        }
-      }
-      // XXX could deduce required plugins from IdeaPluginModuleFacet of required modules. 
-      // startupArgs.addPlugin() 
-      startupArgs.setLoadBootstrapLibraries(true);
-      // XXX May want to pass value of idea.additional.classpath system property further to new IdeaApplication instance to ensure plugins that are  
-      // loaded from sources could get loaded in the new application as well. 
-      for (ITestNodeWrapper test : ListSequence.fromList(testsToRun.getTests())) {
-        args.addTest(test);
-      }
-      try {
-        File tempFile = File.createTempFile("test-exec", ".xml");
-        tempFile.deleteOnExit();
-        Element root = new Element("tests-exec");
-        args.write(root);
-        JDOMUtil.writeDocument(new Document(root), tempFile);
-        return tempFile.getAbsolutePath();
-      } catch (IOException ex) {
-        throw new ExecutionException("Failed to prepare arguments for test executor", ex);
-      }
+  private static List<String> getClasspath(TestsWithParametersAndConfiguration settings) {
+    return new CPCalculator(settings).calculate();
+  }
+  private static String getProgramParameters(TestsWithParametersAndConfiguration settings) throws ExecutionException {
+    return new ProgramParametersCalculator(settings).calculate();
+  }
+  private static String getUpdatedVMParameters(TestsWithParametersAndConfiguration settings) {
+    String vmParam = settings.myConfiguration.getJavaRunParameters().getJavaParameters().vmOptions();
+    vmParam = IterableUtils.join(ListSequence.fromList(settings.myTests2Run.getParameters().getJvmArgs()), " ") + (((vmParam != null && vmParam.length() > 0) ? " " + vmParam : ""));
+    String settingsPath = settings.myConfiguration.getJUnitSettings().getSettingsLocation();
+    if ((settingsPath != null && settingsPath.length() > 0)) {
+      String configPath = new File(settingsPath, "config").getAbsolutePath();
+      String systemPath = new File(settingsPath, "system").getAbsolutePath();
+      String logPath = new File(systemPath, "log").getAbsolutePath();
+      return vmParam + JUnit_Command.createPropString(PathManager.PROPERTY_CONFIG_PATH, configPath) + JUnit_Command.createPropString(PathManager.PROPERTY_SYSTEM_PATH, systemPath) + JUnit_Command.createPropString(PathManager.PROPERTY_LOG_PATH, logPath);
     } else {
-      List<String> testsCommandLine = ListSequence.fromList(new ArrayList<String>(ListSequence.fromList(testsToRun.getTests()).count() * 2));
-      for (ITestNodeWrapper test : ListSequence.fromList(testsToRun.getTests())) {
-        ListSequence.fromList(testsCommandLine).addElement((test.isTestCase() ? "-c" : "-m"));
-        ListSequence.fromList(testsCommandLine).addElement(test.getFqName());
-      }
-      return IterableUtils.join(ListSequence.fromList(testsCommandLine), " ");
+      return vmParam;
     }
   }
-  private static TestsWithParameters getTestsToRunWithParameters(@NotNull List<ITestNodeWrapper> tests) throws ExecutionException {
-    TestParameters runParams = JUnit_Command.getMaxParams(tests);
-    List<ITestNodeWrapper> testsToRun = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
-    List<ITestNodeWrapper> testsToSkip = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
-    for (ITestNodeWrapper test : ListSequence.fromList(tests)) {
-      TestParameters testRunParameters = test.getTestRunParameters();
-      if (runParams.comprises(testRunParameters)) {
-        ListSequence.fromList(testsToRun).addElement(test);
-      } else {
-        ListSequence.fromList(testsToSkip).addElement(test);
-      }
-    }
-    String skipped = IterableUtils.join(ListSequence.fromList(testsToSkip).select(new ISelector<ITestNodeWrapper, String>() {
-      public String select(ITestNodeWrapper it) {
-        return it.getName();
-      }
-    }), " ");
-    if ((skipped != null && skipped.length() > 0)) {
-      if (LOG.isEnabledFor(Level.WARN)) {
-        LOG.warn("All tests could not be executed together. Skipped: " + skipped);
-      }
-    }
-    Set<SModuleReference> uniqueModules = SetSequence.fromSet(new HashSet<SModuleReference>());
-    for (ITestNodeWrapper tt : testsToRun) {
-      SetSequence.fromSet(uniqueModules).addElement(tt.getTestNodeModule());
-    }
-    return new TestsWithParameters(testsToRun, runParams, uniqueModules);
-  }
-  private static TestParameters getMaxParams(List<ITestNodeWrapper> tests) {
-    TestParameters maxParams = ListSequence.fromList(tests).first().getTestRunParameters();
-    for (ITestNodeWrapper test : ListSequence.fromList(tests)) {
-      TestParameters newRunParams = test.getTestRunParameters();
-      if (newRunParams.comprises(maxParams)) {
-        maxParams = newRunParams;
-      }
-    }
-    return maxParams;
-  }
-  private static List<String> getClasspath(final TestsWithParameters tests, final SRepository repo) {
-    // next module used to be in defaults of TestParameters, don't see a reason why can't do it here, though. 
-    // With classpath, we have to  
-    // ensure *TestExecutor classes get loaded (unitTest.execution.server package). The best approach in that case 
-    // would be for TestParameters to tell set of required modules (instead of/in addition to classpath list) 
-    // as it's TestParameters class that knows specific contributor class location, however, such a change would 
-    // require changes in TestParameters#comprises() logic, which needs a thorough refactoring to get rid of  
-    // Class<> in getExecutorClass() anyway. 
-    // The reason I put it here is that I lean towards no executorClass in TestParameters at all, so that 
-    // this command would pick executor class based on information whether need to start MPS or not, and therfore 
-    // would add relevant module into classpath here anyway. 
-    final SModuleReference moduleWithExecutors = PersistenceFacade.getInstance().createModuleReference("f618e99a-2641-465c-bb54-31fe76f9e285(jetbrains.mps.baseLanguage.unitTest.execution)");
-
-    final List<String> classpath = ListSequence.fromList(new LinkedList<String>());
-    if (tests.getParameters().needsMPS()) {
-      // WithPlatformTestExecutor starts IDEA, therefore needs it in CP 
-      ListSequence.fromList(classpath).addSequence(ListSequence.fromList(JUnit_Command.collectFromLibFolder()).distinct());
-      ListSequence.fromList(classpath).addSequence(ListSequence.fromList(JUnit_Command.collectFromPreInstalledPluginsFolder()).distinct());
-      // Module classpath would get managed by IdeaEnvironment based on set of modules to load 
-      // 
-      // next is to ensure TestExecutor is loaded. Though it's part of execution plugin, it's a regular mps module 
-      // and is managed by MPS classloader once MPS starts, while we need it first, to start MPS. 
-      repo.getModelAccess().runReadAction(new Runnable() {
-        public void run() {
-          SModule m = moduleWithExecutors.resolve(repo);
-          if (m != null) {
-            ListSequence.fromList(classpath).addSequence(ListSequence.fromList(Java_Command.getClasspath(Sequence.<SModule>singleton(m))));
-          } else {
-            String msg = String.format("No test module %s is available, execution classpath may be invalid.", moduleWithExecutors.getModuleName());
-            // we likely to fail anyway, error is better than warn 
-            if (LOG.isEnabledFor(Level.ERROR)) {
-              LOG.error(msg);
-            }
-          }
-
-        }
-      });
-    } else {
-      // when no MPS is started, we just build a regular Java classpath with everything test classes may need. 
-      repo.getModelAccess().runReadAction(new Runnable() {
-        public void run() {
-          Set<SModule> uniqueModules = SetSequence.fromSet(new HashSet<SModule>());
-          List<SModuleReference> requiredModules = new ArrayList<SModuleReference>(tests.getRequiredModules());
-          requiredModules.add(moduleWithExecutors);
-          for (SModuleReference testModule : requiredModules) {
-            SModule module = testModule.resolve(repo);
-            if (module != null) {
-              SetSequence.fromSet(uniqueModules).addElement(module);
-            } else {
-              String m = String.format("No test module %s is available, execution classpath may be invalid.", testModule.getModuleName());
-              if (LOG.isEnabledFor(Level.WARN)) {
-                LOG.warn(m);
-              }
-            }
-          }
-          ListSequence.fromList(classpath).addSequence(ListSequence.fromList(Java_Command.getClasspath(uniqueModules)));
-        }
-      });
-    }
-    return ListSequence.fromList(tests.getParameters().getClassPath()).union(ListSequence.fromList(classpath)).toListSequence();
-  }
-  private static List<String> collectFromLibFolder() {
-    List<URL> urls = ListSequence.fromList(new ArrayList<URL>());
-    ClassloaderUtil.addIDEALibraries(urls);
-    // FIXME Look, this is stupid. First, we collect library location as files, then translate them to toURI().toURL() only to get File path back here. 
-    List<String> rv = ListSequence.fromList(new ArrayList<String>(ListSequence.fromList(urls).count()));
-    for (URL u : ListSequence.fromList(urls)) {
-      // NOTE, URL.getPath() gives URL segment with escaped characters (e.g. %20), therefore we resort to toURI to get them unescaped. 
-      try {
-        ListSequence.fromList(rv).addElement(u.toURI().getPath());
-      } catch (URISyntaxException ex) {
-        if (LOG.isEnabledFor(Level.ERROR)) {
-          LOG.error("Bad library location", ex);
-        }
-      }
-    }
-    return rv;
-  }
-  private static List<String> collectFromPreInstalledPluginsFolder() {
-    List<String> result = ListSequence.fromList(new ArrayList<String>());
-    File preinstalledFolder = new File(PathManager.getPreInstalledPluginsPath());
-    final File[] pluginFiles = preinstalledFolder.listFiles();
-    if (pluginFiles != null) {
-      for (final File pluginFile : pluginFiles) {
-        if (!(ClassloaderUtil.isJarOrZip(pluginFile))) {
-          File classesDir = new File(pluginFile, "classes");
-          if (classesDir.exists()) {
-            ListSequence.fromList(result).addElement(classesDir.getAbsolutePath());
-          }
-          File libDir = new File(pluginFile, "lib");
-          if (libDir.exists()) {
-            ListSequence.fromList(result).addSequence(ListSequence.fromList(JUnit_Command.allJarsUnderRoot(libDir)));
-          }
-        }
-      }
-    }
-    ListSequence.fromList(result).addSequence(ListSequence.fromList(JUnit_Command.allJarsUnderRoot(preinstalledFolder)));
-    return result;
-  }
-  private static List<String> allJarsUnderRoot(File root) {
-    List<String> res = ListSequence.fromList(new ArrayList<String>());
-    File[] children = root.listFiles();
-    if (children != null) {
-      for (final File childFile : children) {
-        if (ClassloaderUtil.isJarOrZip(childFile)) {
-          ListSequence.fromList(res).addElement(childFile.getAbsolutePath());
-        }
-      }
-    }
-
-    return res;
+  private static String createPropString(String propName, String propValue) {
+    return " -D" + propName + "=" + NameUtil.escapeString(propValue);
   }
 
   public static IDebuggerConfiguration getDebuggerConfiguration() {
@@ -385,6 +161,12 @@ public class JUnit_Command {
       return checkedDotOperand.workingDirectory();
     }
     return null;
+  }
+  private static boolean check_txeh3_a0c0h0a1(JavaRunParameters checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return (boolean) checkedDotOperand.useAlternativeJre();
+    }
+    return false;
   }
   private static boolean isEmptyString(String str) {
     return str == null || str.length() == 0;

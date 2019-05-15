@@ -16,6 +16,7 @@
 package jetbrains.mps.reloading;
 
 import jetbrains.mps.module.ReloadableModule;
+import jetbrains.mps.module.ReloadableModule.DeploymentStatus;
 import jetbrains.mps.util.JavaNameUtil;
 import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -36,8 +37,12 @@ public final class ReflectionUtil {
   }
 
   public static Class forName(SModule module, SNode classNode) {
-    if (!(module instanceof ReloadableModule && ((ReloadableModule) module).willLoad())) {
-      throw new IllegalStateException("Module: " + module + "; class node: " + classNode);
+    if (!(module instanceof ReloadableModule)) {
+      throw new IllegalStateException("It is not possible to load classes from " + module);
+    }
+    DeploymentStatus status = ((ReloadableModule) module).getStatus();
+    if (!status.canBeDeployed()) {
+      throw new IllegalStateException("It is possible to load class from " + module + "; class node: " + classNode + "; " + status.getMessage());
     }
     String dottedName = classNode.getName();
     String dollarName = "null";

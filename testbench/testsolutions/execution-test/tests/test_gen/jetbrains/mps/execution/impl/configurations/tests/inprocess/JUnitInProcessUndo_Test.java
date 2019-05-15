@@ -20,8 +20,11 @@ import java.util.ArrayList;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState;
-import jetbrains.mps.execution.configurations.implementation.plugin.plugin.Executor;
-import jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitInProcessExecutor;
+import com.intellij.openapi.project.Project;
+import jetbrains.mps.project.MPSProject;
+import jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitTests_Configuration;
+import jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitProcessStarter;
+import jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitInProcessRunStarter;
 import com.intellij.execution.process.ProcessHandler;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.execution.impl.configurations.tests.commands.CheckTestStateListener;
@@ -64,8 +67,10 @@ public class JUnitInProcessUndo_Test extends BaseTransformationTest {
       try {
         List<ITestNodeWrapper> testNodes = ListSequence.fromList(success).union(ListSequence.fromList(failure)).toListSequence();
         final TestRunState runState = new TestRunState(testNodes);
+        Project ideaProject = ((MPSProject) myProject).getProject();
+        JUnitTests_Configuration junitRC = new JUnitTests_Configuration(ideaProject, null, "dummyRCInitializer");
 
-        Executor processExecutor = new JUnitInProcessExecutor(myProject, "testtest", testNodes);
+        JUnitProcessStarter processExecutor = new JUnitInProcessRunStarter(myProject, junitRC, testNodes);
         if (LOG.isInfoEnabled()) {
           LOG.info("Starting in-process-execution");
         }

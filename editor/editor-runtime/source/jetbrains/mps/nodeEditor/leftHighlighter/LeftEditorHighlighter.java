@@ -726,7 +726,7 @@ public class LeftEditorHighlighter extends JComponent implements TooltipComponen
     }
 
     @Override
-    public Object getData(@NonNls String dataId) {
+    public Object getData(@NotNull @NonNls String dataId) {
       if (MPSCommonDataKeys.NODE.is(dataId)) {
         return mySelectedNode;
       }

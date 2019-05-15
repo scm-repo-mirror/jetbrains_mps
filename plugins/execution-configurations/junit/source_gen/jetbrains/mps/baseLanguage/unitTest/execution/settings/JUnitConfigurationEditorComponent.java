@@ -23,7 +23,7 @@ import jetbrains.mps.ide.common.LayoutUtil;
 import com.intellij.ui.components.JBTextField;
 import javax.swing.Box;
 import jetbrains.mps.baseLanguage.execution.api.JavaConfigurationEditorComponent;
-import java.awt.Component;
+import jetbrains.mps.execution.configurations.implementation.plugin.plugin.DeployEditorPanel;
 import java.util.List;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -38,7 +38,7 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
 public class JUnitConfigurationEditorComponent extends JBPanel {
   private final InProcessJBCheckBox myInProcessCheckBox = new InProcessJBCheckBox("Execute in the same process ");
   private final JBCheckBox myReuseCachesCheckBox = new JBCheckBox("Reuse caches", true);
-  private final JBCheckBox myOverrideCachesCheckBox = new JBCheckBox("Override the default caches location:");
+  private final JBCheckBox myOverrideCachesCheckBox = new JBCheckBox("Override the default settings location:");
   private final FieldWithPathChooseDialog myCachesDir = new FieldWithPathChooseDialog(new FileChooserDescriptor(false, true, false, false, false, false));
 
   private final Project myProject;
@@ -166,7 +166,6 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
     add(myClassesList, LayoutUtil.createPanelConstraints(1));
     add(myMethodsList, LayoutUtil.createPanelConstraints(1));
     add(myInProcessCheckBox, LayoutUtil.createFieldConstraints(2));
-    add(myReuseCachesCheckBox, LayoutUtil.createFieldConstraints(3));
     add(saveCachesPanel, LayoutUtil.createFieldConstraints(4));
   }
 
@@ -174,10 +173,9 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
     myCachesDir.setEnabled(myOverrideCachesCheckBox.isSelected() & !(myInProcessCheckBox.isSelected()));
   }
 
-  public void attachJavaComponentsAndUpdateInProcessFlag(final JavaConfigurationEditorComponent javaEditorComponent) {
-    for (Component comp : javaEditorComponent.getComponents()) {
-      myInProcessCheckBox.registerDisableIffSelectedUpdater(comp);
-    }
+  public void attachJavaAndDeployComponentsAndUpdateInProcessFlag(final JavaConfigurationEditorComponent javaEditorComponent, DeployEditorPanel deployEditorPanel) {
+    myInProcessCheckBox.registerDisableIffSelectedUpdater(javaEditorComponent);
+    myInProcessCheckBox.registerDisableIffSelectedUpdater(deployEditorPanel);
     myInProcessCheckBox.registerDisableIffSelectedUpdater(myReuseCachesCheckBox);
     myInProcessCheckBox.registerDisableIffSelectedUpdater(myOverrideCachesCheckBox);
     InProcessJBCheckBox.Updater cachesDirUpdater = new InProcessJBCheckBox.Updater() {
@@ -208,28 +206,29 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
     final ClonableList<String> testCases = new ClonableList<String>();
     final Wrappers._T<String> model = new Wrappers._T<String>();
     final Wrappers._T<String> module = new Wrappers._T<String>();
+    if (myProject != null) {
+      myProject.getModelAccess().runReadAction(new Runnable() {
+        public void run() {
+          for (ITestNodeWrapper testMethod : methods) {
+            testMethods.add(PointerUtils.pointerToString(testMethod.getNodePointer()));
+          }
 
-    myProject.getModelAccess().runReadAction(new Runnable() {
-      public void run() {
-        for (ITestNodeWrapper testMethod : methods) {
-          testMethods.add(PointerUtils.pointerToString(testMethod.getNodePointer()));
-        }
+          for (ITestNodeWrapper testCase : classes) {
+            testCases.add(PointerUtils.pointerToString(testCase.getNodePointer()));
+          }
 
-        for (ITestNodeWrapper testCase : classes) {
-          testCases.add(PointerUtils.pointerToString(testCase.getNodePointer()));
+          SModelReference modelRef = myModelChooser.getReference();
+          if (modelRef != null) {
+            model.value = PersistenceRegistry.getInstance().asString(modelRef);
+          }
+          SModuleReference moduleRef = myModuleChooser.getReference();
+          if (moduleRef != null) {
+            module.value = moduleRef.toString();
+          }
         }
+      });
 
-        SModelReference modelRef = myModelChooser.getReference();
-        if (modelRef != null) {
-          model.value = PersistenceRegistry.getInstance().asString(modelRef);
-        }
-        SModuleReference moduleRef = myModuleChooser.getReference();
-        if (moduleRef != null) {
-          module.value = moduleRef.toString();
-        }
-      }
-    });
-
+    }
     configuration.setRunType(myRunKind.ordinal());
 
     configuration.setTestMethods(testMethods);
@@ -265,36 +264,40 @@ public class JUnitConfigurationEditorComponent extends JBPanel {
       myModuleChooser.setModule(settings.getModuleReference());
     }
 
-    myCachesDir.setText(settings.getCachesLocation());
+    myCachesDir.setText(settings.getSettingsLocation());
     updateCheckBoxes(settings);
     updatePanels();
   }
 
   private List<ITestNodeWrapper> loadMethodsFromPersistence(final JUnitSettings_Configuration settings) {
     final List<ITestNodeWrapper> methods = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
-    myProject.getModelAccess().runReadAction(new Runnable() {
-      public void run() {
-        ListSequence.fromList(TestUtils.wrapPointerStrings(myProject, settings.getTestMethods())).visitAll(new IVisitor<ITestNodeWrapper>() {
-          public void visit(ITestNodeWrapper it) {
-            ListSequence.fromList(methods).addElement(it);
-          }
-        });
-      }
-    });
+    if (myProject != null) {
+      myProject.getModelAccess().runReadAction(new Runnable() {
+        public void run() {
+          ListSequence.fromList(TestUtils.wrapPointerStrings(myProject, settings.getTestMethods())).visitAll(new IVisitor<ITestNodeWrapper>() {
+            public void visit(ITestNodeWrapper it) {
+              ListSequence.fromList(methods).addElement(it);
+            }
+          });
+        }
+      });
+    }
     return methods;
   }
 
   private List<ITestNodeWrapper> loadTestCasesFromPersistence(final JUnitSettings_Configuration settings) {
     final List<ITestNodeWrapper> classes = ListSequence.fromList(new ArrayList<ITestNodeWrapper>());
-    myProject.getModelAccess().runReadAction(new Runnable() {
-      public void run() {
-        ListSequence.fromList(TestUtils.wrapPointerStrings(myProject, settings.getTestCases())).visitAll(new IVisitor<ITestNodeWrapper>() {
-          public void visit(ITestNodeWrapper it) {
-            ListSequence.fromList(classes).addElement(it);
-          }
-        });
-      }
-    });
+    if (myProject != null) {
+      myProject.getModelAccess().runReadAction(new Runnable() {
+        public void run() {
+          ListSequence.fromList(TestUtils.wrapPointerStrings(myProject, settings.getTestCases())).visitAll(new IVisitor<ITestNodeWrapper>() {
+            public void visit(ITestNodeWrapper it) {
+              ListSequence.fromList(classes).addElement(it);
+            }
+          });
+        }
+      });
+    }
     return classes;
   }
 

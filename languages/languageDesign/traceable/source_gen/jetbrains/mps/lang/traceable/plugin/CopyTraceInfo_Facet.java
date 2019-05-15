@@ -27,7 +27,7 @@ import jetbrains.mps.internal.make.runtime.util.FilesDelta;
 import jetbrains.mps.textgen.trace.TraceInfoCache;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.vfs.FileSystem;
-import jetbrains.mps.vfs.IFileUtils;
+import jetbrains.mps.util.IFileUtil;
 import jetbrains.mps.make.script.IConfig;
 import jetbrains.mps.make.script.IPropertiesPool;
 import java.util.Map;
@@ -99,7 +99,7 @@ public class CopyTraceInfo_Facet extends IFacet.Stub {
                         @Override
                         public boolean acceptWritten(IFile file) {
                           if (file.getName().equals(TraceInfoCache.TRACE_FILE_NAME)) {
-                            IFile copy = destination.getDescendant(file.getName());
+                            IFile copy = destination.findChild(file.getName());
                             ListSequence.fromList(toCopy).addElement(MultiTuple.<IFile,IFile>from(file, copy));
                           }
                           return true;
@@ -119,7 +119,7 @@ public class CopyTraceInfo_Facet extends IFacet.Stub {
                     });
                     ListSequence.fromList(toCopy).visitAll(new IVisitor<Tuples._2<IFile, IFile>>() {
                       public void visit(Tuples._2<IFile, IFile> ftc) {
-                        IFileUtils.copyFileContent(ftc._0(), ftc._1());
+                        IFileUtil.copyFileContent(ftc._0(), ftc._1());
                       }
                     });
                   }

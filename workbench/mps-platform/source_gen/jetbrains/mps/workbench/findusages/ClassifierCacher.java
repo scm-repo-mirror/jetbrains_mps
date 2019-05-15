@@ -44,10 +44,10 @@ public class ClassifierCacher {
     myResult.put(new IdIndexEntry(concept.getQualifiedName(), true), 0);
   }
   private void ref(SNodeId id) {
-    if (!(id instanceof jetbrains.mps.smodel.SNodeId.Foreign)) {
+    if (!(id instanceof jetbrains.mps.smodel.SNodeId.StringBasedId)) {
       return;
     }
-    myResult.put(new IdIndexEntry(((jetbrains.mps.smodel.SNodeId.Foreign) id).getId(), true), 0);
+    myResult.put(new IdIndexEntry(((jetbrains.mps.smodel.SNodeId.StringBasedId) id).getId(), true), 0);
   }
   private void modelRef(String packageName) {
     myResult.put(new IdIndexEntry(packageName + "@java_stub", true), 0);
@@ -70,6 +70,7 @@ public class ClassifierCacher {
       updateExtendsForInterface(ac);
       updateStaticFields(ac);
       updateInstanceMethods(ac);
+      updateStaticMethods(ac, kind);
     } else if (kind == ClassifierKind.ANNOTATIONS) {
       instance(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a69dc80cL, "jetbrains.mps.baseLanguage.structure.Annotation"));
       updateAnnotationMethods(ac);

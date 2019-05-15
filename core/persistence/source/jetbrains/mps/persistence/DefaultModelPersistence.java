@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,6 @@ import jetbrains.mps.smodel.loading.ModelLoadingState;
 import jetbrains.mps.smodel.persistence.def.ModelPersistence;
 import jetbrains.mps.smodel.persistence.def.ModelReadException;
 import jetbrains.mps.util.FileUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -41,7 +40,6 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.persistence.DataSource;
-import org.jetbrains.mps.openapi.persistence.ModelCreationException;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
 import org.jetbrains.mps.openapi.persistence.ModelFactoryType;
 import org.jetbrains.mps.openapi.persistence.ModelLoadException;
@@ -56,7 +54,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -68,67 +65,22 @@ import java.util.Map;
 public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFactory {
   private static final Logger LOG = LogManager.getLogger(DefaultModelPersistence.class);
 
-  /**
-   * Boolean option for model loading, indicates loaded model doesn't care about implementation node.
-   * For the time being, implementation node is the one with appropriate ConceptKind (designated according to concept's implemented interfaces).
-   *
-   * @deprecated use {@link ContentLoadingExtentOptions} instead
-   */
-  @ToRemove(version = 3.7)
-  @Deprecated
-  public static final String OPTION_STRIP_IMPLEMENTATION = "load-without-impl";
-
-  /**
-   * Boolean option for model loading, indicates loaded model cares about its interface aspects only.
-   *
-   * @deprecated use {@link ContentLoadingExtentOptions} instead
-   */
-  @ToRemove(version = 3.7)
-  @Deprecated
-  public static final String OPTION_INTERFACE_ONLY = "load-interface-only";
-
   public enum ContentLoadingExtentOptions implements ModelLoadingOption {
+    /**
+     * An option for model loading, indicates loaded model doesn't care about implementation node.
+     * For the time being, implementation node is the one with appropriate ConceptKind (designated according to concept's implemented interfaces).
+     */
     STRIP_IMPLEMENTATION,
+    /**
+     * Boolean option for model loading, indicates loaded model cares about its interface aspects only.
+     *
+     */
     INTERFACE_ONLY
   }
 
   @Internal
   public DefaultModelPersistence() {
     // do not delete, it is a java service
-  }
-
-  @NotNull
-  @Override
-  public SModel load(@NotNull DataSource dataSource, @NotNull Map<String, String> options) throws IOException {
-    List<ModelLoadingOption> newOptions = new ArrayList<>();
-    if (Boolean.parseBoolean(options.get(MetaModelInfoProvider.OPTION_KEEP_READ_METAINFO))) {
-      newOptions.add(MetaInfoLoadingOption.KEEP_READ);
-    }
-    if (options.containsKey(OPTION_STRIP_IMPLEMENTATION) && Boolean.parseBoolean(options.get(OPTION_STRIP_IMPLEMENTATION))) {
-      newOptions.add(ContentLoadingExtentOptions.STRIP_IMPLEMENTATION);
-    } else if (options.containsKey(OPTION_INTERFACE_ONLY) && Boolean.parseBoolean(options.get(OPTION_INTERFACE_ONLY))) {
-      newOptions.add(ContentLoadingExtentOptions.INTERFACE_ONLY);
-    }
-    try {
-      return load(dataSource, newOptions.toArray(new ModelLoadingOption[0]));
-    } catch (ModelLoadException e) {
-      throw new IOException(e);
-    }
-  }
-
-  @NotNull
-  @Override
-  public SModel create(@NotNull DataSource dataSource, @NotNull Map<String, String> options) throws IOException {
-    String modelName = options.get(OPTION_MODELNAME);
-    if (modelName == null) {
-      throw new IOException("modelName is not provided");
-    }
-    return create(dataSource, new SModelName(modelName));
-  }
-
-  @Override
-  public boolean canCreate(@NotNull DataSource dataSource, @NotNull Map<String, String> options) {
-    return dataSource instanceof StreamDataSource;
   }
 
   @Override
@@ -176,7 +128,7 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
     LOG.debug("Getting model " + header.getModelReference() + " from " + dataSource.getLocation());
 
     if (Arrays.asList(options).contains(MetaInfoLoadingOption.KEEP_READ)) {
-      header.setMetaInfoProvider(new StuffedMetaModelInfo(new RegularMetaModelInfo(header.getModelReference())));
+      header.setMetaInfoProvider(new StuffedMetaModelInfo(new RegularMetaModelInfo()));
     }
 
     // If there are any load options, process them and fill the model with desired model data, otherwise return a lightweight descriptor.
@@ -290,22 +242,6 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
     return ModelPersistence.getModelData(input);
   }
 
-  @Override
-  public boolean isBinary() {
-    return false;
-  }
-
-  @Override
-  public String getFileExtension() {
-    return MPSExtentions.MODEL;
-  }
-
-  @NotNull
-  @Override
-  public String getFormatTitle() {
-    return "Universal XML-based format";
-  }
-
   @NotNull
   @Override
   public ModelFactoryType getType() {
@@ -363,35 +299,24 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
 
   private static class PersistenceFacility extends LazyLoadFacility {
     /*package*/ PersistenceFacility(DefaultModelPersistence modelFactory, StreamDataSource dataSource) {
-      super(modelFactory, dataSource);
+      super(modelFactory, dataSource, true);
     }
 
     @NotNull
-    @Override
-    public StreamDataSource getSource() {
+    private StreamDataSource getSource0() {
       return (StreamDataSource) super.getSource();
-    }
-
-    @Override
-    public Map<String, String> getGenerationHashes() {
-      Map<String, String> generationHashes = ModelDigestHelper.getInstance().getGenerationHashes(getSource());
-      if (generationHashes != null) {
-        return generationHashes;
-      }
-
-      return DefaultModelPersistence.getDigestMap(getSource());
     }
 
     @NotNull
     @Override
     public SModelHeader readHeader() throws ModelReadException {
-      return ModelPersistence.loadDescriptor(getSource());
+      return ModelPersistence.loadDescriptor(getSource0());
     }
 
     @NotNull
     @Override
     public ModelLoadResult readModel(@NotNull SModelHeader header, @NotNull ModelLoadingState state) throws ModelReadException {
-      return ModelPersistence.readModel(header, getSource(), state);
+      return ModelPersistence.readModel(header, getSource0(), state);
     }
 
     @Override
@@ -402,7 +327,7 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
 
     @Override
     public void saveModel(@NotNull SModelHeader header, SModelData modelData) throws IOException {
-      ModelPersistence.saveModel((jetbrains.mps.smodel.SModel) modelData, getSource(), header.getPersistenceVersion());
+      ModelPersistence.saveModel((jetbrains.mps.smodel.SModel) modelData, getSource0(), header.getPersistenceVersion());
     }
   }
 }

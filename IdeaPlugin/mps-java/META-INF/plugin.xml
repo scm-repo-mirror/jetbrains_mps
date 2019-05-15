@@ -19,9 +19,9 @@
   <name>MPS BaseLanguage Support</name>
   <description>Support of the MPS BaseLanguage (JAVA)</description>
   <category>Custom Languages</category>
-  <version>2019.1</version>
+  <version>2019.2</version>
   <vendor url="http://www.jetbrains.com/mps/">JetBrains</vendor>
-  <idea-version since-build="191.1" until-build="192.1"/>
+  <idea-version since-build="191.1" until-build="193.1"/>
   <depends>jetbrains.mps.core</depends>
   <depends>jetbrains.mps.ide.migration.idea</depends>
 
@@ -74,7 +74,7 @@
     <mps.psiSourceFinder implementation="jetbrains.mps.idea.java.psiStubs.Mapper"/>
     <mps.renameRefactoringContributor className="jetbrains.mps.idea.java.refactoring.MethodRenameContributor" order="before mps-core-rename"/>
     <debugger.positionManagerFactory implementation="jetbrains.mps.idea.java.debugger.MpsPositionManagerFactory"/>
-    <compileServer.plugin classpath="jps/mps-java-jps-plugin.jar;mps-java-platform.jar"/>
+    <compileServer.plugin classpath="jps/mps-java-jps-plugin.jar;java-platform.jar;java-core.jar"/>
     <referencesSearch implementation="jetbrains.mps.idea.java.usages.MPSReferenceSearch"/>
     <referencesSearch implementation="jetbrains.mps.idea.java.usages.IdPrefixSearch"/>
     <java.elementFinder implementation="jetbrains.mps.idea.java.psi.impl.MPSJavaClassFinder"/>

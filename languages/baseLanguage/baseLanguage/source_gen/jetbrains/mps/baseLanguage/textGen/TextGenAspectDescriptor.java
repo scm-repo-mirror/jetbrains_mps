@@ -100,8 +100,6 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
         return new ClassifierType_TextGen();
       case LanguageConceptSwitch.CommentedStatement:
         return new CommentedStatement_TextGen();
-      case LanguageConceptSwitch.CommentedStatementsBlock:
-        return new CommentedStatementsBlock_TextGen();
       case LanguageConceptSwitch.ConceptFunctionParameter:
         return new ConceptFunctionParameter_TextGen();
       case LanguageConceptSwitch.ConstructorDeclaration:

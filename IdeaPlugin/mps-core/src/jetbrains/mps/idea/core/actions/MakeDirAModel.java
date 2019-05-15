@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,14 +46,12 @@ import jetbrains.mps.vfs.IFile;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
-import org.jetbrains.mps.openapi.persistence.ModelRoot;
 import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
 
 /**
@@ -125,7 +123,8 @@ public class MakeDirAModel extends NewModelActionBase {
   }
 
   private EditableSModel createModel(final AnActionEvent e) {
-    return new ModelAccessHelper(ProjectHelper.getModelAccess(myProject)).executeCommand(() -> {
+    final MPSProject mpsProject = ProjectHelper.fromIdeaProject(myProject);
+    return new ModelAccessHelper(mpsProject.getModelAccess()).executeCommand(() -> {
       EditableSModel model = null;
       try {
         SModelName newModelName = new SModelName(myModelPrefix);
@@ -135,7 +134,7 @@ public class MakeDirAModel extends NewModelActionBase {
         }
         VirtualFile targetFile = psiDir.getVirtualFile();
         DataSourceFactoryFromName dataSourceFactory = createDataSourceFactory(targetFile);
-        ModelFactory modelFactory = ModelFactoryService.getInstance().getFactoryByType(PreinstalledModelFactoryTypes.PER_ROOT_XML);
+        ModelFactory modelFactory = mpsProject.getComponent(ModelFactoryService.class).getFactoryByType(PreinstalledModelFactoryTypes.PER_ROOT_XML);
         model = (EditableSModel) myModelRoot.createModel(newModelName, mySourceRoot, dataSourceFactory, modelFactory);
       } catch (ModelCannotBeCreatedException ex) {
         LOG.error("", ex);
@@ -165,9 +164,9 @@ public class MakeDirAModel extends NewModelActionBase {
 
       @NotNull
       @Override
-      public DataSource create(@NotNull SModelName modelName, @NotNull SourceRoot sourceRoot, @Nullable ModelRoot modelRoot) {
+      public DataSource create(@NotNull SModelName modelName, @NotNull SourceRoot sourceRoot) {
         IFile folder = VirtualFileUtils.toIFile(targetFile);
-        return new FilePerRootDataSource(folder, modelRoot);
+        return new FilePerRootDataSource(folder);
       }
     };
   }

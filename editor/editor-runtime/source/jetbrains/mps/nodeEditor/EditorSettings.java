@@ -176,6 +176,14 @@ public class EditorSettings implements ApplicationComponent, PersistentStateComp
     myState.useTwoStepDeletion = useTwoStepDeletion;
   }
 
+  public boolean isReflectiveEditorReadonly() {
+    return myState.reflectiveEditorReadonly;
+  }
+
+  public void setReflectiveEditorReadonly(boolean reflectiveEditorReadonly) {
+    myState.reflectiveEditorReadonly = reflectiveEditorReadonly;
+  }
+
   public boolean isPowerSaveMode() {
     return PowerSaveMode.isEnabled();
   }
@@ -191,6 +199,15 @@ public class EditorSettings implements ApplicationComponent, PersistentStateComp
 
   public void setAutoQuickFix(boolean autoQuickFix) {
     myState.autoQuickFix = autoQuickFix;
+  }
+
+
+  public boolean isCompletionStyling() {
+    return myState.completionStyling;
+  }
+
+  public void setCompletionStyling(boolean completionStyling) {
+    myState.completionStyling = completionStyling;
   }
 
   /**
@@ -359,6 +376,7 @@ public class EditorSettings implements ApplicationComponent, PersistentStateComp
     public int verticalBound = 120;
 
     public boolean autoQuickFix = false;
+    public boolean completionStyling = true;
 
     public boolean showPlain = true;
     public boolean showGrayed = true;
@@ -366,6 +384,7 @@ public class EditorSettings implements ApplicationComponent, PersistentStateComp
 
     public boolean showContextAssistant = true;
     public int caretBlinkPeriod = DEFAULT_CARET_BLINK_PERIOD;
+    public boolean reflectiveEditorReadonly = false;
 
     @Override
     public boolean equals(Object o) {
@@ -417,6 +436,9 @@ public class EditorSettings implements ApplicationComponent, PersistentStateComp
       if (showContextAssistant != myState.showContextAssistant) {
         return false;
       }
+      if (reflectiveEditorReadonly != myState.reflectiveEditorReadonly) {
+        return false;
+      }
       if (caretBlinkPeriod != myState.caretBlinkPeriod) {
         return false;
       }
@@ -442,6 +464,7 @@ public class EditorSettings implements ApplicationComponent, PersistentStateComp
       result = 31 * result + (showGrayed ? 1 : 0);
       result = 31 * result + (show ? 1 : 0);
       result = 31 * result + (showContextAssistant ? 1 : 0);
+      result = 31 * result + (reflectiveEditorReadonly ? 1 : 0);
       result = 31 * result + caretBlinkPeriod;
       return result;
     }

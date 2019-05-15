@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,8 +27,8 @@ import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.ui.content.Content;
-import com.intellij.ui.content.ContentFactoryImpl;
 import com.intellij.ui.content.ContentManager;
+import com.intellij.util.ui.update.UiNotifyConnector;
 import jetbrains.mps.ide.ThreadUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -41,7 +41,6 @@ import javax.swing.KeyStroke;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -93,12 +92,8 @@ public abstract class BaseTool {
     return myIcon;
   }
 
-  synchronized private boolean isRegistered() {
+  private boolean isRegistered() {
     return myIsRegistered;
-  }
-
-  synchronized private void setIsRegistered(boolean isRegistered) {
-    myIsRegistered = isRegistered;
   }
 
   public boolean toolIsOpened() {
@@ -233,7 +228,7 @@ public abstract class BaseTool {
       return;
     }
     ThreadUtils.assertEDT();
-    setIsRegistered(true);
+    myIsRegistered = true;
 
     myWindowManager = ToolWindowManager.getInstance(myProject);
 
@@ -286,16 +281,14 @@ public abstract class BaseTool {
 
     doRegister();
 
-    if (myComponent == null) {
-      myComponent = getComponent();
-    }
-    if (myComponent != null) {
-      addContent(myComponent, "", null, false);
-    }
-
-    toolWindow.setToHideOnEmptyContent(true);
-    toolWindow.installWatcher(toolWindow.getContentManager());
-    setAvailable(isInitiallyAvailable());
+    UiNotifyConnector.doWhenFirstShown(toolWindow.getComponent(), () -> {
+      if (myComponent == null) {
+        myComponent = getComponent();
+      }
+      if (myComponent != null) {
+        addContent(myComponent, "", null, false);
+      }
+    });
   }
 
   /**
@@ -307,8 +300,9 @@ public abstract class BaseTool {
   }
 
   public int getCurrentTabIndex() {
-    ContentManager contentManager = getContentManager();
-    return contentManager.getIndexOfContent(contentManager.getSelectedContent());
+    final ContentManager contentManager = getContentManager();
+    final Content selectedContent = contentManager.getSelectedContent();
+    return selectedContent == null ? -1 : contentManager.getIndexOfContent(selectedContent);
   }
 
   protected AnAction createCloseAction() {
@@ -385,14 +379,14 @@ public abstract class BaseTool {
   }
 
   protected Content addContent(JComponent component, @NotNull String name, Icon icon, boolean isLockable) {
-    Content content = new ContentFactoryImpl().createContent(component, name, isLockable);
+    ContentManager contentManager = getContentManager();
+    Content content = contentManager.getFactory().createContent(component, name, isLockable);
     if (icon != null) {
       content.putUserData(ToolWindow.SHOW_CONTENT_ICON, Boolean.TRUE);
       content.setIcon(icon);
     } else {
       content.setIcon(myIcon);
     }
-    ContentManager contentManager = getContentManager();
     contentManager.addContent(content);
     return content;
   }

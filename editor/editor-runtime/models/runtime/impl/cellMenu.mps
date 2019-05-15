@@ -8,32 +8,18 @@
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="8" />
   </languages>
   <imports>
-    <import index="tpce" ref="r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)" />
-    <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
     <import index="6lvu" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.cellMenu(MPS.Editor/)" />
-    <import index="wwqx" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.logging(MPS.Core/)" />
     <import index="zce0" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.smodel.action(MPS.Editor/)" />
-    <import index="exr9" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor(MPS.Editor/)" />
-    <import index="g51k" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.cells(MPS.Editor/)" />
-    <import index="5b0" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.presentation(MPS.Core/)" />
-    <import index="inbo" ref="r:22db907b-8239-4180-8797-e91cea0b9573(jetbrains.mps.smodel.search)" />
     <import index="cj4x" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor(MPS.Editor/)" />
-    <import index="tpcn" ref="r:00000000-0000-4000-0000-011c8959028b(jetbrains.mps.lang.structure.behavior)" />
-    <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
-    <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="f4zo" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.cells(MPS.Editor/)" />
-    <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="y4ob" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.menus(MPS.Editor/)" />
     <import index="v95p" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.lang.editor.menus(MPS.Editor/)" />
     <import index="x4mf" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.menus(MPS.Editor/)" />
-    <import index="ze1i" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)" />
     <import index="9eyi" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.lang.editor.menus.transformation(MPS.Editor/)" />
     <import index="uddc" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.menus.transformation(MPS.Editor/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
-    <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
-    <import index="cavf" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.legacy(MPS.Core/)" />
     <import index="ykok" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.constraints(MPS.Core/)" />
   </imports>
   <registry>
@@ -283,7 +269,7 @@
                 <ref role="3cqZAo" node="6k4lHAwHQ2K" resolve="myProperty" />
               </node>
               <node concept="liA8E" id="4_Hmj3OdA6u" role="2OqNvi">
-                <ref role="37wK5l" to="c17a:~SProperty.getType():org.jetbrains.mps.openapi.language.SDataType" resolve="getType" />
+                <ref role="37wK5l" to="c17a:~SProperty.getType()" resolve="getType" />
               </node>
             </node>
           </node>
@@ -292,7 +278,7 @@
           <node concept="3clFbS" id="4_Hmj3OdBYo" role="3clFbx">
             <node concept="3cpWs6" id="4_Hmj3OdECo" role="3cqZAp">
               <node concept="2YIFZM" id="4_Hmj3OdGfA" role="3cqZAk">
-                <ref role="37wK5l" to="33ny:~Collections.emptyList():java.util.List" resolve="emptyList" />
+                <ref role="37wK5l" to="33ny:~Collections.emptyList()" resolve="emptyList" />
                 <ref role="1Pybhc" to="33ny:~Collections" resolve="Collections" />
                 <node concept="3uibUv" id="4_Hmj3Oew0n" role="3PaCim">
                   <ref role="3uigEE" to="f4zo:~SubstituteAction" resolve="SubstituteAction" />
@@ -348,11 +334,11 @@
                       <ref role="3cqZAo" node="4_Hmj3OdHQg" resolve="enumm" />
                     </node>
                     <node concept="liA8E" id="4_Hmj3OebXr" role="2OqNvi">
-                      <ref role="37wK5l" to="c17a:~SEnumeration.getLiterals():java.util.Collection" resolve="getLiterals" />
+                      <ref role="37wK5l" to="c17a:~SEnumeration.getLiterals()" resolve="getLiterals" />
                     </node>
                   </node>
                   <node concept="liA8E" id="4_Hmj3Oejwg" role="2OqNvi">
-                    <ref role="37wK5l" to="33ny:~Collection.size():int" resolve="size" />
+                    <ref role="37wK5l" to="33ny:~Collection.size()" resolve="size" />
                   </node>
                 </node>
               </node>
@@ -412,7 +398,7 @@
                                   <ref role="3cqZAo" node="4EfPrVhhc59" resolve="info" />
                                 </node>
                                 <node concept="liA8E" id="4EfPrVhhc5g" role="2OqNvi">
-                                  <ref role="37wK5l" to="y4ob:~EditorMenuTraceInfoImpl.setDescriptor(jetbrains.mps.openapi.editor.menus.EditorMenuDescriptor):void" resolve="setDescriptor" />
+                                  <ref role="37wK5l" to="y4ob:~EditorMenuTraceInfoImpl.setDescriptor(jetbrains.mps.openapi.editor.menus.EditorMenuDescriptor)" resolve="setDescriptor" />
                                   <node concept="2ShNRf" id="4EfPrVhhc5h" role="37wK5m">
                                     <node concept="1pGfFk" id="4EfPrVhhc5i" role="2ShVmc">
                                       <ref role="37wK5l" to="v95p:~EditorMenuDescriptorBase.&lt;init&gt;(java.lang.String,org.jetbrains.mps.openapi.model.SNodeReference,boolean)" resolve="EditorMenuDescriptorBase" />
@@ -422,7 +408,7 @@
                                             <ref role="3cqZAo" node="6k4lHAwHQ50" resolve="literal" />
                                           </node>
                                           <node concept="liA8E" id="1pRvk$sb8RQ" role="2OqNvi">
-                                            <ref role="37wK5l" to="c17a:~SEnumerationLiteral.getPresentation():java.lang.String" resolve="getPresentation" />
+                                            <ref role="37wK5l" to="c17a:~SEnumerationLiteral.getPresentation()" resolve="getPresentation" />
                                           </node>
                                         </node>
                                         <node concept="Xl_RD" id="4EfPrVhhc5m" role="3uHU7B">
@@ -434,7 +420,7 @@
                                           <ref role="3cqZAo" node="6k4lHAwHQ50" resolve="literal" />
                                         </node>
                                         <node concept="liA8E" id="4_Hmj3OeAYE" role="2OqNvi">
-                                          <ref role="37wK5l" to="c17a:~SEnumerationLiteral.getSourceNode():org.jetbrains.mps.openapi.model.SNodeReference" resolve="getSourceNode" />
+                                          <ref role="37wK5l" to="c17a:~SEnumerationLiteral.getSourceNode()" resolve="getSourceNode" />
                                         </node>
                                       </node>
                                       <node concept="3clFbT" id="3Lqkb7sdoLT" role="37wK5m">
@@ -467,7 +453,7 @@
               <ref role="3cqZAo" node="4_Hmj3OdHQg" resolve="enumm" />
             </node>
             <node concept="liA8E" id="4_Hmj3Oer$Y" role="2OqNvi">
-              <ref role="37wK5l" to="c17a:~SEnumeration.getLiterals():java.util.Collection" resolve="getLiterals" />
+              <ref role="37wK5l" to="c17a:~SEnumeration.getLiterals()" resolve="getLiterals" />
             </node>
           </node>
           <node concept="3cpWsn" id="6k4lHAwHQ50" role="1Duv9x">
@@ -520,7 +506,7 @@
                 <ref role="3cqZAo" node="2snskYs2eex" resolve="property" />
               </node>
               <node concept="liA8E" id="4_Hmj3OeEkG" role="2OqNvi">
-                <ref role="37wK5l" to="c17a:~SProperty.getType():org.jetbrains.mps.openapi.language.SDataType" resolve="getType" />
+                <ref role="37wK5l" to="c17a:~SProperty.getType()" resolve="getType" />
               </node>
             </node>
           </node>
@@ -530,7 +516,7 @@
             <node concept="3cpWs6" id="4_Hmj3OeEkJ" role="3cqZAp">
               <node concept="2YIFZM" id="4_Hmj3OeEkK" role="3cqZAk">
                 <ref role="1Pybhc" to="33ny:~Collections" resolve="Collections" />
-                <ref role="37wK5l" to="33ny:~Collections.emptyList():java.util.List" resolve="emptyList" />
+                <ref role="37wK5l" to="33ny:~Collections.emptyList()" resolve="emptyList" />
                 <node concept="3uibUv" id="4_Hmj3OeGTv" role="3PaCim">
                   <ref role="3uigEE" to="uddc:~TransformationMenuItem" resolve="TransformationMenuItem" />
                 </node>
@@ -585,11 +571,11 @@
                       <ref role="3cqZAo" node="4_Hmj3OeEkS" resolve="enumm" />
                     </node>
                     <node concept="liA8E" id="4_Hmj3OeEl7" role="2OqNvi">
-                      <ref role="37wK5l" to="c17a:~SEnumeration.getLiterals():java.util.Collection" resolve="getLiterals" />
+                      <ref role="37wK5l" to="c17a:~SEnumeration.getLiterals()" resolve="getLiterals" />
                     </node>
                   </node>
                   <node concept="liA8E" id="4_Hmj3OeEl8" role="2OqNvi">
-                    <ref role="37wK5l" to="33ny:~Collection.size():int" resolve="size" />
+                    <ref role="37wK5l" to="33ny:~Collection.size()" resolve="size" />
                   </node>
                 </node>
               </node>
@@ -607,11 +593,11 @@
                         <ref role="3cqZAo" node="2snskYs2eev" resolve="transformationMenuContext" />
                       </node>
                       <node concept="liA8E" id="5MysbrZYYnX" role="2OqNvi">
-                        <ref role="37wK5l" to="uddc:~TransformationMenuContext.getEditorMenuTrace():jetbrains.mps.openapi.editor.menus.EditorMenuTrace" resolve="getEditorMenuTrace" />
+                        <ref role="37wK5l" to="uddc:~TransformationMenuContext.getEditorMenuTrace()" resolve="getEditorMenuTrace" />
                       </node>
                     </node>
                     <node concept="liA8E" id="5MysbrZYY$E" role="2OqNvi">
-                      <ref role="37wK5l" to="x4mf:~EditorMenuTrace.pushTraceInfo():void" resolve="pushTraceInfo" />
+                      <ref role="37wK5l" to="x4mf:~EditorMenuTrace.pushTraceInfo()" resolve="pushTraceInfo" />
                     </node>
                   </node>
                 </node>
@@ -625,11 +611,11 @@
                             <ref role="3cqZAo" node="2snskYs2eev" resolve="transformationMenuContext" />
                           </node>
                           <node concept="liA8E" id="5MysbrZZ2wd" role="2OqNvi">
-                            <ref role="37wK5l" to="uddc:~TransformationMenuContext.getEditorMenuTrace():jetbrains.mps.openapi.editor.menus.EditorMenuTrace" resolve="getEditorMenuTrace" />
+                            <ref role="37wK5l" to="uddc:~TransformationMenuContext.getEditorMenuTrace()" resolve="getEditorMenuTrace" />
                           </node>
                         </node>
                         <node concept="liA8E" id="5MysbrZZ2G_" role="2OqNvi">
-                          <ref role="37wK5l" to="x4mf:~EditorMenuTrace.setDescriptor(jetbrains.mps.openapi.editor.menus.EditorMenuDescriptor):void" resolve="setDescriptor" />
+                          <ref role="37wK5l" to="x4mf:~EditorMenuTrace.setDescriptor(jetbrains.mps.openapi.editor.menus.EditorMenuDescriptor)" resolve="setDescriptor" />
                           <node concept="2ShNRf" id="5MysbrZYWig" role="37wK5m">
                             <node concept="1pGfFk" id="5MysbrZYWih" role="2ShVmc">
                               <ref role="37wK5l" to="v95p:~EditorMenuDescriptorBase.&lt;init&gt;(java.lang.String,org.jetbrains.mps.openapi.model.SNodeReference,boolean)" resolve="EditorMenuDescriptorBase" />
@@ -642,7 +628,7 @@
                                     <ref role="3cqZAo" node="2snskYs2eel" resolve="literal" />
                                   </node>
                                   <node concept="liA8E" id="4_Hmj3OfedU" role="2OqNvi">
-                                    <ref role="37wK5l" to="c17a:~SEnumerationLiteral.getPresentation():java.lang.String" resolve="getPresentation" />
+                                    <ref role="37wK5l" to="c17a:~SEnumerationLiteral.getPresentation()" resolve="getPresentation" />
                                   </node>
                                 </node>
                               </node>
@@ -651,7 +637,7 @@
                                   <ref role="3cqZAo" node="2snskYs2eel" resolve="literal" />
                                 </node>
                                 <node concept="liA8E" id="4_Hmj3OffoX" role="2OqNvi">
-                                  <ref role="37wK5l" to="c17a:~SEnumerationLiteral.getSourceNode():org.jetbrains.mps.openapi.model.SNodeReference" resolve="getSourceNode" />
+                                  <ref role="37wK5l" to="c17a:~SEnumerationLiteral.getSourceNode()" resolve="getSourceNode" />
                                 </node>
                               </node>
                               <node concept="3clFbT" id="5MysbrZYWiq" role="37wK5m">
@@ -705,11 +691,11 @@
                             <ref role="3cqZAo" node="2snskYs2eev" resolve="transformationMenuContext" />
                           </node>
                           <node concept="liA8E" id="5MysbrZZeqo" role="2OqNvi">
-                            <ref role="37wK5l" to="uddc:~TransformationMenuContext.getEditorMenuTrace():jetbrains.mps.openapi.editor.menus.EditorMenuTrace" resolve="getEditorMenuTrace" />
+                            <ref role="37wK5l" to="uddc:~TransformationMenuContext.getEditorMenuTrace()" resolve="getEditorMenuTrace" />
                           </node>
                         </node>
                         <node concept="liA8E" id="5MysbrZZeqp" role="2OqNvi">
-                          <ref role="37wK5l" to="x4mf:~EditorMenuTrace.popTraceInfo():void" resolve="popTraceInfo" />
+                          <ref role="37wK5l" to="x4mf:~EditorMenuTrace.popTraceInfo()" resolve="popTraceInfo" />
                         </node>
                       </node>
                     </node>
@@ -718,13 +704,13 @@
               </node>
               <node concept="2YIFZM" id="4_Hmj3Ofsmn" role="3clFbw">
                 <ref role="1Pybhc" to="ykok:~ModelConstraints" resolve="ModelConstraints" />
-                <ref role="37wK5l" to="ykok:~ModelConstraints.validatePropertyValue(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SProperty,java.lang.Object):boolean" resolve="validatePropertyValue" />
+                <ref role="37wK5l" to="ykok:~ModelConstraints.validatePropertyValue(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SProperty,java.lang.Object)" resolve="validatePropertyValue" />
                 <node concept="2OqwBi" id="4_Hmj3Oft51" role="37wK5m">
                   <node concept="37vLTw" id="4_Hmj3OfsZr" role="2Oq$k0">
                     <ref role="3cqZAo" node="2snskYs2eev" resolve="transformationMenuContext" />
                   </node>
                   <node concept="liA8E" id="4_Hmj3Oftp_" role="2OqNvi">
-                    <ref role="37wK5l" to="uddc:~TransformationMenuContext.getNode():org.jetbrains.mps.openapi.model.SNode" resolve="getNode" />
+                    <ref role="37wK5l" to="uddc:~TransformationMenuContext.getNode()" resolve="getNode" />
                   </node>
                 </node>
                 <node concept="37vLTw" id="4_Hmj3Oftu2" role="37wK5m">
@@ -748,7 +734,7 @@
               <ref role="3cqZAo" node="4_Hmj3OeEkS" resolve="enumm" />
             </node>
             <node concept="liA8E" id="4_Hmj3OeJvu" role="2OqNvi">
-              <ref role="37wK5l" to="c17a:~SEnumeration.getLiterals():java.util.Collection" resolve="getLiterals" />
+              <ref role="37wK5l" to="c17a:~SEnumeration.getLiterals()" resolve="getLiterals" />
             </node>
           </node>
         </node>

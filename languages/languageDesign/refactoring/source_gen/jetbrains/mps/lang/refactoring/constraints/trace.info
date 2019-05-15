@@ -179,7 +179,7 @@
       <node id="7953996722066256429" at="32,55,33,71" concept="1" />
       <node id="7953996722066256429" at="34,9,35,0" concept="6" />
       <node id="7953996722066256429" at="35,0,36,22" concept="5" />
-      <node id="1227128029536563262" at="40,128,41,742" concept="5" />
+      <node id="1227128029536563262" at="40,128,41,752" concept="5" />
       <node id="7953996722066256429" at="43,0,44,0" concept="7" trace="canBeChildBreakingPoint" />
       <node id="7953996722066256429" at="21,0,24,0" concept="0" trace="ContextMemberOperation_Constraints#()V" />
       <node id="7953996722066256429" at="31,0,34,9" concept="2" />
@@ -189,7 +189,7 @@
       <node id="7953996722066256429" at="25,0,40,0" concept="3" trace="calculateCanBeChildConstraint#()Ljetbrains/mps/smodel/runtime/ConstraintFunction;" />
       <scope id="7953996722066256429" at="21,47,22,171" />
       <scope id="7953996722066256429" at="32,55,33,71" />
-      <scope id="1227128029536563261" at="40,128,41,742" />
+      <scope id="1227128029536563261" at="40,128,41,752" />
       <scope id="7953996722066256429" at="21,0,24,0" />
       <scope id="7953996722066256429" at="40,0,43,0">
         <var name="childConcept" id="7953996722066256429" />

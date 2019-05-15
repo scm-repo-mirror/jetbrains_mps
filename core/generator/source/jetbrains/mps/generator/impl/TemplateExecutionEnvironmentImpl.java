@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,6 +42,7 @@ import jetbrains.mps.generator.runtime.TemplateSwitchMapping;
 import jetbrains.mps.generator.template.ITemplateProcessor;
 import jetbrains.mps.generator.template.QueryExecutionContext;
 import jetbrains.mps.generator.trace.RuleTrace;
+import jetbrains.mps.generator.trace.RuleTrace2;
 import jetbrains.mps.generator.trace.TraceFacility;
 import jetbrains.mps.smodel.CopyUtil;
 import jetbrains.mps.smodel.SNodePointer;
@@ -55,10 +56,12 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SNodeReference;
+import org.jetbrains.mps.openapi.model.SNodeUtil;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -70,6 +73,20 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
   private final QueryExecutionContext myExecutionContext;
   private final ITemplateProcessor myTemplateProcessor;
   private final ReductionTrack myReductionTrack;
+  /**
+   * Input nodes coming from a model other than input model (or no model at all), e.g. if
+   * input node query follows a reference from an input model to some outer model.
+   * We track these nodes, including children, to facilitate reference resolution (i.e. if there's
+   * a reference in an input model pointing somewhere to subtree of a foreign node, we redirect
+   * that reference to the copied counterpart). Generally, this approach might not be everyone's
+   * desire, but it's the way it was so far.
+   * This collection used to be shared between generation threads, now it's per-thread for few reasons:
+   *   first, it's a performance hog the moment there are a lot of 'external' inputs;
+   *   next, it's wrong to assume any specific ordering of node processing, and we could rely only on nodes
+   *   already processed in this thread only.
+   */
+  private final Set<SNode> myAdditionalInputNodes = new HashSet<>();
+
 
   // although it's possible to instantiate ReductionTrack here (we've got generator in TP),
   // I plan to separate TEE and RT so that they are independent
@@ -132,12 +149,33 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
   @NotNull
   public List<SNode> copyNodes(@NotNull Iterable<SNode> inputNodes, @NotNull SNodeReference templateNode, @NotNull String templateId,
       @NotNull TemplateContext ctx) throws GenerationCanceledException, GenerationFailureException {
+    trackIfForeign(inputNodes);
     List<SNode> outputNodes = generator.copyNodes(inputNodes, ctx, templateId, this);
     if (!outputNodes.isEmpty()) {
       generator.checkIsExpectedLanguage(outputNodes, templateNode, ctx);
     }
     return outputNodes;
   }
+
+  // to use from FullCopyFacility
+  /*package*/ boolean isForeignNode(SNode node) {
+    // no synchronized access any more as it's accessed from a single thread only
+    return myAdditionalInputNodes.contains(node);
+  }
+
+  private void trackIfForeign(Iterable<SNode> inputNodes) {
+    for (SNode inputNode : inputNodes) {
+      SModel model = inputNode.getModel();
+      if (model != generator.getInputModel() || model == null) {
+        if (!myAdditionalInputNodes.contains(inputNode)) {
+          for (SNode n : SNodeUtil.getDescendants(inputNode, null, true)) {
+            myAdditionalInputNodes.add(n);
+          }
+        }
+      }
+    }
+  }
+
 
   @Override
   public SNode insertNode(SNode child, SNodeReference templateNode, TemplateContext templateContext) {
@@ -431,10 +469,19 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
     TraceFacility traceSession = generator.getTraceSession();
     try {
       for (TemplateReductionRule rule : conceptRules) {
+        RuleTrace2 ruleTrace2 = traceSession != null ? traceSession.reductionRule(rule) : null;
         reductionRule = rule;
-        if (!myReductionTrack.isReductionBlocked(inputNode, rule)) {
+        final boolean reductionBlocked = myReductionTrack.isReductionBlocked(inputNode, rule);
+        if (ruleTrace2 != null) {
+          ruleTrace2.blocked(reductionBlocked);
+        }
+        if (!reductionBlocked) {
           if (rule instanceof TemplateRuleWithCondition) {
-            if (!getQueryExecutor().isApplicable((TemplateRuleWithCondition) rule, context)) {
+            final boolean applicable = getQueryExecutor().isApplicable((TemplateRuleWithCondition) rule, context);
+            if (ruleTrace2 != null) {
+              ruleTrace2.condition(applicable);
+            }
+            if (!applicable) {
               continue;
             }
             // fall-through
@@ -448,6 +495,9 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
             }
             myReductionTrack.enter(inputNode, rule);
             Collection<SNode> outputNodes = getQueryExecutor().applyRule(rule, context);
+            if (ruleTrace2 != null) {
+              ruleTrace2.completed(outputNodes);
+            }
             if (outputNodes != null) {
               SNodeId in = context.getInput() == null ? null : context.getInput().getNodeId();
               getTrace().trace(in, GenerationTracerUtil.translateOutput(outputNodes), rule.getRuleNode());
@@ -457,6 +507,9 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
           } catch (DismissTopMappingRuleException ex) {
             // it's ok, just continue with a next applicable rule, if any
             generator.reportDismissRuleException(ex, reductionRule);
+            if (ruleTrace2 != null) {
+              ruleTrace2.dismissed();
+            }
           } finally {
             myReductionTrack.leave();
           }

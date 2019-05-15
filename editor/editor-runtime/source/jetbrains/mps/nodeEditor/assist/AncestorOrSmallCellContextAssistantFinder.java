@@ -15,6 +15,8 @@
  */
 package jetbrains.mps.nodeEditor.assist;
 
+import jetbrains.mps.editor.runtime.cells.ReadOnlyUtil;
+import jetbrains.mps.ide.editor.actions.EditorActionUtils;
 import jetbrains.mps.nodeEditor.cells.EditorCell_ContextAssistantComponent;
 import jetbrains.mps.nodeEditor.selection.SingularSelectionUtil;
 import jetbrains.mps.openapi.editor.assist.ContextAssistant;
@@ -41,6 +43,10 @@ class AncestorOrSmallCellContextAssistantFinder implements ContextAssistantFinde
   @Nullable
   @Override
   public ContextAssistant findAssistant(@NotNull Selection selection) {
+    if (ReadOnlyUtil.isCellsReadOnlyInEditor(selection.getEditorComponent(), selection.getSelectedCells())) {
+      return null;
+    }
+
     EditorCell cell = SingularSelectionUtil.getSingleSelectedCell(selection);
 
     EditorCell last = null;

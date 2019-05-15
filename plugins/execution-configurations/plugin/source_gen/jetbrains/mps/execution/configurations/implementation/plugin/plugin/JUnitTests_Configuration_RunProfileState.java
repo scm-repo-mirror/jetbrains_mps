@@ -22,7 +22,6 @@ import java.util.List;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState;
-import jetbrains.mps.execution.api.configurations.BaseMpsRunConfiguration;
 import com.intellij.execution.process.ProcessHandler;
 import jetbrains.mps.baseLanguage.unitTest.execution.tool.UnitTestViewComponent;
 import com.intellij.execution.process.ProcessListener;
@@ -42,34 +41,38 @@ public class JUnitTests_Configuration_RunProfileState extends DebuggerRunProfile
   private final JUnitTests_Configuration myRunConfiguration;
   @NotNull
   private final ExecutionEnvironment myEnvironment;
+
   public JUnitTests_Configuration_RunProfileState(@NotNull JUnitTests_Configuration configuration, @NotNull Executor executor, @NotNull ExecutionEnvironment environment) {
     myRunConfiguration = configuration;
     myEnvironment = environment;
   }
+
   public ConfigurationPerRunnerSettings getConfigurationSettings() {
     return null;
   }
+
   public RunnerSettings getRunnerSettings() {
     return null;
   }
+
   @Nullable
   public ExecutionResult execute(Executor executor, @NotNull ProgramRunner runner) throws ExecutionException {
     Project project = myEnvironment.getProject();
-    JUnitSettings_Configuration settings = myRunConfiguration.getJUnitSettings();
+    JUnitSettings_Configuration junitParams = myRunConfiguration.getJUnitSettings();
     boolean debugExecutor = executor.getId().equals(DefaultDebugExecutor.EXECUTOR_ID);
-    settings.setDebug(debugExecutor);
+    junitParams.setDebug(debugExecutor);
     MPSProject mpsProject = ProjectHelper.fromIdeaProject(project);
-    List<ITestNodeWrapper> testNodes = settings.getTests(mpsProject);
+    List<ITestNodeWrapper> testNodes = junitParams.getTests(mpsProject);
     if (testNodes == null || ListSequence.fromList(testNodes).isEmpty()) {
       throw new ExecutionException("Could not find tests to run. Please check the run configuration for errors.");
     }
     TestRunState runState = new TestRunState(testNodes);
-    jetbrains.mps.execution.configurations.implementation.plugin.plugin.Executor processExecutor;
-    if (settings.canExecuteInProcess(testNodes)) {
-      JUnitTests_Configuration configuration = myRunConfiguration;
-      processExecutor = new JUnitInProcessExecutor(mpsProject, ((BaseMpsRunConfiguration) configuration).getName(), testNodes);
+    JUnitProcessStarter processExecutor;
+    if (junitParams.canExecuteInProcess()) {
+      processExecutor = new JUnitInProcessRunStarter(mpsProject, myRunConfiguration, testNodes);
     } else {
-      processExecutor = new JUnitExecutor(mpsProject, executor, settings, myDebuggerSettings, myRunConfiguration.getJavaRunParameters(), testNodes);
+      JUnitTests_Configuration configuration = myRunConfiguration;
+      processExecutor = new JUnitOutOfProcessStarter(mpsProject, testNodes, configuration, executor.getId(), myDebuggerSettings);
     }
     ProcessHandler process = processExecutor.execute();
     final UnitTestViewComponent testViewComponent = myRunConfiguration.createTestViewComponent(runState, process);
@@ -85,6 +88,7 @@ public class JUnitTests_Configuration_RunProfileState extends DebuggerRunProfile
       return new DefaultExecutionResult(_processHandler, new DefaultExecutionConsole(testViewComponent, disposeHandler));
     }
   }
+
   @NotNull
   public IDebuggerConfiguration getDebuggerConfiguration() {
     return new IDebuggerConfiguration() {
@@ -97,6 +101,7 @@ public class JUnitTests_Configuration_RunProfileState extends DebuggerRunProfile
       }
     };
   }
+
   public static boolean canExecute(String executorId) {
     if (DefaultRunExecutor.EXECUTOR_ID.equals(executorId)) {
       return true;

@@ -10,7 +10,7 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
@@ -30,7 +30,7 @@ public class typeof_ArithmSymbol_InferenceRule extends AbstractInferenceRule_Run
       final SNode t = typeCheckingContext.typeOf(symbol, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1418611629042132166", true);
       typeCheckingContext.whenConcrete(t, new Runnable() {
         public void run() {
-          if (TypeChecker.getInstance().getSubtypingManager().isSubtype(typeCheckingContext.getExpandedNode(t), MathTypeUtil.qBigComplex)) {
+          if (TypecheckingFacade.getFromContext().isSubtype(typeCheckingContext.getExpandedNode(t), MathTypeUtil.qBigComplex)) {
             if (!(typeCheckingContext.isSingleTypeComputation())) {
               {
                 SNode _nodeToCheck_1029348928467 = symbol;

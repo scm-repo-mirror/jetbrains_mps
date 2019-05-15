@@ -27,9 +27,10 @@ import jetbrains.mps.project.Solution;
 import jetbrains.mps.refactoring.Renamer;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
+import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.Reference;
-import jetbrains.mps.vfs.CachingFile;
-import jetbrains.mps.vfs.DefaultCachingContext;
+import jetbrains.mps.vfs.refresh.CachingFile;
+import jetbrains.mps.vfs.refresh.DefaultCachingContext;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -42,9 +43,11 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Tests for Rename and Delete actions.
@@ -239,7 +242,7 @@ public class ModuleIDETests extends ModuleInProjectTest {
       Assert.assertEquals(newModuleName, module.getModuleName());
       IFile descriptorFile = module.getDescriptorFile();
       Assert.assertNotNull(descriptorFile);
-      String fileName = descriptorFile.path().getFileName();
+      String fileName = descriptorFile.getName();
       Assert.assertNotNull(fileName);
       Assert.assertTrue(fileName.contains(newModuleName));
 
@@ -247,7 +250,7 @@ public class ModuleIDETests extends ModuleInProjectTest {
       // Check module folder rename
       final IFile moduleDir = descriptorFile.getParent();
       Assert.assertNotNull(moduleDir);
-      String moduleDirName = moduleDir.toPath().getFileName();
+      String moduleDirName = moduleDir.getName();
       Assert.assertNotNull(moduleDirName);
       Assert.assertTrue(mustBeMoved == moduleDirName.equals(newModuleName));
 
@@ -259,7 +262,7 @@ public class ModuleIDETests extends ModuleInProjectTest {
         final IFile contentDirectory = ((FileBasedModelRoot) modelRoot).getContentDirectory();
         Assert.assertNotNull(contentDirectory);
         Assert.assertTrue(contentDirectory.exists());
-        Assert.assertTrue(contentDirectory.toPath().startsWith(moduleDir.toPath()));
+        Assert.assertTrue(contentDirectory.isDescendant(moduleDir));
       }
 
       final String generatorOutputPath = ProjectPathUtil.getGeneratorOutputPath(module.getModuleDescriptor());
@@ -277,13 +280,13 @@ public class ModuleIDETests extends ModuleInProjectTest {
       // Some modules can exist without models folder - like Devkit
       if (modelsFolder != null && modelsFolder.getChildren() != null) {
         for (IFile file : modelsFolder.getChildren()) {
-          Assert.assertTrue(!file.getName().contains(newModuleName));
+          Assert.assertTrue(file.getName().contains(newModuleName));
         }
       }
 
       // Check submodules
       for (AbstractModule subModule : subModules) {
-        Assert.assertTrue(subModule.getModuleSourceDir().toPath().startsWith(module.getModuleSourceDir().toPath()));
+        Assert.assertTrue(subModule.getModuleSourceDir().isDescendant(module.getModuleSourceDir()));
 
         // Check that model roots content folder is updated
         for (ModelRoot modelRoot : subModule.getModelRoots()) {
@@ -294,7 +297,7 @@ public class ModuleIDETests extends ModuleInProjectTest {
           final IFile contentDirectory = ((FileBasedModelRoot) modelRoot).getContentDirectory();
           Assert.assertNotNull(contentDirectory);
           Assert.assertTrue(contentDirectory.exists());
-          Assert.assertTrue(contentDirectory.toPath().startsWith(module.getModuleSourceDir().toPath()));
+          Assert.assertTrue(contentDirectory.isDescendant(module.getModuleSourceDir()));
         }
 
         final String generatorOutputPathSub = ProjectPathUtil.getGeneratorOutputPath(subModule.getModuleDescriptor());
@@ -339,6 +342,48 @@ public class ModuleIDETests extends ModuleInProjectTest {
       moduleSourceDir.refresh(new DefaultCachingContext(true, true));
       Assert.assertFalse(moduleSourceDir.exists());
       Assert.assertFalse(myProject.getProjectModules().contains(lang));
+    });
+  }
+
+  @Test
+  public void deleteLangFolder() {
+    String moduleName = getNewModuleName();
+    Reference<Language> langRef = new Reference<>();
+    AtomicReference<String> newDirInProject = new AtomicReference<>();
+    invokeInCommand(() -> {
+      newDirInProject.set(createNewDirInProject());
+      langRef.set(NewModuleUtil.createLanguage(moduleName, newDirInProject.get(), myProject));
+    });
+    invokeInCommand(() -> {
+      @NotNull Language lang = langRef.get();
+      FileUtil.delete(Paths.get(newDirInProject.get()).toFile());
+      CachingFile moduleSourceDir = (CachingFile) lang.getModuleSourceDir();
+      Assert.assertNotNull(moduleSourceDir);
+      moduleSourceDir.refresh(new DefaultCachingContext(true, true));
+      Assert.assertFalse(moduleSourceDir.exists());
+      Assert.assertFalse("The language stayed in the project", myProject.getProjectModules().contains(lang));
+      Assert.assertNull("The language stayed in the repo", myProject.getRepository().getModule(lang.getModuleId()));
+    });
+  }
+
+  @Test
+  public void deleteSlnFolder() {
+    String moduleName = getNewModuleName();
+    Reference<Solution> slnRef = new Reference<>();
+    AtomicReference<String> newDirInProject = new AtomicReference<>();
+    invokeInCommand(() -> {
+      newDirInProject.set(createNewDirInProject());
+      slnRef.set(NewModuleUtil.createSolution(moduleName, newDirInProject.get(), myProject));
+    });
+    invokeInCommand(() -> {
+      @NotNull Solution sln = slnRef.get();
+      FileUtil.delete(Paths.get(newDirInProject.get()).toFile());
+      CachingFile moduleSourceDir = (CachingFile) sln.getModuleSourceDir();
+      Assert.assertNotNull(moduleSourceDir);
+      moduleSourceDir.refresh(new DefaultCachingContext(true, true));
+      Assert.assertFalse(moduleSourceDir.exists());
+      Assert.assertFalse("The solution stayed in the project", myProject.getProjectModules().contains(sln));
+      Assert.assertNull("The solution stayed in the repo", myProject.getRepository().getModule(sln.getModuleId()));
     });
   }
 

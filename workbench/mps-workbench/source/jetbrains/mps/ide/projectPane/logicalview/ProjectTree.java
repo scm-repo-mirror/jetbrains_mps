@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ package jetbrains.mps.ide.projectPane.logicalview;
 import jetbrains.mps.generator.TransientModelsModule;
 import jetbrains.mps.generator.TransientModelsProvider;
 import jetbrains.mps.ide.ui.tree.MPSTree;
+import jetbrains.mps.ide.ui.tree.MPSTreeChildOrder;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.ide.ui.tree.TextTreeNode;
 import jetbrains.mps.ide.ui.tree.module.DefaultNamespaceTreeBuilder;
@@ -25,7 +26,6 @@ import jetbrains.mps.ide.ui.tree.module.ProjectModuleTreeNode;
 import jetbrains.mps.ide.ui.tree.module.ProjectModulesPoolTreeNode;
 import jetbrains.mps.ide.ui.tree.module.ProjectTreeNode;
 import jetbrains.mps.ide.ui.tree.module.TransientModelsTreeNode;
-import jetbrains.mps.ide.ui.tree.smodel.TreeNodeParamProvider;
 import jetbrains.mps.make.IMakeNotificationListener;
 import jetbrains.mps.make.IMakeNotificationListener.Stub;
 import jetbrains.mps.make.IMakeService;
@@ -37,7 +37,9 @@ import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.StandaloneMPSProject;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.ModelReadRunnable;
-import jetbrains.mps.util.Computable;
+import jetbrains.mps.util.annotation.ToRemove;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
 
 import javax.swing.tree.TreePath;
@@ -46,12 +48,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class ProjectTree extends MPSTree implements TreeNodeParamProvider {
+public class ProjectTree extends MPSTree implements MPSTreeChildOrder {
   private Project myProject;
   private ProjectTreeNode myProjectTreeNode;
   private ProjectModulesPoolTreeNode myModulesPoolTreeNode;
   private AtomicReference<IMakeNotificationListener> myMakeNotificationListener = new AtomicReference<>();
-  private Computable<Boolean> myShowStructureCondition;
+  private MPSTreeChildOrder myChildOrder;
 
   public ProjectTree(Project project) {
     myProject = project;
@@ -121,6 +123,8 @@ public class ProjectTree extends MPSTree implements TreeNodeParamProvider {
     return root;
   }
 
+  @Deprecated
+  @ToRemove(version = 2019.1)
   public void expandProjectNode() {
     this.expandPath(new TreePath(myProjectTreeNode.getPath()));
   }
@@ -133,13 +137,16 @@ public class ProjectTree extends MPSTree implements TreeNodeParamProvider {
     return myProject;
   }
 
-  public void setShowStructureCondition(Computable<Boolean> showStructureCondition) {
-    myShowStructureCondition = showStructureCondition;
+  /**
+   * @param childOrder optional control over order of child nodes displayed in the tree
+   */
+  public void orderChildrenWith(@Nullable MPSTreeChildOrder childOrder) {
+    myChildOrder = childOrder;
   }
 
   @Override
-  public boolean isShowStructure() {
-    return myShowStructureCondition == null || myShowStructureCondition.compute();
+  public boolean reorder(@NotNull MPSTreeNode parent, @NotNull List<MPSTreeNode> childrenToSort) {
+    return myChildOrder != null && myChildOrder.reorder(parent, childrenToSort);
   }
 
   public static class ModulesNamespaceTreeBuilder extends DefaultNamespaceTreeBuilder {

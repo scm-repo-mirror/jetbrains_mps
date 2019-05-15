@@ -6,7 +6,7 @@
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
     <use id="3304fc6e-7c6b-401e-a016-b944934bb21f" name="jetbrains.mps.baseLanguage.math" version="0" />
     <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="2" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="0" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
     <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="1" />
     <use id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts" version="0" />
     <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="1" />
@@ -1344,7 +1344,7 @@
                 </node>
               </node>
               <node concept="liA8E" id="i09UV9J" role="2OqNvi">
-                <ref role="37wK5l" to="wyt6:~Comparable.compareTo(java.lang.Object):int" resolve="compareTo" />
+                <ref role="37wK5l" to="wyt6:~Comparable.compareTo(java.lang.Object)" resolve="compareTo" />
                 <node concept="37vLTw" id="3GM_nagTuSs" role="37wK5m">
                   <ref role="3cqZAo" node="i09I$Lf" resolve="p" />
                   <node concept="1ZhdrF" id="i09V_kN" role="lGtFl">
@@ -1392,7 +1392,7 @@
                       </node>
                     </node>
                     <node concept="liA8E" id="i09V7s$" role="2OqNvi">
-                      <ref role="37wK5l" to="wyt6:~Comparable.compareTo(java.lang.Object):int" resolve="compareTo" />
+                      <ref role="37wK5l" to="wyt6:~Comparable.compareTo(java.lang.Object)" resolve="compareTo" />
                       <node concept="37vLTw" id="3GM_nagTt8d" role="37wK5m">
                         <ref role="3cqZAo" node="i09I$Lf" resolve="p" />
                         <node concept="1ZhdrF" id="i09V_Z6" role="lGtFl">

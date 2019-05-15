@@ -87,7 +87,7 @@ public final class FileIcon__BehaviorDescriptor extends BaseBHDescriptor {
       return null;
     }
     IFile sourceFile = outputDir.getFileSystem().getFile(source);
-    IFile toFile = outputDir.getDescendant(sourceFile.getName());
+    IFile toFile = outputDir.findChild(sourceFile.getName());
 
     if (!(sourceFile.exists())) {
       return null;
@@ -120,7 +120,7 @@ public final class FileIcon__BehaviorDescriptor extends BaseBHDescriptor {
     if (path == null) {
       return false;
     }
-    IFile file = FileSystem.getInstance().getFileByPath(path);
+    IFile file = FileSystem.getInstance().getFile(path);
     if (!(file.exists())) {
       return false;
     }

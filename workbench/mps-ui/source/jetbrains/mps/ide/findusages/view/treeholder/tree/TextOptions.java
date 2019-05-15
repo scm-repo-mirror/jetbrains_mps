@@ -15,6 +15,14 @@
  */
 package jetbrains.mps.ide.findusages.view.treeholder.tree;
 
+import jetbrains.mps.util.annotation.ToRemove;
+
+/**
+ * @deprecated to remove without replacement
+ * XXX perhaps, could reuse to pass counter number to INodeRepresentator#getResultsText, though I hate naming of both classes
+ */
+@Deprecated
+@ToRemove(version = 2019.2)
 public class TextOptions {
   public boolean myAdditionalInfo;
   public boolean myCounters;

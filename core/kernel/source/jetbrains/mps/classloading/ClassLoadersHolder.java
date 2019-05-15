@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.classloading;
 
+import jetbrains.mps.classloading.MPSClassLoadersRegistry.ModuleClassLoaderDisposer;
 import jetbrains.mps.module.ReloadableModule;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -25,6 +26,7 @@ import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.module.SRepositoryListener;
 import org.jetbrains.mps.openapi.module.SRepositoryListenerBase;
+import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
 import java.util.Arrays;
 import java.util.List;
@@ -62,9 +64,9 @@ public class ClassLoadersHolder {
   };
   private final SRepository myRepository;
 
-  public ClassLoadersHolder(SRepository repository, ModulesWatcher modulesWatcher, EDTDispatcher dispatcher) {
+  public ClassLoadersHolder(SRepository repository, ModulesWatcher modulesWatcher) {
     myRepository = repository;
-    myCLRegistry = new MPSClassLoadersRegistry(this, modulesWatcher, dispatcher);
+    myCLRegistry = new MPSClassLoadersRegistry(this, modulesWatcher);
   }
 
   public void init() {
@@ -77,37 +79,17 @@ public class ClassLoadersHolder {
   }
 
   @Nullable
-  public ClassLoader getClassLoader(ReloadableModule module) {
-    try {
-      return getModuleClassLoader(module);
-    } catch (ClassLoaderNotFoundException ignored) {
-      // do nothing, there is no MPS ModuleClassLoader for this module
+  public MPSModuleClassLoader getClassLoader(@NotNull ReloadableModule module) {
+    MPSModuleClassLoader moduleClassLoader = getModuleClassLoader(module);
+    if (moduleClassLoader != null) {
+      return moduleClassLoader;
     }
 
-    try {
-      return getNonReloadableClassLoader(module);
-    } catch (ClassLoaderNotFoundException ignored) {
-      // do nothing, there is no IDEA ClassLoader for this module
-    }
-
-    return null;
+    return myCLRegistry.getNonReloadableClassLoader(module);
   }
 
   @Nullable
-  private ClassLoader getNonReloadableClassLoader(SModule module) throws ClassLoaderNotFoundException {
-    CustomClassLoadingFacet customClassLoadingFacet = module.getFacet(CustomClassLoadingFacet.class);
-    if (customClassLoadingFacet != null) {
-      if (customClassLoadingFacet.isValid()) {
-        return customClassLoadingFacet.getClassLoader();
-      } else {
-        return null;
-      }
-    }
-    throw new ClassLoaderNotFoundException();
-  }
-
-  @Nullable
-  private ClassLoader getModuleClassLoader(ReloadableModule module) throws ClassLoaderNotFoundException {
+  private MPSModuleClassLoader getModuleClassLoader(ReloadableModule module) {
     return myCLRegistry.getModuleClassLoader(module);
   }
 
@@ -120,11 +102,6 @@ public class ClassLoadersHolder {
     return myCLRegistry.getClassLoadingProgress(mRef);
   }
 
-  public void scheduleClassLoaderDisposeInEDT() {
-    LOG.debug("Scheduling ModuleClassLoader disposal");
-    myCLRegistry.flushDisposeQueue();
-  }
-
   /**
    * @param toUnload for these modules ModuleClassLoaders were disposed
    * @return modules which changed their ClassLoadingProgress from LAZY_LOADED or LOADED to UNLOADED.
@@ -134,8 +111,8 @@ public class ClassLoadersHolder {
   }
 
   /**
-   * @param toLoadLazy for these modules only notifications {@link MPSClassesListener#afterClassesLoaded} were sent,
-   *                   so for {@link MPSClassesListener} clients these modules appear to be loaded.
+   * @param toLoadLazy for these modules only notifications {@link DeployListener#onLoaded(Set, ProgressMonitor)} were sent,
+   *                   so for {@link DeployListener} clients these modules appear to be loaded.
    *                   No actual loading is performed for these modules.
    * @return modules which changed their ClassLoadingProgress from UNLOADED to LAZY_LOADED.
    */
@@ -150,8 +127,8 @@ public class ClassLoadersHolder {
     myCLRegistry.doLoadModules(toLoad);
   }
 
-  public void setDispatcher(@NotNull EDTDispatcher dispatcher) {
-    myCLRegistry.setDispatcher(dispatcher);
+  public ModuleClassLoaderDisposer getModuleClassLoaderDisposer() {
+    return myCLRegistry.getDisposer();
   }
 
   /**
@@ -160,7 +137,7 @@ public class ClassLoadersHolder {
    * Module lifecycle:
    * At first the module is UNLOADED. It comes to repository and a call of {@link ClassLoaderManager#preLoadModules(Iterable, org.jetbrains.mps.openapi.util.ProgressMonitor)} happens.
    * Then we check whether the module's dependencies are valid to load (and some other conditions). If everything is okay then we send
-   * broadcast notification to the clients of {@link jetbrains.mps.classloading.MPSClassesListener}.
+   * broadcast notification to the clients of {@link jetbrains.mps.classloading.DeployListener}.
    * The state of module is changed to LAZY_LOADED at that moment.
    * When the classes of module are requested [through #getClass(), #getOwnClass(), #getClassLoader()] methods,
    * the actual ClassLoader construction happens and then the module is marked as LOADED.
@@ -180,7 +157,7 @@ public class ClassLoadersHolder {
      */
     UNLOADED,
     /**
-     * The notifications for {@link MPSClassesListener} clients were sent. No actual class loading happened,
+     * The notifications for {@link DeployListener} clients were sent. No actual class loading happened,
      * This module was only marked to load.
      */
     LAZY_LOADED,
@@ -191,4 +168,5 @@ public class ClassLoadersHolder {
   }
 
   static class ClassLoaderNotFoundException extends Exception {}
+
 }

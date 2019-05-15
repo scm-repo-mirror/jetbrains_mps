@@ -13,14 +13,14 @@ import org.jdom.Element;
 /**
  * Keeps properties necessary to start an MPS instance and to execute a worker class within this new instance. 
  * Primary purpose is to supply persistence of the attributes to ensure they get passed between Java process boundaries.
- * Primary scenario for this class is to get MPS started in a dtinct setup (e.g. by configuring IdeaEnvionment with EnvironmentConfig which gets populated with the properties serialized by this class)
+ * Primary scenario for this class is to get MPS started in a distinct setup (e.g. by configuring IdeaEnvionment with EnvironmentConfig which gets populated with the properties serialized by this class)
  * Unlike Script counterpart, doesn't know anything about specific ant tasks and their possible arguments.
  * 
  * Collections are returned by-reference and could be modified from outside (this class is just a data holder + persistence)
  * 
  * FIXME deserves better name
  * 
- * FIXME auxiliary properties are likely not part of MPS statup sequence
+ * FIXME auxiliary properties are likely not part of MPS startup sequence
  * FIXME myLibraries - what the hell is 'name' key, and do I really want to stick to File there provided I may use macro values as part of a library path
  */
 public class ScriptData {
@@ -34,6 +34,7 @@ public class ScriptData {
   private static final String NAME = "name";
   private static final String VALUE = "value";
   private static final String PATH = "path";
+  private static final String ID = "id";
 
   private static final String ELEM_LIBRARIES = "libraries";
   private static final String ELEM_LIBRARY = "library";
@@ -42,6 +43,7 @@ public class ScriptData {
   private static final String ELEM_REPO = "repository";
   private static final String ELEM_REPO_FOLDER = "folder";
   private static final String ELEM_REPO_MODULEFILE = "module";
+  private static final String ELEM_PLUGIN = "plugin";
 
   private String myWorker;
   private boolean myFailOnError = true;
@@ -51,6 +53,7 @@ public class ScriptData {
   private Map<String, String> myMacros = new LinkedHashMap<String, String>();
   private Map<String, File> myLibraries = new LinkedHashMap<String, File>();
   private final List<String> myLibraryJars = new ArrayList<String>();
+  private final List<PluginData> myPlugins = new ArrayList<PluginData>();
 
   private RepositoryDescriptor myRepo = null;
 
@@ -91,6 +94,9 @@ public class ScriptData {
     for (String key : myMacros.keySet()) {
       root.addContent(new Element(ELEM_MACRO).setAttribute(NAME, key).setAttribute(VALUE, myMacros.get(key)));
     }
+    for (PluginData p : myPlugins) {
+      root.addContent(new Element(ELEM_PLUGIN).setAttribute(PATH, p.path).setAttribute(ID, (p.id == null ? "" : p.id)));
+    }
     // auxiliary properties one may want to share using this script. They are not interpreted by MPS startup sequence 
     // and therefore shall not be part of the class, perhaps. OTOH, it's quite convenient to keep everything related to values passed between task and worker in a single place. 
     for (String key : myProperties.keySet()) {
@@ -130,6 +136,9 @@ public class ScriptData {
 
     for (Element e : root.getChildren(ELEM_MACRO)) {
       addMacro(e.getAttributeValue(NAME), e.getAttributeValue(VALUE));
+    }
+    for (Element e : root.getChildren(ELEM_PLUGIN)) {
+      addPlugin(new PluginData(e.getAttributeValue(PATH), e.getAttributeValue(ID)));
     }
     for (Element e : root.getChildren(ELEM_PROPERTY)) {
       addProperty(e.getAttributeValue(NAME), e.getAttributeValue(VALUE));
@@ -184,7 +193,12 @@ public class ScriptData {
   public void addMacro(String key, String value) {
     myMacros.put(key, value);
   }
-
+  public List<PluginData> getPlugins() {
+    return myPlugins;
+  }
+  public void addPlugin(PluginData p) {
+    myPlugins.add(p);
+  }
   public void setLibraries(Map<String, File> libraries) {
     myLibraries = libraries;
   }

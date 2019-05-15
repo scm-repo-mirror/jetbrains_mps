@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ package jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes;
 
 import jetbrains.mps.ide.findusages.CantLoadSomethingException;
 import jetbrains.mps.ide.findusages.CantSaveSomethingException;
-import jetbrains.mps.ide.findusages.view.treeholder.tree.TextOptions;
 import jetbrains.mps.ide.findusages.view.treeholder.treeview.path.PathItemRole;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
@@ -36,8 +35,8 @@ public class ModuleNodeData extends AbstractResultNodeData {
 
   private SModuleReference myModuleReference;
 
-  public ModuleNodeData(PathItemRole role, @Nullable String caption, @NotNull SModuleReference moduleRef, boolean isResult, boolean resultsSection) {
-    super(role, caption != null ? caption : getCaption(moduleRef), "", true, isResult, resultsSection);
+  public ModuleNodeData(PathItemRole role, @Nullable String caption, @Nullable String info, @NotNull SModuleReference moduleRef, boolean isResult, boolean resultsSection) {
+    super(role, caption != null ? caption : getCaption(moduleRef), info, isResult, resultsSection);
     myModuleReference = moduleRef;
   }
 
@@ -62,30 +61,19 @@ public class ModuleNodeData extends AbstractResultNodeData {
 
   @Override
   public String createIdObject() {
-    return getModuleReference().toString() + "/" + getPlainText();
+    return getModuleReference().toString();
   }
 
   @Override
   public void write(Element element, Project project) throws CantSaveSomethingException {
     super.write(element, project);
-    element.setAttribute(MODULE_REF, myModuleReference.toString());
+    element.setAttribute(MODULE_REF, PersistenceFacade.getInstance().asString(myModuleReference));
   }
 
   @Override
   public void read(Element element, Project project) throws CantLoadSomethingException {
     super.read(element, project);
     myModuleReference = PersistenceFacade.getInstance().createModuleReference(element.getAttributeValue(MODULE_REF));
-  }
-
-  @Override
-  public String getText(TextOptions options) {
-    boolean showCounter = options.myCounters && isResultsSection();
-    String counter = showCounter ? " " + sizeRepresentation(options.mySubresultsCount) : "";
-    return super.getText(options) + counter;
-  }
-
-  private static String sizeRepresentation(int size) {
-    return "<font color='gray'>(" + Integer.toString(size) + ")</font>";
   }
 
   @Override

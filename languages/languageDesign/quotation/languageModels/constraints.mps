@@ -401,7 +401,7 @@
                       <property role="3clFbU" value="false" />
                     </node>
                     <node concept="2YIFZM" id="5Vvmn_QkR1D" role="37wK5m">
-                      <ref role="37wK5l" to="pjrh:~MetaAdapterByDeclaration.getConcept(org.jetbrains.mps.openapi.model.SNode):org.jetbrains.mps.openapi.language.SAbstractConcept" resolve="getConcept" />
+                      <ref role="37wK5l" to="pjrh:~MetaAdapterByDeclaration.getConcept(org.jetbrains.mps.openapi.model.SNode)" resolve="getConcept" />
                       <ref role="1Pybhc" to="pjrh:~MetaAdapterByDeclaration" resolve="MetaAdapterByDeclaration" />
                       <node concept="2OqwBi" id="5Vvmn_QkR1E" role="37wK5m">
                         <node concept="2OqwBi" id="5Vvmn_QkR1F" role="2Oq$k0">
@@ -575,30 +575,6 @@
                 </node>
               </node>
             </node>
-          </node>
-        </node>
-      </node>
-    </node>
-  </node>
-  <node concept="1M2fIO" id="RRzwLnBtkf">
-    <property role="3GE5qa" value="container" />
-    <ref role="1M2myG" to="tp3r:4IP40Bi2$Et" resolve="NodeBuilder" />
-    <node concept="9S07l" id="147CB3QsUVg" role="9Vyp8">
-      <node concept="3clFbS" id="147CB3QsUVh" role="2VODD2">
-        <node concept="3clFbF" id="147CB3QsUVi" role="3cqZAp">
-          <node concept="2OqwBi" id="147CB3QsUVj" role="3clFbG">
-            <node concept="2OqwBi" id="147CB3QsUVk" role="2Oq$k0">
-              <node concept="nLn13" id="147CB3QsUVl" role="2Oq$k0" />
-              <node concept="2Xjw5R" id="147CB3QsUVm" role="2OqNvi">
-                <node concept="1xMEDy" id="147CB3QsUVn" role="1xVPHs">
-                  <node concept="chp4Y" id="147CB3QsUVo" role="ri$Ld">
-                    <ref role="cht4Q" to="tp3r:4IP40Bi2$Et" resolve="NodeBuilder" />
-                  </node>
-                </node>
-                <node concept="1xIGOp" id="147CB3QsUVp" role="1xVPHs" />
-              </node>
-            </node>
-            <node concept="3w_OXm" id="147CB3QsUVq" role="2OqNvi" />
           </node>
         </node>
       </node>

@@ -329,27 +329,6 @@
     <node concept="t5JxF" id="2k7p7sTvW9p" role="lGtFl">
       <property role="t5JxN" value="Casts node to the given type. 'asCast' property is true &lt;=&gt; the operation is null-safe (null if the provided type is incompatible)" />
     </node>
-    <node concept="1TJgyj" id="g_PxMaO" role="1TKVEi">
-      <property role="20lmBu" value="aggregation" />
-      <property role="20kJfa" value="leftExpression_old" />
-      <property role="20lbJX" value="0..1" />
-      <property role="IQ2ns" value="1140138123956" />
-      <ref role="20lvS9" to="tpee:fz3vP1J" resolve="Expression" />
-      <node concept="asaX9" id="5PLE6SbpWOr" role="lGtFl">
-        <property role="YLQ7P" value="The link was moved to concept &quot;jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression&quot;" />
-        <property role="YLPcu" value="3.5" />
-      </node>
-    </node>
-    <node concept="1TJgyj" id="g_PxNly" role="1TKVEi">
-      <property role="20kJfa" value="concept_old" />
-      <property role="20lbJX" value="0..1" />
-      <property role="IQ2ns" value="1140138128738" />
-      <ref role="20lvS9" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
-      <node concept="asaX9" id="5PLE6SbpWSc" role="lGtFl">
-        <property role="YLQ7P" value="The link was moved to concept &quot;jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression&quot;" />
-        <property role="YLPcu" value="3.5" />
-      </node>
-    </node>
     <node concept="1TJgyi" id="i1BlNJ7" role="1TKVEl">
       <property role="TrG5h" value="asCast" />
       <property role="IQ2nx" value="1238684351431" />
@@ -926,17 +905,6 @@
     <property role="34LRSv" value="rootsIncludingImported" />
     <property role="EcuMT" value="1176109685393" />
     <ref role="1TJDcQ" node="g$eCIIG" resolve="SNodeOperation" />
-    <node concept="1TJgyj" id="h7lAGzz" role="1TKVEi">
-      <property role="20lmBu" value="aggregation" />
-      <property role="20kJfa" value="scope" />
-      <property role="20lbJX" value="0..1" />
-      <property role="IQ2ns" value="1176109762787" />
-      <ref role="20lvS9" to="tpee:fz3vP1J" resolve="Expression" />
-      <node concept="asaX9" id="6cG5ul0unaM" role="lGtFl">
-        <property role="YLPcu" value="3.1" />
-        <property role="YLQ7P" value="rudimental, remove after 3.1" />
-      </node>
-    </node>
     <node concept="1TJgyj" id="h7lApEi" role="1TKVEi">
       <property role="20kJfa" value="concept" />
       <property role="20lbJX" value="0..1" />
@@ -1118,17 +1086,6 @@
     <property role="34LRSv" value="nodesIncludingImported" />
     <property role="EcuMT" value="1182511038748" />
     <ref role="1TJDcQ" node="g$eCIIG" resolve="SNodeOperation" />
-    <node concept="1TJgyj" id="hdj9C4t" role="1TKVEi">
-      <property role="20lmBu" value="aggregation" />
-      <property role="20kJfa" value="scope" />
-      <property role="20lbJX" value="0..1" />
-      <property role="IQ2ns" value="1182511038749" />
-      <ref role="20lvS9" to="tpee:fz3vP1J" resolve="Expression" />
-      <node concept="asaX9" id="4IaJlxHj$ni" role="lGtFl">
-        <property role="YLPcu" value="3.1" />
-        <property role="YLQ7P" value="rudimental, remove after 3.1" />
-      </node>
-    </node>
     <node concept="1TJgyj" id="hdj9C4u" role="1TKVEi">
       <property role="20kJfa" value="concept" />
       <property role="20lbJX" value="0..1" />
@@ -1258,7 +1215,7 @@
       <ref role="20lvS9" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
     <node concept="asaX9" id="1t9Fffggnzf" role="lGtFl">
-      <property role="YLPcu" value="MPS 3.3" />
+      <property role="YLPcu" value="3.3" />
       <property role="YLQ7P" value="This reference has no information where to resolve it. Unless we introduce SRepository parameter here, use NodePointerExpression instead." />
     </node>
   </node>
@@ -1272,35 +1229,6 @@
     <property role="34LRSv" value="search scope" />
     <property role="EcuMT" value="1221161909218" />
     <ref role="1TJDcQ" to="tpee:fz3vP1H" resolve="Type" />
-  </node>
-  <node concept="1TIwiD" id="hLj1KqM">
-    <property role="R5$K7" value="false" />
-    <property role="R5$K2" value="false" />
-    <property role="R4oN_" value="obtain referent search scope" />
-    <property role="TrG5h" value="Node_GetReferentSearchScopeOperation" />
-    <property role="2_RsDV" value="none" />
-    <property role="3GE5qa" value="operation.node" />
-    <property role="34LRSv" value="search scope" />
-    <property role="EcuMT" value="1221163681458" />
-    <ref role="1TJDcQ" node="g$eCIIG" resolve="SNodeOperation" />
-    <node concept="1TJgyj" id="hLj2ZkY" role="1TKVEi">
-      <property role="20lmBu" value="aggregation" />
-      <property role="20kJfa" value="operationContext" />
-      <property role="20lbJX" value="1" />
-      <property role="IQ2ns" value="1221164004670" />
-      <ref role="20lvS9" to="tpee:fz3vP1J" resolve="Expression" />
-    </node>
-    <node concept="1TJgyj" id="hLj3hlO" role="1TKVEi">
-      <property role="20lmBu" value="reference" />
-      <property role="20kJfa" value="referenceLink" />
-      <property role="20lbJX" value="1" />
-      <property role="IQ2ns" value="1221164078452" />
-      <ref role="20lvS9" to="tpce:f_TJgxE" resolve="LinkDeclaration" />
-    </node>
-    <node concept="asaX9" id="6n80HowITfb" role="lGtFl">
-      <property role="YLQ7P" value="Implementation method in SNodeOperations has been deprecated for 3 years, and the last uses of the operation are history now" />
-      <property role="YLPcu" value="3.3" />
-    </node>
   </node>
   <node concept="1TIwiD" id="hLjrik3">
     <property role="R5$K7" value="false" />
@@ -1667,25 +1595,11 @@
     <property role="EcuMT" value="5692182839349412519" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="asaX9" id="7cdZoO_MeqH" role="lGtFl">
-      <property role="YLPcu" value="MPS 3.3" />
+      <property role="YLPcu" value="3.3" />
       <property role="YLQ7P" value="use getLink() method" />
     </node>
     <node concept="PrWs8" id="4VYGy97ZKb3" role="PzmwI">
       <ref role="PrY4T" node="1lUJQtrPjRM" resolve="IReferenceOperation" />
-    </node>
-  </node>
-  <node concept="1TIwiD" id="536fMNl52qn">
-    <property role="R5$K7" value="false" />
-    <property role="R5$K2" value="false" />
-    <property role="TrG5h" value="Node_GetContainingLinkOperation" />
-    <property role="2_RsDV" value="none" />
-    <property role="3GE5qa" value="operation.node" />
-    <property role="34LRSv" value="containingLink" />
-    <property role="EcuMT" value="5820409030208923287" />
-    <ref role="1TJDcQ" node="g$eCIIG" resolve="SNodeOperation" />
-    <node concept="asaX9" id="6w_7fBrSjZU" role="lGtFl">
-      <property role="YLPcu" value="3.5" />
-      <property role="YLQ7P" value="Use &quot;link&quot; operation. Remove after 3.5" />
     </node>
   </node>
   <node concept="1TIwiD" id="1GPSoCqeMMq">
@@ -1698,8 +1612,8 @@
     <property role="EcuMT" value="1960721196051541146" />
     <ref role="1TJDcQ" node="g$eCIIG" resolve="SNodeOperation" />
     <node concept="asaX9" id="7cdZoO_MeDD" role="lGtFl">
-      <property role="YLPcu" value="MPS 3.3" />
       <property role="YLQ7P" value="use SNode.getContainmentLink() method or &quot;link&quot; operation after 3.5" />
+      <property role="YLPcu" value="3.3" />
     </node>
   </node>
   <node concept="1TIwiD" id="38ovo3PI8w0">
@@ -1766,27 +1680,6 @@
     <property role="EcuMT" value="1540150895035667832" />
     <ref role="1TJDcQ" node="gDxHYCE" resolve="AbstractOperationParameter" />
   </node>
-  <node concept="1TIwiD" id="7eX9cM$Yh9k">
-    <property role="R5$K7" value="false" />
-    <property role="R5$K2" value="false" />
-    <property role="TrG5h" value="ConceptFqNameRefExpression" />
-    <property role="2_RsDV" value="none" />
-    <property role="3GE5qa" value="reference" />
-    <property role="34LRSv" value="conceptFqName/&lt;name&gt;/" />
-    <property role="R4oN_" value="full qualified name" />
-    <property role="EcuMT" value="8339862546319741524" />
-    <ref role="1TJDcQ" to="tpee:fz3vP1J" resolve="Expression" />
-    <node concept="asaX9" id="4L5lkpK8vr6" role="lGtFl">
-      <property role="YLPcu" value="3.5" />
-      <property role="YLQ7P" value="use concept// instead" />
-    </node>
-    <node concept="1TJgyj" id="7eX9cM$Yh9l" role="1TKVEi">
-      <property role="20kJfa" value="conceptDeclaration" />
-      <property role="20lbJX" value="1" />
-      <property role="IQ2ns" value="8339862546319741525" />
-      <ref role="20lvS9" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
-    </node>
-  </node>
   <node concept="1TIwiD" id="1Cyzq4Pv$D4">
     <property role="R5$K7" value="false" />
     <property role="R5$K2" value="false" />
@@ -1841,62 +1734,6 @@
       <property role="IQ2ns" value="1883223317721107060" />
       <ref role="20ksaX" to="tpee:4Lb$w0Yiqs5" resolve="baseVariableDeclaration" />
       <ref role="20lvS9" node="1Cyzq4Pv$D9" resolve="IfInstanceOfVariable" />
-    </node>
-  </node>
-  <node concept="1TIwiD" id="4zASA_hyumq">
-    <property role="R5$K7" value="false" />
-    <property role="R5$K2" value="false" />
-    <property role="R4oN_" value="name" />
-    <property role="TrG5h" value="LinkNameRefExpression" />
-    <property role="2_RsDV" value="none" />
-    <property role="3GE5qa" value="reference" />
-    <property role="34LRSv" value="linkName/&lt;role&gt;/" />
-    <property role="EcuMT" value="5253134957341697434" />
-    <ref role="1TJDcQ" to="tpee:fz3vP1J" resolve="Expression" />
-    <node concept="1TJgyj" id="4zASA_hyZsH" role="1TKVEi">
-      <property role="20kJfa" value="conceptDeclaration" />
-      <property role="20lbJX" value="1" />
-      <property role="IQ2ns" value="5253134957341833005" />
-      <ref role="20lvS9" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
-    </node>
-    <node concept="1TJgyj" id="4zASA_hyZsI" role="1TKVEi">
-      <property role="20lmBu" value="reference" />
-      <property role="20kJfa" value="linkDeclaration" />
-      <property role="20lbJX" value="1" />
-      <property role="IQ2ns" value="5253134957341833006" />
-      <ref role="20lvS9" to="tpce:f_TJgxE" resolve="LinkDeclaration" />
-    </node>
-    <node concept="asaX9" id="5xzMQBRF3uX" role="lGtFl">
-      <property role="YLPcu" value="3.5" />
-      <property role="YLQ7P" value="use link/.../.getName(), better migrate to link/.../" />
-    </node>
-  </node>
-  <node concept="1TIwiD" id="4zASA_hz8BR">
-    <property role="R5$K7" value="false" />
-    <property role="R5$K2" value="false" />
-    <property role="R4oN_" value="name" />
-    <property role="TrG5h" value="PropertyNameRefExpression" />
-    <property role="2_RsDV" value="none" />
-    <property role="3GE5qa" value="reference" />
-    <property role="34LRSv" value="propertyName/&lt;name&gt;/" />
-    <property role="EcuMT" value="5253134957341870583" />
-    <ref role="1TJDcQ" to="tpee:fz3vP1J" resolve="Expression" />
-    <node concept="1TJgyj" id="4zASA_hz8BS" role="1TKVEi">
-      <property role="20kJfa" value="conceptDeclaration" />
-      <property role="20lbJX" value="1" />
-      <property role="IQ2ns" value="5253134957341870584" />
-      <ref role="20lvS9" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
-    </node>
-    <node concept="1TJgyj" id="4zASA_hz8BT" role="1TKVEi">
-      <property role="20lmBu" value="reference" />
-      <property role="20kJfa" value="propertyDeclaration" />
-      <property role="20lbJX" value="1" />
-      <property role="IQ2ns" value="5253134957341870585" />
-      <ref role="20lvS9" to="tpce:f_TJgxF" resolve="PropertyDeclaration" />
-    </node>
-    <node concept="asaX9" id="5xzMQBRESIM" role="lGtFl">
-      <property role="YLPcu" value="3.5" />
-      <property role="YLQ7P" value="use property/.../.getName() instead, better to migrate to property/.../" />
     </node>
   </node>
   <node concept="1TIwiD" id="5zEkxuKhqeM">
@@ -2064,7 +1901,7 @@
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
     <node concept="asaX9" id="1t9FffgewUl" role="lGtFl">
-      <property role="YLPcu" value="MPS 3.3" />
+      <property role="YLPcu" value="3.3" />
       <property role="YLQ7P" value="Global module repository shall cease soon. Use ModuleRefExpression instead." />
     </node>
   </node>
@@ -2080,7 +1917,7 @@
     <ref role="1TJDcQ" node="3wj3sjzQPFL" resolve="ModuleReferenceExpression" />
     <node concept="asaX9" id="1t9FffgewUn" role="lGtFl">
       <property role="YLQ7P" value="Module instance is accessed through global repository which would cease soon. Use LanguageRefExpression instead" />
-      <property role="YLPcu" value="MPS 3.3" />
+      <property role="YLPcu" value="3.3" />
     </node>
   </node>
   <node concept="1TIwiD" id="v3WHCwUiHy">
@@ -2111,15 +1948,6 @@
       <property role="TrG5h" value="stereotype" />
       <property role="IQ2nx" value="559557797393021807" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
-    </node>
-    <node concept="1TJgyi" id="v3WHCwUoyi" role="1TKVEl">
-      <property role="TrG5h" value="fqName" />
-      <property role="IQ2nx" value="559557797393041554" />
-      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
-      <node concept="asaX9" id="7K4mn_Bfj93" role="lGtFl">
-        <property role="YLQ7P" value="use getFQName() behavior method" />
-        <property role="YLPcu" value="MPS 3.2" />
-      </node>
     </node>
   </node>
   <node concept="1TIwiD" id="59YAasRsvgM">
@@ -2341,7 +2169,7 @@
     <property role="TrG5h" value="PropertyIdRefExpression" />
     <property role="2_RsDV" value="none" />
     <property role="3GE5qa" value="reference" />
-    <property role="34LRSv" value="property/&lt;name&gt;/" />
+    <property role="34LRSv" value="property/&lt;concept&gt;:&lt;name&gt;/" />
     <property role="R4oN_" value="openapi SProperty" />
     <property role="EcuMT" value="2644386474302386080" />
     <ref role="1TJDcQ" to="tpee:fz3vP1J" resolve="Expression" />

@@ -52,14 +52,12 @@ import com.intellij.util.ui.ButtonlessScrollBarUI;
 import com.intellij.util.ui.UIUtil;
 import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.classloading.ClassLoaderManager;
-import jetbrains.mps.classloading.MPSClassesListener;
-import jetbrains.mps.classloading.MPSClassesListenerAdapter;
+import jetbrains.mps.classloading.DeployListener;
 import jetbrains.mps.editor.runtime.cells.ReadOnlyUtil;
 import jetbrains.mps.editor.runtime.commands.EditorCommand;
 import jetbrains.mps.editor.runtime.commands.EditorCommandAdapter;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.errors.item.IssueKindReportItem;
-import jetbrains.mps.errors.item.ReportItem;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.ide.actions.MPSActions;
@@ -71,7 +69,7 @@ import jetbrains.mps.ide.tooltips.MPSToolTipManager;
 import jetbrains.mps.ide.tooltips.TooltipComponent;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.logging.Logger;
-import jetbrains.mps.module.ReloadableModuleBase;
+import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.nodeEditor.actions.ActionHandlerImpl;
 import jetbrains.mps.nodeEditor.assist.DefaultContextAssistantManager;
 import jetbrains.mps.nodeEditor.assist.DisabledContextAssistantManager;
@@ -124,6 +122,9 @@ import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.openapi.editor.update.Updater;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.CancellableReadAction;
+import jetbrains.mps.typechecking.TypecheckingFacade;
+import jetbrains.mps.typechecking.TypecheckingSessionHandler.SessionToken;
+import jetbrains.mps.typechecking.backend.TypecheckingSession.Flags;
 import jetbrains.mps.typesystem.inference.DefaultTypecheckingContextOwner;
 import jetbrains.mps.typesystem.inference.ITypeContextOwner;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
@@ -147,6 +148,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.model.SNodeUtil;
 import org.jetbrains.mps.openapi.module.SRepository;
+import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import org.jetbrains.mps.util.Condition;
 
 import javax.swing.AbstractAction;
@@ -217,10 +219,11 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   public static final String EDITOR_POPUP_MENU_ACTIONS = MPSActions.EDITOR_POPUP_GROUP;
 
   private static final int SCROLL_GAP = 15;
-  private final ClassLoaderManager myClassLoaderManager;
+  private ClassLoaderManager myClassLoaderManager = null;
 
   private String myDefaultPopupGroupId = MPSActions.EDITOR_POPUP_GROUP;
   private InputMethodRequests myInputMethodRequests;
+  private SessionToken mySessionToken;
 
   public static void turnOnAliasingIfPossible(Graphics2D g) {
     if (EditorSettings.getInstance().isUseAntialiasing()) {
@@ -271,9 +274,14 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     }
     rebuildEditorContent();
   });
-  private MPSClassesListener myClassesListener = new MPSClassesListenerAdapter() {
+
+  private final DeployListener myClassesListener = new DeployListener() {
     @Override
-    public void afterClassesLoaded(Set<? extends ReloadableModuleBase> modules) {
+    public void onUnloaded(@NotNull Set<ReloadableModule> unloadedModules, @NotNull ProgressMonitor monitor) {
+    }
+
+    @Override
+    public void onLoaded(@NotNull Set<ReloadableModule> loadedModules, @NotNull ProgressMonitor monitor) {
       getModelAccess().runReadInEDT(() -> {
         if (isDisposed() || isModuleDisposed() || isProjectDisposed() || isNodeDisposed()) {
           return;
@@ -368,7 +376,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     if (ApplicationManager.getApplication() != null && ApplicationManager.getApplication().getComponent(MPSCoreComponents.class) != null) {
       myClassLoaderManager = ApplicationManager.getApplication().getComponent(MPSCoreComponents.class).getClassLoaderManager();
     } else {
-      myClassLoaderManager = ClassLoaderManager.getInstance();
+      LOG.warning("ClassloaderManager is not found, the reload will be switched off");
     }
 
     setLayout(new EditorComponentLayoutManager(this));
@@ -680,7 +688,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
   protected void attachListeners() {
     EditorSettings.getInstance().addEditorSettingsListener(mySettingsListener);
-    myClassLoaderManager.addClassesHandler(myClassesListener);
+    if (myClassLoaderManager != null) {
+      myClassLoaderManager.addListener(myClassesListener);
+    }
   }
 
   protected void notifyCreation() {
@@ -913,16 +923,19 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     });
   }
 
+  @Deprecated
   @Override
   public TypeCheckingContext createTypecheckingContext(SNode sNode, TypeContextManager typeContextManager) {
     return (new DefaultTypecheckingContextOwner()).createTypecheckingContext(sNode, typeContextManager);
   }
 
+  @Deprecated
   @Override
   public boolean reuseTypecheckingContext() {
     return true;
   }
 
+  @Deprecated
   @Override
   public SubtypingCache createSubtypingCache() {
     return new ConcurrentSubtypingCache();
@@ -1015,8 +1028,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       }
 
       final boolean needNewTypecheckingContext = updateContainingRoot(node);
-      if (needNewTypecheckingContext) {
-        releaseTypeCheckingContext();
+      if (needNewTypecheckingContext && mySessionToken != null) {
+        mySessionToken.release();
+        mySessionToken = null;
       }
 
       myNode = node;
@@ -1033,8 +1047,8 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       }
       myCommandContext.updateContextNode();
 
-      if (needNewTypecheckingContext) {
-        acquireTypeCheckingContext();
+      if (needNewTypecheckingContext && myNode != null) {
+        mySessionToken = TypecheckingFacade.getFromContext().requestNewSession(Flags.forRoot(myNode).incremental());
       }
 
       rebuildEditorContent();
@@ -1353,7 +1367,10 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       hideMessageToolTip();
     }
 
-    releaseTypeCheckingContext();
+    if (mySessionToken != null) {
+      mySessionToken.release();
+      mySessionToken = null;
+    }
     myHighlightManager.dispose();
 
     detachListeners();
@@ -1387,7 +1404,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
   protected void detachListeners() {
     EditorSettings.getInstance().removeEditorSettingsListener(mySettingsListener);
-    myClassLoaderManager.removeClassesHandler(myClassesListener);
+    myClassLoaderManager.removeListener(myClassesListener);
   }
 
   public boolean hasValidSelectedNode() {
@@ -2198,14 +2215,6 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     return this;
   }
 
-  protected void acquireTypeCheckingContext() {
-    getModelAccess().runReadAction(() -> TypeContextManager.getInstance().acquireTypecheckingContext(getNodeForTypechecking(), EditorComponent.this));
-  }
-
-  protected void releaseTypeCheckingContext() {
-    getModelAccess().runReadAction(() -> TypeContextManager.getInstance().releaseTypecheckingContext(EditorComponent.this));
-  }
-
   /**
    * Returns false iff the containing root has been changed as a result of this method call.
    */
@@ -2672,14 +2681,19 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   }
 
   public void rebuildAfterReloadModel() {
-    releaseTypeCheckingContext();
+    if (mySessionToken != null) {
+      mySessionToken.release();
+      mySessionToken = null;
+    }
     if (myNodePointer != null) {
       myNode = myNodePointer.resolve(getRepository());
       myEditorContext = createEditorContext(myNode == null ? null : myNode.getModel(), myRepository);
       myUpdater.clearExplicitHints();
     }
     myCommandContext.updateContextNode();
-    acquireTypeCheckingContext();
+    if (myNode != null) {
+      mySessionToken = TypecheckingFacade.getFromContext().requestNewSession(Flags.forRoot(myNode).incremental());
+    }
   }
 
   private static class MyBaseAction extends BaseAction implements DumbAware {

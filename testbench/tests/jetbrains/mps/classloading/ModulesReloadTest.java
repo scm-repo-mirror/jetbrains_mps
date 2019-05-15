@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,11 @@
 package jetbrains.mps.classloading;
 
 import jetbrains.mps.extapi.module.FacetsRegistry;
+import jetbrains.mps.extapi.module.ModuleFacetBase;
 import jetbrains.mps.module.ModuleClassLoaderIsNullException;
 import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.facets.JavaModuleFacet;
-import jetbrains.mps.project.facets.JavaModuleFacetImpl;
 import jetbrains.mps.project.structure.modules.Dependency;
 import jetbrains.mps.project.structure.modules.SolutionDescriptor;
 import jetbrains.mps.project.structure.modules.SolutionKind;
@@ -47,6 +47,7 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOError;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -78,6 +79,10 @@ public class ModulesReloadTest extends ModuleMpsTest {
     } catch (IOException e) {
       throw new IOError(e);
     }
+  }
+
+  private static ClassLoader defaultCL() {
+    return ClassLoaderManager.DEFAULT_DELEGATING_TO_SYSTEM_CL;
   }
 
   @BeforeClass
@@ -117,7 +122,7 @@ public class ModulesReloadTest extends ModuleMpsTest {
   @Test
   public void testLanguageIsLoadable() {
     final Language language = createLanguage();
-    Assert.assertTrue(safeGetClass(language, CLASS_TO_LOAD) == null);
+    Assert.assertNull(safeGetClass(language, CLASS_TO_LOAD));
     addClassTo(language);
     getModelAccess().runWriteAction(() -> {
       language.reload();
@@ -128,7 +133,7 @@ public class ModulesReloadTest extends ModuleMpsTest {
   @Test
   public void testGeneratorIsLoadable() {
     final Generator generator = createGenerator();
-    Assert.assertTrue(safeGetClass(generator, CLASS_TO_LOAD) == null);
+    Assert.assertNull(safeGetClass(generator, CLASS_TO_LOAD));
     addClassTo(generator);
     getModelAccess().runWriteAction(() -> {
       generator.reload();
@@ -164,7 +169,6 @@ public class ModulesReloadTest extends ModuleMpsTest {
       }
     });
   }
-
   @Test
   public void testNonPluginSolutionIsNotLoadable() {
     final Solution solution = createSolution(SolutionKind.NONE);
@@ -178,6 +182,7 @@ public class ModulesReloadTest extends ModuleMpsTest {
     });
 //    Assert.assertFalse(classIsLoadableFromModule(solution));
   }
+
   @Test
   public void testReloadNonLoadableSolution() {
     final Solution solution = createSolution(SolutionKind.NONE);
@@ -241,7 +246,6 @@ public class ModulesReloadTest extends ModuleMpsTest {
         l.addDependency(s.getModuleReference(), false);
 //        Assert.assertFalse(classIsLoadableFromModule(l)); FIXME turn on after 3.2
         SolutionDescriptor moduleDescriptor = s.getModuleDescriptor();
-        assert moduleDescriptor != null;
         moduleDescriptor.setKind(SolutionKind.PLUGIN_CORE);
         s.reload();
         Assert.assertTrue(classIsLoadableFromModule(l)); // the class must be available already here
@@ -303,11 +307,12 @@ public class ModulesReloadTest extends ModuleMpsTest {
       @Override
       public void run() {
         removeModule(l1);
-        Assert.assertTrue(l1.getClassLoader() == null);
+        Assert.assertSame(l1.getClassLoader(),
+                          defaultCL());
         Assert.assertTrue(!myManager.getModulesWatcher().isModuleWatched(l1));
       }
     });
-    Assert.assertTrue(l1.getClassLoader() == null);
+    Assert.assertSame(l1.getClassLoader(), defaultCL());
   }
 
   @Test
@@ -343,10 +348,10 @@ public class ModulesReloadTest extends ModuleMpsTest {
         Assert.assertTrue(classIsLoadableFromModule(l1));
         removeModule(l1);
         l2[0] = createLanguage(l1.getModuleDescriptor().getId(), l1.getModuleName()); // the same
-        Assert.assertTrue(l2[0].getClassLoader() != null);
+        Assert.assertNotSame(l2[0].getClassLoader(), defaultCL());
       }
     });
-    Assert.assertTrue(l2[0].getClassLoader() != null);
+    Assert.assertNotSame(l2[0].getClassLoader(), defaultCL());
   }
 
   @Test
@@ -362,7 +367,7 @@ public class ModulesReloadTest extends ModuleMpsTest {
         removeModule(l[0]);
       }
     });
-    Assert.assertTrue(l[0].getClassLoader() == null);
+    Assert.assertSame(l[0].getClassLoader(), defaultCL());
   }
 
   @Test
@@ -525,11 +530,12 @@ public class ModulesReloadTest extends ModuleMpsTest {
   /**
    * My personal JavaModuleFacet implementation, which allows to reset library class path and compileInMps flag.
    */
-  private static class TestJavaModuleFacet extends JavaModuleFacetImpl implements JavaModuleFacet {
+  private static class TestJavaModuleFacet extends ModuleFacetBase implements JavaModuleFacet {
     private String myLibClassPath = null;
     private boolean myCompileInMps = true;
 
     public TestJavaModuleFacet() {
+      super(JavaModuleFacet.FACET_TYPE);
     }
 
     @Override
@@ -545,9 +551,25 @@ public class ModulesReloadTest extends ModuleMpsTest {
 
     @Override
     public Set<String> getLibraryClassPath() {
-      Set<String> result = new HashSet<String>();
-      if (myLibClassPath != null) result.add(myLibClassPath);
+      Set<String> result = new HashSet<>();
+      if (myLibClassPath != null) {
+        result.add(myLibClassPath);
+      }
       return result;
+    }
+
+    @Override
+    public Set<String> getClassPath() {
+      // don't need complexity of JavaModuleFacetImpl#getClassPath(), we know there's nothing but library path we care about.
+      // besides, there's some assumptions about 'packaged' modules and DD that are hard to hold given perverted isPackaged base implementation
+      // (module w/o file treated as 'packaged', see TestLanguage#isPackaged).
+      // perhaps, shall not even change 'library cp', rather just 'cp' (I suppose 'library' was there to overcome final getClassPath() of JMFI)
+      return getLibraryClassPath();
+    }
+
+    @Override
+    public Set<String> getAdditionalSourcePaths() {
+      return Collections.emptySet();
     }
 
     public void setLibClassPath(@Nullable String newPath) {

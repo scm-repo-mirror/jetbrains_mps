@@ -14,7 +14,7 @@ import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.generator.template.ReferenceMacroContext;
 import jetbrains.mps.baseLanguage.typesystem.VaraibleTypeUtil;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.generator.template.WeavingMappingRuleContext;
@@ -106,16 +106,16 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.getOutputNodeByInputNodeAndMappingLabel(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), "LocalVariable_AsReference");
   }
   public static Object referenceMacro_GetReferent_5_0(final ReferenceMacroContext _context) {
-    return VaraibleTypeUtil.getIncrementAndGetMethod(TypeChecker.getInstance().getTypeOf(_context.getNode()));
+    return VaraibleTypeUtil.getIncrementAndGetMethod(TypecheckingFacade.getFromContext().getTypeOf(_context.getNode()));
   }
   public static Object referenceMacro_GetReferent_5_1(final ReferenceMacroContext _context) {
-    return VaraibleTypeUtil.getGetAndIncrementMethod(TypeChecker.getInstance().getTypeOf(_context.getNode()));
+    return VaraibleTypeUtil.getGetAndIncrementMethod(TypecheckingFacade.getFromContext().getTypeOf(_context.getNode()));
   }
   public static Object referenceMacro_GetReferent_5_2(final ReferenceMacroContext _context) {
-    return VaraibleTypeUtil.getDecrementAndGetMethod(TypeChecker.getInstance().getTypeOf(_context.getNode()));
+    return VaraibleTypeUtil.getDecrementAndGetMethod(TypecheckingFacade.getFromContext().getTypeOf(_context.getNode()));
   }
   public static Object referenceMacro_GetReferent_5_3(final ReferenceMacroContext _context) {
-    return VaraibleTypeUtil.getGetAndDecrementMethod(TypeChecker.getInstance().getTypeOf(_context.getNode()));
+    return VaraibleTypeUtil.getGetAndDecrementMethod(TypecheckingFacade.getFromContext().getTypeOf(_context.getNode()));
   }
   public static Object referenceMacro_GetReferent_6_0(final ReferenceMacroContext _context) {
     return _context.getCopiedOutputNodeForInputNode(_context.getNode());
@@ -308,13 +308,13 @@ public class QueriesGenerated extends QueryProviderBase {
     return SNodeOperations.as(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue")), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac233L, "jetbrains.mps.baseLanguage.structure.GenericLValueExpression"));
   }
   public static Object varMacro_Value_1_0(final TemplateVarContext _context) {
-    return (SNode) Type__BehaviorDescriptor.getBoxedType_idhEwIzNC.invoke(SNodeOperations.cast(TypeChecker.getInstance().getTypeOf(_context.getNode()), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type")));
+    return (SNode) Type__BehaviorDescriptor.getBoxedType_idhEwIzNC.invoke(SNodeOperations.cast(TypecheckingFacade.getFromContext().getTypeOf(_context.getNode()), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type")));
   }
   public static Object varMacro_Value_1_1(final TemplateVarContext _context) {
-    return (SNode) Type__BehaviorDescriptor.getBoxedType_idhEwIzNC.invoke(SNodeOperations.cast(TypeChecker.getInstance().getTypeOf(_context.getNode()), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type")));
+    return (SNode) Type__BehaviorDescriptor.getBoxedType_idhEwIzNC.invoke(SNodeOperations.cast(TypecheckingFacade.getFromContext().getTypeOf(_context.getNode()), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type")));
   }
   public static Object varMacro_Value_1_2(final TemplateVarContext _context) {
-    return SNodeOperations.cast(TypeChecker.getInstance().getTypeOf(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"))), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"));
+    return SNodeOperations.cast(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"))), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"));
   }
   private final Map<String, ReductionRuleCondition> rrcMethods = new HashMap<String, ReductionRuleCondition>();
   {
@@ -780,10 +780,10 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   private final Map<String, VariableValueQuery> vvqMethods = new HashMap<String, VariableValueQuery>();
   {
-    vvqMethods.put("9101202990849543285", new QueriesGenerated.VVQ(0));
-    vvqMethods.put("1767070328285946032", new QueriesGenerated.VVQ(1));
-    vvqMethods.put("1767070328286609990", new QueriesGenerated.VVQ(2));
-    vvqMethods.put("1767070328287098401", new QueriesGenerated.VVQ(3));
+    vvqMethods.put("2409421742521898443", new QueriesGenerated.VVQ(0));
+    vvqMethods.put("2409421742521898448", new QueriesGenerated.VVQ(1));
+    vvqMethods.put("2409421742521898453", new QueriesGenerated.VVQ(2));
+    vvqMethods.put("2409421742521898458", new QueriesGenerated.VVQ(3));
   }
   @NotNull
   @Override

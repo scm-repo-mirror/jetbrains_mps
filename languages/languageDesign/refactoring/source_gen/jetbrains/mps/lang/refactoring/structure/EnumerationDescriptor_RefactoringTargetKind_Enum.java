@@ -56,9 +56,13 @@ public class EnumerationDescriptor_RefactoringTargetKind_Enum extends Enumeratio
     return null;
   }
 
-    @Nullable
+  @Nullable
   @Override
-  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) { if (myIndex.index(idValue) == -1) return null;
-    return myMembers.get(myIndex.index(idValue));
+  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {
+    int index = myIndex.index(idValue);
+    if (index == -1) {
+      return null;
+    }
+    return myMembers.get(index);
   }
 }

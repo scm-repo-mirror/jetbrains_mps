@@ -7,14 +7,6 @@
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="jetbrains.mps.tool.common.Script" />
   </dependency>
-  <dependency className="jetbrains.mps.tool.common.IMessageFormat">
-    <classNode dependClassName="java.lang.CharSequence" />
-    <classNode dependClassName="java.lang.Deprecated" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.StringBuffer" />
-    <classNode dependClassName="jetbrains.mps.util.annotation.ToRemove" />
-    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-  </dependency>
   <dependency className="jetbrains.mps.tool.common.JDOMUtil">
     <classNode dependClassName="java.io.BufferedOutputStream" />
     <classNode dependClassName="java.io.CharArrayReader" />
@@ -56,6 +48,32 @@
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="jetbrains.mps.tool.common.Script" />
   </dependency>
+  <dependency className="jetbrains.mps.tool.common.PathManager">
+    <classNode dependClassName="java.io.File" />
+    <classNode dependClassName="java.io.IOException" />
+    <classNode dependClassName="java.io.UnsupportedEncodingException" />
+    <classNode dependClassName="java.lang.Class" />
+    <classNode dependClassName="java.lang.ClassLoader" />
+    <classNode dependClassName="java.lang.Object" />
+    <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.lang.System" />
+    <classNode dependClassName="java.net.URL" />
+    <classNode dependClassName="java.net.URLDecoder" />
+    <classNode dependClassName="java.nio.charset.Charset" />
+    <classNode dependClassName="java.util.Properties" />
+    <classNode dependClassName="java.util.Set" />
+    <classNode dependClassName="jetbrains.mps.core.tool.environment.common.FileUtil" />
+    <classNode dependClassName="jetbrains.mps.core.tool.environment.common.StringUtil" />
+    <classNode dependClassName="jetbrains.mps.core.tool.environment.common.SystemInfo" />
+    <classNode dependClassName="org.apache.log4j.Level" />
+    <classNode dependClassName="org.apache.log4j.LogManager" />
+    <classNode dependClassName="org.apache.log4j.Logger" />
+    <classNode dependClassName="org.jetbrains.annotations.NonNls" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
+  </dependency>
+  <dependency className="jetbrains.mps.tool.common.PluginData">
+    <classNode dependClassName="java.lang.String" />
+  </dependency>
   <dependency className="jetbrains.mps.tool.common.RepositoryDescriptor">
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.HashSet" />
@@ -77,6 +95,7 @@
     <classNode dependClassName="java.util.Map" />
     <classNode dependClassName="java.util.Set" />
     <classNode dependClassName="jetbrains.mps.tool.common.JDOMUtil" />
+    <classNode dependClassName="jetbrains.mps.tool.common.PluginData" />
     <classNode dependClassName="jetbrains.mps.tool.common.RepositoryDescriptor" />
     <classNode dependClassName="jetbrains.mps.tool.common.ScriptData" />
     <classNode dependClassName="jetbrains.mps.tool.common.ScriptProperties" />
@@ -94,23 +113,13 @@
     <classNode dependClassName="java.util.LinkedHashMap" />
     <classNode dependClassName="java.util.List" />
     <classNode dependClassName="java.util.Map" />
+    <classNode dependClassName="jetbrains.mps.tool.common.PluginData" />
     <classNode dependClassName="jetbrains.mps.tool.common.RepositoryDescriptor" />
     <classNode dependClassName="org.apache.log4j.Level" />
     <classNode dependClassName="org.jdom.Element" />
   </dependency>
   <dependency className="jetbrains.mps.tool.common.ScriptProperties">
     <classNode dependClassName="java.lang.String" />
-  </dependency>
-  <dependency className="jetbrains.mps.tool.common.TeamCityMessageFormat">
-    <classNode dependClassName="java.lang.CharSequence" />
-    <classNode dependClassName="java.lang.Deprecated" />
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="java.lang.StringBuffer" />
-    <classNode dependClassName="java.util.regex.Matcher" />
-    <classNode dependClassName="java.util.regex.Pattern" />
-    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode extendsClassName="jetbrains.mps.tool.common.IMessageFormat" />
   </dependency>
 </dependenciesRoot>
 

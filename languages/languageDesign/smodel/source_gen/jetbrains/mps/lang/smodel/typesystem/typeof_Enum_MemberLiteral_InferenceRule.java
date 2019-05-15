@@ -22,7 +22,7 @@ public class typeof_Enum_MemberLiteral_InferenceRule extends AbstractInferenceRu
     {
       SNode _nodeToCheck_1029348928467 = memberLiteral;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "7029133697938601107", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "7029133697938597242", true), (SNode) _quotation_createNode_3ec7j1_a1a2a0a1(EnumOperation__BehaviorDescriptor.getEnumDecl_id66cvXGSmQgk.invoke(memberLiteral)), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "7029133697938597242", true), (SNode) _quotation_createNode_3ec7j1_a1a0c0a0b(EnumOperation__BehaviorDescriptor.getEnumDecl_id66cvXGSmQgk.invoke(memberLiteral)), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
@@ -34,7 +34,7 @@ public class typeof_Enum_MemberLiteral_InferenceRule extends AbstractInferenceRu
   public boolean overrides() {
     return false;
   }
-  private static SNode _quotation_createNode_3ec7j1_a1a2a0a1(Object parameter_1) {
+  private static SNode _quotation_createNode_3ec7j1_a1a0c0a0b(Object parameter_1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel"), 0x120bfe51421L, "SEnumerationMemberType"), null, null, false);

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,6 +51,7 @@ import jetbrains.mps.ide.findusages.view.UsagesView.RebuildAction;
 import jetbrains.mps.ide.findusages.view.UsagesView.RerunAction;
 import jetbrains.mps.ide.findusages.view.UsagesView.SearchTaskImpl;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.DataTreeChangesNotifier;
+import jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
@@ -158,17 +159,23 @@ public class UsagesViewTool extends TabbedUsagesTool implements PersistentStateC
 
       @Override
       public void onSuccess() {
-        showResults(searchTask, searchResults, options);
+        showResults(searchTask, searchResults, options, null);
       }
     }.queue());
   }
 
   public void show(SearchResults results, String notFoundMsg) {
     ThreadUtils.assertEDT();
-    showResults(null, results, new UsageToolOptions().navigateIfSingle(false).forceNewTab(true).allowRunAgain(false).notFoundMessage(notFoundMsg));
+    showResults(null, results, new UsageToolOptions().navigateIfSingle(false).forceNewTab(true).allowRunAgain(false).notFoundMessage(notFoundMsg), null);
   }
 
-  private void showResults(SearchTaskImpl searchTask, final SearchResults<?> searchResults, UsageToolOptions options) {
+  public void show(SearchResults results, String notFoundMsg, @Nullable INodeRepresentator representator) {
+    ThreadUtils.assertEDT();
+    showResults(null, results, new UsageToolOptions().navigateIfSingle(false).forceNewTab(true).allowRunAgain(false).notFoundMessage(notFoundMsg), representator);
+  }
+
+  @Nullable
+  private void showResults(SearchTaskImpl searchTask, final SearchResults<?> searchResults, UsageToolOptions options, @Nullable INodeRepresentator representator) {
     final jetbrains.mps.project.Project mpsProject = ProjectHelper.toMPSProject(getProject());
     int resCount = searchResults.getSearchResults().size();
     if (resCount == 0) {
@@ -186,6 +193,7 @@ public class UsagesViewTool extends TabbedUsagesTool implements PersistentStateC
     }
     int index = getCurrentTabIndex();
     UsagesView usagesView = createUsageView(options.myRunAgain ? searchTask : null);
+    usagesView.setCustomNodeRepresentator(representator);
     UsageViewData usageViewData = new UsageViewData(usagesView, options.myRunAgain ? searchTask : null);
     usageViewData.setTransientView(options.myTransientView);
     register(usageViewData);
@@ -367,7 +375,7 @@ public class UsagesViewTool extends TabbedUsagesTool implements PersistentStateC
 
     public void write(Element element, jetbrains.mps.project.Project project) throws CantSaveSomethingException {
       //this is to partially fix MPS-14671
-      if (myUsagesView.getTreeComponent().getAllResultNodes().size() > 500) {
+      if (myUsagesView.getIncludedResultNodes().size() > 500) {
         throw new CantSaveSomethingException("usages view size too big to save");
       }
 

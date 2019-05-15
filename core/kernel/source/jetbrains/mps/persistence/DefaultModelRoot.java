@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,8 +42,10 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelId;
 import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.persistence.DataSource;
+import org.jetbrains.mps.openapi.persistence.ModelCreationException;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
 import org.jetbrains.mps.openapi.persistence.ModelFactoryType;
+import org.jetbrains.mps.openapi.persistence.ModelLoadException;
 import org.jetbrains.mps.openapi.persistence.ModelRoot;
 import org.jetbrains.mps.openapi.persistence.ModelRootFactory;
 import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
@@ -77,23 +79,10 @@ import java.util.List;
  * @author evgeny
  * @since 11/9/12
  */
-public /*final*/ class DefaultModelRoot extends FileBasedModelRoot implements CopyableModelRoot<DefaultModelRoot> {
+public final class DefaultModelRoot extends FileBasedModelRoot implements CopyableModelRoot<DefaultModelRoot> {
   private static final Logger LOG = LogManager.getLogger(DefaultModelRoot.class);
   private final ModelFactoryRegistry myModelFactoryRegistry;
   private final DataSourceFactoryRuleService myDataSourceRegistry;
-
-  /**
-   * FIXME must be made package-local or protected (as long as there's subclass)
-   * FIXME one must have either factory creation or a public constructor not both [AP]
-   * @deprecated Use {@link #createDescriptor(IFile, IFile...)} if you need to populate ModuleDescriptor. Proper cons (package-local) shall get
-   *             invoked from ModelRootFactory only.
-   */
-  @Deprecated
-  @ToRemove(version = 2018.2)
-  public DefaultModelRoot() {
-    this(ModelFactoryService.getInstance(), DataSourceFactoryRuleService.getInstance());
-    LOG.error(String.format("Class DefaultModelRoot would become final in the next release, please fix %s accordingly", getClass().getName()));
-  }
 
   /**
    * Use {@link ModelRootFactory#create()} to obtain instance of the class
@@ -161,9 +150,9 @@ public /*final*/ class DefaultModelRoot extends FileBasedModelRoot implements Co
     List<SModel> result = new ArrayList<>();
     ModelSourceRootWalker modelSourceRootWalker = new ModelSourceRootWalker(this, (factory, dataSource, options, file) -> {
       try {
-        SModel model = new ModelFactoryFacade(factory).load(dataSource, options);
+        SModel model = factory.load(dataSource, options.convertToLoadingOptions());
         result.add(model);
-      } catch (IOException ex) {
+      } catch (ModelLoadException | IOException ex) {
         LOG.error("Caught exception while collecting models in the '" + file + "'", ex);
       }
     });
@@ -195,7 +184,7 @@ public /*final*/ class DefaultModelRoot extends FileBasedModelRoot implements Co
       //     to figure out proper source root as well, which is not a task I'd like to tackle now. I'd use object return value instead of simple
       //     boolean here, which would keep all relevant data (model factory, source root) for model creation
       CompositeResult<DataSource> result = getDataSourceFactoryBridge().create(new SModelName(modelName), Defaults.sourceRoot(this), Defaults.DATA_SOURCE_TYPE);
-      return new ModelFactoryFacade(defaultModelFactory).canCreate(result.getDataSource(), result.getOptions());
+      return defaultModelFactory.supports(result.getDataSource());
     } catch (NoSourceRootsInModelRootException | DataSourceFactoryNotFoundException | SourceRootDoesNotExistException ignored) {
     }
     return false;
@@ -283,7 +272,7 @@ public /*final*/ class DefaultModelRoot extends FileBasedModelRoot implements Co
    * The most 'heavy' method (parameter-wise):
    * @param modelName -- controls the name of the new model
    * @param sourceRoot -- the source root to create the new model in
-   * @param dataSourceFactory -- data source factory which method {@link DataSourceFactoryFromName#create(SModelName, SourceRoot, ModelRoot)}
+   * @param dataSourceFactory -- data source factory which method {@link DataSourceFactoryFromName#create(SModelName, SourceRoot)}
    *                           is going to be used to create a new data source from the given model name and source root
    * @param modelFactory -- model factory which defines the persisting strategy of the new model.
    *
@@ -317,7 +306,7 @@ public /*final*/ class DefaultModelRoot extends FileBasedModelRoot implements Co
     CompositeResult<DataSource> result = getDataSourceFactoryBridge().create(modelName, sourceRoot, dataSourceFactory);
     DataSource dataSource = result.getDataSource();
     ModelCreationOptions parameters = result.getOptions();
-    if (!new ModelFactoryFacade(modelFactory).canCreate(dataSource, parameters)) {
+    if (!modelFactory.supports(dataSource)) {
       throw new FactoryCannotCreateModelException(modelFactory, dataSource);
     }
     return createModel0(modelFactory, dataSource, parameters,true);
@@ -329,12 +318,12 @@ public /*final*/ class DefaultModelRoot extends FileBasedModelRoot implements Co
                                   @NotNull ModelCreationOptions parameters,
                                   boolean register) throws ModelCannotBeCreatedException {
     try {
-      SModel model = new ModelFactoryFacade(modelFactory).create(dataSource, parameters);
-      if(register){
+      SModel model = modelFactory.create(dataSource, new SModelName(parameters.getModelName()), parameters.convertToLoadingOptions());
+      if (register) {
         registerModel(model);
       }
       return model;
-    } catch (IOException e) {
+    } catch (IOException | ModelCreationException e) {
       throw new ModelCannotBeCreatedException(e);
     }
   }

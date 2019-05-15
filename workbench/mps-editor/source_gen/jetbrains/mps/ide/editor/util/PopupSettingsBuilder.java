@@ -22,6 +22,7 @@ import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import java.awt.Point;
+import com.intellij.openapi.actionSystem.impl.ActionMenuItem;
 
 public final class PopupSettingsBuilder {
   /*package*/ final MPSProject myProject;
@@ -74,12 +75,20 @@ public final class PopupSettingsBuilder {
 
   public PopupSettingsBuilder pointFromCellAndEvent(EditorCell selectedCell, InputEvent inputEvent) {
     RelativePoint newPoint;
-    if (inputEvent instanceof MouseEvent) {
-      newPoint = new RelativePoint(((MouseEvent) inputEvent));
+    if (isMouseEventNotfromContextMenu(inputEvent)) {
+      newPoint = new RelativePoint((MouseEvent) inputEvent);
     } else {
       newPoint = new RelativePoint((EditorComponent) selectedCell.getEditorComponent(), new Point(selectedCell.getX(), selectedCell.getY()));
     }
     return point(newPoint);
+  }
+
+  private static boolean isMouseEventNotfromContextMenu(InputEvent event) {
+    if (event instanceof MouseEvent) {
+      MouseEvent mouseEvent = (MouseEvent) event;
+      return !((mouseEvent.getSource() instanceof ActionMenuItem));
+    }
+    return false;
   }
 
   public PopupSettingsBuilder nameFilter(@NotNull Function<SNodeReference, String> namer) {

@@ -8,7 +8,7 @@ import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicable2Status;
 import jetbrains.mps.baseLanguage.lightweightdsl.behavior.DependentTypeInstance__BehaviorDescriptor;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -26,7 +26,7 @@ public class DependentType_supertypeOfItsValue_InequationReplacementRule extends
   }
   public boolean checkInequation(final SNode subtype, final SNode supertype, final EquationInfo equationInfo, IsApplicable2Status status, final boolean inequalityIsWeak, final boolean inequalityIsLessThan) {
     boolean result_14532009 = true;
-    result_14532009 = result_14532009 && TypeChecker.getInstance().getSubtypingManager().isSubtype((SNode) subtype, (SNode) DependentTypeInstance__BehaviorDescriptor.getMyType_id7T23sO8yx5P.invoke(supertype), true);
+    result_14532009 = result_14532009 && TypecheckingFacade.getFromContext().isSubtype((SNode) subtype, (SNode) DependentTypeInstance__BehaviorDescriptor.getMyType_id7T23sO8yx5P.invoke(supertype));
     return result_14532009;
   }
   public boolean isWeak() {

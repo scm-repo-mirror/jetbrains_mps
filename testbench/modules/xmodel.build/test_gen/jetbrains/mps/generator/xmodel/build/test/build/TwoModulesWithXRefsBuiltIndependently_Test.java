@@ -8,8 +8,10 @@ import com.intellij.execution.process.ProcessAdapter;
 import com.intellij.execution.process.ProcessEvent;
 import com.intellij.openapi.util.Key;
 import com.intellij.execution.process.ProcessOutputTypes;
+import jetbrains.mps.util.MacrosFactory;
 import com.intellij.execution.process.ProcessHandler;
 import jetbrains.mps.ant.execution.Ant_Command;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.execution.api.commands.ProcessHandlerBuilder;
 import junit.framework.Assert;
 import jetbrains.mps.tool.environment.IdeaEnvironment;
@@ -36,14 +38,9 @@ import jetbrains.mps.tool.environment.IdeaEnvironment;
  *  Last, we generate second module, with x-ref source, using p2.xml. Cross-model references are resolved if generation completes without an error.
  * 
  * TO RUN FROM MPS SOURCES: in Run Configuration, set Working directory to mps project root folder, extract an MPS distribution
- *                          and pass its location with mps_distribution VM argument (i.e. -Dmps_distribution=/Downloads/MPS-171.333/)
+ *                          and pass its location with idea.home.path VM argument (i.e. -Didea.home.path=/Downloads/MPS-171.333/)
  * To run the test from MPS sources, one may need to specify Working directory in the JUnit run configuration to point to mps root
  * (I've seen mps/bin as default home folder). Ant starts p1.xml and p2.xml scripts using location relative to mps project root.
- * IMPORTANT: p1 and p2 explicitly list 'java' among used plugins and reference artifacts of 'mps' dependency through custom mps_distribution macro (not mps_home)
- * as it's the only chance to get ant-mps.jar location relavive to {artifacts.mps}/, not {mps_home}.
- *  It's vital for running tests from MPS sources as ant() command implicitly set mps_home to that of running MPS instance, which
- * doesn't have ant-mps.jar where build script expects it (/lib/ant/lib/ant-mps.jar). Since we can't override mps_home from the test, we
- * use a trick to supply mps_distribution that points to an unzipped MPS distribution (from MPS-version.zip)
  */
 @MPSLaunch
 public class TwoModulesWithXRefsBuiltIndependently_Test extends EnvironmentAwareTestCase {
@@ -61,18 +58,17 @@ public class TwoModulesWithXRefsBuiltIndependently_Test extends EnvironmentAware
           }
         }
       };
-      String mpsDistrOption = null;
-      if (System.getProperty("mps_distribution") != null) {
-        mpsDistrOption = "-Dmps_distribution=" + System.getProperty("mps_distribution");
-      }
-      ProcessHandler process1 = new Ant_Command().setOptions_String(mpsDistrOption).setTargetName_String("generate assemble").createProcess("testbench/modules/xmodel.build/p1.xml");
+      // macroToDefine is needed in binaries, the property is from IDE on sources 
+      String mpsHomePath = System.getProperty("mps.home.path");
+      String options = (mpsHomePath != null ? "-D" + MacrosFactory.MPS_HOME_MACRO_NAME + "=" + mpsHomePath : "");
+      ProcessHandler process1 = new Ant_Command().setTargetName_String("generate assemble").setOptions_String(options).setMacroToDefine_ListString(Sequence.fromIterable(Sequence.<String>singleton(MacrosFactory.MPS_HOME_MACRO_NAME)).toListSequence()).createProcess("testbench/modules/xmodel.build/p1.xml");
       process1.addProcessListener(textOutputAdapter);
       int exitCode = ProcessHandlerBuilder.startAndWait(process1);
       if (exitCode != 0) {
         Assert.fail("Exited with code " + exitCode);
       }
 
-      ProcessHandler process2 = new Ant_Command().setOptions_String(mpsDistrOption).setTargetName_String("generate").createProcess("testbench/modules/xmodel.build/p2.xml");
+      ProcessHandler process2 = new Ant_Command().setTargetName_String("generate").setOptions_String(options).setMacroToDefine_ListString(Sequence.fromIterable(Sequence.<String>singleton(MacrosFactory.MPS_HOME_MACRO_NAME)).toListSequence()).createProcess("testbench/modules/xmodel.build/p2.xml");
       process2.addProcessListener(textOutputAdapter);
       exitCode = ProcessHandlerBuilder.startAndWait(process2);
       if (exitCode != 0) {

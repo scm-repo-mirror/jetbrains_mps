@@ -69,8 +69,11 @@ public class EnumerationDescriptor_RoundingMode extends EnumerationDescriptorBas
 
   @Nullable
   @Override
-  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {int index = myIndex.index(idValue);
-if (index == -1) { return null; }
-    return myMembers.get(myIndex.index(idValue));
+  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {
+    int index = myIndex.index(idValue);
+    if (index == -1) {
+      return null;
+    }
+    return myMembers.get(index);
   }
 }

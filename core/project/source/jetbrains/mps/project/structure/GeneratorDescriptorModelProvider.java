@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -157,10 +157,7 @@ public class GeneratorDescriptorModelProvider extends DescriptorModelProvider {
         return hash;
       }
       Element element = new Element("gd"); // there's little value in this element, but if I remove it, I suspect a lot of 'generated' files would change
-      // FIXME can't use myModule for MacrosFactory - there's no file in generator's descriptor, hence use one of the source language.
-      // Though once generator modules are standalone there's file, guess, the right way is to tolerate modules without file, and to supply
-      // e.g. MacrosFactory.getGlobal() instead of null.
-      element.addContent(new GeneratorDescriptorPersistence(MacrosFactory.forModule(myModule.getSourceLanguage()), true).save(myModule.getModuleDescriptor()));
+      element.addContent(new GeneratorDescriptorPersistence(MacrosFactory.forModule((SModule) myModule), true).save(myModule.getModuleDescriptor()));
       StringWriter out = new StringWriter();
       try {
         JDOMUtil.writeDocument(new Document(element), out);
@@ -181,11 +178,6 @@ public class GeneratorDescriptorModelProvider extends DescriptorModelProvider {
       }
       myHash = hash = modelHash.toString(Character.MAX_RADIX);
       return hash;
-    }
-
-    @Override
-    public Map<String, String> getGenerationHashes() {
-      return Collections.singletonMap(GeneratableSModel.FILE, getModelHash());
     }
 
     @Override

@@ -4,7 +4,7 @@
   <languages>
     <use id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal" version="0" />
     <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="2" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="0" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
     <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="1" />
     <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="1" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
@@ -338,14 +338,14 @@
                           <node concept="2OqwBi" id="1R1KclLA1bH" role="3uHU7w">
                             <node concept="2OqwBi" id="1R1KclLA1bI" role="2Oq$k0">
                               <node concept="liA8E" id="24cAaiVCakj" role="2OqNvi">
-                                <ref role="37wK5l" to="mhbf:~SNode.getNodeId():org.jetbrains.mps.openapi.model.SNodeId" resolve="getNodeId" />
+                                <ref role="37wK5l" to="mhbf:~SNode.getNodeId()" resolve="getNodeId" />
                               </node>
                               <node concept="2JrnkZ" id="1R1KclLA1bJ" role="2Oq$k0">
                                 <node concept="30H73N" id="1R1KclLA1bK" role="2JrQYb" />
                               </node>
                             </node>
                             <node concept="liA8E" id="1R1KclLA1bM" role="2OqNvi">
-                              <ref role="37wK5l" to="wyt6:~Object.toString():java.lang.String" resolve="toString" />
+                              <ref role="37wK5l" to="wyt6:~Object.toString()" resolve="toString" />
                             </node>
                           </node>
                           <node concept="Xl_RD" id="hO0qUSz" role="3uHU7B">
@@ -455,7 +455,7 @@
                                 <ref role="3cqZAo" node="hO0qUSb" resolve="resource" />
                               </node>
                               <node concept="liA8E" id="2EAjPwZojUl" role="2OqNvi">
-                                <ref role="37wK5l" to="guwi:~Closeable.close():void" resolve="close" />
+                                <ref role="37wK5l" to="guwi:~Closeable.close()" resolve="close" />
                               </node>
                             </node>
                           </node>
@@ -620,7 +620,7 @@
                   <ref role="3cqZAo" node="2aok5Jw8IcR" resolve="type" />
                 </node>
                 <node concept="liA8E" id="2aok5Jw8Iuk" role="2OqNvi">
-                  <ref role="37wK5l" to="wyt6:~Class.isInstance(java.lang.Object):boolean" resolve="isInstance" />
+                  <ref role="37wK5l" to="wyt6:~Class.isInstance(java.lang.Object)" resolve="isInstance" />
                   <node concept="37vLTw" id="2BHiRxgm7mm" role="37wK5m">
                     <ref role="3cqZAo" node="2aok5Jw8IcP" resolve="o" />
                   </node>

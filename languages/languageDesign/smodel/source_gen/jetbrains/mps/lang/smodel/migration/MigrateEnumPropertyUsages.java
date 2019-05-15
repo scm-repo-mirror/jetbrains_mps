@@ -43,9 +43,6 @@ public class MigrateEnumPropertyUsages extends MigrationScriptBase {
       for (SNode propQualifier : CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x26b292a5afc7ccadL, "jetbrains.mps.lang.smodel.structure.PropertyQualifier"), false))) {
         EnumUsagesMigration.migratePropertyReference(propQualifier, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x26b292a5afc7ccadL, 0x26b292a5afc7ccafL, "property"));
       }
-      for (SNode propNameRefExpr : CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x48e6e269518c89f7L, "jetbrains.mps.lang.smodel.structure.PropertyNameRefExpression"), false))) {
-        EnumUsagesMigration.migratePropertyReference(propNameRefExpr, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x48e6e269518c89f7L, 0x48e6e269518c89f9L, "propertyDeclaration"));
-      }
     }
   }
   public Iterable<MigrationScriptReference> executeAfter() {

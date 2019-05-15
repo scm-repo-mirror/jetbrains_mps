@@ -24,22 +24,29 @@ import java.util.Collections;
 
 public class MembersPopulatingContext {
   private final Stack<SNode> classifiers = new Stack<SNode>();
-  private final Set<SNode> myVisited = new HashSet<SNode>();
+  private final Set<SNode> visited = new HashSet<SNode>();
   private boolean isPackageProtectedAvailable = true;
   private final List<SNode> members = new ArrayList<SNode>();
-  private final Map<Signature, SNode> addedSignatures = new HashMap<Signature, SNode>();
+  private final Map<Signature, SNode> foundSignatures2Classifier = new HashMap<Signature, SNode>();
   private Map<SNode, SNode> typeByTypeVariable = new HashMap<SNode, SNode>();
 
   public MembersPopulatingContext() {
     // java collections for speed 
   }
-  public void hideMembers(Signature signature) {
-    if (!(addedSignatures.containsKey(signature))) {
-      addedSignatures.put(signature, getCurrentClassifier());
+
+  /**
+   * the idea is to traverse the classifier hierarchy upwards (from sub to super)
+   * #getMembers will not return any *new* member with the given signature after this method invoked
+   * new means = not registered before
+   */
+  public void hideMembersForAncestors(Signature signature) {
+    if (!(foundSignatures2Classifier.containsKey(signature))) {
+      foundSignatures2Classifier.put(signature, getCurrentClassifier());
     }
   }
-  public void addMember(SNode member, Signature signature) {
-    SNode contextClassifier = addedSignatures.get(signature);
+
+  public void exposeMember(SNode member, Signature signature) {
+    SNode contextClassifier = foundSignatures2Classifier.get(signature);
     if (contextClassifier == null || contextClassifier == getCurrentClassifier()) {
       // exposing all members using following condition: 
       // 1. member was not "masked" by a member from sub-classifier 
@@ -47,6 +54,7 @@ public class MembersPopulatingContext {
       members.add(member);
     }
   }
+
   public Iterable<SNode> getMembers() {
     List<SNode> members = new ArrayList<SNode>();
     members.addAll(this.members);
@@ -58,7 +66,7 @@ public class MembersPopulatingContext {
 
     // prevent recursion and duplicated members for same classifiers accessed via different paths 
     // e.g. same interface implemented directly and though some superclass 
-    if (!(myVisited.add(classifier))) {
+    if (!(visited.add(classifier))) {
       return false;
     }
     classifiers.add(classifier);
@@ -88,21 +96,27 @@ public class MembersPopulatingContext {
 
     return true;
   }
+
   private String retrievePackageName(SModel model) {
     return (model != null ? JavaNameUtil.packageName(model) : "");
   }
+
   public void exitClassifierInternal(SNode classifier) {
     assert classifiers.pop() == IClassifierType__BehaviorDescriptor.getClassifier_id6r77ob2URY9.invoke(classifier);
   }
+
   private SNode getCurrentClassifier() {
     return classifiers.lastElement();
   }
+
   public boolean isPackageProtectedVisible() {
     return isPackageProtectedAvailable;
   }
+
   public boolean isPrivateVisible() {
     return classifiers.size() == 1;
   }
+
   public boolean isElementVisible(SNode element) {
     if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(element, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility"))) {
       return isPrivateVisible();
@@ -112,6 +126,7 @@ public class MembersPopulatingContext {
     }
     return true;
   }
+
   public Map<SNode, SNode> getTypeByTypeVariableMapping() {
     return Collections.unmodifiableMap(typeByTypeVariable);
   }

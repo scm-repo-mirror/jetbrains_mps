@@ -16,7 +16,7 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import java.util.Iterator;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -63,7 +63,7 @@ public class check_GenericNewExpressionTypeParameters_NonTypesystemRule extends 
       }
     }
     for (SNode typeParameter : parameters) {
-      if (!(!(TypeChecker.getInstance().getSubtypingManager().isSubtype(typeParameter, SLinkOperations.getTarget(_quotation_createNode_nhxavr_a1a0a0a0i0b(), MetaAdapterFactory.getReferenceLink(0xed6d7656532c4bc2L, 0x81d1af945aeb8280L, 0x10de9cbf8e8L, 0x10de9cbf8e7L, "descriptor")), false)))) {
+      if (!(!(TypecheckingFacade.getFromContext().isStrongSubtype(typeParameter, SLinkOperations.getTarget(_quotation_createNode_nhxavr_a1a0a0a0i0b(), MetaAdapterFactory.getReferenceLink(0xed6d7656532c4bc2L, 0x81d1af945aeb8280L, 0x10de9cbf8e8L, 0x10de9cbf8e7L, "descriptor")))))) {
         MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(typeParameter, "primitive types not allowed", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4853049144089199522", null, errorTarget);
       }
@@ -88,7 +88,7 @@ public class check_GenericNewExpressionTypeParameters_NonTypesystemRule extends 
           }
           for (SNode auxBound : SLinkOperations.getChildren(typeVar_var, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1024639ed74L, 0x11ae913a476L, "auxBounds"))) {
             SNode concreteBound = RulesFunctions_BaseLanguage.concretifyType(auxBound, typeParamsToArgs);
-            if (!(TypeChecker.getInstance().getSubtypingManager().isSubtype(typeArgument_var, concreteBound))) {
+            if (!(TypecheckingFacade.getFromContext().isSubtype(typeArgument_var, concreteBound))) {
               MessageTarget errorTarget = new NodeMessageTarget();
               IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(typeArgument_var, "type parameter is not within its bounds", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4853049144089199592", null, errorTarget);
             }

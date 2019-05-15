@@ -13,15 +13,18 @@ public class JavaRunParameters_Configuration_Editor extends SettingsEditorEx<Jav
   public void disposeEditor() {
     myJavaOptionsEditor.dispose();
   }
+
   @NotNull
   public JavaConfigurationEditorComponent createEditor() {
     return myJavaOptionsEditor = new JavaConfigurationEditorComponent();
   }
+
   public void applyEditorTo(final JavaRunParameters_Configuration configuration) throws ConfigurationException {
-    myJavaOptionsEditor.apply(configuration.getJavaRunParameters());
+    myJavaOptionsEditor.apply(configuration.getJavaParameters());
   }
+
   public void resetEditorFrom(final JavaRunParameters_Configuration configuration) {
-    myJavaOptionsEditor.reset(configuration.getJavaRunParameters());
+    myJavaOptionsEditor.reset(configuration.getJavaParameters());
   }
   private Project myProject;
   public JavaRunParameters_Configuration_Editor(final Project project) {

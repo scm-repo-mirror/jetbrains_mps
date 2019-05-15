@@ -424,17 +424,6 @@
     <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
     <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
   </dependency>
-  <dependency className="jetbrains.mps.baseLanguage.textGen.CommentedStatementsBlock_TextGen">
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
-    <classNode dependClassName="jetbrains.mps.lang.traceable.behavior.TraceableConcept__BehaviorDescriptor" />
-    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
-    <classNode dependClassName="jetbrains.mps.text.impl.TextGenSupport" />
-    <classNode dependClassName="jetbrains.mps.text.rt.TextGenContext" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
-    <classNode extendsClassName="jetbrains.mps.text.rt.TextGenDescriptorBase" />
-  </dependency>
   <dependency className="jetbrains.mps.baseLanguage.textGen.ConceptFunctionParameter_TextGen">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations" />
@@ -1333,7 +1322,6 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.ClassifierClassExpression_TextGen" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.ClassifierType_TextGen" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.CommentedStatement_TextGen" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.CommentedStatementsBlock_TextGen" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.ConceptFunctionParameter_TextGen" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.ConstructorDeclaration_TextGen" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.textGen.ContinueStatement_TextGen" />

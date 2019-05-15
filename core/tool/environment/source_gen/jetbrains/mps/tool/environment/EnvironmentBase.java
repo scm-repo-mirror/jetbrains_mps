@@ -17,34 +17,19 @@ import java.io.File;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.core.tool.environment.util.MapPathMacrosProvider;
 import jetbrains.mps.core.tool.environment.util.CanonicalPath;
-import java.util.List;
-import jetbrains.mps.library.contributor.LibraryContributor;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import java.util.ArrayList;
-import jetbrains.mps.internal.collections.runtime.SetSequence;
 import org.jetbrains.annotations.Nullable;
-import java.net.URL;
-import java.net.MalformedURLException;
-import org.apache.log4j.Level;
-import jetbrains.mps.util.PathManager;
-import jetbrains.mps.core.tool.environment.classloading.UrlClassLoader;
 import jetbrains.mps.project.Project;
-import java.util.Set;
 
 /**
  * Base class for all environments, represents a caching environment.
  * The contract: only one environment must be alive,
  * it is being stored in the special EnvironmentContainer class.
- * 
- * @see jetbrains.mps.tool.environment.EnvironmentContainer 
  */
 public abstract class EnvironmentBase implements Environment {
   private static final Logger LOG = LogManager.getLogger(EnvironmentBase.class);
-  private static final String PLUGINS_PATH = "plugin.path";
 
   protected final EnvironmentConfig myConfig;
   private boolean myInitialized;
-  private int myRefCount;
   private PathMacrosProvider myMacrosProvider;
   private final ProjectContainer myContainer = new ProjectContainer();
   private ClassLoader myRootClassLoader = null;
@@ -67,8 +52,10 @@ public abstract class EnvironmentBase implements Environment {
     }
     myRootClassLoader = createRootClassLoader();
     initMacros(mpsPlatform.findComponent(PathMacros.class));
+    if (LOG.isInfoEnabled()) {
+      LOG.info("Initializing libraries");
+    }
     initLibraries(mpsPlatform.findComponent(LibraryInitializer.class));
-    retain();
     myInitialized = true;
   }
 
@@ -96,21 +83,7 @@ public abstract class EnvironmentBase implements Environment {
     return new MapPathMacrosProvider(realMacros);
   }
 
-  protected void initLibraries(@NotNull LibraryInitializer libInitializer) {
-    if (LOG.isInfoEnabled()) {
-      LOG.info("Initializing libraries");
-    }
-    final List<LibraryContributor> libContribs = ListSequence.fromList(new ArrayList<LibraryContributor>());
-    LibraryContributorHelper helper = new LibraryContributorHelper(myConfig, myRootClassLoader);
-    if (SetSequence.fromSet(myConfig.getLibs()).isNotEmpty()) {
-      ListSequence.fromList(libContribs).addElement(helper.createLibContributorForLibs());
-    }
-    // todo this hould go away. Instead, a regular contributor for plugins should perform 
-    if (myConfig.getPlugins() != null && SetSequence.fromSet(myConfig.getPlugins()).isNotEmpty()) {
-      ListSequence.fromList(libContribs).addElement(helper.createLibContributorForPlugins());
-    }
-    libInitializer.load(libContribs);
-  }
+  protected abstract void initLibraries(@NotNull LibraryInitializer libInitializer);
 
   /**
    * Root class loader:
@@ -124,57 +97,14 @@ public abstract class EnvironmentBase implements Environment {
 
   @Nullable
   protected ClassLoader createRootClassLoader() {
-    List<URL> classpath = ListSequence.fromList(new ArrayList<URL>());
-    for (String cp : myConfig.getPluginClassPath()) {
-      File libJar = new File(cp);
-      if (!(libJar.exists())) {
-        continue;
-      }
-
-      if (libJar.isFile()) {
-        try {
-          ListSequence.fromList(classpath).addElement(libJar.toURI().toURL());
-        } catch (MalformedURLException e) {
-          if (LOG.isEnabledFor(Level.ERROR)) {
-            LOG.error("", e);
-          }
-        }
-      } else {
-        File lib = new File(cp + File.separator + "lib");
-        if (!(lib.exists()) || !(lib.isDirectory())) {
-          continue;
-        }
-
-        for (File f : lib.listFiles(PathManager.JAR_FILE_FILTER)) {
-          try {
-            ListSequence.fromList(classpath).addElement(f.toURI().toURL());
-          } catch (MalformedURLException e) {
-            if (LOG.isEnabledFor(Level.ERROR)) {
-              LOG.error("", e);
-            }
-          }
-        }
-      }
-    }
-
-    return new UrlClassLoader(classpath, LibraryInitializer.class.getClassLoader());
-  }
-
-  @Override
-  public synchronized void retain() {
-    ++myRefCount;
-  }
-
-  @Override
-  public void release() {
-    if (myRefCount == 0) {
-      throw new IllegalStateException("Reference counter is set to zero -- cannot release!");
-    }
-    --myRefCount;
-    if (myRefCount == 0) {
-      doDispose();
-      EnvironmentContainer.clear();
-    }
+    // with idea plugins in actual (global, shared) classpath (both for Mps and Idea env), 
+    // we don't need yet another CL 
+    // however, it doesn't look right to use same CL for DumbIdeaPluginFacet  
+    // (supposed to load classes from any idea plugin) 
+    // and for languages/solutions referenced from <library> tag 
+    //  (these shall not get CP with idea plugins). With a single  
+    // global CP we have at the moment, it's hard to make a distinction, though. 
+    return LibraryInitializer.class.getClassLoader();
   }
 
   @Override
@@ -214,7 +144,6 @@ public abstract class EnvironmentBase implements Environment {
     }
   }
 
-
   @Override
   public void closeProject(@NotNull Project project) {
     checkInitialized();
@@ -231,57 +160,9 @@ public abstract class EnvironmentBase implements Environment {
     if (LOG.isDebugEnabled()) {
       LOG.debug("Disposing environment");
     }
-    myRefCount = 0;
     doDispose();
-    if (EnvironmentContainer.get() == this) {
-      // FIXME it's not responsibility of EnvironmentBase to clear EnvironmentContainer. 
-      // In fact, we don't need EC at all. 
-      EnvironmentContainer.clear();
-    }
   }
 
-  protected static void setIdeaPluginsToLoad(EnvironmentConfig config) {
-    // [MM]: looks like a hack, should we regenerate it to a regular plugin specification?  
-    // Probably, with plugin-set-ref to ensure the same plugin set is used 
-
-    // typically, this property is set by generated ant scripts before running tests 
-    if (isNotEmptyString(System.getProperty(PLUGINS_PATH))) {
-      return;
-    }
-
-    // otherwise, we set it from config 
-    setPluginPathProperty();
-    setPluginIdsPropertyFromConfig(config);
-  }
-
-  private static void setPluginIdsPropertyFromConfig(EnvironmentConfig config) {
-    StringBuilder result = new StringBuilder();
-    Set<PluginDescriptor> plugins = config.getPlugins();
-    if (plugins == null) {
-      return;
-    }
-    for (PluginDescriptor plugin : SetSequence.fromSet(plugins)) {
-      result.append(plugin.getId());
-      result.append(",");
-    }
-    System.setProperty("idea.load.plugins.id", result.toString());
-  }
-
-  protected static void setPluginPathProperty() {
-    // [MM]: why do we set ids from config, while path is not config-related? 
-
-    StringBuilder pluginPath = new StringBuilder();
-    File pluginDir = new File(PathManager.getPreInstalledPluginsPath());
-    if (pluginDir.exists()) {
-      for (File pluginFolder : pluginDir.listFiles()) {
-        if (pluginPath.length() > 0) {
-          pluginPath.append(File.pathSeparator);
-        }
-        pluginPath.append(pluginFolder.getPath());
-      }
-      System.setProperty(PLUGINS_PATH, pluginPath.toString());
-    }
-  }
 
   protected final void checkInitialized() {
     if (!(myInitialized)) {
@@ -299,8 +180,5 @@ public abstract class EnvironmentBase implements Environment {
     public EnvironmentInitializedTwiceException() {
       super("Double initialization");
     }
-  }
-  private static boolean isNotEmptyString(String str) {
-    return str != null && str.length() > 0;
   }
 }

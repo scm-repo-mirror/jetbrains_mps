@@ -25,7 +25,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ChildAttributeQualifier;
   private ConceptPresentation props_ChildNodeRefExpression;
   private ConceptPresentation props_ConceptAliasOperation;
-  private ConceptPresentation props_ConceptFqNameRefExpression;
   private ConceptPresentation props_ConceptId;
   private ConceptPresentation props_ConceptIdRefExpression;
   private ConceptPresentation props_ConceptIdentity;
@@ -89,7 +88,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_LinkAttributeQualifier;
   private ConceptPresentation props_LinkIdRefExpression;
   private ConceptPresentation props_LinkList_AddNewChildOperation;
-  private ConceptPresentation props_LinkNameRefExpression;
   private ConceptPresentation props_LinkQualifier;
   private ConceptPresentation props_LinkRefExpression;
   private ConceptPresentation props_LinkRefQualifier;
@@ -131,7 +129,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Node_GetChildrenAndChildAttributesOperation;
   private ConceptPresentation props_Node_GetChildrenOperation;
   private ConceptPresentation props_Node_GetConceptOperation;
-  private ConceptPresentation props_Node_GetContainingLinkOperation;
   private ConceptPresentation props_Node_GetContainingRoleOperation;
   private ConceptPresentation props_Node_GetContainingRootOperation;
   private ConceptPresentation props_Node_GetDescendantsOperation;
@@ -144,7 +141,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Node_GetPrevSiblingsOperation;
   private ConceptPresentation props_Node_GetReferenceOperation;
   private ConceptPresentation props_Node_GetReferencesOperation;
-  private ConceptPresentation props_Node_GetReferentSearchScopeOperation;
   private ConceptPresentation props_Node_GetSConceptOperation;
   private ConceptPresentation props_Node_InsertNewNextSiblingOperation;
   private ConceptPresentation props_Node_InsertNewPrevSiblingOperation;
@@ -172,7 +168,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_PropertyId;
   private ConceptPresentation props_PropertyIdRefExpression;
   private ConceptPresentation props_PropertyIdentity;
-  private ConceptPresentation props_PropertyNameRefExpression;
   private ConceptPresentation props_PropertyQualifier;
   private ConceptPresentation props_Property_HasValue_Enum;
   private ConceptPresentation props_Property_HasValue_Simple;
@@ -329,15 +324,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ConceptAliasOperation = cpb.create();
         }
         return props_ConceptAliasOperation;
-      case LanguageConceptSwitch.ConceptFqNameRefExpression:
-        if (props_ConceptFqNameRefExpression == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.deprecated(true);
-          cpb.shortDesc("full qualified name");
-          cpb.rawPresentation("conceptFqName/<name>/");
-          props_ConceptFqNameRefExpression = cpb.create();
-        }
-        return props_ConceptFqNameRefExpression;
       case LanguageConceptSwitch.ConceptId:
         if (props_ConceptId == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -791,15 +777,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_LinkList_AddNewChildOperation = cpb.create();
         }
         return props_LinkList_AddNewChildOperation;
-      case LanguageConceptSwitch.LinkNameRefExpression:
-        if (props_LinkNameRefExpression == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.deprecated(true);
-          cpb.shortDesc("name");
-          cpb.rawPresentation("linkName/<role>/");
-          props_LinkNameRefExpression = cpb.create();
-        }
-        return props_LinkNameRefExpression;
       case LanguageConceptSwitch.LinkQualifier:
         if (props_LinkQualifier == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -865,9 +842,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_ModelPointer_ResolveOperation;
       case LanguageConceptSwitch.ModelReferenceExpression:
         if (props_ModelReferenceExpression == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x7c3f2da20e92b62L);
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.deprecated(true);
-          cpb.deprecateProperty(0x7c3f2da20e98892L, "fqName");
           cpb.rawPresentation("model");
           props_ModelReferenceExpression = cpb.create();
         }
@@ -910,8 +886,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_Model_GetModule;
       case LanguageConceptSwitch.Model_NodesIncludingImportedOperation:
         if (props_Model_NodesIncludingImportedOperation == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1135326811cL);
-          cpb.deprecateAggregation(0x1135326811dL, "scope");
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.rawPresentation("nodesIncludingImported");
           props_Model_NodesIncludingImportedOperation = cpb.create();
         }
@@ -934,8 +909,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_Model_PointerOperation;
       case LanguageConceptSwitch.Model_RootsIncludingImportedOperation:
         if (props_Model_RootsIncludingImportedOperation == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x111d5999a91L);
-          cpb.deprecateAggregation(0x111d59ac8e3L, "scope");
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.rawPresentation("rootsIncludingImported");
           props_Model_RootsIncludingImportedOperation = cpb.create();
         }
@@ -1120,14 +1094,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Node_GetConceptOperation = cpb.create();
         }
         return props_Node_GetConceptOperation;
-      case LanguageConceptSwitch.Node_GetContainingLinkOperation:
-        if (props_Node_GetContainingLinkOperation == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.deprecated(true);
-          cpb.rawPresentation("containingLink");
-          props_Node_GetContainingLinkOperation = cpb.create();
-        }
-        return props_Node_GetContainingLinkOperation;
       case LanguageConceptSwitch.Node_GetContainingRoleOperation:
         if (props_Node_GetContainingRoleOperation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -1214,15 +1180,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Node_GetReferencesOperation = cpb.create();
         }
         return props_Node_GetReferencesOperation;
-      case LanguageConceptSwitch.Node_GetReferentSearchScopeOperation:
-        if (props_Node_GetReferentSearchScopeOperation == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.deprecated(true);
-          cpb.shortDesc("obtain referent search scope");
-          cpb.rawPresentation("search scope");
-          props_Node_GetReferentSearchScopeOperation = cpb.create();
-        }
-        return props_Node_GetReferentSearchScopeOperation;
       case LanguageConceptSwitch.Node_GetSConceptOperation:
         if (props_Node_GetSConceptOperation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -1410,7 +1367,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_PropertyIdRefExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.shortDesc("openapi SProperty");
-          cpb.rawPresentation("property/<name>/");
+          cpb.rawPresentation("property/<concept>:<name>/");
           props_PropertyIdRefExpression = cpb.create();
         }
         return props_PropertyIdRefExpression;
@@ -1420,15 +1377,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_PropertyIdentity = cpb.create();
         }
         return props_PropertyIdentity;
-      case LanguageConceptSwitch.PropertyNameRefExpression:
-        if (props_PropertyNameRefExpression == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.deprecated(true);
-          cpb.shortDesc("name");
-          cpb.rawPresentation("propertyName/<name>/");
-          props_PropertyNameRefExpression = cpb.create();
-        }
-        return props_PropertyNameRefExpression;
       case LanguageConceptSwitch.PropertyQualifier:
         if (props_PropertyQualifier == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -1700,9 +1648,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_SNodeType;
       case LanguageConceptSwitch.SNodeTypeCastExpression:
         if (props_SNodeTypeCastExpression == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10975850da7L);
-          cpb.deprecateAssociation(0x10975873562L, "concept_old");
-          cpb.deprecateAggregation(0x109758722b4L, "leftExpression_old");
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.rawPresentation(":");
           props_SNodeTypeCastExpression = cpb.create();
         }

@@ -2,7 +2,7 @@
 <model ref="r:b7e75e21-5f04-43f4-94cb-24c612b5504a(jetbrains.mps.lang.quotation.generator.baseLanguage.template.util)">
   <persistence version="9" />
   <languages>
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="0" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="13" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="8" />
   </languages>
@@ -225,7 +225,7 @@
               <ref role="3cqZAo" node="6wtORYsNMD3" resolve="id" />
             </node>
             <node concept="liA8E" id="6wtORYsNMRT" role="2OqNvi">
-              <ref role="37wK5l" to="wyt6:~Integer.toString():java.lang.String" resolve="toString" />
+              <ref role="37wK5l" to="wyt6:~Integer.toString()" resolve="toString" />
             </node>
           </node>
         </node>
@@ -294,7 +294,7 @@
                   </node>
                 </node>
                 <node concept="liA8E" id="nQfYv_g$iq" role="2OqNvi">
-                  <ref role="37wK5l" to="mhbf:~SNode.getNodeId():org.jetbrains.mps.openapi.model.SNodeId" resolve="getNodeId" />
+                  <ref role="37wK5l" to="mhbf:~SNode.getNodeId()" resolve="getNodeId" />
                 </node>
               </node>
             </node>

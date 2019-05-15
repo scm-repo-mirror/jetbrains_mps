@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package jetbrains.mps.idea.core.facet;
 
 import com.intellij.facet.Facet;
@@ -137,7 +136,9 @@ public class MPSFacetConfiguration implements FacetConfiguration, PersistentStat
 
   @Override
   public FacetEditorTab[] createEditorTabs(FacetEditorContext facetEditorContext, FacetValidatorsManager facetValidatorsManager) {
-    return new FacetEditorTab[]{new MPSFacetCommonTab(facetEditorContext, getBean())};
+    MPSConfigurationBean bean = getBean();
+    bean.initSolutionDescriptorIfNone();
+    return new FacetEditorTab[]{new MPSFacetCommonTab(facetEditorContext, bean)};
   }
 
   /*package*/ void setFacet(MPSFacet mpsFacet) {
@@ -242,15 +243,15 @@ public class MPSFacetConfiguration implements FacetConfiguration, PersistentStat
     @Override
     public void onFacetInitialized(@NotNull Facet facet) {
       super.onFacetInitialized(facet);
-      // AFAIU, the sole purpose of this method is to notify solution (by setModuleDescriptor) that its descriptor has changed.
-      //        provided MPSFacetConfiguration is stateful (myConfigurationBean is kept and updated above in apply() directly),
-      //        solution may have noticed the changes already, but we need to force module reload. This intermix of stateful cfg bean
-      //        along with stateless-like reload mechanism is very unfortunate and shall get refactored.
+      // AFAIU, this method is invoked only when a facet is added to an IDEA module and it happens *after* MPSFacet#initFacet
+      //        so the moment we get here, mpsFacet.wasInitialized() == true and got its own Solution and SD that doesn't match
+      //        that in myConfigurationBean (there, the one from bean#initSolutionDescriptorIfNone() is likely present), hence we
+      //        shall reflect the actual configuration here in the UI.
+      //        FWIW, reset() method is invoked *before* facet initialization, therefore we need to pass myConfigurationBean instance
+      //        into this editor (i.e. can't wait for onFacetInitialized() to happen to get proper myConfiguraitonBean right away).
+      // Beware, it seems that onFacetInitialized() is invoked for any added facet (FacetEditorImpl#onFacetAdded), not
+      // necessarily the MPS one.
       MPSFacet mpsFacet = (MPSFacet) facet;
-      mpsFacet.setConfiguration(myConfigurationBean);
-      // XXX once setConfiguration sets new module descriptor, the one cached in myConfigurationBean (available through getSolutionDescriptor() method)
-      //     is no longer valid, and if there are new changes in this Configurable that go into SD directly (not through cfg bean), they might get lost.
-      //     Drop once MPSConfigurationBean doesn't keep solutionDescriptor.
       myConfigurationBean = mpsFacet.getConfiguration().getBean();
     }
 

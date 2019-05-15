@@ -406,10 +406,9 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_InequationReplacementRule;
       case LanguageConceptSwitch.InferenceRule:
         if (props_InferenceRule == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2f5efaL);
-          cpb.deprecateAggregation(0x115f0161343L, "dependency");
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a93b0le);
+          cpb.icon(IconContainer.RESOURCE_a0a2a0a93b0le);
           props_InferenceRule = cpb.create();
         }
         return props_InferenceRule;

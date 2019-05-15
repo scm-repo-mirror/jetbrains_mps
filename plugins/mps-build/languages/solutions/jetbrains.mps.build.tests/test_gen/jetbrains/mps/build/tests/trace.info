@@ -219,12 +219,32 @@
       <node id="1841835149314778477" at="34,135,35,0" concept="7" />
       <node id="1841835149314779974" at="35,0,36,22" concept="6" />
       <node id="1841835149314780163" at="36,22,37,62" concept="4" />
-      <node id="1841835149314779994" at="37,62,38,90" concept="1" />
-      <node id="1841835149314780116" at="38,90,39,0" concept="7" />
+      <node id="1841835149314779994" at="37,62,38,89" concept="1" />
+      <node id="1841835149314780116" at="38,89,39,0" concept="7" />
       <node id="1841835149314780128" at="39,0,40,12" concept="6" />
       <node id="1841835149314780130" at="40,12,41,108" concept="1" />
       <node id="1841835149314781674" at="41,108,42,109" concept="1" />
+      <node id="3913486790554958313" at="44,55,45,69" concept="6" />
+      <node id="3913486790554846817" at="45,69,46,84" concept="4" />
+      <node id="3913486790555024852" at="46,84,47,98" concept="6" />
+      <node id="3913486790554879562" at="47,98,48,59" concept="4" />
+      <node id="3913486790554884371" at="48,59,49,60" concept="4" />
+      <node id="3913486790554898054" at="49,60,50,48" concept="1" />
+      <node id="3913486790554924646" at="50,48,51,49" concept="1" />
+      <node id="3913486790555818473" at="51,49,52,65" concept="4" />
+      <node id="3913486790555839089" at="52,65,53,66" concept="4" />
+      <node id="3913486790555810440" at="53,66,54,32" concept="1" />
+      <node id="3913486790555847264" at="54,32,55,32" concept="1" />
+      <node id="3913486790554806816" at="44,0,57,0" concept="3" trace="test_nonExistentPath#()V" />
       <node id="5368511706901692172" at="11,0,44,0" concept="3" trace="test_testRelPaths#()V" />
+      <scope id="3913486790554806819" at="44,55,55,32">
+        <var name="r1" id="3913486790554879563" />
+        <var name="r2" id="3913486790554884372" />
+        <var name="r3" id="3913486790555818474" />
+        <var name="r4" id="3913486790555839090" />
+        <var name="rph" id="3913486790554846818" />
+      </scope>
+      <scope id="3913486790554806816" at="44,0,57,0" />
       <scope id="5368511706901692175" at="11,52,42,109">
         <var name="baseDir" id="1841835149314687008" />
         <var name="oneUp" id="1841835149314780164" />
@@ -233,7 +253,7 @@
         <var name="tmpFile" id="1841835149314679085" />
       </scope>
       <scope id="5368511706901692172" at="11,0,44,0" />
-      <unit id="5368511706901688070" at="10,0,45,0" name="jetbrains.mps.build.tests.TestRelativePathHelper_Test" />
+      <unit id="5368511706901688070" at="10,0,58,0" name="jetbrains.mps.build.tests.TestRelativePathHelper_Test" />
     </file>
   </root>
   <root nodeRef="r:361d93bd-9223-4768-9e37-bcd7b8db1f40(jetbrains.mps.build.tests@tests)/5584673629410321146">

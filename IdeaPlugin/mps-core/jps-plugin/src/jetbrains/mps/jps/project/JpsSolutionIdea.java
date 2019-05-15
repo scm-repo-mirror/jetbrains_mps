@@ -81,7 +81,7 @@ public class JpsSolutionIdea extends Solution {
         p = FileUtil.toCanonicalPath(p);
         map.put(p, m);
       } else if(source instanceof FilePerRootDataSource) {
-        String p = ((FilePerRootDataSource) source).getFolder().getDescendant(".model").getPath();
+        String p = ((FilePerRootDataSource) source).getFolder().findChild(".model").getPath();
         p = FileUtil.toCanonicalPath(p);
         map.put(p, m);
       }
@@ -161,7 +161,7 @@ public class JpsSolutionIdea extends Solution {
           File outputDir = JpsJavaExtensionService.getInstance().getOutputDirectory(myModule, false);
           if (outputDir == null) return null;
           MPSCompilerUtil.debug(myCompileContext, " ClassesGen from module " + outputDir.getPath());
-          return FileSystem.getInstance().getFileByPath(outputDir.getPath());
+          return FileSystem.getInstance().getFile(outputDir.getPath());
         }
       };
     }

@@ -66,7 +66,7 @@
     <property role="EcuMT" value="1161622753914" />
     <ref role="1TJDcQ" to="tpee:g76ryKb" resolve="ConceptFunctionParameter" />
     <node concept="asaX9" id="5dHFyve7Ngm" role="lGtFl">
-      <property role="YLPcu" value="MPS 3.4" />
+      <property role="YLPcu" value="3.4" />
       <property role="YLQ7P" value="IOperationContext has been deprecated for long time and shall fade away soon, don't use it!" />
     </node>
   </node>

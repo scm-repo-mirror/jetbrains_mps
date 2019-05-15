@@ -9,9 +9,7 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.lang.pattern.IMatchingPattern;
-import jetbrains.mps.lang.typesystem.runtime.HUtil;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
@@ -24,8 +22,7 @@ public class typeof_DownCastToLowLevel_InferenceRule extends AbstractInferenceRu
       typeCheckingContext.whenConcrete(e, new Runnable() {
         public void run() {
           {
-            IMatchingPattern pattern_pc09cd_a0a0 = HUtil.createMatchingPatternByConcept(MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, "jetbrains.mps.debugger.java.evaluation.structure.DebuggedType"));
-            SNode coercedNode_pc09cd_a0a0 = TypeChecker.getInstance().getRuntimeSupport().coerce_(typeCheckingContext.getExpandedNode(e), pattern_pc09cd_a0a0);
+            SNode coercedNode_pc09cd_a0a0 = TypecheckingFacade.getFromContext().coerceType(typeCheckingContext.getExpandedNode(e), MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, "jetbrains.mps.debugger.java.evaluation.structure.DebuggedType"));
             if (coercedNode_pc09cd_a0a0 != null) {
               {
                 SNode _nodeToCheck_1029348928467 = downCastToLowLevel;

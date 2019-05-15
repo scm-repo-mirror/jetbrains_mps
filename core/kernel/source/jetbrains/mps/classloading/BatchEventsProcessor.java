@@ -15,8 +15,8 @@
  */
 package jetbrains.mps.classloading;
 
-import jetbrains.mps.module.ReloadableModuleBase;
 import jetbrains.mps.module.ReloadableModuleBase.SModuleDependenciesListener;
+import jetbrains.mps.module.ReloadableModuleBase;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -58,8 +58,7 @@ public class BatchEventsProcessor {
   public void startBatching() {
     if (myBatchStarted) {
       myBatchStarted = false;
-      myEvents.clear();
-      throw new IllegalStateException("Batching has been already started; Clearing the queue...");
+      LOG.error("Batching has been already started; Ignoring...", new IllegalStateException());
     }
     if (!myEvents.isEmpty()) {
       LOG.warn("Events have not been flushed");
@@ -84,7 +83,9 @@ public class BatchEventsProcessor {
   }
 
   public void finishBatching() {
-    if (!myBatchStarted) throw new IllegalStateException("Batching has not been even started");
+    if (!myBatchStarted) {
+      LOG.error("Batching has not even been started; Ignoring...", new IllegalStateException());
+    }
     myBatchStarted = false;
   }
 

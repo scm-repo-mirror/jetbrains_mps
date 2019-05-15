@@ -19,18 +19,23 @@ import com.intellij.diagnostic.MessagePool;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
 import jetbrains.mps.classloading.ClassLoaderManager;
-import jetbrains.mps.classloading.MPSClassesListener;
-import jetbrains.mps.classloading.MPSClassesListenerAdapter;
+import jetbrains.mps.classloading.DeployListener;
 import jetbrains.mps.ide.MPSCoreComponents;
-import jetbrains.mps.module.ReloadableModuleBase;
+import jetbrains.mps.module.ReloadableModule;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
 import java.util.Set;
 
 //this is to get rid of memleak in case exception class is loaded by a language classloader
 public class MessagesPoolClearer implements ApplicationComponent {
   private ClassLoaderManager myManager;
-  private MPSClassesListener myClassesListener;
+  private DeployListener myClassesListener = new DeployListener() {
+    @Override
+    public void onUnloaded(@NotNull Set<ReloadableModule> modules, @NotNull ProgressMonitor monitor) {
+      ApplicationManager.getApplication().invokeLater(() -> MessagePool.getInstance().clearErrors());
+    }
+  };
 
   public MessagesPoolClearer(MPSCoreComponents coreComponents) {
     myManager = coreComponents.getClassLoaderManager();
@@ -44,17 +49,12 @@ public class MessagesPoolClearer implements ApplicationComponent {
 
   @Override
   public void initComponent() {
-    myClassesListener = new MPSClassesListenerAdapter() {
-      @Override
-      public void beforeClassesUnloaded(Set<? extends ReloadableModuleBase> modules) {
-        ApplicationManager.getApplication().invokeLater(() -> MessagePool.getInstance().clearErrors());
-      }
-    };
-    myManager.addClassesHandler(myClassesListener);
+    // not sure if we need this -- I will try and test this comment-out and then remove class on success
+//    myManager.addListener(myClassesListener);
   }
 
   @Override
   public void disposeComponent() {
-    myManager.removeClassesHandler(myClassesListener);
+//    myManager.removeListener(myClassesListener);
   }
 }

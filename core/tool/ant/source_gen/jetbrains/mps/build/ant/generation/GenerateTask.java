@@ -7,25 +7,17 @@ import jetbrains.mps.tool.common.GeneratorProperties;
 import jetbrains.mps.tool.common.JavaCompilerProperties;
 import jetbrains.mps.build.ant.ModuleJarDataType;
 import java.io.File;
-import jetbrains.mps.tool.common.ScriptProperties;
-import java.util.Set;
-import java.util.List;
-import jetbrains.mps.build.ant.MPSClasspathUtil;
-import org.apache.tools.ant.BuildException;
-import java.util.LinkedHashSet;
 
 public class GenerateTask extends MpsLoadTask {
   private final GeneratorProperties myGenProps;
   private final JavaCompilerProperties myJavaCompilerProperties;
   public GenerateTask() {
+    super("jetbrains.mps.tool.builder.make.GeneratorWorker");
     myGenProps = new GeneratorProperties(myWhatToDo);
     myGenProps.setStrictMode(true).setParallelMode(false).setInplaceTransform(false).setHideWarnings(false).setCreateStaticRefs(true);
     myJavaCompilerProperties = new JavaCompilerProperties(myWhatToDo);
   }
-  @Override
-  protected String getWorkerClass() {
-    return "jetbrains.mps.tool.builder.make.GeneratorWorker";
-  }
+
   public void addConfiguredChunk(Chunk chunk) {
     myWhatToDo.addChunk(chunk.getModules(), chunk.getBootstrap());
   }
@@ -34,21 +26,7 @@ public class GenerateTask extends MpsLoadTask {
     if (file == null) {
       return;
     }
-    myWhatToDo.addLibraryJar(file.getAbsolutePath());
-    String fname = file.getName();
-    if (file.isFile() && fname.endsWith(".jar")) {
-      // perhaps, it's a language.jar, register corresponding generator.jar, if any. 
-      // FIXME note, this is a hack as build language doesn't record generators among MPSModulesClosure.generationDependenciesClosure() 
-      //       (check MPSModulesPartitioner.buildExternalDependencies() and <generate> task template. 
-      //       MPS used to guess (aka 'derive') generator module from language's module (ProjectPathUtil gave file with "-generator.jar" suffix 
-      //       as classpath for packaged Generator module), in 2017.1 we try to switch to 'honest' modules, gradually moving towards generators listed 
-      //       inside <generate> task. For the transition period, however, the code below mimics what we would have explicitly specified in <generate>. 
-      File generatorJar = new File(file.getParent(), fname.substring(0, fname.length() - 4) + "-generator.jar");
-      if (generatorJar.isFile()) {
-        myWhatToDo.addLibraryJar(generatorJar.getAbsolutePath());
-      }
-      // FIXME if I don't fix build language templates to list generator.jar explicitly, shall account for lang-N-generator.jar here to support multiple generators per language case. 
-    }
+    addLibraryJar(file);
   }
   public void setStrictMode(boolean strictMode) {
     myGenProps.setStrictMode(strictMode);
@@ -71,31 +49,7 @@ public class GenerateTask extends MpsLoadTask {
   public void setSkipUnmodifiedModels(boolean skipUnmodifiedModels) {
     myGenProps.setSkipUnmodifiedModels(skipUnmodifiedModels);
   }
-  public void addConfiguredPlugin(Plugin plugin) {
-    String property = myWhatToDo.getProperty(ScriptProperties.PLUGIN_PATHS);
-    if ((property == null || property.length() == 0)) {
-      property = plugin.getPath().getAbsolutePath();
-    } else {
-      property += File.pathSeparator + plugin.getPath().getAbsolutePath();
-    }
-    myWhatToDo.putProperty(ScriptProperties.PLUGIN_PATHS, property);
-  }
   public void setTargetJavaVersion(String targetJavaVersion) {
     myJavaCompilerProperties.setTargetJavaVersion(targetJavaVersion);
-  }
-
-  @Override
-  protected Set<File> calculateClassPath(boolean fork) {
-    List<File> classPathRoots = MPSClasspathUtil.getClassPathRootsFromDependencies(getProject());
-    if (classPathRoots.isEmpty()) {
-      throw new BuildException("Dependency on MPS build scripts is required to generate MPS modules.");
-
-    }
-    Set<File> classPath = new LinkedHashSet<File>();
-    for (File file : classPathRoots) {
-      MPSClasspathUtil.gatherAllClassesAndJarsUnder(file, classPath);
-    }
-
-    return classPath;
   }
 }

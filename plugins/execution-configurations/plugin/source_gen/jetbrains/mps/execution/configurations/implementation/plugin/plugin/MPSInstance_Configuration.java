@@ -25,11 +25,14 @@ import com.intellij.execution.runners.ProgramRunner;
 import com.intellij.execution.configurations.ConfigurationInfoProvider;
 import jetbrains.mps.execution.api.settings.SettingsEditorEx;
 import jetbrains.mps.ide.project.ProjectHelper;
+import java.io.File;
 
 public class MPSInstance_Configuration extends BaseMpsRunConfiguration implements IPersistentConfiguration {
   private static final Logger LOG = LogManager.getLogger(MPSInstance_Configuration.class);
   private MpsStartupSettings_Configuration myMpsSettings = new MpsStartupSettings_Configuration();
   private DeployPluginsSettings_Configuration myPluginsSettings = new DeployPluginsSettings_Configuration(this.getProject());
+
+  @Override
   public void checkConfiguration(final PersistentConfigurationContext context) throws RuntimeConfigurationException {
     this.getMpsSettings().checkConfiguration(context);
     this.getPluginsSettings().checkConfiguration(context);
@@ -47,6 +50,7 @@ public class MPSInstance_Configuration extends BaseMpsRunConfiguration implement
       element.addContent(fieldElement);
     }
   }
+
   @Override
   public void readExternal(Element element) throws InvalidDataException {
     if (element == null) {
@@ -73,12 +77,7 @@ public class MPSInstance_Configuration extends BaseMpsRunConfiguration implement
       }
     }
   }
-  public MpsStartupSettings_Configuration getMpsSettings() {
-    return myMpsSettings;
-  }
-  public DeployPluginsSettings_Configuration getPluginsSettings() {
-    return myPluginsSettings;
-  }
+
   @Override
   public MPSInstance_Configuration clone() {
     MPSInstance_Configuration clone = createCloneTemplate();
@@ -86,6 +85,21 @@ public class MPSInstance_Configuration extends BaseMpsRunConfiguration implement
     clone.myPluginsSettings = (DeployPluginsSettings_Configuration) myPluginsSettings.clone();
     return clone;
   }
+
+  public MpsStartupSettings_Configuration getMpsSettings() {
+    return myMpsSettings;
+  }
+  public DeployPluginsSettings_Configuration getPluginsSettings() {
+    return myPluginsSettings;
+  }
+
+  public void setMpsSettings(MpsStartupSettings_Configuration value) {
+    myMpsSettings = value;
+  }
+  public void setPluginsSettings(DeployPluginsSettings_Configuration value) {
+    myPluginsSettings = value;
+  }
+
   public MPSInstance_Configuration(Project project, ConfigurationFactory factory, String name) {
     super(project, factory, name);
   }
@@ -122,7 +136,10 @@ public class MPSInstance_Configuration extends BaseMpsRunConfiguration implement
   public boolean canExecute(String executorId) {
     return MPSInstance_Configuration_RunProfileState.canExecute(executorId);
   }
-  public Object[] createDeployPluginsTask() {
+  public Object[] createClearSettingsDirectoryBeforeRunTaskTask() {
+    return new Object[]{new File(this.getMpsSettings().getExpandedSettingsPath())};
+  }
+  public Object[] createAssemblePluginsBeforeTaskTask() {
     return new Object[]{this.getPluginsSettings().getPluginsListToDeploy(), this.getMpsSettings().getPluginsPath()};
   }
 }

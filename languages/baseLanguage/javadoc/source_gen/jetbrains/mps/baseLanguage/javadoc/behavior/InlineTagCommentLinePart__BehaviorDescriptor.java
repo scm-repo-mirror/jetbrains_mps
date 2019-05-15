@@ -29,8 +29,9 @@ public final class InlineTagCommentLinePart__BehaviorDescriptor extends BaseBHDe
   private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
   public static final SMethod<NodeCaretPair> smartDelete_id7PYAiugbmRz = new SMethodBuilder<NodeCaretPair>(new SJavaCompoundTypeImpl(NodeCaretPair.class)).name("smartDelete").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7PYAiugbmRz").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
+  public static final SMethod<String> buildCommentText_id7Qt73fl2F3N = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("buildCommentText").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7Qt73fl2F3N").registry(REGISTRY).build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(smartDelete_id7PYAiugbmRz);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(smartDelete_id7PYAiugbmRz, buildCommentText_id7Qt73fl2F3N);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -45,6 +46,9 @@ public final class InlineTagCommentLinePart__BehaviorDescriptor extends BaseBHDe
     } else {
       return pair;
     }
+  }
+  /*package*/ static String buildCommentText_id7Qt73fl2F3N(@NotNull SNode __thisNode__) {
+    return BaseInlineDocTag__BehaviorDescriptor.buildCommentText_id7Qt73fl50wX.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990289L, 0x60a0f9237ac5e9c8L, "tag")));
   }
 
   /*package*/ InlineTagCommentLinePart__BehaviorDescriptor() {
@@ -65,6 +69,8 @@ public final class InlineTagCommentLinePart__BehaviorDescriptor extends BaseBHDe
     switch (methodIndex) {
       case 0:
         return (T) ((NodeCaretPair) smartDelete_id7PYAiugbmRz(node, ((boolean) (Boolean) parameters[0])));
+      case 1:
+        return (T) ((String) buildCommentText_id7Qt73fl2F3N(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

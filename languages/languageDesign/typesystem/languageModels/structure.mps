@@ -18,10 +18,6 @@
       </concept>
     </language>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
-      <concept id="1224240836180" name="jetbrains.mps.lang.structure.structure.DeprecatedNodeAnnotation" flags="ig" index="asaX9">
-        <property id="1225118929411" name="build" index="YLPcu" />
-        <property id="1225118933224" name="comment" index="YLQ7P" />
-      </concept>
       <concept id="6054523464627964745" name="jetbrains.mps.lang.structure.structure.AttributeInfo_AttributedConcept" flags="ng" index="trNpa">
         <reference id="6054523464627965081" name="concept" index="trN6q" />
       </concept>
@@ -133,17 +129,6 @@
     <property role="3GE5qa" value="definition.rule" />
     <property role="EcuMT" value="1174643105530" />
     <ref role="1TJDcQ" node="hp8hY$D" resolve="AbstractCheckingRule" />
-    <node concept="1TJgyj" id="hnK5xd3" role="1TKVEi">
-      <property role="20lmBu" value="aggregation" />
-      <property role="20kJfa" value="dependency" />
-      <property role="20lbJX" value="0..n" />
-      <property role="IQ2ns" value="1193733919555" />
-      <ref role="20lvS9" to="tpck:gw2VY9q" resolve="BaseConcept" />
-      <node concept="asaX9" id="3kHI3RTzXam" role="lGtFl">
-        <property role="YLQ7P" value="Used to point to Dependency, which has been deprecated for few years now. Link left not to break a model with children here, if any" />
-        <property role="YLPcu" value="3.3" />
-      </node>
-    </node>
     <node concept="1TJgyj" id="6lCixFI9LG8" role="1TKVEi">
       <property role="20lmBu" value="aggregation" />
       <property role="20kJfa" value="supercedesFun" />

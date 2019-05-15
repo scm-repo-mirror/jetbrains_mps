@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.classloading;
 
+import jetbrains.mps.classloading.ClassLoaderManager.DeploymentStatuses;
 import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.project.structure.modules.ModuleReference;
@@ -30,7 +31,6 @@ import org.jetbrains.mps.openapi.module.SModuleListener;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.persistence.ModelRoot;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -55,29 +55,30 @@ public class FakeReloadableModule implements ReloadableModule {
 
   @NotNull
   @Override
-  public Class<?> getClass(String classFqName) throws ClassNotFoundException, ModuleClassNotFoundException, ModuleIsNotLoadableException {
-    throw new NotImplementedException();
+  public Class<?> getClass(@NotNull String classFqName) {
+    throw new UnsupportedOperationException("Not implemented");
   }
 
   @NotNull
   @Override
-  public Class<?> getOwnClass(String classFqName) throws ClassNotFoundException, ModuleClassNotFoundException, ModuleIsNotLoadableException {
-    throw new NotImplementedException();
+  public Class<?> getOwnClass(@NotNull String classFqName) {
+    throw new UnsupportedOperationException("Not implemented");
   }
 
-  @Nullable
+  @NotNull
   @Override
-  public ClassLoader getClassLoader() {
-    throw new NotImplementedException();
+  public MPSModuleClassLoader getClassLoader0() {
+    throw new UnsupportedOperationException("Not implemented");
   }
 
   @Override
   public void reload() {
   }
 
+  @NotNull
   @Override
-  public boolean willLoad() {
-    return true;
+  public DeploymentStatus getStatus() {
+    return DeploymentStatuses.DEPLOYED;
   }
 
   @Override

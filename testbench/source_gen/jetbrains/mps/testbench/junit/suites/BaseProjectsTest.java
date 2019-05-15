@@ -21,9 +21,6 @@ import org.junit.After;
 
 @RunWith(value = TeamCityParameterizedRunner.class)
 public class BaseProjectsTest {
-  public static final String MIGRATION_PLUGIN = "migration";
-  public static final String MIGRATION_PLUGIN_ID = "jetbrains.mps.ide.migration.workbench";
-
   private static IdeaEnvironment ourEnv;
 
   private String myProjectDir;
@@ -35,9 +32,7 @@ public class BaseProjectsTest {
 
   @Parameterized.Parameters
   public static List<Object[]> testParameters() throws InvocationTargetException, InterruptedException {
-    EnvironmentConfig config = EnvironmentConfig.defaultConfig().withJavaPlugin();
-    // todo generalize it when there are more tests 
-    config.addPlugin(MIGRATION_PLUGIN, MIGRATION_PLUGIN_ID);
+    EnvironmentConfig config = EnvironmentConfig.defaultConfig().setCreatePluginClassLoaders(false).withJavaPlugin().withMigrationPlugin();
 
     ourEnv = new IdeaEnvironment(config);
     ourEnv.init();

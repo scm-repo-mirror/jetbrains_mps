@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
@@ -102,8 +102,8 @@ public class SConceptOperation_SubstituteMenu extends SubstituteMenuBase {
         @Override
         protected boolean isApplicable(SubstituteMenuContext _context) {
           SNode leftExpression = SLinkOperations.getTarget(SNodeOperations.cast(_context.getParentNode(), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"));
-          SNode leftType = TypeChecker.getInstance().getTypeOf(leftExpression);
-          return TypeChecker.getInstance().getSubtypingManager().isSubtype(leftType, _quotation_createNode_gutaar_b0a2a0a0a(), false);
+          SNode leftType = TypecheckingFacade.getFromContext().getTypeOf(leftExpression);
+          return TypecheckingFacade.getFromContext().isStrongSubtype(leftType, _quotation_createNode_gutaar_b0a2a0a0a());
         }
         @NotNull
         @Override

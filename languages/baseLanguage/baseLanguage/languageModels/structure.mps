@@ -484,8 +484,8 @@
       <property role="IQ2nx" value="1178608670077" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
     </node>
-    <node concept="PrWs8" id="h9nw8k0" role="PzmwI">
-      <ref role="PrY4T" node="h9ngReX" resolve="ClassifierMember" />
+    <node concept="PrWs8" id="v45EpuhE_O" role="PzmwI">
+      <ref role="PrY4T" node="v45EpuhBDA" resolve="ClassifierMethodMember" />
     </node>
     <node concept="PrWs8" id="7bu6bIyR2E0" role="PzmwI">
       <ref role="PrY4T" node="7bu6bIyR2DN" resolve="ITypeApplicable" />
@@ -910,8 +910,8 @@
     <property role="34LRSv" value="static method" />
     <property role="EcuMT" value="1081236700938" />
     <ref role="1TJDcQ" node="6LFqxSRBTg8" resolve="MethodDeclaration" />
-    <node concept="PrWs8" id="h9nwb_8" role="PzmwI">
-      <ref role="PrY4T" node="h9ngReX" resolve="ClassifierMember" />
+    <node concept="PrWs8" id="v45EpuhE_J" role="PzmwI">
+      <ref role="PrY4T" node="v45EpuhBDA" resolve="ClassifierMethodMember" />
     </node>
     <node concept="PrWs8" id="49WhPGXow7w" role="PzmwI">
       <ref role="PrY4T" node="49WhPGXow7u" resolve="StaticKind" />
@@ -2068,7 +2068,7 @@
     </node>
     <node concept="asaX9" id="7cdZoO_Memd" role="lGtFl">
       <property role="YLQ7P" value="use LocalMethodCall" />
-      <property role="YLPcu" value="MPS 3.3" />
+      <property role="YLPcu" value="2019.2" />
     </node>
   </node>
   <node concept="1TIwiD" id="h4AH0K_">
@@ -2095,34 +2095,6 @@
       <property role="20lbJX" value="1" />
       <property role="IQ2ns" value="1173175577737" />
       <ref role="20lvS9" node="fz3vP1J" resolve="Expression" />
-    </node>
-  </node>
-  <node concept="1TIwiD" id="h8u8gbX">
-    <property role="TrG5h" value="CommentedStatementsBlock" />
-    <property role="2_RsDV" value="none" />
-    <property role="3GE5qa" value="comments" />
-    <property role="34LRSv" value="/*" />
-    <property role="EcuMT" value="1177326519037" />
-    <ref role="1TJDcQ" node="fzclF8l" resolve="Statement" />
-    <node concept="1TJgyj" id="h8u8lv$" role="1TKVEi">
-      <property role="20lmBu" value="aggregation" />
-      <property role="20kJfa" value="statement" />
-      <property role="20lbJX" value="0..n" />
-      <property role="IQ2ns" value="1177326540772" />
-      <ref role="20lvS9" node="fzclF8l" resolve="Statement" />
-    </node>
-    <node concept="PrWs8" id="154Bg$Afjja" role="PzmwI">
-      <ref role="PrY4T" node="i1I$4rA" resolve="ILocalVariableElementList" />
-    </node>
-    <node concept="PrWs8" id="U99cpalq9I" role="PzmwI">
-      <ref role="PrY4T" to="tpck:2WmWrdnSpX3" resolve="ISuppressErrors" />
-    </node>
-    <node concept="PrWs8" id="6KqaYzPD5fU" role="PzmwI">
-      <ref role="PrY4T" to="tpck:3$Sh7m_tmYK" resolve="IOldCommentContainer" />
-    </node>
-    <node concept="asaX9" id="6KqaYzPCRAK" role="lGtFl">
-      <property role="YLPcu" value="3.3" />
-      <property role="YLQ7P" value="Use BaseCommentAttribute instead" />
     </node>
   </node>
   <node concept="1TIwiD" id="h8MpOA8">
@@ -3441,7 +3413,7 @@
     </node>
     <node concept="asaX9" id="7cdZoO_Memb" role="lGtFl">
       <property role="YLQ7P" value="use LocalMethodCall" />
-      <property role="YLPcu" value="MPS 3.3" />
+      <property role="YLPcu" value="2019.2" />
     </node>
   </node>
   <node concept="PlHQZ" id="2P5W1FWMUys">
@@ -3696,6 +3668,7 @@
     </node>
     <node concept="asaX9" id="6UEb_pTscCx" role="lGtFl">
       <property role="YLQ7P" value="Use VariableReference instead" />
+      <property role="YLPcu" value="2019.2" />
     </node>
   </node>
   <node concept="PlHQZ" id="hiAJDhU">
@@ -3791,6 +3764,7 @@
     </node>
     <node concept="asaX9" id="6UEb_pTscCv" role="lGtFl">
       <property role="YLQ7P" value="Use VariableReference instead" />
+      <property role="YLPcu" value="2019.2" />
     </node>
   </node>
   <node concept="1TIwiD" id="hPGRDYT">
@@ -4485,6 +4459,17 @@
       <property role="20kJfa" value="expr" />
       <property role="20lbJX" value="1" />
       <ref role="20lvS9" node="fz3vP1J" resolve="Expression" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="v45EpuhBDA">
+    <property role="EcuMT" value="559597157502843494" />
+    <property role="3GE5qa" value="classifiers.members" />
+    <property role="TrG5h" value="ClassifierMethodMember" />
+    <node concept="PrWs8" id="v45EpuhBDB" role="PrDN$">
+      <ref role="PrY4T" node="h9ngReX" resolve="ClassifierMember" />
+    </node>
+    <node concept="t5JxF" id="v45EpuhBDD" role="lGtFl">
+      <property role="t5JxN" value="need it for pure technical reasons (in order to make work the Interface constraints while counting the transformation menu ctorInterfaceMemberInIncomplete)" />
     </node>
   </node>
 </model>

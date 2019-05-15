@@ -4,7 +4,7 @@
   <languages>
     <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="2" />
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="1" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="0" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
     <use id="baa9238b-36da-4ccb-a76b-8ad70e222183" name="jetbrains.mps.samples.highlevel.simpleStructure" version="0" />
     <use id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure" version="7" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
@@ -250,7 +250,7 @@
                           </node>
                         </node>
                         <node concept="liA8E" id="3hIFiK8NL5W" role="2OqNvi">
-                          <ref role="37wK5l" to="w1kc:~SNode.getNodeId():org.jetbrains.mps.openapi.model.SNodeId" resolve="getNodeId" />
+                          <ref role="37wK5l" to="w1kc:~SNode.getNodeId()" resolve="getNodeId" />
                         </node>
                       </node>
                       <node concept="3uibUv" id="3hIFiK8NLsz" role="10QFUM">
@@ -259,7 +259,7 @@
                     </node>
                   </node>
                   <node concept="liA8E" id="3hIFiK8NMtf" role="2OqNvi">
-                    <ref role="37wK5l" to="w1kc:~SNodeId$Regular.getId():long" resolve="getId" />
+                    <ref role="37wK5l" to="w1kc:~SNodeId$Regular.getId()" resolve="getId" />
                   </node>
                 </node>
               </node>
@@ -290,11 +290,11 @@
                           </node>
                         </node>
                         <node concept="liA8E" id="3hIFiK8NmjM" role="2OqNvi">
-                          <ref role="37wK5l" to="mhbf:~SModel.getModule():org.jetbrains.mps.openapi.module.SModule" resolve="getModule" />
+                          <ref role="37wK5l" to="mhbf:~SModel.getModule()" resolve="getModule" />
                         </node>
                       </node>
                       <node concept="liA8E" id="3hIFiK8NmjN" role="2OqNvi">
-                        <ref role="37wK5l" to="lui2:~SModule.getModuleId():org.jetbrains.mps.openapi.module.SModuleId" resolve="getModuleId" />
+                        <ref role="37wK5l" to="lui2:~SModule.getModuleId()" resolve="getModuleId" />
                       </node>
                     </node>
                     <node concept="3uibUv" id="3hIFiK8NpBN" role="10QFUM">
@@ -303,11 +303,11 @@
                   </node>
                 </node>
                 <node concept="liA8E" id="3hIFiK8NpWW" role="2OqNvi">
-                  <ref role="37wK5l" to="z1c3:~ModuleId$Regular.getUUID():java.util.UUID" resolve="getUUID" />
+                  <ref role="37wK5l" to="z1c3:~ModuleId$Regular.getUUID()" resolve="getUUID" />
                 </node>
               </node>
               <node concept="liA8E" id="3hIFiK8Nr0G" role="2OqNvi">
-                <ref role="37wK5l" to="33ny:~UUID.toString():java.lang.String" resolve="toString" />
+                <ref role="37wK5l" to="33ny:~UUID.toString()" resolve="toString" />
               </node>
             </node>
           </node>
@@ -355,7 +355,7 @@
                         </node>
                       </node>
                       <node concept="liA8E" id="3hIFiK8NV3k" role="2OqNvi">
-                        <ref role="37wK5l" to="w1kc:~SNode.getNodeId():org.jetbrains.mps.openapi.model.SNodeId" resolve="getNodeId" />
+                        <ref role="37wK5l" to="w1kc:~SNode.getNodeId()" resolve="getNodeId" />
                       </node>
                     </node>
                     <node concept="3uibUv" id="3hIFiK8NV3l" role="10QFUM">
@@ -364,7 +364,7 @@
                   </node>
                 </node>
                 <node concept="liA8E" id="3hIFiK8NV3m" role="2OqNvi">
-                  <ref role="37wK5l" to="w1kc:~SNodeId$Regular.getId():long" resolve="getId" />
+                  <ref role="37wK5l" to="w1kc:~SNodeId$Regular.getId()" resolve="getId" />
                 </node>
               </node>
             </node>

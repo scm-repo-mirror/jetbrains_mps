@@ -83,18 +83,9 @@ public class TypecheckingContextTracker implements ITypeContextOwner {
     }
     this.generationMode = generationMode;
     myOldOperation = null;
-    if (false && this.generationMode) {
-      IncrementalTypecheckingContext context = (IncrementalTypecheckingContext) TypeContextManager.getInstance().createTypeCheckingContext(selectedNode);
-      context.getTypeInGenerationMode(selectedNode);
-
-      myOperation = context.getOperation();
-      myCurrentContext = context;
-      myCurrentState = context.getState();
-    } else {
-      myOperation = myTypecheckingContext.getOperation();
-      myCurrentContext = myTypecheckingContext;
-      myCurrentState = myStateCopy;
-    }
+    myOperation = myTypecheckingContext.getOperation();
+    myCurrentContext = myTypecheckingContext;
+    myCurrentState = myStateCopy;
   }
 
   public State resetCurrentState(AbstractOperation fromDiff) {

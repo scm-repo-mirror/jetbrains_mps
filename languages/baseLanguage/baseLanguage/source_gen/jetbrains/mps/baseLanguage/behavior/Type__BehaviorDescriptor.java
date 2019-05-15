@@ -27,9 +27,7 @@ import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.reloading.ReflectionUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.typesystem.inference.TypeChecker;
-import jetbrains.mps.lang.typesystem.runtime.HUtil;
-import jetbrains.mps.lang.pattern.IMatchingPattern;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.pattern.GeneratedMatchingPattern;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.util.annotation.ToRemove;
@@ -112,7 +110,7 @@ public final class Type__BehaviorDescriptor extends BaseBHDescriptor {
     return SNodeOperations.copyNode(__thisNode__);
   }
   /*package*/ static Class getClass_idhEwIzNJ(@NotNull SNode __thisNode__, SModule module) {
-    return ReflectionUtil.forName(module, SLinkOperations.getTarget(TypeChecker.getInstance().getRuntimeSupport().coerce_(__thisNode__, HUtil.createMatchingPatternByConcept(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType")), true), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")));
+    return ReflectionUtil.forName(module, SLinkOperations.getTarget(TypecheckingFacade.getFromContext().coerceType(__thisNode__, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType")), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")));
   }
   /*package*/ static SNode getAbstractCreator_idhEwIzNW(@NotNull SNode __thisNode__) {
     return null;
@@ -129,7 +127,7 @@ public final class Type__BehaviorDescriptor extends BaseBHDescriptor {
     return Type__BehaviorDescriptor.getAbstractCreators_idhQFCQT0.invoke(__thisNode__);
   }
   /*package*/ static SNode getJavaType_idhEwIzO1(@NotNull SNode __thisNode__) {
-    return TypeChecker.getInstance().getRuntimeSupport().coerce_(__thisNode__, HUtil.createMatchingPatternByConcept(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType")), true);
+    return TypecheckingFacade.getFromContext().coerceType(__thisNode__, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType"));
   }
   /*package*/ static boolean selectOnVariableCreation_idhEwIzO8(@NotNull SNode __thisNode__) {
     return ((boolean) Type__BehaviorDescriptor.hasMissingParameters_id32KZwowVoMu.invoke(__thisNode__));
@@ -137,10 +135,9 @@ public final class Type__BehaviorDescriptor extends BaseBHDescriptor {
   @Deprecated
   /*package*/ static SNode getClassExpression_idhEwIzOd(@NotNull SNode __thisNode__) {
     {
-      IMatchingPattern pattern_smb55n_a0n = HUtil.createMatchingPatternByConcept(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType"));
-      SNode coercedNode_smb55n_a0n = TypeChecker.getInstance().getRuntimeSupport().coerce_(__thisNode__, pattern_smb55n_a0n);
+      SNode coercedNode_smb55n_a0n = TypecheckingFacade.getFromContext().coerceType(__thisNode__, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType"));
       if (coercedNode_smb55n_a0n != null) {
-        return _quotation_createNode_smb55n_a0a2a0a31(SLinkOperations.getTarget(coercedNode_smb55n_a0n, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")));
+        return _quotation_createNode_smb55n_a0a1a0a31(SLinkOperations.getTarget(coercedNode_smb55n_a0n, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")));
       } else {
         throw new UnsupportedOperationException();
       }
@@ -149,7 +146,7 @@ public final class Type__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static boolean isSupersetOf_idhKBOZqh(@NotNull SNode __thisNode__, SNode t) {
     {
       GeneratedMatchingPattern pattern_smb55n_a0o = new Pattern_smb55n_a0a0a0o(_quotation_createNode_smb55n_a0a0a0a0o(__thisNode__));
-      SNode coercedNode_smb55n_a0o = TypeChecker.getInstance().getRuntimeSupport().coerce_(t, pattern_smb55n_a0o);
+      SNode coercedNode_smb55n_a0o = TypecheckingFacade.getFromContext().coerceType(t, pattern_smb55n_a0o);
       if (coercedNode_smb55n_a0o != null) {
         return true;
       } else {
@@ -281,7 +278,7 @@ public final class Type__BehaviorDescriptor extends BaseBHDescriptor {
   public SAbstractConcept getConcept() {
     return CONCEPT;
   }
-  private static SNode _quotation_createNode_smb55n_a0a2a0a31(Object parameter_1) {
+  private static SNode _quotation_createNode_smb55n_a0a1a0a31(Object parameter_1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x103fb730c14L, "ClassifierClassExpression"), null, null, false);

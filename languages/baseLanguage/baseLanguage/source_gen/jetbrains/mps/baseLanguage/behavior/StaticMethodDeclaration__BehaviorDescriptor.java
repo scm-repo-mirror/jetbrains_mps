@@ -25,10 +25,9 @@ import jetbrains.mps.util.Computable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.baseLanguage.scopes.Signature;
 import jetbrains.mps.baseLanguage.scopes.MethodSignature;
-import java.util.Collections;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.core.behavior.INamedConcept__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
@@ -72,7 +71,7 @@ public final class StaticMethodDeclaration__BehaviorDescriptor extends BaseBHDes
     // the difference between two methods is very visible in main node selection in java run configuation () 
     return TypeContextManager.getInstance().runResolveAction(new Computable<Boolean>() {
       public Boolean compute() {
-        return "main".equals(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))) && ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).count() == 1 && TypeChecker.getInstance().getSubtypingManager().isSubtype(TypeChecker.getInstance().getTypeOf(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).first()), _quotation_createNode_qyxuoz_b0a0a0a0a3a2(), false);
+        return "main".equals(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))) && ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).count() == 1 && TypecheckingFacade.getFromContext().isStrongSubtype(TypecheckingFacade.getFromContext().getTypeOf(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).first()), _quotation_createNode_qyxuoz_b0a0a0a0a3a2());
       }
     });
   }
@@ -91,9 +90,9 @@ public final class StaticMethodDeclaration__BehaviorDescriptor extends BaseBHDes
     if (!((context.isElementVisible(__thisNode__)))) {
       return;
     }
-    Signature signature = new MethodSignature(__thisNode__, Collections.<SNode,SNode>emptyMap());
-    context.addMember(__thisNode__, signature);
-    context.hideMembers(signature);
+    Signature signature = new MethodSignature(__thisNode__, context.getTypeByTypeVariableMapping());
+    context.exposeMember(__thisNode__, signature);
+    context.hideMembersForAncestors(signature);
   }
   @Deprecated
   /*package*/ static boolean isAbstract_idhWjv7RO(@NotNull SNode __thisNode__) {

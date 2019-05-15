@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2012 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -75,7 +75,7 @@ class InstancesSearchType extends SearchType<SNode, SAbstractConcept> {
       }
 
       ProgressMonitor subMonitor = monitor.subTask(4, SubProgressKind.DEFAULT);
-      subMonitor.start("", current.size());
+      subMonitor.start("", current.size() + simpleSearch.size());
       showNoFastFindTipIfNeeded(current);
       current.addAll(simpleSearch);
       for (SModel m : current) {

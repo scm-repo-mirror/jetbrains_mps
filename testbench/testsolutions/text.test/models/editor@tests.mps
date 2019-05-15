@@ -1510,7 +1510,7 @@
       <node concept="3clFbF" id="5vhYBWF2gAF" role="3cqZAp">
         <node concept="2YIFZM" id="5vhYBWF2gAS" role="3clFbG">
           <ref role="37wK5l" to="tp6m:14TMHtHs1EN" resolve="runWithTwoStepDeletion" />
-          <ref role="1Pybhc" to="tp6m:5s44y2Lh6_5" resolve="EditorUtil" />
+          <ref role="1Pybhc" to="tp6m:5s44y2Lh6_5" resolve="EditorTestUtil" />
           <node concept="1bVj0M" id="5vhYBWF2gEH" role="37wK5m">
             <node concept="3clFbS" id="5vhYBWF2gEI" role="1bW5cS">
               <node concept="2HxZob" id="5vhYBWF2gNo" role="3cqZAp">
@@ -1575,7 +1575,7 @@
       <node concept="3clFbF" id="5vhYBWF2gVw" role="3cqZAp">
         <node concept="2YIFZM" id="5vhYBWF2gVx" role="3clFbG">
           <ref role="37wK5l" to="tp6m:14TMHtHs1EN" resolve="runWithTwoStepDeletion" />
-          <ref role="1Pybhc" to="tp6m:5s44y2Lh6_5" resolve="EditorUtil" />
+          <ref role="1Pybhc" to="tp6m:5s44y2Lh6_5" resolve="EditorTestUtil" />
           <node concept="1bVj0M" id="5vhYBWF2gVy" role="37wK5m">
             <node concept="3clFbS" id="5vhYBWF2gVz" role="1bW5cS">
               <node concept="2HxZob" id="5vhYBWF2gV$" role="3cqZAp">
@@ -1710,7 +1710,7 @@
                 <node concept="2OqwBi" id="5vhYBWF2kOr" role="10QFUP">
                   <node concept="369mXd" id="5vhYBWF2kOs" role="2Oq$k0" />
                   <node concept="liA8E" id="5vhYBWF2kOt" role="2OqNvi">
-                    <ref role="37wK5l" to="exr9:~EditorComponent.getSelectedCell():jetbrains.mps.openapi.editor.cells.EditorCell" resolve="getSelectedCell" />
+                    <ref role="37wK5l" to="exr9:~EditorComponent.getSelectedCell()" resolve="getSelectedCell" />
                   </node>
                 </node>
                 <node concept="3uibUv" id="5vhYBWF2kOu" role="10QFUM">
@@ -1719,11 +1719,11 @@
               </node>
             </node>
             <node concept="liA8E" id="5vhYBWF2lCH" role="2OqNvi">
-              <ref role="37wK5l" to="g51k:~EditorCell_Label.getRenderedTextLine():jetbrains.mps.nodeEditor.cells.TextLine" resolve="getRenderedTextLine" />
+              <ref role="37wK5l" to="g51k:~EditorCell_Label.getRenderedTextLine()" resolve="getRenderedTextLine" />
             </node>
           </node>
           <node concept="liA8E" id="5vhYBWF2lRZ" role="2OqNvi">
-            <ref role="37wK5l" to="g51k:~TextLine.isUnderlined():boolean" resolve="isUnderlined" />
+            <ref role="37wK5l" to="g51k:~TextLine.isUnderlined()" resolve="isUnderlined" />
           </node>
         </node>
       </node>
@@ -1790,7 +1790,7 @@
       <node concept="3clFbF" id="5vhYBWF2lWr" role="3cqZAp">
         <node concept="2YIFZM" id="5vhYBWF2lWs" role="3clFbG">
           <ref role="37wK5l" to="tp6m:14TMHtHs1EN" resolve="runWithTwoStepDeletion" />
-          <ref role="1Pybhc" to="tp6m:5s44y2Lh6_5" resolve="EditorUtil" />
+          <ref role="1Pybhc" to="tp6m:5s44y2Lh6_5" resolve="EditorTestUtil" />
           <node concept="1bVj0M" id="5vhYBWF2lWt" role="37wK5m">
             <node concept="3clFbS" id="5vhYBWF2lWu" role="1bW5cS">
               <node concept="2HxZob" id="5vhYBWF2lWv" role="3cqZAp">
@@ -1857,7 +1857,7 @@
       <node concept="3clFbF" id="5vhYBWF2m06" role="3cqZAp">
         <node concept="2YIFZM" id="5vhYBWF2m07" role="3clFbG">
           <ref role="37wK5l" to="tp6m:14TMHtHs1EN" resolve="runWithTwoStepDeletion" />
-          <ref role="1Pybhc" to="tp6m:5s44y2Lh6_5" resolve="EditorUtil" />
+          <ref role="1Pybhc" to="tp6m:5s44y2Lh6_5" resolve="EditorTestUtil" />
           <node concept="1bVj0M" id="5vhYBWF2m08" role="37wK5m">
             <node concept="3clFbS" id="5vhYBWF2m09" role="1bW5cS">
               <node concept="2HxZob" id="5vhYBWF2m0a" role="3cqZAp">

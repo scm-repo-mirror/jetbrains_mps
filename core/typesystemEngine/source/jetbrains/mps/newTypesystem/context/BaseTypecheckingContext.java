@@ -101,29 +101,6 @@ public abstract class BaseTypecheckingContext extends TypeCheckingContext {
   }
 
   @Override
-  public void createEquation(SNode node1, SNode node2, SNode nodeToCheck, String errorString, String ruleModel, String ruleId, QuickFixProvider intentionProvider) {
-    getState().addEquation(node1, node2, new EquationInfo(nodeToCheck, errorString, ruleModel, ruleId, 0, intentionProvider));
-  }
-
-  @Override
-  public void createLessThanInequationStrong(SNode node1, SNode node2, SNode nodeToCheck, String errorString, String ruleModel, String ruleId, boolean checkOnly,
-                                             int inequationPriority, QuickFixProvider intentionProvider) {
-    getState().addInequality(node1, node2, false, checkOnly, new EquationInfo(nodeToCheck, errorString, ruleModel,
-      ruleId, inequationPriority, intentionProvider), true);
-  }
-
-  @Override
-  public void createGreaterThanInequation(SNode node1, SNode node2, SNode nodeToCheck, String errorString, String ruleModel, String ruleId, boolean checkOnly, int inequationPriority, QuickFixProvider intentionProvider) {
-    getState().addInequality(node2, node1, false, checkOnly, new EquationInfo(nodeToCheck, errorString, ruleModel,
-      ruleId, inequationPriority, intentionProvider), false);
-  }
-
-  @Override
-  public void createComparableEquation(SNode node1, SNode node2, SNode nodeToCheck, String errorString, String ruleModel, String ruleId, QuickFixProvider intentionProvider) {
-    createComparableEquation(node1, node2, new EquationInfo(nodeToCheck, errorString, ruleModel, ruleId, 0, intentionProvider));
-  }
-
-  @Override
   public void printToTrace(String message) {
     getState().executeOperation(new TraceMessageOperation(message));
   }
@@ -131,31 +108,6 @@ public abstract class BaseTypecheckingContext extends TypeCheckingContext {
   @Override
   public void createEquation(SNode node1, SNode node2, boolean checkOnly, EquationInfo equationInfo) {
     getState().addEquation(node1, node2, equationInfo, checkOnly);
-  }
-
-  @Override
-  public void createLessThanInequation(SNode node1, SNode node2, boolean checkOnly, EquationInfo equationInfo) {
-    getState().addInequality(node1, node2, true, checkOnly, equationInfo, true);
-  }
-
-  @Override
-  public void createLessThanInequationStrong(SNode node1, SNode node2, boolean checkOnly, EquationInfo equationInfo) {
-    getState().addInequality(node1, node2, false, checkOnly, equationInfo, true);
-  }
-
-  @Override
-  public void createGreaterThanInequation(SNode node1, SNode node2, boolean checkOnly, EquationInfo equationInfo) {
-    getState().addInequality(node2, node1, true, checkOnly, equationInfo, false);
-  }
-
-  @Override
-  public void createGreaterThanInequationStrong(SNode node1, SNode node2, boolean checkOnly, EquationInfo equationInfo) {
-    getState().addInequality(node2, node1, false, checkOnly, equationInfo, false);
-  }
-
-  @Override
-  public void createComparableEquation(SNode node1, SNode node2, EquationInfo equationInfo) {
-    getState().addComparable(node1, node2, true, false, equationInfo);
   }
 
   @Override

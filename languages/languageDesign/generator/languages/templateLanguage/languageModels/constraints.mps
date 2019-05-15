@@ -752,7 +752,7 @@
                   <node concept="3clFbF" id="oIXu13GV_8" role="3cqZAp">
                     <node concept="2YIFZM" id="oIXu13GVGr" role="3clFbG">
                       <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
-                      <ref role="37wK5l" to="w1kc:~SModelStereotype.isGeneratorModel(org.jetbrains.mps.openapi.model.SModel):boolean" resolve="isGeneratorModel" />
+                      <ref role="37wK5l" to="w1kc:~SModelStereotype.isGeneratorModel(org.jetbrains.mps.openapi.model.SModel)" resolve="isGeneratorModel" />
                       <node concept="37vLTw" id="oIXu13GVPJ" role="37wK5m">
                         <ref role="3cqZAo" node="oIXu13GVpG" resolve="it" />
                       </node>
@@ -774,7 +774,7 @@
                     </node>
                   </node>
                   <node concept="2YIFZM" id="oIXu13GSXL" role="10QFUP">
-                    <ref role="37wK5l" to="w1kc:~SModelOperations.allImportedModels(org.jetbrains.mps.openapi.model.SModel):java.util.List" resolve="allImportedModels" />
+                    <ref role="37wK5l" to="w1kc:~SModelOperations.allImportedModels(org.jetbrains.mps.openapi.model.SModel)" resolve="allImportedModels" />
                     <ref role="1Pybhc" to="w1kc:~SModelOperations" resolve="SModelOperations" />
                     <node concept="37vLTw" id="oIXu13GT0G" role="37wK5m">
                       <ref role="3cqZAo" node="4YDZ92cLOVt" resolve="model" />
@@ -1116,6 +1116,16 @@
             </node>
           </node>
         </node>
+      </node>
+    </node>
+  </node>
+  <node concept="1M2fIO" id="UesZ_or5ti">
+    <property role="3GE5qa" value="rule.argument" />
+    <ref role="1M2myG" to="tpf8:UesZ_oiISf" resolve="TemplateArgumentVarRefExpression2" />
+    <node concept="1N5Pfh" id="UesZ_or5tj" role="1Mr941">
+      <ref role="1N5Vy1" to="tpf8:UesZ_oiISg" resolve="vardecl" />
+      <node concept="1dDu$B" id="UesZ_or5tl" role="1N6uqs">
+        <ref role="1dDu$A" to="tpf8:UesZ_nZ2I6" resolve="VarDeclaration" />
       </node>
     </node>
   </node>

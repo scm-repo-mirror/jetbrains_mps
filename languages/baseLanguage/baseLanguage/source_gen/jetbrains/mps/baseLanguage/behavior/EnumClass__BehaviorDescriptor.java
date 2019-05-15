@@ -18,8 +18,9 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import java.util.ArrayList;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
@@ -36,12 +37,13 @@ public final class EnumClass__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<SNode> findConstantByName_idhEwIiGU = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("findConstantByName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIiGU").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(String.class, ""));
   public static final SMethod<SNode> getSuperclass_idi3H_lLu = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getSuperclass").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("i3H_lLu").registry(REGISTRY).build();
   public static final SMethod<List<SNode>> getExtendedClassifierTypes_id1UeCwxlWKny = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getExtendedClassifierTypes").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1UeCwxlWKny").registry(REGISTRY).build();
+  /*package*/ static final SMethod<SNode> getExtendedEnumJavaType_id6O4rE5gbZ0q = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getExtendedEnumJavaType").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("6O4rE5gbZ0q").registry(REGISTRY).build();
   public static final SMethod<List<SNode>> getMembers_idhEwJjl2 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getMembers").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJjl2").registry(REGISTRY).build();
   public static final SMethod<Boolean> hasStaticMemebers_idhFq8xqE = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasStaticMemebers").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hFq8xqE").registry(REGISTRY).build();
   public static final SMethod<List<SNode>> getMethodsToImplement_id4GM03FJm5q2 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getMethodsToImplement").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4GM03FJm5q2").registry(REGISTRY).build();
   public static final SMethod<List<SNode>> getMethodsToOverride_id4GM03FJm3zL = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getMethodsToOverride").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4GM03FJm3zL").registry(REGISTRY).build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(findConstantByName_idhEwIiGU, getSuperclass_idi3H_lLu, getExtendedClassifierTypes_id1UeCwxlWKny, getMembers_idhEwJjl2, hasStaticMemebers_idhFq8xqE, getMethodsToImplement_id4GM03FJm5q2, getMethodsToOverride_id4GM03FJm3zL);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(findConstantByName_idhEwIiGU, getSuperclass_idi3H_lLu, getExtendedClassifierTypes_id1UeCwxlWKny, getExtendedEnumJavaType_id6O4rE5gbZ0q, getMembers_idhEwJjl2, hasStaticMemebers_idhFq8xqE, getMethodsToImplement_id4GM03FJm5q2, getMethodsToOverride_id4GM03FJm3zL);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -58,13 +60,18 @@ public final class EnumClass__BehaviorDescriptor extends BaseBHDescriptor {
     return _quotation_createNode_nbdilp_a0a1();
   }
   /*package*/ static List<SNode> getExtendedClassifierTypes_id1UeCwxlWKny(@NotNull SNode __thisNode__) {
-    List<SNode> extended = Classifier__BehaviorDescriptor.getExtendedClassifierTypes_id1UeCwxlWKny.invokeSuper(__thisNode__, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass"));
-    SNode enumType = Classifier__BehaviorDescriptor.getThisType_id2RtWPFZ12w7.invoke(SNodeOperations.getNode("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Enum"));
-    if (!(ListSequence.fromList(extended).contains(enumType))) {
-      // todo: WTF??? 
-      ListSequence.fromList(extended).addElement(enumType);
-    }
+    List<SNode> extended = ListSequence.fromList(new ArrayList<SNode>());
+    SNode enumType = EnumClass__BehaviorDescriptor.getExtendedEnumJavaType_id6O4rE5gbZ0q.invoke(__thisNode__);
+    ListSequence.fromList(extended).addElement(enumType);
+    ListSequence.fromList(extended).addSequence(ListSequence.fromList(Classifier__BehaviorDescriptor.getExtendedClassifierTypes_id1UeCwxlWKny.invokeSuper(__thisNode__, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass"))));
     return extended;
+  }
+  /*package*/ static SNode getExtendedEnumJavaType_id6O4rE5gbZ0q(@NotNull SNode __thisNode__) {
+    // enum A {} <=> A has as a super 'java.lang.Enum<A>' 
+    SNode concreteEnumType = Classifier__BehaviorDescriptor.getThisType_id2RtWPFZ12w7.invoke(SNodeOperations.getNode("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Enum"));
+    ListSequence.fromList(SLinkOperations.getChildren(concreteEnumType, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter"))).clear();
+    ListSequence.fromList(SLinkOperations.getChildren(concreteEnumType, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter"))).addElement(Classifier__BehaviorDescriptor.getThisType_id2RtWPFZ12w7.invoke(__thisNode__));
+    return concreteEnumType;
   }
   /*package*/ static List<SNode> getMembers_idhEwJjl2(@NotNull SNode __thisNode__) {
     List<SNode> members = IMemberContainer__BehaviorDescriptor.getMembers_idhEwJjl2.invokeSuper(__thisNode__, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass"));
@@ -136,12 +143,14 @@ public final class EnumClass__BehaviorDescriptor extends BaseBHDescriptor {
       case 2:
         return (T) ((List<SNode>) getExtendedClassifierTypes_id1UeCwxlWKny(node));
       case 3:
-        return (T) ((List<SNode>) getMembers_idhEwJjl2(node));
+        return (T) ((SNode) getExtendedEnumJavaType_id6O4rE5gbZ0q(node));
       case 4:
-        return (T) ((Boolean) hasStaticMemebers_idhFq8xqE(node));
+        return (T) ((List<SNode>) getMembers_idhEwJjl2(node));
       case 5:
-        return (T) ((List<SNode>) getMethodsToImplement_id4GM03FJm5q2(node));
+        return (T) ((Boolean) hasStaticMemebers_idhFq8xqE(node));
       case 6:
+        return (T) ((List<SNode>) getMethodsToImplement_id4GM03FJm5q2(node));
+      case 7:
         return (T) ((List<SNode>) getMethodsToOverride_id4GM03FJm3zL(node));
       default:
         throw new BHMethodNotFoundException(this, method);

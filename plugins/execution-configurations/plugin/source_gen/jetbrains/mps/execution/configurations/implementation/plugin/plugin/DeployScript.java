@@ -4,6 +4,7 @@ package jetbrains.mps.execution.configurations.implementation.plugin.plugin;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
+import com.intellij.openapi.util.Key;
 import jetbrains.mps.project.Project;
 import java.util.Set;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -46,6 +47,8 @@ import java.util.Collections;
 
 public class DeployScript {
   private static final Logger LOG = LogManager.getLogger(DeployScript.class);
+  public static final Key<DeployScript> KEY = Key.create("Deploy.Script");
+
   private final DeployScript.TemporalModuleWithDescriptorFile myModule;
   private final Project myProject;
   private final Set<SModel> myModelsToMake = SetSequence.fromSet(new HashSet<SModel>());
@@ -59,7 +62,7 @@ public class DeployScript {
     assert projectRepo instanceof SRepositoryExt;
     ((SRepositoryExt) projectRepo).registerModule(myModule, project);
 
-    SModel model = TemporaryModels.getInstance().create(false, TempModuleOptions.forExistingModule(myModule));
+    SModel model = TemporaryModels.getInstance().createReadOnly(TempModuleOptions.forExistingModule(myModule));
     SetSequence.fromSet(myModelsToMake).addElement(model);
 
     SNode deployScriptNode = DeployScriptCreator.createDeployScript(myProject, plugins, myModule.getBaseDirectory());
@@ -101,6 +104,7 @@ public class DeployScript {
   public String getArtifactsPath() {
     return myArtifactsPath;
   }
+
   public String getDeployScriptLocation() {
     return myDeployScriptPath;
   }
@@ -119,9 +123,9 @@ public class DeployScript {
     private final SModuleFacet myJavaModuleFacet;
 
     private TemporalModuleWithDescriptorFile(@NotNull String baseDir) {
-      super(IoFileSystem.INSTANCE.getFile(baseDir).getDescendant("module.msd"));
-      setModuleReference(new ModuleReference("Temporary module for deploy plugins run configuration", ModuleId.regular()));
-      myJavaModuleFacet = new NaiveJavaModuleFacet(this, "DEPLOY_MODULE_SOURCE_GEN", "DEPLOY_MODULE_CLASSES_GEN");
+      super(IoFileSystem.INSTANCE.getFile(baseDir).findChild("module.msd"));
+      setModuleReference(new ModuleReference("Temp module for assembling plugins", ModuleId.regular()));
+      myJavaModuleFacet = new NaiveJavaModuleFacet(this, "MODULE_SOURCE_GEN", "MODULE_CLASSES_GEN");
     }
 
     public File getBaseDirectory() {

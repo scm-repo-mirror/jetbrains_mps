@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,10 +20,16 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.Presentation;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.ui.MessageType;
+import com.intellij.openapi.wm.IdeFrame;
+import com.intellij.openapi.wm.WindowManager;
+import com.intellij.openapi.wm.ex.StatusBarEx;
 import gnu.trove.THashMap;
+import jetbrains.mps.core.platform.Platform;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.make.MakeServiceComponent;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.UndoRunnable;
 import jetbrains.mps.util.Computable;
@@ -141,6 +147,10 @@ public abstract class BaseAction extends AnAction {
 
   @Override
   public final void actionPerformed(final AnActionEvent event) {
+    if (!myExecuteOutsideCommand && isMakeSessionActive()) {
+      notifyNoCommandDuringMake(event);
+      return;
+    }
     final Map<String, Object> params = new ModelAccessHelper(getModelAccess(event)).runReadAction(new CollectActionData(event));
 
     final Runnable r = new UndoRunnable.Base(getTemplatePresentation().getText(), null) {
@@ -203,12 +213,16 @@ public abstract class BaseAction extends AnAction {
   }
 
   public void addPlace(ActionPlace place) {
-    if (myPlaces == null) myPlaces = new HashSet<>();
+    if (myPlaces == null) {
+      myPlaces = new HashSet<>(8);
+    }
     myPlaces.add(place);
   }
 
   public Set<ActionPlace> getPlaces() {
-    if (myPlaces != null) return myPlaces;
+    if (myPlaces != null) {
+      return myPlaces;
+    }
     Set<ActionPlace> result = new HashSet<>();
     result.add(null);
     return result;
@@ -228,6 +242,39 @@ public abstract class BaseAction extends AnAction {
   }
 
   protected abstract void doExecute(AnActionEvent e, Map<String, Object> params);
+
+  protected final boolean isMakeSessionActive() {
+    final Platform mpsPlaf = ApplicationManager.getApplication().getComponent(MPSCoreComponents.class).getPlatform();
+    final MakeServiceComponent makeService = mpsPlaf.findComponent(MakeServiceComponent.class);
+    return makeService != null && makeService.isSessionActive();
+  }
+
+  // this method is protected to help complex actions that may grab model write/command later
+  protected final void notifyNoCommandDuringMake(final AnActionEvent event) {
+    final Project project = getEventProject(event);
+    if (project == null) {
+      return;
+    }
+    final String actionText = event.getPresentation().getText();
+    String msg;
+    if (actionText == null || actionText.trim().isEmpty()) {
+      msg = "This action";
+    } else {
+      msg = String.format("Action '%s'", actionText);
+    }
+    msg = String.format("%s requires model command and can not run during make", msg);
+    showNotification(project, MessageType.WARNING, msg);
+  }
+
+  // requires EDT
+  protected final void showNotification(Project project, MessageType kind, String htmlMessage) {
+    // stolen from DumbServiceImpl#showDumbModeNotification
+    IdeFrame ideFrame = WindowManager.getInstance().getIdeFrame(project);
+    if (ideFrame != null) {
+      StatusBarEx statusBar = (StatusBarEx)ideFrame.getStatusBar();
+      statusBar.notifyProgressByBalloon(kind, htmlMessage);
+    }
+  }
 
   /**
    * Produce initialized map with action parameters, or null if any required parameter is missing

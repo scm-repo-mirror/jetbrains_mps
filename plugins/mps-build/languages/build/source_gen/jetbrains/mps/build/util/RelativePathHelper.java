@@ -5,7 +5,6 @@ package jetbrains.mps.build.util;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.project.AbstractModule;
-import jetbrains.mps.util.FileUtil;
 import java.io.File;
 
 public class RelativePathHelper {
@@ -34,16 +33,44 @@ public class RelativePathHelper {
     if ((fullPath == null || fullPath.length() == 0)) {
       return "";
     }
-    String normalized = normalizePath(fullPath, false);
+    final String normalized = normalizePath(fullPath, false);
     if (normalized.startsWith(myBasePath)) {
       return normalized.substring(myBasePath.length());
       // XXX should I check for myBasePath == fullPath + '/'? 
     }
-    // FIXME I'd like to have this class purely string/Path-based, without need to access FS or care about file existence. 
-    // However, present uses need refactoring before this may come true, left legacy code for a while. OTOH, getCanonicalPath is pure File operation 
-    // which doesn't check for existence and as such is tolerable here. It's FileUtil.getRelativePath that bugs me, as it checks for file existence 
+    // The purpose of the code below is to keep this class purely string/Path-based, without need to access FS or care about file existence. 
     try {
-      return normalizePath(FileUtil.getRelativePath(new File(normalized).getCanonicalPath(), new File(myBasePath).getCanonicalPath(), File.separator), false);
+      String[] base = myBasePath.split("/");
+      String[] target = normalized.split("/");
+      int commonLength = 0;
+      while (commonLength < target.length && commonLength < base.length && target[commonLength].equals(base[commonLength])) {
+        commonLength++;
+      }
+      // XXX why not return normalized, but exception? 
+      if (commonLength == 0) {
+        throw new RelativePathHelper.PathException(String.format("No common path element found for '%s' and '%s'", myBasePath, normalized));
+      }
+      if (base.length == target.length && target.length == commonLength) {
+        // though there's a check, above, that covers equal paths scenario, we may face normalizedPath that is the same as base path but technically not  
+        // equal due to trailing slash, e.g. RPH("base/").makeRelative("base") 
+        return "";
+      }
+
+      StringBuilder relative = new StringBuilder();
+      assert base.length >= commonLength;
+      for (int i = base.length - commonLength; i > 0; i--) {
+        relative.append("../");
+      }
+      assert target.length >= commonLength;
+      for (int i = commonLength; i < target.length; i++) {
+        relative.append(target[i]).append('/');
+      }
+      // if original requested path didn't end with slash, keep relative without slash as well 
+      if (normalized.charAt(normalized.length() - 1) != '/' && relative.charAt(relative.length() - 1) == '/') {
+        relative.setLength(relative.length() - 1);
+      }
+
+      return relative.toString();
     } catch (Exception ex) {
       throw new RelativePathHelper.PathException(ex, ex.getMessage());
     }
@@ -90,6 +117,9 @@ public class RelativePathHelper {
 
 
   public static class PathException extends Exception {
+    /*package*/ PathException(String message) {
+      super(message);
+    }
     public PathException(Throwable cause, String message) {
       super(message, cause);
     }

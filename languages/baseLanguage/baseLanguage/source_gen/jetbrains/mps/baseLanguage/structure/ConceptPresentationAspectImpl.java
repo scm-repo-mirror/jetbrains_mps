@@ -64,6 +64,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Classifier;
   private ConceptPresentation props_ClassifierClassExpression;
   private ConceptPresentation props_ClassifierMember;
+  private ConceptPresentation props_ClassifierMethodMember;
   private ConceptPresentation props_ClassifierType;
   private ConceptPresentation props_Closure;
   private ConceptPresentation props_ClosureParameter;
@@ -71,7 +72,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Closureoid;
   private ConceptPresentation props_CommentPart;
   private ConceptPresentation props_CommentedStatement;
-  private ConceptPresentation props_CommentedStatementsBlock;
   private ConceptPresentation props_ConceptFunction;
   private ConceptPresentation props_ConceptFunctionParameter;
   private ConceptPresentation props_ConstructorDeclaration;
@@ -707,6 +707,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ClassifierMember = cpb.create();
         }
         return props_ClassifierMember;
+      case LanguageConceptSwitch.ClassifierMethodMember:
+        if (props_ClassifierMethodMember == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_ClassifierMethodMember = cpb.create();
+        }
+        return props_ClassifierMethodMember;
       case LanguageConceptSwitch.ClassifierType:
         if (props_ClassifierType == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -754,14 +760,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_CommentedStatement = cpb.create();
         }
         return props_CommentedStatement;
-      case LanguageConceptSwitch.CommentedStatementsBlock:
-        if (props_CommentedStatementsBlock == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.deprecated(true);
-          cpb.rawPresentation("/*");
-          props_CommentedStatementsBlock = cpb.create();
-        }
-        return props_CommentedStatementsBlock;
       case LanguageConceptSwitch.ConceptFunction:
         if (props_ConceptFunction == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

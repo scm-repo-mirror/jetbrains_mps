@@ -31,6 +31,30 @@ public class FileUtilTest {
     Assert.assertEquals("/a/b/c/g.jar", normalized);
   }
 
+  @Test
+  public void testResolveParentDirs() {
+    String normalized = FileUtil.resolveParentDirs("/a/b/c/..");
+    Assert.assertEquals("/a/b", normalized);
+    normalized = FileUtil.resolveParentDirs("/a/b/c/../");
+    Assert.assertEquals("/a/b", normalized);
+    normalized = FileUtil.resolveParentDirs("/a/b/c/../d");
+    Assert.assertEquals("/a/b/d", normalized);
+    normalized = FileUtil.resolveParentDirs("/a/b/c/../d/../e");
+    Assert.assertEquals("/a/b/e", normalized);
+    normalized = FileUtil.resolveParentDirs("c:/a/..");
+    Assert.assertEquals("c:/", normalized);
+    normalized = FileUtil.resolveParentDirs("/a/..");
+    Assert.assertEquals("/", normalized);
+    normalized = FileUtil.resolveParentDirs("c:/");
+    Assert.assertEquals("c:/", normalized);
+    normalized = FileUtil.resolveParentDirs("/");
+    Assert.assertEquals("/", normalized);
+    normalized = FileUtil.resolveParentDirs("c:/..");
+    Assert.assertEquals("c:/", normalized);
+    normalized = FileUtil.resolveParentDirs("/..");
+    Assert.assertEquals("/", normalized);
+  }
+
 //  @Test
 //  public void normalizeResolvesParentAlias() {
 //    String normalized = FileUtil.normalize("a/b/../c/d.jar");

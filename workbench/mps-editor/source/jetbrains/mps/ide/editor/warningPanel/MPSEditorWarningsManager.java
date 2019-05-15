@@ -28,12 +28,11 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.util.messages.MessageBusConnection;
 import jetbrains.mps.RuntimeFlags;
 import jetbrains.mps.classloading.ClassLoaderManager;
-import jetbrains.mps.classloading.MPSClassesListener;
-import jetbrains.mps.classloading.MPSClassesListenerAdapter;
+import jetbrains.mps.classloading.DeployListener;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.ide.editor.MPSFileNodeEditor;
-import jetbrains.mps.module.ReloadableModuleBase;
+import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.nodefs.MPSNodeVirtualFile;
 import jetbrains.mps.openapi.editor.Editor;
 import jetbrains.mps.openapi.editor.EditorComponent;
@@ -51,6 +50,7 @@ import org.jetbrains.mps.openapi.model.SModel.Problem;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeUtil;
 import org.jetbrains.mps.openapi.module.SRepositoryContentAdapter;
+import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -66,7 +66,7 @@ public class MPSEditorWarningsManager implements ProjectComponent {
   private final FileEditorManager myFileEditorManager;
   private final FileStatusManager myFileStatusManager;
   private ClassLoaderManager myClassLoaderManager;
-  private final MPSClassesListener myClassesListener = new EditorWarningsListenerAdapter();
+  private final DeployListener myClassesListener = new EditorWarningsListenerAdapter();
   private final MyFileStatusListener myFileStatusListener = new MyFileStatusListener();
   private MessageBusConnection myProjectBus;
   // I don't truly need atomic boolean here, regular boolean would suffice in most cases, as requests generally come
@@ -119,7 +119,7 @@ public class MPSEditorWarningsManager implements ProjectComponent {
   public void projectOpened() {
     myProjectBus = myProject.getProject().getMessageBus().connect();
     myProjectBus.subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, new MyFileEditorManagerListener());
-    myClassLoaderManager.addClassesHandler(myClassesListener);
+    myClassLoaderManager.addListener(myClassesListener);
     myFileStatusManager.addFileStatusListener(myFileStatusListener);
     new RepoListenerRegistrar(myProject.getRepository(), myRepoListener).attach();
   }
@@ -128,7 +128,7 @@ public class MPSEditorWarningsManager implements ProjectComponent {
   public void projectClosed() {
     new RepoListenerRegistrar(myProject.getRepository(), myRepoListener).detach();
     myFileStatusManager.removeFileStatusListener(myFileStatusListener);
-    myClassLoaderManager.removeClassesHandler(myClassesListener);
+    myClassLoaderManager.removeListener(myClassesListener);
     myProjectBus.disconnect();
   }
 
@@ -258,9 +258,9 @@ public class MPSEditorWarningsManager implements ProjectComponent {
     }
   }
 
-  private class EditorWarningsListenerAdapter extends MPSClassesListenerAdapter {
+  private class EditorWarningsListenerAdapter implements DeployListener {
     @Override
-    public void afterClassesLoaded(Set<? extends ReloadableModuleBase> modules) {
+    public void onLoaded(@NotNull Set<ReloadableModule> modules, @NotNull ProgressMonitor monitor) {
       updateAllWarningsLater();
     }
   }

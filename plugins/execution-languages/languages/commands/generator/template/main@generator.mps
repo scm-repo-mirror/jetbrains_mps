@@ -5,7 +5,7 @@
     <use id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal" version="0" />
     <use id="f3347d8a-0e79-4f35-8ac9-1574f25c986f" name="jetbrains.mps.execution.commands" version="0" />
     <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="2" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="0" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
     <use id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts" version="0" />
     <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="1" />
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="1" />
@@ -842,15 +842,15 @@
                   <node concept="2OqwBi" id="VEh2cXR348" role="3clFbG">
                     <node concept="2OqwBi" id="VEh2cXR349" role="2Oq$k0">
                       <node concept="2YIFZM" id="VEh2cXR34a" role="2Oq$k0">
-                        <ref role="37wK5l" to="u78q:~TypeChecker.getInstance():jetbrains.mps.typesystem.inference.TypeChecker" resolve="getInstance" />
+                        <ref role="37wK5l" to="u78q:~TypeChecker.getInstance()" resolve="getInstance" />
                         <ref role="1Pybhc" to="u78q:~TypeChecker" resolve="TypeChecker" />
                       </node>
                       <node concept="liA8E" id="VEh2cXR34b" role="2OqNvi">
-                        <ref role="37wK5l" to="u78q:~TypeChecker.getSubtypingManager():jetbrains.mps.typesystem.inference.SubtypingManager" resolve="getSubtypingManager" />
+                        <ref role="37wK5l" to="u78q:~TypeChecker.getSubtypingManager()" resolve="getSubtypingManager" />
                       </node>
                     </node>
                     <node concept="liA8E" id="VEh2cXR34c" role="2OqNvi">
-                      <ref role="37wK5l" to="u78q:~SubtypingManager.isComparable(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SNode,boolean):boolean" resolve="isComparable" />
+                      <ref role="37wK5l" to="u78q:~SubtypingManager.isComparable(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SNode,boolean)" resolve="isComparable" />
                       <node concept="2OqwBi" id="VEh2cXR34d" role="37wK5m">
                         <node concept="30H73N" id="VEh2cXR34e" role="2Oq$k0" />
                         <node concept="3TrEf2" id="VEh2cXR34f" role="2OqNvi">
@@ -2462,7 +2462,7 @@
               </node>
             </node>
             <node concept="liA8E" id="5AJIFElt2hn" role="2OqNvi">
-              <ref role="37wK5l" to="uu3z:~ProcessHandler.addProcessListener(com.intellij.execution.process.ProcessListener):void" resolve="addProcessListener" />
+              <ref role="37wK5l" to="uu3z:~ProcessHandler.addProcessListener(com.intellij.execution.process.ProcessListener)" resolve="addProcessListener" />
               <node concept="10Nm6u" id="5AJIFElt2Gf" role="37wK5m">
                 <node concept="29HgVG" id="5AJIFElt2Iq" role="lGtFl">
                   <node concept="3NFfHV" id="5knQ58o6YS3" role="3NFExx">

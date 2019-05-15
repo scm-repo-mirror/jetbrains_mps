@@ -10,7 +10,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Set;
 import jetbrains.mps.baseLanguage.behavior.Statement__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
@@ -26,11 +26,11 @@ public class DataFlowTryCatchUtil {
     Set<SNode> uncaughtThrowables = Statement__BehaviorDescriptor.uncaughtThrowables_id4Gt7ANIVAVT.invoke(statement, ((boolean) false));
     for (SNode catchClause : catchClauses) {
       SNode caughtType = SLinkOperations.getTarget(SLinkOperations.getTarget(catchClause, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f39a56e2fL, 0x10f39a6a2f1L, "throwable")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"));
-      if (TypeChecker.getInstance().getSubtypingManager().isSubtype(caughtType, _quotation_createNode_l1x7gt_b0a0a1a3a1()) || TypeChecker.getInstance().getSubtypingManager().isSubtype(caughtType, _quotation_createNode_l1x7gt_b0a0a1a3a1_0()) || TypeChecker.getInstance().getSubtypingManager().isSubtype(_quotation_createNode_l1x7gt_a0a0b0d0b(), caughtType)) {
+      if (TypecheckingFacade.getFromContext().isSubtype(caughtType, _quotation_createNode_l1x7gt_b0a0a1a3a1()) || TypecheckingFacade.getFromContext().isSubtype(caughtType, _quotation_createNode_l1x7gt_b0a0a1a3a1_0()) || TypecheckingFacade.getFromContext().isSubtype(_quotation_createNode_l1x7gt_a0a0b0d0b(), caughtType)) {
         ListSequence.fromList(result).addElement(catchClause);
       } else {
         for (SNode throwed : uncaughtThrowables) {
-          if (TypeChecker.getInstance().getSubtypingManager().isSubtype(_quotation_createNode_l1x7gt_a0a0a0a0b0d0b(throwed), caughtType)) {
+          if (TypecheckingFacade.getFromContext().isSubtype(_quotation_createNode_l1x7gt_a0a0a0a0b0d0b(throwed), caughtType)) {
             ListSequence.fromList(result).addElement(catchClause);
           }
         }

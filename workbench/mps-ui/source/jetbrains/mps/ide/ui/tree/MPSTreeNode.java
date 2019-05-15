@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ import com.intellij.openapi.editor.colors.EditorColorsManager;
 import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.intellij.lang.annotations.MagicConstant;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -417,16 +418,30 @@ public class MPSTreeNode extends DefaultMutableTreeNode implements Iterable<MPST
     }
   }
 
+  /**
+   * @deprecated use {@link MPSTreeNode#getIcon()} instead
+   */
+  @Deprecated
+  @ToRemove(version = 2019.1)
   public final Icon getIcon(boolean expanded) {
+    return getIcon();
+  }
+
+  public final Icon getIcon() {
     return myIcon;
   }
 
+  /**
+   * @deprecated use {@link MPSTreeNode#setIcon(javax.swing.Icon)} instead
+   */
+  @Deprecated
+  @ToRemove(version = 2019.1)
   public final void setIcon(Icon newIcon, boolean expanded) {
-    myIcon = newIcon;
+    setIcon(newIcon);
   }
 
   public final void setIcon(Icon newIcon) {
-    setIcon(newIcon, true);
+    myIcon = newIcon;
   }
 
   public final Color getColor() {
@@ -437,10 +452,12 @@ public class MPSTreeNode extends DefaultMutableTreeNode implements Iterable<MPST
     myColor = color;
   }
 
+  @MagicConstant(flags = {Font.PLAIN, Font.BOLD, Font.ITALIC})
   public final int getFontStyle() {
     return myFontStyle;
   }
 
+  @MagicConstant(flags = {Font.PLAIN, Font.BOLD, Font.ITALIC})
   public final void setFontStyle(int fontStyle) {
     myFontStyle = fontStyle;
   }

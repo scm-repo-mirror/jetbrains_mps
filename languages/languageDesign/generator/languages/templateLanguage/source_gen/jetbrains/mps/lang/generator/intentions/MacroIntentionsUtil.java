@@ -6,7 +6,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.generator.helper.QueriesUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.pattern.GeneratedMatchingPattern;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
@@ -16,7 +16,8 @@ import java.util.ArrayList;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
+import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.smodel.Generator;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 
@@ -33,12 +34,12 @@ public final class MacroIntentionsUtil {
   }
   private static SNode getConceptFrom(SNode macro) {
     SNode query = QueriesUtil.getQueryFunction_fromSourceSubstituteMacro(macro);
-    SNode returnType = TypeChecker.getInstance().getTypeOf(query);
+    SNode returnType = TypecheckingFacade.getFromContext().getTypeOf(query);
     // ====== 
     if (SNodeOperations.isInstanceOf(query, MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10ff3acfa74L, "jetbrains.mps.lang.generator.structure.SourceSubstituteMacro_SourceNodeQuery"))) {
       {
         GeneratedMatchingPattern pattern_iiuth6_a0d0b = new Pattern_iiuth6_a0a0a0d0b(_quotation_createNode_iiuth6_a0a0a0a0d0b());
-        SNode coercedNode_iiuth6_a0d0b = TypeChecker.getInstance().getRuntimeSupport().coerce_(returnType, pattern_iiuth6_a0d0b);
+        SNode coercedNode_iiuth6_a0d0b = TypecheckingFacade.getFromContext().coerceType(returnType, pattern_iiuth6_a0d0b);
         if (coercedNode_iiuth6_a0d0b != null) {
           return pattern_iiuth6_a0d0b.getMatchedNode("concept");
         } else {
@@ -48,7 +49,7 @@ public final class MacroIntentionsUtil {
     } else if (SNodeOperations.isInstanceOf(query, MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fef5bd603L, "jetbrains.mps.lang.generator.structure.SourceSubstituteMacro_SourceNodesQuery"))) {
       {
         GeneratedMatchingPattern pattern_iiuth6_a0a3a1 = new Pattern_iiuth6_a0a0a0a3a1(_quotation_createNode_iiuth6_a0a0a0a0a3a1());
-        SNode coercedNode_iiuth6_a0a3a1 = TypeChecker.getInstance().getRuntimeSupport().coerce_(returnType, pattern_iiuth6_a0a3a1);
+        SNode coercedNode_iiuth6_a0a3a1 = TypecheckingFacade.getFromContext().coerceType(returnType, pattern_iiuth6_a0a3a1);
         if (coercedNode_iiuth6_a0a3a1 != null) {
           return pattern_iiuth6_a0a3a1.getMatchedNode("concept");
         } else {
@@ -87,7 +88,7 @@ public final class MacroIntentionsUtil {
     }
     return result;
   }
-  public static String getPresentaion(SNode intentionParam) {
+  public static String getPresentation(SNode intentionParam) {
     //  characters '_' and '&' are treated as mnemonics in AnAction that is created for each intention, 
     //  however it's common to see '_' in link/property/conecept/template names, and removing this char 
     //  (as mnemonics processing does) results in incorrect name shown to user, which is wrong. 
@@ -100,7 +101,8 @@ public final class MacroIntentionsUtil {
     SPropertyOperations.set(to, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage"), SPropertyOperations.getString(SNodeOperations.getContainingRoot(from), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage")));
   }
   public static boolean isInGeneratorModel(SNode node) {
-    return SNodeOperations.isInstanceOf(SModelOperations.getModuleStub(SNodeOperations.getModel(node)), MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe21L, "jetbrains.mps.lang.project.structure.Generator"));
+    SModel model = SNodeOperations.getModel(node);
+    return model != null && model.getModule() instanceof Generator;
   }
   private static SNode _quotation_createNode_iiuth6_a0a0a0a0d0b() {
     PersistenceFacade facade = PersistenceFacade.getInstance();

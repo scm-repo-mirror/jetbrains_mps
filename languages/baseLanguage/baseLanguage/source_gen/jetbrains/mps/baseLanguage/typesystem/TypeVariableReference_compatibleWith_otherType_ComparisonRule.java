@@ -7,7 +7,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicable2Status;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
@@ -35,10 +35,10 @@ public class TypeVariableReference_compatibleWith_otherType_ComparisonRule exten
             if ((otherbound == null)) {
               return true;
             }
-            return TypeChecker.getInstance().getSubtypingManager().isSubtype(bound, otherbound) || TypeChecker.getInstance().getSubtypingManager().isSubtype(otherbound, bound);
+            return TypecheckingFacade.getFromContext().isSubtype(bound, otherbound) || TypecheckingFacade.getFromContext().isSubtype(otherbound, bound);
           }
         } else
-        return TypeChecker.getInstance().getSubtypingManager().isSubtype(bound, node2) || TypeChecker.getInstance().getSubtypingManager().isSubtype(node2, bound);
+        return TypecheckingFacade.getFromContext().isSubtype(bound, node2) || TypecheckingFacade.getFromContext().isSubtype(node2, bound);
       }
     }
   }

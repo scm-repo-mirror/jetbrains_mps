@@ -5,7 +5,7 @@
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
     <use id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers" version="0" />
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="0" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
     <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="1" />
     <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="2" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="13" />
@@ -361,7 +361,7 @@
               <ref role="3cqZAo" node="6eup$H2Z1sy" resolve="sessionObjects" />
             </node>
             <node concept="liA8E" id="6eup$H2Z2Bu" role="2OqNvi">
-              <ref role="37wK5l" to="33ny:~Map.put(java.lang.Object,java.lang.Object):java.lang.Object" resolve="put" />
+              <ref role="37wK5l" to="33ny:~Map.put(java.lang.Object,java.lang.Object)" resolve="put" />
               <node concept="37vLTw" id="2BHiRxglBz_" role="37wK5m">
                 <ref role="3cqZAo" node="6eup$H2YtCz" resolve="key" />
               </node>
@@ -402,7 +402,7 @@
               <ref role="3cqZAo" node="6eup$H2Z1sy" resolve="sessionObjects" />
             </node>
             <node concept="liA8E" id="6eup$H2Z2BS" role="2OqNvi">
-              <ref role="37wK5l" to="33ny:~Map.get(java.lang.Object):java.lang.Object" resolve="get" />
+              <ref role="37wK5l" to="33ny:~Map.get(java.lang.Object)" resolve="get" />
               <node concept="37vLTw" id="2BHiRxglyI4" role="37wK5m">
                 <ref role="3cqZAo" node="6eup$H2YtCM" resolve="key" />
               </node>
@@ -504,7 +504,7 @@
         <node concept="3vwNmj" id="6eup$H2Z9Ct" role="3cqZAp">
           <node concept="2YIFZM" id="6eup$H2Z9Cx" role="3vwVQn">
             <ref role="1Pybhc" to="ggp6:~MatchingUtil" resolve="MatchingUtil" />
-            <ref role="37wK5l" to="ggp6:~MatchingUtil.matchNodes(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SNode):boolean" resolve="matchNodes" />
+            <ref role="37wK5l" to="ggp6:~MatchingUtil.matchNodes(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SNode)" resolve="matchNodes" />
             <node concept="37vLTw" id="2BHiRxglCz4" role="37wK5m">
               <ref role="3cqZAo" node="6eup$H2Z9mI" resolve="expected" />
             </node>
@@ -868,7 +868,7 @@
         <node concept="3vwNmj" id="5xREo5PH8yW" role="3cqZAp">
           <node concept="2YIFZM" id="5xREo5PH8yX" role="3vwVQn">
             <ref role="1Pybhc" to="ggp6:~MatchingUtil" resolve="MatchingUtil" />
-            <ref role="37wK5l" to="ggp6:~MatchingUtil.matchNodes(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SNode):boolean" resolve="matchNodes" />
+            <ref role="37wK5l" to="ggp6:~MatchingUtil.matchNodes(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SNode)" resolve="matchNodes" />
             <node concept="37vLTw" id="2BHiRxgm6mm" role="37wK5m">
               <ref role="3cqZAo" node="5xREo5PH8yB" resolve="expected" />
             </node>

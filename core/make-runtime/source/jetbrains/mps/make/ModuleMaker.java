@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -61,7 +61,7 @@ import java.util.TreeSet;
  * fixme check multiple computations of the same modules' dependencies (time wasting)
  */
 public final class ModuleMaker {
-  public final static Comparator<SModule> MODULE_BY_NAME_COMPARATOR = (module1, module2) -> module1.getModuleName().compareTo(module2.getModuleName());
+  public final static Comparator<SModule> MODULE_BY_NAME_COMPARATOR = Comparator.comparing(SModule::getModuleName);
 
   private final static String BUILDING_MODULES_MSG = "Building %d Modules";
   private final static String CYCLE_FORMAT_MSG = "Cycle #%d: [%s]";
@@ -113,7 +113,7 @@ public final class ModuleMaker {
           monitor.step(module.getModuleName());
           JavaModuleFacet facet = module.getFacet(JavaModuleFacet.class);
           assert facet != null && facet.getClassesGen() != null;
-          File classesGenFile = new File(facet.getClassesGen().toPath().toString());
+          File classesGenFile = new File(facet.getClassesGen().getPath());
           FileUtil.delete(classesGenFile);
         }
         monitor.advance(1);
@@ -142,14 +142,15 @@ public final class ModuleMaker {
       tracer.pop(1);
 
       tracer.push(CALCULATING_DEPENDENCIES_TO_COMPILE_MSG);
-      Set<SModule> toCompile = buildDirtyModulesClosure(new ModulesContainer(candidates, dependencies), tracer.subTracer(1));
+      final ModulesContainer modulesContainer = new ModulesContainer(candidates, dependencies);
+      Set<SModule> toCompile = buildDirtyModulesClosure(modulesContainer, tracer.subTracer(1));
       tracer.pop();
 
       tracer.push(BUILDING_MODULE_CYCLES_MSG);
       List<Set<SModule>> schedule = new StronglyConnectedModules<>(toCompile).getStronglyConnectedComponents();
       tracer.pop(1);
 
-      return compileCycles(compilerOptions, schedule, tracer.subTracer(6, SubProgressKind.REPLACING), dependencies);
+      return compileCycles(compilerOptions, schedule, tracer.subTracer(6, SubProgressKind.REPLACING), modulesContainer);
     } finally {
       tracer.done();
       tracer.printReport();
@@ -157,7 +158,7 @@ public final class ModuleMaker {
   }
 
   @NotNull
-  private MPSCompilationResult compileCycles(@Nullable JavaCompilerOptions compilerOptions, List<Set<SModule>> cyclesToCompile, @NotNull CompositeTracer tracer, @NotNull Dependencies dependencies) {
+  private MPSCompilationResult compileCycles(@Nullable JavaCompilerOptions compilerOptions, List<Set<SModule>> cyclesToCompile, @NotNull CompositeTracer tracer, @NotNull ModulesContainer allModules) {
     List<MPSCompilationResult> cycleCompilationResults = new ArrayList<>();
     tracer.start("", cyclesToCompile.size());
     try {
@@ -170,7 +171,7 @@ public final class ModuleMaker {
         CompositeTracer cycleTracer = tracer.subTracer(1);
         tracer.getSender().info(String.format(CYCLE_FORMAT_MSG, cycleNumber, modulesInCycle));
         cycleTracer.start(getCycleString(cycleNumber, modulesInCycle), 1);
-        ModulesContainer modulesContainer = new ModulesContainer(modulesInCycle, dependencies);
+        ModulesContainer modulesContainer = allModules.restricted(modulesInCycle);
         InternalJavaCompiler internalJavaCompiler = new InternalJavaCompiler(modulesContainer, compilerOptions);
         MPSCompilationResult cycleCompilationResult = internalJavaCompiler.compile(cycleTracer.subTracer(1, SubProgressKind.AS_COMMENT));
         cycleCompilationResults.add(cycleCompilationResult);
@@ -216,10 +217,8 @@ public final class ModuleMaker {
     Set<SModule> candidates = modulesContainer.getModules();
     tracer.push(CHECKING_DIRTY_MODULES_MSG);
     List<SModule> dirtyModules = new ArrayList<>(candidates.size());
-    for (SModule m : candidates) {
-      if (modulesContainer.isDirty(m)) {
-        dirtyModules.add(m);
-      }
+    for (ModuleSources m : modulesContainer.getDirtyModuleSources()) {
+      dirtyModules.add(m.getModule());
     }
     tracer.pop(1);
 

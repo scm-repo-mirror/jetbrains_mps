@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,11 @@
  */
 package jetbrains.mps.util;
 
+import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
+import jetbrains.mps.vfs.IFileSystem;
 import jetbrains.mps.vfs.path.Path;
+import jetbrains.mps.vfs.util.PathUtil;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.Contract;
@@ -40,8 +43,6 @@ import java.nio.file.Files;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.jar.JarOutputStream;
-import java.util.jar.Manifest;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -89,15 +90,6 @@ public class FileUtil {
     return new File(System.getProperty("java.io.tmpdir"));
   }
 
-  public static void jar(File dir, final Manifest mf, File to) {
-    new Packer() {
-      @Override
-      protected ZipOutputStream createDeflaterStream(FileOutputStream fos) throws Exception {
-        return new JarOutputStream(fos, mf);
-      }
-    }.pack(dir, to);
-  }
-
   @SuppressWarnings({"UnusedDeclaration"})
   public static void zip(File dir, File to) {
     new Packer() {
@@ -125,7 +117,9 @@ public class FileUtil {
 
     for (File f : what.listFiles()) {
       if (f.isDirectory()) {
-        if (isIgnoredDir(f.getName())) continue;
+        if (isIgnoredDir(f.getName())) {
+          continue;
+        }
 
         File fCopy = new File(to, f.getName());
         if (!fCopy.exists()) {
@@ -170,10 +164,14 @@ public class FileUtil {
     os.close();
   }
 
-  public static String getCanonicalPath(File file) {
-    if (file == null) {
-      return null;
+  //[MM] this does not return canonical path either
+  //todo [MM] review occurences and remove the method
+  public static String getCanonicalPath(String path) {
+    if (path == null) {
+      path = "";
     }
+    path = normalize0(path, File.separator);
+    File file = new File(path);
     try {
       return file.getCanonicalPath();
     } catch (IOException e) {
@@ -181,21 +179,45 @@ public class FileUtil {
     }
   }
 
-  public static String getCanonicalPath(String path) {
-    if (path == null) {
-      path = "";
-    }
-    path = normalize0(path, Path.SYSTEM_SEPARATOR);
-    File file = new File(path);
-    return getCanonicalPath(file);
-  }
-
   /**
    * @return unix-style path without last slashes with some version of normalization
    */
   @NotNull
+  //this should be replaced with FS-dependent normalisation (e.g. JarFS.normalise(path))
   public static String normalize(@NotNull String path) {
     return stripLastSlashes(normalize0(getUnixPath(path), Path.UNIX_SEPARATOR));
+  }
+
+  @Deprecated
+  //replaces /xx/.. with /. Use with already-normalized paths
+  public static String resolveParentDirs(@NotNull String path) {
+    path = normalize(path);
+
+    String currentPath = path;
+    if (currentPath.endsWith("/..")) {
+      currentPath += "/";
+    }
+    if (!currentPath.contains("/../")) {
+      return currentPath;
+    }
+
+    int index;
+    next_occ:
+    while ((index = currentPath.indexOf("/../")) >= 0) {
+      for (int i = index - 1; i >= 0; i--) {
+        if (currentPath.charAt(i) == '/') {
+          currentPath = currentPath.substring(0, i) + currentPath.substring(index + 3); //we leave the last slash in "/../"
+          continue next_occ;
+        }
+      }
+      currentPath = currentPath.replaceFirst("/\\.\\./", "/");
+      LOG.warn("Unexpected path: can't get parent: " + path);
+    }
+
+    if (currentPath.endsWith("/") && !PathUtil.isRoot(currentPath)) {
+      currentPath = currentPath.substring(0, currentPath.length() - 1);
+    }
+    return currentPath;
   }
 
   // poor version of normalization
@@ -213,7 +235,6 @@ public class FileUtil {
     return path;
   }
 
-
   public static boolean delete(File root) {
     boolean result = true;
 
@@ -228,6 +249,7 @@ public class FileUtil {
 
   /**
    * deletes the file and all its parents above which happen to be empty after this file's removal
+   *
    * @return true iff the file has been removed
    */
   public static boolean deleteWithAllEmptyDirs(@NotNull IFile file) {
@@ -243,7 +265,9 @@ public class FileUtil {
 
   public static boolean clear(File dir) {
     File[] files = dir.listFiles();
-    if (files == null) return true;
+    if (files == null) {
+      return true;
+    }
 
     boolean result = true;
 
@@ -319,28 +343,14 @@ public class FileUtil {
     }
 
     if (fileCreated) {
-      FileUtil.write(file, content);
+      try (PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(file), FileUtil.DEFAULT_CHARSET))) {
+        writer.print(content);
+        writer.flush();
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
     } else {
       throw lastExc == null ? new IOException("Can't create " + file.getPath()) : lastExc;
-    }
-  }
-
-  /*
-   * use writeFile
-   */
-  @Deprecated
-  public static void write(File file, String content) {
-    PrintWriter writer = null;
-    try {
-      writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(file), FileUtil.DEFAULT_CHARSET));
-      writer.print(content);
-      writer.flush();
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    } finally {
-      if (writer != null) {
-        writer.close();
-      }
     }
   }
 
@@ -420,50 +430,6 @@ public class FileUtil {
     }
   }
 
-  public static boolean isParent(File parent, File child) {
-    if (!parent.isDirectory()) {
-      return false;
-    }
-
-    if (parent.equals(child)) return true;
-
-    for (File f : parent.listFiles()) {
-      if (isParent(f, child)) return true;
-    }
-
-    return false;
-  }
-
-  public static File getMaxContainingFile(File file1, File file2) {
-    if (isParentUp(file1, file2)) return file1;
-    if (isParentUp(file2, file1)) return file2;
-
-    File parent1 = file1.getParentFile();
-    File parent2 = file2.getParentFile();
-
-    if ((parent1 == null) && (parent2 == null)) {
-      return null;
-    } else if (parent1 == null) {
-      return getMaxContainingFile(file1, parent2);
-    } else if (parent2 == null) {
-      return getMaxContainingFile(parent1, file2);
-    }
-
-    return getMaxContainingFile(parent1, parent2);
-  }
-
-  public static boolean isParentUp(File parent, File child) {
-    if (!parent.isDirectory()) {
-      return false;
-    }
-
-    if (parent.getPath().equals(child.getPath())) return true;
-
-    File parentOfChild = child.getParentFile();
-    if (parentOfChild == null) return false;
-    return isParentUp(parent, parentOfChild);
-  }
-
   public static boolean isIgnoredDir(String name) {
     for (String ignoredDir : IGNORED_DIRS) {
       if (ignoredDir.equals(name)) {
@@ -473,6 +439,8 @@ public class FileUtil {
     return false;
   }
 
+  @Deprecated
+  @ToRemove(version = 2019.1)
   @NotNull
   public static String getUnixPath(@NotNull String path) {
     return path.replace(Path.WIN_SEPARATOR, Path.UNIX_SEPARATOR);
@@ -485,8 +453,10 @@ public class FileUtil {
   }
 
   /**
+   * @deprecated Use of this method is discouraged, as it gives inconsistent results depending on File(basePath) existence, e.g. see MPS-29999
    * @throws PathResolutionException if the paths do not intersect
    */
+  @Deprecated
   public static String getRelativePath(@NotNull String targetPath, @NotNull String basePath, @NotNull String pathSeparator) {
     String[] base = basePath.split(Pattern.quote(pathSeparator));
     String[] target = targetPath.split(Pattern.quote(pathSeparator));
@@ -494,7 +464,7 @@ public class FileUtil {
     StringBuilder common = new StringBuilder();
     int commonIndex = 0;
     while (commonIndex < target.length && commonIndex < base.length
-        && target[commonIndex].equals(base[commonIndex])) {
+           && target[commonIndex].equals(base[commonIndex])) {
       common.append(target[commonIndex]).append(pathSeparator);
       commonIndex++;
     }
@@ -567,12 +537,6 @@ public class FileUtil {
   }
 
   @NotNull
-  public static String unquote(@NotNull String urlString) {
-    urlString = urlString.replace('/', File.separatorChar);
-    return URLUtil.unescapePercentSequences(urlString);
-  }
-
-  @NotNull
   public static String getNameWithoutExtension(@NotNull String name) {
     int i = name.lastIndexOf(DOT);
     if (i != -1) {
@@ -593,10 +557,15 @@ public class FileUtil {
   @Contract(value = "null -> null;!null->!null")
   @Nullable
   public static String stripLastSlashes(@Nullable String path) {
-    if (path == null) return null;
+    if (path == null) {
+      return null;
+    }
 
     while (path.endsWith(Path.UNIX_SEPARATOR) || path.endsWith(Path.WIN_SEPARATOR)) {
       if (path.endsWith(Path.ARCHIVE_SEPARATOR)) {
+        break;
+      }
+      if (PathUtil.isRoot(path)) {
         break;
       }
       path = path.substring(0, path.length() - 1);
@@ -607,9 +576,13 @@ public class FileUtil {
   // not taking non-canonical paths into account
   public static boolean isSubPath(@NotNull String base, @NotNull String sub) {
     boolean startsWith = sub.startsWith(base);
-    if (!startsWith) return false;
+    if (!startsWith) {
+      return false;
+    }
     int baseLen = base.length();
-    if (sub.length() == baseLen) return true; // non-strict comparison: equal strings -> true
+    if (sub.length() == baseLen) {
+      return true; // non-strict comparison: equal strings -> true
+    }
 
     char lastBaseChar = base.charAt(baseLen - 1);
     char nextChar = sub.charAt(baseLen);
@@ -618,52 +591,22 @@ public class FileUtil {
 
   private abstract static class Packer {
     public void pack(File dir, File to) {
-      FileOutputStream fos = null;
-      ZipOutputStream out = null;
-
-      try {
-        fos = new FileOutputStream(to);
-        out = createDeflaterStream(fos);
+      try (FileOutputStream fos = new FileOutputStream(to);
+           ZipOutputStream out = createDeflaterStream(fos)) {
         _zip(dir, "", out);
       } catch (Exception e) {
-        e.printStackTrace();
-      } finally {
-        try {
-          if (out != null) {
-            out.close();
-          }
-          if (fos != null) {
-            fos.close();
-          }
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
+        LOG.error(e);
       }
     }
 
     public void pack(Map<String, File> entries, File to) {
-      FileOutputStream fos = null;
-      ZipOutputStream out = null;
-
-      try {
-        fos = new FileOutputStream(to);
-        out = createDeflaterStream(fos);
+      try (FileOutputStream fos = new FileOutputStream(to);
+           ZipOutputStream out = createDeflaterStream(fos)) {
         for (String key : entries.keySet()) {
           addZipEntry(out, key, entries.get(key));
         }
       } catch (Exception e) {
-        e.printStackTrace();
-      } finally {
-        try {
-          if (out != null) {
-            out.close();
-          }
-          if (fos != null) {
-            fos.close();
-          }
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
+        LOG.error(e);
       }
     }
 
@@ -682,13 +625,13 @@ public class FileUtil {
         }
         out.closeEntry();
       } catch (IOException e) {
-        e.printStackTrace();
+        LOG.error(e);
       } finally {
         if (is != null) {
           try {
             is.close();
           } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error(e);
           }
         }
       }

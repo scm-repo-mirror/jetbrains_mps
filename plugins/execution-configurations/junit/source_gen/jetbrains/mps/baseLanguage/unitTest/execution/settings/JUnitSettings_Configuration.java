@@ -17,33 +17,36 @@ import org.jdom.Element;
 import com.intellij.openapi.util.WriteExternalException;
 import com.intellij.util.xmlb.XmlSerializer;
 import com.intellij.openapi.util.InvalidDataException;
-import jetbrains.mps.execution.lib.ClonableList;
+import java.io.File;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.project.structure.modules.ModuleReference;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.persistence.PersistenceRegistry;
-import jetbrains.mps.baseLanguage.unitTest.execution.client.RunCachesManager;
-import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import java.util.List;
+import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.lang.test.util.TestInProcessRunState;
 import jetbrains.mps.lang.test.util.RunStateEnum;
+import jetbrains.mps.baseLanguage.unitTest.execution.client.RunCachesManager;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.util.Reference;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import org.apache.log4j.Level;
+import jetbrains.mps.execution.lib.ClonableList;
 
 public class JUnitSettings_Configuration implements IPersistentConfiguration {
   private static final Logger LOG = LogManager.getLogger(JUnitSettings_Configuration.class);
   @NotNull
   private JUnitSettings_Configuration.MyState myState = new JUnitSettings_Configuration.MyState();
+
+  @Override
   public void checkConfiguration(final PersistentConfigurationContext context) throws RuntimeConfigurationException {
     if (this.getRunType() < 0 || this.getRunType() > JUnitRunTypes.values().length) {
-      throw new RuntimeConfigurationError("Type of test not selected.");
+      throw new RuntimeConfigurationError("Type of test is not selected");
     }
     // We do not validate, only check if there is something to test, since validating everything be very slow 
     // see MPS-8781 JUnit run configuration check method performance. 
@@ -59,6 +62,7 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
   public void writeExternal(Element element) throws WriteExternalException {
     element.addContent(XmlSerializer.serialize(myState));
   }
+
   @Override
   public void readExternal(Element element) throws InvalidDataException {
     if (element == null) {
@@ -66,75 +70,21 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
     }
     XmlSerializer.deserializeInto(myState, (Element) element.getChildren().get(0));
   }
-  public String getModelRef() {
-    return myState.myModelRef;
+
+  private String getDefaultPathForSettings() {
+    // must be called only once! 
+    return new DefaultSettingsPathChooser().chooseDir();
   }
-  public String getModuleRef() {
-    return myState.myModuleRef;
-  }
-  public boolean getInProcess() {
-    return myState.myInProcess;
-  }
-  public boolean getReuseCaches() {
-    return myState.myReuseCaches;
-  }
-  public boolean getOverrideCachesLocation() {
-    return myState.myOverrideCachesLocation;
-  }
-  public boolean getDebug() {
-    return myState.myDebug;
-  }
-  public String getCachesPath() {
-    return myState.myCachesPath;
-  }
-  public ClonableList<String> getTestCases() {
-    return myState.myTestCases;
-  }
-  public ClonableList<String> getTestMethods() {
-    return myState.myTestMethods;
-  }
-  public int getRunType() {
-    return myState.myRunType;
-  }
-  public void setModelRef(String value) {
-    myState.myModelRef = value;
-  }
-  public void setModuleRef(String value) {
-    myState.myModuleRef = value;
-  }
-  public void setInProcess(boolean value) {
-    myState.myInProcess = value;
-  }
-  public void setReuseCaches(boolean value) {
-    myState.myReuseCaches = value;
-  }
-  public void setOverrideCachesLocation(boolean value) {
-    myState.myOverrideCachesLocation = value;
-  }
-  public void setDebug(boolean value) {
-    myState.myDebug = value;
-  }
-  public void setCachesPath(String value) {
-    myState.myCachesPath = value;
-  }
-  public void setTestCases(ClonableList<String> value) {
-    myState.myTestCases = value;
-  }
-  public void setTestMethods(ClonableList<String> value) {
-    myState.myTestMethods = value;
-  }
-  public void setRunType(int value) {
-    myState.myRunType = value;
-  }
-  public String getDefaultPathForCaches() {
-    return new DefaultCachesPathChooser().chooseDir();
-  }
-  public String getCachesLocation() {
+  public String getSettingsLocation() {
     if (this.getOverrideCachesLocation()) {
       return this.getCachesPath();
     } else {
-      return getDefaultPathForCaches();
+      return getDefaultPathForSettings();
     }
+  }
+  public File getPluginsPath() {
+    String configPath = new File(this.getCachesPath(), "config").getAbsolutePath();
+    return new File(configPath, "plugins");
   }
   public SModuleReference getModuleReference() {
     if (this.getModuleRef() == null) {
@@ -154,10 +104,7 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
   public void setJUnitRunType(JUnitRunTypes runType) {
     this.setRunType(runType.ordinal());
   }
-  public boolean canSaveCachesPath() {
-    return this.getReuseCaches() && !(RunCachesManager.isLocked(getCachesLocation()));
-  }
-  public boolean canExecuteInProcess(Iterable<ITestNodeWrapper> testNodes) {
+  public boolean canExecuteInProcess() {
     return this.getInProcess() && !(this.getDebug());
   }
   public List<ITestNodeWrapper> getTests(final MPSProject project) {
@@ -181,8 +128,8 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
     }
   }
   private void checkCachesDirIsFreeToLock() throws RuntimeConfigurationException {
-    if (!(this.getInProcess()) && this.getReuseCaches() && !(canSaveCachesPath())) {
-      throw new RuntimeConfigurationError("The chosen caches directory is already locked by another run. Please choose another one.");
+    if (!(this.getInProcess()) && this.getReuseCaches() && RunCachesManager.isLocked(this.getCachesPath())) {
+      throw new RuntimeConfigurationError("The chosen settings directory is already locked by another run. Please choose another one.");
     }
   }
   public List<ITestNodeWrapper> getTestsUnderProgress(final MPSProject project) {
@@ -218,6 +165,69 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
     }
     return clone;
   }
+
+  public String getModelRef() {
+    return myState.myModelRef;
+  }
+  public String getModuleRef() {
+    return myState.myModuleRef;
+  }
+  public boolean getInProcess() {
+    return myState.myInProcess;
+  }
+  public boolean getReuseCaches() {
+    return myState.myReuseCaches;
+  }
+  public boolean getOverrideCachesLocation() {
+    return myState.myOverrideCachesLocation;
+  }
+  public boolean getDebug() {
+    return myState.myDebug;
+  }
+  public String getCachesPath() {
+    return myState.myCachesPath;
+  }
+  public ClonableList<String> getTestCases() {
+    return myState.myTestCases;
+  }
+  public ClonableList<String> getTestMethods() {
+    return myState.myTestMethods;
+  }
+  public int getRunType() {
+    return myState.myRunType;
+  }
+
+  public void setModelRef(String value) {
+    myState.myModelRef = value;
+  }
+  public void setModuleRef(String value) {
+    myState.myModuleRef = value;
+  }
+  public void setInProcess(boolean value) {
+    myState.myInProcess = value;
+  }
+  public void setReuseCaches(boolean value) {
+    myState.myReuseCaches = value;
+  }
+  public void setOverrideCachesLocation(boolean value) {
+    myState.myOverrideCachesLocation = value;
+  }
+  public void setDebug(boolean value) {
+    myState.myDebug = value;
+  }
+  public void setCachesPath(String value) {
+    myState.myCachesPath = value;
+  }
+  public void setTestCases(ClonableList<String> value) {
+    myState.myTestCases = value;
+  }
+  public void setTestMethods(ClonableList<String> value) {
+    myState.myTestMethods = value;
+  }
+  public void setRunType(int value) {
+    myState.myRunType = value;
+  }
+
   public final class MyState {
     public String myModelRef;
     public String myModuleRef;
@@ -225,12 +235,11 @@ public class JUnitSettings_Configuration implements IPersistentConfiguration {
     public boolean myReuseCaches = true;
     public boolean myOverrideCachesLocation = false;
     public boolean myDebug = false;
-    public String myCachesPath = getDefaultPathForCaches();
+    public String myCachesPath = getDefaultPathForSettings();
     public ClonableList<String> myTestCases = new ClonableList<String>();
     public ClonableList<String> myTestMethods = new ClonableList<String>();
     public int myRunType = JUnitRunTypes.PROJECT.ordinal();
-    public MyState() {
-    }
+
     @Override
     public Object clone() throws CloneNotSupportedException {
       JUnitSettings_Configuration.MyState state = new JUnitSettings_Configuration.MyState();

@@ -31,7 +31,7 @@ public class GoToConceptDescendants_Action extends BaseAction {
   private static final Icon ICON = null;
 
   public GoToConceptDescendants_Action() {
-    super("Go to Descending Concepts", "", ICON);
+    super("Implementation(s)", "", ICON);
     this.setIsAlwaysVisible(false);
     this.setExecuteOutsideCommand(true);
   }

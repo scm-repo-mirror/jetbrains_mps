@@ -38,6 +38,7 @@ public class MPSEditorEmptyTextPainter extends EditorEmptyTextPainter {
     appendAction(painter, "Go to Model", getActionShortcutText("jetbrains.mps.ide.actions.GoToModel_Action"));
     appendAction(painter, "Go to Module", getActionShortcutText("jetbrains.mps.ide.actions.GoToModule_Action"));
     appendAction(painter, "Recent Roots", getActionShortcutText(IdeActions.ACTION_RECENT_FILES));
+    appendAction(painter, "Show Tutorial", getActionShortcutText("MPSTutorial"));
     appendDnd(painter);
   }
 }

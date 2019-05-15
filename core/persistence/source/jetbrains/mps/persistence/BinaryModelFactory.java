@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,6 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.persistence.DataSource;
-import org.jetbrains.mps.openapi.persistence.ModelCreationException;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
 import org.jetbrains.mps.openapi.persistence.ModelFactoryType;
 import org.jetbrains.mps.openapi.persistence.ModelLoadException;
@@ -68,29 +67,6 @@ public class BinaryModelFactory implements ModelFactory, IndexAwareModelFactory 
     // do not delete, it is a java service
   }
 
-  @NotNull
-  @Override
-  public SModel load(@NotNull DataSource dataSource, @NotNull Map<String, String> options) throws IOException {
-    try {
-      if (Boolean.parseBoolean(options.get(MetaModelInfoProvider.OPTION_KEEP_READ_METAINFO))) {
-        return load(dataSource, MetaInfoLoadingOption.KEEP_READ);
-      }
-      return load(dataSource);
-    } catch (ModelLoadException e) {
-      throw new IOException(e);
-    }
-  }
-
-  @NotNull
-  @Override
-  public SModel create(@NotNull DataSource dataSource, @NotNull Map<String, String> options) throws IOException {
-    String modelName = options.get(OPTION_MODELNAME);
-    if (modelName == null) {
-      throw new IOException("Model name is not provided");
-    }
-    return create(dataSource, new SModelName(modelName));
-  }
-
   @Override
   public boolean canCreate(@NotNull DataSource dataSource, @NotNull Map<String, String> options) {
     return dataSource instanceof StreamDataSource;
@@ -105,8 +81,7 @@ public class BinaryModelFactory implements ModelFactory, IndexAwareModelFactory 
   @Override
   public SModel create(@NotNull DataSource dataSource,
                        @NotNull SModelName modelName,
-                       @NotNull ModelLoadingOption... options) throws
-                                                               UnsupportedDataSourceException {
+                       @NotNull ModelLoadingOption... options) throws UnsupportedDataSourceException {
     if (!supports(dataSource)) {
       throw new UnsupportedDataSourceException(dataSource);
     }
@@ -135,7 +110,7 @@ public class BinaryModelFactory implements ModelFactory, IndexAwareModelFactory 
                                    getCause(e));
     }
     if (Arrays.asList(options).contains(MetaInfoLoadingOption.KEEP_READ)) {
-      binaryModelHeader.setMetaInfoProvider(new StuffedMetaModelInfo(new RegularMetaModelInfo(binaryModelHeader.getModelReference())));
+      binaryModelHeader.setMetaInfoProvider(new StuffedMetaModelInfo(new RegularMetaModelInfo()));
     }
     return new DefaultSModelDescriptor(new PersistenceFacility(this, source), binaryModelHeader);
   }
@@ -168,22 +143,6 @@ public class BinaryModelFactory implements ModelFactory, IndexAwareModelFactory 
     BinaryPersistence.writeModel(((SModelBase) model).getSModel(), (StreamDataSource) dataSource);
   }
 
-  @Override
-  public boolean isBinary() {
-    return true;
-  }
-
-  @Override
-  public String getFileExtension() {
-    return MPSExtentions.MODEL_BINARY;
-  }
-
-  @NotNull
-  @Override
-  public String getFormatTitle() {
-    return "Universal binary format";
-  }
-
   @NotNull
   @Override
   public ModelFactoryType getType() {
@@ -209,7 +168,7 @@ public class BinaryModelFactory implements ModelFactory, IndexAwareModelFactory 
   public static Map<String, String> getDigestMap(@NotNull StreamDataSource source) {
     try {
       SModelHeader binaryModelHeader = BinaryPersistence.readHeader(source);
-      binaryModelHeader.setMetaInfoProvider(new StuffedMetaModelInfo(new RegularMetaModelInfo(binaryModelHeader.getModelReference())));
+      binaryModelHeader.setMetaInfoProvider(new StuffedMetaModelInfo(new RegularMetaModelInfo()));
       final ModelLoadResult loadedModel = BinaryPersistence.readModel(binaryModelHeader, source, false);
       Map<String, String> result = BinaryPersistence.getDigestMap(loadedModel.getModel(), binaryModelHeader.getMetaInfoProvider());
       result.put(GeneratableSModel.FILE, ModelDigestUtil.hashBytes(source.openInputStream()));
@@ -237,33 +196,24 @@ public class BinaryModelFactory implements ModelFactory, IndexAwareModelFactory 
 
   private static class PersistenceFacility extends LazyLoadFacility {
     /*package*/ PersistenceFacility(BinaryModelFactory modelFactory, StreamDataSource dataSource) {
-      super(modelFactory, dataSource);
+      super(modelFactory, dataSource, false);
     }
 
     @NotNull
-    @Override
-    public StreamDataSource getSource() {
+    private StreamDataSource getSource0() {
       return (StreamDataSource) super.getSource();
-    }
-
-    @Override
-    public Map<String, String> getGenerationHashes() {
-      Map<String, String> generationHashes = ModelDigestHelper.getInstance().getGenerationHashes(getSource());
-      if (generationHashes != null) return generationHashes;
-
-      return BinaryModelFactory.getDigestMap(getSource());
     }
 
     @NotNull
     @Override
     public SModelHeader readHeader() throws ModelReadException {
-      return BinaryPersistence.readHeader(getSource());
+      return BinaryPersistence.readHeader(getSource0());
     }
 
     @NotNull
     @Override
     public ModelLoadResult readModel(@NotNull SModelHeader header, @NotNull ModelLoadingState state) throws ModelReadException {
-      return BinaryPersistence.readModel(header, getSource(), state == ModelLoadingState.INTERFACE_LOADED);
+      return BinaryPersistence.readModel(header, getSource0(), state == ModelLoadingState.INTERFACE_LOADED);
     }
 
     @Override
@@ -274,7 +224,7 @@ public class BinaryModelFactory implements ModelFactory, IndexAwareModelFactory 
 
     @Override
     public void saveModel(@NotNull SModelHeader header, SModelData modelData) throws IOException {
-      BinaryPersistence.writeModel((jetbrains.mps.smodel.SModel) modelData, getSource());
+      BinaryPersistence.writeModel((jetbrains.mps.smodel.SModel) modelData, getSource0());
     }
   }
 }

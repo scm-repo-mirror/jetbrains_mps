@@ -49,8 +49,11 @@ public class EnumerationDescriptor_BuildMps_GeneratorOptions_SkipUnmodifiedModel
 
   @Nullable
   @Override
-  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {int index = myIndex.index(idValue);
-if (index == -1) { return null; }
-    return myMembers.get(myIndex.index(idValue));
+  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {
+    int index = myIndex.index(idValue);
+    if (index == -1) {
+      return null;
+    }
+    return myMembers.get(index);
   }
 }

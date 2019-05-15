@@ -6,7 +6,6 @@ import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import jetbrains.mps.tool.common.Script;
-import jetbrains.mps.tool.builder.MpsWorker;
 import java.io.File;
 import java.io.IOException;
 import jetbrains.mps.project.Project;
@@ -57,8 +56,8 @@ public class GenTestWorker extends BaseGeneratorWorker {
   private String tmpPath;
   private GenTestWorker.MyReporter myReporter = new GenTestWorker.MyReporter();
 
-  public GenTestWorker(Script whatToDo, MpsWorker.AntLogger logger) {
-    super(whatToDo, logger);
+  public GenTestWorker(Script whatToDo) {
+    super(whatToDo);
     File tmpDir;
     try {
       tmpDir = File.createTempFile("gentest_", "tmp");
@@ -207,7 +206,7 @@ public class GenTestWorker extends BaseGeneratorWorker {
 
   private IFile tmpFile(String path) {
     if (MapSequence.fromMap(path2tmp).containsKey(path)) {
-      return FileSystem.getInstance().getFileByPath(MapSequence.fromMap(path2tmp).get(path));
+      return FileSystem.getInstance().getFile(MapSequence.fromMap(path2tmp).get(path));
     }
     int idx = path.indexOf("/");
     if (idx > 0) {
@@ -219,7 +218,7 @@ public class GenTestWorker extends BaseGeneratorWorker {
     }
     String tmp = tmpPath + "/" + ((idx != 0 ? path.replace(":", "_w_") : path.substring(1)));
     MapSequence.fromMap(path2tmp).put(path, tmp);
-    return FileSystem.getInstance().getFileByPath(tmp);
+    return FileSystem.getInstance().getFile(tmp);
   }
 
   private String pathOfTmpFile(IFile file) {
@@ -229,10 +228,10 @@ public class GenTestWorker extends BaseGeneratorWorker {
     }
     p = p.substring(tmpPath.length() + 1);
     if (p.contains("_w_")) {
-      return FileSystem.getInstance().getFileByPath(p.replace("_w_", ":")).getPath();
+      return FileSystem.getInstance().getFile(p.replace("_w_", ":")).getPath();
     }
     String prefix = (File.separatorChar == '/' ? "/" : "\\\\");
-    return FileSystem.getInstance().getFileByPath(prefix + p).getPath();
+    return FileSystem.getInstance().getFile(prefix + p).getPath();
   }
 
   private boolean isRunningOnTeamCity() {
@@ -252,7 +251,7 @@ public class GenTestWorker extends BaseGeneratorWorker {
   }
 
   public static void main(String[] args) {
-    GenTestWorker generator = new GenTestWorker(Script.fromDumpInFile(new File(args[0])), new MpsWorker.SystemOutLogger());
+    GenTestWorker generator = new GenTestWorker(Script.fromDumpInFile(new File(args[0])));
     generator.workFromMain();
   }
 

@@ -17,14 +17,13 @@ package jetbrains.mps.persistence;
 
 import jetbrains.mps.extapi.model.GeneratableSModel;
 import jetbrains.mps.extapi.model.SModelBase;
-import jetbrains.mps.extapi.persistence.CopyNotSupportedException;
 import jetbrains.mps.extapi.persistence.FileBasedModelRoot;
 import jetbrains.mps.extapi.persistence.SourceRoot;
-import jetbrains.mps.extapi.persistence.SourceRootKinds;
 import jetbrains.mps.extapi.persistence.datasource.URLNotSupportedException;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.smodel.CopyUtil;
 import jetbrains.mps.util.FileUtil;
+import jetbrains.mps.util.IFileUtil;
 import jetbrains.mps.vfs.IFile;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -35,10 +34,9 @@ import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.persistence.DataSource;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
+import org.jetbrains.mps.openapi.persistence.ModelLoadException;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.List;
 
 import static jetbrains.mps.extapi.persistence.datasource.PreinstalledURLDataSourceFactories.FILE_OR_FOLDER;
 
@@ -54,20 +52,6 @@ final class CopyDefaultModelRootHelper extends CopyFileBasedModelRootHelper<Defa
     super(sourceModelRoot, targetModelRoot);
   }
 
-  private boolean isInsideModuleDir() {
-    final SModule module = mySourceModelRoot.getModule();
-    if (module instanceof AbstractModule) {
-      IFile contentDirectory = mySourceModelRoot.getContentDirectory();
-      IFile moduleSourceDir = ((AbstractModule) module).getModuleSourceDir();
-      if (moduleSourceDir == null) {
-        return false;
-      }
-      assert contentDirectory != null;
-      return FileUtil.isAncestor(moduleSourceDir.getPath(), contentDirectory.getPath());
-    }
-    return false;
-  }
-
   /**
    * We are doing the same thing we do when collecting models but instead of creating models
    * we recalculate the paths (and other options) and create corresponding model copies under
@@ -79,9 +63,9 @@ final class CopyDefaultModelRootHelper extends CopyFileBasedModelRootHelper<Defa
     new ModelSourceRootWalker(mySourceModelRoot, (factory, dataSource, options, file) -> {
       try {
         IFile targetModelFile = calculateTargetModelFile(sourceModelSourceRoot, targetModelSourceRoot, file);
-        SModelBase modelData = (SModelBase) new ModelFactoryFacade(factory).load(dataSource, options);
+        SModelBase modelData = (SModelBase) factory.load(dataSource, options.convertToLoadingOptions());
         createModelCopy(factory, targetModelFile, modelData);
-      } catch (URLNotSupportedException | IOException | ModelCannotBeCreatedException e) {
+      } catch (URLNotSupportedException | IOException | ModelCannotBeCreatedException | ModelLoadException e) {
         LOG.error("Could not create a model copy because of unexpected error", e);
       }
     }).traverse(sourceModelSourceRoot);
@@ -93,7 +77,7 @@ final class CopyDefaultModelRootHelper extends CopyFileBasedModelRootHelper<Defa
                                  @NotNull SModelBase modelDataToCopy) throws IOException,
                                                                              URLNotSupportedException,
                                                                              ModelCannotBeCreatedException {
-    DataSource targetDataSource = FILE_OR_FOLDER.create(targetModelFile.getUrl(), myTargetModelRoot);
+    DataSource targetDataSource = FILE_OR_FOLDER.create(targetModelFile.getUrl());
     ParametersCalculator prmCalculator = new ParametersCalculator(myTargetModelRoot);
     SModelName newModelName = new SModelName(convertNameConsideringModule(modelDataToCopy.getName().getValue()));
     ModelCreationOptions options = prmCalculator.calculate(newModelName);
@@ -117,7 +101,7 @@ final class CopyDefaultModelRootHelper extends CopyFileBasedModelRootHelper<Defa
                                          IFile sourceModelFile) {
     String relPath = FileBasedModelRoot.relativize(sourceModelFile.getPath(), sourceRoot.getAbsolutePath());
     relPath = convertNameConsideringModule(relPath);
-    return targetSourceRoot.getAbsolutePath().getDescendant(relPath);
+    return IFileUtil.getDescendant(targetSourceRoot.getAbsolutePath(), relPath);
   }
 
   /**

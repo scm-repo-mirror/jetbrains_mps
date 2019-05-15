@@ -43,7 +43,7 @@ import jetbrains.mps.smodel.BaseMPSModuleOwner;
 import jetbrains.mps.smodel.MPSModuleOwner;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.util.io.ModelInputStream;
-import jetbrains.mps.vfs.FileRefresh;
+import jetbrains.mps.vfs.refresh.FileRefresh;
 import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
@@ -192,7 +192,7 @@ public class JpsMPSRepositoryFacade implements MPSModuleOwner {
       List<ModuleHandle> loadedModules = new ArrayList<ModuleHandle>();
       List<IFile> filesToLoad = new ArrayList<>();
       for (String path: languages.split(";")) {
-        IFile ipath = FileSystem.getInstance().getFileByPath(path);
+        IFile ipath = FileSystem.getInstance().getFile(path);
         filesToLoad.add(ipath);
       }
       new FileRefresh(filesToLoad).run();

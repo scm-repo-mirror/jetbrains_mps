@@ -9,7 +9,7 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -26,8 +26,8 @@ public class check_GenerationContextOp_GetOutputByLabel_NonTypesystemRule extend
       return;
     }
     // I'm confused whether to use inference rule with check only == true or checking rule to ensure proper type of child expression 
-    SNode modelExprType = TypeChecker.getInstance().getTypeOf(SLinkOperations.getTarget(op, MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0d6L, 0x5f171e4376fc8e82L, "forModel")));
-    if (!(TypeChecker.getInstance().getSubtypingManager().isSubtype(modelExprType, createClassifierType_jqceor_b0a0d0b()))) {
+    SNode modelExprType = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(op, MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0d6L, 0x5f171e4376fc8e82L, "forModel")));
+    if (!(TypecheckingFacade.getFromContext().isSubtype(modelExprType, createClassifierType_jqceor_b0a0d0b()))) {
       MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(op, MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0d6L, 0x5f171e4376fc8e82L, "forModel")), "SModel type expected", "r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)", "6851978633175408976", null, errorTarget);
     }

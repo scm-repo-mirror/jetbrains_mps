@@ -241,16 +241,15 @@
             <node concept="2OqwBi" id="4K12N3pL6PO" role="33vP2m">
               <node concept="2YIFZM" id="4K12N3pL6PP" role="2Oq$k0">
                 <ref role="1Pybhc" to="tqvn:~TemporaryModels" resolve="TemporaryModels" />
-                <ref role="37wK5l" to="tqvn:~TemporaryModels.getInstance():jetbrains.mps.smodel.tempmodel.TemporaryModels" resolve="getInstance" />
+                <ref role="37wK5l" to="tqvn:~TemporaryModels.getInstance()" resolve="getInstance" />
               </node>
               <node concept="liA8E" id="4K12N3pL6PQ" role="2OqNvi">
-                <ref role="37wK5l" to="tqvn:~TemporaryModels.create(boolean,boolean,jetbrains.mps.smodel.tempmodel.TempModuleOptions):org.jetbrains.mps.openapi.model.SModel" resolve="create" />
-                <node concept="3clFbT" id="4K12N3pL6PR" role="37wK5m" />
+                <ref role="37wK5l" to="tqvn:~TemporaryModels.createEditable(boolean,jetbrains.mps.smodel.tempmodel.TempModuleOptions)" resolve="createEditable" />
                 <node concept="3clFbT" id="4K12N3pL6PS" role="37wK5m">
                   <property role="3clFbU" value="false" />
                 </node>
-                <node concept="2YIFZM" id="4K12N3pL6PT" role="37wK5m">
-                  <ref role="37wK5l" to="tqvn:~TempModuleOptions.forDefaultModule():jetbrains.mps.smodel.tempmodel.TempModuleOptions" resolve="forDefaultModule" />
+                <node concept="2YIFZM" id="6oGy5BbQW42" role="37wK5m">
+                  <ref role="37wK5l" to="tqvn:~TempModuleOptions.nonReloadableModule()" resolve="nonReloadableModule" />
                   <ref role="1Pybhc" to="tqvn:~TempModuleOptions" resolve="TempModuleOptions" />
                 </node>
               </node>
@@ -306,7 +305,7 @@
                   </node>
                 </node>
                 <node concept="liA8E" id="4gQZRkTYxbi" role="2OqNvi">
-                  <ref role="37wK5l" to="mhbf:~SModel.getRepository():org.jetbrains.mps.openapi.module.SRepository" resolve="getRepository" />
+                  <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
                 </node>
               </node>
               <node concept="2ShNRf" id="4gQZRkTX076" role="37wK5m">
@@ -328,36 +327,14 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="3eDPCSVtdch" role="3cqZAp">
-          <node concept="2OqwBi" id="3eDPCSVtes5" role="3clFbG">
-            <node concept="2YIFZM" id="3eDPCSVte0y" role="2Oq$k0">
-              <ref role="1Pybhc" to="4szu:~ImmatureReferences" resolve="ImmatureReferences" />
-              <ref role="37wK5l" to="4szu:~ImmatureReferences.getInstance():jetbrains.mps.smodel.references.ImmatureReferences" resolve="getInstance" />
-            </node>
-            <node concept="liA8E" id="3eDPCSVtf$J" role="2OqNvi">
-              <ref role="37wK5l" to="4szu:~ImmatureReferences.cleanup():void" resolve="cleanup" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="3eDPCSVtjy0" role="3cqZAp">
-          <node concept="2OqwBi" id="3eDPCSVtktD" role="3clFbG">
-            <node concept="2YIFZM" id="3eDPCSVtjUN" role="2Oq$k0">
-              <ref role="37wK5l" to="4szu:~UnregisteredNodes.instance():jetbrains.mps.smodel.references.UnregisteredNodes" resolve="instance" />
-              <ref role="1Pybhc" to="4szu:~UnregisteredNodes" resolve="UnregisteredNodes" />
-            </node>
-            <node concept="liA8E" id="3eDPCSVtl$7" role="2OqNvi">
-              <ref role="37wK5l" to="4szu:~UnregisteredNodes.clear():void" resolve="clear" />
-            </node>
-          </node>
-        </node>
         <node concept="3clFbF" id="4gQZRkTVO5Y" role="3cqZAp">
           <node concept="2OqwBi" id="7KUdrkEHE2n" role="3clFbG">
             <node concept="2YIFZM" id="7KUdrkEHDN1" role="2Oq$k0">
               <ref role="1Pybhc" to="tqvn:~TemporaryModels" resolve="TemporaryModels" />
-              <ref role="37wK5l" to="tqvn:~TemporaryModels.getInstance():jetbrains.mps.smodel.tempmodel.TemporaryModels" resolve="getInstance" />
+              <ref role="37wK5l" to="tqvn:~TemporaryModels.getInstance()" resolve="getInstance" />
             </node>
             <node concept="liA8E" id="7KUdrkEHEFi" role="2OqNvi">
-              <ref role="37wK5l" to="tqvn:~TemporaryModels.dispose(org.jetbrains.mps.openapi.model.SModel):void" resolve="dispose" />
+              <ref role="37wK5l" to="tqvn:~TemporaryModels.dispose(org.jetbrains.mps.openapi.model.SModel)" resolve="dispose" />
               <node concept="37vLTw" id="6dZNzDpKKQM" role="37wK5m">
                 <ref role="3cqZAo" node="4K12N3pL6PN" resolve="model" />
               </node>
@@ -401,7 +378,7 @@
                 <ref role="3cqZAo" to="d6hs:~RuleIdFlavouredItem.FLAVOUR_RULE_ID" resolve="FLAVOUR_RULE_ID" />
               </node>
               <node concept="liA8E" id="5TUCQr3ib7B" role="2OqNvi">
-                <ref role="37wK5l" to="d6hs:~ReportItemBase$MultipleReportItemFlavour.getCollection(jetbrains.mps.errors.item.FlavouredItem):java.util.Collection" resolve="getCollection" />
+                <ref role="37wK5l" to="d6hs:~ReportItemBase$MultipleReportItemFlavour.getCollection(jetbrains.mps.errors.item.FlavouredItem)" resolve="getCollection" />
                 <node concept="37vLTw" id="5TUCQr3ibS9" role="37wK5m">
                   <ref role="3cqZAo" node="5TUCQr3ib6S" resolve="reportItem" />
                 </node>
@@ -429,7 +406,7 @@
                               <ref role="3cqZAo" node="5TUCQr3ib7T" resolve="it" />
                             </node>
                             <node concept="liA8E" id="5TUCQr3ib7S" role="2OqNvi">
-                              <ref role="37wK5l" to="d6hs:~RuleIdFlavouredItem$TypesystemRuleId.getSourceNode():org.jetbrains.mps.openapi.model.SNodeReference" resolve="getSourceNode" />
+                              <ref role="37wK5l" to="d6hs:~RuleIdFlavouredItem$TypesystemRuleId.getSourceNode()" resolve="getSourceNode" />
                             </node>
                           </node>
                         </node>
@@ -461,7 +438,7 @@
                     </node>
                   </node>
                   <node concept="liA8E" id="5TUCQr3kkAk" role="2OqNvi">
-                    <ref role="37wK5l" to="mhbf:~SNode.getReference():org.jetbrains.mps.openapi.model.SNodeReference" resolve="getReference" />
+                    <ref role="37wK5l" to="mhbf:~SNode.getReference()" resolve="getReference" />
                   </node>
                 </node>
               </node>

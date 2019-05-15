@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,6 +35,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.persistence.Memento;
+import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -55,12 +56,13 @@ import java.util.Map.Entry;
 public final class MPSConfigurationBean {
 
   // FIXME this value is solely to overcome present limitation of SModuleConfigurationTab to get MPSConfigurationBean and the need to access SD from it.
-  private final SolutionDescriptor myDescriptor;
+  private SolutionDescriptor myDescriptor;
   private final State myState;
 
   /*package*/ MPSConfigurationBean(SolutionDescriptor sd, MPSConfigurationBean other) {
     myDescriptor = sd;
-    myState = other.toState(sd);
+    myState = new State();
+    loadFrom(other.myState);
   }
 
   /*package*/ MPSConfigurationBean(MPSConfigurationBean other) {
@@ -78,6 +80,17 @@ public final class MPSConfigurationBean {
   @Deprecated
   public SolutionDescriptor getSolutionDescriptor() {
     return myDescriptor;
+  }
+
+  /**
+   * The only scenario for this method is the moment MPS facet is added. MPSFacetConfiguration#getBean()
+   * can not take any existing SD (MPSFacet has not been initialized yet), but MPSFacetSourcesTab we are going to
+   * present to a user need SD to fill in model roots.
+   */
+  /*package*/ void initSolutionDescriptorIfNone() {
+    if (myDescriptor == null) {
+      myDescriptor = newSolutionDescriptor();
+    }
   }
 
   // shall be visible for tests
@@ -200,17 +213,18 @@ public final class MPSConfigurationBean {
     result.useModuleSourceFolder = myState.useModuleSourceFolder;
     result.useTransientOutputFolder = myState.useTransientOutputFolder;
     Map<SLanguage, Integer> lVersions = actualDescriptor.getLanguageVersions();
+    final PersistenceFacade pf = PersistenceFacade.getInstance();
     if (!lVersions.isEmpty()) {
-      result.languageVersions = new HashMap<String, Integer>(lVersions.size());
+      result.languageVersions = new HashMap<>(lVersions.size());
       for (Entry<SLanguage, Integer> lver : lVersions.entrySet()) {
-        result.languageVersions.put(((SLanguageAdapter) lver.getKey()).serialize(), lver.getValue());
+        result.languageVersions.put(pf.asString(lver.getKey()), lver.getValue());
       }
     }
     Map<SModuleReference, Integer> dVersions = actualDescriptor.getDependencyVersions();
     if (!dVersions.isEmpty()) {
-      result.dependencyVersions = new HashMap<String, Integer>(dVersions.size());
+      result.dependencyVersions = new HashMap<>(dVersions.size());
       for (Entry<SModuleReference, Integer> dver : dVersions.entrySet()) {
-        result.dependencyVersions.put(dver.getKey().toString(), dver.getValue());
+        result.dependencyVersions.put(pf.asString(dver.getKey()), dver.getValue());
       }
     }
     result.rootDescriptors = toPersistableState(actualDescriptor.getModelRootDescriptors());

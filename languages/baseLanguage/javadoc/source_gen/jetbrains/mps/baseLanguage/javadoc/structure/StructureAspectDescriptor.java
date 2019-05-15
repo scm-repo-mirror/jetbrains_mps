@@ -54,6 +54,13 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     myIndexSwitch = new LanguageConceptSwitch();
   }
 
+
+  @Override
+  public void reportDependencies(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.Dependencies deps) {
+    deps.extendedLanguage(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, "jetbrains.mps.lang.core");
+    deps.aggregatedLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage");
+  }
+
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
     return Arrays.asList(myConceptAuthorBlockDocTag, myConceptBaseBlockDocTag, myConceptBaseDocComment, myConceptBaseDocReference, myConceptBaseInlineDocTag, myConceptBaseParameterReference, myConceptBaseVariableDocReference, myConceptClassifierDocComment, myConceptClassifierDocReference, myConceptCodeInlineDocTag, myConceptCodeSnippet, myConceptCommentLine, myConceptCommentLinePart, myConceptDeprecatedBlockDocTag, myConceptDocMethodParameterReference, myConceptDocTypeParameterReference, myConceptEmptyBlockDocTag, myConceptFieldDocComment, myConceptFieldDocReference, myConceptHTMLElement, myConceptInheritDocInlineDocTag, myConceptInlineTagCommentLinePart, myConceptLinkInlineDocTag, myConceptMethodDocComment, myConceptMethodDocReference, myConceptParameterBlockDocTag, myConceptReturnBlockDocTag, myConceptSeeBlockDocTag, myConceptSinceBlockDocTag, myConceptStaticFieldDocReference, myConceptTextCommentLinePart, myConceptThrowsBlockDocTag, myConceptValueInlineDocTag, myConceptVersionBlockDocTag);
@@ -166,6 +173,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.baseLanguage.javadoc", "BaseDocComment", 0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L);
     b.class_(false, true, false);
     b.super_("jetbrains.mps.lang.core.structure.NodeAttribute", 0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da54L);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x11d205fe38dL);
     b.origin("r:4095af4f-a097-4799-aaa9-03df087ddfa6(jetbrains.mps.baseLanguage.javadoc.structure)/5349172909345501395");
     b.version(2);
     b.aggregate("body", 0x757ba20a4c87f96eL).target(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL).optional(true).ordered(true).multiple(true).origin("8465538089690331502").done();

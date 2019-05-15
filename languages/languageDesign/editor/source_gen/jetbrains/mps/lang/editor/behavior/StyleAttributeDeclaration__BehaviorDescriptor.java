@@ -18,8 +18,7 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.typesystem.inference.TypeChecker;
-import jetbrains.mps.lang.typesystem.runtime.HUtil;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -48,7 +47,7 @@ public final class StyleAttributeDeclaration__BehaviorDescriptor extends BaseBHD
     return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3744c0f9ea5367ebL, 0x3744c0f9ea53826eL, "valueType"));
   }
   /*package*/ static SNode getClassifierType_id5eGiGGHenb_(@NotNull SNode __thisNode__) {
-    return TypeChecker.getInstance().getRuntimeSupport().coerce_(StyleAttributeDeclaration__BehaviorDescriptor.getType_id6EcLR7UbLta.invoke(__thisNode__), HUtil.createMatchingPatternByConcept(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType")), true);
+    return TypecheckingFacade.getFromContext().coerceType(StyleAttributeDeclaration__BehaviorDescriptor.getType_id6EcLR7UbLta.invoke(__thisNode__), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType"));
   }
 
   /*package*/ StyleAttributeDeclaration__BehaviorDescriptor() {

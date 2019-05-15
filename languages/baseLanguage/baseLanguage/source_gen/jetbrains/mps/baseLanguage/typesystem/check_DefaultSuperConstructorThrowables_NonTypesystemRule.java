@@ -14,7 +14,7 @@ import java.util.HashSet;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
 public class check_DefaultSuperConstructorThrowables_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -28,7 +28,7 @@ public class check_DefaultSuperConstructorThrowables_NonTypesystemRule extends A
         for (SNode superThrowable : ListSequence.fromList(SLinkOperations.getChildren(superConstructor, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x10f383d6949L, "throwsItem")))) {
           boolean toAdd = true;
           for (SNode throwable : ListSequence.fromList(SLinkOperations.getChildren(constructorDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x10f383d6949L, "throwsItem")))) {
-            if (TypeChecker.getInstance().getSubtypingManager().isSubtype(superThrowable, throwable)) {
+            if (TypecheckingFacade.getFromContext().isSubtype(superThrowable, throwable)) {
               toAdd = false;
             }
           }

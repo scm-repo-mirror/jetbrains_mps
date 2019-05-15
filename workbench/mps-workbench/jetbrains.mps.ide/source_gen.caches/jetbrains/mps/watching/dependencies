@@ -48,7 +48,6 @@
     <classNode dependClassName="java.util.Map" />
     <classNode dependClassName="java.util.Set" />
     <classNode dependClassName="jetbrains.mps.classloading.ClassLoaderManager" />
-    <classNode dependClassName="jetbrains.mps.classloading.MPSClassesListener" />
     <classNode dependClassName="jetbrains.mps.ide.MPSCoreComponents" />
     <classNode dependClassName="jetbrains.mps.ide.platform.watching.WatchedRoots" />
     <classNode dependClassName="jetbrains.mps.library.AdditionalLibrariesManager" />

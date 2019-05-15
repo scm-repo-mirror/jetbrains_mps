@@ -46,10 +46,11 @@
     <classNode dependClassName="jetbrains.mps.progress.ProgressMonitorAdapter" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
     <classNode dependClassName="jetbrains.mps.workbench.action.ActionUtils" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeReference" />
     <classNode dependClassName="org.jetbrains.mps.openapi.util.ProgressMonitor" />
-    <classNode extendsClassName="javax.swing.JPanel" />
+    <classNode extendsClassName="com.intellij.ui.components.JBPanel" />
   </dependency>
   <dependency className="jetbrains.mps.execution.lib.ui.NodeByConceptChooser">
     <classNode dependClassName="java.lang.Boolean" />

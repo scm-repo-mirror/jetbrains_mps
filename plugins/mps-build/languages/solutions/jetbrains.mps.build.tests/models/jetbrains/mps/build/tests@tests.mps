@@ -291,11 +291,11 @@
         <node concept="3cpWs6" id="Tb4PsnoMye" role="3cqZAp">
           <node concept="2OqwBi" id="5kWneGu3MyX" role="3cqZAk">
             <node concept="liA8E" id="5kWneGu3MyW" role="2OqNvi">
-              <ref role="37wK5l" to="mhbf:~SModelReference.resolve(org.jetbrains.mps.openapi.module.SRepository):org.jetbrains.mps.openapi.model.SModel" resolve="resolve" />
+              <ref role="37wK5l" to="mhbf:~SModelReference.resolve(org.jetbrains.mps.openapi.module.SRepository)" resolve="resolve" />
               <node concept="2OqwBi" id="Tb4PsnoMmY" role="37wK5m">
                 <node concept="1jxXqW" id="Tb4PsnoMmZ" role="2Oq$k0" />
                 <node concept="liA8E" id="Tb4PsnoMn0" role="2OqNvi">
-                  <ref role="37wK5l" to="z1c3:~Project.getRepository():org.jetbrains.mps.openapi.module.SRepository" resolve="getRepository" />
+                  <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
                 </node>
               </node>
             </node>
@@ -900,7 +900,7 @@
                 <ref role="3cqZAo" node="5FtnUVJQPGA" resolve="map" />
               </node>
               <node concept="liA8E" id="5FtnUVJQPHl" role="2OqNvi">
-                <ref role="37wK5l" to="33ny:~Map.put(java.lang.Object,java.lang.Object):java.lang.Object" resolve="put" />
+                <ref role="37wK5l" to="33ny:~Map.put(java.lang.Object,java.lang.Object)" resolve="put" />
                 <node concept="37vLTw" id="2BHiRxgmapZ" role="37wK5m">
                   <ref role="3cqZAo" node="5FtnUVJQP_i" resolve="k" />
                 </node>
@@ -937,7 +937,7 @@
                 <ref role="3cqZAo" node="5FtnUVJQPGA" resolve="map" />
               </node>
               <node concept="liA8E" id="5FtnUVJQPI0" role="2OqNvi">
-                <ref role="37wK5l" to="33ny:~Map.get(java.lang.Object):java.lang.Object" resolve="get" />
+                <ref role="37wK5l" to="33ny:~Map.get(java.lang.Object)" resolve="get" />
                 <node concept="37vLTw" id="2BHiRxgm6Al" role="37wK5m">
                   <ref role="3cqZAo" node="5FtnUVJQP_8" resolve="k" />
                 </node>
@@ -2087,7 +2087,7 @@
               </node>
               <node concept="2YIFZM" id="1AfwOXhII4J" role="33vP2m">
                 <ref role="1Pybhc" to="guwi:~File" resolve="File" />
-                <ref role="37wK5l" to="guwi:~File.createTempFile(java.lang.String,java.lang.String):java.io.File" resolve="createTempFile" />
+                <ref role="37wK5l" to="guwi:~File.createTempFile(java.lang.String,java.lang.String)" resolve="createTempFile" />
                 <node concept="Xl_RD" id="1AfwOXhII4K" role="37wK5m">
                   <property role="Xl_RC" value="mpsTestRelPathHelper" />
                 </node>
@@ -2103,7 +2103,7 @@
                 <ref role="3cqZAo" node="1AfwOXhII4H" resolve="tmpFile" />
               </node>
               <node concept="liA8E" id="1AfwOXhII5e" role="2OqNvi">
-                <ref role="37wK5l" to="guwi:~File.delete():boolean" resolve="delete" />
+                <ref role="37wK5l" to="guwi:~File.delete()" resolve="delete" />
               </node>
             </node>
           </node>
@@ -2113,7 +2113,7 @@
                 <ref role="3cqZAo" node="1AfwOXhII4H" resolve="tmpFile" />
               </node>
               <node concept="liA8E" id="1AfwOXhII5E" role="2OqNvi">
-                <ref role="37wK5l" to="guwi:~File.mkdirs():boolean" resolve="mkdirs" />
+                <ref role="37wK5l" to="guwi:~File.mkdirs()" resolve="mkdirs" />
               </node>
             </node>
           </node>
@@ -2123,7 +2123,7 @@
                 <ref role="3cqZAo" node="1AfwOXhII4H" resolve="tmpFile" />
               </node>
               <node concept="liA8E" id="1AfwOXhII66" role="2OqNvi">
-                <ref role="37wK5l" to="guwi:~File.deleteOnExit():void" resolve="deleteOnExit" />
+                <ref role="37wK5l" to="guwi:~File.deleteOnExit()" resolve="deleteOnExit" />
               </node>
             </node>
           </node>
@@ -2153,7 +2153,7 @@
                 <ref role="3cqZAo" node="1AfwOXhIK0w" resolve="baseDir" />
               </node>
               <node concept="liA8E" id="1AfwOXhIK1m" role="2OqNvi">
-                <ref role="37wK5l" to="guwi:~File.mkdirs():boolean" resolve="mkdirs" />
+                <ref role="37wK5l" to="guwi:~File.mkdirs()" resolve="mkdirs" />
               </node>
             </node>
           </node>
@@ -2174,7 +2174,7 @@
                   <ref role="3cqZAo" node="1AfwOXhIK0w" resolve="baseDir" />
                 </node>
                 <node concept="liA8E" id="1AfwOXhII85" role="2OqNvi">
-                  <ref role="37wK5l" to="guwi:~File.getCanonicalPath():java.lang.String" resolve="getCanonicalPath" />
+                  <ref role="37wK5l" to="guwi:~File.getCanonicalPath()" resolve="getCanonicalPath" />
                 </node>
               </node>
             </node>
@@ -2198,7 +2198,7 @@
                   </node>
                 </node>
                 <node concept="liA8E" id="1AfwOXhIIni" role="2OqNvi">
-                  <ref role="37wK5l" to="guwi:~File.getCanonicalPath():java.lang.String" resolve="getCanonicalPath" />
+                  <ref role="37wK5l" to="guwi:~File.getCanonicalPath()" resolve="getCanonicalPath" />
                 </node>
               </node>
             </node>
@@ -2207,7 +2207,7 @@
           <node concept="3clFbF" id="1AfwOXhII8e" role="3cqZAp">
             <node concept="2YIFZM" id="1AfwOXhIImb" role="3clFbG">
               <ref role="1Pybhc" to="rjhg:~Assert" resolve="Assert" />
-              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object):void" resolve="assertEquals" />
+              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object)" resolve="assertEquals" />
               <node concept="Xl_RD" id="1AfwOXhIIno" role="37wK5m">
                 <property role="Xl_RC" value="../../build2" />
               </node>
@@ -2237,11 +2237,11 @@
           </node>
           <node concept="3clFbF" id="1AfwOXhIKUl" role="3cqZAp">
             <node concept="2YIFZM" id="1AfwOXhIKUm" role="3clFbG">
-              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object):void" resolve="assertEquals" />
+              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object)" resolve="assertEquals" />
               <ref role="1Pybhc" to="rjhg:~Assert" resolve="Assert" />
               <node concept="2OqwBi" id="2ztZL6AGCKQ" role="37wK5m">
                 <node concept="liA8E" id="2ztZL6AGJZE" role="2OqNvi">
-                  <ref role="37wK5l" to="wyt6:~String.replace(java.lang.CharSequence,java.lang.CharSequence):java.lang.String" resolve="replace" />
+                  <ref role="37wK5l" to="wyt6:~String.replace(java.lang.CharSequence,java.lang.CharSequence)" resolve="replace" />
                   <node concept="Xl_RD" id="2ztZL6AGJZN" role="37wK5m">
                     <property role="Xl_RC" value="\\" />
                   </node>
@@ -2274,13 +2274,13 @@
           <node concept="3clFbF" id="1AfwOXhJ77a" role="3cqZAp">
             <node concept="2YIFZM" id="1AfwOXhJ77b" role="3clFbG">
               <ref role="1Pybhc" to="rjhg:~Assert" resolve="Assert" />
-              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object):void" resolve="assertEquals" />
+              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object)" resolve="assertEquals" />
               <node concept="2OqwBi" id="2ztZL6AGL0j" role="37wK5m">
                 <node concept="37vLTw" id="3GM_nagT_xy" role="2Oq$k0">
                   <ref role="3cqZAo" node="1AfwOXhIImH" resolve="targetFolder" />
                 </node>
                 <node concept="liA8E" id="2ztZL6AGL0I" role="2OqNvi">
-                  <ref role="37wK5l" to="wyt6:~String.replace(java.lang.CharSequence,java.lang.CharSequence):java.lang.String" resolve="replace" />
+                  <ref role="37wK5l" to="wyt6:~String.replace(java.lang.CharSequence,java.lang.CharSequence)" resolve="replace" />
                   <node concept="Xl_RD" id="2ztZL6AGL0J" role="37wK5m">
                     <property role="Xl_RC" value="\\" />
                   </node>
@@ -2315,7 +2315,7 @@
           </node>
           <node concept="3clFbF" id="1AfwOXhJ6lb" role="3cqZAp">
             <node concept="2YIFZM" id="1AfwOXhJ6lc" role="3clFbG">
-              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object):void" resolve="assertEquals" />
+              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object)" resolve="assertEquals" />
               <ref role="1Pybhc" to="rjhg:~Assert" resolve="Assert" />
               <node concept="Xl_RD" id="1AfwOXhJ6ld" role="37wK5m" />
               <node concept="2OqwBi" id="1AfwOXhJ6le" role="37wK5m">
@@ -2344,7 +2344,7 @@
           </node>
           <node concept="3clFbF" id="1AfwOXhJ6lO" role="3cqZAp">
             <node concept="2YIFZM" id="1AfwOXhJ6lP" role="3clFbG">
-              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object):void" resolve="assertEquals" />
+              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object)" resolve="assertEquals" />
               <ref role="1Pybhc" to="rjhg:~Assert" resolve="Assert" />
               <node concept="2YIFZM" id="4WwUR8h$i6s" role="37wK5m">
                 <ref role="37wK5l" to="o3n2:2hkCNA7Z0N8" resolve="normalizePath" />
@@ -2390,21 +2390,21 @@
                     <ref role="3cqZAo" node="1AfwOXhIK0w" resolve="baseDir" />
                   </node>
                   <node concept="liA8E" id="1AfwOXhJ6K9" role="2OqNvi">
-                    <ref role="37wK5l" to="guwi:~File.getParentFile():java.io.File" resolve="getParentFile" />
+                    <ref role="37wK5l" to="guwi:~File.getParentFile()" resolve="getParentFile" />
                   </node>
                 </node>
                 <node concept="liA8E" id="1AfwOXhJ6Ka" role="2OqNvi">
-                  <ref role="37wK5l" to="guwi:~File.getCanonicalPath():java.lang.String" resolve="getCanonicalPath" />
+                  <ref role="37wK5l" to="guwi:~File.getCanonicalPath()" resolve="getCanonicalPath" />
                 </node>
               </node>
             </node>
           </node>
           <node concept="3clFbF" id="1AfwOXhJ6Hq" role="3cqZAp">
             <node concept="2YIFZM" id="1AfwOXhJ6Hr" role="3clFbG">
-              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object):void" resolve="assertEquals" />
+              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object)" resolve="assertEquals" />
               <ref role="1Pybhc" to="rjhg:~Assert" resolve="Assert" />
               <node concept="Xl_RD" id="1AfwOXhJ6Hs" role="37wK5m">
-                <property role="Xl_RC" value="../" />
+                <property role="Xl_RC" value=".." />
               </node>
               <node concept="2OqwBi" id="1AfwOXhJ6Ht" role="37wK5m">
                 <node concept="2ShNRf" id="1AfwOXhJ6Hu" role="2Oq$k0">
@@ -2433,13 +2433,13 @@
           <node concept="3clFbF" id="1AfwOXhJ6Jy" role="3cqZAp">
             <node concept="2YIFZM" id="1AfwOXhJ6Jz" role="3clFbG">
               <ref role="1Pybhc" to="rjhg:~Assert" resolve="Assert" />
-              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object):void" resolve="assertEquals" />
+              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object)" resolve="assertEquals" />
               <node concept="2OqwBi" id="2ztZL6AGLTR" role="37wK5m">
                 <node concept="37vLTw" id="3GM_nagTy5C" role="2Oq$k0">
                   <ref role="3cqZAo" node="1AfwOXhJ6K4" resolve="oneUp" />
                 </node>
                 <node concept="liA8E" id="2ztZL6AGLUi" role="2OqNvi">
-                  <ref role="37wK5l" to="wyt6:~String.replace(java.lang.CharSequence,java.lang.CharSequence):java.lang.String" resolve="replace" />
+                  <ref role="37wK5l" to="wyt6:~String.replace(java.lang.CharSequence,java.lang.CharSequence)" resolve="replace" />
                   <node concept="Xl_RD" id="2ztZL6AGLUj" role="37wK5m">
                     <property role="Xl_RC" value="\\" />
                   </node>
@@ -2468,14 +2468,14 @@
           </node>
           <node concept="3clFbF" id="1AfwOXhJ77E" role="3cqZAp">
             <node concept="2YIFZM" id="1AfwOXhJ77F" role="3clFbG">
-              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object):void" resolve="assertEquals" />
+              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object)" resolve="assertEquals" />
               <ref role="1Pybhc" to="rjhg:~Assert" resolve="Assert" />
               <node concept="2OqwBi" id="2ztZL6AGMar" role="37wK5m">
                 <node concept="37vLTw" id="3GM_nagTspa" role="2Oq$k0">
                   <ref role="3cqZAo" node="1AfwOXhJ6K4" resolve="oneUp" />
                 </node>
                 <node concept="liA8E" id="2ztZL6AGMaQ" role="2OqNvi">
-                  <ref role="37wK5l" to="wyt6:~String.replace(java.lang.CharSequence,java.lang.CharSequence):java.lang.String" resolve="replace" />
+                  <ref role="37wK5l" to="wyt6:~String.replace(java.lang.CharSequence,java.lang.CharSequence)" resolve="replace" />
                   <node concept="Xl_RD" id="2ztZL6AGMaR" role="37wK5m">
                     <property role="Xl_RC" value="\\" />
                   </node>
@@ -2499,6 +2499,151 @@
                     <property role="Xl_RC" value="../" />
                   </node>
                 </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3s$Bmu" id="3pfvS1wcYCw" role="3s_gse">
+        <property role="3s$Bm0" value="nonExistentPath" />
+        <node concept="3cqZAl" id="3pfvS1wcYCx" role="3clF45" />
+        <node concept="3Tm1VV" id="3pfvS1wcYCy" role="1B3o_S" />
+        <node concept="3clFbS" id="3pfvS1wcYCz" role="3clF47">
+          <node concept="3SKdUt" id="3pfvS1wdzBD" role="3cqZAp">
+            <node concept="3SKdUq" id="3pfvS1wdzBF" role="3SKWNk">
+              <property role="3SKdUp" value="rph assumes its initial path is directory, i.e. &quot;someFolder/&quot;" />
+            </node>
+          </node>
+          <node concept="3cpWs8" id="3pfvS1wd8px" role="3cqZAp">
+            <node concept="3cpWsn" id="3pfvS1wd8py" role="3cpWs9">
+              <property role="TrG5h" value="rph" />
+              <node concept="3uibUv" id="3pfvS1wd8pa" role="1tU5fm">
+                <ref role="3uigEE" to="o3n2:5iAPpylXsc4" resolve="RelativePathHelper" />
+              </node>
+              <node concept="2ShNRf" id="3pfvS1wd8pz" role="33vP2m">
+                <node concept="1pGfFk" id="3pfvS1wd8p$" role="2ShVmc">
+                  <ref role="37wK5l" to="o3n2:1AfwOXhIBBI" resolve="RelativePathHelper" />
+                  <node concept="Xl_RD" id="3pfvS1wd8p_" role="37wK5m">
+                    <property role="Xl_RC" value="common-root/build/someFolder" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3SKdUt" id="3pfvS1wdNRk" role="3cqZAp">
+            <node concept="3SKdUq" id="3pfvS1wdNRm" role="3SKWNk">
+              <property role="3SKdUp" value="makeRelative doesn's assume whether it's file or directory, and shall keep result the same" />
+            </node>
+          </node>
+          <node concept="3cpWs8" id="3pfvS1wdgpa" role="3cqZAp">
+            <node concept="3cpWsn" id="3pfvS1wdgpb" role="3cpWs9">
+              <property role="TrG5h" value="r1" />
+              <node concept="17QB3L" id="3pfvS1wdgp7" role="1tU5fm" />
+              <node concept="2OqwBi" id="3pfvS1wdgpc" role="33vP2m">
+                <node concept="37vLTw" id="3pfvS1wdgpd" role="2Oq$k0">
+                  <ref role="3cqZAo" node="3pfvS1wd8py" resolve="rph" />
+                </node>
+                <node concept="liA8E" id="3pfvS1wdgpe" role="2OqNvi">
+                  <ref role="37wK5l" to="o3n2:5iAPpylXscy" resolve="makeRelative" />
+                  <node concept="Xl_RD" id="3pfvS1wdgpf" role="37wK5m">
+                    <property role="Xl_RC" value="common-root/code/other" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3cpWs8" id="3pfvS1wdh$j" role="3cqZAp">
+            <node concept="3cpWsn" id="3pfvS1wdh$k" role="3cpWs9">
+              <property role="TrG5h" value="r2" />
+              <node concept="17QB3L" id="3pfvS1wdh$l" role="1tU5fm" />
+              <node concept="2OqwBi" id="3pfvS1wdh$m" role="33vP2m">
+                <node concept="37vLTw" id="3pfvS1wdh$n" role="2Oq$k0">
+                  <ref role="3cqZAo" node="3pfvS1wd8py" resolve="rph" />
+                </node>
+                <node concept="liA8E" id="3pfvS1wdh$o" role="2OqNvi">
+                  <ref role="37wK5l" to="o3n2:5iAPpylXscy" resolve="makeRelative" />
+                  <node concept="Xl_RD" id="3pfvS1wdh$p" role="37wK5m">
+                    <property role="Xl_RC" value="common-root/code/other/" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbF" id="3pfvS1wdkU6" role="3cqZAp">
+            <node concept="2YIFZM" id="3pfvS1wdlsR" role="3clFbG">
+              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object)" resolve="assertEquals" />
+              <ref role="1Pybhc" to="rjhg:~Assert" resolve="Assert" />
+              <node concept="Xl_RD" id="3pfvS1wdq0t" role="37wK5m">
+                <property role="Xl_RC" value="../../code/other" />
+              </node>
+              <node concept="37vLTw" id="3pfvS1wdqLc" role="37wK5m">
+                <ref role="3cqZAo" node="3pfvS1wdgpb" resolve="r1" />
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbF" id="3pfvS1wdrpA" role="3cqZAp">
+            <node concept="2YIFZM" id="3pfvS1wdrpB" role="3clFbG">
+              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object)" resolve="assertEquals" />
+              <ref role="1Pybhc" to="rjhg:~Assert" resolve="Assert" />
+              <node concept="Xl_RD" id="3pfvS1wdrpC" role="37wK5m">
+                <property role="Xl_RC" value="../../code/other/" />
+              </node>
+              <node concept="37vLTw" id="3pfvS1wdsab" role="37wK5m">
+                <ref role="3cqZAo" node="3pfvS1wdh$k" resolve="r2" />
+              </node>
+            </node>
+          </node>
+          <node concept="3cpWs8" id="3pfvS1wgPBD" role="3cqZAp">
+            <node concept="3cpWsn" id="3pfvS1wgPBE" role="3cpWs9">
+              <property role="TrG5h" value="r3" />
+              <node concept="17QB3L" id="3pfvS1wgPBF" role="1tU5fm" />
+              <node concept="2OqwBi" id="3pfvS1wgPBG" role="33vP2m">
+                <node concept="37vLTw" id="3pfvS1wgPBH" role="2Oq$k0">
+                  <ref role="3cqZAo" node="3pfvS1wd8py" resolve="rph" />
+                </node>
+                <node concept="liA8E" id="3pfvS1wgPBI" role="2OqNvi">
+                  <ref role="37wK5l" to="o3n2:5iAPpylXscy" resolve="makeRelative" />
+                  <node concept="Xl_RD" id="3pfvS1wgPBJ" role="37wK5m">
+                    <property role="Xl_RC" value="common-root/build/someFolder" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3cpWs8" id="3pfvS1wgUDL" role="3cqZAp">
+            <node concept="3cpWsn" id="3pfvS1wgUDM" role="3cpWs9">
+              <property role="TrG5h" value="r4" />
+              <node concept="17QB3L" id="3pfvS1wgUDN" role="1tU5fm" />
+              <node concept="2OqwBi" id="3pfvS1wgUDO" role="33vP2m">
+                <node concept="37vLTw" id="3pfvS1wgUDP" role="2Oq$k0">
+                  <ref role="3cqZAo" node="3pfvS1wd8py" resolve="rph" />
+                </node>
+                <node concept="liA8E" id="3pfvS1wgUDQ" role="2OqNvi">
+                  <ref role="37wK5l" to="o3n2:5iAPpylXscy" resolve="makeRelative" />
+                  <node concept="Xl_RD" id="3pfvS1wgUDR" role="37wK5m">
+                    <property role="Xl_RC" value="common-root/build/someFolder/" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbF" id="3pfvS1wgNE8" role="3cqZAp">
+            <node concept="2YIFZM" id="3pfvS1wgNE9" role="3clFbG">
+              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object)" resolve="assertEquals" />
+              <ref role="1Pybhc" to="rjhg:~Assert" resolve="Assert" />
+              <node concept="Xl_RD" id="3pfvS1wgNEa" role="37wK5m" />
+              <node concept="37vLTw" id="3pfvS1wgXp6" role="37wK5m">
+                <ref role="3cqZAo" node="3pfvS1wgPBE" resolve="r3" />
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbF" id="3pfvS1wgWDw" role="3cqZAp">
+            <node concept="2YIFZM" id="3pfvS1wgWDx" role="3clFbG">
+              <ref role="37wK5l" to="rjhg:~Assert.assertEquals(java.lang.Object,java.lang.Object)" resolve="assertEquals" />
+              <ref role="1Pybhc" to="rjhg:~Assert" resolve="Assert" />
+              <node concept="Xl_RD" id="3pfvS1wgWDy" role="37wK5m" />
+              <node concept="37vLTw" id="3pfvS1wgY04" role="37wK5m">
+                <ref role="3cqZAo" node="3pfvS1wgUDM" resolve="r4" />
               </node>
             </node>
           </node>

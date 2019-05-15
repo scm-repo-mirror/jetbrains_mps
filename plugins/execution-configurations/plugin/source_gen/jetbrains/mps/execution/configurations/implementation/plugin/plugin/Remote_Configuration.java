@@ -13,8 +13,8 @@ import org.jdom.Element;
 import com.intellij.openapi.util.WriteExternalException;
 import com.intellij.util.xmlb.XmlSerializer;
 import com.intellij.openapi.util.InvalidDataException;
-import jetbrains.mps.debugger.java.api.settings.RemoteConnectionSettings;
 import org.apache.log4j.Level;
+import jetbrains.mps.debugger.java.api.settings.RemoteConnectionSettings;
 import com.intellij.openapi.project.Project;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import org.jetbrains.annotations.Nullable;
@@ -33,12 +33,15 @@ public class Remote_Configuration extends BaseMpsRunConfiguration implements IPe
   private static final Logger LOG = LogManager.getLogger(Remote_Configuration.class);
   @NotNull
   private Remote_Configuration.MyState myState = new Remote_Configuration.MyState();
+
+  @Override
   public void checkConfiguration(final PersistentConfigurationContext context) throws RuntimeConfigurationException {
   }
   @Override
   public void writeExternal(Element element) throws WriteExternalException {
     element.addContent(XmlSerializer.serialize(myState));
   }
+
   @Override
   public void readExternal(Element element) throws InvalidDataException {
     if (element == null) {
@@ -46,12 +49,7 @@ public class Remote_Configuration extends BaseMpsRunConfiguration implements IPe
     }
     XmlSerializer.deserializeInto(myState, (Element) element.getChildren().get(0));
   }
-  public RemoteConnectionSettings getSettings() {
-    return myState.mySettings;
-  }
-  public void setSettings(RemoteConnectionSettings value) {
-    myState.mySettings = value;
-  }
+
   @Override
   public Remote_Configuration clone() {
     Remote_Configuration clone = createCloneTemplate();
@@ -66,10 +64,18 @@ public class Remote_Configuration extends BaseMpsRunConfiguration implements IPe
     }
     return clone;
   }
+
+  public RemoteConnectionSettings getSettings() {
+    return myState.mySettings;
+  }
+
+  public void setSettings(RemoteConnectionSettings value) {
+    myState.mySettings = value;
+  }
+
   public final class MyState {
     public RemoteConnectionSettings mySettings = new RemoteConnectionSettings("localhost", 5005);
-    public MyState() {
-    }
+
     @Override
     public Object clone() throws CloneNotSupportedException {
       Remote_Configuration.MyState state = new Remote_Configuration.MyState();

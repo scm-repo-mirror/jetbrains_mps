@@ -24,7 +24,6 @@ import com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode;
 import com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode;
 import com.intellij.ide.projectView.impl.nodes.PsiFileNode;
 import com.intellij.openapi.module.Module;
-import com.intellij.openapi.module.ModuleUtil;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.extapi.persistence.SourceRoot;
@@ -46,11 +45,13 @@ import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.persistence.ModelRoot;
 
 import javax.swing.JComponent;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class ModelOrNodeChooser extends ProjectViewPane implements ModelElementTargetChooser {
@@ -72,6 +73,18 @@ public class ModelOrNodeChooser extends ProjectViewPane implements ModelElementT
   }
 
   protected ProjectAbstractTreeStructureBase createStructure() {
+    List<String> sourceRoots = new ArrayList<>();
+    ProjectHelper.fromIdeaProject(myProject).getModelAccess().runReadAction(() -> {
+      for (SModule module: ProjectHelper.fromIdeaProject(myProject).getProjectModules()) {
+        for (ModelRoot modelRoot : module.getModelRoots()) {
+          if (modelRoot instanceof DefaultModelRoot) {
+            for (SourceRoot sourceRoot : ((DefaultModelRoot) modelRoot).getSourceRoots(SourceRootKinds.SOURCES)) {
+              sourceRoots.add(sourceRoot.getAbsolutePath().getPath());
+            }
+          }
+        }
+      }
+    });
     return new ProjectTreeStructure(myProject, ID) {
       public Object[] getChildElements(Object element) {
         final ArrayList<Object> result = new ArrayList<Object>();
@@ -87,8 +100,20 @@ public class ModelOrNodeChooser extends ProjectViewPane implements ModelElementT
               result.add(o);
             } else if (o instanceof PsiDirectoryNode) {
               VirtualFile virtualFile = ((PsiDirectoryNode) o).getVirtualFile();
-              Module module = virtualFile == null ? null : ModuleUtil.findModuleForFile(virtualFile, myProject);
-              if (module != null && isModelRootOrParent(module, virtualFile)) {
+              if (virtualFile == null) {
+                continue;
+              }
+              if (!(virtualFile.isDirectory())) {
+                continue;
+              }
+              if (!virtualFile.isInLocalFileSystem()) {
+                // no idea why restrict to local fs, just a replacement for ugly
+                //    LocalFileSystem.PROTOCOL.equals(VirtualFileManager.extractProtocol(virtualFile.getUrl()))
+                continue;
+              }
+              String virtualFilePath = virtualFile.getPath();
+              boolean containsSourceRoots = sourceRoots.stream().anyMatch(s -> FileUtil.isAncestor(virtualFilePath, s) || FileUtil.isAncestor(s, virtualFilePath));
+              if (containsSourceRoots) {
                 result.add(o);
               }
             } else if (o instanceof ProjectViewModuleNode && hasModelRoots(((ProjectViewModuleNode) o).getValue())) {
@@ -140,7 +165,7 @@ public class ModelOrNodeChooser extends ProjectViewPane implements ModelElementT
         continue;
       }
       for (SourceRoot sourceRoot : ((DefaultModelRoot) mr).getSourceRoots(SourceRootKinds.SOURCES)) {
-        String srcRootLocation = sourceRoot.getPath();
+        String srcRootLocation = sourceRoot.getAbsolutePath().getPath();
         if (FileUtil.isAncestor(path, srcRootLocation)) {
           // vf is (grand-)parent of the source root
           return true;

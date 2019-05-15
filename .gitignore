@@ -2,7 +2,7 @@
 /config
 
 # idea integration plugin artifact
-/plugins/ideaIntegration/IDEAPlugin/mps-idea-integration-plugin.jar
+/plugins/mps-idea-integration/IDEAPlugin/mps-idea-integration-plugin.jar
 
 # MacOS user UI setting related file
 .DS_Store
@@ -34,26 +34,24 @@ teamcity-info.xml
 *.class
 
 # Plugins related excludes:
-# * Platform bundled plagins
+# * Platform bundled plugins
 # * Downloadable plugin libraries
 /plugins/debugger-api/lib
 /plugins/debugger-java/lib
-/plugins/vcs/lib/
-/plugins/mpsjava/lib/
+/plugins/mps-vcs/lib/
+/plugins/mps-java/lib/
 /plugins/mps-java-workbench/lib/
 /plugins/execution-languages/lib
 /plugins/execution-configurations/lib
-/plugins/mps-execution-deprecated/lib
 /plugins/jetpad/lib
 /plugins/jetpad/lib/*.war
 /plugins/jetpad/lib/jetpadBuildNumber.txt
-/plugins/cvsIntegration/lib
 /plugins/git4idea/lib
 /plugins/github
 /plugins/svn4idea/lib
 /plugins/mps-testing/lib
 /plugins/terminal
-/plugins/migration/migration-platform/lib
+/plugins/mps-migration/migration-platform/lib
 
 # Main libraries folder: dependencies are downloaded before complilation with task 'install' from build/getDependencies.xml
 /lib/

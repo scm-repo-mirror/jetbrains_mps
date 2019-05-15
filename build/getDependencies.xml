@@ -85,6 +85,9 @@
     <loadfile property="current.version" srcfile="${basedir}/../lib/build.txt">
       <filterchain>
         <replacestring from="MPS-" to=""/>
+        <!-- TODO: fix prefix in platform build -->
+        <!-- Quick fix: wrong prefix in build.txt -->
+        <replacestring from="IC-" to=""/>
         <striplinebreaks/>
       </filterchain>
     </loadfile>
@@ -168,9 +171,11 @@
 
   <target name="download-platform" depends="check-platform,install-ivy" if="${do.platform.download}"
           description="Download platform based on IDEA Community from TeamCity">
-    <antcall target="clean-platform"/>
     <ivy:resolve file="ivy.xml" showprogress="true"/>
     <ivy:retrieve pattern="${basedir}/../[artifact].[ext]" overwritemode="different"/>
+
+    <!-- Delete current platform only after successful download of new one -->
+    <antcall target="clean-platform"/>
 
     <unzip src="${basedir}/../mps-platform.zip" dest="${basedir}/../" overwrite="true">
       <!--TODO use license files from IDEA Community-->
@@ -239,7 +244,6 @@
       </fileset>
     </delete>
 
-    <delete dir="${basedir}/../plugins/cvsIntegration/lib" failonerror="false"/>
     <delete dir="${basedir}/../plugins/git4idea/lib" failonerror="false"/>
     <delete dir="${basedir}/../plugins/github" failonerror="false"/>
     <delete dir="${basedir}/../plugins/svn4idea/lib" failonerror="false"/>

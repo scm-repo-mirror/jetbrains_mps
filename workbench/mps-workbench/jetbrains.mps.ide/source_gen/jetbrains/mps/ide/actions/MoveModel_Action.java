@@ -25,12 +25,17 @@ import jetbrains.mps.refactoring.participant.RefactoringParticipant;
 import jetbrains.mps.smodel.structure.ExtensionPoint;
 import jetbrains.mps.refactoring.participant.MoveModelRefactoringParticipant;
 import jetbrains.mps.ide.platform.actions.core.RefactoringProcessor;
-import jetbrains.mps.refactoring.participant.RefactoringSession;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.ide.dialogs.project.creation.NewModelDialog;
+import jetbrains.mps.refactoring.participant.RefactoringSession;
+import jetbrains.mps.smodel.SModelInternal;
 import jetbrains.mps.project.AbstractModule;
+import java.util.Collection;
+import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager;
+import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.workbench.actions.model.DeleteModelHelper;
 import jetbrains.mps.ide.platform.actions.core.DefaultRefactoringUI;
+import jetbrains.mps.ide.dialogs.project.creation.ModelCreateHelper;
 
 public class MoveModel_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -125,25 +130,32 @@ public class MoveModel_Action extends BaseAction {
         return ListSequence.fromListAndArray(new ArrayList<SModel>(), ((SModel) MapSequence.fromMap(_params).get("model")));
       }
       private EditableSModel newModel = null;
-      public void doRefactor(Iterable<RefactoringParticipant.ParticipantApplied<?, ?, SModel, SModel, SModel, SModel>> participantStates, RefactoringSession refactoringSession) {
+      public void prepareRefactoring() {
         final Wrappers._T<NewModelDialog> dialog = new Wrappers._T<NewModelDialog>();
         ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository().getModelAccess().runReadAction(new Runnable() {
           public void run() {
-            dialog.value = new NewModelDialog(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), (AbstractModule) selectedModule.resolve(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository()), ((SModel) MapSequence.fromMap(_params).get("model")));
+            dialog.value = NewModelDialog.createForMoveModel(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), selectedModule.resolve(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository()), ((SModel) MapSequence.fromMap(_params).get("model")).getName());
           }
         });
         dialog.value.show();
-        newModel = dialog.value.getResult();
+        newModel = check_pp3sda_a0d0e0a0a01a7(check_pp3sda_a0a3a4a0a0k0h(dialog.value.getResultHelper(), _params));
+      }
+      public void doRefactor(Iterable<RefactoringParticipant.ParticipantApplied<?, ?, SModel, SModel, SModel, SModel>> participantStates, RefactoringSession refactoringSession) {
         if (newModel == null) {
           return;
         }
 
-        ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository().getModelAccess().executeCommand(new Runnable() {
-          public void run() {
-            UpdateDependentModelsRefactoringParticipant.updateUsages(newModel, modelReference, newModel.getReference());
-            DeleteModelHelper.delete(((SModel) MapSequence.fromMap(_params).get("model")).getModule(), ((SModel) MapSequence.fromMap(_params).get("model")), true);
+        if (newModel instanceof SModelInternal && newModel.getModule() instanceof AbstractModule) {
+          Collection<SModule> exisingModuleDependencies = new GlobalModuleDependenciesManager(newModel.getModule()).getModules(GlobalModuleDependenciesManager.Deptype.VISIBLE);
+          for (SModelReference dependency : CollectionSequence.fromCollection(((SModelInternal) newModel).getModelImports())) {
+            SModule depModule = dependency.resolve(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository()).getModule();
+            if (!(exisingModuleDependencies.contains(depModule))) {
+              ((AbstractModule) newModel.getModule()).addDependency(depModule.getModuleReference(), false);
+            }
           }
-        });
+        }
+        UpdateDependentModelsRefactoringParticipant.updateUsages(newModel, modelReference, newModel.getReference());
+        DeleteModelHelper.delete(((SModel) MapSequence.fromMap(_params).get("model")).getModule(), ((SModel) MapSequence.fromMap(_params).get("model")), true);
       }
       public SModel getFinalStateFor(SModel initialState) {
         return newModel;
@@ -154,5 +166,17 @@ public class MoveModel_Action extends BaseAction {
     };
 
     RefactoringProcessor.performRefactoringInProject(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), new DefaultRefactoringUI(((MPSProject) MapSequence.fromMap(_params).get("mpsProject"))), refactoringBody);
+  }
+  private static EditableSModel check_pp3sda_a0d0e0a0a01a7(ModelCreateHelper checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.createModelHandleExceptions();
+    }
+    return null;
+  }
+  private static ModelCreateHelper check_pp3sda_a0a3a4a0a0k0h(ModelCreateHelper checkedDotOperand, Map<String, Object> _params) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.setClone(((SModel) MapSequence.fromMap(_params).get("model")), true);
+    }
+    return null;
   }
 }

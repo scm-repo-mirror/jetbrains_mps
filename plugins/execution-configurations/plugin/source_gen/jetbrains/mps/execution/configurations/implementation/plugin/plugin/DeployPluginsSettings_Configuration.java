@@ -8,27 +8,51 @@ import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.execution.api.settings.PersistentConfigurationContext;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
+import java.util.List;
+import org.jetbrains.mps.openapi.model.SNodeReference;
+import jetbrains.mps.project.MPSProject;
+import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import com.intellij.execution.configurations.RuntimeConfigurationError;
 import org.jdom.Element;
 import com.intellij.openapi.util.WriteExternalException;
 import com.intellij.util.xmlb.XmlSerializer;
 import com.intellij.openapi.util.InvalidDataException;
-import jetbrains.mps.execution.lib.ClonableList;
-import java.util.List;
-import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.execution.lib.PointerUtils;
 import org.apache.log4j.Level;
+import jetbrains.mps.execution.lib.ClonableList;
 import com.intellij.openapi.project.Project;
 
 public class DeployPluginsSettings_Configuration implements IPersistentConfiguration {
   private static final Logger LOG = LogManager.getLogger(DeployPluginsSettings_Configuration.class);
   @NotNull
   private DeployPluginsSettings_Configuration.MyState myState = new DeployPluginsSettings_Configuration.MyState();
+
+  @Override
   public void checkConfiguration(final PersistentConfigurationContext context) throws RuntimeConfigurationException {
+    final List<SNodeReference> nodeRefList = getPluginsListToDeploy();
+    final MPSProject mpsProject = ProjectHelper.fromIdeaProject(myProject);
+    final Wrappers._T<SNodeReference> notResolvedPlugin = new Wrappers._T<SNodeReference>(null);
+    mpsProject.getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        for (SNodeReference pluginRef : ListSequence.fromList(nodeRefList)) {
+          if (pluginRef.resolve(mpsProject.getRepository()) == null) {
+            notResolvedPlugin.value = pluginRef;
+            break;
+          }
+        }
+      }
+    });
+    if (notResolvedPlugin.value != null) {
+      throw new RuntimeConfigurationError("The plugin " + notResolvedPlugin.value + " is not found in the project");
+    }
   }
   @Override
   public void writeExternal(Element element) throws WriteExternalException {
     element.addContent(XmlSerializer.serialize(myState));
   }
+
   @Override
   public void readExternal(Element element) throws InvalidDataException {
     if (element == null) {
@@ -36,12 +60,7 @@ public class DeployPluginsSettings_Configuration implements IPersistentConfigura
     }
     XmlSerializer.deserializeInto(myState, (Element) element.getChildren().get(0));
   }
-  public ClonableList<String> getPluginsToDeploy() {
-    return myState.myPluginsToDeploy;
-  }
-  public void setPluginsToDeploy(ClonableList<String> value) {
-    myState.myPluginsToDeploy = value;
-  }
+
   public List<SNodeReference> getPluginsListToDeploy() {
     return PointerUtils.clonableListToNodes(this.getPluginsToDeploy());
   }
@@ -59,10 +78,18 @@ public class DeployPluginsSettings_Configuration implements IPersistentConfigura
     }
     return clone;
   }
+
+  public ClonableList<String> getPluginsToDeploy() {
+    return myState.myPluginsToDeploy;
+  }
+
+  public void setPluginsToDeploy(ClonableList<String> value) {
+    myState.myPluginsToDeploy = value;
+  }
+
   public final class MyState {
     public ClonableList<String> myPluginsToDeploy = new ClonableList<String>();
-    public MyState() {
-    }
+
     @Override
     public Object clone() throws CloneNotSupportedException {
       DeployPluginsSettings_Configuration.MyState state = new DeployPluginsSettings_Configuration.MyState();
@@ -72,14 +99,14 @@ public class DeployPluginsSettings_Configuration implements IPersistentConfigura
       return state;
     }
   }
-  public DeployPluginsSettings_Configuration(Project p) {
-    myp = p;
+  public DeployPluginsSettings_Configuration(Project project) {
+    myProject = project;
   }
-  private final Project myp;
+  private final Project myProject;
   public DeployPluginsSettings_Configuration createCloneTemplate() {
-    return new DeployPluginsSettings_Configuration(myp);
+    return new DeployPluginsSettings_Configuration(myProject);
   }
   public DeployPluginsSettings_Configuration_Editor getEditor() {
-    return new DeployPluginsSettings_Configuration_Editor(myp);
+    return new DeployPluginsSettings_Configuration_Editor(myProject);
   }
 }

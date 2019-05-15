@@ -4,7 +4,7 @@
   <languages>
     <use id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal" version="0" />
     <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="2" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="0" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
     <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="1" />
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="1" />
     <use id="c0080a47-7e37-4558-bee9-9ae18e690549" name="jetbrains.mps.lang.extension" version="2" />
@@ -482,7 +482,7 @@
                 <ref role="3cqZAo" node="2KgYA8kbSQe" resolve="ep" />
               </node>
               <node concept="liA8E" id="3R7uD3D6nVm" role="2OqNvi">
-                <ref role="37wK5l" to="bmr5:~ExtensionPoint.getObjects():java.lang.Iterable" resolve="getObjects" />
+                <ref role="37wK5l" to="bmr5:~ExtensionPoint.getObjects()" resolve="getObjects" />
                 <node concept="raruj" id="3R7uD3D6nVn" role="lGtFl" />
               </node>
             </node>
@@ -849,7 +849,7 @@
       <node concept="3clFbS" id="7DC90rsHGpi" role="3clF47">
         <node concept="3clFbF" id="3vRuGRSbkm" role="3cqZAp">
           <node concept="2YIFZM" id="3vRuGRSbko" role="3clFbG">
-            <ref role="37wK5l" to="33ny:~Arrays.asList(java.lang.Object...):java.util.List" resolve="asList" />
+            <ref role="37wK5l" to="33ny:~Arrays.asList(java.lang.Object...)" resolve="asList" />
             <ref role="1Pybhc" to="33ny:~Arrays" resolve="Arrays" />
             <node concept="37vLTw" id="2BHiRxeu_85" role="37wK5m">
               <ref role="3cqZAo" node="3vRuGRRYTR" resolve="extensionPoints" />
@@ -897,7 +897,7 @@
       <node concept="3clFbS" id="7DC90rsHGpr" role="3clF47">
         <node concept="3clFbF" id="3vRuGRSbks" role="3cqZAp">
           <node concept="2YIFZM" id="3vRuGRSbku" role="3clFbG">
-            <ref role="37wK5l" to="33ny:~Arrays.asList(java.lang.Object...):java.util.List" resolve="asList" />
+            <ref role="37wK5l" to="33ny:~Arrays.asList(java.lang.Object...)" resolve="asList" />
             <ref role="1Pybhc" to="33ny:~Arrays" resolve="Arrays" />
             <node concept="37vLTw" id="2BHiRxeumRi" role="37wK5m">
               <ref role="3cqZAo" node="3vRuGRRZIe" resolve="extensions" />

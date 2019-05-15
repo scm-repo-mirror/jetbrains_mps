@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 package jetbrains.mps.ide.ui.tree.smodel;
 
 import jetbrains.mps.ide.icons.GlobalIconManager;
+import jetbrains.mps.ide.ui.tree.MPSTreeChildOrder;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.ide.ui.tree.MPSTreeNodeEx;
 import jetbrains.mps.ide.ui.tree.TreeElement;
@@ -23,10 +24,7 @@ import jetbrains.mps.ide.ui.tree.TreeNodeTextSource;
 import jetbrains.mps.ide.ui.tree.TreeNodeVisitor;
 import jetbrains.mps.smodel.DependencyRecorder;
 import jetbrains.mps.smodel.SNodeUtil;
-import jetbrains.mps.util.ConditionalIterable;
-import jetbrains.mps.util.SNodePresentationComparator;
 import jetbrains.mps.util.ToStringComparator;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -43,27 +41,24 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 public class SModelTreeNode extends MPSTreeNode implements TreeElement {
-
   private final SModel myModelDescriptor;
   private final TreeNodeTextSource<SModelTreeNode> myTextSource;
   private List<SModelTreeNode> myChildModelTreeNodes = new ArrayList<>();
 
+  private boolean myPackagesEnabled;
   private boolean myInitialized = false;
   private boolean myInitializing = false;
   private List<SNodeGroupTreeNode> myRootGroups = new ArrayList<>();
 
-  private final Condition<SNode> myNodesCondition;
-
   private final DependencyRecorder<SNodeTreeNode> myDependencyRecorder = new DependencyRecorder<>();
 
+  // the only reason to keep this map is its use through insertRoots()
   private Map<String, PackageNode> myPackageNodes = new HashMap<>();
   private Icon myBaseIcon;
 
-    public SModelTreeNode(@NotNull SModel model) {
+  public SModelTreeNode(@NotNull SModel model) {
     this(model, new LongModelNameText());
   }
 
@@ -78,9 +73,9 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
     Icon icon = GlobalIconManager.getInstance().getIconFor(model);
     setIcon(icon);
     setBaseIcon(icon);
-    myNodesCondition = Condition.TRUE_CONDITION;
     // invocation of external code with not completely initialized this is bad. Perhaps, shall rely on doUpdatePresentation invoked from onAdd()?
     setText(myTextSource.calculateText(this));
+    myPackagesEnabled = true;
   }
 
   public void setBaseIcon(@Nullable Icon baseIcon) {
@@ -99,15 +94,6 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
     return myBaseIcon;
   }
 
-  /**
-   * @deprecated renamed to {@link #getBaseIcon()}
-   */
-  @Deprecated
-  @ToRemove(version = 3.3)
-  public Icon getDefaultIcon() {
-    return getBaseIcon();
-  }
-
   @Override
   public boolean isLeaf() {
     return false;
@@ -123,8 +109,7 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
   }
 
   protected SNodeGroupTreeNode getNodeGroupFor(SNode node) {
-    boolean packagesEnabled = true;
-    if (!packagesEnabled) {
+    if (!myPackagesEnabled) {
       return null;
     }
 
@@ -145,7 +130,7 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
           PackageNode parent = current;
           current = new PackageNode(this, aPackage, parent);
           myPackageNodes.put(pack, current);
-          current.registerInModelNode(this, parent);
+          register(parent, current);
         }
 
         current = myPackageNodes.get(pack);
@@ -156,14 +141,13 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
     return null;
   }
 
-  void register(SNodeGroupTreeNode parent, SNodeGroupTreeNode groupTreeNode) {
+  private void register(SNodeGroupTreeNode parent, SNodeGroupTreeNode groupTreeNode) {
+    final String rp = groupTreeNode.getText();
     if (parent == null) {
       int index = -1;
       for (int i = 0; i < myRootGroups.size(); i++) {
         SNodeGroupTreeNode group = myRootGroups.get(i);
-        String rp = groupTreeNode.toString();
-        String cp = group.toString();
-        if (rp.compareTo(cp) < 0) {
+        if (rp.compareTo(group.getText()) < 0) {
           index = i;
           break;
         }
@@ -187,9 +171,7 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
         }
         groupCount++;
         SNodeGroupTreeNode group = (SNodeGroupTreeNode) parent.getChildAt(i);
-        String rp = groupTreeNode.toString();
-        String cp = group.toString();
-        if (rp.compareTo(cp) < 0) {
+        if (rp.compareTo(group.getText()) < 0) {
           index = i;
           break;
         }
@@ -242,7 +224,7 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
 
   @NotNull
   public final SNodeTreeNode createSNodeTreeNode(SNode node, String role) {
-    return createSNodeTreeNode(node, role, Condition.TRUE_CONDITION);
+    return createSNodeTreeNode(node, role, Condition.always());
   }
 
   @NotNull
@@ -253,43 +235,6 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
   @Override
   public boolean isInitialized() {
     return myInitialized;
-  }
-
-  public boolean isSubfolderModel(@NotNull SModel candidate) {
-    final String modelName = myModelDescriptor.getName().getLongName();
-    String candidateName = candidate.getName().getLongName();
-    if (!candidateName.startsWith(modelName) || modelName.equals(candidateName)) {
-      return false;
-    }
-    if (candidateName.charAt(modelName.length()) == '.') {
-      String modelStereotype = myModelDescriptor.getName().getStereotype();
-      String candidateStereotype = candidate.getName().getStereotype();
-      if (!modelStereotype.equals(candidateStereotype)) {
-        return false;
-      }
-      String shortName = candidateName.substring(modelName.length() + 1);
-      if (shortName.indexOf('.') > 0) {
-        String maxPackage = candidateName.substring(0, candidateName.lastIndexOf('.'));
-        // Imagine, we need to figure out whether a.b.c.d is subfolder model of a.b (iow, 'a.b'.isSubfolderModel('a.b.c.d'))
-        // Guess, 'subfolder' means 'shall be displayed as my immediate child' here.
-        // As I understood, the idea is to check whether there's model a.b.c (sic!) inside same module and thus candidate model
-        // shall get reported as its subfolder rather than that of myModelDescriptor.
-        // XXX there's a defect that two models like a.b.x.y1 and a.b.x.y2 (namely, jetbrains.mps.ide solution,
-        //     findusages.findalgorithm.finders.specific and findusages.view.optionseditor)
-        //     are visualized as distinct x.y1 and x.y2 when there's no a.b.x model (i.e. they are not grouped under
-        //     same 'x' node unless there are nodes in 'x' model).
-        //     Another defect in present implementation is that it doesn't take into account actual set of visualized models
-        //     and assumes all models of a module are visible, but this can't be fixed unless the whole approach (see below) is fixed.
-        // FIXME This whole code with implicit assumption of iterating over models from the same module, and recursive processing of
-        //       sorted(!) collection of models with int index (i.e. SModelsSubtree.buildChildModels()) needs refactoring.
-        //       Sorting ensures we didn't create SModelTreeNode for a child before the one for the parent.
-        //       Can't refactor right away as mbeddr subclasses our tree nodes and heavily relies on implementation.
-        final Stream<SModel> modelsInMyModule = StreamSupport.stream(myModelDescriptor.getModule().getModels().spliterator(), false);
-        return !modelsInMyModule.anyMatch(m -> maxPackage.equals(m.getName().getLongName()));
-      }
-      return true;
-    }
-    return false;
   }
 
   public void addChildModel(SModelTreeNode model) {
@@ -333,24 +278,16 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
       myRootGroups.clear();
 
       for (SModelTreeNode newChildModel : myChildModelTreeNodes) {
-        DefaultTreeModel treeModel = getTree().getModel();
-        int index = myChildModelTreeNodes.indexOf(newChildModel);
-        treeModel.insertNodeInto(newChildModel, this, index);
+        add(newChildModel);
       }
       org.jetbrains.mps.openapi.model.SModel model = getModel();
 
       List<SNode> filteredRoots = new ArrayList<>();
-      for (SNode node : new ConditionalIterable<>(model.getRootNodes(), myNodesCondition)) {
+      for (SNode node : model.getRootNodes()) {
         filteredRoots.add(node);
       }
-      Comparator<Object> childrenComparator = getTree().getChildrenComparator();
-      if (childrenComparator != null) {
-        Collections.sort(filteredRoots, childrenComparator);
-      } else {
-        Collections.sort(filteredRoots, new SNodePresentationComparator());
-      }
       for (SNode sortedRoot : filteredRoots) {
-        MPSTreeNodeEx treeNode = createSNodeTreeNode(sortedRoot, myNodesCondition);
+        MPSTreeNodeEx treeNode = createSNodeTreeNode(sortedRoot);
         MPSTreeNode group = getNodeGroupFor(sortedRoot);
         if (group != null) {
           group.add(treeNode);
@@ -359,7 +296,15 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
         }
       }
 
-      DefaultTreeModel treeModel = getTree().getModel();
+      if (getTree() instanceof MPSTreeChildOrder) {
+        final ArrayList<MPSTreeNode> copyToSort = new ArrayList<>(getChildren());
+        if (((MPSTreeChildOrder) getTree()).reorder(this, copyToSort)) {
+          removeAllChildren();
+          copyToSort.forEach(this::add);
+        }
+      }
+
+      final DefaultTreeModel treeModel = getTree().getModel();
       treeModel.nodeStructureChanged(this);
     } finally {
       myInitialized = true;
@@ -390,7 +335,7 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
     //so we merge the two by always remembering the last insertion point
     final HashMap<MPSTreeNode, Integer> lastPositions = new HashMap<>();
     for (SNode root : added) {
-      SNodeTreeNode nodeToInsert = new SNodeTreeNode(root);
+      SNodeTreeNode nodeToInsert = createSNodeTreeNode(root);
       MPSTreeNode targetNode = getNodeGroupFor(root);
 
       if (targetNode == null) {

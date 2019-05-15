@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,9 @@
  */
 package jetbrains.mps.classloading;
 
+import jetbrains.mps.classloading.DeployListener.ResourceTrackerCallback;
+import jetbrains.mps.classloading.MPSClassLoadersRegistry.ModuleClassLoaderDisposer;
+import jetbrains.mps.classloading.MPSClassLoadersRegistry.ModuleClassLoaderDisposer.DisposeSession;
 import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.module.ReloadableModuleBase;
 import org.apache.log4j.LogManager;
@@ -37,32 +40,17 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class ClassLoadingBroadCaster {
   private static final Logger LOG = LogManager.getLogger(ClassLoadingBroadCaster.class);
+
   private final LinkedHashSet<ReloadableModule> myLoadedModules = new LinkedHashSet<>();
   private final ModelAccess myModelAccess;
+  private final ModuleClassLoaderDisposer myDisposer;
 
   // reload handlers
-  private final List<MPSClassesListener> myClassesHandlers = new CopyOnWriteArrayList<>();
-  private final List<ModuleReloadListener> myReloadListeners = new CopyOnWriteArrayList<>();
   private final List<DeployListener> myDeployListeners = new CopyOnWriteArrayList<>();
 
-  public ClassLoadingBroadCaster(ModelAccess modelAccess) {
+  public ClassLoadingBroadCaster(@NotNull ModelAccess modelAccess, @NotNull ModuleClassLoaderDisposer disposer) {
     myModelAccess = modelAccess;
-  }
-
-  public void addClassesHandler(MPSClassesListener handler) {
-    myClassesHandlers.add(handler);
-  }
-
-  public void removeClassesHandler(MPSClassesListener handler) {
-    myClassesHandlers.remove(handler);
-  }
-
-  public void addReloadListener(ModuleReloadListener listener) {
-    myReloadListeners.add(listener);
-  }
-
-  public void removeReloadListener(ModuleReloadListener listener) {
-    myReloadListeners.remove(listener);
+    myDisposer = disposer;
   }
 
   public Set<ReloadableModule> onUnload(Collection<? extends SModuleReference> refsToUnload, @NotNull ProgressMonitor monitor) {
@@ -83,32 +71,25 @@ public class ClassLoadingBroadCaster {
     myLoadedModules.removeAll(modulesToUnload);
 
     try {
-      monitor.start("Broadcasting Events", myClassesHandlers.size() + myDeployListeners.size());
-      for (MPSClassesListener listener : myClassesHandlers) {
-        try {
-          listener.onUnloaded(modulesToUnload, monitor.subTask(1));
-        } catch (VirtualMachineError e) {
-          throw e;
-        } catch (Throwable e) {
-          LOG.error(String.format("Caught exception from the listener %s. Will continue.", listener), e);
-        }
-      }
+      monitor.start("Broadcasting Unload Events", 2 * myDeployListeners.size());
+      DisposeSession session = myDisposer.createSession(modulesToUnload);
+      ResourceTrackerCallback trackerCallback = session.getTrackerCallback();
       for (DeployListener listener : myDeployListeners) {
         try {
           listener.onUnloaded(modulesToUnload, monitor.subTask(1));
+          listener.onUnloaded(trackerCallback, monitor.subTask(1));
         } catch (VirtualMachineError e) {
           throw e;
         } catch (Throwable e) {
           LOG.error(String.format("Caught exception from the listener %s. Will continue.", listener), e);
         }
       }
+      session.disposeNowOrLater();
     } finally {
       monitor.done();
     }
 
-    final Set<ReloadableModule> resultingUnload = new LinkedHashSet<>();
-    resultingUnload.addAll(modulesToUnload);
-    return resultingUnload;
+    return new LinkedHashSet<>(modulesToUnload);
   }
 
   public void onLoad(Set<ReloadableModule> toLoad, @NotNull ProgressMonitor monitor) {
@@ -122,17 +103,8 @@ public class ClassLoadingBroadCaster {
     myLoadedModules.addAll(modulesToLoad);
 
     try {
-      monitor.start("Broadcasting Events", myClassesHandlers.size() + myDeployListeners.size());
+      monitor.start("Broadcasting Load Events", myDeployListeners.size());
       for (DeployListener listener : myDeployListeners) {
-        try {
-          listener.onLoaded(toLoad, monitor.subTask(1));
-        } catch (VirtualMachineError e) {
-          throw e;
-        } catch (Throwable e) {
-          LOG.error(String.format("Caught exception from the listener %s. Will continue.", listener), e);
-        }
-      }
-      for (MPSClassesListener listener : myClassesHandlers) {
         try {
           listener.onLoaded(toLoad, monitor.subTask(1));
         } catch (VirtualMachineError e) {
@@ -143,18 +115,6 @@ public class ClassLoadingBroadCaster {
       }
     } finally {
       monitor.done();
-    }
-  }
-
-  public void onReload(Collection<ReloadableModule> reloadedModules) {
-    if (reloadedModules.isEmpty()) return;
-
-    myModelAccess.checkWriteAccess();
-    final Set<ReloadableModule> modulesToReload = new LinkedHashSet<>(reloadedModules.size());
-    modulesToReload.addAll(reloadedModules);
-
-    for (ModuleReloadListener listener : myReloadListeners) {
-      listener.modulesReloaded(modulesToReload);
     }
   }
 

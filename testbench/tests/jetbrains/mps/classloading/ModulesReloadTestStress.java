@@ -45,9 +45,9 @@ public class ModulesReloadTestStress extends ModulesReloadTest {
 
     private void checkModuleWatched(SModule module) {
       if (module instanceof ReloadableModule) {
-        ReloadableModuleBase reloadableModuleBase = (ReloadableModuleBase) module;
-        reloadableModuleBase.getClassLoader(); // to initiate a refresh session in CLManager
-        assertTrue("The module " + module + " is not watched by class loading", myModulesWatcher.isModuleWatched(reloadableModuleBase));
+        ReloadableModule reloadableModule = (ReloadableModule) module;
+        reloadableModule.getClassLoader(); // to initiate a refresh session in CLManager
+        assertTrue("The module " + module + " is not watched by class loading", myModulesWatcher.isModuleWatched(reloadableModule));
       }
     }
   };

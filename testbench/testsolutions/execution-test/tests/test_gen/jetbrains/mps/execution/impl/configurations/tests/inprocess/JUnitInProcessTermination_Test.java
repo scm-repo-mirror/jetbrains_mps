@@ -16,8 +16,11 @@ import jetbrains.mps.smodel.SNodePointer;
 import java.util.List;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.TestRunState;
-import jetbrains.mps.execution.configurations.implementation.plugin.plugin.Executor;
-import jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitInProcessExecutor;
+import com.intellij.openapi.project.Project;
+import jetbrains.mps.project.MPSProject;
+import jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitTests_Configuration;
+import jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitProcessStarter;
+import jetbrains.mps.execution.configurations.implementation.plugin.plugin.JUnitInProcessRunStarter;
 import jetbrains.mps.lang.test.util.TestInProcessRunState;
 import com.intellij.execution.process.ProcessHandler;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
@@ -63,8 +66,9 @@ public class JUnitInProcessTermination_Test extends BaseTransformationTest {
     public void startAndTerminate(final List<ITestNodeWrapper> testNodes) {
       try {
         final TestRunState runState = new TestRunState(testNodes);
-
-        Executor processExecutor = new JUnitInProcessExecutor(myProject, "testtest", testNodes);
+        Project ideaProject = ((MPSProject) myProject).getProject();
+        JUnitTests_Configuration junitRC = new JUnitTests_Configuration(ideaProject, null, "dummyRCInitializer");
+        JUnitProcessStarter processExecutor = new JUnitInProcessRunStarter(myProject, junitRC, testNodes);
         final TestInProcessRunState lightState = TestInProcessRunState.getInstance();
         if (LOG.isInfoEnabled()) {
           LOG.info("Starting in-process-execution");

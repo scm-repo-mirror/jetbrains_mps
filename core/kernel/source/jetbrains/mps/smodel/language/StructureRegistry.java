@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,9 +15,11 @@
  */
 package jetbrains.mps.smodel.language;
 
+import gnu.trove.THashSet;
 import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
 import jetbrains.mps.smodel.adapter.ids.SConceptId;
 import jetbrains.mps.smodel.adapter.ids.SDataTypeId;
+import jetbrains.mps.smodel.adapter.ids.SLanguageId;
 import jetbrains.mps.smodel.runtime.ConceptDescriptor;
 import jetbrains.mps.smodel.runtime.DataTypeDescriptor;
 import jetbrains.mps.smodel.runtime.StructureAspectDescriptor;
@@ -26,7 +28,9 @@ import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Collections;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -42,6 +46,7 @@ public class StructureRegistry implements CoreAspectRegistry {
   private static final Logger LOG = LogManager.getLogger(StructureRegistry.class);
   private final LanguageRegistry myLanguageRegistry;
   private final ConceptInLoadingStorage<SConceptId> myStorage = new ConceptInLoadingStorage<>();
+  private final Set<SLanguageId> myLanguagesWithoutAspect = Collections.synchronizedSet(new THashSet<>());
   private final Map<SConceptId, ConceptDescriptor> myConceptDescriptorsById = new ConcurrentHashMap<>();
 
   public StructureRegistry(LanguageRegistry languageRegistry) {
@@ -65,10 +70,21 @@ public class StructureRegistry implements CoreAspectRegistry {
 
     try {
       try {
-        LanguageRuntime languageRuntime = myLanguageRegistry.getLanguage(concept.getLanguageId());
+        final SLanguageId langId = concept.getLanguageId();
+        LanguageRuntime languageRuntime = myLanguageRegistry.getLanguage(langId);
         if (languageRuntime != null) {
+          if (myLanguagesWithoutAspect.contains(langId)) {
+            // we tried to get SAD and failed, likely, there's an exception caught by LR.getAspect impl (or even a lang w/o structure aspect)
+            // in case it was an error, we don't want to report same error again and again, hence the check.
+            // Indeed, better approach is to let getAspect throw an exception and to handle it here (e.g. with aux getAspectPrim() method, there's
+            // little sense to demand all getAspect() clients to handle exceptions. Only those that wish to shall do), just not sure if
+            // the whole effort worth it, generally we shall not face languages broken in a way that parts are missing (it's better to get the original
+            // problem fixed, rather than deal with consequences)
+            return null;
+          }
           StructureAspectDescriptor structureAspectDescriptor = languageRuntime.getAspect(StructureAspectDescriptor.class);
           if (structureAspectDescriptor == null) {
+            myLanguagesWithoutAspect.add(langId);
             return null;
           }
           descriptor = structureAspectDescriptor.getDescriptor(concept);
@@ -91,12 +107,17 @@ public class StructureRegistry implements CoreAspectRegistry {
 
   @Nullable
   public DataTypeDescriptor getDataTypeDescriptor(SDataTypeId id) {
-    final LanguageRuntime languageRuntime = myLanguageRegistry.getLanguage(id.getLanguageId());
+    final SLanguageId langId = id.getLanguageId();
+    final LanguageRuntime languageRuntime = myLanguageRegistry.getLanguage(langId);
     if (languageRuntime == null) {
+      return null;
+    }
+    if (myLanguagesWithoutAspect.contains(langId)) {
       return null;
     }
     final StructureAspectDescriptor aspect = languageRuntime.getAspect(StructureAspectDescriptor.class);
     if (aspect == null) {
+      myLanguagesWithoutAspect.add(langId);
       return null;
     }
     return aspect.getDataTypeDescriptor(id);
@@ -105,5 +126,6 @@ public class StructureRegistry implements CoreAspectRegistry {
   @Override
   public void clear() {
     myConceptDescriptorsById.clear();
+    myLanguagesWithoutAspect.clear();
   }
 }

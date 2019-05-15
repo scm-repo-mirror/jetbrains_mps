@@ -227,7 +227,7 @@ public class Solution extends ReloadableModuleBase {
   }
 
   @Override
-  public boolean willLoad() {
+  public boolean canLoadClasses() {
     // TODO mps facet from this [like IDEA plugin facet]
     return getKind() != SolutionKind.NONE || getFacet(CustomClassLoadingFacet.class) != null;
   }

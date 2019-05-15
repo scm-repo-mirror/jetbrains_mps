@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="2" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="0" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
     <devkit ref="a2eb3a43-fcc2-4200-80dc-c60110c4862d(jetbrains.mps.devkit.templates)" />
   </languages>
@@ -210,11 +210,11 @@
         <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
       <concept id="3364660638048049750" name="jetbrains.mps.lang.core.structure.PropertyAttribute" flags="ng" index="A9Btg">
-        <property id="1757699476691236117" name="propertyName" index="2qtEX9" />
+        <property id="1757699476691236117" name="name_DebugInfo" index="2qtEX9" />
         <property id="1341860900487648621" name="propertyId" index="P4ACc" />
       </concept>
       <concept id="3364660638048049745" name="jetbrains.mps.lang.core.structure.LinkAttribute" flags="ng" index="A9Btn">
-        <property id="1757699476691236116" name="linkRole" index="2qtEX8" />
+        <property id="1757699476691236116" name="role_DebugInfo" index="2qtEX8" />
         <property id="1341860900488019036" name="linkId" index="P3scX" />
       </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
@@ -595,7 +595,7 @@
                                       <node concept="30H73N" id="3mtcPBWFJN5" role="2JrQYb" />
                                     </node>
                                     <node concept="liA8E" id="3mtcPBWFJNx" role="2OqNvi">
-                                      <ref role="37wK5l" to="mhbf:~SNode.getUserObject(java.lang.Object):java.lang.Object" resolve="getUserObject" />
+                                      <ref role="37wK5l" to="mhbf:~SNode.getUserObject(java.lang.Object)" resolve="getUserObject" />
                                       <node concept="Xl_RD" id="3mtcPBWFJN$" role="37wK5m">
                                         <property role="Xl_RC" value="colHeader" />
                                       </node>
@@ -653,7 +653,7 @@
                 </node>
                 <node concept="3eOSWO" id="3mtcPBWFJOg" role="3clFbw">
                   <node concept="2YIFZM" id="7LGEsuh7GM_" role="3uHU7w">
-                    <ref role="37wK5l" to="wyt6:~System.currentTimeMillis():long" resolve="currentTimeMillis" />
+                    <ref role="37wK5l" to="wyt6:~System.currentTimeMillis()" resolve="currentTimeMillis" />
                     <ref role="1Pybhc" to="wyt6:~System" resolve="System" />
                   </node>
                   <node concept="3cmrfG" id="3mtcPBWFJOf" role="3uHU7B">
@@ -703,7 +703,7 @@
                                       </node>
                                     </node>
                                     <node concept="liA8E" id="79m2eqVFdyF" role="2OqNvi">
-                                      <ref role="37wK5l" to="mhbf:~SNode.putUserObject(java.lang.Object,java.lang.Object):void" resolve="putUserObject" />
+                                      <ref role="37wK5l" to="mhbf:~SNode.putUserObject(java.lang.Object,java.lang.Object)" resolve="putUserObject" />
                                       <node concept="Xl_RD" id="79m2eqVFdyN" role="37wK5m">
                                         <property role="Xl_RC" value="colHeader" />
                                       </node>

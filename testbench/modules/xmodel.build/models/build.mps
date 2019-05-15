@@ -30,9 +30,7 @@
         <child id="4380385936562148502" name="containerName" index="Nbhlr" />
       </concept>
       <concept id="7389400916848036984" name="jetbrains.mps.build.structure.BuildLayout_Folder" flags="ng" index="398223" />
-      <concept id="7389400916848136194" name="jetbrains.mps.build.structure.BuildFolderMacro" flags="ng" index="398rNT">
-        <child id="7389400916848144618" name="defaultPath" index="398pKh" />
-      </concept>
+      <concept id="7389400916848136194" name="jetbrains.mps.build.structure.BuildFolderMacro" flags="ng" index="398rNT" />
       <concept id="7389400916848153117" name="jetbrains.mps.build.structure.BuildSourceMacroRelativePath" flags="ng" index="398BVA">
         <reference id="7389400916848153130" name="macro" index="398BVh" />
       </concept>
@@ -103,9 +101,6 @@
         <property id="322010710375892619" name="uuid" index="3LESm3" />
         <child id="322010710375956261" name="path" index="3LF7KH" />
       </concept>
-      <concept id="322010710376037449" name="jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyOnDevKit" flags="ng" index="3LFrX1">
-        <reference id="322010710376037450" name="devkit" index="3LFrX2" />
-      </concept>
       <concept id="7259033139236285166" name="jetbrains.mps.build.mps.structure.BuildMps_ExtractedModuleDependency" flags="nn" index="1SiIV0">
         <child id="7259033139236285167" name="dependency" index="1SiIV1" />
       </concept>
@@ -119,17 +114,11 @@
     <node concept="2sgV4H" id="3Af5TgnBvtw" role="1l3spa">
       <ref role="1l3spb" to="ffeo:3IKDaVZmzS6" resolve="mps" />
       <node concept="398BVA" id="3Af5TgnBvu2" role="2JcizS">
-        <ref role="398BVh" node="3Af5TgnD00t" resolve="mps_distribution" />
+        <ref role="398BVh" node="4X5j05vNi7p" resolve="mps_home" />
       </node>
     </node>
     <node concept="398rNT" id="4X5j05vNi7p" role="1l3spd">
       <property role="TrG5h" value="mps_home" />
-    </node>
-    <node concept="398rNT" id="3Af5TgnD00t" role="1l3spd">
-      <property role="TrG5h" value="mps_distribution" />
-      <node concept="398BVA" id="3Af5TgnD027" role="398pKh">
-        <ref role="398BVh" node="4X5j05vNi7p" resolve="mps_home" />
-      </node>
     </node>
     <node concept="1E1JtA" id="3Af5TgnBvrs" role="3989C9">
       <property role="BnDLt" value="true" />
@@ -311,7 +300,7 @@
     <node concept="2sgV4H" id="3Af5TgnExnX" role="1l3spa">
       <ref role="1l3spb" to="ffeo:3IKDaVZmzS6" resolve="mps" />
       <node concept="398BVA" id="3Af5TgnExnY" role="2JcizS">
-        <ref role="398BVh" node="3Af5TgnEtmP" resolve="mps_distribution" />
+        <ref role="398BVh" node="3Af5TgnEtmO" resolve="mps_home" />
       </node>
     </node>
     <node concept="1E1JtA" id="3Af5TgnEtn3" role="3989C9">
@@ -344,9 +333,6 @@
           <property role="3bR36h" value="false" />
           <ref role="3bR37D" node="3Af5TgnBvrs" resolve="jetbrains.mps.generator.xmodel.test" />
         </node>
-      </node>
-      <node concept="3LFrX1" id="3Af5TgnEDtK" role="3bR37C">
-        <ref role="3LFrX2" node="3Af5TgnBvrX" resolve="jetbrains.mps.generator.xmodel-sample" />
       </node>
       <node concept="1SiIV0" id="5kOge16Ar2c" role="3bR37C">
         <node concept="3bR9La" id="5kOge16Ar2d" role="1SiIV1">
@@ -382,12 +368,6 @@
     <node concept="10PD9b" id="3Af5TgnEtmX" role="10PD9s" />
     <node concept="398rNT" id="3Af5TgnEtmO" role="1l3spd">
       <property role="TrG5h" value="mps_home" />
-    </node>
-    <node concept="398rNT" id="3Af5TgnEtmP" role="1l3spd">
-      <property role="TrG5h" value="mps_distribution" />
-      <node concept="398BVA" id="3Af5TgnEtmQ" role="398pKh">
-        <ref role="398BVh" node="3Af5TgnEtmO" resolve="mps_home" />
-      </node>
     </node>
     <node concept="2sgV4H" id="3Af5TgnBvoM" role="1l3spa">
       <ref role="1l3spb" node="3Af5TgnBvoA" resolve="p1" />

@@ -24,7 +24,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.baseLanguage.lightweightdsl.intentions.ClassLikeInitHelper;
 import jetbrains.mps.ide.projectPane.NewRootNodeAction;
-import jetbrains.mps.openapi.navigation.NavigationSupport;
+import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
+import jetbrains.mps.openapi.navigation.EditorNavigator;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 
@@ -90,9 +91,9 @@ public class NewClassLike_Action extends BaseAction {
       newClass = SNodeOperations.cast(SNodeFactoryOperations.createNewRootNode(event.getData(MPSCommonDataKeys.MODEL), c, null), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept"));
     }
     if (!(NewRootNodeAction.trySelectInCurrentPane(event.getData(MPSCommonDataKeys.MPS_PROJECT), newClass))) {
-      NavigationSupport.getInstance().selectInTree(event.getData(MPSCommonDataKeys.MPS_PROJECT), newClass, false);
+      new ProjectPaneNavigator(event.getData(MPSCommonDataKeys.MPS_PROJECT)).select(newClass.getReference());
     }
-    NavigationSupport.getInstance().openNode(event.getData(MPSCommonDataKeys.MPS_PROJECT), newClass, true, false);
+    new EditorNavigator(event.getData(MPSCommonDataKeys.MPS_PROJECT)).shallFocus(true).open(newClass.getReference());
   }
   @NotNull
   public String getActionId() {
@@ -106,10 +107,10 @@ public class NewClassLike_Action extends BaseAction {
   public static String descr_State(SNode object) {
     return object.getNodeId().toString();
   }
-  private static SNode createDSLAnnotation_3skzbb_a0c0c0a(Object p0) {
+  private static SNode createDSLAnnotation_3skzbb_a0c0c0a(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x3190d3f9f1cab0caL, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DSLAnnotation"), null, null, false);
-    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x3190d3f9f1cab0caL, 0x3190d3f9f1cac277L, "descriptor"), (SNode) p0);
+    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x3190d3f9f1cab0caL, 0x3190d3f9f1cac277L, "descriptor"), node0);
     return n1;
   }
 }

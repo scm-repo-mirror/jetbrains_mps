@@ -7,7 +7,7 @@ import jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
@@ -23,8 +23,8 @@ public class check_FactoryMigrationScriptPath_NonTypesystemRule extends Abstract
   public check_FactoryMigrationScriptPath_NonTypesystemRule() {
   }
   public void applyRule(final SNode part, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode returnType = TypeChecker.getInstance().getTypeOf(SLinkOperations.getTarget(part, MetaAdapterFactory.getContainmentLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x24105a807c757c2dL, 0x24105a807c757c2fL, "factoryMethod")));
-    if (!(TypeChecker.getInstance().getSubtypingManager().isSubtype(returnType, _quotation_createNode_5hdosv_b0a0b0b()))) {
+    SNode returnType = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(part, MetaAdapterFactory.getContainmentLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x24105a807c757c2dL, 0x24105a807c757c2fL, "factoryMethod")));
+    if (!(TypecheckingFacade.getFromContext().isSubtype(returnType, _quotation_createNode_5hdosv_b0a0b0b()))) {
       {
         MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(part, "Factory method should return subtype of Iterable<AbstractMigrationRefactoring> (now \"" + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(returnType) + "\")", "r:00000000-0000-4000-0000-011c89590320(jetbrains.mps.lang.script.typesystem)", "2598676492883176352", null, errorTarget);

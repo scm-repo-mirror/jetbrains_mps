@@ -16,6 +16,8 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baseLanguage.unitTest.execution.TerminationTestEvent;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestMethodNodeKey;
 import jetbrains.mps.baseLanguage.unitTest.execution.TestNodeEvent;
+import jetbrains.mps.baseLanguage.unitTest.execution.TextTestEvent;
+import com.intellij.execution.process.ProcessOutputTypes;
 
 public final class CheckTestStateListener extends TestStateAdapter {
   private static final String LINEBREAK = "\n";
@@ -77,6 +79,15 @@ public final class CheckTestStateListener extends TestStateAdapter {
       if (!(SetSequence.fromSet(mySuccessExpected).contains(qualifiedName))) {
         myMessages.append("Unexpected success: ").append(qualifiedName).append(LINEBREAK);
       }
+    }
+  }
+  @Override
+  public void onTextAvailable(@NotNull TextTestEvent event) {
+    // the text comes in lines 
+    if (event.getKey() == ProcessOutputTypes.STDERR) {
+      System.out.print("test error output >>> " + event.getText());
+    } else {
+      System.out.print("test output >>> " + event.getText());
     }
   }
 

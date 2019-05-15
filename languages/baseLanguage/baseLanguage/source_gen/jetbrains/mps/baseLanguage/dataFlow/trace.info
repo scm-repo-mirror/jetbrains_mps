@@ -19,7 +19,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1076505808687:jetbrains.mps.baseLanguage.structure.WhileStatement" />
   <root>
     <file name="DataFlowAspectDescriptorImpl.java">
-      <unit at="17,0,173,0" name="jetbrains.mps.baseLanguage.dataFlow.DataFlowAspectDescriptorImpl" />
+      <unit at="17,0,171,0" name="jetbrains.mps.baseLanguage.dataFlow.DataFlowAspectDescriptorImpl" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/1206454554507">
@@ -338,14 +338,14 @@
       <node id="5942313089042534458" at="17,213,18,255" concept="9" />
       <node id="8754905177066795648" at="18,255,19,249" concept="9" />
       <node id="8754905177066818360" at="21,119,22,350" concept="9" />
-      <node id="8754905177066818389" at="23,294,24,183" concept="4" />
+      <node id="8754905177066818389" at="23,292,24,183" concept="4" />
       <node id="8754905177066818395" at="24,183,25,17" concept="10" />
       <node id="1206464652781" at="28,5,29,127" concept="4" />
       <node id="8754905177066818370" at="22,350,26,9" concept="7" />
       <node id="8754905177066817006" at="20,152,27,7" concept="6" />
       <node id="8754905177066816994" at="19,249,28,5" concept="7" />
       <node id="1206464650340" at="16,0,31,0" concept="8" trace="build#(Ljetbrains/mps/lang/dataFlow/DataFlowBuilderContext;)V" />
-      <scope id="8754905177066818371" at="23,294,25,17" />
+      <scope id="8754905177066818371" at="23,292,25,17" />
       <scope id="8754905177066817009" at="21,119,26,9">
         <var name="caughtType" id="8754905177066818361" />
       </scope>
@@ -1013,22 +1013,6 @@
         <var name="_context" id="1226075737918" />
       </scope>
       <unit id="1226075737918" at="11,0,16,0" name="jetbrains.mps.baseLanguage.dataFlow.BitwiseNotExpression_DataFlow" />
-    </file>
-  </root>
-  <root nodeRef="r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/1226935762687">
-    <file name="CommentedStatementsBlock_DataFlow.java">
-      <node id="8486807419021026911" at="11,25,12,137" concept="4" />
-      <node id="1226935788187" at="11,0,14,0" concept="8" trace="run#()V" />
-      <node id="1226935788187" at="9,60,14,7" concept="4" />
-      <node id="1226935762687" at="9,0,16,0" concept="8" trace="build#(Ljetbrains/mps/lang/dataFlow/DataFlowBuilderContext;)V" />
-      <scope id="1226935788187" at="11,25,12,137" />
-      <scope id="1226935788187" at="11,0,14,0" />
-      <scope id="1226935762689" at="9,60,14,7" />
-      <scope id="1226935762687" at="9,0,16,0">
-        <var name="_context" id="1226935762687" />
-      </scope>
-      <unit id="1226935788187" at="10,51,14,5" name="jetbrains.mps.baseLanguage.dataFlow.CommentedStatementsBlock_DataFlow$1" />
-      <unit id="1226935762687" at="8,0,17,0" name="jetbrains.mps.baseLanguage.dataFlow.CommentedStatementsBlock_DataFlow" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/1239714962884">
@@ -2413,8 +2397,8 @@
       <node id="7597254041024527699" at="24,48,25,214" concept="9" />
       <node id="7597254041024527634" at="25,214,26,136" concept="9" />
       <node id="7597254041024527644" at="27,44,28,348" concept="9" />
-      <node id="7597254041024527713" at="29,358,30,62" concept="4" />
-      <node id="7597254041024527722" at="33,139,34,66" concept="4" />
+      <node id="7597254041024527713" at="29,322,30,62" concept="4" />
+      <node id="7597254041024527722" at="33,127,34,66" concept="4" />
       <node id="7597254041024527623" at="38,5,39,18" concept="10" />
       <node id="7597254041024527663" at="41,66,42,63" concept="9" />
       <node id="7597254041024527663" at="42,63,43,30" concept="9" />
@@ -2448,8 +2432,8 @@
       <node id="7597254041024527642" at="26,136,38,5" concept="6" />
       <node id="7597254041024463765" at="23,0,41,0" concept="13" trace="getPossibleCatches#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/util/List;)Ljava/util/List;" />
       <scope id="7597254041024463764" at="21,33,21,33" />
-      <scope id="7597254041024527653" at="29,358,30,62" />
-      <scope id="7597254041024527678" at="33,139,34,66" />
+      <scope id="7597254041024527653" at="29,322,30,62" />
+      <scope id="7597254041024527678" at="33,127,34,66" />
       <scope id="7597254041024463761" at="21,0,23,0" />
       <scope id="7597254041024527676" at="32,50,35,11" />
       <scope id="7597254041024527674" at="31,14,36,9" />

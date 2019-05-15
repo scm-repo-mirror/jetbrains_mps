@@ -13,15 +13,18 @@ public class NodeBySeveralConcepts_Configuration_Editor extends SettingsEditorEx
   private NodeBySeveralConceptChooser myChooser;
   public void disposeEditor() {
   }
+
   @NotNull
   public NodeBySeveralConceptChooser createEditor() {
     myChooser = new NodeBySeveralConceptChooser(myTargets);
     return myChooser;
   }
+
   public void applyEditorTo(final NodeBySeveralConcepts_Configuration configuration) throws ConfigurationException {
     configuration.setNode(myChooser.getNode());
     configuration.setNodeText(myChooser.getText());
   }
+
   public void resetEditorFrom(final NodeBySeveralConcepts_Configuration configuration) {
     myChooser.setNode(configuration.getNode());
     myChooser.setText(configuration.getNodeText());

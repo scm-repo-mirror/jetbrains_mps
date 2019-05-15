@@ -33,6 +33,7 @@
       <macro name="mps_home" path="${mps_build_home}"/>
       <jvmargs>
         <arg value="-Xmx1200m" />
+        <arg value="-ea" />
       </jvmargs>
     </migrate>
 

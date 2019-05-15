@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ package jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes;
 
 import jetbrains.mps.ide.findusages.CantLoadSomethingException;
 import jetbrains.mps.ide.findusages.CantSaveSomethingException;
-import jetbrains.mps.ide.findusages.view.treeholder.tree.TextOptions;
 import jetbrains.mps.ide.findusages.view.treeholder.treeview.path.PathItemRole;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.logging.Logger;
@@ -25,7 +24,6 @@ import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.smodel.SNodeUtil;
-import jetbrains.mps.util.StringUtil;
 import org.apache.log4j.LogManager;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
@@ -45,8 +43,10 @@ public class NodeNodeData extends AbstractResultNodeData {
   private SNodeReference myNodePointer;
   private boolean myIsRootNode;
 
-  public NodeNodeData(PathItemRole role, @Nullable String caption, @NotNull SNode pathObject, boolean isPathTail, boolean resultsSection) {
-    super(role, caption != null ? caption : snodeRepresentation(pathObject), nodeAdditionalInfo(pathObject), false, isPathTail, resultsSection);
+  public NodeNodeData(PathItemRole role, @Nullable String caption, @Nullable String info, @NotNull SNode pathObject, boolean isPathTail,
+                      boolean resultsSection) {
+    super(role, caption != null ? caption : snodeRepresentation(pathObject), info != null ? info : nodeAdditionalInfo(pathObject), isPathTail,
+          resultsSection);
     myNodePointer = pathObject.getReference();
     myIsRootNode = pathObject.getModel() != null && pathObject.getParent() == null;
   }
@@ -67,7 +67,7 @@ public class NodeNodeData extends AbstractResultNodeData {
 
   @Override
   public String createIdObject() {
-    return myNodePointer.toString() + "/" + getPlainText();
+    return myNodePointer.toString();
   }
 
   @Override
@@ -95,7 +95,6 @@ public class NodeNodeData extends AbstractResultNodeData {
       String presentation = SNodeUtil.getPresentation(node);
       String result = (presentation != null) ? presentation : node.toString();
       LOG.assertLog(result != null, "Node presentation is null.");
-      result = StringUtil.escapeXml(result);
       return result;
     } catch (Throwable t) {
       LOG.error(t);
@@ -104,31 +103,14 @@ public class NodeNodeData extends AbstractResultNodeData {
   }
 
   private static String nodeAdditionalInfo(final SNode node) {
-    if (node.getParent() == null) return "";
-    return "role: " +
-      "<i>" +
-      StringUtil.escapeXml(node.getRoleInParent()) +
-      "</i>" +
-      "; " +
-      "in: " +
-      "<i>" +
-      snodeRepresentation(node.getParent()) +
-      "</i>";
+    if (node.getParent() == null) {
+      return "";
+    }
+    return String.format("(role: %s in: %s)", node.getContainmentLink().getName(), snodeRepresentation(node.getParent()));
   }
 
   public boolean isRootNode() {
     return myIsRootNode;
-  }
-
-  @Override
-  public String getText(TextOptions options) {
-    boolean showCounter = options.myCounters && isResultsSection();
-    String counter = showCounter ? " " + sizeRepresentation(options.mySubresultsCount) : "";
-    return super.getText(options) + counter;
-  }
-
-  private static String sizeRepresentation(int size) {
-    return "<font color='gray'>(" + Integer.toString(size) + ")</font>";
   }
 
   @Override

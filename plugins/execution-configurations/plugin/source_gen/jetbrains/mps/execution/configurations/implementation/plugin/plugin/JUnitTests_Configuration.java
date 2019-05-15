@@ -36,13 +36,18 @@ import com.intellij.execution.configurations.ConfigurationPerRunnerSettings;
 import com.intellij.execution.runners.ProgramRunner;
 import com.intellij.execution.configurations.ConfigurationInfoProvider;
 import jetbrains.mps.execution.api.settings.SettingsEditorEx;
+import java.io.File;
 
 public class JUnitTests_Configuration extends BaseMpsRunConfiguration implements IPersistentConfiguration {
   private static final Logger LOG = LogManager.getLogger(JUnitTests_Configuration.class);
   private JUnitSettings_Configuration myJUnitSettings = new JUnitSettings_Configuration(this.getProject());
   private JavaRunParameters_Configuration myJavaRunParameters = new JavaRunParameters_Configuration(this.getProject());
+  private DeployPluginsSettings_Configuration myDeploySettings = new DeployPluginsSettings_Configuration(this.getProject());
+
+  @Override
   public void checkConfiguration(final PersistentConfigurationContext context) throws RuntimeConfigurationException {
     this.getJUnitSettings().checkConfiguration(context);
+    this.getDeploySettings().checkConfiguration(context);
   }
   @Override
   public void writeExternal(Element element) throws WriteExternalException {
@@ -56,7 +61,13 @@ public class JUnitTests_Configuration extends BaseMpsRunConfiguration implements
       myJavaRunParameters.writeExternal(fieldElement);
       element.addContent(fieldElement);
     }
+    {
+      Element fieldElement = new Element("myDeploySettings");
+      myDeploySettings.writeExternal(fieldElement);
+      element.addContent(fieldElement);
+    }
   }
+
   @Override
   public void readExternal(Element element) throws InvalidDataException {
     if (element == null) {
@@ -82,13 +93,18 @@ public class JUnitTests_Configuration extends BaseMpsRunConfiguration implements
         }
       }
     }
+    {
+      Element fieldElement = element.getChild("myDeploySettings");
+      if (fieldElement != null) {
+        myDeploySettings.readExternal(fieldElement);
+      } else {
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("Element " + "myDeploySettings" + " in " + this.getClass().getName() + " was null.");
+        }
+      }
+    }
   }
-  public JUnitSettings_Configuration getJUnitSettings() {
-    return myJUnitSettings;
-  }
-  public JavaRunParameters_Configuration getJavaRunParameters() {
-    return myJavaRunParameters;
-  }
+
   public List<SNodeReference> getTestsToMake() {
     return this.getJUnitSettings().getTestsToMake(ProjectHelper.fromIdeaProject(this.getProject()));
   }
@@ -108,8 +124,30 @@ public class JUnitTests_Configuration extends BaseMpsRunConfiguration implements
     JUnitTests_Configuration clone = createCloneTemplate();
     clone.myJUnitSettings = (JUnitSettings_Configuration) myJUnitSettings.clone();
     clone.myJavaRunParameters = (JavaRunParameters_Configuration) myJavaRunParameters.clone();
+    clone.myDeploySettings = (DeployPluginsSettings_Configuration) myDeploySettings.clone();
     return clone;
   }
+
+  public JUnitSettings_Configuration getJUnitSettings() {
+    return myJUnitSettings;
+  }
+  public JavaRunParameters_Configuration getJavaRunParameters() {
+    return myJavaRunParameters;
+  }
+  public DeployPluginsSettings_Configuration getDeploySettings() {
+    return myDeploySettings;
+  }
+
+  public void setJUnitSettings(JUnitSettings_Configuration value) {
+    myJUnitSettings = value;
+  }
+  public void setJavaRunParameters(JavaRunParameters_Configuration value) {
+    myJavaRunParameters = value;
+  }
+  public void setDeploySettings(DeployPluginsSettings_Configuration value) {
+    myDeploySettings = value;
+  }
+
   public JUnitTests_Configuration(Project project, ConfigurationFactory factory, String name) {
     super(project, factory, name);
   }
@@ -131,7 +169,7 @@ public class JUnitTests_Configuration extends BaseMpsRunConfiguration implements
     return (JUnitTests_Configuration) super.clone();
   }
   public SettingsEditorEx<? extends IPersistentConfiguration> getEditor() {
-    return new JUnitTests_Configuration_Editor(myJUnitSettings.getEditor(), myJavaRunParameters.getEditor());
+    return new JUnitTests_Configuration_Editor(myJUnitSettings.getEditor(), myJavaRunParameters.getEditor(), myDeploySettings.getEditor());
   }
   @Override
   public void checkConfiguration() throws RuntimeConfigurationException {
@@ -148,5 +186,11 @@ public class JUnitTests_Configuration extends BaseMpsRunConfiguration implements
   }
   public Object[] createMakeNodePointersTask() {
     return new Object[]{this.getTestsToMake()};
+  }
+  public Object[] createClearSettingsDirectoryBeforeRunTaskTask() {
+    return new Object[]{this.getJUnitSettings().canExecuteInProcess(), new File(this.getJUnitSettings().getCachesPath())};
+  }
+  public Object[] createAssemblePluginsBeforeTaskTask() {
+    return new Object[]{this.getJUnitSettings().canExecuteInProcess(), this.getDeploySettings().getPluginsListToDeploy(), this.getJUnitSettings().getPluginsPath()};
   }
 }

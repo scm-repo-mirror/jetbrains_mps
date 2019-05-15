@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.smodel.tempmodel;
 
-import jetbrains.mps.classloading.ClassLoaderManager;
 import jetbrains.mps.module.ReloadableModuleBase;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.project.facets.JavaModuleFacet;
@@ -63,18 +62,6 @@ public class TempModule extends ReloadableModuleBase implements SModule, MPSModu
     } else {
       myJavaModuleFacet = null;
     }
-  }
-
-  @Override
-  public void reload() {
-    if (!willLoad()) return;
-    LOG.debug("Reloading temporary module " + this);
-    ClassLoaderManager.getInstance().reloadModule(this);
-  }
-
-  @Override
-  public boolean willLoad() {
-    return myJavaModuleFacet != null;
   }
 
   public boolean isHidden() {

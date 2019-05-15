@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,12 @@ package jetbrains.mps.vfs;
 
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
+import jetbrains.mps.ide.MPSCoreComponents;
+import jetbrains.mps.ide.platform.watching.FileSystemListenersContainer;
 import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.tool.environment.EnvironmentAware;
+import jetbrains.mps.util.IFileUtil;
 import jetbrains.mps.util.ReadUtil;
 import jetbrains.mps.vfs.impl.IoFileSystem;
 import org.jetbrains.annotations.NotNull;
@@ -42,7 +45,6 @@ import static org.junit.Assert.fail;
  * @author Evgeny Gerashchenko
  */
 public class VfsTest implements EnvironmentAware {
-  private static final String SUBSUBDIR = "subdir" + File.separator + "subsubdir";
   private static final int FILE_SIZE = 20000;
 
   private static final String JAR_NAME = "testjar.zip";
@@ -61,7 +63,9 @@ public class VfsTest implements EnvironmentAware {
   private static void IDEA_FS_TEST(final Runnable testRunnable) {
     FileSystem oldFS = FileSystemExtPoint.getFS();
     try {
-      FileSystemExtPoint.setFS(new IdeaFileSystem());
+      FileSystemListenersContainer lc = new FileSystemListenersContainer();
+      // XXX what's the reason to initialize IdeaFileSystem app component this way?
+      FileSystemExtPoint.setFS(new IdeaFileSystem(ApplicationManager.getApplication().getComponent(MPSCoreComponents.class), lc, null, null));
       final Throwable[] ex = new Throwable[1];
       ApplicationManager.getApplication().invokeAndWait(new Runnable() {
         @Override
@@ -97,19 +101,19 @@ public class VfsTest implements EnvironmentAware {
   }
 
   private static void doBaseVfsTest() {
-    IFile tmpDir = IFileUtils.createTmpDir();
+    IFile tmpDir = IFileUtil.createTmpDir();
     assertTrue("Temp dir does not exist", tmpDir.exists());
     assertTrue("Created temp directory is not directory", tmpDir.isDirectory());
     assertFalse("Could create file with the same name as the directory", tmpDir.createNewFile());
     assertTrue("Created temp directory is not empty", tmpDir.getChildren().isEmpty());
 
-    IFile subSubDir = tmpDir.getDescendant(SUBSUBDIR);
+    IFile subSubDir = tmpDir.findChild("subdir").findChild("subsubdir");
     assertTrue(subSubDir.mkdirs());
 
     assertTrue(subSubDir.isDirectory());
     assertTrue(subSubDir.exists());
 
-    IFile file1 = tmpDir.getDescendant(SUBSUBDIR + File.separator + "file1");
+    IFile file1 = subSubDir.findChild("file1");
     assertFalse(file1.exists());
     assertTrue(file1.getParent().equals(subSubDir));
     try {
@@ -139,14 +143,14 @@ public class VfsTest implements EnvironmentAware {
 
     assertTrue(file1.rename("file111"));
     assertTrue(file1.getName().equals("file1"));
-    assertTrue(!file1.getParent().getDescendant("file111").equals(file1));
-    assertTrue(file1.getParent().getDescendant("file1").equals(file1));
+    assertTrue(!file1.getParent().findChild("file111").equals(file1));
+    assertTrue(file1.getParent().findChild("file1").equals(file1));
     assertFalse(file1.exists());
 
-    file1 =  file1.getParent().getDescendant("file111");
+    file1 =  file1.getParent().findChild("file111");
     assertTrue(file1.rename("file1"));
     String path1Original = file1.getPath();
-    file1 = file1.getParent().getDescendant("file1");
+    file1 = file1.getParent().findChild("file1");
     assertTrue(file1.move(tmpDir));
     assertFalse(file1.getPath().equals(path1Original));
     assertFalse(FileSystemExtPoint.getFS().getFile(path1Original).exists());
@@ -161,8 +165,8 @@ public class VfsTest implements EnvironmentAware {
     assertEquals(jarRoot.getChildren().size(), 3);
     assertTrue(jarRoot.isDirectory());
     assertTrue(jarRoot.isReadOnly());
-    assertTrue(fileSystem.isPackaged(jarRoot));
-    IFile readmeFile = jarRoot.getDescendant("README");
+    assertTrue(jarRoot.isPackaged());
+    IFile readmeFile = jarRoot.findChild("README");
     assertFalse(readmeFile.isDirectory());
     try {
       assertEquals("this is a test file\n", new String(ReadUtil.read(readmeFile.openInputStream())));
@@ -181,7 +185,7 @@ public class VfsTest implements EnvironmentAware {
       // ok
     }
 
-    IFile file1 = jarRoot.getDescendant("dir1").getDescendant("subdir").getDescendant("file1");
+    IFile file1 = jarRoot.findChild("dir1").findChild("subdir").findChild("file1");
 
     try {
       assertEquals("file1\n", new String(ReadUtil.read(file1.openInputStream())));

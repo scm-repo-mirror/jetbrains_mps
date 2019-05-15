@@ -16,14 +16,11 @@
 package jetbrains.mps.module;
 
 import jetbrains.mps.classloading.ClassLoaderManager;
+import jetbrains.mps.classloading.MPSModuleClassLoader;
 import jetbrains.mps.classloading.ModuleClassLoader;
-import jetbrains.mps.classloading.ModuleClassNotFoundException;
-import jetbrains.mps.classloading.ModuleIsNotLoadableException;
-import jetbrains.mps.classloading.RootClassloaderLookup;
 import jetbrains.mps.project.AbstractModule;
-import jetbrains.mps.util.InternUtil;
-import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.openapi.FileSystem;
+import jetbrains.mps.vfs.IFile;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -32,6 +29,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+/**
+ * ReloadableModule which delegates to ClassLoaderManager
+ * @author apyshkin
+ */
 public class ReloadableModuleBase extends AbstractModule implements ReloadableModule {
   private final static Logger LOG = LogManager.getLogger(ReloadableModuleBase.class);
   private final ClassLoaderManager myManager = ClassLoaderManager.getInstance();
@@ -51,13 +52,13 @@ public class ReloadableModuleBase extends AbstractModule implements ReloadableMo
 
   @NotNull
   @Override
-  public Class<?> getClass(String classFqName) throws ClassNotFoundException {
+  public Class<?> getClass(@NotNull String classFqName) throws ClassNotFoundException {
     return getClass(classFqName, false);
   }
 
   @NotNull
   @Override
-  public Class<?> getOwnClass(String classFqName) throws ClassNotFoundException {
+  public Class<?> getOwnClass(@NotNull String classFqName) throws ClassNotFoundException {
     return getClass(classFqName, true);
   }
 
@@ -67,7 +68,7 @@ public class ReloadableModuleBase extends AbstractModule implements ReloadableMo
     if (classLoader == null) {
       throw new ModuleClassLoaderIsNullException(this);
     }
-    String internClassName = InternUtil.intern(classFqName);
+    String internClassName = /*InternUtil.intern*/(classFqName);
     if (ownClassOnly && classLoader instanceof ModuleClassLoader) {
       return ((ModuleClassLoader) classLoader).loadOwnClass(internClassName);
     }
@@ -78,28 +79,32 @@ public class ReloadableModuleBase extends AbstractModule implements ReloadableMo
     return aClass;
   }
 
-  @Nullable
+  @NotNull
   @Override
-  public ClassLoader getClassLoader() {
+  public final MPSModuleClassLoader getClassLoader0() {
     return myManager.getClassLoader(this);
   }
 
   @Override
-  public void reload() {
-    if (!willLoad()) return;
+  public final void reload() {
+    if (!canLoadClasses()) {
+      LOG.warn(String.format("The module %s can not load classes -- impossible to reload the module", this));
+      return;
+    }
     LOG.info("Reloading module " + this);
     myManager.reloadModule(this);
   }
 
+  @NotNull
   @Override
-  public boolean willLoad() {
-    return true;
+  public final DeploymentStatus getStatus() {
+    return myManager.getStatus(this);
   }
 
   @Override
   protected void dependenciesChanged() {
     super.dependenciesChanged();
-    if (willLoad()) {
+    if (canLoadClasses()) {
       fireDependenciesChanged();
     }
   }

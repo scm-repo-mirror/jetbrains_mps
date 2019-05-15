@@ -7,7 +7,7 @@ import jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
-import jetbrains.mps.baseLanguage.util.OverridingMethodsFinder;
+import jetbrains.mps.baseLanguage.util.OverridingMethodsCalculator;
 import java.util.Set;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -23,7 +23,7 @@ public class check_ClassifierOverrideAnnotations_NonTypesystemRule extends Abstr
   public check_ClassifierOverrideAnnotations_NonTypesystemRule() {
   }
   public void applyRule(final SNode classifier, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    OverridingMethodsFinder finder = new OverridingMethodsFinder(classifier);
+    OverridingMethodsCalculator finder = new OverridingMethodsCalculator(classifier);
     Set<SNode> overridingMethods = finder.getOverridingMethods();
     for (SNode method : Classifier__BehaviorDescriptor.methods_id4_LVZ3pBKCn.invoke(classifier)) {
       for (SNode annotationInstance : SLinkOperations.getChildren(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation"))) {

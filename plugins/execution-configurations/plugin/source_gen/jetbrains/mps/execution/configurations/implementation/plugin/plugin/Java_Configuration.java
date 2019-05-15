@@ -62,6 +62,8 @@ public class Java_Configuration extends BaseMpsRunConfiguration implements IPers
     }
   })));
   private JavaRunParameters_Configuration myRunParameters = new JavaRunParameters_Configuration(this.getProject());
+
+  @Override
   public void checkConfiguration(final PersistentConfigurationContext context) throws RuntimeConfigurationException {
     this.getNode().checkConfiguration(context);
     final Wrappers._boolean hasMainMethod = new Wrappers._boolean(false);
@@ -92,6 +94,7 @@ public class Java_Configuration extends BaseMpsRunConfiguration implements IPers
       element.addContent(fieldElement);
     }
   }
+
   @Override
   public void readExternal(Element element) throws InvalidDataException {
     if (element == null) {
@@ -118,12 +121,7 @@ public class Java_Configuration extends BaseMpsRunConfiguration implements IPers
       }
     }
   }
-  public NodeBySeveralConcepts_Configuration getNode() {
-    return myNode;
-  }
-  public JavaRunParameters_Configuration getRunParameters() {
-    return myRunParameters;
-  }
+
   public boolean isFromContext(@NotNull ConfigurationContext context) {
     PsiElement psiLocation = context.getPsiLocation();
     if (psiLocation instanceof MPSPsiElement) {
@@ -161,6 +159,21 @@ public class Java_Configuration extends BaseMpsRunConfiguration implements IPers
     clone.myRunParameters = (JavaRunParameters_Configuration) myRunParameters.clone();
     return clone;
   }
+
+  public NodeBySeveralConcepts_Configuration getNode() {
+    return myNode;
+  }
+  public JavaRunParameters_Configuration getRunParameters() {
+    return myRunParameters;
+  }
+
+  public void setNode(NodeBySeveralConcepts_Configuration value) {
+    myNode = value;
+  }
+  public void setRunParameters(JavaRunParameters_Configuration value) {
+    myRunParameters = value;
+  }
+
   public Java_Configuration(Project project, ConfigurationFactory factory, String name) {
     super(project, factory, name);
   }

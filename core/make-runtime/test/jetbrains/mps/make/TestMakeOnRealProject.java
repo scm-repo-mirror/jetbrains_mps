@@ -44,7 +44,7 @@ import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.tool.environment.EnvironmentAware;
 import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.vfs.IFileUtils;
+import jetbrains.mps.util.IFileUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -169,7 +169,7 @@ public class TestMakeOnRealProject implements EnvironmentAware {
     doSolutionsCompilation();
 
     IFile outputPath = myCreatedSolution.getFacet(JavaModuleFacet.class).getOutputRoot();
-    IFile javaFile = outputPath.getDescendant(TEST_JAVA_FILE);
+    IFile javaFile = outputPath.findChild(TEST_JAVA_FILE);
     long time = Math.max(System.currentTimeMillis(), javaFile.lastModified() + 1);
     if (!javaFile.setTimeStamp(time)) {
       Assert.fail("Can't touch the file " + javaFile);
@@ -185,7 +185,7 @@ public class TestMakeOnRealProject implements EnvironmentAware {
     doSolutionsCompilation();
 
     IFile outputPath = myCreatedSolution.getFacet(JavaModuleFacet.class).getOutputRoot();
-    outputPath.getDescendant(TEST_JAVA_FILE).delete();
+    outputPath.findChild(TEST_JAVA_FILE).delete();
 
     ModuleSources sources = new ModelAccessHelper(ourModelAccess).runReadAction(() -> new ModuleSources(myCreatedSolution, new Dependencies(Collections.singleton((SModule) myCreatedSolution))));
     Collection<File> filesToDelete = sources.getFilesToDelete();
@@ -224,7 +224,7 @@ public class TestMakeOnRealProject implements EnvironmentAware {
     ourModelAccess.runWriteAction(new Runnable() {
       @Override
       public void run() {
-        myTmpDir = IFileUtils.createTmpDir();
+        myTmpDir = IFileUtil.createTmpDir();
 
         myCreatedRuntimeSolution = createNewRuntimeSolution();
         createJavaFiles(myCreatedRuntimeSolution);
@@ -237,7 +237,7 @@ public class TestMakeOnRealProject implements EnvironmentAware {
 
         IFile generatorOutputPath = myCreatedSolution.getFacet(JavaModuleFacet.class).getOutputRoot();
         // XXX where from comes the assumption resources/ dir is sibling to source_gen? Why this location is not part of any facet?
-        IFile resourceDir = generatorOutputPath.getParent().getDescendant("resources");
+        IFile resourceDir = generatorOutputPath.getParent().findChild("resources");
         myCreatedSolution.getModuleDescriptor().getSourcePaths().add(resourceDir.getPath());
         createFile(resourceDir, "res.0.1/test.txt", "test");
       }
@@ -250,7 +250,6 @@ public class TestMakeOnRealProject implements EnvironmentAware {
 
   private void createFile(IFile dir, String fileName, String text) {
     // should be invoked in write action
-    FileSystem fileSystem = FileSystem.getInstance();
     IFile ifile = dir.getDescendant(fileName);
     ifile.createNewFile();
     Writer writer = null;
@@ -269,19 +268,19 @@ public class TestMakeOnRealProject implements EnvironmentAware {
         }
       }
     }
-    if (!fileSystem.setTimeStamp(ifile, System.currentTimeMillis() - 1000)) {
+    if (!ifile.setTimeStamp(System.currentTimeMillis() - 1000)) {
       Assert.fail("Can't touch the file " + ifile);
     }
   }
 
   private Solution createNewRuntimeSolution() {
-    IFile runtimeSolutionDescriptorFile = myTmpDir.getDescendant("TestLanguageRuntime" + File.separator + "TestLanguageRuntime" + MPSExtentions.DOT_SOLUTION);
+    IFile runtimeSolutionDescriptorFile = myTmpDir.findChild("TestLanguageRuntime").findChild("TestLanguageRuntime" + MPSExtentions.DOT_SOLUTION);
     String fileName = runtimeSolutionDescriptorFile.getName();
     SolutionDescriptor solutionDescriptor = new SolutionDescriptor();
     String name = fileName.substring(0, fileName.length() - 4);
     solutionDescriptor.setId(ModuleId.regular());
     solutionDescriptor.setNamespace(name);
-    solutionDescriptor.setOutputPath(runtimeSolutionDescriptorFile.getParent().getDescendant("src_gen").getPath());
+    solutionDescriptor.setOutputPath(runtimeSolutionDescriptorFile.getParent().findChild("src_gen").getPath());
 
     solutionDescriptor.getModelRootDescriptors().add(DefaultModelRoot.createSingleFolderDescriptor(runtimeSolutionDescriptorFile.getParent()));
     solutionDescriptor.getDependencies().add(new Dependency(BootstrapLanguages.jdkRef(), true));
@@ -295,15 +294,15 @@ public class TestMakeOnRealProject implements EnvironmentAware {
 
   private Language createNewLanguage() {
     String languageNamespace = "TestLanguage";
-    IFile descriptorFile = myTmpDir.getDescendant(languageNamespace + File.separator + languageNamespace + MPSExtentions.DOT_LANGUAGE);
+    IFile descriptorFile = myTmpDir.findChild(languageNamespace).findChild(languageNamespace + MPSExtentions.DOT_LANGUAGE);
     LanguageDescriptor d = new LanguageDescriptor();
     d.setId(ModuleId.regular());
     d.setNamespace(languageNamespace);
     d.getRuntimeModules().add(myCreatedRuntimeSolution.getModuleReference());
-    d.setGenPath(descriptorFile.getParent().getDescendant("src_gen").getPath());
+    d.setGenPath(descriptorFile.getParent().findChild("src_gen").getPath());
 
 
-    IFile languageModels = descriptorFile.getParent().getDescendant(Language.LANGUAGE_MODELS);
+    IFile languageModels = descriptorFile.getParent().findChild(Language.LANGUAGE_MODELS);
     d.getModelRootDescriptors().add(DefaultModelRoot.createDescriptor(languageModels.getParent(), languageModels));
 
     ModuleHandle handle = new ModuleHandle(descriptorFile, d);
@@ -313,7 +312,7 @@ public class TestMakeOnRealProject implements EnvironmentAware {
   }
 
   private Solution createNewSolution() {
-    IFile descriptorFile = myTmpDir.getDescendant("TestSolution" + File.separator + "testSolution" + MPSExtentions.DOT_SOLUTION);
+    IFile descriptorFile = myTmpDir.findChild("TestSolution").findChild("testSolution" + MPSExtentions.DOT_SOLUTION);
 
     String fileName = descriptorFile.getName();
 
@@ -321,7 +320,7 @@ public class TestMakeOnRealProject implements EnvironmentAware {
     solutionDescriptor.setId(ModuleId.regular());
     String name = fileName.substring(0, fileName.length() - 4);
     solutionDescriptor.setNamespace(name);
-    solutionDescriptor.setOutputPath(descriptorFile.getParent().getDescendant("src_gen").getPath());
+    solutionDescriptor.setOutputPath(descriptorFile.getParent().findChild("src_gen").getPath());
 
     solutionDescriptor.getModelRootDescriptors().add(DefaultModelRoot.createSingleFolderDescriptor(descriptorFile.getParent()));
     

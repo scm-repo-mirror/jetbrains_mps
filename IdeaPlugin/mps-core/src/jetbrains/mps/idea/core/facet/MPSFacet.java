@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,6 @@ import com.intellij.facet.Facet;
 import com.intellij.facet.FacetType;
 import com.intellij.ide.plugins.IdeaPluginDescriptor;
 import com.intellij.ide.plugins.PluginManager;
-import com.intellij.internal.statistic.UsageTrigger;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.module.Module;
 import jetbrains.mps.extapi.module.SRepositoryExt;
@@ -88,8 +87,6 @@ public class MPSFacet extends Facet<MPSFacetConfiguration> {
 
       LOG.info(MPSBundle.message("facet.module.loaded", MPSFacet.this.mySolution.getModuleName()));
       IdeaPluginDescriptor descriptor = PluginManager.getPlugin(PluginManager.getPluginByClassName(MPSFacet.class.getName()));
-      String version = descriptor == null ? null : descriptor.getVersion();
-      UsageTrigger.trigger("MPS.initFacet." + version);
     });
   }
 
@@ -128,7 +125,9 @@ public class MPSFacet extends Facet<MPSFacetConfiguration> {
     // XXX what if ModuleRenameHandler uses this method prior to getSolution, we would have lost configurationBean settings then
     if (!wasInitialized()) {
       // SD in cfgBean is provisional and kept here just in case there are settings coming through its SD
-      getConfiguration().loadState(/*FIXME just null*/ configurationBean.getSolutionDescriptor(), configurationBean);
+      // e.g. when an MPS facet has been added, we create an SD in cfgBean to facilitate settings editing (see MPSFacetSourcesTab)
+      // and in case it has been changed, we need to propagate SD settings down into MPSFacetConfiguration
+      getConfiguration().loadState(configurationBean.getSolutionDescriptor(), configurationBean);
       return;
     }
     // FIXME not clear why not descriptor from the bean, as it's the one being modified from e.g. MPSFacetSourcesTab

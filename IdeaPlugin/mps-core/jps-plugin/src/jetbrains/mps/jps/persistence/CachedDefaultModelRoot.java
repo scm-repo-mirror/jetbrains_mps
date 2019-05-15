@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,8 +40,11 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelId;
 import org.jetbrains.mps.openapi.module.SModule;
+import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.persistence.Memento;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
+import org.jetbrains.mps.openapi.persistence.ModelLoadException;
+import org.jetbrains.mps.openapi.persistence.ModelLoadingOption;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 
 import java.io.IOException;
@@ -120,15 +123,15 @@ public class CachedDefaultModelRoot extends ModelRootBase {
   @NotNull
   @Override
   public Iterable<SModel> loadModels() {
-    SModule module = getModule();
-    if (module instanceof Generator) {
-      module = ((Generator) module).getSourceLanguage();
+    SModuleReference module = null;
+    if (getModule() instanceof Generator) {
+      module = ((Generator) getModule()).sourceLanguage().getSourceModuleReference();
     }
     if (module == null) {
       return myDelegate.loadModels();
     }
 
-    CachedModuleData moduleData = myCachedRepository.getModuleData(module.getModuleReference());
+    CachedModuleData moduleData = myCachedRepository.getModuleData(module);
     if (moduleData == null) {
       return myDelegate.loadModels();
     }
@@ -139,8 +142,6 @@ public class CachedDefaultModelRoot extends ModelRootBase {
     }
 
     List<SModel> result = new ArrayList<SModel>();
-    Map<String, String> options = new HashMap<String, String>();
-    options.put(ModelFactory.OPTION_MODULEREF, module.getModuleReference().toString());
 
     for (CachedModelData mdata : models) {
       IFile file = myDelegate.getFileSystem().getFile(mdata.getFile());
@@ -153,7 +154,7 @@ public class CachedDefaultModelRoot extends ModelRootBase {
       } else if (mdata.getCacheKind() == Kind.RegularFilePerRoot) {
         result.add(FilePerRootModelFactory.createFromHeader((SModelHeader) header, new FilePerRootDataSource(file, this)));
       } else {
-        FileDataSource source = new FileDataSource(file);
+        FileDataSource source = new FileDataSource(file, this);
         String fileName = file.getName();
         String extension = FileUtil.getExtension(fileName);
 
@@ -161,57 +162,14 @@ public class CachedDefaultModelRoot extends ModelRootBase {
         ModelFactory modelFactory = PersistenceFacade.getInstance().getModelFactory(extension);
         if (modelFactory == null) continue;
 
-        fillOptions(file, options);
         try {
-          SModel model = modelFactory.load(source, Collections.unmodifiableMap(options));
+          SModel model = modelFactory.load(source);
           result.add(model);
-        } catch (IOException e) {
+        } catch (ModelLoadException | IOException e) {
           // TODO handle errors
         }
       }
     }
     return result;
-  }
-
-  private void fillOptions(IFile file, Map<String, String> options) {
-    String relPath = null;
-    String filePath = file.getPath().replace("\\", "/");
-    for (SourceRoot sr : myDelegate.getSourceRoots(SourceRootKinds.SOURCES)) {
-      String normalized = sr.getAbsolutePath().getPath().replace("\\", "/");
-      if (!normalized.endsWith("/")) {
-        normalized = normalized + "/";
-      }
-      if (filePath.startsWith(normalized)) {
-        relPath = filePath.substring(normalized.length());
-        break;
-      }
-    }
-
-    options.remove(ModelFactory.OPTION_PACKAGE);
-    options.remove(ModelFactory.OPTION_MODELNAME);
-    if (relPath != null) {
-      StringBuilder p = new StringBuilder();
-      int slash = relPath.indexOf('/');
-      int start = 0;
-      while (slash >= 0) {
-        String part = relPath.substring(0, slash);
-        if (JavaNameUtil.isJavaIdentifier(part)) {
-          return;
-        }
-        start = slash + 1;
-        slash = relPath.indexOf('/', start);
-        if (p.length() != 0) {
-          p.append(".");
-        }
-        p.append(part);
-      }
-      options.put(ModelFactory.OPTION_PACKAGE, p.toString());
-      String fileNameWE = FileUtil.getNameWithoutExtension(relPath.substring(start));
-      if (p.length() != 0) {
-        p.append(".");
-      }
-      p.append(fileNameWE);
-      options.put(ModelFactory.OPTION_MODELNAME, p.toString());
-    }
   }
 }

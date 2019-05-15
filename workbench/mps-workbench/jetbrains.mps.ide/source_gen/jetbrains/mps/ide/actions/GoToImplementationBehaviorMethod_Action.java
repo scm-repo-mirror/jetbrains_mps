@@ -30,7 +30,7 @@ public class GoToImplementationBehaviorMethod_Action extends BaseAction {
   private static final Icon ICON = null;
 
   public GoToImplementationBehaviorMethod_Action() {
-    super("Go to Implementing Methods", "", ICON);
+    super("Implementation(s)", "", ICON);
     this.setIsAlwaysVisible(false);
     this.setExecuteOutsideCommand(true);
   }

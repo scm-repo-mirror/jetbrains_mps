@@ -39,7 +39,7 @@ public class Template_reduce_EnumMember2Id extends TemplateDeclarationBase imple
     final TemplateExecutionEnvironment environment = context.getEnvironment();
     final SNode tnode1 = environment.createOutputNode(myConcepts[0]);
     try {
-      SNodeAccessUtil.setProperty(tnode1, myProperties[0], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_141_0(new PropertyMacroContext(context, "0L", propertyMacro_9r6wmn_c0a0c0a0c0g))));
+      SNodeAccessUtil.setProperty(tnode1, myProperties[0], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_138_0(new PropertyMacroContext(context, "0L", propertyMacro_9r6wmn_c0a0c0a0c0g))));
     } finally {
     }
     FragmentResult rv = nodeFragment(0, tnode1);

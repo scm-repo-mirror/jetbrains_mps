@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.core.platform;
 
+import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.components.ComponentPlugin;
 import jetbrains.mps.components.CoreComponent;
 import jetbrains.mps.generator.MPSGenerator;
@@ -23,85 +24,81 @@ import jetbrains.mps.lang.dataFlow.MPSDataFlow;
 import jetbrains.mps.make.facets.MPSMake;
 import jetbrains.mps.persistence.MPSPersistence;
 import jetbrains.mps.text.impl.MPSTextGenerator;
+import jetbrains.mps.typechecking.internal.MPSTypechecking;
 import jetbrains.mps.typesystem.MPSTypesystem;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Iterator;
+
+/**
+ * IMPORTANT. This class is instantiated within environment with different classpaths. Respect scenario that not all component classes would be
+ * available at runtime. Even if they are not instantiated (as mandated by {@code PlatformOptionsBuilder}), they may trigger class loading (e.g. a field
+ * or a method return value).
+ */
 class PlatformBase implements Platform {
-  private MPSCore myCore;
-  private MPSPersistence myPersistence;
-  private MPSGenerator myGenerator;
-  private MPSTypesystem myTypesystem;
-  private MPSFindUsages myFindUsages;
-  private MPSTextGenerator myTextGen;
-  private MPSDataFlow myDataFlow;
-  private MPSMake myMake;
+  // stack of initialized components. Use push and pop to modify, Deque#descendingIterator to iterate from older to newer.
+  private final Deque<ComponentPlugin> myComponentPlugins = new ArrayDeque<>();
 
   PlatformBase(PlatformOptionsBuilder options) {
-    if (options.loadsCore()) {
-      myCore = new MPSCore();
-      myCore.init();
-    }
+    MPSCore myCore = initAndRegister(new MPSCore());
     if (options.loadsPersistence()) {
-      myPersistence = new MPSPersistence(myCore);
-      myPersistence.init();
+      initAndRegister(new MPSPersistence(myCore));
     }
     if (options.loadsOthers()) {
-      myMake = new MPSMake(myCore.getLanguageRegistry());
-      myTypesystem = new MPSTypesystem(myCore.getLanguageRegistry(), myCore.getClassLoaderManager());
-      myGenerator = new MPSGenerator(myCore);
-      myFindUsages = new MPSFindUsages(myCore.getLanguageRegistry());
-      myTextGen = new MPSTextGenerator(myCore.getLanguageRegistry());
-      myDataFlow = new MPSDataFlow(myCore.getClassLoaderManager());
-      myMake.init();
-      myTypesystem.init();
-      myGenerator.init();
-      myFindUsages.init();
-      myTextGen.init();
-      myDataFlow.init();
+      // XXX IMPORTANT: this odd code is to deal with a puzzling classloading peculiarity we've faced, keep it unless you've tested your alternative
+      //     (e.g. Ant 'Binaries' build to bundle MPS itself, with copyModels task that starts the platform up to 'PERSISTENCE' level, shall not require e.g.
+      //     MPSGenerator or MPSTextGenerator in classpath).
+      // Generally, Java resolves symbolic reference the moment referenced class is accessed, not the moment reference origin is loaded.
+      // For a simple test project (Main loads DelayedLinkage), NoClassDefFoundError is reported the moment referenced class is accessed. However,
+      // for PlatformBase class with new MPSGenerator() inside a condition I know to be false, NCDFE is reported the moment PlatformBase class *is loaded*
+      // Odd enough, it's not class reference per se, MPSGenerator::new or MPSGenerator.class.getConstructor() references do not bring NCDFE on load, as well
+      // as Runnable wrap employed bellow. Since I prefer direct cons invocation of the initialized component, I favour anonymous inner class here.
+      // FWIW, it's not a Module ClassLoader to blame, as ConvertToBinaryTask loads PlatformBase using regular URLClassLoader (see MpsLoadTask). Would be
+      // great to find out an answer some day, classloading guru, come and help us!
+      new Runnable() {
+        @Override
+        public void run() {
+          initAndRegister(new MPSProjectValidation(myCore));
+          initAndRegister(new MPSMake(myCore.getLanguageRegistry()));
+          MPSTypechecking mpsTypechecking = new MPSTypechecking(myCore.getLanguageRegistry(), myCore.getClassLoaderManager());
+          initAndRegister(mpsTypechecking);
+          initAndRegister(new MPSTypesystem(myCore.getLanguageRegistry(), myCore.getClassLoaderManager(), mpsTypechecking));
+          initAndRegister(new MPSGenerator(myCore));
+          initAndRegister(new MPSFindUsages(myCore.getLanguageRegistry()));
+          initAndRegister(new MPSTextGenerator(myCore.getLanguageRegistry()));
+          initAndRegister(new MPSDataFlow(myCore.getClassLoaderManager()));
+        }
+      }.run();
     }
   }
 
   @Override
   public <T extends CoreComponent> T findComponent(@NotNull Class<T> componentClass) {
-    T rv = null;
-    // once other ComponentPlugins become ComponentHost, shall consult all of them (initialized only, of course)
-    if (myCore != null) {
-      rv = myCore.findComponent(componentClass);
+    // myComponentPlugins is a stack, but we would like to consult core plugins first
+    for (Iterator<ComponentPlugin> it = myComponentPlugins.descendingIterator(); it.hasNext();) {
+      final ComponentPlugin cp = it.next();
+      if (cp instanceof ComponentHost) {
+        T rv = ((ComponentHost) cp).findComponent(componentClass);
+        if (rv != null) {
+          return rv;
+        }
+      }
     }
-    if (rv == null && myPersistence != null) {
-      rv = myPersistence.findComponent(componentClass);
-    }
-    if (rv == null && myMake != null) {
-      rv = myMake.findComponent(componentClass);
-    }
-    if (rv == null && myGenerator != null) {
-      rv = myGenerator.findComponent(componentClass);
-    }
-    if (rv == null && myFindUsages != null) {
-      rv = myFindUsages.findComponent(componentClass);
-    }
-    if (rv == null && myTypesystem != null) {
-      rv = myTypesystem.findComponent(componentClass);
-    }
-    return rv;
+    return null;
   }
 
   @Override
   public void dispose() {
-    dispose(myMake);
-    dispose(myDataFlow);
-    dispose(myTextGen);
-    dispose(myFindUsages);
-    dispose(myGenerator);
-    dispose(myTypesystem);
-    dispose(myPersistence);
-    dispose(myCore);
+    while (!myComponentPlugins.isEmpty()) {
+      myComponentPlugins.pop().dispose();
+    }
   }
 
-  private static void dispose(@Nullable ComponentPlugin plugin) {
-    if (plugin != null) {
-      plugin.dispose();
-    }
+  private <T extends ComponentPlugin> T initAndRegister(T plugin) {
+    plugin.init();
+    myComponentPlugins.push(plugin);
+    return plugin;
   }
 }

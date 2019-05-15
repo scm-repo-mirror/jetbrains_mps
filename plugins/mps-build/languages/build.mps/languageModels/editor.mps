@@ -1045,6 +1045,32 @@
           </node>
         </node>
       </node>
+      <node concept="3F0ifn" id="6SHOJj4KZ1r" role="3EZMnx">
+        <property role="3F0ifm" value="modules with accessory models:" />
+        <ref role="1k5W1q" to="o2va:hwW5xkg" resolve="keyword" />
+        <node concept="ljvvj" id="6SHOJj4KZ1s" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="lj46D" id="6SHOJj4KZ1t" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3EZMnI" id="6SHOJj50_lb" role="3EZMnx">
+        <node concept="l2Vlx" id="6SHOJj51rSh" role="2iSdaV" />
+        <node concept="3F2HdR" id="6SHOJj4KZE8" role="3EZMnx">
+          <ref role="1NtTu8" to="kdzh:6SHOJj4KY$t" resolve="accessory" />
+          <node concept="pj6Ft" id="6SHOJj4KZR$" role="3F10Kt">
+            <property role="VOm3f" value="true" />
+          </node>
+          <node concept="lj46D" id="6SHOJj4KZRD" role="3F10Kt">
+            <property role="VOm3f" value="true" />
+          </node>
+          <node concept="l2Vlx" id="6SHOJj4KZE9" role="2czzBx" />
+        </node>
+        <node concept="lj46D" id="6SHOJj50_yH" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
       <node concept="3F0ifn" id="7YI57w6hkbl" role="3EZMnx">
         <property role="3F0ifm" value="generator:" />
         <ref role="1k5W1q" to="o2va:hwW5xkg" resolve="keyword" />
@@ -2071,7 +2097,7 @@
             <node concept="3clFbF" id="41K1b4v5FYc" role="3cqZAp">
               <node concept="2YIFZM" id="41K1b4v5FYf" role="3clFbG">
                 <ref role="1Pybhc" to="w1kc:~SModelStereotype" resolve="SModelStereotype" />
-                <ref role="37wK5l" to="w1kc:~SModelStereotype.isGeneratorModel(org.jetbrains.mps.openapi.model.SModel):boolean" resolve="isGeneratorModel" />
+                <ref role="37wK5l" to="w1kc:~SModelStereotype.isGeneratorModel(org.jetbrains.mps.openapi.model.SModel)" resolve="isGeneratorModel" />
                 <node concept="2OqwBi" id="41K1b4v5FY4" role="37wK5m">
                   <node concept="pncrf" id="41K1b4v5FXN" role="2Oq$k0" />
                   <node concept="I4A8Y" id="41K1b4v5FYa" role="2OqNvi" />
@@ -3991,30 +4017,6 @@
         </node>
         <node concept="l2Vlx" id="6V3S4ekwvbG" role="2iSdaV" />
       </node>
-      <node concept="3EZMnI" id="jC3lHUHwJV" role="3EZMnx">
-        <node concept="VPM3Z" id="jC3lHUHwJW" role="3F10Kt">
-          <property role="VOm3f" value="false" />
-        </node>
-        <node concept="lj46D" id="jC3lHUHwJX" role="3F10Kt">
-          <property role="VOm3f" value="true" />
-        </node>
-        <node concept="ljvvj" id="jC3lHUHwJY" role="3F10Kt">
-          <property role="VOm3f" value="true" />
-        </node>
-        <node concept="3F0ifn" id="jC3lHUHwJZ" role="3EZMnx">
-          <property role="3F0ifm" value="generation max perm size in mb" />
-          <ref role="1k5W1q" to="o2va:hwW5xkg" resolve="keyword" />
-          <node concept="3nxI2P" id="7OnehgFA3CE" role="3F10Kt">
-            <property role="VOm3f" value="true" />
-          </node>
-        </node>
-        <node concept="3F0A7n" id="jC3lHUHwK0" role="3EZMnx">
-          <property role="1O74Pk" value="true" />
-          <property role="1$x2rV" value="default" />
-          <ref role="1NtTu8" to="kdzh:jC3lHUHnEE" resolve="generationMaxPermSizeInMb" />
-        </node>
-        <node concept="l2Vlx" id="jC3lHUHwK1" role="2iSdaV" />
-      </node>
       <node concept="3F0ifn" id="5D0zVz80T9L" role="3EZMnx">
         <property role="3F0ifm" value="" />
         <node concept="lj46D" id="5D0zVz80T9P" role="3F10Kt">
@@ -5491,7 +5493,7 @@
                     <ref role="3cqZAo" node="1wEcoXjJz6K" resolve="sourcesKind" />
                   </node>
                   <node concept="liA8E" id="1wEcoXjJz6W" role="2OqNvi">
-                    <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object):boolean" resolve="equals" />
+                    <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object)" resolve="equals" />
                     <node concept="3f7Wdw" id="1wEcoXjJz6X" role="37wK5m">
                       <ref role="3f7vo2" to="kdzh:eYcmk9QOkj" resolve="BuildMps_ModuleSourcesKind" />
                       <ref role="3f7u_j" to="kdzh:eYcmk9QOli" />
@@ -6335,6 +6337,19 @@
       </node>
       <node concept="3F0ifn" id="7cgc9gER36n" role="3EZMnx" />
       <node concept="l2Vlx" id="75N6Lqy0vWs" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="24kQdi" id="6SHOJj4ZDoq">
+    <property role="3GE5qa" value="Project" />
+    <ref role="1XX52x" to="kdzh:6SHOJj4KY$q" resolve="BuildMps_ModuleRef" />
+    <node concept="1iCGBv" id="6SHOJj4ZDos" role="2wV5jI">
+      <ref role="1NtTu8" to="kdzh:6SHOJj4KY$r" resolve="module" />
+      <node concept="1sVBvm" id="6SHOJj4ZDou" role="1sWHZn">
+        <node concept="3F0A7n" id="6SHOJj4ZDo_" role="2wV5jI">
+          <property role="1Intyy" value="true" />
+          <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
+        </node>
+      </node>
     </node>
   </node>
 </model>

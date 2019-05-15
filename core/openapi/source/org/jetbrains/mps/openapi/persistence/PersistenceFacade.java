@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,9 @@ package org.jetbrains.mps.openapi.persistence;
 import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.SModelId;
 import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.model.SModelReference;
@@ -26,14 +29,16 @@ import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.module.SModuleId;
 import org.jetbrains.mps.openapi.module.SModuleReference;
+import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
 
 import java.util.Set;
 
 /**
- * Represents a singleton registry of model and model root factories.
+ * Represents a singleton registry of model, model root factories, find usages and navigation participants.
+ * Also provides a bunch of methods to transform String to model refs/module refs/ node ids and vice versa.
+ *
  */
 public abstract class PersistenceFacade {
-
   protected PersistenceFacade() {
   }
 
@@ -54,62 +59,43 @@ public abstract class PersistenceFacade {
   /**
    * Retrieves the factory associated with the given type
    */
-  public abstract ModelRootFactory getModelRootFactory(String type);
+  public abstract ModelRootFactory getModelRootFactory(@NotNull String type);
 
   /**
    * Registers the factory with the given type, overwriting potential earlier registration.
    *
-   * @param factory The factory to register, null to clear the registration for the given type.
+   * @param factory The factory to register, <code>null</code> to clear the registration for the given type.
    */
-  public abstract void setModelRootFactory(String type, ModelRootFactory factory);
+  public abstract void setModelRootFactory(@NotNull String type, @Nullable ModelRootFactory factory);
 
   /**
    * Retrieves the factory associated with the given file extension.
-   * @deprecated use {@code ModelFactoryRegistry#getDefault(DataSourceType)}
-   *             see <code>jetbrains.mps.extapi.persistence.ModelFactoryService</code>
-   *             see <code>jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryRuleService</code>
+   * @deprecated use {@link PersistenceFacade#getModelFactory(ModelFactoryType)} instead
    */
   @ToRemove(version = 181)
   @Deprecated
   public abstract ModelFactory getModelFactory(@Nullable String extension);
 
   /**
+   * @return the ModelFactory which was registered <b>last</b>.
+   * Use <code>ModelFactoryRegister</code> extension point in order to register a custom ModelFactory.
+   */
+  @Nullable
+  public abstract ModelFactory getModelFactory(@NotNull ModelFactoryType type);
+
+  /**
+   * @return the ModelFactory which was registered last and has in its {@link ModelFactory#getPreferredDataSourceTypes()} the dataSourceType.
+   */
+  @Nullable
+  public abstract ModelFactory getModelFactory(@NotNull DataSourceType dataSourceType);
+
+  /**
    * Retrieves the factory for default MPS storage format (xml-based).
-   * @deprecated unclear contract, use {@code ModelFactoryRegistry#getDefault(DataSourceType)}
-   *             see <code>jetbrains.mps.extapi.persistence.ModelFactoryService</code>
-   *             see <code>jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryRuleService</code>
+   * @deprecated unclear contract, use {@code ModelFactoryRegistry#getDefault(DataSourceType)} + <code>PreinstalledModelFactoryTypes.PLAIN_XML</code>
    */
   @ToRemove(version = 181)
   @Deprecated
   public abstract ModelFactory getDefaultModelFactory();
-
-  /**
-   * Registers the factory with the file extension, overwriting the potential earlier registration.
-   *
-   * @param factory The factory to register, null to clear the registration for the given type.
-   * @deprecated ModelFactory notion is isolated from the location by {@link DataSource}.
-   *             Use {@code ModelFactoryRegistry#register} instead.
-   *             see <code>jetbrains.mps.extapi.persistence.ModelFactoryService</code>
-   *             see <code>jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryRuleService</code>
-   */
-  @ToRemove(version = 181)
-  @Deprecated
-  public abstract void setModelFactory(@Nullable String extension, ModelFactory factory);
-
-  /**
-   * Retrieves registered storage formats extensions.
-   * @deprecated the model factories are separated from the type of location
-   *             (while file extension as a key clearly violates this idea).
-   *             Thus one might to look at the
-   *             <code>jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryService</code>
-   *             which can be used to register your one custom data source factories.
-   *             <code>jetbrains.mps.extapi.persistence.ModelFactoryService</code> is an extension point
-   *             to register your custom model factory implementation and associate it (if needed)
-   *             with some specific data source type.
-   */
-  @ToRemove(version = 181)
-  @Deprecated
-  public abstract Set<String> getModelFactoryExtensions();
 
   /**
    * @return module identity object created from persistence text
@@ -251,6 +237,33 @@ public abstract class PersistenceFacade {
    * @param factory The factory to register, null to clear the registration for the given type.
    */
   public abstract void setNodeIdFactory(String type, SNodeIdFactory factory);
+
+  /**
+   * Serialize/deserialize support for {@linkplain SAbstractConcept concept meta-object}
+   * @since 2019.2
+   */
+  public abstract String asString(@NotNull SAbstractConcept concept);
+
+  /**
+   * Serialize/deserialize support for {@linkplain SAbstractConcept concept meta-object}
+   * @throws IllegalArgumentException if text doesn't represent valid serialized identity of a concept
+   * @since 2019.2
+   */
+  public abstract SAbstractConcept createConcept(@NotNull String text);
+
+
+  /**
+   * Serialize/deserialize support for {@linkplain SAbstractConcept deployed language meta-object}
+   * @since 2019.2
+   */
+  public abstract String asString(@NotNull SLanguage language);
+
+  /**
+   * Serialize/deserialize support for {@linkplain SAbstractConcept deployed language meta-object}
+   * @throws IllegalArgumentException if text doesn't represent valid serialized identity of a deployed language
+   * @since 2019.2
+   */
+  public abstract SLanguage createLanguage(@NotNull String text);
 
   /**
    * Find usages participants speed-up usages search by indexing the content.

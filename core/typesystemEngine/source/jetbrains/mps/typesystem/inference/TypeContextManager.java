@@ -53,7 +53,8 @@ public class TypeContextManager implements CoreComponent {
   private final Object myLock = new Object();
   private Map<ITypeContextOwner, TypecheckingContextHolder> myTypeCheckingContexts = Collections.synchronizedMap(new HashMap<>());
 
-  private TypeChecker myTypeChecker;
+  // dependencies
+  private final TypeChecker myTypeChecker;
   private final ClassLoaderManager myClassLoaderManager;
 
   private AtomicBoolean myDisposeRequested = new AtomicBoolean(false);
@@ -73,6 +74,10 @@ public class TypeContextManager implements CoreComponent {
   };
   private ThreadLocal<SubtypingCache> mySubtypingCache = new ThreadLocal<>();
 
+  /**
+   * @deprecated use {@link jetbrains.mps.components.ComponentHost#findComponent(Class)} instead.
+   */
+  @Deprecated
   public static TypeContextManager getInstance() {
     return INSTANCE;
   }

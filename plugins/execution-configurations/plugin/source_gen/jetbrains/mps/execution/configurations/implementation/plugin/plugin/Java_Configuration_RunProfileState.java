@@ -33,16 +33,20 @@ public class Java_Configuration_RunProfileState extends DebuggerRunProfileState 
   private final Java_Configuration myRunConfiguration;
   @NotNull
   private final ExecutionEnvironment myEnvironment;
+
   public Java_Configuration_RunProfileState(@NotNull Java_Configuration configuration, @NotNull Executor executor, @NotNull ExecutionEnvironment environment) {
     myRunConfiguration = configuration;
     myEnvironment = environment;
   }
+
   public ConfigurationPerRunnerSettings getConfigurationSettings() {
     return null;
   }
+
   public RunnerSettings getRunnerSettings() {
     return null;
   }
+
   @Nullable
   public ExecutionResult execute(Executor executor, @NotNull ProgramRunner runner) throws ExecutionException {
     Project project = myEnvironment.getProject();
@@ -54,7 +58,7 @@ public class Java_Configuration_RunProfileState extends DebuggerRunProfileState 
       throw new ExecutionException("No node selected.");
     }
     {
-      ProcessHandler _processHandler = new Java_Command().setDebuggerSettings_String(myDebuggerSettings.getCommandLine(true)).createProcess(myRunConfiguration.getRunParameters().getJavaRunParameters(), pointer, ProjectHelper.getProjectRepository(project));
+      ProcessHandler _processHandler = new Java_Command().setDebuggerSettings_String(myDebuggerSettings.getCommandLine(true)).createProcess(myRunConfiguration.getRunParameters().getJavaParameters(), pointer, ProjectHelper.getProjectRepository(project));
       final ConsoleView _consoleView = console;
       _consoleView.attachToProcess(_processHandler);
       return new DefaultExecutionResult(_processHandler, new DefaultExecutionConsole(_consoleView.getComponent(), new _FunctionTypes._void_P0_E0() {
@@ -64,10 +68,12 @@ public class Java_Configuration_RunProfileState extends DebuggerRunProfileState 
       }));
     }
   }
+
   @NotNull
   public IDebuggerConfiguration getDebuggerConfiguration() {
     return Java_Command.getDebuggerConfiguration();
   }
+
   public static boolean canExecute(String executorId) {
     if (DefaultRunExecutor.EXECUTOR_ID.equals(executorId)) {
       return true;

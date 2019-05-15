@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="2" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="0" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
     <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="1" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
     <devkit ref="a2eb3a43-fcc2-4200-80dc-c60110c4862d(jetbrains.mps.devkit.templates)" />
@@ -576,7 +576,7 @@
                                         <ref role="3cqZAo" to="wyt6:~System.out" resolve="out" />
                                       </node>
                                       <node concept="liA8E" id="z9$5E0VX0t" role="2OqNvi">
-                                        <ref role="37wK5l" to="guwi:~PrintStream.println(java.lang.String):void" resolve="println" />
+                                        <ref role="37wK5l" to="guwi:~PrintStream.println(java.lang.String)" resolve="println" />
                                         <node concept="Xl_RD" id="z9$5E0VX0u" role="37wK5m">
                                           <property role="Xl_RC" value="Foo" />
                                         </node>
@@ -711,7 +711,7 @@
                                         <ref role="3cqZAo" node="7Joh5OuykDr" resolve="latch" />
                                       </node>
                                       <node concept="liA8E" id="z9$5E0VX0P" role="2OqNvi">
-                                        <ref role="37wK5l" to="5zyv:~CountDownLatch.countDown():void" resolve="countDown" />
+                                        <ref role="37wK5l" to="5zyv:~CountDownLatch.countDown()" resolve="countDown" />
                                       </node>
                                     </node>
                                     <node concept="1W57fq" id="7gT79pF3TzP" role="lGtFl">
@@ -752,7 +752,7 @@
                       </node>
                     </node>
                     <node concept="liA8E" id="7Joh5OuymXS" role="2OqNvi">
-                      <ref role="37wK5l" to="wyt6:~Thread.start():void" resolve="start" />
+                      <ref role="37wK5l" to="wyt6:~Thread.start()" resolve="start" />
                     </node>
                   </node>
                   <node concept="1W57fq" id="z9$5E0W7Tn" role="lGtFl">
@@ -793,7 +793,7 @@
                       </node>
                     </node>
                     <node concept="liA8E" id="z9$5E0W4rS" role="2OqNvi">
-                      <ref role="37wK5l" to="5zyv:~Executor.execute(java.lang.Runnable):void" resolve="execute" />
+                      <ref role="37wK5l" to="5zyv:~Executor.execute(java.lang.Runnable)" resolve="execute" />
                       <node concept="37vLTw" id="3GM_nagTBRg" role="37wK5m">
                         <ref role="3cqZAo" node="z9$5E0VX0e" resolve="runnable" />
                       </node>
@@ -929,7 +929,7 @@
                       <ref role="3cqZAo" node="7Joh5OuykDr" resolve="latch" />
                     </node>
                     <node concept="liA8E" id="7Joh5OuykEY" role="2OqNvi">
-                      <ref role="37wK5l" to="5zyv:~CountDownLatch.await():void" resolve="await" />
+                      <ref role="37wK5l" to="5zyv:~CountDownLatch.await()" resolve="await" />
                     </node>
                   </node>
                 </node>
@@ -1023,7 +1023,7 @@
               <ref role="3cqZAo" to="wyt6:~System.out" resolve="out" />
             </node>
             <node concept="liA8E" id="7Joh5Ouys2Q" role="2OqNvi">
-              <ref role="37wK5l" to="guwi:~PrintStream.println(java.lang.String):void" resolve="println" />
+              <ref role="37wK5l" to="guwi:~PrintStream.println(java.lang.String)" resolve="println" />
               <node concept="3cpWs3" id="7Joh5Ouys2S" role="37wK5m">
                 <node concept="37vLTw" id="3GM_nagTr7c" role="3uHU7w">
                   <ref role="3cqZAo" node="7Joh5Ouys2K" resolve="localA" />
@@ -1059,7 +1059,7 @@
       <node concept="3clFbS" id="z9$5E0W2Hh" role="9aQI4">
         <node concept="3clFbF" id="42COxuQQzuD" role="3cqZAp">
           <node concept="2YIFZM" id="z9$5E0W2He" role="3clFbG">
-            <ref role="37wK5l" to="5zyv:~Executors.newFixedThreadPool(int):java.util.concurrent.ExecutorService" resolve="newFixedThreadPool" />
+            <ref role="37wK5l" to="5zyv:~Executors.newFixedThreadPool(int)" resolve="newFixedThreadPool" />
             <ref role="1Pybhc" to="5zyv:~Executors" resolve="Executors" />
             <node concept="3cmrfG" id="z9$5E0W2Hf" role="37wK5m">
               <property role="3cmrfH" value="1" />
@@ -1119,7 +1119,7 @@
                   <ref role="1PxDUh" to="wyt6:~System" resolve="System" />
                 </node>
                 <node concept="liA8E" id="6OAzscTd4n6" role="2OqNvi">
-                  <ref role="37wK5l" to="guwi:~PrintStream.println(java.lang.String):void" resolve="println" />
+                  <ref role="37wK5l" to="guwi:~PrintStream.println(java.lang.String)" resolve="println" />
                   <node concept="3cpWs3" id="6OAzscTd4n7" role="37wK5m">
                     <node concept="2OqwBi" id="6OAzscTd4n8" role="3uHU7w">
                       <node concept="37vLTw" id="3GM_nagTyRT" role="2Oq$k0">

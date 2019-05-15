@@ -33,6 +33,8 @@ public class NodeBySeveralConcepts_Configuration implements IPersistentConfigura
   private static final Logger LOG = LogManager.getLogger(NodeBySeveralConcepts_Configuration.class);
   @NotNull
   private NodeBySeveralConcepts_Configuration.MyState myState = new NodeBySeveralConcepts_Configuration.MyState();
+
+  @Override
   public void checkConfiguration(final PersistentConfigurationContext context) throws RuntimeConfigurationException {
     final SRepository repo = context.getProject().getRepository();
     String errorText = new ModelAccessHelper(repo).runReadAction(new Computable<String>() {
@@ -62,6 +64,7 @@ public class NodeBySeveralConcepts_Configuration implements IPersistentConfigura
   public void writeExternal(Element element) throws WriteExternalException {
     element.addContent(XmlSerializer.serialize(myState));
   }
+
   @Override
   public void readExternal(Element element) throws InvalidDataException {
     if (element == null) {
@@ -69,18 +72,7 @@ public class NodeBySeveralConcepts_Configuration implements IPersistentConfigura
     }
     XmlSerializer.deserializeInto(myState, (Element) element.getChildren().get(0));
   }
-  public String getNodePointer() {
-    return myState.myNodePointer;
-  }
-  public String getNodeText() {
-    return myState.myNodeText;
-  }
-  public void setNodePointer(String value) {
-    myState.myNodePointer = value;
-  }
-  public void setNodeText(String value) {
-    myState.myNodeText = value;
-  }
+
   @Nullable
   public SNodeReference getNode() {
     if (this.getNodePointer() == null) {
@@ -130,11 +122,25 @@ public class NodeBySeveralConcepts_Configuration implements IPersistentConfigura
     }
     return clone;
   }
+
+  public String getNodePointer() {
+    return myState.myNodePointer;
+  }
+  public String getNodeText() {
+    return myState.myNodeText;
+  }
+
+  public void setNodePointer(String value) {
+    myState.myNodePointer = value;
+  }
+  public void setNodeText(String value) {
+    myState.myNodeText = value;
+  }
+
   public final class MyState {
     public String myNodePointer;
     public String myNodeText;
-    public MyState() {
-    }
+
     @Override
     public Object clone() throws CloneNotSupportedException {
       NodeBySeveralConcepts_Configuration.MyState state = new NodeBySeveralConcepts_Configuration.MyState();

@@ -12,7 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import jetbrains.mps.plugins.tool.BaseGeneratedTool;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.ide.findusages.view.treeholder.treeview.ViewOptions;
 import jetbrains.mps.project.MPSProject;
@@ -27,9 +26,10 @@ import jetbrains.mps.ide.findusages.view.FindUtils;
 import jetbrains.mps.ide.findusages.model.SearchQuery;
 import jetbrains.mps.ide.findusages.model.holders.GenericHolder;
 import com.intellij.openapi.actionSystem.ActionPlaces;
-import jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator;
+import jetbrains.mps.ide.findusages.view.treeholder.treeview.NodeRepresentatorBase;
 import org.jetbrains.mps.openapi.model.SNode;
-import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.TextOptions;
 import jetbrains.mps.util.NameUtil;
@@ -46,6 +46,7 @@ public class TodoViewer extends JPanel {
   private UsagesView myUsagesView;
   private Project myProject;
   private TodoViewer_Tool myTool;
+
   public TodoViewer(final Project project, TodoViewer_Tool tool) {
     this.myTool = tool;
     myProject = project;
@@ -61,17 +62,21 @@ public class TodoViewer extends JPanel {
       }
     });
   }
+
   public void dispose() {
     if (myUsagesView != null) {
       myUsagesView.dispose();
     }
   }
-  private BaseGeneratedTool getTool() {
+
+  private TodoViewer_Tool getTool() {
     return this.myTool;
   }
+
   private Project getProject() {
     return myProject;
   }
+
   private void refresh() {
     ThreadUtils.assertEDT();
     removeAll();
@@ -96,17 +101,17 @@ public class TodoViewer extends JPanel {
     searchTodoAction.actionPerformed(AnActionEvent.createFromInputEvent(searchTodoAction, null, ActionPlaces.TODO_VIEW_TOOLBAR));
     getTool().openToolLater(true);
   }
-  public static class MyNodeRepresentator implements INodeRepresentator<SNode> {
+  public static class MyNodeRepresentator extends NodeRepresentatorBase<SNode> {
     public MyNodeRepresentator() {
     }
     @NotNull
     @Override
     public String getPresentation(SNode node) {
-      return "<font color=blue>" + SNodeAccessUtil.getProperty(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, 0x57d533a7af15ed3eL, "text")) + "</font>";
+      return SPropertyOperations.getString(SNodeOperations.as(node, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, "jetbrains.mps.baseLanguage.structure.TextCommentPart")), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, 0x57d533a7af15ed3eL, "text"));
     }
     @Override
     public String getResultsText(TextOptions options) {
-      return "<strong>" + NameUtil.formatNumericalString(options.mySubresultsCount, "TODO item") + " found</strong>";
+      return NameUtil.formatNumericalString(options.mySubresultsCount, "TODO item") + " found";
     }
     @Override
     public Icon getResultsIcon() {
@@ -119,7 +124,7 @@ public class TodoViewer extends JPanel {
         int size = options.mySubresultsCount;
         counter = " (" + size + ")";
       }
-      return "<strong>TODO items" + counter + "</strong>";
+      return "TODO items" + counter;
     }
     @Override
     public Icon getCategoryIcon(String category) {

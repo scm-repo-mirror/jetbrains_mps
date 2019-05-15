@@ -23,13 +23,13 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
 import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.template.TemplateVarContext;
+import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.generator.template.InsertMacroContext;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.SNodePointer;
 
 @Generated
 public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDeclarationBase implements TemplateDeclaration {
@@ -43,13 +43,13 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
   protected Collection<SNode> applyNode0(@NotNull final TemplateContext context) throws GenerationException {
     final TemplateExecutionEnvironment environment = context.getEnvironment();
     final List<SNode> tlist1 = new ArrayList<SNode>();
-    final SNode sourceNode1 = QueriesGenerated.sourceNodeQuery_8_0(new SourceSubstituteMacroNodeContext(context, mapsrcMacroRef_mgoy7h_b0a0a2a4));
+    final SNode sourceNode1 = QueriesGenerated.sourceNodeQuery_7_0(new SourceSubstituteMacroNodeContext(context, mapsrcMacroRef_mgoy7h_b0a0a2a4));
     TemplateContext context1 = context.subContext(null, sourceNode1);
     if (sourceNode1 != null) {
       final SNode tnode2 = environment.createOutputNode(myConcepts[0]);
       try {
         environment.nodeCopied(context1, tnode2, "tpl/r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508/1066600152715734036");
-        SNodeAccessUtil.setProperty(tnode2, myProperties[0], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_7(new PropertyMacroContext(context1, "InterpretedGeneratorRuntimeDescriptor", propertyMacro_mgoy7h_c0a0c0b0b0e0e))));
+        SNodeAccessUtil.setProperty(tnode2, myProperties[0], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_7(new PropertyMacroContext(context1, "InterpretedGeneratorRuntimeDescriptor", propertyMacro_mgoy7h_c0a0c0b0b0e0e))));
         TemplateContext context2 = context1.subContext();
         {
           final SNode tnode3 = environment.createOutputNode(myConcepts[1]);
@@ -247,7 +247,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                         {
                           final SNode tnode26 = environment.createOutputNode(myConcepts[14]);
                           try {
-                            tnode26.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode26, PersistenceFacade.getInstance().createModelReference("8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)"), PersistenceFacade.getInstance().createNodeId("~PersistenceFacade.getInstance():org.jetbrains.mps.openapi.persistence.PersistenceFacade")));
+                            tnode26.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode26, PersistenceFacade.getInstance().createModelReference("8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)"), PersistenceFacade.getInstance().createNodeId("~PersistenceFacade.getInstance()")));
                             tnode26.setReference(myAssociationLinks[4], SReference.create(myAssociationLinks[4], tnode26, PersistenceFacade.getInstance().createModelReference("8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)"), PersistenceFacade.getInstance().createNodeId("~PersistenceFacade")));
                           } finally {
                           }
@@ -257,12 +257,12 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                         {
                           final SNode tnode27 = environment.createOutputNode(myConcepts[15]);
                           try {
-                            tnode27.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode27, PersistenceFacade.getInstance().createModelReference("8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)"), PersistenceFacade.getInstance().createNodeId("~PersistenceFacade.createModuleReference(java.lang.String):org.jetbrains.mps.openapi.module.SModuleReference")));
+                            tnode27.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode27, PersistenceFacade.getInstance().createModelReference("8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)"), PersistenceFacade.getInstance().createNodeId("~PersistenceFacade.createModuleReference(java.lang.String)")));
                             TemplateContext context13 = context12.subContext();
                             {
                               final SNode tnode28 = environment.createOutputNode(myConcepts[16]);
                               try {
-                                SNodeAccessUtil.setProperty(tnode28, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_0(new PropertyMacroContext(context13, "module.reference", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0b0b0b0i0b0g0b0e0e))));
+                                SNodeAccessUtil.setProperty(tnode28, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_0(new PropertyMacroContext(context13, "module.reference", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0b0b0b0i0b0g0b0e0e))));
                               } finally {
                               }
                               tnode27.addChild(myAggregationLinks[5], tnode28);
@@ -360,7 +360,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                 TemplateContext context16 = context14.subContext();
                 {
                   final List<SNode> tlist37 = new ArrayList<SNode>();
-                  final Iterable<SNode> loopList37 = QueriesGenerated.sourceNodesQuery_8_0(new SourceSubstituteMacroNodesContext(context16, loopMacroRef_mgoy7h_b0a0a1a1a1a8a1a8a1a4a4));
+                  final Iterable<SNode> loopList37 = QueriesGenerated.sourceNodesQuery_7_0(new SourceSubstituteMacroNodesContext(context16, loopMacroRef_mgoy7h_b0a0a1a1a1a8a1a8a1a4a4));
                   for (SNode itnode37 : loopList37) {
                     if (itnode37 == null) {
                       continue;
@@ -385,12 +385,12 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                           {
                             final SNode tnode41 = environment.createOutputNode(myConcepts[15]);
                             try {
-                              tnode41.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode41, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateModuleInterpreted2$TemplateModels.templates(java.lang.String,java.lang.Class):void")));
+                              tnode41.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode41, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateModuleInterpreted2$TemplateModels.templates(java.lang.String,java.lang.Class)")));
                               TemplateContext context20 = context19.subContext();
                               {
                                 final SNode tnode42 = environment.createOutputNode(myConcepts[16]);
                                 try {
-                                  SNodeAccessUtil.setProperty(tnode42, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_1(new PropertyMacroContext(context20, "model-id", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0d0c0b0b0i0b0i0b0e0e))));
+                                  SNodeAccessUtil.setProperty(tnode42, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_1(new PropertyMacroContext(context20, "model-id", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0d0c0b0b0i0b0i0b0e0e))));
                                 } finally {
                                 }
                                 tnode41.addChild(myAggregationLinks[5], tnode42);
@@ -403,7 +403,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                                   {
                                     final SNode tnode44 = environment.createOutputNode(myConcepts[20]);
                                     try {
-                                      SNodeAccessUtil.setProperty(tnode44, myProperties[5], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_2(new PropertyMacroContext(context21, "QueriesGenerated", propertyMacro_mgoy7h_c0a0c0a0b0b0b0d0b0c0b0b0d0c0b0b0i0b0i0b0e0e))));
+                                      SNodeAccessUtil.setProperty(tnode44, myProperties[5], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_2(new PropertyMacroContext(context21, "QueriesGenerated", propertyMacro_mgoy7h_c0a0c0a0b0b0b0d0b0c0b0b0d0c0b0b0i0b0i0b0e0e))));
                                       tnode44.setReference(myAssociationLinks[0], SReference.create(myAssociationLinks[0], tnode44, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.impl.query(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~GeneratorQueryProvider")));
                                     } finally {
                                     }
@@ -465,7 +465,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
         }
         {
           Collection<SNode> tlist48 = null;
-          if (QueriesGenerated.ifMacro_Condition_8_0(new IfMacroContext(context2, ifMacroRef_mgoy7h_b0a0b0k0b0e0e))) {
+          if (QueriesGenerated.ifMacro_Condition_7_0(new IfMacroContext(context2, ifMacroRef_mgoy7h_b0a0b0k0b0e0e))) {
             final SNode tnode49 = environment.createOutputNode(myConcepts[10]);
             try {
               SNodeAccessUtil.setProperty(tnode49, myProperties[1], "false");
@@ -515,7 +515,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                   TemplateContext context24 = context22.subContext();
                   {
                     final List<SNode> tlist55 = new ArrayList<SNode>();
-                    final Iterable<SNode> loopList55 = QueriesGenerated.sourceNodesQuery_8_1(new SourceSubstituteMacroNodesContext(context24, loopMacroRef_mgoy7h_b0a0a1a1a1a8a1a1a01a1a4a4));
+                    final Iterable<SNode> loopList55 = QueriesGenerated.sourceNodesQuery_7_1(new SourceSubstituteMacroNodesContext(context24, loopMacroRef_mgoy7h_b0a0a1a1a1a8a1a1a01a1a4a4));
                     for (SNode itnode55 : loopList55) {
                       if (itnode55 == null) {
                         continue;
@@ -540,12 +540,12 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                             {
                               final SNode tnode59 = environment.createOutputNode(myConcepts[15]);
                               try {
-                                tnode59.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode59, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateModuleBase$ReferencedGenerators.extended(java.lang.String):void")));
+                                tnode59.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode59, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateModuleBase$ReferencedGenerators.extended(java.lang.String)")));
                                 TemplateContext context28 = context27.subContext();
                                 {
                                   final SNode tnode60 = environment.createOutputNode(myConcepts[16]);
                                   try {
-                                    SNodeAccessUtil.setProperty(tnode60, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_3(new PropertyMacroContext(context28, "", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0d0c0b0b0i0b0b0k0b0e0e))));
+                                    SNodeAccessUtil.setProperty(tnode60, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_3(new PropertyMacroContext(context28, "", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0d0c0b0b0i0b0b0k0b0e0e))));
                                   } finally {
                                   }
                                   tnode59.addChild(myAggregationLinks[5], tnode60);
@@ -574,7 +574,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                   }
                   {
                     final List<SNode> tlist62 = new ArrayList<SNode>();
-                    final Iterable<SNode> loopList62 = QueriesGenerated.sourceNodesQuery_8_2(new SourceSubstituteMacroNodesContext(context24, loopMacroRef_mgoy7h_b0a0a1a2a1a8a1a1a01a1a4a4));
+                    final Iterable<SNode> loopList62 = QueriesGenerated.sourceNodesQuery_7_2(new SourceSubstituteMacroNodesContext(context24, loopMacroRef_mgoy7h_b0a0a1a2a1a8a1a1a01a1a4a4));
                     for (SNode itnode62 : loopList62) {
                       if (itnode62 == null) {
                         continue;
@@ -599,12 +599,12 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                             {
                               final SNode tnode66 = environment.createOutputNode(myConcepts[15]);
                               try {
-                                tnode66.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode66, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateModuleBase$ReferencedGenerators.employed(java.lang.String):void")));
+                                tnode66.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode66, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateModuleBase$ReferencedGenerators.employed(java.lang.String)")));
                                 TemplateContext context32 = context31.subContext();
                                 {
                                   final SNode tnode67 = environment.createOutputNode(myConcepts[16]);
                                   try {
-                                    SNodeAccessUtil.setProperty(tnode67, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_4(new PropertyMacroContext(context32, "", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0d0c0c0b0i0b0b0k0b0e0e))));
+                                    SNodeAccessUtil.setProperty(tnode67, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_4(new PropertyMacroContext(context32, "", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0d0c0c0b0i0b0b0k0b0e0e))));
                                   } finally {
                                   }
                                   tnode66.addChild(myAggregationLinks[5], tnode67);
@@ -664,8 +664,8 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
         }
         {
           Collection<SNode> tlist72 = null;
-          final Object varValue72 = QueriesGenerated.varMacro_Value_8_0(new TemplateVarContext(context2, varMacroRef_mgoy7h_b0a0a1a21a1a4a4));
-          TemplateContext context33 = context2.withVariable("var:targetLanguages", varValue72);
+          TemplateContext context33 = context2;
+          context33 = context33.withVariable("var:targetLanguages", QueriesGenerated.varMacro_Value_7_0(new TemplateVarContext(context2, new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "2409421742521902666"))));
           final SNode tnode73 = environment.createOutputNode(myConcepts[10]);
           try {
             SNodeAccessUtil.setProperty(tnode73, myProperties[1], "false");
@@ -747,7 +747,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                                     {
                                       final SNode tnode85 = environment.createOutputNode(myConcepts[27]);
                                       try {
-                                        SNodeAccessUtil.setProperty(tnode85, myProperties[6], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_5(new PropertyMacroContext(context42, "0", propertyMacro_mgoy7h_c0a0c0a0b0b0b0b0b0b0b0e0b0b0b0b0b0h0e0m0b0e0e))));
+                                        SNodeAccessUtil.setProperty(tnode85, myProperties[6], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_5(new PropertyMacroContext(context42, "0", propertyMacro_mgoy7h_c0a0c0a0b0b0b0b0b0b0b0e0b0b0b0b0b0h0e0m0b0e0e))));
                                       } finally {
                                       }
                                       tnode84.addChild(myAggregationLinks[16], tnode85);
@@ -789,7 +789,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                 }
                 {
                   final List<SNode> tlist87 = new ArrayList<SNode>();
-                  final Iterable<SNode> loopList87 = QueriesGenerated.sourceNodesQuery_8_3(new SourceSubstituteMacroNodesContext(context36, loopMacroRef_mgoy7h_b0a0a1a2a1a7a4a21a1a4a4));
+                  final Iterable<SNode> loopList87 = QueriesGenerated.sourceNodesQuery_7_3(new SourceSubstituteMacroNodesContext(context36, loopMacroRef_mgoy7h_b0a0a1a2a1a7a4a21a1a4a4));
                   int loopIndex_c_87 = 0;
                   for (SNode itnode87 : loopList87) {
                     if (itnode87 == null) {
@@ -811,7 +811,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                               {
                                 final SNode tnode91 = environment.createOutputNode(myConcepts[27]);
                                 try {
-                                  SNodeAccessUtil.setProperty(tnode91, myProperties[6], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_6(new PropertyMacroContext(context46, "0", propertyMacro_mgoy7h_c0a0c0a0b0b0b0b0b0b0e0d0c0b0h0e0m0b0e0e))));
+                                  SNodeAccessUtil.setProperty(tnode91, myProperties[6], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_6(new PropertyMacroContext(context46, "0", propertyMacro_mgoy7h_c0a0c0a0b0b0b0b0b0b0e0d0c0b0h0e0m0b0e0e))));
                                 } finally {
                                 }
                                 tnode90.addChild(myAggregationLinks[22], tnode91);
@@ -837,7 +837,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                               TemplateContext context47 = context45.subContext();
                               {
                                 SNode tnode94 = null;
-                                final SNode insertInput94 = QueriesGenerated.insertMacro_Query_8_0(new InsertMacroContext(context47, insertMacro_mgoy7h_b0a0a1a1a1a2a1a1a4a3a2a1a7a4a21a1a4a4));
+                                final SNode insertInput94 = QueriesGenerated.insertMacro_Query_7_0(new InsertMacroContext(context47, insertMacro_mgoy7h_b0a0a1a1a1a2a1a1a4a3a2a1a7a4a21a1a4a4));
                                 if (insertInput94 != null) {
                                   tnode94 = environment.insertNode(insertInput94, insertMacro_mgoy7h_b0a0a1a1a1a2a1a1a4a3a2a1a7a4a21a1a3a5, context47);
                                 }
@@ -875,7 +875,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                       final SNode tnode97 = environment.createOutputNode(myConcepts[14]);
                       try {
                         tnode97.setReference(myAssociationLinks[4], SReference.create(myAssociationLinks[4], tnode97, PersistenceFacade.getInstance().createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)"), PersistenceFacade.getInstance().createNodeId("~Arrays")));
-                        tnode97.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode97, PersistenceFacade.getInstance().createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)"), PersistenceFacade.getInstance().createNodeId("~Arrays.asList(java.lang.Object...):java.util.List")));
+                        tnode97.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode97, PersistenceFacade.getInstance().createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)"), PersistenceFacade.getInstance().createNodeId("~Arrays.asList(java.lang.Object...)")));
                         TemplateContext context49 = context48.subContext();
                         {
                           final SNode tnode98 = environment.createOutputNode(myConcepts[9]);
@@ -928,7 +928,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
         }
         {
           Collection<SNode> tlist102 = null;
-          if (QueriesGenerated.ifMacro_Condition_8_1(new IfMacroContext(context2, ifMacroRef_mgoy7h_b0a0b0o0b0e0e))) {
+          if (QueriesGenerated.ifMacro_Condition_7_1(new IfMacroContext(context2, ifMacroRef_mgoy7h_b0a0b0o0b0e0e))) {
             final SNode tnode103 = environment.createOutputNode(myConcepts[10]);
             try {
               SNodeAccessUtil.setProperty(tnode103, myProperties[1], "false");
@@ -975,11 +975,11 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                         final SNode tnode109 = environment.createOutputNode(myConcepts[14]);
                         try {
                           tnode109.setReference(myAssociationLinks[4], SReference.create(myAssociationLinks[4], tnode109, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateUtil")));
-                          tnode109.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode109, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateUtil.asCollection(java.lang.Object...):java.util.Collection")));
+                          tnode109.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode109, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateUtil.asCollection(java.lang.Object...)")));
                           TemplateContext context54 = context53.subContext();
                           {
                             Collection<SNode> tlist110 = null;
-                            final Iterable<SNode> copyListInput110 = QueriesGenerated.sourceNodesQuery_8_4(new SourceSubstituteMacroNodesContext(context54, copySrcListMacro_mgoy7h_b0a0a1a3a1a1a1a1a1a7a1a1a41a1a4a4));
+                            final Iterable<SNode> copyListInput110 = QueriesGenerated.sourceNodesQuery_7_4(new SourceSubstituteMacroNodesContext(context54, copySrcListMacro_mgoy7h_b0a0a1a3a1a1a1a1a1a7a1a1a41a1a4a4));
                             tlist110 = environment.copyNodes(copyListInput110, copySrcListMacro_mgoy7h_b0a0a1a3a1a1a1a1a1a7a1a1a41a1a3a5, "tpl/r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508/1066600152715942257", context54);
                             for (SNode child111 : TemplateUtil.asNotNull(tlist110)) {
                               tnode109.addChild(myAggregationLinks[5], child111);
@@ -1046,13 +1046,13 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
   }
   public Collection<SNode> apply(@NotNull final TemplateExecutionEnvironment environment, @NotNull final TemplateContext context) throws GenerationException {
     final List<SNode> tlist1 = new ArrayList<SNode>();
-    final SNode sourceNode1 = QueriesGenerated.sourceNodeQuery_8_0(new SourceSubstituteMacroNodeContext(context, mapsrcMacroRef_mgoy7h_b0a0a1a5));
+    final SNode sourceNode1 = QueriesGenerated.sourceNodeQuery_7_0(new SourceSubstituteMacroNodeContext(context, mapsrcMacroRef_mgoy7h_b0a0a1a5));
     TemplateContext context1 = context.subContext(null, sourceNode1);
     if (sourceNode1 != null) {
       final SNode tnode2 = environment.createOutputNode(myConcepts[0]);
       try {
         environment.nodeCopied(context1, tnode2, "tpl/r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508/1066600152715734036");
-        SNodeAccessUtil.setProperty(tnode2, myProperties[0], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_7(new PropertyMacroContext(context1, "InterpretedGeneratorRuntimeDescriptor", propertyMacro_mgoy7h_c0a0c0b0b0d0f))));
+        SNodeAccessUtil.setProperty(tnode2, myProperties[0], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_7(new PropertyMacroContext(context1, "InterpretedGeneratorRuntimeDescriptor", propertyMacro_mgoy7h_c0a0c0b0b0d0f))));
         TemplateContext context2 = context1.subContext();
         {
           final SNode tnode3 = environment.createOutputNode(myConcepts[1]);
@@ -1250,7 +1250,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                         {
                           final SNode tnode26 = environment.createOutputNode(myConcepts[14]);
                           try {
-                            tnode26.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode26, PersistenceFacade.getInstance().createModelReference("8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)"), PersistenceFacade.getInstance().createNodeId("~PersistenceFacade.getInstance():org.jetbrains.mps.openapi.persistence.PersistenceFacade")));
+                            tnode26.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode26, PersistenceFacade.getInstance().createModelReference("8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)"), PersistenceFacade.getInstance().createNodeId("~PersistenceFacade.getInstance()")));
                             tnode26.setReference(myAssociationLinks[4], SReference.create(myAssociationLinks[4], tnode26, PersistenceFacade.getInstance().createModelReference("8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)"), PersistenceFacade.getInstance().createNodeId("~PersistenceFacade")));
                           } finally {
                           }
@@ -1260,12 +1260,12 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                         {
                           final SNode tnode27 = environment.createOutputNode(myConcepts[15]);
                           try {
-                            tnode27.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode27, PersistenceFacade.getInstance().createModelReference("8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)"), PersistenceFacade.getInstance().createNodeId("~PersistenceFacade.createModuleReference(java.lang.String):org.jetbrains.mps.openapi.module.SModuleReference")));
+                            tnode27.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode27, PersistenceFacade.getInstance().createModelReference("8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)"), PersistenceFacade.getInstance().createNodeId("~PersistenceFacade.createModuleReference(java.lang.String)")));
                             TemplateContext context13 = context12.subContext();
                             {
                               final SNode tnode28 = environment.createOutputNode(myConcepts[16]);
                               try {
-                                SNodeAccessUtil.setProperty(tnode28, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_0(new PropertyMacroContext(context13, "module.reference", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0b0b0b0i0b0g0b0d0f))));
+                                SNodeAccessUtil.setProperty(tnode28, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_0(new PropertyMacroContext(context13, "module.reference", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0b0b0b0i0b0g0b0d0f))));
                               } finally {
                               }
                               tnode27.addChild(myAggregationLinks[5], tnode28);
@@ -1363,7 +1363,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                 TemplateContext context16 = context14.subContext();
                 {
                   final List<SNode> tlist37 = new ArrayList<SNode>();
-                  final Iterable<SNode> loopList37 = QueriesGenerated.sourceNodesQuery_8_0(new SourceSubstituteMacroNodesContext(context16, loopMacroRef_mgoy7h_b0a0a1a1a1a8a1a8a1a3a5));
+                  final Iterable<SNode> loopList37 = QueriesGenerated.sourceNodesQuery_7_0(new SourceSubstituteMacroNodesContext(context16, loopMacroRef_mgoy7h_b0a0a1a1a1a8a1a8a1a3a5));
                   for (SNode itnode37 : loopList37) {
                     if (itnode37 == null) {
                       continue;
@@ -1388,12 +1388,12 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                           {
                             final SNode tnode41 = environment.createOutputNode(myConcepts[15]);
                             try {
-                              tnode41.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode41, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateModuleInterpreted2$TemplateModels.templates(java.lang.String,java.lang.Class):void")));
+                              tnode41.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode41, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateModuleInterpreted2$TemplateModels.templates(java.lang.String,java.lang.Class)")));
                               TemplateContext context20 = context19.subContext();
                               {
                                 final SNode tnode42 = environment.createOutputNode(myConcepts[16]);
                                 try {
-                                  SNodeAccessUtil.setProperty(tnode42, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_1(new PropertyMacroContext(context20, "model-id", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0d0c0b0b0i0b0i0b0d0f))));
+                                  SNodeAccessUtil.setProperty(tnode42, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_1(new PropertyMacroContext(context20, "model-id", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0d0c0b0b0i0b0i0b0d0f))));
                                 } finally {
                                 }
                                 tnode41.addChild(myAggregationLinks[5], tnode42);
@@ -1406,7 +1406,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                                   {
                                     final SNode tnode44 = environment.createOutputNode(myConcepts[20]);
                                     try {
-                                      SNodeAccessUtil.setProperty(tnode44, myProperties[5], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_2(new PropertyMacroContext(context21, "QueriesGenerated", propertyMacro_mgoy7h_c0a0c0a0b0b0b0d0b0c0b0b0d0c0b0b0i0b0i0b0d0f))));
+                                      SNodeAccessUtil.setProperty(tnode44, myProperties[5], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_2(new PropertyMacroContext(context21, "QueriesGenerated", propertyMacro_mgoy7h_c0a0c0a0b0b0b0d0b0c0b0b0d0c0b0b0i0b0i0b0d0f))));
                                       tnode44.setReference(myAssociationLinks[0], SReference.create(myAssociationLinks[0], tnode44, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.impl.query(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~GeneratorQueryProvider")));
                                     } finally {
                                     }
@@ -1468,7 +1468,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
         }
         {
           Collection<SNode> tlist48 = null;
-          if (QueriesGenerated.ifMacro_Condition_8_0(new IfMacroContext(context2, ifMacroRef_mgoy7h_b0a0b0k0b0d0f))) {
+          if (QueriesGenerated.ifMacro_Condition_7_0(new IfMacroContext(context2, ifMacroRef_mgoy7h_b0a0b0k0b0d0f))) {
             final SNode tnode49 = environment.createOutputNode(myConcepts[10]);
             try {
               SNodeAccessUtil.setProperty(tnode49, myProperties[1], "false");
@@ -1518,7 +1518,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                   TemplateContext context24 = context22.subContext();
                   {
                     final List<SNode> tlist55 = new ArrayList<SNode>();
-                    final Iterable<SNode> loopList55 = QueriesGenerated.sourceNodesQuery_8_1(new SourceSubstituteMacroNodesContext(context24, loopMacroRef_mgoy7h_b0a0a1a1a1a8a1a1a01a1a3a5));
+                    final Iterable<SNode> loopList55 = QueriesGenerated.sourceNodesQuery_7_1(new SourceSubstituteMacroNodesContext(context24, loopMacroRef_mgoy7h_b0a0a1a1a1a8a1a1a01a1a3a5));
                     for (SNode itnode55 : loopList55) {
                       if (itnode55 == null) {
                         continue;
@@ -1543,12 +1543,12 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                             {
                               final SNode tnode59 = environment.createOutputNode(myConcepts[15]);
                               try {
-                                tnode59.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode59, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateModuleBase$ReferencedGenerators.extended(java.lang.String):void")));
+                                tnode59.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode59, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateModuleBase$ReferencedGenerators.extended(java.lang.String)")));
                                 TemplateContext context28 = context27.subContext();
                                 {
                                   final SNode tnode60 = environment.createOutputNode(myConcepts[16]);
                                   try {
-                                    SNodeAccessUtil.setProperty(tnode60, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_3(new PropertyMacroContext(context28, "", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0d0c0b0b0i0b0b0k0b0d0f))));
+                                    SNodeAccessUtil.setProperty(tnode60, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_3(new PropertyMacroContext(context28, "", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0d0c0b0b0i0b0b0k0b0d0f))));
                                   } finally {
                                   }
                                   tnode59.addChild(myAggregationLinks[5], tnode60);
@@ -1577,7 +1577,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                   }
                   {
                     final List<SNode> tlist62 = new ArrayList<SNode>();
-                    final Iterable<SNode> loopList62 = QueriesGenerated.sourceNodesQuery_8_2(new SourceSubstituteMacroNodesContext(context24, loopMacroRef_mgoy7h_b0a0a1a2a1a8a1a1a01a1a3a5));
+                    final Iterable<SNode> loopList62 = QueriesGenerated.sourceNodesQuery_7_2(new SourceSubstituteMacroNodesContext(context24, loopMacroRef_mgoy7h_b0a0a1a2a1a8a1a1a01a1a3a5));
                     for (SNode itnode62 : loopList62) {
                       if (itnode62 == null) {
                         continue;
@@ -1602,12 +1602,12 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                             {
                               final SNode tnode66 = environment.createOutputNode(myConcepts[15]);
                               try {
-                                tnode66.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode66, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateModuleBase$ReferencedGenerators.employed(java.lang.String):void")));
+                                tnode66.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode66, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateModuleBase$ReferencedGenerators.employed(java.lang.String)")));
                                 TemplateContext context32 = context31.subContext();
                                 {
                                   final SNode tnode67 = environment.createOutputNode(myConcepts[16]);
                                   try {
-                                    SNodeAccessUtil.setProperty(tnode67, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_4(new PropertyMacroContext(context32, "", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0d0c0c0b0i0b0b0k0b0d0f))));
+                                    SNodeAccessUtil.setProperty(tnode67, myProperties[4], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_4(new PropertyMacroContext(context32, "", propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0d0c0c0b0i0b0b0k0b0d0f))));
                                   } finally {
                                   }
                                   tnode66.addChild(myAggregationLinks[5], tnode67);
@@ -1667,8 +1667,8 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
         }
         {
           Collection<SNode> tlist72 = null;
-          final Object varValue72 = QueriesGenerated.varMacro_Value_8_0(new TemplateVarContext(context2, varMacroRef_mgoy7h_b0a0a1a21a1a3a5));
-          TemplateContext context33 = context2.withVariable("var:targetLanguages", varValue72);
+          TemplateContext context33 = context2;
+          context33 = context33.withVariable("var:targetLanguages", QueriesGenerated.varMacro_Value_7_0(new TemplateVarContext(context2, new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "2409421742521902666"))));
           final SNode tnode73 = environment.createOutputNode(myConcepts[10]);
           try {
             SNodeAccessUtil.setProperty(tnode73, myProperties[1], "false");
@@ -1750,7 +1750,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                                     {
                                       final SNode tnode85 = environment.createOutputNode(myConcepts[27]);
                                       try {
-                                        SNodeAccessUtil.setProperty(tnode85, myProperties[6], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_5(new PropertyMacroContext(context42, "0", propertyMacro_mgoy7h_c0a0c0a0b0b0b0b0b0b0b0e0b0b0b0b0b0h0e0m0b0d0f))));
+                                        SNodeAccessUtil.setProperty(tnode85, myProperties[6], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_5(new PropertyMacroContext(context42, "0", propertyMacro_mgoy7h_c0a0c0a0b0b0b0b0b0b0b0e0b0b0b0b0b0h0e0m0b0d0f))));
                                       } finally {
                                       }
                                       tnode84.addChild(myAggregationLinks[16], tnode85);
@@ -1792,7 +1792,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                 }
                 {
                   final List<SNode> tlist87 = new ArrayList<SNode>();
-                  final Iterable<SNode> loopList87 = QueriesGenerated.sourceNodesQuery_8_3(new SourceSubstituteMacroNodesContext(context36, loopMacroRef_mgoy7h_b0a0a1a2a1a7a4a21a1a3a5));
+                  final Iterable<SNode> loopList87 = QueriesGenerated.sourceNodesQuery_7_3(new SourceSubstituteMacroNodesContext(context36, loopMacroRef_mgoy7h_b0a0a1a2a1a7a4a21a1a3a5));
                   int loopIndex_c_87 = 0;
                   for (SNode itnode87 : loopList87) {
                     if (itnode87 == null) {
@@ -1814,7 +1814,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                               {
                                 final SNode tnode91 = environment.createOutputNode(myConcepts[27]);
                                 try {
-                                  SNodeAccessUtil.setProperty(tnode91, myProperties[6], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_8_6(new PropertyMacroContext(context46, "0", propertyMacro_mgoy7h_c0a0c0a0b0b0b0b0b0b0e0d0c0b0h0e0m0b0d0f))));
+                                  SNodeAccessUtil.setProperty(tnode91, myProperties[6], TemplateUtil.asString(QueriesGenerated.propertyMacro_GetValue_7_6(new PropertyMacroContext(context46, "0", propertyMacro_mgoy7h_c0a0c0a0b0b0b0b0b0b0e0d0c0b0h0e0m0b0d0f))));
                                 } finally {
                                 }
                                 tnode90.addChild(myAggregationLinks[22], tnode91);
@@ -1840,7 +1840,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                               TemplateContext context47 = context45.subContext();
                               {
                                 SNode tnode94 = null;
-                                final SNode insertInput94 = QueriesGenerated.insertMacro_Query_8_0(new InsertMacroContext(context47, insertMacro_mgoy7h_b0a0a1a1a1a2a1a1a4a3a2a1a7a4a21a1a3a5));
+                                final SNode insertInput94 = QueriesGenerated.insertMacro_Query_7_0(new InsertMacroContext(context47, insertMacro_mgoy7h_b0a0a1a1a1a2a1a1a4a3a2a1a7a4a21a1a3a5));
                                 if (insertInput94 != null) {
                                   tnode94 = environment.insertNode(insertInput94, insertMacro_mgoy7h_b0a0a1a1a1a2a1a1a4a3a2a1a7a4a21a1a3a5, context47);
                                 }
@@ -1878,7 +1878,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                       final SNode tnode97 = environment.createOutputNode(myConcepts[14]);
                       try {
                         tnode97.setReference(myAssociationLinks[4], SReference.create(myAssociationLinks[4], tnode97, PersistenceFacade.getInstance().createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)"), PersistenceFacade.getInstance().createNodeId("~Arrays")));
-                        tnode97.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode97, PersistenceFacade.getInstance().createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)"), PersistenceFacade.getInstance().createNodeId("~Arrays.asList(java.lang.Object...):java.util.List")));
+                        tnode97.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode97, PersistenceFacade.getInstance().createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)"), PersistenceFacade.getInstance().createNodeId("~Arrays.asList(java.lang.Object...)")));
                         TemplateContext context49 = context48.subContext();
                         {
                           final SNode tnode98 = environment.createOutputNode(myConcepts[9]);
@@ -1931,7 +1931,7 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
         }
         {
           Collection<SNode> tlist102 = null;
-          if (QueriesGenerated.ifMacro_Condition_8_1(new IfMacroContext(context2, ifMacroRef_mgoy7h_b0a0b0o0b0d0f))) {
+          if (QueriesGenerated.ifMacro_Condition_7_1(new IfMacroContext(context2, ifMacroRef_mgoy7h_b0a0b0o0b0d0f))) {
             final SNode tnode103 = environment.createOutputNode(myConcepts[10]);
             try {
               SNodeAccessUtil.setProperty(tnode103, myProperties[1], "false");
@@ -1978,11 +1978,11 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
                         final SNode tnode109 = environment.createOutputNode(myConcepts[14]);
                         try {
                           tnode109.setReference(myAssociationLinks[4], SReference.create(myAssociationLinks[4], tnode109, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateUtil")));
-                          tnode109.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode109, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateUtil.asCollection(java.lang.Object...):java.util.Collection")));
+                          tnode109.setReference(myAssociationLinks[1], SReference.create(myAssociationLinks[1], tnode109, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.generator.runtime(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~TemplateUtil.asCollection(java.lang.Object...)")));
                           TemplateContext context54 = context53.subContext();
                           {
                             Collection<SNode> tlist110 = null;
-                            final Iterable<SNode> copyListInput110 = QueriesGenerated.sourceNodesQuery_8_4(new SourceSubstituteMacroNodesContext(context54, copySrcListMacro_mgoy7h_b0a0a1a3a1a1a1a1a1a7a1a1a41a1a3a5));
+                            final Iterable<SNode> copyListInput110 = QueriesGenerated.sourceNodesQuery_7_4(new SourceSubstituteMacroNodesContext(context54, copySrcListMacro_mgoy7h_b0a0a1a3a1a1a1a1a1a7a1a1a41a1a3a5));
                             tlist110 = environment.copyNodes(copyListInput110, copySrcListMacro_mgoy7h_b0a0a1a3a1a1a1a1a1a7a1a1a41a1a3a5, "tpl/r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508/1066600152715942257", context54);
                             for (SNode child111 : TemplateUtil.asNotNull(tlist110)) {
                               tnode109.addChild(myAggregationLinks[5], child111);
@@ -2161,7 +2161,6 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
   private static SNodePointer templateNode_mgoy7h_c0a0a1a1a1a1a3a2a2a1a8a1a1a01a1a4a4 = new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "1066600152716048468");
   private static SNodePointer propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0d0c0c0b0i0b0b0k0b0e0e = new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "1066600152716048471");
   private static SNodePointer ifMacroRef_mgoy7h_b0a0b0k0b0e0e = new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "1066600152716048505");
-  private static SNodePointer varMacroRef_mgoy7h_b0a0a1a21a1a4a4 = new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "1066600152716010794");
   private static SNodePointer propertyMacro_mgoy7h_c0a0c0a0b0b0b0b0b0b0b0e0b0b0b0b0b0h0e0m0b0e0e = new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "1066600152716010754");
   private static SNodePointer loopMacroRef_mgoy7h_b0a0a1a2a1a7a4a21a1a4a4 = new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "1066600152716010783");
   private static SNodePointer propertyMacro_mgoy7h_c0a0c0a0b0b0b0b0b0b0e0d0c0b0h0e0m0b0e0e = new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "1066600152716010768");
@@ -2187,7 +2186,6 @@ public class Template_InterpretedGeneratorRuntimeDescriptor extends TemplateDecl
   private static SNodePointer templateNode_mgoy7h_c0a0a1a1a1a1a3a2a2a1a8a1a1a01a1a3a5 = new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "1066600152716048468");
   private static SNodePointer propertyMacro_mgoy7h_c0a0c0a0b0c0b0c0b0b0d0c0c0b0i0b0b0k0b0d0f = new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "1066600152716048471");
   private static SNodePointer ifMacroRef_mgoy7h_b0a0b0k0b0d0f = new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "1066600152716048505");
-  private static SNodePointer varMacroRef_mgoy7h_b0a0a1a21a1a3a5 = new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "1066600152716010794");
   private static SNodePointer propertyMacro_mgoy7h_c0a0c0a0b0b0b0b0b0b0b0e0b0b0b0b0b0h0e0m0b0d0f = new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "1066600152716010754");
   private static SNodePointer loopMacroRef_mgoy7h_b0a0a1a2a1a7a4a21a1a3a5 = new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "1066600152716010783");
   private static SNodePointer propertyMacro_mgoy7h_c0a0c0a0b0b0b0b0b0b0e0d0c0b0h0e0m0b0d0f = new SNodePointer("r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)", "1066600152716010768");

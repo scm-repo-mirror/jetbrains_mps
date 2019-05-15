@@ -257,7 +257,7 @@ public class IntentionsManager implements ApplicationComponent, PersistentStateC
       Collection<EditorQuickFix> intentionProviders = TypesystemReportItemAdapter.FLAVOUR_EDITOR_QUICKFIX.getCollection(message);
       for (EditorQuickFix intentionProvider : intentionProviders) {
         QuickFixAdapter intention = new QuickFixAdapter(intentionProvider, message.getSeverity());
-        if ((isAncestor && !intention.isAvailableInChildNodes()) || !intention.isApplicable(node, context)) {
+        if (!filter.accept(intention) ||(isAncestor && !intention.isAvailableInChildNodes()) || !intention.isApplicable(node, context)) {
           continue;
         }
         try {
@@ -265,7 +265,7 @@ public class IntentionsManager implements ApplicationComponent, PersistentStateC
             result.put(executable, intention.getKind());
           }
         } catch (Throwable t) {
-          LOG.error("Exception during parameterized intentions instantiation", t);
+          LOG.error("Exception during quickfix intentions instantiation", t);
         }
       }
     }

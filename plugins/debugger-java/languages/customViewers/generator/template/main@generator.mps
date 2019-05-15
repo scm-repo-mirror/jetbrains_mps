@@ -6,7 +6,7 @@
     <use id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal" version="0" />
     <use id="fa8aeae9-4df9-4e13-bfb1-9b04c67ddb77" name="jetbrains.mps.debugger.java.customViewers" version="1" />
     <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="2" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="0" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
     <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="4" />
     <use id="ef7bf5ac-d06c-4342-b11d-e42104eb9343" name="jetbrains.mps.lang.plugin.standalone" version="0" />
     <use id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts" version="0" />
@@ -764,7 +764,7 @@
                               <ref role="37wK5l" to="qgwr:6w0uxLH2nuK" resolve="instanceOf" />
                               <node concept="2OqwBi" id="5_RzrZjys8F" role="37wK5m">
                                 <node concept="liA8E" id="5_RzrZjys8J" role="2OqNvi">
-                                  <ref role="37wK5l" to="frkw:~Value.type():com.sun.jdi.Type" resolve="type" />
+                                  <ref role="37wK5l" to="frkw:~Value.type()" resolve="type" />
                                 </node>
                                 <node concept="37vLTw" id="3GM_nagTysC" role="2Oq$k0">
                                   <ref role="3cqZAo" node="4KY3GK1Br7a" resolve="value" />
@@ -803,7 +803,7 @@
                                   <ref role="3cqZAo" node="4KY3GK1Br7a" resolve="value" />
                                 </node>
                                 <node concept="liA8E" id="5_RzrZjypMn" role="2OqNvi">
-                                  <ref role="37wK5l" to="frkw:~Mirror.virtualMachine():com.sun.jdi.VirtualMachine" resolve="virtualMachine" />
+                                  <ref role="37wK5l" to="frkw:~Mirror.virtualMachine()" resolve="virtualMachine" />
                                 </node>
                               </node>
                             </node>
@@ -1253,7 +1253,7 @@
               </node>
               <node concept="2YIFZM" id="4KY3GK1Br8i" role="37wK5m">
                 <ref role="1Pybhc" to="33ny:~Collections" resolve="Collections" />
-                <ref role="37wK5l" to="33ny:~Collections.emptyList():java.util.List" resolve="emptyList" />
+                <ref role="37wK5l" to="33ny:~Collections.emptyList()" resolve="emptyList" />
                 <node concept="3uibUv" id="4KY3GK1Byke" role="3PaCim">
                   <ref role="3uigEE" to="2s0o:2Y$mRnICmbn" resolve="CustomJavaWatchable" />
                 </node>
@@ -1749,7 +1749,7 @@
                     </node>
                   </node>
                   <node concept="liA8E" id="7bppGc1uDYL" role="2OqNvi">
-                    <ref role="37wK5l" to="wyt6:~String.endsWith(java.lang.String):boolean" resolve="endsWith" />
+                    <ref role="37wK5l" to="wyt6:~String.endsWith(java.lang.String)" resolve="endsWith" />
                     <node concept="Xl_RD" id="7bppGc1uDYM" role="37wK5m">
                       <property role="Xl_RC" value="_WrapperFactory" />
                     </node>
