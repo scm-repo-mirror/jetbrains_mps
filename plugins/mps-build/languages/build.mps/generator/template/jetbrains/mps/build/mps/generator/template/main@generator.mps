@@ -11599,9 +11599,14 @@
                         </node>
                       </node>
                       <node concept="3clFbS" id="g0fHFWlH9f" role="3clFbx">
+                        <node concept="3SKdUt" id="1t0Ry55yUIe" role="3cqZAp">
+                          <node concept="3SKdUq" id="1t0Ry55yUIg" role="3SKWNk">
+                            <property role="3SKdUp" value="in fact, with ant-mps residing in mpsTrueBootstrap project, its artifact shall become available by regular means (helper.getArtifact(&quot;ant-mps&quot;), registered by BuildMPSPlugin.fetchDependencies())" />
+                          </node>
+                        </node>
                         <node concept="3cpWs6" id="g0fHFWlP_$" role="3cqZAp">
                           <node concept="Xl_RD" id="g0fHFWlPYU" role="3cqZAk">
-                            <property role="Xl_RC" value="${build.tmp}/antTasks/ant/lib/ant-mps.jar" />
+                            <property role="Xl_RC" value="${build.tmp}/antTasks/ant-mps.jar" />
                           </node>
                         </node>
                       </node>
@@ -12219,16 +12224,6 @@
                     </node>
                   </node>
                 </node>
-                <node concept="2pNNFK" id="6oLENa6P2g$" role="3o6s8t">
-                  <property role="qg3DV" value="true" />
-                  <property role="2pNNFO" value="fileset" />
-                  <node concept="2pNUuL" id="6oLENa6P2g_" role="2pNNFR">
-                    <property role="2pNUuO" value="dir" />
-                    <node concept="2pMdtt" id="6oLENa6P2gA" role="2pMdts">
-                      <property role="2pMdty" value="${build.tmp}/java/out/mps-annotations" />
-                    </node>
-                  </node>
-                </node>
                 <node concept="2pNNFK" id="6oLENa6P2iC" role="3o6s8t">
                   <property role="qg3DV" value="true" />
                   <property role="2pNNFO" value="fileset" />
@@ -12348,27 +12343,6 @@
                 </node>
               </node>
             </node>
-            <node concept="2Vbh7Z" id="6NgXkpBaNsf" role="2VaTZU">
-              <node concept="2pNNFK" id="6NgXkpBaNsg" role="2Vbh7K">
-                <property role="2pNNFO" value="jar" />
-                <node concept="2pNNFK" id="6NgXkpBaNsh" role="3o6s8t">
-                  <property role="qg3DV" value="true" />
-                  <property role="2pNNFO" value="fileset" />
-                  <node concept="2pNUuL" id="6NgXkpBaNsi" role="2pNNFR">
-                    <property role="2pNUuO" value="dir" />
-                    <node concept="2pMdtt" id="6NgXkpBaNsj" role="2pMdts">
-                      <property role="2pMdty" value="${build.tmp}/java/out/ant-mps" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="2pNUuL" id="6NgXkpBaNsk" role="2pNNFR">
-                  <property role="2pNUuO" value="destfile" />
-                  <node concept="2pMdtt" id="6NgXkpBaNsl" role="2pMdts">
-                    <property role="2pMdty" value="${build.tmp}/antTasks/ant/lib/ant-mps.jar" />
-                  </node>
-                </node>
-              </node>
-            </node>
             <node concept="2Vbh7Z" id="1TEfvqVzXEr" role="2VaTZU">
               <node concept="2pNNFK" id="1TEfvqV$jUD" role="2Vbh7K">
                 <property role="2pNNFO" value="copy" />
@@ -12420,6 +12394,16 @@
                     <property role="2pNUuO" value="file" />
                     <node concept="2pMdtt" id="1TEfvqV_Pc3" role="2pMdts">
                       <property role="2pMdty" value="${artifacts.mpsTrueBootstrap}/mps-collections.jar" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="2pNNFK" id="1t0Ry55y1Jf" role="3o6s8t">
+                  <property role="2pNNFO" value="fileset" />
+                  <property role="qg3DV" value="true" />
+                  <node concept="2pNUuL" id="1t0Ry55y1Jg" role="2pNNFR">
+                    <property role="2pNUuO" value="file" />
+                    <node concept="2pMdtt" id="1t0Ry55y1Jh" role="2pMdts">
+                      <property role="2pMdty" value="${artifacts.mpsTrueBootstrap}/ant-mps.jar" />
                     </node>
                   </node>
                 </node>

@@ -1676,7 +1676,8 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Object varMacro_Value_10_0(final TemplateVarContext _context) {
     if (((Boolean) _context.getVariable("var:mpsBootCore"))) {
-      return "${build.tmp}/antTasks/ant/lib/ant-mps.jar";
+      // in fact, with ant-mps residing in mpsTrueBootstrap project, its artifact shall become available by regular means (helper.getArtifact("ant-mps"), registered by BuildMPSPlugin.fetchDependencies()) 
+      return "${build.tmp}/antTasks/ant-mps.jar";
     }
     DependenciesHelper helper = new DependenciesHelper(_context, _context.getNode());
     String artifact = "ant-mps";
