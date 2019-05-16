@@ -4126,9 +4126,15 @@
             </node>
           </node>
         </node>
-        <node concept="1E1SXE" id="1t0Ry55Dc$B" role="3bR37C">
-          <property role="1E1SXH" value="true" />
-          <ref role="1E1SXG" node="6NgXkpBaAOU" resolve="ant-mps" />
+        <node concept="1BurEX" id="3ORmnQUrY4E" role="3bR37C">
+          <node concept="55IIr" id="3ORmnQUrY5A" role="1BurEY">
+            <node concept="2Ry0Ak" id="3ORmnQUrY6l" role="iGT6I">
+              <property role="2Ry0Am" value="ant-mps.jar" />
+            </node>
+          </node>
+          <node concept="3yrxFa" id="3ORmnQUrY95" role="2gdwQb">
+            <ref role="3yrxFb" node="1t0Ry55x9L_" resolve="ant-mps.jar" />
+          </node>
         </node>
         <node concept="1SiIV0" id="2a9bszgru$x" role="3bR37C">
           <node concept="3bR9La" id="2a9bszgru$w" role="1SiIV1">
