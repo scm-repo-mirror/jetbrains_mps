@@ -21,7 +21,6 @@
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" />
     <import index="4o98" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.core.platform(MPS.Core/)" />
-    <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -110,6 +109,7 @@
       <concept id="1068580123136" name="jetbrains.mps.baseLanguage.structure.StatementList" flags="sn" stub="5293379017992965193" index="3clFbS">
         <child id="1068581517665" name="statement" index="3cqZAp" />
       </concept>
+      <concept id="1068580123137" name="jetbrains.mps.baseLanguage.structure.BooleanConstant" flags="nn" index="3clFbT" />
       <concept id="1068580123140" name="jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" flags="ig" index="3clFbW" />
       <concept id="1068580320020" name="jetbrains.mps.baseLanguage.structure.IntegerConstant" flags="nn" index="3cmrfG">
         <property id="1068580320021" name="value" index="3cmrfH" />
@@ -167,6 +167,7 @@
         <child id="6329021646629175155" name="commentPart" index="3SKWNk" />
       </concept>
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
+      <concept id="1146644641414" name="jetbrains.mps.baseLanguage.structure.ProtectedVisibility" flags="nn" index="3Tmbuc" />
       <concept id="1116615150612" name="jetbrains.mps.baseLanguage.structure.ClassifierClassExpression" flags="nn" index="3VsKOn">
         <reference id="1116615189566" name="classifier" index="3VsUkX" />
       </concept>
@@ -197,11 +198,59 @@
       </node>
       <node concept="3clFbS" id="3H7CugYdXuN" role="3clF47">
         <node concept="XkiVB" id="3H7CugYdXuO" role="3cqZAp">
-          <ref role="37wK5l" to="jo3e:5QqlCZXpn8B" resolve="PlatformWorker" />
+          <ref role="37wK5l" to="jo3e:KL8Aqlj5me" resolve="WorkerBase" />
           <node concept="37vLTw" id="3H7CugYdXuP" role="37wK5m">
             <ref role="3cqZAo" node="3H7CugYdXuJ" resolve="whatToDo" />
           </node>
         </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="6Z_3H2aEQPM" role="jymVt" />
+    <node concept="3clFb_" id="2R_g56bHtfm" role="jymVt">
+      <property role="TrG5h" value="createEnvironment" />
+      <node concept="2AHcQZ" id="2R_g56bHtfn" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+      <node concept="3clFbS" id="2R_g56bHtfo" role="3clF47">
+        <node concept="3cpWs8" id="2R_g56bHtf_" role="3cqZAp">
+          <node concept="3cpWsn" id="2R_g56bHtf$" role="3cpWs9">
+            <property role="TrG5h" value="environment" />
+            <node concept="3uibUv" id="2R_g56bHtfA" role="1tU5fm">
+              <ref role="3uigEE" to="cky9:6rx4kZDk5Br" resolve="IdeaEnvironment" />
+            </node>
+            <node concept="2ShNRf" id="2R_g56bHxiG" role="33vP2m">
+              <node concept="1pGfFk" id="2R_g56bHxiS" role="2ShVmc">
+                <ref role="37wK5l" to="cky9:4OPNMy2crcG" resolve="IdeaEnvironment" />
+                <node concept="1rXfSq" id="J3lvZ7esbb" role="37wK5m">
+                  <ref role="37wK5l" to="jo3e:63P3E8$mb3n" resolve="createEnvironmentConfig" />
+                  <node concept="37vLTw" id="J3lvZ7esbc" role="37wK5m">
+                    <ref role="3cqZAo" to="jo3e:KL8Aqlj5lG" resolve="myWhatToDo" />
+                  </node>
+                </node>
+                <node concept="3clFbT" id="3ClIqFVeTfM" role="37wK5m" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="2R_g56bHtfD" role="3cqZAp">
+          <node concept="2OqwBi" id="2R_g56bHwZe" role="3clFbG">
+            <node concept="37vLTw" id="2R_g56bHwZd" role="2Oq$k0">
+              <ref role="3cqZAo" node="2R_g56bHtf$" resolve="environment" />
+            </node>
+            <node concept="liA8E" id="2R_g56bHwZf" role="2OqNvi">
+              <ref role="37wK5l" to="cky9:3eUNqOk7mHv" resolve="init" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs6" id="2R_g56bHtfF" role="3cqZAp">
+          <node concept="37vLTw" id="2R_g56bHtfG" role="3cqZAk">
+            <ref role="3cqZAo" node="2R_g56bHtf$" resolve="environment" />
+          </node>
+        </node>
+      </node>
+      <node concept="3Tmbuc" id="2R_g56bHtfH" role="1B3o_S" />
+      <node concept="3uibUv" id="2R_g56bHtfI" role="3clF45">
+        <ref role="3uigEE" to="79ha:HKKzfMjqRV" resolve="Environment" />
       </node>
     </node>
     <node concept="2tJIrI" id="3H7CugYdXtz" role="jymVt" />
@@ -890,8 +939,8 @@
     </node>
     <node concept="2tJIrI" id="5AcmpEOaDre" role="jymVt" />
     <node concept="3Tm1VV" id="3H7CugYdV9c" role="1B3o_S" />
-    <node concept="3uibUv" id="5QqlCZXoHLn" role="1zkMxy">
-      <ref role="3uigEE" to="jo3e:5QqlCZXoig6" resolve="PlatformWorker" />
+    <node concept="3uibUv" id="6Z_3H2aFohD" role="1zkMxy">
+      <ref role="3uigEE" to="jo3e:KL8Aqlj5ln" resolve="WorkerBase" />
     </node>
     <node concept="2YIFZL" id="3H7CugYilYl" role="jymVt">
       <property role="TrG5h" value="main" />

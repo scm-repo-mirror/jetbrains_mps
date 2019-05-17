@@ -11222,7 +11222,7 @@
     </copy>
   </target>
   
-  <target name="java.compile.mps-tool" depends="java.compile.platform, java.compile.mps-environment, java.compile.mps-openapi, java.compile.mps-core-components, java.compile.mps-logging, java.compile.vfs, java.compile.util-core, java.compile.mps-smodel, java.compile.mps-project, java.compile.mps-behavior-api, java.compile.mps-behavior-runtime, java.compile.mps-messaging, java.compile.mps-boot-util, java.compile.mps-kernel, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.mps-persistence, java.compile.mps-generator, java.compile.idea-platform, java.compile.mps-platform, fetchDependencies">
+  <target name="java.compile.mps-tool" depends="java.compile.platform, java.compile.mps-environment, java.compile.mps-openapi, java.compile.mps-core-components, java.compile.mps-logging, java.compile.vfs, java.compile.util-core, java.compile.mps-smodel, java.compile.mps-project, java.compile.mps-behavior-api, java.compile.mps-behavior-runtime, java.compile.mps-messaging, java.compile.mps-boot-util, java.compile.mps-kernel, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.mps-persistence, java.compile.mps-generator, fetchDependencies">
     <mkdir dir="${mps_home}/core/tool/builder/source_gen" />
     <mkdir dir="${build.tmp}/java/out/mps-tool" />
     <javac2 destdir="${build.tmp}/java/out/mps-tool" fork="false" encoding="utf8" includeantruntime="false" debug="true">
@@ -11254,14 +11254,11 @@
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
         <pathelement path="${build.tmp}/java/out/mps-persistence" />
         <pathelement path="${build.tmp}/java/out/mps-generator" />
-        <pathelement path="${build.tmp}/java/out/idea-platform" />
-        <pathelement path="${build.tmp}/java/out/mps-platform" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
         <path refid="path.java.library.trove4j" />
         <path refid="path.java.library.ecj" />
-        <path refid="path.java.library.idea-libraries" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
