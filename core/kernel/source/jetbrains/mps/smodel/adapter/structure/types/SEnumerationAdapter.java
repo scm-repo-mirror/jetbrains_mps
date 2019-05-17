@@ -205,7 +205,7 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
     }
     String rawValue = node.getProperty(property);
     SEnumerationLiteral literal = migrationFacility.getMemberByLegacyRawValue(rawValue);
-    if (literal == null || Objects.equals(literal,  getDefault())) {
+    if (literal == null) {
       return;
     }
     node.setProperty(property, toString(literal));
