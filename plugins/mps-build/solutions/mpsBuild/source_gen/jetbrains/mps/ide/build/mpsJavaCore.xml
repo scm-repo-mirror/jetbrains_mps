@@ -60,9 +60,6 @@
           <language id="l:7866978e-a0f0-4cc7-81bc-4d213d9375e1:jetbrains.mps.lang.smodel" />
         </uses>
         <library jar="../lib/java-core.jar" />
-        <classpath>
-          <entry path="." />
-        </classpath>
         <sources jar="jetbrains.mps.java.core-src.jar" descriptor="jetbrains.mps.java.core.msd" />
       </module>
     </echoxml>

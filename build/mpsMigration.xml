@@ -116,9 +116,6 @@
           <language id="l:c7fb639f-be78-4307-89b0-b5959c3fa8c8:jetbrains.mps.lang.text" />
         </uses>
         <library jar="../lib/migration-platorm.jar" />
-        <classpath>
-          <entry path="." />
-        </classpath>
         <sources jar="jetbrains.mps.migration.component-src.jar" descriptor="jetbrains.mps.migration.component.msd" />
       </module>
     </echoxml>

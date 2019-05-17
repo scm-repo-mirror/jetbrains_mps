@@ -106,9 +106,6 @@
           <language id="l:7866978e-a0f0-4cc7-81bc-4d213d9375e1:jetbrains.mps.lang.smodel" />
         </uses>
         <library jar="../lib/vcs-core.jar" />
-        <classpath>
-          <entry path="." />
-        </classpath>
         <sources jar="jetbrains.mps.vcs.mergehints.runtime-src.jar" descriptor="jetbrains.mps.vcs.mergehints.runtime.msd" />
       </module>
     </echoxml>
@@ -180,9 +177,6 @@
           <language id="l:7866978e-a0f0-4cc7-81bc-4d213d9375e1:jetbrains.mps.lang.smodel" />
         </uses>
         <library jar="../lib/vcs-platform.jar" />
-        <classpath>
-          <entry path="." />
-        </classpath>
         <sources jar="jetbrains.mps.ide.vcs.platform-src.jar" descriptor="jetbrains.mps.ide.vcs.platform.msd" />
       </module>
     </echoxml>
@@ -241,9 +235,6 @@
           <language id="l:7866978e-a0f0-4cc7-81bc-4d213d9375e1:jetbrains.mps.lang.smodel" />
         </uses>
         <library jar="../lib/vcs-core.jar" />
-        <classpath>
-          <entry path="." />
-        </classpath>
         <sources jar="jetbrains.mps.ide.vcs.core-src.jar" descriptor="jetbrains.mps.ide.vcs.core.msd" />
       </module>
     </echoxml>

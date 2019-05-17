@@ -302,9 +302,6 @@
           <language id="l:7866978e-a0f0-4cc7-81bc-4d213d9375e1:jetbrains.mps.lang.smodel" />
         </uses>
         <library jar="../lib/vcs-ide.jar" />
-        <classpath>
-          <entry path="." />
-        </classpath>
         <sources jar="jetbrains.mps.ide.vcs-src.jar" descriptor="jetbrains.mps.ide.vcs.msd" />
       </module>
     </echoxml>

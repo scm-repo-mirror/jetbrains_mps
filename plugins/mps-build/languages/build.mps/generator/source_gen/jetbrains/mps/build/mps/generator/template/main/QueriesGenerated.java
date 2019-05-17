@@ -1127,7 +1127,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return (((Boolean) _context.getVariable("separateJarWithSources")) ? BuildSourcePath__BehaviorDescriptor.getLastSegment_id5dwDdJ8yckN.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x11918e0f209b83e9L, "module")), MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, 0x4780308f5d47f25L, "path"))) : null);
   }
   public static Object templateArgumentQuery_3_2(final TemplateArgumentContext _context) {
-    return new String[]{"."};
+    return ((boolean) BuildMps_Module__BehaviorDescriptor.isCompilable_id6tOCIA6_7jg.invoke(SNodeOperations.as(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x11918e0f209b83e9L, "module")), MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, "jetbrains.mps.build.mps.structure.BuildMps_Module"))) ? new String[]{"."} : new String[0]);
   }
   public static Object templateArgumentQuery_3_3(final TemplateArgumentContext _context) {
     return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x3c765492deb27a75L, "jarLocations"));
@@ -3138,7 +3138,7 @@ public class QueriesGenerated extends QueryProviderBase {
     caqMethods.put("4964617264469629189", new QueriesGenerated.CAQ(2));
     caqMethods.put("763829979706275425", new QueriesGenerated.CAQ(3));
     caqMethods.put("1241280061045711831", new QueriesGenerated.CAQ(4));
-    caqMethods.put("763829979706242418", new QueriesGenerated.CAQ(5));
+    caqMethods.put("8062866996715238024", new QueriesGenerated.CAQ(5));
     caqMethods.put("1241280061045633251", new QueriesGenerated.CAQ(6));
     caqMethods.put("1241280061045812456", new QueriesGenerated.CAQ(7));
     caqMethods.put("1241280061045812468", new QueriesGenerated.CAQ(8));
