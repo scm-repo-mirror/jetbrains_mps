@@ -3280,6 +3280,9 @@
     <node concept="PrWs8" id="U99cpalq9E" role="PzmwI">
       <ref role="PrY4T" to="tpck:2WmWrdnSpX3" resolve="ISuppressErrors" />
     </node>
+    <node concept="asaX9" id="45vN3dCxhkT" role="lGtFl">
+      <property role="YLQ7P" value="SingleLineComment now uses j.m.lang.text in the &quot;text&quot; child" />
+    </node>
   </node>
   <node concept="1TIwiD" id="65UE62YxxrG">
     <property role="TrG5h" value="MulAssignmentExpression" />
@@ -3707,6 +3710,9 @@
       <property role="IQ2nx" value="6329021646629104958" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
+    <node concept="asaX9" id="45vN3dCxhkV" role="lGtFl">
+      <property role="YLQ7P" value="SingleLineComment now uses j.m.lang.text in the &quot;text&quot; child" />
+    </node>
   </node>
   <node concept="1TIwiD" id="5vlcUuJ5JXB">
     <property role="TrG5h" value="StatementCommentPart" />
@@ -3746,7 +3752,9 @@
       <property role="20lbJX" value="0..n" />
       <property role="IQ2ns" value="6329021646629175155" />
       <ref role="20lvS9" node="5vlcUuJ5uOV" resolve="CommentPart" />
-      <node concept="asaX9" id="1aWAmJ5y2Yd" role="lGtFl" />
+      <node concept="asaX9" id="1aWAmJ5y2Yd" role="lGtFl">
+        <property role="YLQ7P" value="SingleLineComment now uses j.m.lang.text in the &quot;text&quot; child" />
+      </node>
     </node>
     <node concept="1TJgyj" id="1aWAmJ5y2W$" role="1TKVEi">
       <property role="IQ2ns" value="1350122676458893092" />

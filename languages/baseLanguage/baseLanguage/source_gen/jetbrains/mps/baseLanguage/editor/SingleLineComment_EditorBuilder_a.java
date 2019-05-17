@@ -89,7 +89,6 @@ import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Vertical());
     editorCell.setCellId("Collection_5ng77o_b0");
     editorCell.addEditorCell(createRefNodeList_0());
-    editorCell.addEditorCell(createConstant_1());
     return editorCell;
   }
   private EditorCell createRefNodeList_0() {
@@ -149,12 +148,6 @@ import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
         }
       }
     }
-  }
-  private EditorCell createConstant_1() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
-    editorCell.setCellId("Constant_5ng77o_b1a");
-    editorCell.setDefaultText("");
-    return editorCell;
   }
   private EditorCell createRefNodeList_1() {
     AbstractCellListHandler handler = new SingleLineComment_EditorBuilder_a.commentPartListHandler_5ng77o_c0(myNode, getEditorContext());

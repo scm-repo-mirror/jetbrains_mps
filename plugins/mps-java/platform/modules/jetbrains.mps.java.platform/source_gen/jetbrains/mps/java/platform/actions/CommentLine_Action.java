@@ -79,6 +79,9 @@ public class CommentLine_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
+    if (1 < 5) {
+      throw new RuntimeException("Old comment invoked. This should not happen.");
+    }
     SNode singleLineComment = CommentLine_Action.this.getSingleLineComment(_params);
     SNode currentNode;
     if (singleLineComment != null) {

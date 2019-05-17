@@ -21,6 +21,7 @@
     <import index="eynw" ref="r:359b1d2b-77c4-46df-9bf2-b25cbea32254(jetbrains.mps.console.base.structure)" />
     <import index="tp2c" ref="r:00000000-0000-4000-0000-011c89590338(jetbrains.mps.baseLanguage.closures.structure)" />
     <import index="25zl" ref="r:7bd127a5-e641-4c13-b150-b9c9b96f76ae(jetbrains.mps.lang.modelapi.editor)" />
+    <import index="zqge" ref="r:59e90602-6655-4552-86eb-441a42a9a0e4(jetbrains.mps.lang.text.structure)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="tp2u" ref="r:00000000-0000-4000-0000-011c8959032a(jetbrains.mps.baseLanguage.collections.editor)" implicit="true" />
     <import index="dvox" ref="r:9dfd3567-3b1f-4edb-85a0-3981ca2bfd8c(jetbrains.mps.lang.modelapi.structure)" implicit="true" />
@@ -709,15 +710,41 @@
                                           <node concept="36be1Y" id="76F_llXtPfQ" role="2pJxcZ">
                                             <node concept="2pJPED" id="76F_llXtPfR" role="36be1Z">
                                               <ref role="2pJxaS" to="tpee:5vlcUuJ5uOU" resolve="SingleLineComment" />
-                                              <node concept="2pIpSj" id="76F_llXtPfS" role="2pJxcM">
-                                                <ref role="2pIpSl" to="tpee:5vlcUuJ5JXN" resolve="commentPart" />
-                                                <node concept="36be1Y" id="76F_llXtPfT" role="2pJxcZ">
-                                                  <node concept="2pJPED" id="76F_llXtPfU" role="36be1Z">
-                                                    <ref role="2pJxaS" to="tpee:5vlcUuJ5uOX" resolve="TextCommentPart" />
-                                                    <node concept="2pJxcG" id="76F_llXtPfV" role="2pJxcM">
-                                                      <ref role="2pJxcJ" to="tpee:5vlcUuJ5uOY" resolve="text" />
-                                                      <node concept="Xl_RD" id="76F_llXtPfW" role="2pJxcZ">
-                                                        <property role="Xl_RC" value="TODO specify condition" />
+                                              <node concept="2pIpSj" id="45vN3dCpF87" role="2pJxcM">
+                                                <ref role="2pIpSl" to="tpee:1aWAmJ5y2W$" resolve="text" />
+                                                <node concept="36be1Y" id="45vN3dCpFE$" role="2pJxcZ">
+                                                  <node concept="2pJPED" id="45vN3dCpHar" role="36be1Z">
+                                                    <ref role="2pJxaS" to="zqge:2cLqkTm6J5A" resolve="Line" />
+                                                    <node concept="2pIpSj" id="45vN3dCpHOk" role="2pJxcM">
+                                                      <ref role="2pIpSl" to="zqge:2cLqkTm6J5B" resolve="elements" />
+                                                      <node concept="36be1Y" id="45vN3dCpInd" role="2pJxcZ">
+                                                        <node concept="2pJPED" id="45vN3dCpIWg" role="36be1Z">
+                                                          <ref role="2pJxaS" to="zqge:8D0iRqSPW4" resolve="Word" />
+                                                          <node concept="2pJxcG" id="45vN3dCpJvA" role="2pJxcM">
+                                                            <ref role="2pJxcJ" to="zqge:8D0iRqSPW5" resolve="value" />
+                                                            <node concept="Xl_RD" id="45vN3dCpK31" role="2pJxcZ">
+                                                              <property role="Xl_RC" value="TODO" />
+                                                            </node>
+                                                          </node>
+                                                        </node>
+                                                        <node concept="2pJPED" id="45vN3dCpLHH" role="36be1Z">
+                                                          <ref role="2pJxaS" to="zqge:8D0iRqSPW4" resolve="Word" />
+                                                          <node concept="2pJxcG" id="45vN3dCpMhj" role="2pJxcM">
+                                                            <ref role="2pJxcJ" to="zqge:8D0iRqSPW5" resolve="value" />
+                                                            <node concept="Xl_RD" id="45vN3dCpMOU" role="2pJxcZ">
+                                                              <property role="Xl_RC" value="specify" />
+                                                            </node>
+                                                          </node>
+                                                        </node>
+                                                        <node concept="2pJPED" id="45vN3dCpP3Q" role="36be1Z">
+                                                          <ref role="2pJxaS" to="zqge:8D0iRqSPW4" resolve="Word" />
+                                                          <node concept="2pJxcG" id="45vN3dCpPBF" role="2pJxcM">
+                                                            <ref role="2pJxcJ" to="zqge:8D0iRqSPW5" resolve="value" />
+                                                            <node concept="Xl_RD" id="45vN3dCpQbu" role="2pJxcZ">
+                                                              <property role="Xl_RC" value="condition" />
+                                                            </node>
+                                                          </node>
+                                                        </node>
                                                       </node>
                                                     </node>
                                                   </node>
@@ -792,15 +819,41 @@
                                       <node concept="36be1Y" id="76F_llXtPgi" role="2pJxcZ">
                                         <node concept="2pJPED" id="76F_llXtPgj" role="36be1Z">
                                           <ref role="2pJxaS" to="tpee:5vlcUuJ5uOU" resolve="SingleLineComment" />
-                                          <node concept="2pIpSj" id="76F_llXtPgk" role="2pJxcM">
-                                            <ref role="2pIpSl" to="tpee:5vlcUuJ5JXN" resolve="commentPart" />
-                                            <node concept="36be1Y" id="76F_llXtPgl" role="2pJxcZ">
-                                              <node concept="2pJPED" id="76F_llXtPgm" role="36be1Z">
-                                                <ref role="2pJxaS" to="tpee:5vlcUuJ5uOX" resolve="TextCommentPart" />
-                                                <node concept="2pJxcG" id="76F_llXtPgn" role="2pJxcM">
-                                                  <ref role="2pJxcJ" to="tpee:5vlcUuJ5uOY" resolve="text" />
-                                                  <node concept="Xl_RD" id="76F_llXtPgo" role="2pJxcZ">
-                                                    <property role="Xl_RC" value="TODO specify action" />
+                                          <node concept="2pIpSj" id="45vN3dCpSGg" role="2pJxcM">
+                                            <ref role="2pIpSl" to="tpee:1aWAmJ5y2W$" resolve="text" />
+                                            <node concept="36be1Y" id="45vN3dCpTfE" role="2pJxcZ">
+                                              <node concept="2pJPED" id="45vN3dCpTNA" role="36be1Z">
+                                                <ref role="2pJxaS" to="zqge:2cLqkTm6J5A" resolve="Line" />
+                                                <node concept="2pIpSj" id="45vN3dCpTNB" role="2pJxcM">
+                                                  <ref role="2pIpSl" to="zqge:2cLqkTm6J5B" resolve="elements" />
+                                                  <node concept="36be1Y" id="45vN3dCpTNC" role="2pJxcZ">
+                                                    <node concept="2pJPED" id="45vN3dCpTND" role="36be1Z">
+                                                      <ref role="2pJxaS" to="zqge:8D0iRqSPW4" resolve="Word" />
+                                                      <node concept="2pJxcG" id="45vN3dCpTNE" role="2pJxcM">
+                                                        <ref role="2pJxcJ" to="zqge:8D0iRqSPW5" resolve="value" />
+                                                        <node concept="Xl_RD" id="45vN3dCpTNF" role="2pJxcZ">
+                                                          <property role="Xl_RC" value="TODO" />
+                                                        </node>
+                                                      </node>
+                                                    </node>
+                                                    <node concept="2pJPED" id="45vN3dCpTNG" role="36be1Z">
+                                                      <ref role="2pJxaS" to="zqge:8D0iRqSPW4" resolve="Word" />
+                                                      <node concept="2pJxcG" id="45vN3dCpTNH" role="2pJxcM">
+                                                        <ref role="2pJxcJ" to="zqge:8D0iRqSPW5" resolve="value" />
+                                                        <node concept="Xl_RD" id="45vN3dCpTNI" role="2pJxcZ">
+                                                          <property role="Xl_RC" value="specify" />
+                                                        </node>
+                                                      </node>
+                                                    </node>
+                                                    <node concept="2pJPED" id="45vN3dCpTNJ" role="36be1Z">
+                                                      <ref role="2pJxaS" to="zqge:8D0iRqSPW4" resolve="Word" />
+                                                      <node concept="2pJxcG" id="45vN3dCpTNK" role="2pJxcM">
+                                                        <ref role="2pJxcJ" to="zqge:8D0iRqSPW5" resolve="value" />
+                                                        <node concept="Xl_RD" id="45vN3dCpTNL" role="2pJxcZ">
+                                                          <property role="Xl_RC" value="action" />
+                                                        </node>
+                                                      </node>
+                                                    </node>
                                                   </node>
                                                 </node>
                                               </node>
@@ -977,15 +1030,41 @@
                                           <node concept="36be1Y" id="76F_llXtPrP" role="2pJxcZ">
                                             <node concept="2pJPED" id="76F_llXtPrQ" role="36be1Z">
                                               <ref role="2pJxaS" to="tpee:5vlcUuJ5uOU" resolve="SingleLineComment" />
-                                              <node concept="2pIpSj" id="76F_llXtPrR" role="2pJxcM">
-                                                <ref role="2pIpSl" to="tpee:5vlcUuJ5JXN" resolve="commentPart" />
-                                                <node concept="36be1Y" id="76F_llXtPrS" role="2pJxcZ">
-                                                  <node concept="2pJPED" id="76F_llXtPrT" role="36be1Z">
-                                                    <ref role="2pJxaS" to="tpee:5vlcUuJ5uOX" resolve="TextCommentPart" />
-                                                    <node concept="2pJxcG" id="76F_llXtPrU" role="2pJxcM">
-                                                      <ref role="2pJxcJ" to="tpee:5vlcUuJ5uOY" resolve="text" />
-                                                      <node concept="Xl_RD" id="76F_llXtPrV" role="2pJxcZ">
-                                                        <property role="Xl_RC" value="TODO specify condition" />
+                                              <node concept="2pIpSj" id="45vN3dCpWgH" role="2pJxcM">
+                                                <ref role="2pIpSl" to="tpee:1aWAmJ5y2W$" resolve="text" />
+                                                <node concept="36be1Y" id="45vN3dCpWP2" role="2pJxcZ">
+                                                  <node concept="2pJPED" id="45vN3dCpXpT" role="36be1Z">
+                                                    <ref role="2pJxaS" to="zqge:2cLqkTm6J5A" resolve="Line" />
+                                                    <node concept="2pIpSj" id="45vN3dCpXpU" role="2pJxcM">
+                                                      <ref role="2pIpSl" to="zqge:2cLqkTm6J5B" resolve="elements" />
+                                                      <node concept="36be1Y" id="45vN3dCpXpV" role="2pJxcZ">
+                                                        <node concept="2pJPED" id="45vN3dCpXpW" role="36be1Z">
+                                                          <ref role="2pJxaS" to="zqge:8D0iRqSPW4" resolve="Word" />
+                                                          <node concept="2pJxcG" id="45vN3dCpXpX" role="2pJxcM">
+                                                            <ref role="2pJxcJ" to="zqge:8D0iRqSPW5" resolve="value" />
+                                                            <node concept="Xl_RD" id="45vN3dCpXpY" role="2pJxcZ">
+                                                              <property role="Xl_RC" value="TODO" />
+                                                            </node>
+                                                          </node>
+                                                        </node>
+                                                        <node concept="2pJPED" id="45vN3dCpXpZ" role="36be1Z">
+                                                          <ref role="2pJxaS" to="zqge:8D0iRqSPW4" resolve="Word" />
+                                                          <node concept="2pJxcG" id="45vN3dCpXq0" role="2pJxcM">
+                                                            <ref role="2pJxcJ" to="zqge:8D0iRqSPW5" resolve="value" />
+                                                            <node concept="Xl_RD" id="45vN3dCpXq1" role="2pJxcZ">
+                                                              <property role="Xl_RC" value="specify" />
+                                                            </node>
+                                                          </node>
+                                                        </node>
+                                                        <node concept="2pJPED" id="45vN3dCpXq2" role="36be1Z">
+                                                          <ref role="2pJxaS" to="zqge:8D0iRqSPW4" resolve="Word" />
+                                                          <node concept="2pJxcG" id="45vN3dCpXq3" role="2pJxcM">
+                                                            <ref role="2pJxcJ" to="zqge:8D0iRqSPW5" resolve="value" />
+                                                            <node concept="Xl_RD" id="45vN3dCpXq4" role="2pJxcZ">
+                                                              <property role="Xl_RC" value="condition" />
+                                                            </node>
+                                                          </node>
+                                                        </node>
                                                       </node>
                                                     </node>
                                                   </node>

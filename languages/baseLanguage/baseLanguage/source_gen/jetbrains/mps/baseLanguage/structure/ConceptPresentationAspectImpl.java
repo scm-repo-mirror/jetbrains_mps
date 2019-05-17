@@ -749,6 +749,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.CommentPart:
         if (props_CommentPart == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.deprecated(true);
           props_CommentPart = cpb.create();
         }
         return props_CommentPart;
@@ -2097,6 +2098,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.TextCommentPart:
         if (props_TextCommentPart == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.deprecated(true);
           cpb.rawPresentation("TextCommentPart");
           props_TextCommentPart = cpb.create();
         }
