@@ -2157,9 +2157,6 @@
           <node concept="Saw0i" id="6zSiHRgtyQF" role="39821P">
             <ref role="Saw0g" node="6zSiHRgtmKh" resolve="kernel-resources" />
           </node>
-          <node concept="Saw0i" id="1WZWsoqIKE5" role="39821P">
-            <ref role="Saw0g" node="1WZWsoqIz7X" resolve="mps-migration" />
-          </node>
           <node concept="398223" id="7wpYgMyUGWH" role="39821P">
             <node concept="3_J27D" id="7wpYgMyUGWI" role="Nbhlr">
               <node concept="3Mxwew" id="7wpYgMyUGWJ" role="3MwsjC">
@@ -2357,6 +2354,9 @@
           </node>
         </node>
         <node concept="3981dx" id="16Vg0jOco4n" role="39821P">
+          <node concept="Saw0i" id="1M_KWzLkQda" role="39821P">
+            <ref role="Saw0g" node="1WZWsoqIz7X" resolve="mps-migration" />
+          </node>
           <node concept="Saw0i" id="2fQZjorSjPN" role="39821P">
             <ref role="Saw0g" node="16Vg0jOco3P" resolve="mps-platform" />
           </node>
@@ -3284,10 +3284,6 @@
           <property role="1E1SXH" value="true" />
           <ref role="1E1SXG" node="6g0vjebAkhc" resolve="mps-textgen" />
         </node>
-        <node concept="1E1SXE" id="5g8Dzn7kwmc" role="3bR37C">
-          <property role="1E1SXH" value="true" />
-          <ref role="1E1SXG" node="1WZWsoqIz7X" resolve="mps-migration" />
-        </node>
         <node concept="1E1SXE" id="5g8Dzn7kxiK" role="3bR37C">
           <property role="1E1SXH" value="true" />
           <ref role="1E1SXG" node="6C2IEmQCfZN" resolve="mps-make-rt" />
@@ -3446,6 +3442,10 @@
         <node concept="1E1SXE" id="6iXh2SsYGtu" role="3bR37C">
           <property role="1E1SXH" value="true" />
           <ref role="1E1SXG" node="16Vg0jOco3P" resolve="mps-platform" />
+        </node>
+        <node concept="1E1SXE" id="5g8Dzn7kwmc" role="3bR37C">
+          <property role="1E1SXH" value="true" />
+          <ref role="1E1SXG" node="1WZWsoqIz7X" resolve="mps-migration" />
         </node>
         <node concept="1SiIV0" id="6iXh2SsYGtD" role="3bR37C">
           <node concept="3bR9La" id="6iXh2SsYGtE" role="1SiIV1">
@@ -5273,6 +5273,10 @@
               </node>
             </node>
           </node>
+        </node>
+        <node concept="1E1SXE" id="1M_KWzLkW1T" role="3bR37C">
+          <property role="1E1SXH" value="true" />
+          <ref role="1E1SXG" node="1WZWsoqIz7X" resolve="mps-migration" />
         </node>
         <node concept="1SiIV0" id="5cCcm$KATV$" role="3bR37C">
           <node concept="3bR9La" id="5cCcm$KATV_" role="1SiIV1">

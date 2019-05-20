@@ -1429,7 +1429,6 @@
     <orderEntry type="module" module-name="typesystemEngine" />
     <orderEntry type="module" module-name="typesystemEngine" />
     <orderEntry type="module" module-name="editorlang-runtime" />
-    <orderEntry type="module" module-name="analyzers" />
     <orderEntry type="module" module-name="editor-runtime" />
     <orderEntry type="module" module-name="mps-editor" />
     <orderEntry type="module" module-name="intentions-runtime" />
