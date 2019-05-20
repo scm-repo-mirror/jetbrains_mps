@@ -2398,8 +2398,11 @@
     <property role="TrG5h" value="ModuleIdentity" />
     <property role="EcuMT" value="427659576753753630" />
     <node concept="asaX9" id="7k$14oQrlDk" role="lGtFl">
-      <property role="YLQ7P" value="Use lang.modelapi.ModuleIdentity instead" />
+      <property role="YLQ7P" value="Use lang.modelapi.ModuleIdentity instead. This concept and its subconcepts will be removed in 2019.3" />
       <property role="YLPcu" value="2018.2" />
+    </node>
+    <node concept="PrWs8" id="5ZqXG2mIDVH" role="PrDN$">
+      <ref role="PrY4T" to="dvox:_GDk1qZ2J9" resolve="ModuleIdentity" />
     </node>
   </node>
   <node concept="1TIwiD" id="1t9FffgebJy">
@@ -2414,7 +2417,7 @@
       <property role="20kJfa" value="moduleId" />
       <property role="20lbJX" value="1" />
       <property role="IQ2ns" value="1678062499342629861" />
-      <ref role="20lvS9" node="nJmxU5cSSu" resolve="ModuleIdentity" />
+      <ref role="20lvS9" to="dvox:_GDk1qZ2J9" resolve="ModuleIdentity" />
     </node>
   </node>
   <node concept="1TIwiD" id="6MWs_Xbdj5c">
@@ -2672,6 +2675,10 @@
     <property role="TrG5h" value="AbstractLanguageIdentity" />
     <property role="3GE5qa" value="identity" />
     <property role="EcuMT" value="5769081855527239153" />
+    <node concept="asaX9" id="5ZqXG2mB6OK" role="lGtFl">
+      <property role="YLPcu" value="2019.2" />
+      <property role="YLQ7P" value="This interface captures nothing and shall not be in use. Use LanguageIdentity instead" />
+    </node>
   </node>
   <node concept="1TIwiD" id="296OPknU5z2">
     <property role="EcuMT" value="2469893808086079682" />

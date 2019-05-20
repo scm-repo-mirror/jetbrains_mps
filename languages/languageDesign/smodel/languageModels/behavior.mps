@@ -31,6 +31,7 @@
     <import index="2k9e" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.adapter.structure(MPS.Core/)" />
     <import index="dush" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)" />
     <import index="ncw5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util.annotation(MPS.Core/)" />
+    <import index="xlb7" ref="r:cf42fd0a-68d2-493b-8b77-961658617704(jetbrains.mps.lang.modelapi.behavior)" implicit="true" />
   </imports>
   <registry>
     <language id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior">
@@ -6998,7 +6999,9 @@
       </node>
       <node concept="3clFbS" id="nJmxU5cSSX" role="3clF47">
         <node concept="3clFbF" id="296OPko1EdD" role="3cqZAp">
-          <node concept="10Nm6u" id="296OPko1EdC" role="3clFbG" />
+          <node concept="BsUDl" id="5ZqXG2mIDW$" role="3clFbG">
+            <ref role="37wK5l" to="xlb7:1Bs_61$mqDd" resolve="toModuleReference" />
+          </node>
         </node>
       </node>
       <node concept="2AHcQZ" id="1t9Fffge4zX" role="2AJF6D">

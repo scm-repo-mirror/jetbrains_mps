@@ -21,6 +21,9 @@
     </language>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
       <concept id="1224240836180" name="jetbrains.mps.lang.structure.structure.DeprecatedNodeAnnotation" flags="ig" index="asaX9" />
+      <concept id="7862711839422615209" name="jetbrains.mps.lang.structure.structure.DocumentedNodeAnnotation" flags="ng" index="t5JxF">
+        <property id="7862711839422615217" name="text" index="t5JxN" />
+      </concept>
       <concept id="1169125787135" name="jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration" flags="ig" index="PkWjJ">
         <property id="6714410169261853888" name="conceptId" index="EcuMT" />
         <property id="4628067390765907488" name="conceptShortDescription" index="R4oN_" />
@@ -502,6 +505,14 @@
       <property role="20lbJX" value="0..n" />
       <property role="IQ2ns" value="5475888311765521408" />
       <ref role="20lvS9" to="tpee:fz3vP1J" resolve="Expression" />
+    </node>
+    <node concept="1TJgyi" id="7ArQL0$l9JO" role="1TKVEl">
+      <property role="IQ2nx" value="8762838362354916340" />
+      <property role="TrG5h" value="disabledByDefault" />
+      <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+      <node concept="t5JxF" id="4kqZl3aKs6S" role="lGtFl">
+        <property role="t5JxN" value="internal!" />
+      </node>
     </node>
   </node>
   <node concept="1TIwiD" id="5FAUXTS7S0k">

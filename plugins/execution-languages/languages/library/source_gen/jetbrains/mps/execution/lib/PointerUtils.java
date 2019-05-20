@@ -58,7 +58,11 @@ public final class PointerUtils {
   }
 
   public static ClonableList<String> nodeToCloneableList(SNode node) {
-    return new ClonableList<String>(PointerUtils.pointerToString(SNodeOperations.getPointer(node)));
+    return nodeRefToCloneableList(SNodeOperations.getPointer(node));
+  }
+
+  public static ClonableList<String> nodeRefToCloneableList(@NotNull SNodeReference pointer) {
+    return new ClonableList<String>(PointerUtils.pointerToString(pointer));
   }
 
   public static List<SNodeReference> clonableListToNodes(ClonableList<String> clonableList) {

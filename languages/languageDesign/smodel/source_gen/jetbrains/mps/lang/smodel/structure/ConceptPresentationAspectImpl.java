@@ -220,6 +220,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.AbstractLanguageIdentity:
         if (props_AbstractLanguageIdentity == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.deprecated(true);
           props_AbstractLanguageIdentity = cpb.create();
         }
         return props_AbstractLanguageIdentity;

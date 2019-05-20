@@ -1183,8 +1183,8 @@
                     <node concept="liA8E" id="7CTL9FFTPeo" role="2OqNvi">
                       <ref role="37wK5l" to="wyt6:~StringBuilder.append(char)" resolve="append" />
                       <node concept="2YIFZM" id="7CTL9FFTPeq" role="37wK5m">
-                        <ref role="1Pybhc" to="wyt6:~Character" resolve="Character" />
                         <ref role="37wK5l" to="wyt6:~Character.toUpperCase(char)" resolve="toUpperCase" />
+                        <ref role="1Pybhc" to="wyt6:~Character" resolve="Character" />
                         <node concept="37vLTw" id="3GM_nagTxsM" role="37wK5m">
                           <ref role="3cqZAo" node="7CTL9FFTPcL" resolve="ch" />
                         </node>
@@ -1206,8 +1206,8 @@
                       <node concept="liA8E" id="7CTL9FFTPe$" role="2OqNvi">
                         <ref role="37wK5l" to="wyt6:~StringBuilder.append(char)" resolve="append" />
                         <node concept="2YIFZM" id="7CTL9FFTPeA" role="37wK5m">
-                          <ref role="1Pybhc" to="wyt6:~Character" resolve="Character" />
                           <ref role="37wK5l" to="wyt6:~Character.toLowerCase(char)" resolve="toLowerCase" />
+                          <ref role="1Pybhc" to="wyt6:~Character" resolve="Character" />
                           <node concept="37vLTw" id="3GM_nagTtJZ" role="37wK5m">
                             <ref role="3cqZAo" node="7CTL9FFTPcL" resolve="ch" />
                           </node>
@@ -5656,8 +5656,8 @@
             </node>
             <node concept="2OqwBi" id="7PoJpZpOrfG" role="33vP2m">
               <node concept="2YIFZM" id="7PoJpZpOrfH" role="2Oq$k0">
-                <ref role="1Pybhc" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
                 <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
+                <ref role="1Pybhc" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
               </node>
               <node concept="liA8E" id="7PoJpZpOrfI" role="2OqNvi">
                 <ref role="37wK5l" to="dush:~PersistenceFacade.createNodeId(java.lang.String)" resolve="createNodeId" />
@@ -6579,33 +6579,6 @@
       <node concept="10P_77" id="39TODbGtat6" role="3clF45" />
     </node>
   </node>
-  <node concept="13h7C7" id="UesZ_nZXe3">
-    <property role="3GE5qa" value="macro" />
-    <ref role="13h7C2" to="tpf8:UesZ_nZ2I6" resolve="VarDeclaration" />
-    <node concept="13i0hz" id="UesZ_nZXee" role="13h7CS">
-      <property role="TrG5h" value="getImplName" />
-      <node concept="3Tm1VV" id="UesZ_nZXef" role="1B3o_S" />
-      <node concept="17QB3L" id="UesZ_nZXeu" role="3clF45" />
-      <node concept="3clFbS" id="UesZ_nZXeh" role="3clF47">
-        <node concept="3cpWs6" id="UesZ_nZXf1" role="3cqZAp">
-          <node concept="3cpWs3" id="UesZ_nZXNW" role="3cqZAk">
-            <node concept="2OqwBi" id="UesZ_nZY1c" role="3uHU7w">
-              <node concept="13iPFW" id="UesZ_nZXP6" role="2Oq$k0" />
-              <node concept="3TrcHB" id="UesZ_nZYgp" role="2OqNvi">
-                <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
-              </node>
-            </node>
-            <node concept="Xl_RD" id="UesZ_nZXfk" role="3uHU7B">
-              <property role="Xl_RC" value="var:" />
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="13hLZK" id="UesZ_nZXe4" role="13h7CW">
-      <node concept="3clFbS" id="UesZ_nZXe5" role="2VODD2" />
-    </node>
-  </node>
   <node concept="13h7C7" id="UesZ_nZp5m">
     <property role="3GE5qa" value="macro" />
     <ref role="13h7C2" to="tpf8:UesZ_nZ2HY" resolve="VarMacro2" />
@@ -6657,6 +6630,33 @@
     </node>
     <node concept="13hLZK" id="UesZ_nZp5n" role="13h7CW">
       <node concept="3clFbS" id="UesZ_nZp5o" role="2VODD2" />
+    </node>
+  </node>
+  <node concept="13h7C7" id="UesZ_nZXe3">
+    <property role="3GE5qa" value="macro" />
+    <ref role="13h7C2" to="tpf8:UesZ_nZ2I6" resolve="VarDeclaration" />
+    <node concept="13i0hz" id="UesZ_nZXee" role="13h7CS">
+      <property role="TrG5h" value="getImplName" />
+      <node concept="3Tm1VV" id="UesZ_nZXef" role="1B3o_S" />
+      <node concept="17QB3L" id="UesZ_nZXeu" role="3clF45" />
+      <node concept="3clFbS" id="UesZ_nZXeh" role="3clF47">
+        <node concept="3cpWs6" id="UesZ_nZXf1" role="3cqZAp">
+          <node concept="3cpWs3" id="UesZ_nZXNW" role="3cqZAk">
+            <node concept="2OqwBi" id="UesZ_nZY1c" role="3uHU7w">
+              <node concept="13iPFW" id="UesZ_nZXP6" role="2Oq$k0" />
+              <node concept="3TrcHB" id="UesZ_nZYgp" role="2OqNvi">
+                <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+              </node>
+            </node>
+            <node concept="Xl_RD" id="UesZ_nZXfk" role="3uHU7B">
+              <property role="Xl_RC" value="var:" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="13hLZK" id="UesZ_nZXe4" role="13h7CW">
+      <node concept="3clFbS" id="UesZ_nZXe5" role="2VODD2" />
     </node>
   </node>
 </model>

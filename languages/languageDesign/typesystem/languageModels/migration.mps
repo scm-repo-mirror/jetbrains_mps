@@ -4,10 +4,10 @@
   <languages>
     <use id="90746344-04fd-4286-97d5-b46ae6a81709" name="jetbrains.mps.lang.migration" version="1" />
     <use id="69b8a993-9b87-4d96-bf0c-3559f4bb0c63" name="jetbrains.mps.lang.slanguage" version="0" />
-    <use id="c7d5b9dd-a05f-4be2-bc73-f2e16994cc67" name="jetbrains.mps.baseLanguage.lightweightdsl" version="1" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="8" />
     <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="4" />
+    <use id="c7d5b9dd-a05f-4be2-bc73-f2e16994cc67" name="jetbrains.mps.baseLanguage.lightweightdsl" version="1" />
     <use id="d4615e3b-d671-4ba9-af01-2b78369b0ba7" name="jetbrains.mps.lang.pattern" version="1" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="8" />
     <devkit ref="2677cb18-f558-4e33-bc38-a5139cee06dc(jetbrains.mps.devkit.language-design)" />
   </languages>
   <imports>
@@ -16,8 +16,8 @@
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
-    <import index="slm6" ref="90746344-04fd-4286-97d5-b46ae6a81709/r:52a3d974-bd4f-4651-ba6e-a2de5e336d95(jetbrains.mps.lang.migration/jetbrains.mps.lang.migration.methods)" />
     <import index="yf86" ref="r:33eabb60-7192-4d12-ba46-11dacf966b3e(jetbrains.mps.lang.structure.migration)" />
+    <import index="slm6" ref="90746344-04fd-4286-97d5-b46ae6a81709/r:52a3d974-bd4f-4651-ba6e-a2de5e336d95(jetbrains.mps.lang.migration/jetbrains.mps.lang.migration.methods)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" implicit="true" />
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
@@ -156,19 +156,22 @@
         <child id="6171083915388330091" name="lang" index="1qvjxb" />
       </concept>
     </language>
-    <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
-      <concept id="427659576753752243" name="jetbrains.mps.lang.smodel.structure.ModulePointer" flags="ng" index="20RdaH">
-        <property id="427659576753753627" name="moduleId" index="20Rdg5" />
-        <property id="427659576753753625" name="moduleName" index="20Rdg7" />
+    <language id="446c26eb-2b7b-4bf0-9b35-f83fa582753e" name="jetbrains.mps.lang.modelapi">
+      <concept id="361130699826193249" name="jetbrains.mps.lang.modelapi.structure.ModulePointer" flags="ng" index="1dCxOk">
+        <property id="1863527487546097500" name="moduleId" index="1XweGW" />
+        <property id="1863527487545993577" name="moduleName" index="1XxBO9" />
       </concept>
+    </language>
+    <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
         <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
       </concept>
       <concept id="4497478346159780083" name="jetbrains.mps.lang.smodel.structure.LanguageRefExpression" flags="ng" index="pHN19">
         <child id="3542851458883491298" name="languageId" index="2V$M_3" />
       </concept>
-      <concept id="2469893808086079682" name="jetbrains.mps.lang.smodel.structure.LanguageIdentityBySourceModule" flags="ng" index="PFCIn">
-        <child id="2469893808086079721" name="moduleReference" index="PFCIW" />
+      <concept id="3542851458883438784" name="jetbrains.mps.lang.smodel.structure.LanguageId" flags="nn" index="2V$Bhx">
+        <property id="3542851458883439831" name="namespace" index="2V$B1Q" />
+        <property id="3542851458883439832" name="languageId" index="2V$B1T" />
       </concept>
       <concept id="2644386474301421077" name="jetbrains.mps.lang.smodel.structure.LinkIdRefExpression" flags="nn" index="359W_D">
         <reference id="2644386474301421078" name="conceptDeclaration" index="359W_E" />
@@ -308,9 +311,9 @@
               <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
             </node>
             <node concept="37shsh" id="7mpi6U7zLIO" role="33vP2m">
-              <node concept="20RdaH" id="7mpi6U7zLIP" role="37shsm">
-                <property role="20Rdg5" value="00000000-0000-4000-0000-1de82b3a4936" />
-                <property role="20Rdg7" value="jetbrains.mps.devkit.aspect.typesystem" />
+              <node concept="1dCxOk" id="5ZqXG2n7xJ8" role="37shsm">
+                <property role="1XxBO9" value="jetbrains.mps.devkit.aspect.typesystem" />
+                <property role="1XweGW" value="00000000-0000-4000-0000-1de82b3a4936" />
               </node>
             </node>
           </node>
@@ -402,11 +405,9 @@
             <node concept="liA8E" id="7mpi6U7zNzE" role="2OqNvi">
               <ref role="37wK5l" to="w1kc:~SModelInternal.deleteLanguageId(org.jetbrains.mps.openapi.language.SLanguage)" resolve="deleteLanguageId" />
               <node concept="pHN19" id="7mpi6U7zYkH" role="37wK5m">
-                <node concept="PFCIn" id="7mpi6U7zYu0" role="2V$M_3">
-                  <node concept="20RdaH" id="7mpi6U7zYtZ" role="PFCIW">
-                    <property role="20Rdg5" value="7a5dda62-9140-4668-ab76-d5ed1746f2b2" />
-                    <property role="20Rdg7" value="jetbrains.mps.lang.typesystem" />
-                  </node>
+                <node concept="2V$Bhx" id="5ZqXG2lwffV" role="2V$M_3">
+                  <property role="2V$B1T" value="7a5dda62-9140-4668-ab76-d5ed1746f2b2" />
+                  <property role="2V$B1Q" value="jetbrains.mps.lang.typesystem" />
                 </node>
               </node>
             </node>
@@ -420,11 +421,9 @@
             <node concept="liA8E" id="7mpi6U7zZQn" role="2OqNvi">
               <ref role="37wK5l" to="w1kc:~SModelInternal.deleteLanguageId(org.jetbrains.mps.openapi.language.SLanguage)" resolve="deleteLanguageId" />
               <node concept="pHN19" id="7mpi6U7zZQo" role="37wK5m">
-                <node concept="PFCIn" id="7mpi6U7$04A" role="2V$M_3">
-                  <node concept="20RdaH" id="7mpi6U7$04_" role="PFCIW">
-                    <property role="20Rdg5" value="d4615e3b-d671-4ba9-af01-2b78369b0ba7" />
-                    <property role="20Rdg7" value="jetbrains.mps.lang.pattern" />
-                  </node>
+                <node concept="2V$Bhx" id="5ZqXG2lwffW" role="2V$M_3">
+                  <property role="2V$B1T" value="d4615e3b-d671-4ba9-af01-2b78369b0ba7" />
+                  <property role="2V$B1Q" value="jetbrains.mps.lang.pattern" />
                 </node>
               </node>
             </node>
@@ -438,11 +437,9 @@
             <node concept="liA8E" id="7mpi6U7$0fs" role="2OqNvi">
               <ref role="37wK5l" to="w1kc:~SModelInternal.deleteLanguageId(org.jetbrains.mps.openapi.language.SLanguage)" resolve="deleteLanguageId" />
               <node concept="pHN19" id="7mpi6U7$0ft" role="37wK5m">
-                <node concept="PFCIn" id="7mpi6U7$0u5" role="2V$M_3">
-                  <node concept="20RdaH" id="7mpi6U7$0u4" role="PFCIW">
-                    <property role="20Rdg5" value="3a13115c-633c-4c5c-bbcc-75c4219e9555" />
-                    <property role="20Rdg7" value="jetbrains.mps.lang.quotation" />
-                  </node>
+                <node concept="2V$Bhx" id="5ZqXG2lwffX" role="2V$M_3">
+                  <property role="2V$B1T" value="3a13115c-633c-4c5c-bbcc-75c4219e9555" />
+                  <property role="2V$B1Q" value="jetbrains.mps.lang.quotation" />
                 </node>
               </node>
             </node>
@@ -456,11 +453,9 @@
             <node concept="liA8E" id="7mpi6U7zYY9" role="2OqNvi">
               <ref role="37wK5l" to="w1kc:~SModelInternal.deleteLanguageId(org.jetbrains.mps.openapi.language.SLanguage)" resolve="deleteLanguageId" />
               <node concept="pHN19" id="7mpi6U7zYYa" role="37wK5m">
-                <node concept="PFCIn" id="7mpi6U7zZKl" role="2V$M_3">
-                  <node concept="20RdaH" id="7mpi6U7zZKk" role="PFCIW">
-                    <property role="20Rdg5" value="f3061a53-9226-4cc5-a443-f952ceaf5816" />
-                    <property role="20Rdg7" value="jetbrains.mps.baseLanguage" />
-                  </node>
+                <node concept="2V$Bhx" id="5ZqXG2lwffY" role="2V$M_3">
+                  <property role="2V$B1T" value="f3061a53-9226-4cc5-a443-f952ceaf5816" />
+                  <property role="2V$B1Q" value="jetbrains.mps.baseLanguage" />
                 </node>
               </node>
             </node>
@@ -474,11 +469,9 @@
             <node concept="liA8E" id="7mpi6U7zYuM" role="2OqNvi">
               <ref role="37wK5l" to="w1kc:~SModelInternal.deleteLanguageId(org.jetbrains.mps.openapi.language.SLanguage)" resolve="deleteLanguageId" />
               <node concept="pHN19" id="7mpi6U7zYuN" role="37wK5m">
-                <node concept="PFCIn" id="7mpi6U7zYXn" role="2V$M_3">
-                  <node concept="20RdaH" id="7mpi6U7zYXm" role="PFCIW">
-                    <property role="20Rdg5" value="7866978e-a0f0-4cc7-81bc-4d213d9375e1" />
-                    <property role="20Rdg7" value="jetbrains.mps.lang.smodel" />
-                  </node>
+                <node concept="2V$Bhx" id="5ZqXG2lwffZ" role="2V$M_3">
+                  <property role="2V$B1T" value="7866978e-a0f0-4cc7-81bc-4d213d9375e1" />
+                  <property role="2V$B1Q" value="jetbrains.mps.lang.smodel" />
                 </node>
               </node>
             </node>
@@ -492,11 +485,9 @@
             <node concept="liA8E" id="7mpi6U7$0Ke" role="2OqNvi">
               <ref role="37wK5l" to="w1kc:~SModelInternal.deleteLanguageId(org.jetbrains.mps.openapi.language.SLanguage)" resolve="deleteLanguageId" />
               <node concept="pHN19" id="7mpi6U7$0Kf" role="37wK5m">
-                <node concept="PFCIn" id="7mpi6U7$0Zg" role="2V$M_3">
-                  <node concept="20RdaH" id="7mpi6U7$0Zf" role="PFCIW">
-                    <property role="20Rdg5" value="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" />
-                    <property role="20Rdg7" value="jetbrains.mps.lang.actions" />
-                  </node>
+                <node concept="2V$Bhx" id="5ZqXG2lwfg0" role="2V$M_3">
+                  <property role="2V$B1T" value="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" />
+                  <property role="2V$B1Q" value="jetbrains.mps.lang.actions" />
                 </node>
               </node>
             </node>
@@ -510,9 +501,9 @@
             <node concept="liA8E" id="5GtzFfazaHl" role="2OqNvi">
               <ref role="37wK5l" to="w1kc:~SModelInternal.deleteDevKit(org.jetbrains.mps.openapi.module.SModuleReference)" resolve="deleteDevKit" />
               <node concept="37shsh" id="5GtzFfaz0Sk" role="37wK5m">
-                <node concept="20RdaH" id="5GtzFfaz0Sl" role="37shsm">
-                  <property role="20Rdg5" value="fbc25dd2-5da4-483a-8b19-70928e1b62d7" />
-                  <property role="20Rdg7" value="jetbrains.mps.devkit.general-purpose" />
+                <node concept="1dCxOk" id="5ZqXG2n7xJ9" role="37shsm">
+                  <property role="1XxBO9" value="jetbrains.mps.devkit.general-purpose" />
+                  <property role="1XweGW" value="fbc25dd2-5da4-483a-8b19-70928e1b62d7" />
                 </node>
               </node>
             </node>
@@ -526,9 +517,9 @@
             <node concept="liA8E" id="5GtzFfaz9yh" role="2OqNvi">
               <ref role="37wK5l" to="w1kc:~SModelInternal.deleteDevKit(org.jetbrains.mps.openapi.module.SModuleReference)" resolve="deleteDevKit" />
               <node concept="37shsh" id="5GtzFfaz0Ws" role="37wK5m">
-                <node concept="20RdaH" id="5GtzFfaz0Xu" role="37shsm">
-                  <property role="20Rdg5" value="2677cb18-f558-4e33-bc38-a5139cee06dc" />
-                  <property role="20Rdg7" value="jetbrains.mps.devkit.language-design" />
+                <node concept="1dCxOk" id="5ZqXG2n7xJa" role="37shsm">
+                  <property role="1XxBO9" value="jetbrains.mps.devkit.language-design" />
+                  <property role="1XweGW" value="2677cb18-f558-4e33-bc38-a5139cee06dc" />
                 </node>
               </node>
             </node>

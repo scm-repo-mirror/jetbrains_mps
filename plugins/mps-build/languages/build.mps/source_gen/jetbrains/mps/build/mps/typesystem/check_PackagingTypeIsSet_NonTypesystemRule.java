@@ -18,11 +18,11 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 public class check_PackagingTypeIsSet_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_PackagingTypeIsSet_NonTypesystemRule() {
   }
-  public void applyRule(final SNode plugin, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((SLinkOperations.getTarget(plugin, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb6eL, 0x318cec002865ade0L, "packagingType")) == null)) {
+  public void applyRule(final SNode pluginLayout, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
+    if ((SLinkOperations.getTarget(pluginLayout, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb6eL, 0x318cec002865ade0L, "packagingType")) == null)) {
       {
         MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(plugin, "Packaging type is not set, please change it to auto", "r:473be7a1-ec10-4475-89b9-397d2558ecb0(jetbrains.mps.build.mps.typesystem)", "685435297876952739", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(pluginLayout, "Packaging type is not set, please change it to auto", "r:473be7a1-ec10-4475-89b9-397d2558ecb0(jetbrains.mps.build.mps.typesystem)", "685435297876952739", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.build.mps.typesystem.SetPackagingTypeToAuto_QuickFix", true);
           _reporter_2309309498.addIntentionProvider(intentionProvider);

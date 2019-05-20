@@ -230,6 +230,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     deps.extendedLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage");
     deps.extendedLanguage(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, "jetbrains.mps.lang.core");
     deps.extendedLanguage(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, "jetbrains.mps.baseLanguage.collections");
+    deps.extendedLanguage(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, "jetbrains.mps.lang.modelapi");
     deps.aggregatedLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage");
     deps.aggregatedLanguage(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, "jetbrains.mps.lang.modelapi");
   }
@@ -1613,6 +1614,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForModuleIdentity() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.smodel", "ModuleIdentity", 0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e85338e1eL);
     b.interface_();
+    b.parent(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afc2bc9L);
     b.origin("r:00000000-0000-4000-0000-011c89590301(jetbrains.mps.lang.smodel.structure)/427659576753753630");
     b.version(2);
     return b.create();
@@ -1633,7 +1635,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_("jetbrains.mps.baseLanguage.structure.Expression", 0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL);
     b.origin("r:00000000-0000-4000-0000-011c89590301(jetbrains.mps.lang.smodel.structure)/1678062499342629858");
     b.version(2);
-    b.aggregate("moduleId", 0x1749acf3d038bbe5L).target(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e85338e1eL).optional(false).ordered(true).multiple(false).origin("1678062499342629861").done();
+    b.aggregate("moduleId", 0x1749acf3d038bbe5L).target(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afc2bc9L).optional(false).ordered(true).multiple(false).origin("1678062499342629861").done();
     b.alias("module-reference");
     return b.create();
   }

@@ -7,7 +7,7 @@
     <use id="698a8d22-a104-47a0-ba8d-10e3ec237f13" name="jetbrains.mps.build.workflow" version="-1" />
     <use id="479c7a8c-02f9-43b5-9139-d910cb22f298" name="jetbrains.mps.core.xml" version="-1" />
     <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="-1" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="-1" />
     <use id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts" version="-1" />
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="-1" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
@@ -286,6 +286,9 @@
       <concept id="6666499814681541921" name="jetbrains.mps.core.xml.structure.XmlEntityRefValue" flags="ng" index="2pMdtz">
         <property id="6666499814681543256" name="entityName" index="2pMiwq" />
       </concept>
+      <concept id="6666499814681299064" name="jetbrains.mps.core.xml.structure.XmlComment" flags="nn" index="2pNm8U">
+        <child id="1622293396949036151" name="lines" index="3o66t8" />
+      </concept>
       <concept id="6666499814681415858" name="jetbrains.mps.core.xml.structure.XmlElement" flags="ng" index="2pNNFK">
         <property id="6666499814681415862" name="tagName" index="2pNNFO" />
         <property id="6999033275467544021" name="shortEmptyNotation" index="qg3DV" />
@@ -295,6 +298,9 @@
       <concept id="6666499814681447923" name="jetbrains.mps.core.xml.structure.XmlAttribute" flags="ng" index="2pNUuL">
         <property id="6666499814681447926" name="attrName" index="2pNUuO" />
         <child id="6666499814681541918" name="value" index="2pMdts" />
+      </concept>
+      <concept id="1622293396949036126" name="jetbrains.mps.core.xml.structure.XmlCommentLine" flags="nn" index="3o66tx">
+        <property id="1622293396949036127" name="text" index="3o66tw" />
       </concept>
       <concept id="1622293396948952339" name="jetbrains.mps.core.xml.structure.XmlText" flags="nn" index="3o6iSG">
         <property id="1622293396948953704" name="value" index="3o6i5n" />
@@ -742,7 +748,6 @@
       <concept id="540871147943773365" name="jetbrains.mps.baseLanguage.collections.structure.SingleArgumentSequenceOperation" flags="nn" index="25WWJ4">
         <child id="540871147943773366" name="argument" index="25WWJ7" />
       </concept>
-      <concept id="1176923520476" name="jetbrains.mps.baseLanguage.collections.structure.ExcludeOperation" flags="nn" index="66VNe" />
       <concept id="1226511727824" name="jetbrains.mps.baseLanguage.collections.structure.SetType" flags="in" index="2hMVRd">
         <child id="1226511765987" name="elementType" index="2hN53Y" />
       </concept>
@@ -7015,6 +7020,30 @@
             <node concept="1W57fq" id="7omqYZ_MRou" role="lGtFl">
               <node concept="3IZrLx" id="7omqYZ_MRov" role="3IZSJc">
                 <node concept="3clFbS" id="7omqYZ_MRow" role="2VODD2">
+                  <node concept="3clFbJ" id="GefIBYapLG" role="3cqZAp">
+                    <node concept="3clFbS" id="GefIBYapLI" role="3clFbx">
+                      <node concept="3clFbF" id="GefIBYa$wj" role="3cqZAp">
+                        <node concept="2OqwBi" id="GefIBYaBet" role="3clFbG">
+                          <node concept="1iwH7S" id="GefIBYa$wh" role="2Oq$k0" />
+                          <node concept="2k5nB$" id="GefIBYaEPV" role="2OqNvi">
+                            <node concept="Xl_RD" id="GefIBYaH6b" role="2k5Stb">
+                              <property role="Xl_RC" value="Packaging type must be set" />
+                            </node>
+                            <node concept="30H73N" id="GefIBYaYxr" role="2k6f33" />
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="2OqwBi" id="GefIBYavAu" role="3clFbw">
+                      <node concept="2OqwBi" id="GefIBYaqS0" role="2Oq$k0">
+                        <node concept="30H73N" id="GefIBYapMa" role="2Oq$k0" />
+                        <node concept="3TrEf2" id="GefIBYausH" role="2OqNvi">
+                          <ref role="3Tt5mk" to="kdzh:36cV00CpqRw" resolve="packagingType" />
+                        </node>
+                      </node>
+                      <node concept="3w_OXm" id="GefIBYavJD" role="2OqNvi" />
+                    </node>
+                  </node>
                   <node concept="3clFbF" id="7omqYZ_MSHB" role="3cqZAp">
                     <node concept="2OqwBi" id="7omqYZ_MSHD" role="3clFbG">
                       <node concept="2OqwBi" id="7omqYZ_MSHE" role="2Oq$k0">
@@ -7076,70 +7105,6 @@
               <ref role="v9R2y" node="2Wb4ucKrd6I" resolve="switch_IdeaPluginContent" />
               <node concept="1mL9RQ" id="25JZ4W_7J72" role="v9R3O">
                 <ref role="1mL9RD" node="25JZ4W_7J70" resolve="plugin" />
-              </node>
-            </node>
-          </node>
-          <node concept="398223" id="6ZIjmBZWWI3" role="39821P">
-            <node concept="3_J27D" id="6ZIjmBZWWI4" role="Nbhlr">
-              <node concept="3Mxwew" id="6ZIjmBZWWI5" role="3MwsjC">
-                <property role="3MwjfP" value="languages" />
-              </node>
-            </node>
-            <node concept="1W57fq" id="6ZIjmBZWWI6" role="lGtFl">
-              <node concept="3IZrLx" id="6ZIjmBZWWI7" role="3IZSJc">
-                <node concept="3clFbS" id="6ZIjmBZWWI8" role="2VODD2">
-                  <node concept="3clFbF" id="6ZIjmBZWWI9" role="3cqZAp">
-                    <node concept="2OqwBi" id="6ZIjmBZWWIa" role="3clFbG">
-                      <node concept="2OqwBi" id="6ZIjmBZWWIb" role="2Oq$k0">
-                        <node concept="30H73N" id="6ZIjmBZWWIc" role="2Oq$k0" />
-                        <node concept="3TrEf2" id="6ZIjmBZWWId" role="2OqNvi">
-                          <ref role="3Tt5mk" to="kdzh:36cV00CpqRw" resolve="packagingType" />
-                        </node>
-                      </node>
-                      <node concept="3w_OXm" id="6ZIjmBZWYb2" role="2OqNvi" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="1ps_y7" id="25JZ4W_7J74" role="lGtFl">
-              <node concept="1ps_xZ" id="25JZ4W_7J73" role="1ps_xO">
-                <property role="TrG5h" value="plugin" />
-                <node concept="3Tqbb2" id="6ZIjmBZWWIl" role="1ps_xK">
-                  <ref role="ehGHo" to="kdzh:5HVSRHdUrHI" resolve="BuildMpsLayout_Plugin" />
-                </node>
-                <node concept="2jfdEK" id="6ZIjmBZWWIh" role="1ps_xN">
-                  <node concept="3clFbS" id="6ZIjmBZWWIi" role="2VODD2">
-                    <node concept="3clFbF" id="6ZIjmBZWWIj" role="3cqZAp">
-                      <node concept="30H73N" id="6ZIjmBZWWIk" role="3clFbG" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="1WS0z7" id="6ZIjmBZWWIm" role="lGtFl">
-              <node concept="3JmXsc" id="6ZIjmBZWWIn" role="3Jn$fo">
-                <node concept="3clFbS" id="6ZIjmBZWWIo" role="2VODD2">
-                  <node concept="3clFbF" id="6ZIjmBZWWIp" role="3cqZAp">
-                    <node concept="2OqwBi" id="6ZIjmBZWWIq" role="3clFbG">
-                      <node concept="2OqwBi" id="6ZIjmBZWWIr" role="2Oq$k0">
-                        <node concept="30H73N" id="6ZIjmBZWWIs" role="2Oq$k0" />
-                        <node concept="3TrEf2" id="6ZIjmBZWWIt" role="2OqNvi">
-                          <ref role="3Tt5mk" to="kdzh:5HVSRHdV_$p" resolve="plugin" />
-                        </node>
-                      </node>
-                      <node concept="3Tsc0h" id="6ZIjmBZWWIu" role="2OqNvi">
-                        <ref role="3TtcxE" to="kdzh:5HVSRHdUrJE" resolve="content" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="1sPUBX" id="6ZIjmBZX1jh" role="lGtFl">
-              <ref role="v9R2y" node="6ZIjmBZWCjZ" resolve="switch_IdeaPluginContent_legacy" />
-              <node concept="1mL9RQ" id="25JZ4W_7J75" role="v9R3O">
-                <ref role="1mL9RD" node="25JZ4W_7J73" resolve="plugin" />
               </node>
             </node>
           </node>
@@ -11593,9 +11558,14 @@
                         </node>
                       </node>
                       <node concept="3clFbS" id="g0fHFWlH9f" role="3clFbx">
+                        <node concept="3SKdUt" id="1t0Ry55yUIe" role="3cqZAp">
+                          <node concept="3SKdUq" id="1t0Ry55yUIg" role="3SKWNk">
+                            <property role="3SKdUp" value="in fact, with ant-mps residing in mpsTrueBootstrap project, its artifact shall become available by regular means (helper.getArtifact(&quot;ant-mps&quot;), registered by BuildMPSPlugin.fetchDependencies())" />
+                          </node>
+                        </node>
                         <node concept="3cpWs6" id="g0fHFWlP_$" role="3cqZAp">
                           <node concept="Xl_RD" id="g0fHFWlPYU" role="3cqZAk">
-                            <property role="Xl_RC" value="${build.tmp}/antTasks/ant/lib/ant-mps.jar" />
+                            <property role="Xl_RC" value="${build.tmp}/antTasks/ant-mps.jar" />
                           </node>
                         </node>
                       </node>
@@ -12173,46 +12143,6 @@
             <node concept="2Vbh7Z" id="5mxyaMf$njU" role="2VaTZU">
               <node concept="2pNNFK" id="5mxyaMf$njV" role="2Vbh7K">
                 <property role="2pNNFO" value="jar" />
-                <node concept="2pNNFK" id="6_pApG5ZLhb" role="3o6s8t">
-                  <property role="qg3DV" value="true" />
-                  <property role="2pNNFO" value="fileset" />
-                  <node concept="2pNUuL" id="6_pApG5ZLhc" role="2pNNFR">
-                    <property role="2pNUuO" value="dir" />
-                    <node concept="2pMdtt" id="6_pApG5ZLhd" role="2pMdts">
-                      <property role="2pMdty" value="${build.tmp}/java/out/mps-references" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="2pNNFK" id="5mxyaMf$tqi" role="3o6s8t">
-                  <property role="qg3DV" value="true" />
-                  <property role="2pNNFO" value="fileset" />
-                  <node concept="2pNUuL" id="5mxyaMf$tqj" role="2pNNFR">
-                    <property role="2pNUuO" value="dir" />
-                    <node concept="2pMdtt" id="5mxyaMf$tqk" role="2pMdts">
-                      <property role="2pMdty" value="${build.tmp}/java/out/mps-closures" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="2pNNFK" id="g0fHFWrrdD" role="3o6s8t">
-                  <property role="qg3DV" value="true" />
-                  <property role="2pNNFO" value="fileset" />
-                  <node concept="2pNUuL" id="g0fHFWrsrp" role="2pNNFR">
-                    <property role="2pNUuO" value="dir" />
-                    <node concept="2pMdtt" id="g0fHFWrsrr" role="2pMdts">
-                      <property role="2pMdty" value="${build.tmp}/java/out/mps-collections" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="2pNNFK" id="5mxyaMfDLXx" role="3o6s8t">
-                  <property role="qg3DV" value="true" />
-                  <property role="2pNNFO" value="fileset" />
-                  <node concept="2pNUuL" id="5mxyaMfDLXy" role="2pNNFR">
-                    <property role="2pNUuO" value="dir" />
-                    <node concept="2pMdtt" id="5mxyaMfDLXz" role="2pMdts">
-                      <property role="2pMdty" value="${build.tmp}/java/out/mps-tuples" />
-                    </node>
-                  </node>
-                </node>
                 <node concept="2pNNFK" id="5mxyaMf$tqS" role="3o6s8t">
                   <property role="qg3DV" value="true" />
                   <property role="2pNNFO" value="fileset" />
@@ -12250,16 +12180,6 @@
                     <property role="2pNUuO" value="dir" />
                     <node concept="2pMdtt" id="1s0vtrxeeJw" role="2pMdts">
                       <property role="2pMdty" value="${build.tmp}/java/out/mps-logging" />
-                    </node>
-                  </node>
-                </node>
-                <node concept="2pNNFK" id="6oLENa6P2g$" role="3o6s8t">
-                  <property role="qg3DV" value="true" />
-                  <property role="2pNNFO" value="fileset" />
-                  <node concept="2pNUuL" id="6oLENa6P2g_" role="2pNNFR">
-                    <property role="2pNUuO" value="dir" />
-                    <node concept="2pMdtt" id="6oLENa6P2gA" role="2pMdts">
-                      <property role="2pMdty" value="${build.tmp}/java/out/mps-annotations" />
                     </node>
                   </node>
                 </node>
@@ -12382,23 +12302,74 @@
                 </node>
               </node>
             </node>
-            <node concept="2Vbh7Z" id="6NgXkpBaNsf" role="2VaTZU">
-              <node concept="2pNNFK" id="6NgXkpBaNsg" role="2Vbh7K">
-                <property role="2pNNFO" value="jar" />
-                <node concept="2pNNFK" id="6NgXkpBaNsh" role="3o6s8t">
-                  <property role="qg3DV" value="true" />
+            <node concept="2Vbh7Z" id="1TEfvqVzXEr" role="2VaTZU">
+              <node concept="2pNNFK" id="1TEfvqV$jUD" role="2Vbh7K">
+                <property role="2pNNFO" value="copy" />
+                <node concept="2pNm8U" id="1TEfvqVAFiA" role="3o6s8t">
+                  <node concept="3o66tx" id="1TEfvqVANCu" role="3o66t8">
+                    <property role="3o66tw" value="These are hardcoded locations of jars built in the project mpsBootstrapCore depends from" />
+                  </node>
+                </node>
+                <node concept="3o6iSG" id="1TEfvqVD7Va" role="3o6s8t" />
+                <node concept="2pNm8U" id="1TEfvqVDoIr" role="3o6s8t">
+                  <node concept="3o66tx" id="1TEfvqVDxc5" role="3o66t8">
+                    <property role="3o66tw" value="FIXME need better mechanism to deal with that" />
+                  </node>
+                </node>
+                <node concept="2pNNFK" id="1TEfvqV_67c" role="3o6s8t">
                   <property role="2pNNFO" value="fileset" />
-                  <node concept="2pNUuL" id="6NgXkpBaNsi" role="2pNNFR">
-                    <property role="2pNUuO" value="dir" />
-                    <node concept="2pMdtt" id="6NgXkpBaNsj" role="2pMdts">
-                      <property role="2pMdty" value="${build.tmp}/java/out/ant-mps" />
+                  <property role="qg3DV" value="true" />
+                  <node concept="2pNUuL" id="1TEfvqV_rtm" role="2pNNFR">
+                    <property role="2pNUuO" value="file" />
+                    <node concept="2pMdtt" id="1TEfvqV_rtn" role="2pMdts">
+                      <property role="2pMdty" value="${artifacts.mpsTrueBootstrap}/mps-tuples.jar" />
                     </node>
                   </node>
                 </node>
-                <node concept="2pNUuL" id="6NgXkpBaNsk" role="2pNNFR">
-                  <property role="2pNUuO" value="destfile" />
-                  <node concept="2pMdtt" id="6NgXkpBaNsl" role="2pMdts">
-                    <property role="2pMdty" value="${build.tmp}/antTasks/ant/lib/ant-mps.jar" />
+                <node concept="2pNNFK" id="1TEfvqV_GuC" role="3o6s8t">
+                  <property role="2pNNFO" value="fileset" />
+                  <property role="qg3DV" value="true" />
+                  <node concept="2pNUuL" id="1TEfvqV_GuD" role="2pNNFR">
+                    <property role="2pNUuO" value="file" />
+                    <node concept="2pMdtt" id="1TEfvqV_GuE" role="2pMdts">
+                      <property role="2pMdty" value="${artifacts.mpsTrueBootstrap}/mps-references.jar" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="2pNNFK" id="1TEfvqV_LiA" role="3o6s8t">
+                  <property role="2pNNFO" value="fileset" />
+                  <property role="qg3DV" value="true" />
+                  <node concept="2pNUuL" id="1TEfvqV_LiB" role="2pNNFR">
+                    <property role="2pNUuO" value="file" />
+                    <node concept="2pMdtt" id="1TEfvqV_LiC" role="2pMdts">
+                      <property role="2pMdty" value="${artifacts.mpsTrueBootstrap}/mps-closures.jar" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="2pNNFK" id="1TEfvqV_Pc1" role="3o6s8t">
+                  <property role="2pNNFO" value="fileset" />
+                  <property role="qg3DV" value="true" />
+                  <node concept="2pNUuL" id="1TEfvqV_Pc2" role="2pNNFR">
+                    <property role="2pNUuO" value="file" />
+                    <node concept="2pMdtt" id="1TEfvqV_Pc3" role="2pMdts">
+                      <property role="2pMdty" value="${artifacts.mpsTrueBootstrap}/mps-collections.jar" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="2pNNFK" id="1t0Ry55y1Jf" role="3o6s8t">
+                  <property role="2pNNFO" value="fileset" />
+                  <property role="qg3DV" value="true" />
+                  <node concept="2pNUuL" id="1t0Ry55y1Jg" role="2pNNFR">
+                    <property role="2pNUuO" value="file" />
+                    <node concept="2pMdtt" id="1t0Ry55y1Jh" role="2pMdts">
+                      <property role="2pMdty" value="${artifacts.mpsTrueBootstrap}/ant-mps.jar" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="2pNUuL" id="1TEfvqV$G$$" role="2pNNFR">
+                  <property role="2pNUuO" value="todir" />
+                  <node concept="2pMdtt" id="1TEfvqV$G$_" role="2pMdts">
+                    <property role="2pMdty" value="${build.tmp}/antTasks/" />
                   </node>
                 </node>
               </node>
@@ -17720,30 +17691,15 @@
                   <node concept="3clFbS" id="6ZIjmBZWCkH" role="2VODD2">
                     <node concept="3clFbF" id="6ZIjmBZWCkI" role="3cqZAp">
                       <node concept="2OqwBi" id="6ZIjmBZWCkJ" role="3clFbG">
-                        <node concept="2OqwBi" id="6ZIjmBZWHEO" role="2Oq$k0">
-                          <node concept="2OqwBi" id="6ZIjmBZWCkK" role="2Oq$k0">
-                            <node concept="2OqwBi" id="6ZIjmBZWCkL" role="2Oq$k0">
-                              <node concept="30H73N" id="6ZIjmBZWCkM" role="2Oq$k0" />
-                              <node concept="3TrEf2" id="6ZIjmBZWCkN" role="2OqNvi">
-                                <ref role="3Tt5mk" to="kdzh:5HVSRHdUL82" resolve="group" />
-                              </node>
-                            </node>
-                            <node concept="3Tsc0h" id="6ZIjmBZWCkO" role="2OqNvi">
-                              <ref role="3TtcxE" to="kdzh:1jjYQYSgYJu" resolve="modules" />
+                        <node concept="2OqwBi" id="6ZIjmBZWCkK" role="2Oq$k0">
+                          <node concept="2OqwBi" id="6ZIjmBZWCkL" role="2Oq$k0">
+                            <node concept="30H73N" id="6ZIjmBZWCkM" role="2Oq$k0" />
+                            <node concept="3TrEf2" id="6ZIjmBZWCkN" role="2OqNvi">
+                              <ref role="3Tt5mk" to="kdzh:5HVSRHdUL82" resolve="group" />
                             </node>
                           </node>
-                          <node concept="66VNe" id="6ZIjmBZWLIR" role="2OqNvi">
-                            <node concept="2OqwBi" id="6ZIjmBZWOSf" role="576Qk">
-                              <node concept="2OqwBi" id="6ZIjmBZWMpy" role="2Oq$k0">
-                                <node concept="30H73N" id="6ZIjmBZWM4k" role="2Oq$k0" />
-                                <node concept="3Tsc0h" id="6ZIjmBZWN3x" role="2OqNvi">
-                                  <ref role="3TtcxE" to="kdzh:3vXGXT8byGJ" resolve="customPackaging" />
-                                </node>
-                              </node>
-                              <node concept="13MTOL" id="6ZIjmBZWQEI" role="2OqNvi">
-                                <ref role="13MTZf" to="kdzh:3vXGXT8byGC" resolve="target" />
-                              </node>
-                            </node>
+                          <node concept="3Tsc0h" id="6ZIjmBZWCkO" role="2OqNvi">
+                            <ref role="3TtcxE" to="kdzh:1jjYQYSgYJu" resolve="modules" />
                           </node>
                         </node>
                         <node concept="3zZkjj" id="6ZIjmBZWCkP" role="2OqNvi">

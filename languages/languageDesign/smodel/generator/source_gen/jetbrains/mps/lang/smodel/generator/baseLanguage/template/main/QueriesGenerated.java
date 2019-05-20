@@ -648,6 +648,10 @@ public class QueriesGenerated {
     SModuleReference mr = ModuleIdentity__BehaviorDescriptor.getModuleReference_idnJmxU5cSSU.invoke(_context.getNode());
     return (mr == null ? null : PersistenceFacade.getInstance().asString(mr));
   }
+  public static Object propertyMacro_GetValue_91_0(final PropertyMacroContext _context) {
+    SModuleReference mr = jetbrains.mps.lang.modelapi.behavior.ModuleIdentity__BehaviorDescriptor.toModuleReference_id1Bs_61$mqDd.invoke(_context.getNode());
+    return (mr == null ? null : PersistenceFacade.getInstance().asString(mr));
+  }
   public static Object propertyMacro_GetValue_94_0(final PropertyMacroContext _context) {
     return "0x" + Long.toHexString((long) ConceptId__BehaviorDescriptor.getIdValue_id5ZE7FBZ0whU.invoke(_context.getNode())) + 'L';
   }
@@ -828,11 +832,11 @@ public class QueriesGenerated {
     return SPropertyOperations.getString(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120ed37e691L, 0x120ed37e692L, "member")), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, 0xfc5ee06663L, "internalValue"));
   }
   public static Object propertyMacro_GetValue_119_0(final PropertyMacroContext _context) {
-    long v = MetaIdByDeclaration.getLanguageId(as_x583g4_a0a0a0a902(SNodeOperations.getModel(_context.getNode()).getModule(), Language.class)).getHighBits();
+    long v = MetaIdByDeclaration.getLanguageId(as_x583g4_a0a0a0a012(SNodeOperations.getModel(_context.getNode()).getModule(), Language.class)).getHighBits();
     return "0x" + Long.toHexString(v) + 'L';
   }
   public static Object propertyMacro_GetValue_119_1(final PropertyMacroContext _context) {
-    long v = MetaIdByDeclaration.getLanguageId(as_x583g4_a0a0a0a012(SNodeOperations.getModel(_context.getNode()).getModule(), Language.class)).getLowBits();
+    long v = MetaIdByDeclaration.getLanguageId(as_x583g4_a0a0a0a112(SNodeOperations.getModel(_context.getNode()).getModule(), Language.class)).getLowBits();
     return "0x" + Long.toHexString(v) + 'L';
   }
   public static Object propertyMacro_GetValue_119_2(final PropertyMacroContext _context) {
@@ -2491,10 +2495,10 @@ public class QueriesGenerated {
   private static boolean isEmptyString(String str) {
     return str == null || str.length() == 0;
   }
-  private static <T> T as_x583g4_a0a0a0a902(Object o, Class<T> type) {
+  private static <T> T as_x583g4_a0a0a0a012(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
-  private static <T> T as_x583g4_a0a0a0a012(Object o, Class<T> type) {
+  private static <T> T as_x583g4_a0a0a0a112(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
   private static boolean isNotEmptyString(String str) {

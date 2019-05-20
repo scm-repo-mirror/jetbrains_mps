@@ -370,14 +370,27 @@ public class MpsLoadTask extends Task {
     }
   }
 
+  /**
+   * XXX it's not clear whether to use mps.home variable or to rely on build project dependencies (that's what MPSClasspathUtil.getClassPathRootsFromDependencies() does).
+   * There's https://youtrack.jetbrains.com/issue/MPS-30056 to track the issue.
+   * What I don't like about mps.home is that generate task and its MPSEnvironment loads mps core libraries based on artifacts.* locations, and in case mps.home doesn't match
+   * artifacts.*, we end up with an MPS filled with undetermined set of modules (e.g. whether coming from mps.home/lib or artifacts.mps/lib)
+   */
   @Nullable
   protected final File getMpsHome_Checked() {
     File mpsHome = myMpsHome;
     if (mpsHome == null) {
       // myMpsHome serves as an indicator whether user set its location explicitly (hence, with desire to force its own and ignore default home lookup logic 
       // presently in MPSClasspathUtil, see #calculateClassPath(boolean)). This method shall not assign myMpsHome value. 
+      String mpsHomePath = getProject().getProperty("mps.home");
+      if ((mpsHomePath == null || mpsHomePath.length() == 0)) {
+        mpsHomePath = getProject().getProperty("mps_home");
+      }
+      if (mpsHomePath == null || !(getProject().resolveFile(mpsHomePath).exists())) {
+        throw new BuildException("Path to mps home expected. Specify mps.home property or mpsHome attribute.");
+      }
+      mpsHome = getProject().resolveFile(mpsHomePath);
     }
-    mpsHome = MPSClasspathUtil.resolveMPSHome(getProject(), true);
     checkMpsHome(mpsHome);
     return mpsHome;
   }

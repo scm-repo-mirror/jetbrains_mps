@@ -102,6 +102,7 @@
   </target>
   
   <target name="buildDependents">
+    <ant antfile="build/mpsTrueBootstrap.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsBootstrapCore.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsCore.xml" inheritAll="false" useNativeBasedir="true" />
     <ant antfile="build/mpsJavaCorePre.xml" inheritAll="false" useNativeBasedir="true" />
@@ -166,6 +167,7 @@
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-messaging.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-common.jar" />
+        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-platform.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-editor.jar" />
@@ -216,6 +218,7 @@
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-messaging.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-common.jar" />
+        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-platform.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-editor.jar" />

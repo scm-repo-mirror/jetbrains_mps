@@ -186,17 +186,18 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
   }
 
   public Set<SModel> getIncludedModels() {
-    final Predicate<BaseNodeData> isExcluded = BaseNodeData::isExcluded;
-    final Predicate<BaseNodeData> validAndIncluded = isExcluded.negate().and(BaseNodeData::isInvalid).negate();
-    final Stream<ModelNodeData> models = myTree.streamResults(ModelNodeData.class, validAndIncluded);
+    final Stream<ModelNodeData> models = myTree.streamResults(ModelNodeData.class, validAndIncluded());
     return models.map(nd -> nd.getModelReference().resolve(myProject.getRepository())).filter(Objects::nonNull).collect(Collectors.toSet());
   }
 
   public List<SNodeReference> getIncludedResultNodes() {
-    final Predicate<BaseNodeData> isExcluded = BaseNodeData::isExcluded;
-    final Predicate<BaseNodeData> validAndIncluded = isExcluded.negate().and(BaseNodeData::isInvalid).negate();
-    final Stream<NodeNodeData> nodes = myTree.streamResults(NodeNodeData.class, validAndIncluded);
+    final Stream<NodeNodeData> nodes = myTree.streamResults(NodeNodeData.class, validAndIncluded());
     return nodes.map(NodeNodeData::getNodePointer).collect(Collectors.toList());
+  }
+
+  private static Predicate<BaseNodeData> validAndIncluded() {
+    final Predicate<BaseNodeData> isExcluded = BaseNodeData::isExcluded;
+    return isExcluded.or(BaseNodeData::isInvalid).negate();
   }
 
   public ActionGroup getViewToolbar() {

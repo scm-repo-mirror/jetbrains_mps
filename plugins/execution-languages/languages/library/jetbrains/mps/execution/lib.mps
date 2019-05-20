@@ -2,18 +2,18 @@
 <model ref="r:5a505993-793e-4b2d-84cf-271f9dde39b3(jetbrains.mps.execution.lib)">
   <persistence version="9" />
   <languages>
-    <use id="774bf8a0-62e5-41e1-af63-f4812e60e48b" name="jetbrains.mps.baseLanguage.checkedDots" version="0" />
-    <use id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers" version="0" />
-    <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
-    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
-    <use id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples" version="0" />
-    <use id="756e911c-3f1f-4a48-bdf5-a2ceb91b723c" name="jetbrains.mps.execution.settings" version="0" />
-    <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="0" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="13" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="8" />
-    <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
-    <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="0" />
-    <use id="9ded098b-ad6a-4657-bfd9-48636cfe8bc3" name="jetbrains.mps.lang.traceable" version="0" />
+    <use id="774bf8a0-62e5-41e1-af63-f4812e60e48b" name="jetbrains.mps.baseLanguage.checkedDots" version="-1" />
+    <use id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" name="jetbrains.mps.baseLanguage.classifiers" version="-1" />
+    <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
+    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
+    <use id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples" version="-1" />
+    <use id="756e911c-3f1f-4a48-bdf5-a2ceb91b723c" name="jetbrains.mps.execution.settings" version="-1" />
+    <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="-1" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="-1" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
+    <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="-1" />
+    <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="-1" />
+    <use id="9ded098b-ad6a-4657-bfd9-48636cfe8bc3" name="jetbrains.mps.lang.traceable" version="-1" />
   </languages>
   <imports>
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
@@ -1718,23 +1718,14 @@
     <node concept="2YIFZL" id="4sYvxkKOO0u" role="jymVt">
       <property role="TrG5h" value="nodeToCloneableList" />
       <node concept="3clFbS" id="4sYvxkKOO0v" role="3clF47">
-        <node concept="3clFbF" id="4sYvxkKOO0w" role="3cqZAp">
-          <node concept="2ShNRf" id="4sYvxkKOO0x" role="3clFbG">
-            <node concept="1pGfFk" id="4sYvxkKOO0y" role="2ShVmc">
-              <ref role="37wK5l" node="4sYvxkKOO16" resolve="ClonableList" />
-              <node concept="2YIFZM" id="4sYvxkKOO0z" role="37wK5m">
-                <ref role="37wK5l" node="4sYvxkKONZr" resolve="pointerToString" />
-                <ref role="1Pybhc" node="4sYvxkKONYQ" resolve="PointerUtils" />
-                <node concept="2JrnkZ" id="7u2HgD1KnyD" role="37wK5m">
-                  <node concept="2OqwBi" id="1_xVpohXQhd" role="2JrQYb">
-                    <node concept="37vLTw" id="4sYvxkKOO0A" role="2Oq$k0">
-                      <ref role="3cqZAo" node="4sYvxkKOO0D" resolve="node" />
-                    </node>
-                    <node concept="iZEcu" id="1_xVpohY42S" role="2OqNvi" />
-                  </node>
-                </node>
+        <node concept="3clFbF" id="9n1CQGgiRY" role="3cqZAp">
+          <node concept="1rXfSq" id="9n1CQGgjwn" role="3clFbG">
+            <ref role="37wK5l" node="9n1CQGgh1l" resolve="nodeRefToCloneableList" />
+            <node concept="2OqwBi" id="9n1CQGgjKh" role="37wK5m">
+              <node concept="37vLTw" id="9n1CQGgjBF" role="2Oq$k0">
+                <ref role="3cqZAo" node="4sYvxkKOO0D" resolve="node" />
               </node>
-              <node concept="17QB3L" id="4TxCGLNcJbO" role="1pMfVU" />
+              <node concept="iZEcu" id="9n1CQGgkcK" role="2OqNvi" />
             </node>
           </node>
         </node>
@@ -1747,6 +1738,41 @@
       <node concept="37vLTG" id="4sYvxkKOO0D" role="3clF46">
         <property role="TrG5h" value="node" />
         <node concept="3Tqbb2" id="4sYvxkKOO0E" role="1tU5fm" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="9n1CQGghxh" role="jymVt" />
+    <node concept="2YIFZL" id="9n1CQGgh1l" role="jymVt">
+      <property role="TrG5h" value="nodeRefToCloneableList" />
+      <node concept="3clFbS" id="9n1CQGgh1m" role="3clF47">
+        <node concept="3clFbF" id="9n1CQGgh1n" role="3cqZAp">
+          <node concept="2ShNRf" id="9n1CQGgh1o" role="3clFbG">
+            <node concept="1pGfFk" id="9n1CQGgh1p" role="2ShVmc">
+              <ref role="37wK5l" node="4sYvxkKOO16" resolve="ClonableList" />
+              <node concept="2YIFZM" id="9n1CQGgh1q" role="37wK5m">
+                <ref role="37wK5l" node="4sYvxkKONZr" resolve="pointerToString" />
+                <ref role="1Pybhc" node="4sYvxkKONYQ" resolve="PointerUtils" />
+                <node concept="37vLTw" id="9n1CQGgitu" role="37wK5m">
+                  <ref role="3cqZAo" node="9n1CQGghEC" resolve="pointer" />
+                </node>
+              </node>
+              <node concept="17QB3L" id="9n1CQGgh1v" role="1pMfVU" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm1VV" id="9n1CQGgh1w" role="1B3o_S" />
+      <node concept="3uibUv" id="9n1CQGgh1x" role="3clF45">
+        <ref role="3uigEE" node="4sYvxkKOO0G" resolve="ClonableList" />
+        <node concept="17QB3L" id="9n1CQGgh1y" role="11_B2D" />
+      </node>
+      <node concept="37vLTG" id="9n1CQGghEC" role="3clF46">
+        <property role="TrG5h" value="pointer" />
+        <node concept="3uibUv" id="9n1CQGghED" role="1tU5fm">
+          <ref role="3uigEE" to="mhbf:~SNodeReference" resolve="SNodeReference" />
+        </node>
+        <node concept="2AHcQZ" id="9n1CQGghEE" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
       </node>
     </node>
     <node concept="2tJIrI" id="4YEli8eD9St" role="jymVt" />

@@ -23,9 +23,6 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelName;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import org.jetbrains.mps.openapi.model.SModelReference;
-import org.jetbrains.mps.openapi.module.SRepository;
-import jetbrains.mps.smodel.ModelAccessHelper;
-import jetbrains.mps.util.Computable;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -33,6 +30,8 @@ import jetbrains.mps.baseLanguage.unitTest.execution.client.TestNodeWrapperFacto
 import jetbrains.mps.baseLanguage.unitTest.execution.client.ITestNodeWrapper;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.execution.lib.PointerUtils;
+import jetbrains.mps.smodel.ModelAccessHelper;
+import jetbrains.mps.util.Computable;
 import jetbrains.mps.baseLanguage.unitTest.behavior.ITestCase__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.baseLanguage.unitTest.behavior.ITestMethod__BehaviorDescriptor;
@@ -128,7 +127,8 @@ public final class JUnitTests_Producer {
       JUnitTests_Configuration configuration = (JUnitTests_Configuration) configuration0;
       JUnitSettings_Configuration settings = configuration.getJUnitSettings();
       if (context.getPsiLocation() instanceof MPSPsiElement) {
-        SModuleReference mRef = ((MPSPsiElement) context.getPsiLocation()).getUnresolvedItem(SModuleReference.class);
+        MPSPsiElement element = (MPSPsiElement) context.getPsiLocation();
+        SModuleReference mRef = element.getUnresolvedItem(SModuleReference.class);
         if (mRef == null) {
           return false;
         }
@@ -171,23 +171,13 @@ public final class JUnitTests_Producer {
       }
       JUnitTests_Configuration configuration = (JUnitTests_Configuration) configuration0;
       JUnitSettings_Configuration settings = configuration.getJUnitSettings();
+      if (settings.getJUnitRunType() != JUnitRunTypes.MODEL) {
+        return false;
+      }
       if (context.getPsiLocation() instanceof MPSPsiElement) {
         MPSPsiElement element = ((MPSPsiElement) context.getPsiLocation());
-        final SModelReference mRef = element.getUnresolvedItem(SModelReference.class);
-        if (mRef == null) {
-          return false;
-        }
-        final SRepository repository = element.getMPSProject().getRepository();
-        SModule module = new ModelAccessHelper(repository).runReadAction(new Computable<SModule>() {
-          public SModule compute() {
-            SModel model = mRef.resolve(repository);
-            return model.getModule();
-          }
-        });
-        if (module == null) {
-          return false;
-        }
-        return settings.getJUnitRunType() == JUnitRunTypes.MODEL && Objects.equals(settings.getModelReference(), mRef) && Objects.equals(settings.getModuleReference(), module.getModuleReference());
+        SModelReference mRef = element.getUnresolvedItem(SModelReference.class);
+        return mRef != null && Objects.equals(settings.getModelReference(), mRef);
       }
       return false;
     }
@@ -210,6 +200,7 @@ public final class JUnitTests_Producer {
     @Override
     protected JUnitTests_Configuration doCreateConfiguration(final SNode source) {
       setSourceElement(MPSPsiElement.createFor(source, getMpsProject()));
+      // this is a producer for root; below you can find the producer for a test method 
       SNode testableMethod = TestNodeWrapperFactory.findWrappableAncestor(source, false);
       if (testableMethod != null) {
         ITestNodeWrapper testWrapper = TestNodeWrapperFactory.tryToWrap(testableMethod);
@@ -219,12 +210,12 @@ public final class JUnitTests_Producer {
         }
       }
 
-      SNode testNode = TestNodeWrapperFactory.findWrappableAncestor(source, true);
-      if (testNode == null) {
+      SNode testRoot = TestNodeWrapperFactory.findWrappableAncestor(source, true);
+      if (testRoot == null) {
         return null;
       }
 
-      ITestNodeWrapper wrapper = TestNodeWrapperFactory.tryToWrap(testNode);
+      ITestNodeWrapper wrapper = TestNodeWrapperFactory.tryToWrap(testRoot);
       if (wrapper == null || Sequence.fromIterable(wrapper.getTestMethods()).isEmpty()) {
         return null;
       }
@@ -236,11 +227,47 @@ public final class JUnitTests_Producer {
 
       JUnitTests_Configuration configuration = ((JUnitTests_Configuration) getConfigurationFactory().createConfiguration("" + name, getContext().getRunManager().getConfigurationTemplate(getConfigurationFactory()).getConfiguration()));
       configuration.getJUnitSettings().setJUnitRunType(JUnitRunTypes.NODE);
-      configuration.getJUnitSettings().setTestCases(PointerUtils.nodeToCloneableList(testNode));
+      configuration.getJUnitSettings().setTestCases(PointerUtils.nodeToCloneableList(testRoot));
       configuration.getJUnitSettings().setInProcess(wrapper.canRunInProcess());
       return configuration;
     }
 
+    @Override
+    protected boolean isConfigurationFromContext(@NotNull RunConfiguration configuration0, @NotNull ConfigurationContext context) {
+      if (!(configuration0 instanceof JUnitTests_Configuration)) {
+        return false;
+      }
+      JUnitTests_Configuration configuration = (JUnitTests_Configuration) configuration0;
+      JUnitSettings_Configuration settings = configuration.getJUnitSettings();
+      if (settings.getJUnitRunType() != JUnitRunTypes.NODE) {
+        return false;
+      }
+      if (context.getPsiLocation() instanceof MPSPsiElement) {
+        final MPSPsiElement element = (MPSPsiElement) context.getPsiLocation();
+        ModelAccessHelper mah = new ModelAccessHelper(element.getMPSProject().getRepository());
+        Object mpsItem = mah.runReadAction(new Computable<Object>() {
+          public Object compute() {
+            return element.getMPSItem();
+          }
+        });
+        if (!(mpsItem instanceof SNode)) {
+          return false;
+        }
+        final SNode sourceNode = (SNode) mpsItem;
+        // no test for testableMethod since the run type are different for these two producers 
+        SNode testableRoot = mah.runReadAction(new Computable<SNode>() {
+          public SNode compute() {
+            return TestNodeWrapperFactory.findWrappableAncestor(sourceNode, true);
+          }
+        });
+        if (testableRoot == null) {
+          return false;
+        }
+
+        return Objects.equals(settings.getTestCases(), PointerUtils.nodeToCloneableList(testableRoot));
+      }
+      return false;
+    }
 
     @Override
     public JUnitTests_Producer.ProducerPart_Node_f2w1m9_d clone() {
@@ -260,6 +287,7 @@ public final class JUnitTests_Producer {
     @Override
     protected JUnitTests_Configuration doCreateConfiguration(final SNode source) {
       setSourceElement(MPSPsiElement.createFor(source, getMpsProject()));
+      // this is a producer for test method 
       SNode method = TestNodeWrapperFactory.findWrappableAncestor(source, false);
       if (method == null) {
         return null;
@@ -276,6 +304,41 @@ public final class JUnitTests_Producer {
       return configuration;
     }
 
+    @Override
+    protected boolean isConfigurationFromContext(@NotNull RunConfiguration configuration0, @NotNull ConfigurationContext context) {
+      if (!(configuration0 instanceof JUnitTests_Configuration)) {
+        return false;
+      }
+      JUnitTests_Configuration configuration = (JUnitTests_Configuration) configuration0;
+      JUnitSettings_Configuration settings = configuration.getJUnitSettings();
+      if (settings.getJUnitRunType() != JUnitRunTypes.METHOD) {
+        return false;
+      }
+      if (context.getPsiLocation() instanceof MPSPsiElement) {
+        final MPSPsiElement element = (MPSPsiElement) context.getPsiLocation();
+        ModelAccessHelper mah = new ModelAccessHelper(element.getMPSProject().getRepository());
+        Object mpsItem = mah.runReadAction(new Computable<Object>() {
+          public Object compute() {
+            return element.getMPSItem();
+          }
+        });
+        if (!(mpsItem instanceof SNode)) {
+          return false;
+        }
+        final SNode sourceNode = (SNode) mpsItem;
+        SNode testableMethod = mah.runReadAction(new Computable<SNode>() {
+          public SNode compute() {
+            return TestNodeWrapperFactory.findWrappableAncestor(sourceNode, false);
+          }
+        });
+        if (testableMethod == null) {
+          return false;
+        }
+
+        return Objects.equals(settings.getTestMethods(), PointerUtils.nodeToCloneableList(testableMethod));
+      }
+      return false;
+    }
 
     @Override
     public JUnitTests_Producer.ProducerPart_Node_f2w1m9_e clone() {
