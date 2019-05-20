@@ -774,16 +774,6 @@ public class QueriesGenerated extends QueryProviderBase {
       }
     }
   }
-  public static Object varMacro_Value_13_0(final TemplateVarContext _context) {
-    return ListSequence.fromList(SLinkOperations.getChildren(((SNode) _context.getVariable("var:oldEnum")), MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0xfc32151efeL, "member"))).where(new IWhereFilter<SNode>() {
-      public boolean accept(SNode it) {
-        return isEmptyString(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, 0xfc5ee06663L, "internalValue")));
-      }
-    }).first();
-  }
-  public static Object varMacro_Value_13_1(final TemplateVarContext _context) {
-    return SLinkOperations.getTarget(AttributeOperations.getAttribute(_context.getNode(), new IAttributeDescriptor.NodeAttribute(MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, "jetbrains.mps.lang.structure.structure.EnumMigrationInfo"))), MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, 0x5a14f1035942799cL, "oldEnum"));
-  }
   public static Object varMacro_Value_2_0(final TemplateVarContext _context) {
     List<SNode> nodes = SModelOperations.nodes(_context.getInputModel(), MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration"));
     Iterable<String> conceptNames = ListSequence.fromList(nodes).select(new ISelector<SNode, String>() {
@@ -903,6 +893,16 @@ public class QueriesGenerated extends QueryProviderBase {
         return isEmptyString(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, 0xfc5ee06663L, "internalValue")));
       }
     }).first();
+  }
+  public static Object varMacro_Value_13_0(final TemplateVarContext _context) {
+    return ListSequence.fromList(SLinkOperations.getChildren(((SNode) _context.getVariable("var:oldEnum")), MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0xfc32151efeL, "member"))).where(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return isEmptyString(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, 0xfc5ee06663L, "internalValue")));
+      }
+    }).first();
+  }
+  public static Object varMacro_Value_13_1(final TemplateVarContext _context) {
+    return SLinkOperations.getTarget(AttributeOperations.getAttribute(_context.getNode(), new IAttributeDescriptor.NodeAttribute(MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, "jetbrains.mps.lang.structure.structure.EnumMigrationInfo"))), MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, 0x5a14f1035942799cL, "oldEnum"));
   }
   private final Map<String, ReductionRuleCondition> rrcMethods = new HashMap<String, ReductionRuleCondition>();
   {
@@ -1594,38 +1594,26 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   private final Map<String, VariableValueQuery> vvqMethods = new HashMap<String, VariableValueQuery>();
   {
-    vvqMethods.put("7104314810120223684", new QueriesGenerated.VVQ(0));
-    vvqMethods.put("7104314810120275440", new QueriesGenerated.VVQ(1));
-    vvqMethods.put("7104314810120223685", new QueriesGenerated.VVQ(0));
-    vvqMethods.put("7104314810120275441", new QueriesGenerated.VVQ(1));
-    vvqMethods.put("8652531395021685553", new QueriesGenerated.VVQ(2));
-    vvqMethods.put("8652531395021708918", new QueriesGenerated.VVQ(3));
-    vvqMethods.put("8652531395021733043", new QueriesGenerated.VVQ(4));
-    vvqMethods.put("8652531395021845537", new QueriesGenerated.VVQ(5));
-    vvqMethods.put("8652531395021863133", new QueriesGenerated.VVQ(6));
-    vvqMethods.put("8652531395021887330", new QueriesGenerated.VVQ(7));
-    vvqMethods.put("8652531395021940051", new QueriesGenerated.VVQ(8));
-    vvqMethods.put("8652531395021910151", new QueriesGenerated.VVQ(9));
-    vvqMethods.put("8652531395021914302", new QueriesGenerated.VVQ(10));
-    vvqMethods.put("8652531395021952237", new QueriesGenerated.VVQ(11));
-    vvqMethods.put("8652531395021926365", new QueriesGenerated.VVQ(12));
-    vvqMethods.put("8652531395021932671", new QueriesGenerated.VVQ(13));
+    vvqMethods.put("8652531395021685553", new QueriesGenerated.VVQ(0));
+    vvqMethods.put("8652531395021708918", new QueriesGenerated.VVQ(1));
+    vvqMethods.put("8652531395021733043", new QueriesGenerated.VVQ(2));
+    vvqMethods.put("8652531395021845537", new QueriesGenerated.VVQ(3));
+    vvqMethods.put("8652531395021863133", new QueriesGenerated.VVQ(4));
+    vvqMethods.put("8652531395021887330", new QueriesGenerated.VVQ(5));
+    vvqMethods.put("8652531395021940051", new QueriesGenerated.VVQ(6));
+    vvqMethods.put("8652531395021910151", new QueriesGenerated.VVQ(7));
+    vvqMethods.put("8652531395021914302", new QueriesGenerated.VVQ(8));
+    vvqMethods.put("8652531395021952237", new QueriesGenerated.VVQ(9));
+    vvqMethods.put("8652531395021926365", new QueriesGenerated.VVQ(10));
+    vvqMethods.put("8652531395021932671", new QueriesGenerated.VVQ(11));
+    vvqMethods.put("8670273493022908184", new QueriesGenerated.VVQ(12));
+    vvqMethods.put("8670273493022908188", new QueriesGenerated.VVQ(13));
   }
   @NotNull
   @Override
   public VariableValueQuery getVariableValueQuery(@NotNull QueryKey queryKey) {
     final String id = queryKey.getTemplateNode().getNodeId().toString();
     if (!(vvqMethods.containsKey(id))) {
-      {
-        // fallback for VarMacro_ValueQuery with same id but coming from VarMacro2 
-        // to support VarMacro->VarMacro2 migration of bootstrapped interpreted generators 
-        // (those with template model changed but QueriesGenerated not yet reflecting actual var value queries) 
-        // XXX remove this code once 2019.1 is out 
-        String id2 = ((QueryKeyImpl) queryKey).getQueryNodeId().toString();
-        if (vvqMethods.containsKey(id2)) {
-          return vvqMethods.get(id2);
-        }
-      }
       return super.getVariableValueQuery(queryKey);
     }
     return vvqMethods.get(id);
@@ -1639,33 +1627,33 @@ public class QueriesGenerated extends QueryProviderBase {
     public Object evaluate(@NotNull TemplateVarContext ctx) throws GenerationFailureException {
       switch (methodKey) {
         case 0:
-          return QueriesGenerated.varMacro_Value_13_0(ctx);
-        case 1:
-          return QueriesGenerated.varMacro_Value_13_1(ctx);
-        case 2:
           return QueriesGenerated.varMacro_Value_2_0(ctx);
-        case 3:
+        case 1:
           return QueriesGenerated.varMacro_Value_2_1(ctx);
-        case 4:
+        case 2:
           return QueriesGenerated.varMacro_Value_2_2(ctx);
-        case 5:
+        case 3:
           return QueriesGenerated.varMacro_Value_2_3(ctx);
-        case 6:
+        case 4:
           return QueriesGenerated.varMacro_Value_2_4(ctx);
-        case 7:
+        case 5:
           return QueriesGenerated.varMacro_Value_2_5(ctx);
-        case 8:
+        case 6:
           return QueriesGenerated.varMacro_Value_4_0(ctx);
-        case 9:
+        case 7:
           return QueriesGenerated.varMacro_Value_7_0(ctx);
-        case 10:
+        case 8:
           return QueriesGenerated.varMacro_Value_7_1(ctx);
-        case 11:
+        case 9:
           return QueriesGenerated.varMacro_Value_9_0(ctx);
-        case 12:
+        case 10:
           return QueriesGenerated.varMacro_Value_11_0(ctx);
-        case 13:
+        case 11:
           return QueriesGenerated.varMacro_Value_11_1(ctx);
+        case 12:
+          return QueriesGenerated.varMacro_Value_13_0(ctx);
+        case 13:
+          return QueriesGenerated.varMacro_Value_13_1(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }

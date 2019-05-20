@@ -734,24 +734,13 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   private final Map<String, VariableValueQuery> vvqMethods = new HashMap<String, VariableValueQuery>();
   {
-    vvqMethods.put("5351859236162683102", new QueriesGenerated.VVQ(0));
-    vvqMethods.put("5351859236162683103", new QueriesGenerated.VVQ(0));
+    vvqMethods.put("8670273493022908155", new QueriesGenerated.VVQ(0));
   }
   @NotNull
   @Override
   public VariableValueQuery getVariableValueQuery(@NotNull QueryKey queryKey) {
     final String id = queryKey.getTemplateNode().getNodeId().toString();
     if (!(vvqMethods.containsKey(id))) {
-      {
-        // fallback for VarMacro_ValueQuery with same id but coming from VarMacro2 
-        // to support VarMacro->VarMacro2 migration of bootstrapped interpreted generators 
-        // (those with template model changed but QueriesGenerated not yet reflecting actual var value queries) 
-        // XXX remove this code once 2019.1 is out 
-        String id2 = ((QueryKeyImpl) queryKey).getQueryNodeId().toString();
-        if (vvqMethods.containsKey(id2)) {
-          return vvqMethods.get(id2);
-        }
-      }
       return super.getVariableValueQuery(queryKey);
     }
     return vvqMethods.get(id);

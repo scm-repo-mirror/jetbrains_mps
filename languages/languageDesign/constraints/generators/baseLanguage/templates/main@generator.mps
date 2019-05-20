@@ -227,10 +227,6 @@
       <concept id="1177093525992" name="jetbrains.mps.lang.generator.structure.InlineTemplate_RuleConsequence" flags="lg" index="gft3U">
         <child id="1177093586806" name="templateNode" index="gfFT$" />
       </concept>
-      <concept id="5015072279636464462" name="jetbrains.mps.lang.generator.structure.VarMacro" flags="lg" index="2jeGV$">
-        <child id="5015072279636624635" name="type" index="2jfP_h" />
-        <child id="5015072279636624596" name="value" index="2jfP_Y" />
-      </concept>
       <concept id="5015072279636592410" name="jetbrains.mps.lang.generator.structure.VarMacro_ValueQuery" flags="in" index="2jfdEK" />
       <concept id="1168559333462" name="jetbrains.mps.lang.generator.structure.TemplateDeclarationReference" flags="ln" index="j$656" />
       <concept id="1168559512253" name="jetbrains.mps.lang.generator.structure.DismissTopMappingRule" flags="lg" index="j$LIH">
@@ -284,6 +280,12 @@
       <concept id="1169670156577" name="jetbrains.mps.lang.generator.structure.GeneratorMessage" flags="lg" index="1lLz0L">
         <property id="1169670173015" name="messageText" index="1lLB17" />
         <property id="1169670356567" name="messageType" index="1lMjX7" />
+      </concept>
+      <concept id="1048903277984099206" name="jetbrains.mps.lang.generator.structure.VarDeclaration" flags="ng" index="1ps_xZ">
+        <child id="1048903277984099210" name="value" index="1ps_xN" />
+      </concept>
+      <concept id="1048903277984099198" name="jetbrains.mps.lang.generator.structure.VarMacro2" flags="lg" index="1ps_y7">
+        <child id="1048903277984099213" name="variables" index="1ps_xO" />
       </concept>
       <concept id="982871510064032177" name="jetbrains.mps.lang.generator.structure.IParameterizedTemplate" flags="ng" index="1s_3nv">
         <child id="982871510064032342" name="parameter" index="1s_3oS" />
@@ -2422,36 +2424,35 @@
                 </node>
               </node>
             </node>
-            <node concept="2jeGV$" id="4D5BTUNnG3u" role="lGtFl">
-              <property role="TrG5h" value="type" />
-              <node concept="2jfdEK" id="4D5BTUNnG3v" role="2jfP_Y">
-                <node concept="3clFbS" id="4D5BTUNnG3w" role="2VODD2">
-                  <node concept="3clFbF" id="4D5BTUNnInY" role="3cqZAp">
-                    <node concept="2OqwBi" id="4D5BTUNorNS" role="3clFbG">
-                      <node concept="2YIFZM" id="4D5BTUNnK7D" role="2Oq$k0">
-                        <ref role="37wK5l" to="tpeq:4uA70LEglme" resolve="datatypeBLType" />
-                        <ref role="1Pybhc" to="tpeq:h9nq4jh" resolve="RulesUtil" />
-                        <node concept="2OqwBi" id="4D5BTUNocxb" role="37wK5m">
-                          <node concept="2OqwBi" id="4D5BTUNnKxm" role="2Oq$k0">
-                            <node concept="30H73N" id="4D5BTUNnKjB" role="2Oq$k0" />
-                            <node concept="3TrEf2" id="4D5BTUNnYEQ" role="2OqNvi">
-                              <ref role="3Tt5mk" to="tp1t:gGEom_V" resolve="applicableProperty" />
+            <node concept="1ps_y7" id="7xiZWS97pVW" role="lGtFl">
+              <node concept="1ps_xZ" id="7xiZWS97pVV" role="1ps_xO">
+                <property role="TrG5h" value="type" />
+                <node concept="2jfdEK" id="4D5BTUNnG3v" role="1ps_xN">
+                  <node concept="3clFbS" id="4D5BTUNnG3w" role="2VODD2">
+                    <node concept="3clFbF" id="4D5BTUNnInY" role="3cqZAp">
+                      <node concept="2OqwBi" id="4D5BTUNorNS" role="3clFbG">
+                        <node concept="2YIFZM" id="4D5BTUNnK7D" role="2Oq$k0">
+                          <ref role="37wK5l" to="tpeq:4uA70LEglme" resolve="datatypeBLType" />
+                          <ref role="1Pybhc" to="tpeq:h9nq4jh" resolve="RulesUtil" />
+                          <node concept="2OqwBi" id="4D5BTUNocxb" role="37wK5m">
+                            <node concept="2OqwBi" id="4D5BTUNnKxm" role="2Oq$k0">
+                              <node concept="30H73N" id="4D5BTUNnKjB" role="2Oq$k0" />
+                              <node concept="3TrEf2" id="4D5BTUNnYEQ" role="2OqNvi">
+                                <ref role="3Tt5mk" to="tp1t:gGEom_V" resolve="applicableProperty" />
+                              </node>
+                            </node>
+                            <node concept="3TrEf2" id="4D5BTUNoqAR" role="2OqNvi">
+                              <ref role="3Tt5mk" to="tpce:fKAX2Z_" resolve="dataType" />
                             </node>
                           </node>
-                          <node concept="3TrEf2" id="4D5BTUNoqAR" role="2OqNvi">
-                            <ref role="3Tt5mk" to="tpce:fKAX2Z_" resolve="dataType" />
-                          </node>
                         </node>
-                      </node>
-                      <node concept="2qgKlT" id="4D5BTUNoLd9" role="2OqNvi">
-                        <ref role="37wK5l" to="tpek:hEwIzO1" resolve="getJavaType" />
+                        <node concept="2qgKlT" id="4D5BTUNoLd9" role="2OqNvi">
+                          <ref role="37wK5l" to="tpek:hEwIzO1" resolve="getJavaType" />
+                        </node>
                       </node>
                     </node>
                   </node>
                 </node>
-              </node>
-              <node concept="3Tqbb2" id="4D5BTUNnHaP" role="2jfP_h">
-                <ref role="ehGHo" to="tpee:fz3vP1H" resolve="Type" />
               </node>
             </node>
           </node>
