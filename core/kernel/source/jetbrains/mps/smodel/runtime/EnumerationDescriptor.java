@@ -35,7 +35,7 @@ import java.util.Objects;
 public interface EnumerationDescriptor extends DataTypeDescriptor {
 
   @NotNull
-  /* change to List<MemberDescriptor> after 19.1 when descriptors regenerated */
+    /* change to List<MemberDescriptor> after 19.1 when descriptors regenerated */
   Collection<MemberDescriptor> getMembers();
 
   @Nullable
@@ -52,9 +52,6 @@ public interface EnumerationDescriptor extends DataTypeDescriptor {
     return null;
   }
 
-  @Nullable
-  ValueToIdMigrationFacility getMigrationFacility();
-
   class MemberDescriptor {
     @Nullable
     private final String myName;
@@ -63,9 +60,11 @@ public interface EnumerationDescriptor extends DataTypeDescriptor {
     private final String myPresentation;
 
     @Nullable
+    @Deprecated
     private final String myIdentifier;
 
     @Nullable
+    @Deprecated
     private final String myLegacyRawValue;
 
     @Nullable
@@ -97,17 +96,18 @@ public interface EnumerationDescriptor extends DataTypeDescriptor {
     }
 
     @Deprecated
-    public MemberDescriptor(@NotNull String name, @NotNull String presentation, long idValue, @Nullable String sourceNode, @Nullable String legacyRawValue) {
+    public MemberDescriptor(@NotNull String name, @NotNull String presentation, long idValue, @Nullable String sourceNode, @Nullable String identifier,
+                            @Nullable String legacyRawValue) {
       myName = name;
       myPresentation = presentation;
       mySourceNode = sourceNode == null ? null : PersistenceFacade.getInstance().createNodeReference(sourceNode);
-      myIdentifier = null;
       myIdValue = idValue;
+      myIdentifier = identifier;
       myLegacyRawValue = legacyRawValue;
     }
 
     public MemberDescriptor(@NotNull String name, @NotNull String presentation, long idValue, @Nullable String sourceNode) {
-      this(name, presentation, idValue, sourceNode, name);
+      this(name, presentation, idValue, sourceNode, name, name);
     }
 
     public MemberDescriptor(@NotNull String name, @NotNull String presentation, long idValue) {
@@ -129,20 +129,20 @@ public interface EnumerationDescriptor extends DataTypeDescriptor {
       return mySourceNode;
     }
 
+    public long getIdValue() {
+      return myIdValue;
+    }
+
     @Nullable
+    @Deprecated
     public String getIdentifier() {
       return myIdentifier;
     }
 
-    public long getIdValue() {
-      return myIdValue;
-    }
-  }
-
-  @Deprecated
-  interface ValueToIdMigrationFacility {
-
     @Nullable
-    MemberDescriptor getMemberByLegacyRawValue(@Nullable String value);
+    @Deprecated
+    public String getLegacyRawValue() {
+      return myLegacyRawValue;
+    }
   }
 }

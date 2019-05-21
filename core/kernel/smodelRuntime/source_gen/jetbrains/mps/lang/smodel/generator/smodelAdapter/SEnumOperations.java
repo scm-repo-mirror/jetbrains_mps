@@ -13,8 +13,8 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.mps.openapi.language.SEnumeration;
 import java.util.Collection;
 import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
-import java.util.Objects;
 import jetbrains.mps.smodel.adapter.structure.types.SEnumerationAdapter;
+import java.util.Objects;
 import jetbrains.mps.smodel.adapter.ids.MetaIdHelper;
 
 public class SEnumOperations {
@@ -96,12 +96,8 @@ public class SEnumOperations {
   @Deprecated
   public static SEnumerationLiteral getMemberForName(String name, long uuidHigh, long uuidLow, String languageNameHint, long enumId, String enumNameHint) {
     SEnumeration e = getEnum(uuidHigh, uuidLow, languageNameHint, enumId, enumNameHint);
-    for (SEnumerationLiteral l : e.getLiterals()) {
-      if (Objects.equals(SEnumerationAdapter.getEnumMemberIdentifier(l), name)) {
-        return l;
-      }
-    }
-    return null;
+
+    return SEnumerationAdapter.getEnumMemberByIdentifier(e, name);
   }
   /**
    * 
@@ -110,7 +106,7 @@ public class SEnumOperations {
   @Deprecated
   public static SEnumerationLiteral getMemberForValue(String value, long uuidHigh, long uuidLow, String languageNameHint, long enumId, String enumNameHint) {
     SEnumeration e = getEnum(uuidHigh, uuidLow, languageNameHint, enumId, enumNameHint);
-    SEnumerationLiteral literal = e.getLiteral(value);
+    SEnumerationLiteral literal = SEnumerationAdapter.getEnumMemberByRawValue(e, value);
 
     // RS Why there is special case `value == null`? It looks strange that `memberFromValue(null)` returns a default member but 
     // RS `memberFromValue("not-a-value")` returns null, and `memberForName(null)` also returns null. See `EnumerationDatatypes` nullsafety tests 
@@ -159,7 +155,7 @@ public class SEnumOperations {
    */
   @Deprecated
   public static String getMemberValue(SEnumerationLiteral enumMember) {
-    return (enumMember == null ? null : enumMember.getName());
+    return (enumMember == null ? null : SEnumerationAdapter.getEnumMemberRawValue(enumMember));
   }
 
   public static String getMemberName0(SEnumerationLiteral enumMember) {

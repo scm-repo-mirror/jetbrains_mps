@@ -26,7 +26,6 @@ import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.smodel.runtime.DataTypeDescriptor;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptor;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptor.MemberDescriptor;
-import jetbrains.mps.smodel.runtime.EnumerationDescriptor.ValueToIdMigrationFacility;
 import jetbrains.mps.util.NameUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -52,7 +51,7 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
 
   private final SDataTypeId myId;
 
-  private final TLongObjectHashMap<SEnumLiteralAdapter> myLiteralsCache = new TLongObjectHashMap<>();
+  private final TLongObjectHashMap<SEnumerationLiteral> myLiteralsCache = new TLongObjectHashMap<>();
 
   public SEnumerationAdapter(SDataTypeId id, String fqName) {
     super(fqName);
@@ -114,12 +113,9 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
     }
     if (string == null) {
       // if persisted by internal value == null, TODO remove after 19.1 since all literals stored by id
-      EnumMigrationFacilityAdapter migrationFacility = getMigrationFacility();
-      if (migrationFacility != null) {
-        SEnumerationLiteral literal = migrationFacility.getMemberByLegacyRawValue(null);
-        if (literal != null) {
-          return literal;
-        }
+      SEnumerationLiteral literal = getEnumMemberByRawValue0(null);
+      if (literal != null) {
+        return literal;
       }
       // else if default implicitly stored
       return getDefault();
@@ -135,12 +131,9 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
       // serialized value is not id
     }
     // else if persisted by internal value, TODO replace with just 'return SType.NOT_A_VALUE' after 19.1 since all literals stored by id
-    EnumMigrationFacilityAdapter migrationFacility = getMigrationFacility();
-    if (migrationFacility != null) {
-      SEnumerationLiteral literal = migrationFacility.getMemberByLegacyRawValue(string);
-      if (literal != null) {
-        return literal;
-      }
+    SEnumerationLiteral literal = getEnumMemberByRawValue0(string);
+    if (literal != null) {
+      return literal;
     }
     SDataType rawMemberType = getRawMemberType();
     if (rawMemberType != null) {
@@ -212,29 +205,12 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
 
   @Deprecated
   public void migrateEnumProperty(SNode node, SProperty property) {
-    EnumMigrationFacilityAdapter migrationFacility = getMigrationFacility();
-    if (migrationFacility == null) {
-      return;
-    }
     String rawValue = node.getProperty(property);
-    SEnumerationLiteral literal = migrationFacility.getMemberByLegacyRawValue(rawValue);
+    SEnumerationLiteral literal = getEnumMemberByRawValue0(rawValue);
     if (literal == null) {
       return;
     }
     node.setProperty(property, toString(literal));
-  }
-
-  @Nullable
-  private EnumMigrationFacilityAdapter getMigrationFacility() {
-    EnumerationDescriptor descriptor = getDescriptor();
-    if (descriptor == null) {
-      return null;
-    }
-    ValueToIdMigrationFacility migrationFacility = descriptor.getMigrationFacility();
-    if (migrationFacility == null) {
-      return null;
-    }
-    return new EnumMigrationFacilityAdapter(migrationFacility);
   }
 
   public class SEnumLiteralAdapter implements SEnumerationLiteral {
@@ -294,12 +270,23 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
     }
 
     @Nullable
+    @Deprecated
     public String getIdentifier() {
       MemberDescriptor descriptor = getDescriptor();
       if (descriptor == null) {
         return null;
       }
       return descriptor.getIdentifier();
+    }
+
+    @Nullable
+    @Deprecated
+    public String getLegacyRawValue() {
+      MemberDescriptor descriptor = getDescriptor();
+      if (descriptor == null) {
+        return null;
+      }
+      return descriptor.getLegacyRawValue();
     }
 
     public SEnumerationLiteralId getId() {
@@ -344,9 +331,52 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
     return SPrimitiveTypes.getType(id);
   }
 
+  @Deprecated
   public static String getEnumMemberIdentifier(SEnumerationLiteral enumMember) {
     if (enumMember instanceof SEnumLiteralAdapter) {
       return ((SEnumLiteralAdapter) enumMember).getIdentifier();
+    }
+    return null;
+  }
+
+  @Deprecated
+  public static String getEnumMemberRawValue(SEnumerationLiteral enumMember) {
+    if (enumMember instanceof SEnumLiteralAdapter) {
+      return ((SEnumLiteralAdapter) enumMember).getLegacyRawValue();
+    }
+    return null;
+  }
+
+  @Deprecated
+  public static SEnumerationLiteral getEnumMemberByIdentifier(SEnumeration enumeration, String identifier) {
+    if (enumeration instanceof SEnumerationAdapter) {
+      return ((SEnumerationAdapter) enumeration).getEnumMemberByIdentifier0(identifier);
+    }
+    return null;
+  }
+
+  @Deprecated
+  public static SEnumerationLiteral getEnumMemberByRawValue(SEnumeration enumeration, String legacyRawValue) {
+    if (enumeration instanceof SEnumerationAdapter) {
+      return ((SEnumerationAdapter) enumeration).getEnumMemberByRawValue0(legacyRawValue);
+    }
+    return null;
+  }
+
+  private SEnumerationLiteral getEnumMemberByIdentifier0(String identifier) {
+    for (MemberDescriptor md : new EnumerationLiteralsList().getMembersList()) {
+      if (Objects.equals(md.getIdentifier(), identifier)) {
+        return getLiteralById(md.getIdValue());
+      }
+    }
+    return null;
+  }
+
+  private SEnumerationLiteral getEnumMemberByRawValue0(String legacyRawValue) {
+    for (MemberDescriptor md : new EnumerationLiteralsList().getMembersList()) {
+      if (Objects.equals(md.getLegacyRawValue(), legacyRawValue)) {
+        return getLiteralById(md.getIdValue());
+      }
     }
     return null;
   }
@@ -358,11 +388,10 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
     if (value == null && getDefault() == null) {
       return null;
     }
-    EnumMigrationFacilityAdapter migrationFacility = getMigrationFacility();
     SDataType rawMemberType = getRawMemberType();
-    if (migrationFacility != null && rawMemberType != null) {
+    if (rawMemberType != null) {
       String rawValue = rawMemberType.toString(value);
-      SEnumerationLiteral literal = migrationFacility.getMemberByLegacyRawValue(rawValue);
+      SEnumerationLiteral literal = getEnumMemberByRawValue0(rawValue);
       if (literal != null) {
         return literal;
       }
@@ -370,12 +399,16 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
     return new InvalidEnumerationLiteral(this, value);
   }
 
+  @Deprecated
   public Object getRawValueFromLiteral(SEnumerationLiteral literal) {
     if (literal instanceof InvalidEnumerationLiteral) {
       return ((InvalidEnumerationLiteral) literal).getRawValue();
     }
     SDataType rawMemberType = getRawMemberType();
-    return rawMemberType.fromString(literal.getName());
+    if (rawMemberType != null) {
+      return rawMemberType.fromString(getEnumMemberRawValue(literal));
+    }
+    return null;
   }
 
   private class EnumerationLiteralsList extends AbstractList<SEnumerationLiteral> {
@@ -423,23 +456,5 @@ public final class SEnumerationAdapter extends SNamedElementAdapter implements S
       return ((SEnumLiteralAdapter) o).getDescriptor();
     }
     return null;
-  }
-
-  class EnumMigrationFacilityAdapter {
-    @NotNull
-    final ValueToIdMigrationFacility myMigrationFacility;
-
-    public EnumMigrationFacilityAdapter(@NotNull ValueToIdMigrationFacility migrationFacility) {
-      myMigrationFacility = migrationFacility;
-    }
-
-    @Nullable
-    SEnumerationLiteral getMemberByLegacyRawValue(@Nullable String value) {
-      MemberDescriptor md = myMigrationFacility.getMemberByLegacyRawValue(value);
-      if (md == null) {
-        return null;
-      }
-      return getLiteralById(md.getIdValue());
-    }
   }
 }
