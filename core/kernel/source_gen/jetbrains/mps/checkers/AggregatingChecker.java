@@ -27,7 +27,7 @@ public class AggregatingChecker<O> implements IAbstractChecker<O, IssueKindRepor
     myNameGetter = nameGetter;
   }
   @Override
-  public void check(O toCheck, SRepository repository, Consumer<? super IssueKindReportItem> errorCollector, ProgressMonitor monitor) {
+  public void check(O toCheck, SRepository repository, final Consumer<? super IssueKindReportItem> errorCollector, ProgressMonitor monitor) {
     monitor.start("Checking " + myNameGetter.invoke(toCheck), ListSequence.fromList(myOrigins).count());
     try {
       CollectConsumer<IssueKindReportItem> consumer = new CollectConsumer<IssueKindReportItem>();
@@ -52,9 +52,14 @@ public class AggregatingChecker<O> implements IAbstractChecker<O, IssueKindRepor
       for (IChecker<O, ? extends IssueKindReportItem> origin : myOrigins) {
         ICheckingPostprocessor<? extends IssueKindReportItem> postprocessor = origin.getPostprocessor();
         if (postprocessor != null) {
-          postprocessor.postProcess(repository, monitor, errorCollector, new CheckingSession() {
+          postprocessor.postProcess(repository, monitor, new CheckingSession<IssueKindReportItem>() {
+            @Override
             public Map<IssueKindReportItem.PathObject, ? extends Collection<? extends CheckingSession.SuppressableError<? extends IssueKindReportItem>>> getAllFoundErrors() {
               return consumerResultMap;
+            }
+            @Override
+            public Consumer<? super IssueKindReportItem> postprocessingConsumer() {
+              return errorCollector;
             }
           });
         }

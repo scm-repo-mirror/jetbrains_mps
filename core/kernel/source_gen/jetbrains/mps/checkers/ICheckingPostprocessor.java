@@ -5,14 +5,13 @@ package jetbrains.mps.checkers;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
-import org.jetbrains.mps.openapi.util.Consumer;
 
 /**
  * Looking on other checker's output errors and intercepting them
  */
 public interface ICheckingPostprocessor<I extends IssueKindReportItem> {
 
-  void postProcess(SRepository repository, ProgressMonitor monitor, Consumer<? super I> consumer, CheckingSession checkingSession);
+  void postProcess(SRepository repository, ProgressMonitor monitor, CheckingSession<? super I> checkingSession);
 
   abstract class AbstractCheckingPostprocessor<I extends IssueKindReportItem> implements ICheckingPostprocessor<I> {
 

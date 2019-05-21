@@ -246,14 +246,19 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
     for (AbstractNodeCheckerInEditor checker : checkers) {
       ICheckingPostprocessor postProcessChecker = checker.getPostprocessor();
       if (postProcessChecker != null) {
-        Consumer<NodeReportItem> consumer = new Consumer<NodeReportItem>() {
+        final Consumer<NodeReportItem> consumer = new Consumer<NodeReportItem>() {
           public void consume(NodeReportItem report) {
             LanguageErrorsComponent.this.addError(report);
           }
         };
-        postProcessChecker.postProcess(repository, new EmptyProgressMonitor(), consumer, new CheckingSession() {
+        postProcessChecker.postProcess(repository, new EmptyProgressMonitor(), new CheckingSession<NodeReportItem>() {
+          @Override
           public Map<IssueKindReportItem.PathObject, ? extends Collection<? extends CheckingSession.SuppressableError<? extends IssueKindReportItem>>> getAllFoundErrors() {
             return nodesToErrors;
+          }
+          @Override
+          public Consumer<? super NodeReportItem> postprocessingConsumer() {
+            return consumer;
           }
         });
       }

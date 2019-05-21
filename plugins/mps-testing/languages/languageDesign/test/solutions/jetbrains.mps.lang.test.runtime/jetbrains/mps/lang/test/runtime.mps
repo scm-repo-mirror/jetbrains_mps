@@ -7370,7 +7370,7 @@
               </node>
             </node>
             <node concept="liA8E" id="5P_sMle9ala" role="2OqNvi">
-              <ref role="37wK5l" to="wsw7:4SGXHKgYYAZ" resolve="check" />
+              <ref role="37wK5l" to="wsw7:1EzqTC0eAhk" resolve="check" />
               <node concept="37vLTw" id="5P_sMle9ayC" role="37wK5m">
                 <ref role="3cqZAo" node="3fCX6WCBvHQ" resolve="myRoot" />
               </node>
@@ -7401,7 +7401,7 @@
               </node>
             </node>
             <node concept="liA8E" id="5P_sMle9ggc" role="2OqNvi">
-              <ref role="37wK5l" to="wsw7:4SGXHKgYYAZ" resolve="check" />
+              <ref role="37wK5l" to="wsw7:1EzqTC0eAhk" resolve="check" />
               <node concept="37vLTw" id="5P_sMle9ggd" role="37wK5m">
                 <ref role="3cqZAo" node="3fCX6WCBvHQ" resolve="myRoot" />
               </node>
@@ -7432,7 +7432,7 @@
               </node>
             </node>
             <node concept="liA8E" id="5P_sMle9jd4" role="2OqNvi">
-              <ref role="37wK5l" to="wsw7:4SGXHKgYYAZ" resolve="check" />
+              <ref role="37wK5l" to="wsw7:1EzqTC0eAhk" resolve="check" />
               <node concept="37vLTw" id="5P_sMle9jd5" role="37wK5m">
                 <ref role="3cqZAo" node="3fCX6WCBvHQ" resolve="myRoot" />
               </node>
@@ -7463,7 +7463,7 @@
               </node>
             </node>
             <node concept="liA8E" id="5P_sMle8RzO" role="2OqNvi">
-              <ref role="37wK5l" to="k2t0:~IAbstractChecker.check(java.lang.Object,org.jetbrains.mps.openapi.module.SRepository,org.jetbrains.mps.openapi.util.Consumer,org.jetbrains.mps.openapi.util.ProgressMonitor)" resolve="check" />
+              <ref role="37wK5l" to="k2t0:~IChecker.check(java.lang.Object,org.jetbrains.mps.openapi.module.SRepository,org.jetbrains.mps.openapi.util.Consumer,org.jetbrains.mps.openapi.util.ProgressMonitor)" resolve="check" />
               <node concept="37vLTw" id="5P_sMle8RPk" role="37wK5m">
                 <ref role="3cqZAo" node="3fCX6WCBvHQ" resolve="myRoot" />
               </node>

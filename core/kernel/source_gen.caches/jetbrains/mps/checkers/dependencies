@@ -51,20 +51,11 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.util.ProgressMonitor" />
     <classNode extendsClassName="jetbrains.mps.checkers.IAbstractChecker" />
   </dependency>
-  <dependency className="jetbrains.mps.checkers.CategoryShowingChecker">
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="jetbrains.mps.checkers.IChecker" />
-    <classNode dependClassName="jetbrains.mps.errors.item.IssueKindReportItem" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.util.Consumer" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.util.ProgressMonitor" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.util.SubProgressKind" />
-    <classNode extendsClassName="jetbrains.mps.checkers.IAbstractChecker" />
-  </dependency>
   <dependency className="jetbrains.mps.checkers.CheckingSession">
     <classNode dependClassName="java.util.Collection" />
     <classNode dependClassName="java.util.Map" />
     <classNode dependClassName="jetbrains.mps.errors.item.IssueKindReportItem" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.util.Consumer" />
   </dependency>
   <dependency className="jetbrains.mps.checkers.ConstraintsChecker">
     <classNode dependClassName="java.lang.Boolean" />
@@ -138,6 +129,7 @@
     <classNode dependClassName="java.util.ArrayList" />
     <classNode dependClassName="java.util.List" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes" />
+    <classNode dependClassName="jetbrains.mps.checkers.IAbstractChecker" />
     <classNode dependClassName="jetbrains.mps.checkers.ICheckingPostprocessor" />
     <classNode dependClassName="jetbrains.mps.checkers.IteratingChecker" />
     <classNode dependClassName="jetbrains.mps.errors.item.IssueKindReportItem" />
@@ -152,13 +144,11 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.util.Consumer" />
     <classNode dependClassName="org.jetbrains.mps.openapi.util.ProgressMonitor" />
     <classNode dependClassName="org.jetbrains.mps.util.DescendantsTreeIterator" />
-    <classNode extendsClassName="jetbrains.mps.checkers.IAbstractChecker" />
   </dependency>
   <dependency className="jetbrains.mps.checkers.ICheckingPostprocessor">
     <classNode dependClassName="jetbrains.mps.checkers.CheckingSession" />
     <classNode dependClassName="jetbrains.mps.errors.item.IssueKindReportItem" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.util.Consumer" />
     <classNode dependClassName="org.jetbrains.mps.openapi.util.ProgressMonitor" />
   </dependency>
   <dependency className="jetbrains.mps.checkers.IteratingChecker">
@@ -340,7 +330,6 @@
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.util.Consumer" />
     <classNode dependClassName="org.jetbrains.mps.openapi.util.ProgressMonitor" />
     <classNode extendsClassName="jetbrains.mps.checkers.AbstractNodeCheckerInEditor" />
   </dependency>

@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.errors.item.NodeReportItem;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
-import org.jetbrains.mps.openapi.util.Consumer;
 import java.util.Collection;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.errors.item.NodeReportItemBase;
@@ -28,7 +27,7 @@ public class SuppressErrorsChecker extends AbstractNodeCheckerInEditor {
   public ICheckingPostprocessor<NodeReportItem> getPostprocessor() {
     return new ICheckingPostprocessor.AbstractCheckingPostprocessor<NodeReportItem>() {
       @Override
-      public void postProcess(SRepository repository, ProgressMonitor monitor, Consumer<? super NodeReportItem> consumer, CheckingSession checkingSession) {
+      public void postProcess(SRepository repository, ProgressMonitor monitor, CheckingSession<? super NodeReportItem> checkingSession) {
         for (Collection<? extends CheckingSession.SuppressableError<? extends IssueKindReportItem>> collection : CollectionSequence.fromCollection(checkingSession.getAllFoundErrors().values())) {
           for (CheckingSession.SuppressableError<? extends IssueKindReportItem> foundError : CollectionSequence.fromCollection(collection)) {
             IssueKindReportItem error = foundError.getError();
@@ -39,7 +38,7 @@ public class SuppressErrorsChecker extends AbstractNodeCheckerInEditor {
                   return SuppressErrorsChecker.this.getCategory().deriveItemKind();
                 }
               };
-              consumer.consume(replacement);
+              checkingSession.postprocessingConsumer().consume(replacement);
             }
           }
         }
