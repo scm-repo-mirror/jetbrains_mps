@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,12 +40,16 @@ import java.util.List;
  *
  * @see SMethod
  *
- * Must be used instead of {@link jetbrains.mps.smodel.runtime.BehaviorDescriptor}
- *
  * @since 9.07.15
  * @author apyshkin
  */
 public interface BHDescriptor {
+  /**
+   * Compatibility mechanism to initialize a node instance.
+   * @param node new blank instance to get initialized
+   */
+  void initNode(@NotNull SNode node);
+
   /**
    * invokes the behavior constructor
    *

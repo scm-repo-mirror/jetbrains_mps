@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.smodel.behaviour;
 
-import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.BHDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
@@ -42,11 +41,7 @@ public final class BHReflection {
 
   public static void initNode(@NotNull SNode node) {
     BHDescriptor bhDescriptor = getBHDescriptor(node.getConcept());
-    if (bhDescriptor instanceof BaseBHDescriptor) {
-      ((BaseBHDescriptor) bhDescriptor).initNode(node);
-    } else {
-      throw new IllegalArgumentException("Impossible to init node " + node);
-    }
+    bhDescriptor.initNode(node);
   }
 
   /**
