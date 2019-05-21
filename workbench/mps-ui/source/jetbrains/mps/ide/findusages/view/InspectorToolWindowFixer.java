@@ -49,15 +49,16 @@ final class InspectorToolWindowFixer {
 
     boolean weAreInInspector = isInspectorWasLastActive(toolWindowManager);
     if (weAreInInspector) {
-      UsagesViewTool usagesViewTool = project.getComponent(UsagesViewTool.class);
-      int currentTabIndex = usagesViewTool.getCurrentTabIndex();
-      if (currentTabIndex < 0) {
-        return null;
-      }
-      UsagesView usagesView = usagesViewTool.getUsagesView(currentTabIndex);
-      return usagesView.getOccurrenceNavigator();
+      return null;
     }
-    return null;
+
+    UsagesViewTool usagesViewTool = project.getComponent(UsagesViewTool.class);
+    int currentTabIndex = usagesViewTool.getCurrentTabIndex();
+    if (currentTabIndex < 0) {
+      return null;
+    }
+    UsagesView usagesView = usagesViewTool.getUsagesView(currentTabIndex);
+    return usagesView.getOccurrenceNavigator();
   }
 
   private boolean isInspectorWasLastActive(ToolWindowManagerEx toolWindowManager) {
