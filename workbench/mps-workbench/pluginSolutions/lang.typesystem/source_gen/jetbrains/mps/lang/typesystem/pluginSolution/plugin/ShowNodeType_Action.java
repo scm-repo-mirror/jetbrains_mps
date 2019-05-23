@@ -16,9 +16,7 @@ import jetbrains.mps.project.MPSProject;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.errors.IErrorReporter;
-import jetbrains.mps.typesystem.inference.ITypechecking;
-import jetbrains.mps.typesystem.inference.TypeCheckingContext;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.newTypesystem.TypesUtil;
 import jetbrains.mps.errors.SimpleErrorReporter;
 import com.intellij.openapi.wm.ToolWindowManager;
@@ -27,13 +25,12 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.tempmodel.TemporaryModels;
 import jetbrains.mps.smodel.tempmodel.TempModuleOptions;
 import jetbrains.mps.typesystem.uiActions.MyBaseNodeDialog;
-import jetbrains.mps.typesystem.inference.TypeContextManager;
 
 public class ShowNodeType_Action extends BaseAction {
   private static final Icon ICON = MPSIcons.Nodes.Type;
 
   public ShowNodeType_Action() {
-    super("Show Type", "Show node's HELGINS type", ICON);
+    super("Show Type", "Show node's type", ICON);
     this.setIsAlwaysVisible(false);
     this.setExecuteOutsideCommand(true);
   }
@@ -76,22 +73,19 @@ public class ShowNodeType_Action extends BaseAction {
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     final Wrappers._T<IErrorReporter> error = new Wrappers._T<IErrorReporter>();
     final Wrappers._T<SNode> type = new Wrappers._T<SNode>();
+    final Wrappers._T<String> dialogTitle = new Wrappers._T<String>();
 
-    ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().getModelAccess().runWriteAction(new Runnable() {
+    ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        ShowNodeType_Action.this.runTypecheckingAction(new ITypechecking.Action() {
-          public void run(TypeCheckingContext typeCheckingContext) {
-            if (!(typeCheckingContext.isCheckedRoot(false))) {
-              typeCheckingContext.checkIfNotChecked(((SNode) MapSequence.fromMap(_params).get("node")), false);
-            }
-            type.value = SNodeOperations.copyNode(((SNode) typeCheckingContext.getTypeDontCheck(((SNode) MapSequence.fromMap(_params).get("node")))));
-            error.value = typeCheckingContext.getTypeMessageDontCheck(((SNode) MapSequence.fromMap(_params).get("node")));
+        TypecheckingFacade tf = TypecheckingFacade.getFromContext();
+        type.value = tf.getTypeOf(((SNode) MapSequence.fromMap(_params).get("node")));
 
-            if (error.value == null && TypesUtil.hasVariablesInside(type.value)) {
-              error.value = new SimpleErrorReporter(((SNode) MapSequence.fromMap(_params).get("node")), "Type was not fully instantiated", null);
-            }
-          }
-        }, _params);
+        // TODO errors reported while computing type 
+        if (error.value == null && TypesUtil.hasVariablesInside(type.value)) {
+          error.value = new SimpleErrorReporter(((SNode) MapSequence.fromMap(_params).get("node")), "Type was not fully instantiated", null);
+        }
+
+        dialogTitle.value = String.format("Type Explorer [%s]", ((SNode) MapSequence.fromMap(_params).get("node")));
       }
     });
 
@@ -104,14 +98,12 @@ public class ShowNodeType_Action extends BaseAction {
     final Wrappers._T<SModel> tmpModel = new Wrappers._T<SModel>();
 
     try {
-      final Wrappers._T<String> dialogTitle = new Wrappers._T<String>();
 
       ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().getModelAccess().executeUndoTransparentCommand(new Runnable() {
         public void run() {
           tmpModel.value = TemporaryModels.getInstance().createReadOnly(TempModuleOptions.forDefaultModule());
           tmpModel.value.addRootNode(type.value);
           TemporaryModels.getInstance().addMissingImports(tmpModel.value);
-          dialogTitle.value = String.format("Type Explorer [%s]", ((SNode) MapSequence.fromMap(_params).get("node")));
         }
       });
 
@@ -121,13 +113,12 @@ public class ShowNodeType_Action extends BaseAction {
       ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().getModelAccess().executeUndoTransparentCommand(new Runnable() {
         public void run() {
           // XXX what's the need to remove type node from the model we dispose anyway? 
+          // YYY maybe b/c the type object can be referenced elsewhere and we don't want to break that code 
+          // YYY that's the price one pays for having "free floating" nodes as part of the design 
           tmpModel.value.removeRootNode(type.value);
           TemporaryModels.getInstance().dispose(tmpModel.value);
         }
       });
     }
-  }
-  private void runTypecheckingAction(ITypechecking.Action action, final Map<String, Object> _params) {
-    TypeContextManager.getInstance().runTypeCheckingAction(((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")), ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getNodeForTypechecking(), action);
   }
 }
