@@ -93,7 +93,7 @@ public class WorkbenchPathMacros implements ApplicationComponent, PathMacrosProv
                                                 if (event.getEventType() != EventType.ACTIVATED) {
                                                   return;
                                                 }
-                                                DataManager.getInstance().getDataContextFromFocus().doWhenDone((Consumer<DataContext>) dataContext -> {
+                                                DataManager.getInstance().getDataContextFromFocusAsync().onProcessed(dataContext -> {
                                                   Project project = PlatformDataKeys.PROJECT.getData(dataContext);
 
                                                   Map<String, String> oldMacroses = collectMacroses();
