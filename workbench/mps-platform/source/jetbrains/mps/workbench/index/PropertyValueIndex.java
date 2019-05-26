@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.workbench.index;
 
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -158,9 +159,9 @@ public class PropertyValueIndex extends FileBasedIndexExtension<WordIndexEntry, 
     }
   }
 
-  public PropertyValueIndex(MPSCoreComponents mpsCoreComponents) {
+  public PropertyValueIndex() {
     // copied from MPSModelsIndexer
-    final Platform mpsPlatform = mpsCoreComponents.getPlatform();
+    final Platform mpsPlatform = ApplicationManager.getApplication().getComponent(MPSCoreComponents.class).getPlatform();
     for (ModelFactory mf : mpsPlatform.findComponent(ModelFactoryService.class).getFactories()) {
       if (mf instanceof IndexAwareModelFactory) {
         for (DataSourceType type : mf.getPreferredDataSourceTypes()) {

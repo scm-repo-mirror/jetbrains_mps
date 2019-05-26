@@ -15,14 +15,13 @@
  */
 package jetbrains.mps.workbench.findusages;
 
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.search.GlobalSearchScope;
-import com.intellij.util.Consumer;
 import com.intellij.util.indexing.DataIndexer;
 import com.intellij.util.indexing.DefaultFileTypeSpecificInputFilter;
 import com.intellij.util.indexing.FileBasedIndex;
-import com.intellij.util.indexing.FileBasedIndex.FileTypeSpecificInputFilter;
 import com.intellij.util.indexing.FileBasedIndex.InputFilter;
 import com.intellij.util.indexing.FileContent;
 import com.intellij.util.indexing.ID;
@@ -65,8 +64,8 @@ public class MPSModelsIndexer extends ScalarIndexExtension<UsageEntry> {
     return FileBasedIndex.getInstance().getContainingFiles(NAME, entry, allFiles);
   }
 
-  public MPSModelsIndexer(MPSCoreComponents mpsCoreComponents) {
-    final Platform mpsPlatform = mpsCoreComponents.getPlatform();
+  public MPSModelsIndexer() {
+    final Platform mpsPlatform = ApplicationManager.getApplication().getComponent(MPSCoreComponents.class).getPlatform();
     for (ModelFactory mf : mpsPlatform.findComponent(ModelFactoryService.class).getFactories()) {
       if (mf instanceof IndexAwareModelFactory) {
         for (DataSourceType type : mf.getPreferredDataSourceTypes()) {
