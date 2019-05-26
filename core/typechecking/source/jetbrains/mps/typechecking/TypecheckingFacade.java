@@ -16,7 +16,7 @@
 package jetbrains.mps.typechecking;
 
 import jetbrains.mps.lang.pattern.INodeMatchingPattern;
-import jetbrains.mps.typechecking.backend.TypecheckingController;
+import jetbrains.mps.typechecking.backend.TypecheckingSessionHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -32,7 +32,7 @@ import java.util.function.Supplier;
  *
  * @author Fedor Isakov
  */
-public abstract class TypecheckingFacade implements TypecheckingQueries, jetbrains.mps.typechecking.TypecheckingSessionHandler {
+public abstract class TypecheckingFacade extends TypecheckingSessionHandler implements TypecheckingQueries {
 
   /**
    * Provides access to an instance of {@code TypecheckingFacade} that is made available by the environment.
@@ -48,85 +48,81 @@ public abstract class TypecheckingFacade implements TypecheckingQueries, jetbrai
   @Override
   public SNode getTypeOf(SNode expression) {
     if (expression == null) return null;
-    return getController().getSession(expression, null, null).getTypeOf(expression);
+    return controller().getTypeOf(expression);
   }
 
   @Override
   public SNode getInferredType(SNode expression) {
     if (expression == null) return null;
-    return getController().getSession(expression, null, null).getInferredType(expression);
+    return controller().getInferredType(expression);
   }
 
   @Override
   public boolean convertsTo(@NotNull SNode typeA, @NotNull SNode typeB) {
-    return getController().getSession(typeA, typeB, null).convertsTo(typeA, typeB);
+    return controller().convertsTo(typeA, typeB);
   }
 
   @Override
   public boolean isSubtype(SNode typeA, SNode typeB) {
     if (typeA == null || typeB == null) return false;
-    return getController().getSession(typeA, typeB, null).isSubtype(typeA, typeB);
+    return controller().isSubtype(typeA, typeB);
   }
 
   @Override
   public boolean isStrongSubtype(SNode typeA, SNode typeB) {
     if (typeA == null || typeB == null) return false;
-    return getController().getSession(typeA, typeB, null).isStrongSubtype(typeA, typeB);
+    return controller().isStrongSubtype(typeA, typeB);
   }
 
   @NotNull
   @Override
   public Collection<SNode> getImmediateSupertypes(@NotNull SNode type) {
-    return getController().getSession(type, null, null).getImmediateSupertypes(type);
+    return controller().getImmediateSupertypes(type);
   }
 
   @Override
   public SNode coerceType(SNode type, @NotNull SConcept typeConcept) {
     if (type == null) return null;
-    return getController().getSession(type, null, typeConcept).coerceType(type, typeConcept);
+    return controller().coerceType(type, typeConcept);
   }
 
   @Nullable
   @Override
   public SNode coerceType(SNode type, @NotNull INodeMatchingPattern targetPattern) {
     if (type == null) return null;
-    return getController().getSession(type, null, targetPattern.getConcept()).coerceType(type, targetPattern);
+    return controller().coerceType(type, targetPattern);
   }
 
   @Override
   public SNode strongCoerceType(SNode type, @NotNull SConcept typeConcept) {
     if (type == null) return null;
-    return getController().getSession(type, null, typeConcept).strongCoerceType(type, typeConcept);
+    return controller().strongCoerceType(type, typeConcept);
   }
 
   @Nullable
   @Override
   public SNode strongCoerceType(SNode type, @NotNull INodeMatchingPattern targetPattern) {
     if (type == null) return null;
-    return getController().getSession(type, null, targetPattern.getConcept()).strongCoerceType(type, targetPattern);
+    return controller().strongCoerceType(type, targetPattern);
   }
 
-  @NotNull
-  protected abstract TypecheckingController getController();
-
   protected static TypecheckingFacade getContextInstance() {
-    TypecheckingFacade facade = CONTEXT_INSTANCE.get();
-    if (facade == null) throw new IllegalStateException("No TypecheckingFacade instance in the context");
-    return facade;
+    return CONTEXT_INSTANCE.get();
   }
 
   // initialized by TypecheckingFacadeComponent
-  protected static Supplier<TypecheckingFacade> FACTORY_INSTANCE;
+  protected static Supplier<TypecheckingFacade> DEFAULT_INSTANCE_FACTORY;
 
   private static ThreadLocal<TypecheckingFacade> CONTEXT_INSTANCE = ThreadLocal.withInitial(
       () -> {
-        if (FACTORY_INSTANCE != null) {
-          return FACTORY_INSTANCE.get();
+        if (DEFAULT_INSTANCE_FACTORY != null) {
+          return DEFAULT_INSTANCE_FACTORY.get();
 
         } else {
           throw new IllegalStateException("TypecheckingFacade factory not initialized");
         }
       }
   );
+
 
 }

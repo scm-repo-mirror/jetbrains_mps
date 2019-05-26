@@ -22,58 +22,49 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 
 /**
- * Handles a single default (basic) session.
- *
  * @author Fedor Isakov
  */
-public class DefaultTypecheckingController extends TypecheckingController {
+public class SharedSessionTypecheckingController extends DefaultTypecheckingController {
 
-  private Session myDefaultSession;
+  private TypecheckingSession mySharedSession;
 
-  public DefaultTypecheckingController(TypecheckingBackend typecheckingBackend) {
+  public SharedSessionTypecheckingController(TypecheckingBackend typecheckingBackend, TypecheckingSession session) {
     super(typecheckingBackend);
+    mySharedSession = session;
+    mySharedSession.incUsages();
   }
 
   @Override
   public void dispose() {
-    if (myDefaultSession != null) {
-      myDefaultSession.release();
-      myDefaultSession = null;
+    if (mySharedSession != null) {
+      mySharedSession.decUsages();
+      this.mySharedSession = null;
     }
-  }
-
-  @Override
-  protected void sessionReleased(@NotNull Session session) {
-    if (session == myDefaultSession) {
-      session.dispose();
-      this.myDefaultSession = null;
-
-    } else {
-      throw new IllegalArgumentException("Unknown session: " + session);
-    }
+    super.dispose();
   }
 
   @NotNull
   @Override
   protected TypecheckingSession requestSession(@NotNull Flags flags) {
-    if (myDefaultSession == null) {
-      this.myDefaultSession = createSession(flags);
-      return myDefaultSession;
-
-    } else {
-      throw new IllegalStateException("Multiple sessions not supported");
-    }
+    return super.requestSession(flags);
   }
 
   @NotNull
   @Override
   protected TypecheckingQueries getQueries(@NotNull SNode src, SNode trg, SConcept trgConcept) {
-    // request new session on demand
-    if (myDefaultSession == null) {
-      this.myDefaultSession = createSession(Flags.basic());
+    SNode containingRoot = src.getContainingRoot();
+    if (mySharedSession.flags().getRoot() == containingRoot) {
+      return mySharedSession.getQueries(selectProvider(src, trg, trgConcept));
+      
+    } else {
+      return super.getQueries(src, trg, trgConcept);
     }
-    TypecheckingProvider provider = selectProvider(src, trg, trgConcept);
-    return myDefaultSession.getQueries(provider);
   }
 
+  @Override
+  protected void sessionReleased(@NotNull Session session) {
+    super.sessionReleased(session);
+  }
+  
 }
+

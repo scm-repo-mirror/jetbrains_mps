@@ -123,8 +123,7 @@ import jetbrains.mps.openapi.editor.update.Updater;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.CancellableReadAction;
 import jetbrains.mps.typechecking.TypecheckingFacade;
-import jetbrains.mps.typechecking.TypecheckingSessionHandler.SessionToken;
-import jetbrains.mps.typechecking.backend.TypecheckingSession.Flags;
+import jetbrains.mps.typechecking.backend.TypecheckingSession;
 import jetbrains.mps.typesystem.inference.DefaultTypecheckingContextOwner;
 import jetbrains.mps.typesystem.inference.ITypeContextOwner;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
@@ -223,7 +222,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
 
   private String myDefaultPopupGroupId = MPSActions.EDITOR_POPUP_GROUP;
   private InputMethodRequests myInputMethodRequests;
-  private SessionToken mySessionToken;
+  private TypecheckingSession myTypecheckingSession;
 
   public static void turnOnAliasingIfPossible(Graphics2D g) {
     if (EditorSettings.getInstance().isUseAntialiasing()) {
@@ -1028,9 +1027,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       }
 
       final boolean needNewTypecheckingContext = updateContainingRoot(node);
-      if (needNewTypecheckingContext && mySessionToken != null) {
-        mySessionToken.release();
-        mySessionToken = null;
+      if (needNewTypecheckingContext && myTypecheckingSession != null) {
+        myTypecheckingSession.release();
+        myTypecheckingSession = null;
       }
 
       myNode = node;
@@ -1048,7 +1047,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       myCommandContext.updateContextNode();
 
       if (needNewTypecheckingContext && myNode != null) {
-        mySessionToken = TypecheckingFacade.getFromContext().requestNewSession(Flags.forRoot(myNode).incremental());
+        myTypecheckingSession = TypecheckingFacade.getFromContext().requestNewSession(TypecheckingSession.Flags.forRoot(myNode).incremental());
       }
 
       rebuildEditorContent();
@@ -1367,9 +1366,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       hideMessageToolTip();
     }
 
-    if (mySessionToken != null) {
-      mySessionToken.release();
-      mySessionToken = null;
+    if (myTypecheckingSession != null) {
+      myTypecheckingSession.release();
+      myTypecheckingSession = null;
     }
     myHighlightManager.dispose();
 
@@ -2681,9 +2680,9 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   }
 
   public void rebuildAfterReloadModel() {
-    if (mySessionToken != null) {
-      mySessionToken.release();
-      mySessionToken = null;
+    if (myTypecheckingSession != null) {
+      myTypecheckingSession.release();
+      myTypecheckingSession = null;
     }
     if (myNodePointer != null) {
       myNode = myNodePointer.resolve(getRepository());
@@ -2692,7 +2691,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     }
     myCommandContext.updateContextNode();
     if (myNode != null) {
-      mySessionToken = TypecheckingFacade.getFromContext().requestNewSession(Flags.forRoot(myNode).incremental());
+      myTypecheckingSession = TypecheckingFacade.getFromContext().requestNewSession(TypecheckingSession.Flags.forRoot(myNode).incremental());
     }
   }
 

@@ -27,6 +27,9 @@ import java.util.Collections;
 /**
  * Embodies all queries available to clients of the type checker.
  *
+ * This interface is to be implemented by the provider and corresponds to a session participant
+ * specific to this provider.
+ * 
  * @author Fedor Isakov
  */
 public interface TypecheckingQueries {
@@ -77,7 +80,7 @@ public interface TypecheckingQueries {
    * Provided for compatibility with the legacy system. Returns an empty collection.
    */
   @NotNull
-  default Collection<SNode> getImmediateSupertypes(@NotNull SNode typeA) {
+  default Collection<SNode> getImmediateSupertypes(@NotNull SNode type) {
     return Collections.emptyList();
   }
 
@@ -91,7 +94,7 @@ public interface TypecheckingQueries {
    * To support the legacy contract, nullable type parameter is accepted, in which case null is returned.
    */
   @Nullable
-  SNode coerceType(SNode type, @NotNull SConcept targetConcept);
+  SNode coerceType(SNode type, @NotNull SConcept typeConcept);
 
   /**
    * Tries to coerce a type to the form corresponding to the specified {@code targetPattern}.
@@ -109,9 +112,9 @@ public interface TypecheckingQueries {
    * To support the legacy contract, nullable type parameter is accepted, in which case null is returned.
    */
   @Nullable
-  default SNode strongCoerceType(SNode type, @NotNull SConcept targetConcept) {
+  default SNode strongCoerceType(SNode type, @NotNull SConcept typeConcept) {
     if (type == null) return null;
-    return coerceType(type, targetConcept);
+    return coerceType(type, typeConcept);
   }
 
   /**

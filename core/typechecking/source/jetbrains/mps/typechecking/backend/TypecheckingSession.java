@@ -19,20 +19,62 @@ import jetbrains.mps.typechecking.TypecheckingQueries;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
 /**
- * Represents the state of typechecking.
+ * Provides the means to release and dispose a previously allocated session.
  *
- * Sessions are created on demand, and disposed when no longer used.
- *
- *
- * @author Fedor Isakov
+ * This object corresponds to a session, which may contain several instances of {@link TypecheckingQueries}
+ * coming from different providers.
  */
-public interface TypecheckingSession extends TypecheckingQueries {
+public abstract class TypecheckingSession {
+
+  private int myUsages = 0;
+
+  private final Flags myFlags;
+  private Map<TypecheckingProvider, TypecheckingQueries> mySessions = new HashMap<>();
+
+  protected TypecheckingSession(Flags flags) {
+    myFlags = flags;
+  }
+
+  public Flags flags() {
+    return myFlags;
+  }
+
+  public abstract void release();
+
+  protected void dispose () {
+    for (Entry<TypecheckingProvider, TypecheckingQueries> entry : mySessions.entrySet()) {
+      entry.getKey().disposeQueries(entry.getValue());
+    }
+    mySessions.clear();
+  }
+
+  @NotNull
+  protected TypecheckingQueries getQueries(TypecheckingProvider provider) {
+    mySessions.computeIfAbsent(provider, (key) -> provider.createQueries(flags()));
+    return mySessions.get(provider);
+  }
+
+  protected int getUsages() {
+    return myUsages;
+  }
+
+  protected int incUsages() {
+    return ++myUsages;
+  }
+
+  protected int decUsages() {
+    return --myUsages;
+  }
 
   /**
-   * Provides flags for new session instantiation. 
+   * Provides flags for new session instantiation.
    */
-  class Flags {
+  public static class Flags {
 
     public static long FLAG_BASIC         = 0x1;
     public static long FLAG_ROOT_SPECIFIC = 0x1 << 1;
@@ -99,5 +141,4 @@ public interface TypecheckingSession extends TypecheckingQueries {
     }
 
   }
-
 }

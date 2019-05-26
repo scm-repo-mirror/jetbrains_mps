@@ -20,8 +20,8 @@ import jetbrains.mps.lang.pattern.ConceptMatchingPattern;
 import jetbrains.mps.lang.pattern.INodeMatchingPattern;
 import jetbrains.mps.newTypesystem.context.IncrementalTypecheckingContext;
 import jetbrains.mps.newTypesystem.context.TargetTypecheckingContext;
+import jetbrains.mps.typechecking.TypecheckingQueries;
 import jetbrains.mps.typechecking.backend.TypecheckingProvider;
-import jetbrains.mps.typechecking.backend.TypecheckingSession;
 import jetbrains.mps.typechecking.backend.TypecheckingSession.Flags;
 import jetbrains.mps.typesystem.inference.TypeChecker;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
@@ -54,7 +54,7 @@ public class LegacyTypecheckingProvider implements TypecheckingProvider {
 
   @NotNull
   @Override
-  public TypecheckingSession newSession(@NotNull Flags flags) {
+  public TypecheckingQueries createQueries(@NotNull Flags flags) {
     if (flags.getRoot() != null && flags.isIncremental()) {
       final IncrementalTypecheckingContext typecheckingContext =
           new IncrementalTypecheckingContext(flags.getRoot(), TypeChecker.getInstance(), myClassLoaderManager);
@@ -80,14 +80,14 @@ public class LegacyTypecheckingProvider implements TypecheckingProvider {
   }
 
   @Override
-  public void closeSession(@NotNull TypecheckingSession session) {
-    if (!(session instanceof LegacyTypecheckingSession)) {
-      throw new IllegalArgumentException("Invalid parameter: " + session);
+  public void disposeQueries(@NotNull TypecheckingQueries queries) {
+    if (!(queries instanceof LegacyTypecheckingSession)) {
+      throw new IllegalArgumentException("Invalid parameter: " + queries);
     }
-    ((LegacyTypecheckingSession) session).disposeTypecheckingContext();
+    ((LegacyTypecheckingSession) queries).disposeTypecheckingContext();
   }
 
-  private static abstract class DefaultLegacyTypecheckingSession implements TypecheckingSession {
+  private static abstract class DefaultLegacyTypecheckingSession implements TypecheckingQueries{
 
 //    @Override
 //    public SNode getTypeOf(SNode expression) {
@@ -153,7 +153,7 @@ public class LegacyTypecheckingProvider implements TypecheckingProvider {
 
   }
 
-  private static class LegacyTypecheckingSession extends DefaultLegacyTypecheckingSession implements TypecheckingSession {
+private static class LegacyTypecheckingSession extends DefaultLegacyTypecheckingSession implements TypecheckingQueries {
 
     private final Flags myFlags;
 
@@ -188,7 +188,7 @@ public class LegacyTypecheckingProvider implements TypecheckingProvider {
     }
   }
 
-  private static class GeneratorLegacyTypecheckingSession extends LegacyTypecheckingSession implements TypecheckingSession {
+  private static class GeneratorLegacyTypecheckingSession extends LegacyTypecheckingSession implements TypecheckingQueries {
 
     public GeneratorLegacyTypecheckingSession(Flags flags) {
       super(flags);

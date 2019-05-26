@@ -19,17 +19,19 @@ import jetbrains.mps.components.CoreComponent;
 import jetbrains.mps.languageScope.LanguageScopeFactory;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.typechecking.TypecheckingFacade;
-import jetbrains.mps.typechecking.backend.BasicTypecheckingController;
+import jetbrains.mps.typechecking.backend.DefaultTypecheckingController;
+import jetbrains.mps.typechecking.backend.SharedSessionTypecheckingController;
 import jetbrains.mps.typechecking.backend.TypecheckingBackend;
 import jetbrains.mps.typechecking.backend.TypecheckingController;
-import jetbrains.mps.typechecking.backend.TypecheckingSession.Flags;
+import jetbrains.mps.typechecking.backend.TypecheckingSession;
 import jetbrains.mps.typechecking.backend.WorkbenchTypecheckingController;
-import jetbrains.mps.util.containers.ConcurrentHashSet;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.SwingUtilities;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
@@ -59,17 +61,19 @@ public class TypecheckingFacadeComponent implements CoreComponent {
   @Override
   public void init() {
     // TODO: context instance is supposed to be provided by the environment running the user code, it's not meant to be a static field
-//    this.myTypecheckingController = new BasicTypecheckingController(myTypecheckingBackend);
-//    this.myTypecheckingFacade = new ContextTypecheckingFacade(myTypecheckingController);
     ContextTypecheckingFacade.setFactoryInstance(
         () -> {
           if (SwingUtilities.isEventDispatchThread()) {
             // TODO correctly initialize facade for AWT thread
-            return createFacade(() -> new WorkbenchTypecheckingController(myTypecheckingBackend));
+            return createFacade((TypecheckingSession session) ->
+              session == null ? new WorkbenchTypecheckingController(myTypecheckingBackend) :
+                                new SharedSessionTypecheckingController(myTypecheckingBackend, session));
 
           } else {
             // TODO correctly initialize facade for threads other than AWT
-            return createFacade(() -> new BasicTypecheckingController(myTypecheckingBackend));
+            return createFacade((TypecheckingSession session) ->
+              session == null ? new DefaultTypecheckingController(myTypecheckingBackend) :
+                                new SharedSessionTypecheckingController(myTypecheckingBackend, session));
           }
         });
   }
@@ -81,8 +85,9 @@ public class TypecheckingFacadeComponent implements CoreComponent {
     }
   }
 
-  private ContextTypecheckingFacade createFacade(Supplier<TypecheckingController> controllerSupplier) {
-    ContextTypecheckingFacade facade = new ContextTypecheckingFacade(controllerSupplier);
+  private ContextTypecheckingFacade createFacade(Function<TypecheckingSession, TypecheckingController> sharedControllerFactory)
+  {
+    ContextTypecheckingFacade facade = new ContextTypecheckingFacade(sharedControllerFactory);
     myFacadeQueue.add(facade);
     return facade;
   }
@@ -90,31 +95,43 @@ public class TypecheckingFacadeComponent implements CoreComponent {
   protected static class ContextTypecheckingFacade extends TypecheckingFacade {
 
     protected static void setFactoryInstance(Supplier<TypecheckingFacade> factoryInstance) {
-      FACTORY_INSTANCE = factoryInstance;
+      TypecheckingFacade.DEFAULT_INSTANCE_FACTORY = factoryInstance;
     }
 
-    private final TypecheckingController myTypecheckingController;
+    @NotNull
+    private final Function<TypecheckingSession, TypecheckingController> myControllerFactory;
 
-    public ContextTypecheckingFacade(Supplier<TypecheckingController> controllerSupplier) {
-      myTypecheckingController = controllerSupplier.get();
+    private Deque<TypecheckingController> myControllerStack = new ArrayDeque<>();
+
+    public ContextTypecheckingFacade(@NotNull Function<TypecheckingSession, TypecheckingController> controllerFactory) {
+      myControllerFactory = controllerFactory;
     }
 
-    public void dispose() {
-      myTypecheckingController.dispose();
+    protected void dispose() {
+      while (!myControllerStack.isEmpty()) {
+        myControllerStack.pop().dispose();
+      }
     }
 
     @NotNull
     @Override
-    protected TypecheckingController getController() {
-      return myTypecheckingController;
-    }
-    @NotNull
-    @Override
-    public SessionToken requestNewSession(@NotNull Flags flags) {
-      return myTypecheckingController.requestNewSession(flags);
+    protected TypecheckingController controller() {
+      if (myControllerStack.isEmpty()) {
+        myControllerStack.push(myControllerFactory.apply(null));
+      }
+      //noinspection ConstantConditions
+      return myControllerStack.peek();
     }
 
+    @Override
+    protected void overrideController(TypecheckingSession session) {
+      myControllerStack.push(myControllerFactory.apply(session));
+    }
+
+    @Override
+    protected void resetOverride() {
+      myControllerStack.pop().dispose();
+    }
   }
-
 
 }
