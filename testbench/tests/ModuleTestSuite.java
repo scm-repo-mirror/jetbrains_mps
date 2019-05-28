@@ -75,7 +75,8 @@ import org.junit.runners.model.RunnerBuilder;
                         TestModule_jetbrains_mps_lang_smodel_unittest.class,
                         TestModule_jetbrains_mps_make_tests.class,
                         TestModule_jetbrains_mps_smodel_test.class,
-                        TestModule_jetbrains_mps_testActions.class,
+                        // TODO: fix or remove TestModule_jetbrains_mps_testActions test
+                        // TestModule_jetbrains_mps_testActions.class,
                         TestModule_jetbrains_mps_testRead.class,
                         TestModule_jetbrains_mps_traceInfo_test.class,
                         TestModule_jetbrains_mps_traceInfo_testWeaving.class,
