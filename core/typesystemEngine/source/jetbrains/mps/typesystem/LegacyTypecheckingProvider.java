@@ -39,7 +39,7 @@ import java.util.function.Function;
  * Implementation of typechecking queries on top of the legacy (default) typechecking provider.
  * @author Fedor Isakov
  */
-public class LegacyTypecheckingProvider implements TypecheckingProvider {
+public class LegacyTypecheckingProvider implements TypecheckingProvider<LegacyTypecheckingQueries> {
 
   private final ClassLoaderManager myClassLoaderManager;
 
@@ -54,52 +54,36 @@ public class LegacyTypecheckingProvider implements TypecheckingProvider {
 
   @NotNull
   @Override
-  public TypecheckingQueries createQueries(@NotNull Flags flags) {
+  public LegacyTypecheckingQueries createQueries(@NotNull Flags flags) {
     if (flags.getRoot() != null && flags.isIncremental()) {
-      final IncrementalTypecheckingContext typecheckingContext =
-          new IncrementalTypecheckingContext(flags.getRoot(), TypeChecker.getInstance(), myClassLoaderManager);
-      
-      return new LegacyTypecheckingSession(flags) {
-        @Override
-        protected <R> R withTypeCheckingContext(Function<? super TypeCheckingContext, R> fun) {
-          return fun.apply(typecheckingContext);
-        }
-
-        @Override
-        protected void disposeTypecheckingContext() {
-          typecheckingContext.dispose();
-        }
-      };
+      return new IncrementalLegacyTypecheckingQueries(flags,
+                    new IncrementalTypecheckingContext(flags.getRoot(), TypeChecker.getInstance(), myClassLoaderManager));
 
     } else if (flags.isGenerator()) {
       return new GeneratorLegacyTypecheckingSession(flags);
 
     } else {
-      return new LegacyTypecheckingSession(flags);
+      return new TargetLegacyTypecheckingQueries(flags);
     }
   }
 
   @Override
   public void disposeQueries(@NotNull TypecheckingQueries queries) {
-    if (!(queries instanceof LegacyTypecheckingSession)) {
+    if (!(queries instanceof LegacyTypecheckingQueries)) {
       throw new IllegalArgumentException("Invalid parameter: " + queries);
     }
-    ((LegacyTypecheckingSession) queries).disposeTypecheckingContext();
+    if (queries instanceof IncrementalLegacyTypecheckingQueries) {
+      ((IncrementalLegacyTypecheckingQueries) queries).disposeTypeCheckingContext();
+    }
   }
 
-  private static abstract class DefaultLegacyTypecheckingSession implements TypecheckingQueries{
+  private static abstract class AbstractLegacyTypecheckingQueries implements LegacyTypecheckingQueries {
 
-//    @Override
-//    public SNode getTypeOf(SNode expression) {
-//      if (expression == null) return null;
-//      return TypeChecker.getInstance().getTypeOf(expression);
-//    }
-//
-//    @Override
-//    public SNode getInferredType(SNode expression) {
-//      if (expression == null) return null;
-//      return TypeChecker.getInstance().getInferredTypeOf(expression);
-//    }
+    protected final Flags myFlags;
+
+    public AbstractLegacyTypecheckingQueries(Flags flags) {
+      myFlags = flags;
+    }
 
     @Override
     public final boolean convertsTo(@NotNull SNode typeA, @NotNull SNode typeB) {
@@ -153,12 +137,49 @@ public class LegacyTypecheckingProvider implements TypecheckingProvider {
 
   }
 
-private static class LegacyTypecheckingSession extends DefaultLegacyTypecheckingSession implements TypecheckingQueries {
+  private static class IncrementalLegacyTypecheckingQueries extends AbstractLegacyTypecheckingQueries implements LegacyTypecheckingQueries {
 
-    private final Flags myFlags;
+    private final IncrementalTypecheckingContext myTypecheckingContext;
 
-    public LegacyTypecheckingSession(Flags flags) {
-      myFlags = flags;
+    public IncrementalLegacyTypecheckingQueries(Flags flags, IncrementalTypecheckingContext typecheckingContext) {
+      super(flags);
+      this.myTypecheckingContext = typecheckingContext;
+    }
+
+    @Nullable
+    @Override
+    public SNode getTypeOf(SNode expression) {
+      if (expression == null) return null;
+      return myTypecheckingContext.getTypeOf(expression, TypeChecker.getInstance());
+    }
+
+    @Nullable
+    @Override
+    public SNode getInferredType(SNode expression) {
+      if (expression == null) return null;
+      return myTypecheckingContext.getTypeOf(expression, TypeChecker.getInstance());
+    }
+
+    @Override
+    public boolean isIncremental() {
+      return true;
+    }
+
+    @Override
+    public TypeCheckingContext getTypeCheckingContext() {
+      return myTypecheckingContext;
+    }
+
+    protected void disposeTypeCheckingContext() {
+      myTypecheckingContext.dispose();
+    }
+
+  }
+
+  private static class TargetLegacyTypecheckingQueries extends AbstractLegacyTypecheckingQueries implements LegacyTypecheckingQueries {
+
+    public TargetLegacyTypecheckingQueries(Flags flags) {
+      super(flags);
     }
 
     @Nullable
@@ -175,8 +196,16 @@ private static class LegacyTypecheckingSession extends DefaultLegacyTypechecking
       return withTypeCheckingContext((tcc) -> tcc.getTypeOf(expression, TypeChecker.getInstance()));
     }
 
-    protected void disposeTypecheckingContext() {}
+    @Override
+    public boolean isIncremental() {
+      return false;
+    }
 
+    @Override
+    public TypeCheckingContext getTypeCheckingContext() {
+      throw new UnsupportedOperationException();
+    }
+    
     protected <R> R withTypeCheckingContext(Function<? super TypeCheckingContext, R> fun) {
       final TargetTypecheckingContext typecheckingContext = new TargetTypecheckingContext(myFlags.getRoot(), TypeChecker.getInstance());
       try {
@@ -186,9 +215,10 @@ private static class LegacyTypecheckingSession extends DefaultLegacyTypechecking
         typecheckingContext.dispose();
       }
     }
+
   }
 
-  private static class GeneratorLegacyTypecheckingSession extends LegacyTypecheckingSession implements TypecheckingQueries {
+  private static class GeneratorLegacyTypecheckingSession extends TargetLegacyTypecheckingQueries {
 
     public GeneratorLegacyTypecheckingSession(Flags flags) {
       super(flags);

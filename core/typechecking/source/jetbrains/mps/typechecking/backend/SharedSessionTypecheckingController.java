@@ -62,7 +62,7 @@ public class SharedSessionTypecheckingController extends DefaultTypecheckingCont
   }
 
   @Override
-  protected void sessionReleased(@NotNull Session session) {
+  protected void sessionReleased(@NotNull TypecheckingSession session) {
     super.sessionReleased(session);
   }
   

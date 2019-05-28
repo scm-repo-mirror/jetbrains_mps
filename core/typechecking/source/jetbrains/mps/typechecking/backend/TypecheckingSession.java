@@ -29,14 +29,18 @@ import java.util.Map.Entry;
  * This object corresponds to a session, which may contain several instances of {@link TypecheckingQueries}
  * coming from different providers.
  */
-public abstract class TypecheckingSession {
+public class TypecheckingSession {
 
   private int myUsages = 0;
 
+  private final TypecheckingController myController;
+  
   private final Flags myFlags;
-  private Map<TypecheckingProvider, TypecheckingQueries> mySessions = new HashMap<>();
 
-  protected TypecheckingSession(Flags flags) {
+  private Map<TypecheckingProvider, TypecheckingQueries> myQueries = new HashMap<>();
+
+  protected TypecheckingSession(TypecheckingController controller, Flags flags) {
+    myController = controller;
     myFlags = flags;
   }
 
@@ -44,19 +48,26 @@ public abstract class TypecheckingSession {
     return myFlags;
   }
 
-  public abstract void release();
+  public void release() {
+    myController.sessionReleased(this);
+  }
+
+  public <Q extends TypecheckingQueries> Q getQueries(Class<? extends TypecheckingProvider<Q>> providerClass) {
+    return getQueries(myController.selectProvider(providerClass));
+  }
 
   protected void dispose () {
-    for (Entry<TypecheckingProvider, TypecheckingQueries> entry : mySessions.entrySet()) {
+    for (Entry<TypecheckingProvider, TypecheckingQueries> entry : myQueries.entrySet()) {
       entry.getKey().disposeQueries(entry.getValue());
     }
-    mySessions.clear();
+    myQueries.clear();
   }
 
   @NotNull
-  protected TypecheckingQueries getQueries(TypecheckingProvider provider) {
-    mySessions.computeIfAbsent(provider, (key) -> provider.createQueries(flags()));
-    return mySessions.get(provider);
+  @SuppressWarnings("unchecked")
+  protected <Q extends TypecheckingQueries> Q getQueries(TypecheckingProvider<Q> provider) {
+    myQueries.computeIfAbsent(provider, (key) -> provider.createQueries(flags()));
+    return (Q) myQueries.get(provider);
   }
 
   protected int getUsages() {
@@ -69,6 +80,11 @@ public abstract class TypecheckingSession {
 
   protected int decUsages() {
     return --myUsages;
+  }
+  
+  @Override
+  public String toString() {
+    return String.format("Session{%s, usages=%d}", flags(), getUsages());
   }
 
   /**
@@ -141,4 +157,5 @@ public abstract class TypecheckingSession {
     }
 
   }
+
 }

@@ -35,7 +35,7 @@ public class WorkbenchTypecheckingController extends DefaultTypecheckingControll
 
   private static Logger LOG = Logger.getLogger(WorkbenchTypecheckingController.class);
 
-  private Map<SNodeHandle, Session> myRootSessions = new HashMap<>();
+  private Map<SNodeHandle, TypecheckingSession> myRootSessions = new HashMap<>();
 
   public WorkbenchTypecheckingController(TypecheckingBackend typecheckingBackend) {
     super(typecheckingBackend);
@@ -43,7 +43,7 @@ public class WorkbenchTypecheckingController extends DefaultTypecheckingControll
 
   @Override
   public void dispose() {
-    for (Session session : myRootSessions.values()) {
+    for (TypecheckingSession session : myRootSessions.values()) {
       session.dispose();
     }
     myRootSessions.clear();
@@ -54,7 +54,7 @@ public class WorkbenchTypecheckingController extends DefaultTypecheckingControll
   public TypecheckingSession requestSession(@NotNull Flags flags) {
     if (flags.getRoot() != null && flags.isIncremental()) {
       // the editor has requested a session for the opened root
-      Session session = myRootSessions.computeIfAbsent(new SNodeHandle(flags.getRoot()), (key) ->
+      TypecheckingSession session = myRootSessions.computeIfAbsent(new SNodeHandle(flags.getRoot()), (key) ->
                                                        createSession(flags));
       session.incUsages();
       return session;
@@ -65,7 +65,7 @@ public class WorkbenchTypecheckingController extends DefaultTypecheckingControll
   }
 
   @Override
-  protected void sessionReleased(@NotNull Session session) {
+  protected void sessionReleased(@NotNull TypecheckingSession session) {
     if (session.flags().getRoot() != null && session.flags().isIncremental()) {
       SNodeHandle key = new SNodeHandle(session.flags().getRoot());
       if (!myRootSessions.containsKey(key)) {
@@ -84,7 +84,7 @@ public class WorkbenchTypecheckingController extends DefaultTypecheckingControll
   @Override
   protected TypecheckingQueries getQueries(@NotNull SNode src, SNode trg, SConcept trgConcept) {
     SNode containingRoot = src.getContainingRoot();
-    Session session = myRootSessions.get(new SNodeHandle(containingRoot));
+    TypecheckingSession session = myRootSessions.get(new SNodeHandle(containingRoot));
     if (session != null) {
       return session.getQueries(selectProvider(src, trg, trgConcept));
 

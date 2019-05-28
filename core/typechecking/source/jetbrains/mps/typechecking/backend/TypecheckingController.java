@@ -44,10 +44,6 @@ public abstract class TypecheckingController implements TypecheckingQueries {
 
   public abstract void dispose();
 
-  public TypecheckingBackend typecheckingBackend() {
-    return myTypecheckingBackend;
-  }
-
   @Nullable
   @Override
   public SNode getTypeOf(SNode expression) {
@@ -113,44 +109,25 @@ public abstract class TypecheckingController implements TypecheckingQueries {
 
   /**
    * @throws IllegalStateException if no session is available.
-   * @return
    */
   @NotNull
   protected abstract TypecheckingQueries getQueries(@NotNull SNode src, SNode trg, SConcept trgConcept);
 
   @NotNull
-  protected final TypecheckingProvider selectProvider(@NotNull SNode src, SNode trg, SConcept trgConcept) {
+  public <Q extends TypecheckingQueries> TypecheckingProvider<Q> selectProvider(@NotNull Class<? extends TypecheckingProvider<Q>> providerClass) {
+    return myTypecheckingBackend.selectProvider(providerClass);
+  }
+
+  @NotNull
+  protected final TypecheckingProvider<? extends TypecheckingQueries> selectProvider(@NotNull SNode src, SNode trg, SConcept trgConcept) {
     return myTypecheckingBackend.selectProvider(src, trg, trgConcept);
   }
 
   @NotNull
-  protected Session createSession(Flags flags) {
-    return new Session(flags);
+  protected TypecheckingSession createSession(Flags flags) {
+    return new TypecheckingSession(this, flags);
   }
 
-  protected abstract void sessionReleased(@NotNull Session session);
-
-  /**
-   * Manages a simple map of provider to session participant.
-   */
-  protected class Session extends TypecheckingSession {
-
-
-    public Session(Flags flags) {
-      super(flags);
-    }
-
-    @Override
-    public void release() {
-      // forward to owner
-      sessionReleased(this);
-    }
-
-    @Override
-    public String toString() {
-      return String.format("Session{%s, usages=%d}", flags(), getUsages());
-    }
-    
-  }
+  protected abstract void sessionReleased(@NotNull TypecheckingSession session);
 
 }

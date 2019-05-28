@@ -24,7 +24,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 /**
  * Backend interface of a type checker.
  */
-public interface TypecheckingProvider {
+public interface TypecheckingProvider<Queries extends TypecheckingQueries> {
 
   /**
    * This methods are responsible for selecting the appropriate typechecking provided given the specified query parameters:
@@ -37,7 +37,7 @@ public interface TypecheckingProvider {
   boolean isRelevant(@NotNull SNode src, SNode trg, SConcept trgConcept);
   
   @NotNull
-  TypecheckingQueries createQueries(@NotNull Flags flags);
+  Queries createQueries(@NotNull Flags flags);
 
   void disposeQueries(@NotNull TypecheckingQueries queries);
 

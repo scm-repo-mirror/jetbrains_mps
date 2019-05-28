@@ -28,7 +28,7 @@ import org.jetbrains.mps.openapi.model.SNode;
  */
 public class DefaultTypecheckingController extends TypecheckingController {
 
-  private Session myDefaultSession;
+  private TypecheckingSession myDefaultSession;
 
   public DefaultTypecheckingController(TypecheckingBackend typecheckingBackend) {
     super(typecheckingBackend);
@@ -43,7 +43,7 @@ public class DefaultTypecheckingController extends TypecheckingController {
   }
 
   @Override
-  protected void sessionReleased(@NotNull Session session) {
+  protected void sessionReleased(@NotNull TypecheckingSession session) {
     if (session == myDefaultSession) {
       session.dispose();
       this.myDefaultSession = null;
