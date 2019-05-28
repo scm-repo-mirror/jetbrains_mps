@@ -643,7 +643,7 @@
         <ref role="nCB5Y" node="5StVQ8qcIGg" resolve="mps-core-components" />
       </node>
       <node concept="nCB5N" id="6e4RFSGTSr9" role="nCB5Z">
-        <ref role="nCB5Y" node="1FaKCGJSzEy" resolve="mps-kernel" />
+        <ref role="nCB5Y" node="42Iv58Wf3Ei" resolve="mps-smodel" />
       </node>
     </node>
     <node concept="398b33" id="1FaKCGJSzEy" role="3989C9">

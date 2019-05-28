@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.api.SMethodId;
 import jetbrains.mps.smodel.JavaFriendlyBase64;
 import jetbrains.mps.smodel.SNodeId.Regular;
-import jetbrains.mps.util.EqualUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Immutable;
@@ -55,7 +54,7 @@ public final class SMethodTrimmedId implements SMethodId {
   public boolean equals(Object o) {
     if (o instanceof SMethodTrimmedId) {
       return ((SMethodTrimmedId) o).myNodeId.equals(myNodeId) &&
-          EqualUtil.equals(((SMethodTrimmedId) o).myConcept, myConcept);
+          Objects.equals(((SMethodTrimmedId) o).myConcept, myConcept);
     }
     return false;
   }

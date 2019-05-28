@@ -10354,13 +10354,12 @@
     </ant>
   </target>
   
-  <target name="java.compile.java.modules.cycle.1" depends="java.compile.mps-core-components, java.compile.vfs, java.compile.util-core, java.compile.mps-smodel, fetchDependencies">
+  <target name="java.compile.java.modules.cycle.1" depends="java.compile.mps-core-components, java.compile.vfs, java.compile.util-core, java.compile.mps-smodel, java.compile.mps-behavior-api, fetchDependencies">
     <mkdir dir="${build.tmp}/java.modules.cycle.1" />
     <javac destdir="${build.tmp}/java.modules.cycle.1" fork="true" encoding="utf8" memorymaximumsize="1024m" nowarn="true" includeantruntime="false">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/core/aspects/behavior/behavior-runtime/source" />
-        <path location="${mps_home}/core/aspects/behavior/behavior-api/source" />
         <pathelement path="${mps_home}/core/kernel/source" />
         <pathelement path="${mps_home}/core/kernel/source_gen" />
         <pathelement path="${mps_home}/core/kernel/patternRuntime/source" />
@@ -10399,11 +10398,12 @@
         <pathelement path="${build.tmp}/java/out/vfs" />
         <pathelement path="${build.tmp}/java/out/util-core" />
         <pathelement path="${build.tmp}/java/out/mps-smodel" />
+        <pathelement path="${build.tmp}/java/out/mps-behavior-api" />
       </classpath>
     </javac>
   </target>
   
-  <target name="java.compile.mps-behavior-runtime" depends="java.compile.mps-core-components, java.compile.vfs, java.compile.util-core, java.compile.mps-smodel, java.compile.java.modules.cycle.1, fetchDependencies">
+  <target name="java.compile.mps-behavior-runtime" depends="java.compile.mps-core-components, java.compile.vfs, java.compile.util-core, java.compile.mps-smodel, java.compile.mps-behavior-api, java.compile.java.modules.cycle.1, fetchDependencies">
     <mkdir dir="${mps_home}/core/aspects/behavior/behavior-runtime/source" />
     <mkdir dir="${build.tmp}/java/out/mps-behavior-runtime" />
     <javac2 destdir="${build.tmp}/java/out/mps-behavior-runtime" fork="false" encoding="utf8" includeantruntime="false" debug="true">
@@ -10423,6 +10423,7 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-collections.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-tuples.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-references.jar" />
+        <pathelement path="${build.tmp}/java/out/mps-behavior-api" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -10437,7 +10438,7 @@
     </copy>
   </target>
   
-  <target name="java.compile.mps-behavior-api" depends="java.compile.mps-core-components, java.compile.vfs, java.compile.util-core, java.compile.mps-smodel, java.compile.java.modules.cycle.1, fetchDependencies">
+  <target name="java.compile.mps-behavior-api" depends="java.compile.mps-core-components, java.compile.vfs, java.compile.util-core, java.compile.mps-smodel, fetchDependencies">
     <mkdir dir="${mps_home}/core/aspects/behavior/behavior-api/source" />
     <mkdir dir="${build.tmp}/java/out/mps-behavior-api" />
     <javac2 destdir="${build.tmp}/java/out/mps-behavior-api" fork="false" encoding="utf8" includeantruntime="false" debug="true">
@@ -10453,16 +10454,8 @@
         <pathelement path="${build.tmp}/java/out/vfs" />
         <pathelement path="${build.tmp}/java/out/util-core" />
         <pathelement path="${build.tmp}/java/out/mps-smodel" />
-        <fileset file="${artifacts.mpsTrueBootstrap}/mps-closures.jar" />
-        <fileset file="${artifacts.mpsTrueBootstrap}/mps-collections.jar" />
-        <fileset file="${artifacts.mpsTrueBootstrap}/mps-tuples.jar" />
-        <fileset file="${artifacts.mpsTrueBootstrap}/mps-references.jar" />
-        <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
-        <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
-        <path refid="path.java.library.trove4j" />
-        <pathelement path="${build.tmp}/java.modules.cycle.1" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
@@ -10471,7 +10464,7 @@
     </copy>
   </target>
   
-  <target name="java.compile.mps-kernel" depends="java.compile.mps-core-components, java.compile.vfs, java.compile.util-core, java.compile.mps-smodel, java.compile.java.modules.cycle.1, fetchDependencies">
+  <target name="java.compile.mps-kernel" depends="java.compile.mps-core-components, java.compile.vfs, java.compile.util-core, java.compile.mps-smodel, java.compile.mps-behavior-api, java.compile.java.modules.cycle.1, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/mps-kernel" />
     <javac2 destdir="${build.tmp}/java/out/mps-kernel" fork="false" encoding="utf8" includeantruntime="false" debug="true">
       <compilerarg value="-Xlint:none" />
@@ -10506,6 +10499,7 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-collections.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-tuples.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-references.jar" />
+        <pathelement path="${build.tmp}/java/out/mps-behavior-api" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-boot-util.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -10801,7 +10795,7 @@
     </copy>
   </target>
   
-  <target name="java.compile.mps-project" depends="java.compile.mps-core-components, java.compile.vfs, java.compile.util-core, java.compile.mps-smodel, java.compile.java.modules.cycle.1, fetchDependencies">
+  <target name="java.compile.mps-project" depends="java.compile.mps-core-components, java.compile.vfs, java.compile.util-core, java.compile.mps-smodel, java.compile.mps-behavior-api, java.compile.java.modules.cycle.1, fetchDependencies">
     <mkdir dir="${build.tmp}/java/out/mps-project" />
     <javac2 destdir="${build.tmp}/java/out/mps-project" fork="false" encoding="utf8" includeantruntime="false" debug="true">
       <compilerarg value="-Xlint:none" />
@@ -10821,6 +10815,7 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-collections.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-tuples.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-references.jar" />
+        <pathelement path="${build.tmp}/java/out/mps-behavior-api" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
