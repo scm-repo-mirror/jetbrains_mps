@@ -22490,6 +22490,54 @@
       <node concept="3Tm6S6" id="vFNcbkL_HW" role="1B3o_S" />
       <node concept="3clFbS" id="2Ja1M$RkGdX" role="3clF47" />
     </node>
+    <node concept="2YIFZL" id="1Kf0JjPtOWq" role="jymVt">
+      <property role="TrG5h" value="missesDefaultConstructor" />
+      <node concept="10P_77" id="1Kf0JjPtOWr" role="3clF45" />
+      <node concept="3Tm1VV" id="1Kf0JjPtOWs" role="1B3o_S" />
+      <node concept="3clFbS" id="1Kf0JjPtOWt" role="3clF47">
+        <node concept="3cpWs6" id="1Kf0JjNViOo" role="3cqZAp">
+          <node concept="1Wc70l" id="1Kf0JjNV853" role="3cqZAk">
+            <node concept="1Wc70l" id="1Kf0JjNV5Jt" role="3uHU7B">
+              <node concept="2OqwBi" id="1Kf0JjNU0U6" role="3uHU7B">
+                <node concept="2OqwBi" id="1Kf0JjNU0U7" role="2Oq$k0">
+                  <node concept="2qgKlT" id="1Kf0JjNU0U8" role="2OqNvi">
+                    <ref role="37wK5l" to="tpek:4_LVZ3pCvsd" resolve="constructors" />
+                  </node>
+                  <node concept="37vLTw" id="1Kf0JjPwyLX" role="2Oq$k0">
+                    <ref role="3cqZAo" node="1Kf0JjPtOXm" resolve="clazz" />
+                  </node>
+                </node>
+                <node concept="1v1jN8" id="1Kf0JjNV4S1" role="2OqNvi" />
+              </node>
+              <node concept="2OqwBi" id="1Kf0JjNU0Uc" role="3uHU7w">
+                <node concept="2qgKlT" id="1Kf0JjNU0Ud" role="2OqNvi">
+                  <ref role="37wK5l" to="tpek:3sXyOQUqKq0" resolve="checkLoops" />
+                </node>
+                <node concept="37vLTw" id="1Kf0JjPwJFT" role="2Oq$k0">
+                  <ref role="3cqZAo" node="1Kf0JjPtOXm" resolve="clazz" />
+                </node>
+              </node>
+            </node>
+            <node concept="3fqX7Q" id="1Kf0JjNVbAk" role="3uHU7w">
+              <node concept="2YIFZM" id="1Kf0JjNVbAm" role="3fr31v">
+                <ref role="1Pybhc" node="2Ja1M$RkGdS" resolve="DefaultConstructorUtils" />
+                <ref role="37wK5l" node="2Ja1M$RkGdY" resolve="hasDefaultConstructor" />
+                <node concept="37vLTw" id="1Kf0JjPwMBE" role="37wK5m">
+                  <ref role="3cqZAo" node="1Kf0JjPtOXm" resolve="clazz" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="1Kf0JjPtOXm" role="3clF46">
+        <property role="TrG5h" value="clazz" />
+        <node concept="3Tqbb2" id="1Kf0JjPtOXn" role="1tU5fm">
+          <ref role="ehGHo" to="tpee:fz12cDA" resolve="ClassConcept" />
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="1Kf0JjPtDuJ" role="jymVt" />
     <node concept="2YIFZL" id="2Ja1M$RkGdY" role="jymVt">
       <property role="TrG5h" value="hasDefaultConstructor" />
       <node concept="10P_77" id="2Ja1M$RkGe4" role="3clF45" />
