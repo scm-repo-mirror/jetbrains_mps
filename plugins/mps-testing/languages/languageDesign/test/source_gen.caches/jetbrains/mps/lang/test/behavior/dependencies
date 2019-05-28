@@ -895,6 +895,7 @@
   <dependency className="jetbrains.mps.lang.test.behavior.NodeRuleReference">
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.test.behavior.RuleType" />
+    <classNode dependClassName="jetbrains.mps.lang.typesystem.typesystem.RulesUtil" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
   </dependency>

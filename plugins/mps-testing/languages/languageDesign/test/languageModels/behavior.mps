@@ -4991,15 +4991,12 @@
       <property role="od$2w" value="false" />
       <property role="DiZV1" value="false" />
       <node concept="3clFbS" id="2wBFdLy9GdY" role="3clF47">
-        <node concept="3cpWs6" id="2wBFdLy9GjS" role="3cqZAp">
-          <node concept="2OqwBi" id="2wBFdLy9GuJ" role="3cqZAk">
-            <node concept="37vLTw" id="2wBFdLy9Gow" role="2Oq$k0">
+        <node concept="3cpWs6" id="77$odk0zazM" role="3cqZAp">
+          <node concept="2YIFZM" id="77$odk0zazN" role="3cqZAk">
+            <ref role="37wK5l" to="tpd9:hq1J4IC" resolve="withinInferenceItem" />
+            <ref role="1Pybhc" to="tpd9:hgVo$$B" resolve="RulesUtil" />
+            <node concept="37vLTw" id="77$odk0zazO" role="37wK5m">
               <ref role="3cqZAo" node="6W6OD3813r4" resolve="ruleNode" />
-            </node>
-            <node concept="1mIQ4w" id="2wBFdLy9GDw" role="2OqNvi">
-              <node concept="chp4Y" id="2wBFdLy9GJY" role="cj9EA">
-                <ref role="cht4Q" to="tpd4:h5Zf1ZU" resolve="AbstractEquationStatement" />
-              </node>
             </node>
           </node>
         </node>
@@ -5040,14 +5037,22 @@
       <property role="od$2w" value="false" />
       <property role="DiZV1" value="false" />
       <node concept="3clFbS" id="7eBNsYUkihL" role="3clF47">
-        <node concept="3cpWs6" id="7eBNsYUkipj" role="3cqZAp">
-          <node concept="2OqwBi" id="7eBNsYUkizc" role="3cqZAk">
-            <node concept="37vLTw" id="7eBNsYUkiv5" role="2Oq$k0">
-              <ref role="3cqZAo" node="6W6OD3813r4" resolve="ruleNode" />
+        <node concept="3cpWs6" id="77$odk0za8U" role="3cqZAp">
+          <node concept="1Wc70l" id="77$odk0za8V" role="3cqZAk">
+            <node concept="2YIFZM" id="77$odk0za8W" role="3uHU7B">
+              <ref role="37wK5l" to="tpd9:4yPc1wMuvHr" resolve="withinCheckingItem" />
+              <ref role="1Pybhc" to="tpd9:hgVo$$B" resolve="RulesUtil" />
+              <node concept="37vLTw" id="77$odk0za8X" role="37wK5m">
+                <ref role="3cqZAo" node="6W6OD3813r4" resolve="ruleNode" />
+              </node>
             </node>
-            <node concept="1mIQ4w" id="7eBNsYUkiOq" role="2OqNvi">
-              <node concept="chp4Y" id="7eBNsYUkiW4" role="cj9EA">
-                <ref role="cht4Q" to="tpd4:hQOEHw2" resolve="MessageStatement" />
+            <node concept="3fqX7Q" id="77$odk0za8Y" role="3uHU7w">
+              <node concept="2YIFZM" id="77$odk0za8Z" role="3fr31v">
+                <ref role="37wK5l" to="tpd9:hq1J4IC" resolve="withinInferenceItem" />
+                <ref role="1Pybhc" to="tpd9:hgVo$$B" resolve="RulesUtil" />
+                <node concept="37vLTw" id="77$odk0za90" role="37wK5m">
+                  <ref role="3cqZAo" node="6W6OD3813r4" resolve="ruleNode" />
+                </node>
               </node>
             </node>
           </node>
