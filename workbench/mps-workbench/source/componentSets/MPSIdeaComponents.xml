@@ -40,10 +40,9 @@
     </component>
 
     <component>
-      <interface-class>com.intellij.profile.codeInspection.ProjectInspectionProfileManager</interface-class>
       <implementation-class>com.intellij.profile.codeInspection.ProjectInspectionProfileManager</implementation-class>
       <loadForDefaultProject/>
     </component>
-  </project-components>s
+  </project-components>
 
 </components>
