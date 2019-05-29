@@ -77,16 +77,12 @@ public class BehaviorRegistryImpl implements BehaviorRegistry {
         } else {
           behaviorAspect = languageRuntime.getAspect(BehaviorAspectDescriptor.class);
         }
-        if (behaviorAspect == null) {
-          descriptor = new EmptyBHDescriptor(this, concept);
-        } else if (behaviorAspect instanceof BaseBehaviorAspectDescriptor) {
+        if (behaviorAspect != null) {
           descriptor = behaviorAspect.getDescriptor(concept);
-          if (descriptor == null) {
-            // falling back to the case when we have outdated generated bh code OR we have no bh aspect at all
-            descriptor = new EmptyBHDescriptor(this, concept);
-          }
-        } else {
-          throw new IllegalArgumentException();
+        }
+        if (descriptor == null) {
+          // falling back to the case when we have outdated generated bh code OR we have no bh aspect at all
+          descriptor = new EmptyBHDescriptor(this, concept);
         }
         if (descriptor instanceof BaseBHDescriptor) {
           ((BaseBHDescriptor) descriptor).init();
