@@ -27,6 +27,7 @@ import jetbrains.mps.nodeEditor.checking.UpdateResult.Completed;
 import jetbrains.mps.smodel.CancellableReadAction;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.SNodePointer;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.typesystem.inference.TypeContextManager;
 import jetbrains.mps.util.Cancellable;
 import jetbrains.mps.util.Pair;
@@ -81,11 +82,14 @@ public class HighlighterUpdateSession {
       if (myHighlighter.isPausedOrStopping()) {
         return;
       }
-      TypeContextManager.getInstance().runTypecheckingAction(editorComponent.getTypecheckingContextOwner(), () -> {
-        if (updateEditorComponent(editorComponent, false, applyQuickFixes)) {
-          isUpdated[0] = true;
-        }
-      });
+      TypecheckingFacade
+          .getFromContext()
+          .runWithSession(editorComponent.getTypecheckingSession(),
+                          () -> {
+                                  if (updateEditorComponent(editorComponent, false, applyQuickFixes)) {
+                                    isUpdated[0] = true;
+                                  }
+                                });
     }
 
     if (myHighlighter.isPausedOrStopping()) {
@@ -93,9 +97,12 @@ public class HighlighterUpdateSession {
     }
 
     if (myInspector != null) {
-      TypeContextManager.getInstance().runTypecheckingAction(myInspector.getTypecheckingContextOwner(), () -> {
-        updateEditorComponent(myInspector, isUpdated[0], false);
-      });
+      TypecheckingFacade
+          .getFromContext()
+          .runWithSession(myInspector.getTypecheckingSession(),
+                          () -> {
+                                  updateEditorComponent(myInspector, isUpdated[0], false);
+                                });
     }
   }
 
