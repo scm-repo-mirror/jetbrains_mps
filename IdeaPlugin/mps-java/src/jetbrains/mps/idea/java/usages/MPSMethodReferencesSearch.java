@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 package jetbrains.mps.idea.java.usages;
 
 import com.intellij.openapi.application.QueryExecutorBase;
+import com.intellij.openapi.progress.ProcessCanceledException;
 import com.intellij.openapi.project.DumbService;
 import com.intellij.openapi.project.IndexNotReadyException;
 import com.intellij.psi.PsiElement;
@@ -37,8 +38,6 @@ import jetbrains.mps.smodel.SNodeUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SReference;
-import org.jetbrains.mps.openapi.module.SModuleReference;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -78,49 +77,48 @@ public class MPSMethodReferencesSearch extends QueryExecutorBase<PsiReference, S
         if (DumbService.getInstance(method.getProject()).isDumb()) {
           return;
         }
-
-        if (method instanceof LightMethod) {
-          if (method.getContainingClass().isEnum()
-            && ("values".equals(method.getName()) || "valueOf".equals(method.getName()))) {
-            // TODO find usages of EnumValuesExpression and EnumValueOfExpression
-          }
-          // we don't handle light elements we don't know about
-          return;
-        }
-
-        final SNode methodNode = MPSReferenceSearch.getNodeForElement(method);
-        if (methodNode == null) {
-          return;
-        }
-
-        List<SNode> results;
         try {
-          results = FindUtils.executeFinder(finder, methodNode, new IdeaSearchScope(scope), new EmptyProgressMonitor());
-        } catch (IndexNotReadyException e) {
-          // DumbService doesn't seem to work
-          return;
-        }
 
-        for (SNode usageNode : results) {
-          // it's a shame we get nodes and not SReferences
-          // doing a hack
-          for (SReference sref : usageNode.getReferences()) {
-            SNode refTarget = sref.getTargetNode();
-            if (refTarget == null) continue;
-            if (refTarget.getConcept().isSubConceptOf(SNodeUtil.concept_BaseMethodDeclaration)) {
-              // supposedly our reference
-              String role = sref.getRole();
+          if (method instanceof LightMethod) {
+            if (method.getContainingClass().isEnum()
+              && ("values".equals(method.getName()) || "valueOf".equals(method.getName()))) {
+              // TODO find usages of EnumValuesExpression and EnumValueOfExpression
+            }
+            // we don't handle light elements we don't know about
+            return;
+          }
 
-              PsiElement usagePsiElement = MPSPsiProvider.getInstance(method.getProject()).getPsi(usageNode);
-              if (!(usagePsiElement instanceof MPSPsiNode)) continue;
-              for (PsiElement e : usagePsiElement.getChildren()) {
-                if (!(e instanceof MPSPsiRef)) continue;
-                if (role.equals(((MPSPsiRef) e).getRole())) {
-                  consumer.process(e.getReference());
+          final SNode methodNode = MPSReferenceSearch.getNodeForElement(method);
+          if (methodNode == null) {
+            return;
+          }
+
+          List<SNode> results = FindUtils.executeFinder(finder, methodNode, new IdeaSearchScope(scope), new EmptyProgressMonitor());
+
+          for (SNode usageNode : results) {
+            // it's a shame we get nodes and not SReferences
+            // doing a hack
+            for (SReference sref : usageNode.getReferences()) {
+              SNode refTarget = sref.getTargetNode();
+              if (refTarget == null) continue;
+              if (refTarget.getConcept().isSubConceptOf(SNodeUtil.concept_BaseMethodDeclaration)) {
+                // supposedly our reference
+                String role = sref.getRole();
+
+                PsiElement usagePsiElement = MPSPsiProvider.getInstance(method.getProject()).getPsi(usageNode);
+                if (!(usagePsiElement instanceof MPSPsiNode)) continue;
+                for (PsiElement e : usagePsiElement.getChildren()) {
+                  if (!(e instanceof MPSPsiRef)) continue;
+                  if (role.equals(((MPSPsiRef) e).getRole())) {
+                    consumer.process(e.getReference());
+                  }
                 }
               }
             }
           }
+        } catch (IndexNotReadyException | ProcessCanceledException e) {
+          // DumbService doesn't seem to work
+          // ignore and return
         }
       }
     });
