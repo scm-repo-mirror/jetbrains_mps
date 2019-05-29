@@ -119,6 +119,7 @@ public final class CommonPaths {
     addIfExists(result, "lib/platform.jar");
     addIfExists(result, "lib/platform-api.jar");
     addIfExists(result, "lib/platform-impl.jar");
+    addIfExists(result, "lib/platform-util-concurrency.jar");
   }
 
   private static void addIdeaJars(Collection<QualifiedPath> result) {
