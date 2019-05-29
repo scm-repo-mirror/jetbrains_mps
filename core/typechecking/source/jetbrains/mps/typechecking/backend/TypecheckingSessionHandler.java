@@ -53,13 +53,55 @@ public abstract class TypecheckingSessionHandler {
   public final <T> T runWithSession(TypecheckingSession withSession, Supplier<T> code) {
     T t;
     try {
-      overrideController(withSession);
+      overrideSharedController(withSession);
       t = code.get();
     }
     finally {
       resetOverride();
     }
     return t;
+  }
+
+  /**
+   * Requests that the specified sharable session is reused within the code
+   * passed as {@code code}.
+   */
+  public final void runWithSession(TypecheckingSession withSession, Runnable code) {
+    try {
+      overrideSharedController(withSession);
+      code.run();
+    }
+    finally {
+      resetOverride();
+    }
+  }
+
+  /**
+   * Requests that the code is launched in isolation from the currently active session.  
+   */
+  public final <T> T runIsolated(Supplier<T> code) {
+    T t;
+    try {
+      overrideIsolatedController();
+      t = code.get();
+    }
+    finally {
+      resetOverride();
+    }
+    return t;
+  }
+
+  /**
+   * Requests that the code is launched in isolation from the currently active session.
+   */
+  public final void runIsolated(Runnable code) {
+    try {
+      overrideIsolatedController();
+      code.run();
+    }
+    finally {
+      resetOverride();
+    }
   }
 
   /**
@@ -74,7 +116,12 @@ public abstract class TypecheckingSessionHandler {
    * Later calls to {@link TypecheckingSessionHandler#controller()} will return this
    * newly constructed instance, until a call to {@link TypecheckingSessionHandler#resetOverride()}.
    */
-  protected abstract void overrideController(TypecheckingSession session);
+  protected abstract void overrideSharedController(TypecheckingSession session);
+
+  /**
+   * Eagerly initialize and install a session for running typechecking queries in isolation. 
+   */
+  protected abstract void overrideIsolatedController();
 
   /**
    * Clears the previously installed override controller.

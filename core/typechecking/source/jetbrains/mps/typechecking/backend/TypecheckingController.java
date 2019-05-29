@@ -123,11 +123,6 @@ public abstract class TypecheckingController implements TypecheckingQueries {
     return myTypecheckingBackend.selectProvider(src, trg, trgConcept);
   }
 
-  @NotNull
-  protected TypecheckingSession createSession(Flags flags) {
-    return new TypecheckingSession(this, flags);
-  }
-
   protected abstract void sessionReleased(@NotNull TypecheckingSession session);
 
 }

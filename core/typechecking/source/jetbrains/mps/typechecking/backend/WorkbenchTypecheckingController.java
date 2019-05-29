@@ -54,8 +54,7 @@ public class WorkbenchTypecheckingController extends DefaultTypecheckingControll
   public TypecheckingSession requestSession(@NotNull Flags flags) {
     if (flags.getRoot() != null && flags.isIncremental()) {
       // the editor has requested a session for the opened root
-      TypecheckingSession session = myRootSessions.computeIfAbsent(new SNodeHandle(flags.getRoot()), (key) ->
-                                                       createSession(flags));
+      TypecheckingSession session = myRootSessions.computeIfAbsent(new SNodeHandle(flags.getRoot()), (key) -> new TypecheckingSession(this, flags));
       session.incUsages();
       return session;
 

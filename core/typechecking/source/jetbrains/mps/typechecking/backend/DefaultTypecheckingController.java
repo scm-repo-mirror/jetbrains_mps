@@ -57,7 +57,7 @@ public class DefaultTypecheckingController extends TypecheckingController {
   @Override
   protected TypecheckingSession requestSession(@NotNull Flags flags) {
     if (myDefaultSession == null) {
-      this.myDefaultSession = createSession(flags);
+      this.myDefaultSession = new TypecheckingSession(this, flags);
       return myDefaultSession;
 
     } else {
@@ -70,7 +70,7 @@ public class DefaultTypecheckingController extends TypecheckingController {
   protected TypecheckingQueries getQueries(@NotNull SNode src, SNode trg, SConcept trgConcept) {
     // request new session on demand
     if (myDefaultSession == null) {
-      this.myDefaultSession = createSession(Flags.basic());
+      this.myDefaultSession = new TypecheckingSession(this, Flags.basic());
     }
     TypecheckingProvider provider = selectProvider(src, trg, trgConcept);
     return myDefaultSession.getQueries(provider);
