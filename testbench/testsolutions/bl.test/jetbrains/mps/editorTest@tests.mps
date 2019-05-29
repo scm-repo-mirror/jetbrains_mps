@@ -62368,7 +62368,7 @@
               <node concept="3vwNmj" id="60TqfQvqZuJ" role="3cqZAp">
                 <node concept="2YIFZM" id="60TqfQvqZuK" role="3vwVQn">
                   <ref role="1Pybhc" to="df4k:~DeletionApproverUtil" resolve="DeletionApproverUtil" />
-                  <ref role="37wK5l" to="df4k:~DeletionApproverUtil.isApprovedForDeletion(jetbrains.mps.openapi.editor.EditorContext,org.jetbrains.mps.openapi.model.SNode)" resolve="isApprovedForDeletion" />
+                  <ref role="37wK5l" to="df4k:~DeletionApproverUtil.isApprovedForDeletion(jetbrains.mps.openapi.editor.EditorContext,org.jetbrains.mps.openapi.model.SNode,java.lang.String)" resolve="isApprovedForDeletion" />
                   <node concept="2OqwBi" id="60TqfQvqZuL" role="37wK5m">
                     <node concept="369mXd" id="60TqfQvqZuM" role="2Oq$k0" />
                     <node concept="liA8E" id="60TqfQvqZuN" role="2OqNvi">
@@ -62380,6 +62380,9 @@
                     <node concept="liA8E" id="60TqfQvqZuQ" role="2OqNvi">
                       <ref role="37wK5l" to="exr9:~EditorComponent.getSelectedNode()" resolve="getSelectedNode" />
                     </node>
+                  </node>
+                  <node concept="Xl_RD" id="3ah3C_2cmpV" role="37wK5m">
+                    <property role="Xl_RC" value="class_body" />
                   </node>
                 </node>
               </node>

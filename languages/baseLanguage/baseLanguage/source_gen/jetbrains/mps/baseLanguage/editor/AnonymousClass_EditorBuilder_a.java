@@ -508,7 +508,7 @@ import jetbrains.mps.lang.editor.menus.transformation.NamedTransformationMenuLoo
   }
   private EditorCell createCollection_3() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Indent());
-    editorCell.setCellId("Collection_msf9u8_b0");
+    editorCell.setCellId("class_body");
     editorCell.setFoldable(true);
     editorCell.setFoldedCell(createComponent_1());
     editorCell.addEditorCell(createConstant_6());

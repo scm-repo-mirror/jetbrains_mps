@@ -11219,6 +11219,9 @@
         <node concept="PMmxH" id="7zuBzrp$R_q" role="AHCbl">
           <ref role="PMmxG" node="7zuBzrp$swk" resolve="GenericDeclaration_FoldedCodeBlock_Component" />
         </node>
+        <node concept="2SqB2G" id="3ah3C_21p7x" role="2SqHTX">
+          <property role="TrG5h" value="class_body" />
+        </node>
       </node>
       <node concept="VPM3Z" id="hEU$OXc" role="3F10Kt">
         <property role="VOm3f" value="false" />
@@ -18062,6 +18065,9 @@
               <node concept="0IXxy" id="6reNH4RTeWQ" role="2Oq$k0" />
               <node concept="2xy62i" id="6reNH4RTg82" role="2OqNvi">
                 <node concept="1Q80Hx" id="6reNH4RTg9d" role="2xHN3q" />
+                <node concept="2TlHUq" id="3ah3C_21y9p" role="3a7HXU">
+                  <ref role="2TlMyj" node="3ah3C_21p7x" resolve="class_body" />
+                </node>
               </node>
             </node>
           </node>
