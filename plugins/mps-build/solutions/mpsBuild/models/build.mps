@@ -683,40 +683,6 @@
           <property role="3LZaj6" value="source" />
         </node>
       </node>
-      <node concept="398b2D" id="1FaKCGJSzFk" role="398b2p">
-        <node concept="398BVA" id="1FaKCGJSzFm" role="398b2C">
-          <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
-          <node concept="2Ry0Ak" id="4lXZ2JYB__R" role="iGT6I">
-            <property role="2Ry0Am" value="core" />
-            <node concept="2Ry0Ak" id="4lXZ2JYB__W" role="2Ry0An">
-              <property role="2Ry0Am" value="typechecking" />
-            </node>
-          </node>
-        </node>
-        <node concept="nFU4i" id="1FaKCGJSzFo" role="nFU4p">
-          <property role="nFU4j" value="source" />
-          <property role="3LZaj6" value="source" />
-        </node>
-      </node>
-      <node concept="398b2D" id="4lXZ2JYB_$H" role="398b2p">
-        <node concept="398BVA" id="4lXZ2JYB_$I" role="398b2C">
-          <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
-          <node concept="2Ry0Ak" id="4lXZ2JYB_$J" role="iGT6I">
-            <property role="2Ry0Am" value="core" />
-            <node concept="2Ry0Ak" id="4lXZ2JYB_$K" role="2Ry0An">
-              <property role="2Ry0Am" value="typesystemEngine" />
-            </node>
-          </node>
-        </node>
-        <node concept="nFU4i" id="4lXZ2JYB_$L" role="nFU4p">
-          <property role="nFU4j" value="source" />
-          <property role="3LZaj6" value="source" />
-        </node>
-        <node concept="nFU4i" id="4lXZ2JYB_$M" role="nFU4p">
-          <property role="nFU4j" value="source_gen" />
-          <property role="3LZaj6" value="source" />
-        </node>
-      </node>
       <node concept="398b2D" id="1FaKCGJSzFu" role="398b2p">
         <node concept="398BVA" id="1FaKCGJSzFv" role="398b2C">
           <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
@@ -903,6 +869,49 @@
       </node>
       <node concept="nCB5N" id="PI$1s21X5v" role="nCB5Z">
         <ref role="nCB5Y" node="1FaKCGJSzEy" resolve="mps-kernel" />
+      </node>
+    </node>
+    <node concept="398b33" id="2MtyMjH3qzU" role="3989C9">
+      <property role="TrG5h" value="mps-typesystem" />
+      <node concept="398b2D" id="1FaKCGJSzFk" role="398b2p">
+        <node concept="398BVA" id="1FaKCGJSzFm" role="398b2C">
+          <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+          <node concept="2Ry0Ak" id="4lXZ2JYB__R" role="iGT6I">
+            <property role="2Ry0Am" value="core" />
+            <node concept="2Ry0Ak" id="4lXZ2JYB__W" role="2Ry0An">
+              <property role="2Ry0Am" value="typechecking" />
+            </node>
+          </node>
+        </node>
+        <node concept="nFU4i" id="1FaKCGJSzFo" role="nFU4p">
+          <property role="nFU4j" value="source" />
+          <property role="3LZaj6" value="source" />
+        </node>
+      </node>
+      <node concept="398b2D" id="4lXZ2JYB_$H" role="398b2p">
+        <node concept="398BVA" id="4lXZ2JYB_$I" role="398b2C">
+          <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+          <node concept="2Ry0Ak" id="4lXZ2JYB_$J" role="iGT6I">
+            <property role="2Ry0Am" value="core" />
+            <node concept="2Ry0Ak" id="4lXZ2JYB_$K" role="2Ry0An">
+              <property role="2Ry0Am" value="typesystemEngine" />
+            </node>
+          </node>
+        </node>
+        <node concept="nFU4i" id="4lXZ2JYB_$L" role="nFU4p">
+          <property role="nFU4j" value="source" />
+          <property role="3LZaj6" value="source" />
+        </node>
+        <node concept="nFU4i" id="4lXZ2JYB_$M" role="nFU4p">
+          <property role="nFU4j" value="source_gen" />
+          <property role="3LZaj6" value="source" />
+        </node>
+      </node>
+      <node concept="nCB5N" id="2MtyMjH3rN7" role="nCB5Z">
+        <ref role="nCB5Y" node="1FaKCGJSzEy" resolve="mps-kernel" />
+      </node>
+      <node concept="2sjeV3" id="2MtyMjH3rOy" role="nCB5Z">
+        <ref role="2sjeV2" node="6S1jmf0xDFH" resolve="trove4j" />
       </node>
     </node>
     <node concept="398b33" id="7FonrDkmRHZ" role="3989C9">
@@ -1162,6 +1171,9 @@
       </node>
       <node concept="nCB5N" id="6xpZJctnQWM" role="nCB5Z">
         <ref role="nCB5Y" node="6S1jmf0xDGC" resolve="mps-tuples" />
+      </node>
+      <node concept="nCB5N" id="2MtyMjHmmPf" role="nCB5Z">
+        <ref role="nCB5Y" node="2MtyMjH3qzU" resolve="mps-typesystem" />
       </node>
     </node>
     <node concept="398b33" id="3A27KL0TKsc" role="3989C9">
@@ -1678,6 +1690,9 @@
       <node concept="nCB5N" id="PI$1s21Xmh" role="nCB5Z">
         <ref role="nCB5Y" node="PI$1s21VRQ" resolve="dataflow-rt" />
       </node>
+      <node concept="nCB5N" id="2MtyMjHmmMW" role="nCB5Z">
+        <ref role="nCB5Y" node="2MtyMjH3qzU" resolve="mps-typesystem" />
+      </node>
     </node>
     <node concept="398b33" id="TfcoydlQ6W" role="3989C9">
       <property role="TrG5h" value="idea-platform" />
@@ -1772,6 +1787,9 @@
       </node>
       <node concept="nCB5N" id="PI$1s21XeY" role="nCB5Z">
         <ref role="nCB5Y" node="PI$1s21VRQ" resolve="dataflow-rt" />
+      </node>
+      <node concept="nCB5N" id="2MtyMjHmmRK" role="nCB5Z">
+        <ref role="nCB5Y" node="2MtyMjH3qzU" resolve="mps-typesystem" />
       </node>
       <node concept="2GhqfE" id="4LdE6kxkq2N" role="nCB5Z">
         <node concept="3yrxFa" id="4LdE6kxkqzA" role="3yrxIG">
@@ -1974,6 +1992,10 @@
       <node concept="nCB5N" id="PI$1s1RE$q" role="nCB5Z">
         <ref role="nCB5Y" node="PI$1s1RDim" resolve="scripts-runtime" />
       </node>
+      <node concept="nCB5N" id="2MtyMjHmmKA" role="nCB5Z">
+        <property role="1Sh$E4" value="true" />
+        <ref role="nCB5Y" node="2MtyMjH3qzU" resolve="mps-typesystem" />
+      </node>
       <node concept="398b2D" id="16Vg0jOdbWa" role="398b2p">
         <node concept="nFU4i" id="16Vg0jOdbWf" role="nFU4p">
           <property role="nFU4j" value="editor-runtime/source" />
@@ -2062,6 +2084,9 @@
       </node>
       <node concept="nCB5N" id="6WxOjNbg6B4" role="nCB5Z">
         <ref role="nCB5Y" node="6UWbfHq6Ys7" resolve="mps-project-check" />
+      </node>
+      <node concept="nCB5N" id="tfM35XqkwD" role="nCB5Z">
+        <ref role="nCB5Y" node="2MtyMjH3qzU" resolve="mps-typesystem" />
       </node>
     </node>
     <node concept="2kB4xC" id="5HVSRHdVf2d" role="1l3spd">
@@ -2186,6 +2211,9 @@
           </node>
           <node concept="Saw0i" id="PI$1s21XiT" role="39821P">
             <ref role="Saw0g" node="PI$1s21VRQ" resolve="dataflow-rt" />
+          </node>
+          <node concept="Saw0i" id="2MtyMjH3s1T" role="39821P">
+            <ref role="Saw0g" node="2MtyMjH3qzU" resolve="mps-typesystem" />
           </node>
           <node concept="398223" id="7wpYgMyUGWH" role="39821P">
             <node concept="3_J27D" id="7wpYgMyUGWI" role="Nbhlr">
@@ -3337,6 +3365,10 @@
         <node concept="1E1SXE" id="314r4cjtapl" role="3bR37C">
           <property role="1E1SXH" value="true" />
           <ref role="1E1SXG" node="PI$1s1RDim" resolve="scripts-runtime" />
+        </node>
+        <node concept="1E1SXE" id="2MtyMjH3s4H" role="3bR37C">
+          <property role="1E1SXH" value="true" />
+          <ref role="1E1SXG" node="2MtyMjH3qzU" resolve="mps-typesystem" />
         </node>
         <node concept="1SiIV0" id="VCtQSj7LRC" role="3bR37C">
           <node concept="3bR9La" id="VCtQSj7LRD" role="1SiIV1">
