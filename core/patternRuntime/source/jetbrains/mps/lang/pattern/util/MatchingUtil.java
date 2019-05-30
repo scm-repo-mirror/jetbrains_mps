@@ -33,6 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+// FIXME seems to be the only class in patternRuntime to use [kernel], not [openapi]. Perhaps, worth moving into [kernel]?
 public class MatchingUtil {
   private static final Logger LOG = Logger.wrap(LogManager.getLogger(MatchingUtil.class));
 

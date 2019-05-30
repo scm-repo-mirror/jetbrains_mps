@@ -670,12 +670,8 @@
           <property role="nFU4j" value="source" />
           <property role="3LZaj6" value="source" />
         </node>
-        <node concept="nFU4i" id="1FaKCGJSzEW" role="nFU4p">
-          <property role="nFU4j" value="source_gen" />
-          <property role="3LZaj6" value="source" />
-        </node>
-        <node concept="nFU4i" id="1FaKCGJSzEZ" role="nFU4p">
-          <property role="nFU4j" value="patternRuntime/source" />
+        <node concept="nFU4i" id="4Wqyp$2_Wag" role="nFU4p">
+          <property role="nFU4j" value="kernelSolution/source_gen" />
           <property role="3LZaj6" value="source" />
         </node>
         <node concept="nFU4i" id="1FaKCGJSzF2" role="nFU4p">
@@ -846,6 +842,27 @@
         <ref role="nCB5Y" node="1FaKCGJSzEy" resolve="mps-kernel" />
       </node>
     </node>
+    <node concept="398b33" id="47JXWa7IVSW" role="3989C9">
+      <property role="TrG5h" value="pattern-runtime" />
+      <node concept="398b2D" id="47JXWa7IX6G" role="398b2p">
+        <node concept="398BVA" id="47JXWa7IX7r" role="398b2C">
+          <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+          <node concept="2Ry0Ak" id="47JXWa7IX8a" role="iGT6I">
+            <property role="2Ry0Am" value="core" />
+            <node concept="2Ry0Ak" id="4Wqyp$2_WfO" role="2Ry0An">
+              <property role="2Ry0Am" value="patternRuntime" />
+            </node>
+          </node>
+        </node>
+        <node concept="nFU4i" id="47JXWa7IXbH" role="nFU4p">
+          <property role="3LZaj6" value="source" />
+          <property role="nFU4j" value="source" />
+        </node>
+      </node>
+      <node concept="nCB5N" id="47JXWa7IXdK" role="nCB5Z">
+        <ref role="nCB5Y" node="1FaKCGJSzEy" resolve="mps-kernel" />
+      </node>
+    </node>
     <node concept="398b33" id="PI$1s21VRQ" role="3989C9">
       <property role="TrG5h" value="dataflow-rt" />
       <node concept="398b2D" id="1iPsR6PacP9" role="398b2p">
@@ -909,6 +926,9 @@
       </node>
       <node concept="nCB5N" id="2MtyMjH3rN7" role="nCB5Z">
         <ref role="nCB5Y" node="1FaKCGJSzEy" resolve="mps-kernel" />
+      </node>
+      <node concept="nCB5N" id="4Wqyp$2_Whg" role="nCB5Z">
+        <ref role="nCB5Y" node="47JXWa7IVSW" resolve="pattern-runtime" />
       </node>
       <node concept="2sjeV3" id="2MtyMjH3rOy" role="nCB5Z">
         <ref role="2sjeV2" node="6S1jmf0xDFH" resolve="trove4j" />
@@ -1174,6 +1194,9 @@
       </node>
       <node concept="nCB5N" id="2MtyMjHmmPf" role="nCB5Z">
         <ref role="nCB5Y" node="2MtyMjH3qzU" resolve="mps-typesystem" />
+      </node>
+      <node concept="nCB5N" id="47JXWa7IXpQ" role="nCB5Z">
+        <ref role="nCB5Y" node="47JXWa7IVSW" resolve="pattern-runtime" />
       </node>
     </node>
     <node concept="398b33" id="3A27KL0TKsc" role="3989C9">
@@ -1791,6 +1814,9 @@
       <node concept="nCB5N" id="2MtyMjHmmRK" role="nCB5Z">
         <ref role="nCB5Y" node="2MtyMjH3qzU" resolve="mps-typesystem" />
       </node>
+      <node concept="nCB5N" id="47JXWa7IXnj" role="nCB5Z">
+        <ref role="nCB5Y" node="47JXWa7IVSW" resolve="pattern-runtime" />
+      </node>
       <node concept="2GhqfE" id="4LdE6kxkq2N" role="nCB5Z">
         <node concept="3yrxFa" id="4LdE6kxkqzA" role="3yrxIG">
           <ref role="3yrxFb" node="4LdE6kxkp0J" />
@@ -2214,6 +2240,9 @@
           </node>
           <node concept="Saw0i" id="2MtyMjH3s1T" role="39821P">
             <ref role="Saw0g" node="2MtyMjH3qzU" resolve="mps-typesystem" />
+          </node>
+          <node concept="Saw0i" id="47JXWa7IXkk" role="39821P">
+            <ref role="Saw0g" node="47JXWa7IVSW" resolve="pattern-runtime" />
           </node>
           <node concept="398223" id="7wpYgMyUGWH" role="39821P">
             <node concept="3_J27D" id="7wpYgMyUGWI" role="Nbhlr">
@@ -3369,6 +3398,10 @@
         <node concept="1E1SXE" id="2MtyMjH3s4H" role="3bR37C">
           <property role="1E1SXH" value="true" />
           <ref role="1E1SXG" node="2MtyMjH3qzU" resolve="mps-typesystem" />
+        </node>
+        <node concept="1E1SXE" id="47JXWa7IXgL" role="3bR37C">
+          <property role="1E1SXH" value="true" />
+          <ref role="1E1SXG" node="47JXWa7IVSW" resolve="pattern-runtime" />
         </node>
         <node concept="1SiIV0" id="VCtQSj7LRC" role="3bR37C">
           <node concept="3bR9La" id="VCtQSj7LRD" role="1SiIV1">

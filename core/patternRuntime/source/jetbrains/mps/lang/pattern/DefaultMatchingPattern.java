@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,26 +16,39 @@
 package jetbrains.mps.lang.pattern;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 
-public class ConceptMatchingPattern implements IMatchingPattern {
+import java.util.List;
 
-  private SConcept myConcept;
-
-  public ConceptMatchingPattern(SConcept concept) {
-    myConcept = concept;
-  }
-
+/**
+ * Base implementation of {@link IMatchingPattern} with access to matched parts through named variables
+ */
+public class DefaultMatchingPattern implements IMatchingPattern {
   @Override
   public boolean match(SNode nodeToMatch) {
-    return nodeToMatch != null && nodeToMatch.isInstanceOfConcept(myConcept);
+    return true;
   }
 
   @NotNull
   @Override
   public SConcept getConcept() {
-    return myConcept;
+    throw new UnsupportedOperationException();
+  }
+
+  @Nullable
+  public SNode getMatchedNode(String varName) {
+    return null;
+  }
+
+  @Nullable
+  public String getMatchedProperty(String varName) {
+    return null;
+  }
+
+  @Nullable
+  public List<SNode> getMatchedList(String varName) {
+    return null;
   }
 }

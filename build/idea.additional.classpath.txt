@@ -33,6 +33,7 @@ core/textgen/classes
 core/debuginfo/api/classes
 core/debuginfo/impl/classes
 core/dataFlowRuntime/classes
+core/patternRuntime/classes
 core/project/classes
 core/project-check/classes
 core/tool/builder/classes
