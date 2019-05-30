@@ -12,6 +12,5 @@ public class TypesystemActions_Devkit_ActionGroup extends GeneratedActionGroup {
     this.setPopup(false);
     TypesystemActions_Devkit_ActionGroup.this.addAction("jetbrains.mps.lang.typesystem.devkit.pluginSolution.plugin.GoToTypeErrorRule_Action");
     TypesystemActions_Devkit_ActionGroup.this.addAction("jetbrains.mps.lang.typesystem.devkit.pluginSolution.plugin.ShowRulesWhichAffectNodeType_Action");
-    TypesystemActions_Devkit_ActionGroup.this.addAction("jetbrains.mps.lang.typesystem.devkit.pluginSolution.plugin.ShowInferredNodeType_Action");
   }
 }
