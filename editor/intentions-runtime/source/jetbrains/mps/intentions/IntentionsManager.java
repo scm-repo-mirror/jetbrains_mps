@@ -43,6 +43,7 @@ import jetbrains.mps.smodel.SLanguageHierarchy;
 import jetbrains.mps.smodel.SModelOperations;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.language.LanguageRuntime;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.typesystem.inference.ITypeContextOwner;
 import jetbrains.mps.typesystem.inference.TypeContextManager;
 import jetbrains.mps.util.Computable;
@@ -96,23 +97,24 @@ public class IntentionsManager implements ApplicationComponent, PersistentStateC
 
   public synchronized Kind getHighestAvailableBaseIntentionType(final SNode node, final EditorContext editorContext) {
     final GetHighestAvailableIntentionTypeVisitor visitor = new GetHighestAvailableIntentionTypeVisitor();
-    TypeContextManager.getInstance().runTypecheckingAction((ITypeContextOwner) editorContext.getEditorComponent(), new Runnable() {
-      @Override
-      public void run() {
-        Filter filter = new Filter(getDisabledIntentions()) {
+    // FIXME invoking runWithSession is unnecessary here b/c the only client takes care of that already
+    TypecheckingFacade
+        .getFromContext()
+        .runWithSession(((EditorComponent) editorContext.getEditorComponent()).getTypecheckingSession(),
+                        () -> {
+                          Filter filter = new Filter(getDisabledIntentions()) {
 
-          @Override
-          boolean accept(IntentionFactory intentionFactory) {
-            return super.accept(intentionFactory) && visitor.hasHigherPriority(intentionFactory.getKind());
-          }
-        };
-        for (SNode currentNode = node; currentNode != null; currentNode = currentNode.getParent()) {
-          if (!visitIntentions(currentNode, visitor, filter, currentNode != node, editorContext)) {
-            break;
-          }
-        }
-      }
-    });
+                            @Override
+                            boolean accept(IntentionFactory intentionFactory) {
+                              return super.accept(intentionFactory) && visitor.hasHigherPriority(intentionFactory.getKind());
+                            }
+                          };
+                          for (SNode currentNode = node; currentNode != null; currentNode = currentNode.getParent()) {
+                            if (!visitIntentions(currentNode, visitor, filter, currentNode != node, editorContext)) {
+                              break;
+                            }
+                          }
+                        });
     return visitor.getIntentionKind();
   }
 
