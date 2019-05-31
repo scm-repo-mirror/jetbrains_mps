@@ -5,8 +5,6 @@ package jetbrains.mps.lang.core.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -26,11 +24,10 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class ChildAttribute__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<SContainmentLink> getLink_idBpxLfMirzf = new SMethodBuilder<SContainmentLink>(new SJavaCompoundTypeImpl(SContainmentLink.class)).name("getLink").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("BpxLfMirzf").registry(REGISTRY).build();
-  public static final SMethod<Void> setLink_idBpxLfMirzM = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setLink").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("BpxLfMirzM").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(SContainmentLink.class, ""));
-  public static final SMethod<String> getNameForReporting_id5gACAVBz6xW = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getNameForReporting").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5gACAVBz6xW").registry(REGISTRY).build();
+  public static final SMethod<SContainmentLink> getLink_idBpxLfMirzf = new SMethodBuilder<SContainmentLink>(new SJavaCompoundTypeImpl(SContainmentLink.class)).name("getLink").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("BpxLfMirzf").build();
+  public static final SMethod<Void> setLink_idBpxLfMirzM = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setLink").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("BpxLfMirzM").build(SMethodBuilder.createJavaParameter(SContainmentLink.class, ""));
+  public static final SMethod<String> getNameForReporting_id5gACAVBz6xW = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getNameForReporting").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5gACAVBz6xW").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getLink_idBpxLfMirzf, setLink_idBpxLfMirzM, getNameForReporting_id5gACAVBz6xW);
 
@@ -58,7 +55,6 @@ public final class ChildAttribute__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ ChildAttribute__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

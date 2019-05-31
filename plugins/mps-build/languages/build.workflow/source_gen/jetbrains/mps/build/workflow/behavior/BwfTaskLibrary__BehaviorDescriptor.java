@@ -5,8 +5,6 @@ package jetbrains.mps.build.workflow.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.Set;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -27,9 +25,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class BwfTaskLibrary__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da114724ce92L, "jetbrains.mps.build.workflow.structure.BwfTaskLibrary");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Set<SNode>> closureWithImported_id2U15YDCRefA = new SMethodBuilder<Set<SNode>>(new SJavaCompoundTypeImpl((Class<Set<SNode>>) ((Class) Object.class))).name("closureWithImported").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2U15YDCRefA").registry(REGISTRY).build();
+  public static final SMethod<Set<SNode>> closureWithImported_id2U15YDCRefA = new SMethodBuilder<Set<SNode>>(new SJavaCompoundTypeImpl((Class<Set<SNode>>) ((Class) Object.class))).name("closureWithImported").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2U15YDCRefA").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(closureWithImported_id2U15YDCRefA);
 
@@ -56,7 +53,6 @@ public final class BwfTaskLibrary__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ BwfTaskLibrary__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

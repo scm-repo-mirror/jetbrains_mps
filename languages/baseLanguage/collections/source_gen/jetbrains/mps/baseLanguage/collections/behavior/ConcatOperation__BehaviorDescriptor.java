@@ -5,8 +5,6 @@ package jetbrains.mps.baseLanguage.collections.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -22,9 +20,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class ConcatOperation__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x112f6f0e9beL, "jetbrains.mps.baseLanguage.collections.structure.ConcatOperation");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Boolean> operandCanBeNull_idhWYZ0eEN6z = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("operandCanBeNull").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hWYZ0eEN6z").registry(REGISTRY).build();
+  public static final SMethod<Boolean> operandCanBeNull_idhWYZ0eEN6z = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("operandCanBeNull").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hWYZ0eEN6z").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(operandCanBeNull_idhWYZ0eEN6z);
 
@@ -36,7 +33,6 @@ public final class ConcatOperation__BehaviorDescriptor extends BaseBHDescriptor 
   }
 
   /*package*/ ConcatOperation__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

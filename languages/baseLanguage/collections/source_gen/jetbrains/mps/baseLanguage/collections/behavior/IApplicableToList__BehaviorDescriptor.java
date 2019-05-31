@@ -5,8 +5,6 @@ package jetbrains.mps.baseLanguage.collections.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -26,9 +24,8 @@ import jetbrains.mps.smodel.SModelUtil_new;
 
 public final class IApplicableToList__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x53310200e8d9eef8L, "jetbrains.mps.baseLanguage.collections.structure.IApplicableToList");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<List<SNode>> getApplicableTypes_id5cL0w3DYzxf = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getApplicableTypes").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5cL0w3DYzxf").registry(REGISTRY).build();
+  public static final SMethod<List<SNode>> getApplicableTypes_id5cL0w3DYzxf = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getApplicableTypes").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5cL0w3DYzxf").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getApplicableTypes_id5cL0w3DYzxf);
 
@@ -40,7 +37,6 @@ public final class IApplicableToList__BehaviorDescriptor extends BaseBHDescripto
   }
 
   /*package*/ IApplicableToList__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

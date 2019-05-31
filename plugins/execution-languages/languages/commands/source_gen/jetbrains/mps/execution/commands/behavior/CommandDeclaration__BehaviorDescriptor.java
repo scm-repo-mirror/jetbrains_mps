@@ -5,8 +5,6 @@ package jetbrains.mps.execution.commands.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -34,17 +32,16 @@ import jetbrains.mps.smodel.SModelUtil_new;
 
 public final class CommandDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2be8L, "jetbrains.mps.execution.commands.structure.CommandDeclaration");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Boolean> isDebuggable_idJzCdmU6yOQ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDebuggable").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("JzCdmU6yOQ").registry(REGISTRY).build();
-  public static final SMethod<String> getSuffix_idO$iR4JBsSb = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getSuffix").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsSb").registry(REGISTRY).build();
-  public static final SMethod<SNode> createType_idhEwJimy = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("createType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJimy").registry(REGISTRY).build();
-  public static final SMethod<List<SNode>> getDistinctFieldParameters_id5keEkmeCrcX = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getDistinctFieldParameters").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5keEkmeCrcX").registry(REGISTRY).build();
-  public static final SMethod<List<SNode>> getDistinctByNameAndTypeFieldParameters_id3gpm$NHlR4n = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getDistinctByNameAndTypeFieldParameters").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3gpm$NHlR4n").registry(REGISTRY).build();
-  /*package*/ static final SMethod<Iterable<SNode>> getFieldParameters_id3gpm$NHlR5N = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getFieldParameters").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("3gpm$NHlR5N").registry(REGISTRY).build();
-  public static final SMethod<String> getCreateProcessMethodName_idJzCdmU6yOE = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getCreateProcessMethodName").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("JzCdmU6yOE").registry(REGISTRY).build();
-  public static final SMethod<String> getGetDebuggerMethodName_idJzCdmU6yOK = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGetDebuggerMethodName").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("JzCdmU6yOK").registry(REGISTRY).build();
-  public static final SMethod<String> getGetDebuggerConfidurationMethodName_id5pE1_aqZc7s = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGetDebuggerConfidurationMethodName").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5pE1_aqZc7s").registry(REGISTRY).build();
+  public static final SMethod<Boolean> isDebuggable_idJzCdmU6yOQ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDebuggable").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("JzCdmU6yOQ").build();
+  public static final SMethod<String> getSuffix_idO$iR4JBsSb = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getSuffix").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsSb").build();
+  public static final SMethod<SNode> createType_idhEwJimy = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("createType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJimy").build();
+  public static final SMethod<List<SNode>> getDistinctFieldParameters_id5keEkmeCrcX = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getDistinctFieldParameters").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5keEkmeCrcX").build();
+  public static final SMethod<List<SNode>> getDistinctByNameAndTypeFieldParameters_id3gpm$NHlR4n = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getDistinctByNameAndTypeFieldParameters").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3gpm$NHlR4n").build();
+  /*package*/ static final SMethod<Iterable<SNode>> getFieldParameters_id3gpm$NHlR5N = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getFieldParameters").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("3gpm$NHlR5N").build();
+  public static final SMethod<String> getCreateProcessMethodName_idJzCdmU6yOE = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getCreateProcessMethodName").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("JzCdmU6yOE").build();
+  public static final SMethod<String> getGetDebuggerMethodName_idJzCdmU6yOK = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGetDebuggerMethodName").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("JzCdmU6yOK").build();
+  public static final SMethod<String> getGetDebuggerConfidurationMethodName_id5pE1_aqZc7s = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGetDebuggerConfidurationMethodName").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5pE1_aqZc7s").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isDebuggable_idJzCdmU6yOQ, getSuffix_idO$iR4JBsSb, createType_idhEwJimy, getDistinctFieldParameters_id5keEkmeCrcX, getDistinctByNameAndTypeFieldParameters_id3gpm$NHlR4n, getFieldParameters_id3gpm$NHlR5N, getCreateProcessMethodName_idJzCdmU6yOE, getGetDebuggerMethodName_idJzCdmU6yOK, getGetDebuggerConfidurationMethodName_id5pE1_aqZc7s);
 
@@ -127,7 +124,6 @@ public final class CommandDeclaration__BehaviorDescriptor extends BaseBHDescript
   }
 
   /*package*/ CommandDeclaration__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

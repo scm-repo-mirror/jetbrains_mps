@@ -5,8 +5,6 @@ package jetbrains.mps.lang.plugin.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -28,11 +26,10 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class EditorTab__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x33f4c34299ff0d2fL, "jetbrains.mps.lang.plugin.structure.EditorTab");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> getGeneratedName_id3fOKOapZKP0 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3fOKOapZKP0").registry(REGISTRY).build();
-  public static final SMethod<String> getGeneratedClassFQName_id3fOKOapZKPb = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedClassFQName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3fOKOapZKPb").registry(REGISTRY).build();
-  public static final SMethod<List<PropertyReference>> getPropertiesToCheck_id4cWf37B8oXP = new SMethodBuilder<List<PropertyReference>>(new SJavaCompoundTypeImpl((Class<List<PropertyReference>>) ((Class) Object.class))).name("getPropertiesToCheck").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4cWf37B8oXP").registry(REGISTRY).build();
+  public static final SMethod<String> getGeneratedName_id3fOKOapZKP0 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3fOKOapZKP0").build();
+  public static final SMethod<String> getGeneratedClassFQName_id3fOKOapZKPb = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedClassFQName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3fOKOapZKPb").build();
+  public static final SMethod<List<PropertyReference>> getPropertiesToCheck_id4cWf37B8oXP = new SMethodBuilder<List<PropertyReference>>(new SJavaCompoundTypeImpl((Class<List<PropertyReference>>) ((Class) Object.class))).name("getPropertiesToCheck").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4cWf37B8oXP").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getGeneratedName_id3fOKOapZKP0, getGeneratedClassFQName_id3fOKOapZKPb, getPropertiesToCheck_id4cWf37B8oXP);
 
@@ -51,7 +48,6 @@ public final class EditorTab__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ EditorTab__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

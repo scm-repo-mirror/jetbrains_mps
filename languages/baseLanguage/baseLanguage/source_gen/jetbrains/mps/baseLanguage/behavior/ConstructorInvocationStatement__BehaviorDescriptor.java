@@ -5,8 +5,6 @@ package jetbrains.mps.baseLanguage.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -32,10 +30,9 @@ import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 
 public final class ConstructorInvocationStatement__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x121119ae5ffL, "jetbrains.mps.baseLanguage.structure.ConstructorInvocationStatement");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<SNode> getInstanceType_id6WzWPTX2vuB = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInstanceType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6WzWPTX2vuB").registry(REGISTRY).build();
-  public static final SMethod<Map<SNode, SNode>> getTypesByTypeVars_idJfLh5LDMrj = new SMethodBuilder<Map<SNode, SNode>>(new SJavaCompoundTypeImpl(Map.class)).name("getTypesByTypeVars").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("JfLh5LDMrj").registry(REGISTRY).build();
+  public static final SMethod<SNode> getInstanceType_id6WzWPTX2vuB = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInstanceType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6WzWPTX2vuB").build();
+  public static final SMethod<Map<SNode, SNode>> getTypesByTypeVars_idJfLh5LDMrj = new SMethodBuilder<Map<SNode, SNode>>(new SJavaCompoundTypeImpl(Map.class)).name("getTypesByTypeVars").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("JfLh5LDMrj").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getInstanceType_id6WzWPTX2vuB, getTypesByTypeVars_idJfLh5LDMrj);
 
@@ -59,7 +56,6 @@ public final class ConstructorInvocationStatement__BehaviorDescriptor extends Ba
   }
 
   /*package*/ ConstructorInvocationStatement__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

@@ -5,8 +5,6 @@ package jetbrains.mps.execution.configurations.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -27,12 +25,11 @@ import jetbrains.mps.smodel.SModelUtil_new;
 
 public final class RunConfigurationExecutor__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x6c55c13f5bc8e1ecL, "jetbrains.mps.execution.configurations.structure.RunConfigurationExecutor");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Boolean> isDebuggable_idoym_8btfV8 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDebuggable").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("oym_8btfV8").registry(REGISTRY).build();
-  public static final SMethod<Boolean> canBeSimple_id5pE1_aqYssM = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeSimple").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5pE1_aqYssM").registry(REGISTRY).build();
-  public static final SMethod<Boolean> isSimple_id5pE1_aqYZtD = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isSimple").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5pE1_aqYZtD").registry(REGISTRY).build();
-  public static final SMethod<SNode> getCommand_id5pE1_aqZ2LK = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getCommand").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5pE1_aqZ2LK").registry(REGISTRY).build();
+  public static final SMethod<Boolean> isDebuggable_idoym_8btfV8 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDebuggable").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("oym_8btfV8").build();
+  public static final SMethod<Boolean> canBeSimple_id5pE1_aqYssM = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeSimple").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5pE1_aqYssM").build();
+  public static final SMethod<Boolean> isSimple_id5pE1_aqYZtD = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isSimple").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5pE1_aqYZtD").build();
+  public static final SMethod<SNode> getCommand_id5pE1_aqZ2LK = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getCommand").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5pE1_aqZ2LK").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isDebuggable_idoym_8btfV8, canBeSimple_id5pE1_aqYssM, isSimple_id5pE1_aqYZtD, getCommand_id5pE1_aqZ2LK);
 
@@ -63,7 +60,6 @@ public final class RunConfigurationExecutor__BehaviorDescriptor extends BaseBHDe
   }
 
   /*package*/ RunConfigurationExecutor__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

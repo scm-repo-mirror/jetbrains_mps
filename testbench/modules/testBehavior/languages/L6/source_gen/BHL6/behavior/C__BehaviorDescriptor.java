@@ -5,8 +5,6 @@ package BHL6.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -23,12 +21,11 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class C__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x424c173aee734dc9L, 0xbc43d0051c9b1e8fL, 0x559729dec0461c33L, "BHL6.structure.C");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Integer> foo_id5mnatV0hxLf = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("foo").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5mnatV0hxLf").registry(REGISTRY).build();
-  public static final SMethod<Integer> bar_id5mnatV0hxLE = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("bar").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5mnatV0hxLE").registry(REGISTRY).build();
-  public static final SMethod<Object> virtual_id47lrFSh1$Ca = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("virtual").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("47lrFSh1$Ca").registry(REGISTRY).build();
-  public static final SMethod<Object> nonVirtual_id7zO8mNAVkj1 = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("nonVirtual").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7zO8mNAVkj1").registry(REGISTRY).build();
+  public static final SMethod<Integer> foo_id5mnatV0hxLf = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("foo").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5mnatV0hxLf").build();
+  public static final SMethod<Integer> bar_id5mnatV0hxLE = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("bar").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5mnatV0hxLE").build();
+  public static final SMethod<Object> virtual_id47lrFSh1$Ca = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("virtual").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("47lrFSh1$Ca").build();
+  public static final SMethod<Object> nonVirtual_id7zO8mNAVkj1 = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("nonVirtual").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7zO8mNAVkj1").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(foo_id5mnatV0hxLf, bar_id5mnatV0hxLE, virtual_id47lrFSh1$Ca, nonVirtual_id7zO8mNAVkj1);
 
@@ -49,7 +46,6 @@ public final class C__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ C__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

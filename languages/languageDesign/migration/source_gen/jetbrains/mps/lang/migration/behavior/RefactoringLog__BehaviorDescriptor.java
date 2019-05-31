@@ -5,8 +5,6 @@ package jetbrains.mps.lang.migration.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.lang.migration.runtime.base.RefactoringScriptReference;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -25,9 +23,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class RefactoringLog__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x1bf9eb43276b6d8fL, "jetbrains.mps.lang.migration.structure.RefactoringLog");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<RefactoringScriptReference> getDescriptor_id4uVwhQyPQ_Z = new SMethodBuilder<RefactoringScriptReference>(new SJavaCompoundTypeImpl(RefactoringScriptReference.class)).name("getDescriptor").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4uVwhQyPQ_Z").registry(REGISTRY).build();
+  public static final SMethod<RefactoringScriptReference> getDescriptor_id4uVwhQyPQ_Z = new SMethodBuilder<RefactoringScriptReference>(new SJavaCompoundTypeImpl(RefactoringScriptReference.class)).name("getDescriptor").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4uVwhQyPQ_Z").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getDescriptor_id4uVwhQyPQ_Z);
 
@@ -39,7 +36,6 @@ public final class RefactoringLog__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ RefactoringLog__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

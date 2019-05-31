@@ -5,8 +5,6 @@ package jetbrains.mps.baseLanguage.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -32,15 +30,14 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class ParameterDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<SNode> createReference_idhEwJfME = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("createReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJfME").registry(REGISTRY).build();
-  public static final SMethod<Boolean> isCanBeUnused_idhNVeX73 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isCanBeUnused").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hNVeX73").registry(REGISTRY).build();
-  public static final SMethod<String> getSuffix_id2Bet8mWh3pg = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getSuffix").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2Bet8mWh3pg").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(Project.class, ""));
-  public static final SMethod<String> getPrefix_id2Bet8mWh2lw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPrefix").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2Bet8mWh2lw").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(Project.class, ""));
-  public static final SMethod<Boolean> hasAnnotation_id4LgT5De_n2I = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasAnnotation").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4LgT5De_n2I").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
-  public static final SMethod<Boolean> hasAnnotation_id3WDGf12Eb7o = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasAnnotation").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3WDGf12Eb7o").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<SNodeReference>) ((Class) Object.class), ""));
-  public static final SMethod<SNode> getValue_idhOJcizo = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getValue").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hOJcizo").registry(REGISTRY).build();
+  public static final SMethod<SNode> createReference_idhEwJfME = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("createReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJfME").build();
+  public static final SMethod<Boolean> isCanBeUnused_idhNVeX73 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isCanBeUnused").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hNVeX73").build();
+  public static final SMethod<String> getSuffix_id2Bet8mWh3pg = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getSuffix").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2Bet8mWh3pg").build(SMethodBuilder.createJavaParameter(Project.class, ""));
+  public static final SMethod<String> getPrefix_id2Bet8mWh2lw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPrefix").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2Bet8mWh2lw").build(SMethodBuilder.createJavaParameter(Project.class, ""));
+  public static final SMethod<Boolean> hasAnnotation_id4LgT5De_n2I = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasAnnotation").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4LgT5De_n2I").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Boolean> hasAnnotation_id3WDGf12Eb7o = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasAnnotation").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3WDGf12Eb7o").build(SMethodBuilder.createJavaParameter((Class<SNodeReference>) ((Class) Object.class), ""));
+  public static final SMethod<SNode> getValue_idhOJcizo = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getValue").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hOJcizo").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(createReference_idhEwJfME, isCanBeUnused_idhNVeX73, getSuffix_id2Bet8mWh3pg, getPrefix_id2Bet8mWh2lw, hasAnnotation_id4LgT5De_n2I, hasAnnotation_id3WDGf12Eb7o, getValue_idhOJcizo);
 
@@ -95,7 +92,6 @@ public final class ParameterDeclaration__BehaviorDescriptor extends BaseBHDescri
   }
 
   /*package*/ ParameterDeclaration__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

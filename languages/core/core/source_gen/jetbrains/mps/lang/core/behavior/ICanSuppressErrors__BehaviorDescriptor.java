@@ -5,8 +5,6 @@ package jetbrains.mps.lang.core.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -22,9 +20,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class ICanSuppressErrors__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2f16f1b357e19f42L, "jetbrains.mps.lang.core.structure.ICanSuppressErrors");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> nodeDescription_id4oS1ku9jIXr = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("nodeDescription").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4oS1ku9jIXr").registry(REGISTRY).build();
+  public static final SMethod<String> nodeDescription_id4oS1ku9jIXr = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("nodeDescription").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4oS1ku9jIXr").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(nodeDescription_id4oS1ku9jIXr);
 
@@ -36,7 +33,6 @@ public final class ICanSuppressErrors__BehaviorDescriptor extends BaseBHDescript
   }
 
   /*package*/ ICanSuppressErrors__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

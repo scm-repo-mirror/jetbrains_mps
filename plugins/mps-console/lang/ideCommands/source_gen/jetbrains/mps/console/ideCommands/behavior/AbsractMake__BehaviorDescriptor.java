@@ -5,8 +5,6 @@ package jetbrains.mps.console.ideCommands.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -24,10 +22,9 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class AbsractMake__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x276b371e77c0a29aL, "jetbrains.mps.console.ideCommands.structure.AbsractMake");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Iterable<SConcept>> getSupportedParameters_id3J6h25QXCDW = new SMethodBuilder<Iterable<SConcept>>(new SJavaCompoundTypeImpl((Class<Iterable<SConcept>>) ((Class) Object.class))).name("getSupportedParameters").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3J6h25QXCDW").registry(REGISTRY).build();
-  public static final SMethod<String> getDisplayString_id5YxQmqOFZEf = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getDisplayString").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5YxQmqOFZEf").registry(REGISTRY).build();
+  public static final SMethod<Iterable<SConcept>> getSupportedParameters_id3J6h25QXCDW = new SMethodBuilder<Iterable<SConcept>>(new SJavaCompoundTypeImpl((Class<Iterable<SConcept>>) ((Class) Object.class))).name("getSupportedParameters").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3J6h25QXCDW").build();
+  public static final SMethod<String> getDisplayString_id5YxQmqOFZEf = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getDisplayString").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5YxQmqOFZEf").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getSupportedParameters_id3J6h25QXCDW, getDisplayString_id5YxQmqOFZEf);
 
@@ -42,7 +39,6 @@ public final class AbsractMake__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ AbsractMake__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

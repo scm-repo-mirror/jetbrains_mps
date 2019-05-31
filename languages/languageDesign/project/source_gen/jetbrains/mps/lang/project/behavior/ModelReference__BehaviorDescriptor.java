@@ -5,8 +5,6 @@ package jetbrains.mps.lang.project.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -30,11 +28,10 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class ModelReference__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, "jetbrains.mps.lang.project.structure.ModelReference");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> getModelReference_id5qdugmiLBZZ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getModelReference").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5qdugmiLBZZ").registry(REGISTRY).build();
-  public static final SMethod<SModelReference> toModelReference_id2BHFktfnfdc = new SMethodBuilder<SModelReference>(new SJavaCompoundTypeImpl(SModelReference.class)).name("toModelReference").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2BHFktfnfdc").registry(REGISTRY).build();
-  public static final SMethod<Void> populateFrom_id2BHFktfniCd = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateFrom").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2BHFktfniCd").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(SModelReference.class, ""));
+  public static final SMethod<String> getModelReference_id5qdugmiLBZZ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getModelReference").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5qdugmiLBZZ").build();
+  public static final SMethod<SModelReference> toModelReference_id2BHFktfnfdc = new SMethodBuilder<SModelReference>(new SJavaCompoundTypeImpl(SModelReference.class)).name("toModelReference").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2BHFktfnfdc").build();
+  public static final SMethod<Void> populateFrom_id2BHFktfniCd = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("populateFrom").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2BHFktfniCd").build(SMethodBuilder.createJavaParameter(SModelReference.class, ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getModelReference_id5qdugmiLBZZ, toModelReference_id2BHFktfnfdc, populateFrom_id2BHFktfniCd);
 
@@ -72,7 +69,6 @@ public final class ModelReference__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ ModelReference__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

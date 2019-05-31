@@ -5,8 +5,6 @@ package BHL6.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -22,9 +20,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class H__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x424c173aee734dc9L, 0xbc43d0051c9b1e8fL, 0x1206f7d464a22147L, "BHL6.structure.H");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Object> foo6_id186XXh$CxOf = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("foo6").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("186XXh$CxOf").registry(REGISTRY).build();
+  public static final SMethod<Object> foo6_id186XXh$CxOf = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("foo6").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("186XXh$CxOf").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(foo6_id186XXh$CxOf);
 
@@ -36,7 +33,6 @@ public final class H__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ H__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

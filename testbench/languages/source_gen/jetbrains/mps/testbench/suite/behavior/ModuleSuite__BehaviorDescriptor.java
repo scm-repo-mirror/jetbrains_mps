@@ -5,8 +5,6 @@ package jetbrains.mps.testbench.suite.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -30,11 +28,10 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class ModuleSuite__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cb5L, "jetbrains.mps.testbench.suite.structure.ModuleSuite");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Iterable<SModel>> models_id173Z5qAOyPn = new SMethodBuilder<Iterable<SModel>>(new SJavaCompoundTypeImpl((Class<Iterable<SModel>>) ((Class) Object.class))).name("models").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("173Z5qAOyPn").registry(REGISTRY).build();
-  public static final SMethod<SModule> module_id7A48itizp2R = new SMethodBuilder<SModule>(new SJavaCompoundTypeImpl(SModule.class)).name("module").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7A48itizp2R").registry(REGISTRY).build();
-  public static final SMethod<Iterable<SNode>> getNotMutedTests_id7tF7F0nXrAX = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getNotMutedTests").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7tF7F0nXrAX").registry(REGISTRY).build();
+  public static final SMethod<Iterable<SModel>> models_id173Z5qAOyPn = new SMethodBuilder<Iterable<SModel>>(new SJavaCompoundTypeImpl((Class<Iterable<SModel>>) ((Class) Object.class))).name("models").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("173Z5qAOyPn").build();
+  public static final SMethod<SModule> module_id7A48itizp2R = new SMethodBuilder<SModule>(new SJavaCompoundTypeImpl(SModule.class)).name("module").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7A48itizp2R").build();
+  public static final SMethod<Iterable<SNode>> getNotMutedTests_id7tF7F0nXrAX = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getNotMutedTests").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7tF7F0nXrAX").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(models_id173Z5qAOyPn, module_id7A48itizp2R, getNotMutedTests_id7tF7F0nXrAX);
 
@@ -65,7 +62,6 @@ public final class ModuleSuite__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ ModuleSuite__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

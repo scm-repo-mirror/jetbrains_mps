@@ -5,8 +5,6 @@ package jetbrains.mps.samples.secretCompartmentLanguage.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -24,9 +22,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class StateMachineTest__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6986543d82184ebfL, 0xa2e9565e5049c1ceL, 0x116c17a1865L, "jetbrains.mps.samples.secretCompartmentLanguage.structure.StateMachineTest");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> getStateMachineName_idhr1J3q0 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getStateMachineName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hr1J3q0").registry(REGISTRY).build();
+  public static final SMethod<String> getStateMachineName_idhr1J3q0 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getStateMachineName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hr1J3q0").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getStateMachineName_idhr1J3q0);
 
@@ -38,7 +35,6 @@ public final class StateMachineTest__BehaviorDescriptor extends BaseBHDescriptor
   }
 
   /*package*/ StateMachineTest__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

@@ -5,8 +5,6 @@ package jetbrains.mps.execution.settings.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -27,11 +25,10 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class EditorOperationDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91012dL, "jetbrains.mps.execution.settings.structure.EditorOperationDeclaration");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<SNode> getJavaMethod_idO$iR4J$gaJ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getJavaMethod").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$gaJ").registry(REGISTRY).build();
-  public static final SMethod<SNode> getPublicJavaMethod_idbkrofm9Fgz = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getPublicJavaMethod").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("bkrofm9Fgz").registry(REGISTRY).build();
-  public static final SMethod<SNode> getMethodbyName_idO$iR4J$gaP = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getMethodbyName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("O$iR4J$gaP").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(String.class, ""));
+  public static final SMethod<SNode> getJavaMethod_idO$iR4J$gaJ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getJavaMethod").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$gaJ").build();
+  public static final SMethod<SNode> getPublicJavaMethod_idbkrofm9Fgz = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getPublicJavaMethod").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("bkrofm9Fgz").build();
+  public static final SMethod<SNode> getMethodbyName_idO$iR4J$gaP = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getMethodbyName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("O$iR4J$gaP").build(SMethodBuilder.createJavaParameter(String.class, ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getJavaMethod_idO$iR4J$gaJ, getPublicJavaMethod_idbkrofm9Fgz, getMethodbyName_idO$iR4J$gaP);
 
@@ -47,7 +44,6 @@ public final class EditorOperationDeclaration__BehaviorDescriptor extends BaseBH
   }
 
   /*package*/ EditorOperationDeclaration__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

@@ -5,8 +5,6 @@ package jetbrains.mps.lang.typesystem.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -22,10 +20,9 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class MessageStatement__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4aad802L, "jetbrains.mps.lang.typesystem.structure.MessageStatement");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Void> attachNewMessageAnnotation_id7nf9pEwlup1 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("attachNewMessageAnnotation").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7nf9pEwlup1").registry(REGISTRY).build();
-  public static final SMethod<String> getName_id1oFBbRehoLP = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getName").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1oFBbRehoLP").registry(REGISTRY).build();
+  public static final SMethod<Void> attachNewMessageAnnotation_id7nf9pEwlup1 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("attachNewMessageAnnotation").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7nf9pEwlup1").build();
+  public static final SMethod<String> getName_id1oFBbRehoLP = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getName").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1oFBbRehoLP").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(attachNewMessageAnnotation_id7nf9pEwlup1, getName_id1oFBbRehoLP);
 
@@ -34,7 +31,6 @@ public final class MessageStatement__BehaviorDescriptor extends BaseBHDescriptor
 
 
   /*package*/ MessageStatement__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

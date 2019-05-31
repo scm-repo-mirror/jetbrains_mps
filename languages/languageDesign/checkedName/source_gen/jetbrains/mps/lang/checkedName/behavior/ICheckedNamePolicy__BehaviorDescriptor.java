@@ -5,8 +5,6 @@ package jetbrains.mps.lang.checkedName.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -25,12 +23,11 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class ICheckedNamePolicy__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0xfe9d76d7580945c9L, 0xae28a40915b4d6ffL, 0x433c3c31e7218f38L, "jetbrains.mps.lang.checkedName.structure.ICheckedNamePolicy");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<List<SNode>> getDescendantsToCheck_id4cWf37B8oXl = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getDescendantsToCheck").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4cWf37B8oXl").registry(REGISTRY).build();
-  public static final SMethod<SNode> getDescendantToCheck_id4cWf37B8oXJ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getDescendantToCheck").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4cWf37B8oXJ").registry(REGISTRY).build();
-  public static final SMethod<List<PropertyReference>> getPropertiesToCheck_id4cWf37B8oXP = new SMethodBuilder<List<PropertyReference>>(new SJavaCompoundTypeImpl((Class<List<PropertyReference>>) ((Class) Object.class))).name("getPropertiesToCheck").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4cWf37B8oXP").registry(REGISTRY).build();
-  public static final SMethod<PropertyReference> getPropertyToCheck_id4cWf37B8oYh = new SMethodBuilder<PropertyReference>(new SJavaCompoundTypeImpl((Class<PropertyReference>) ((Class) Object.class))).name("getPropertyToCheck").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4cWf37B8oYh").registry(REGISTRY).build();
+  public static final SMethod<List<SNode>> getDescendantsToCheck_id4cWf37B8oXl = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getDescendantsToCheck").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4cWf37B8oXl").build();
+  public static final SMethod<SNode> getDescendantToCheck_id4cWf37B8oXJ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getDescendantToCheck").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4cWf37B8oXJ").build();
+  public static final SMethod<List<PropertyReference>> getPropertiesToCheck_id4cWf37B8oXP = new SMethodBuilder<List<PropertyReference>>(new SJavaCompoundTypeImpl((Class<List<PropertyReference>>) ((Class) Object.class))).name("getPropertiesToCheck").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4cWf37B8oXP").build();
+  public static final SMethod<PropertyReference> getPropertyToCheck_id4cWf37B8oYh = new SMethodBuilder<PropertyReference>(new SJavaCompoundTypeImpl((Class<PropertyReference>) ((Class) Object.class))).name("getPropertyToCheck").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4cWf37B8oYh").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getDescendantsToCheck_id4cWf37B8oXl, getDescendantToCheck_id4cWf37B8oXJ, getPropertiesToCheck_id4cWf37B8oXP, getPropertyToCheck_id4cWf37B8oYh);
 
@@ -61,7 +58,6 @@ public final class ICheckedNamePolicy__BehaviorDescriptor extends BaseBHDescript
   }
 
   /*package*/ ICheckedNamePolicy__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

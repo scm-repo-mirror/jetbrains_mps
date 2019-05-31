@@ -5,8 +5,6 @@ package org.jetbrains.mps.samples.IfAndUnless.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -22,9 +20,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class TrueFlow__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x67b828fd8fbc4496L, 0xb7f78b64ac097c62L, 0xd403d58ad45dd1fL, "org.jetbrains.mps.samples.IfAndUnless.structure.TrueFlow");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> getTitle_id1653mnvAgr8 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getTitle").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgr8").registry(REGISTRY).build();
+  public static final SMethod<String> getTitle_id1653mnvAgr8 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getTitle").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgr8").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTitle_id1653mnvAgr8);
 
@@ -36,7 +33,6 @@ public final class TrueFlow__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ TrueFlow__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

@@ -5,8 +5,6 @@ package jetbrains.mps.lang.dataFlow.analyzers.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -28,12 +26,11 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class Analyzer__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, "jetbrains.mps.lang.dataFlow.analyzers.structure.Analyzer");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> getAnalyzerRunnerName_id9V7Nft_oXD = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAnalyzerRunnerName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("9V7Nft_oXD").registry(REGISTRY).build();
-  public static final SMethod<String> getAnalyzerRunnerFqName_id9V7Nft_vlj = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAnalyzerRunnerFqName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("9V7Nft_vlj").registry(REGISTRY).build();
-  public static final SMethod<String> getAnalyzerName_id9V7Nft_oXY = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAnalyzerName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("9V7Nft_oXY").registry(REGISTRY).build();
-  public static final SMethod<List<SNode>> getRules_id3_iNRJnrAhj = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getRules").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3_iNRJnrAhj").registry(REGISTRY).build();
+  public static final SMethod<String> getAnalyzerRunnerName_id9V7Nft_oXD = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAnalyzerRunnerName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("9V7Nft_oXD").build();
+  public static final SMethod<String> getAnalyzerRunnerFqName_id9V7Nft_vlj = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAnalyzerRunnerFqName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("9V7Nft_vlj").build();
+  public static final SMethod<String> getAnalyzerName_id9V7Nft_oXY = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAnalyzerName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("9V7Nft_oXY").build();
+  public static final SMethod<List<SNode>> getRules_id3_iNRJnrAhj = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getRules").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3_iNRJnrAhj").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getAnalyzerRunnerName_id9V7Nft_oXD, getAnalyzerRunnerFqName_id9V7Nft_vlj, getAnalyzerName_id9V7Nft_oXY, getRules_id3_iNRJnrAhj);
 
@@ -64,7 +61,6 @@ public final class Analyzer__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ Analyzer__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

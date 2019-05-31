@@ -5,8 +5,6 @@ package jetbrains.mps.samples.Shapes.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.awt.Color;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -25,9 +23,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class ColorReference__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x3a2b0182df2201afL, "jetbrains.mps.samples.Shapes.structure.ColorReference");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Color> findColor_id1Os2kBLuoy8 = new SMethodBuilder<Color>(new SJavaCompoundTypeImpl(Color.class)).name("findColor").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1Os2kBLuoy8").registry(REGISTRY).build();
+  public static final SMethod<Color> findColor_id1Os2kBLuoy8 = new SMethodBuilder<Color>(new SJavaCompoundTypeImpl(Color.class)).name("findColor").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1Os2kBLuoy8").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(findColor_id1Os2kBLuoy8);
 
@@ -53,7 +50,6 @@ public final class ColorReference__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ ColorReference__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

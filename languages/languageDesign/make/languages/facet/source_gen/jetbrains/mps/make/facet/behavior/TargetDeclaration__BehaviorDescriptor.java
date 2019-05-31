@@ -5,8 +5,6 @@ package jetbrains.mps.make.facet.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -26,11 +24,10 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class TargetDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c3dL, "jetbrains.mps.make.facet.structure.TargetDeclaration");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<SNode> facetDeclaration_id6O0kUTrtki6 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("facetDeclaration").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6O0kUTrtki6").registry(REGISTRY).build();
-  public static final SMethod<String> getTargetFqName_idLXloLaM9s9 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getTargetFqName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("LXloLaM9s9").registry(REGISTRY).build();
-  public static final SMethod<String> classifierName_id3ZSHU3pg$b_ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("classifierName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3ZSHU3pg$b_").registry(REGISTRY).build();
+  public static final SMethod<SNode> facetDeclaration_id6O0kUTrtki6 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("facetDeclaration").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6O0kUTrtki6").build();
+  public static final SMethod<String> getTargetFqName_idLXloLaM9s9 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getTargetFqName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("LXloLaM9s9").build();
+  public static final SMethod<String> classifierName_id3ZSHU3pg$b_ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("classifierName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3ZSHU3pg$b_").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(facetDeclaration_id6O0kUTrtki6, getTargetFqName_idLXloLaM9s9, classifierName_id3ZSHU3pg$b_);
 
@@ -49,7 +46,6 @@ public final class TargetDeclaration__BehaviorDescriptor extends BaseBHDescripto
   }
 
   /*package*/ TargetDeclaration__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

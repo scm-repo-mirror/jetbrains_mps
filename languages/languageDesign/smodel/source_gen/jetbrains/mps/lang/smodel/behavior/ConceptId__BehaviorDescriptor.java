@@ -5,8 +5,6 @@ package jetbrains.mps.lang.smodel.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -30,11 +28,10 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class ConceptId__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, "jetbrains.mps.lang.smodel.structure.ConceptId");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<SAbstractConcept> getConcept_id5ZE7FBYYOpv = new SMethodBuilder<SAbstractConcept>(new SJavaCompoundTypeImpl(SAbstractConcept.class)).name("getConcept").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5ZE7FBYYOpv").registry(REGISTRY).build();
-  public static final SMethod<Void> setConcept_id5ZE7FBYYR6j = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setConcept").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5ZE7FBYYR6j").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(SAbstractConcept.class, ""));
-  public static final SMethod<Long> getIdValue_id5ZE7FBZ0whU = new SMethodBuilder<Long>(new SJavaCompoundTypeImpl(Long.TYPE)).name("getIdValue").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5ZE7FBZ0whU").registry(REGISTRY).build();
+  public static final SMethod<SAbstractConcept> getConcept_id5ZE7FBYYOpv = new SMethodBuilder<SAbstractConcept>(new SJavaCompoundTypeImpl(SAbstractConcept.class)).name("getConcept").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5ZE7FBYYOpv").build();
+  public static final SMethod<Void> setConcept_id5ZE7FBYYR6j = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setConcept").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5ZE7FBYYR6j").build(SMethodBuilder.createJavaParameter(SAbstractConcept.class, ""));
+  public static final SMethod<Long> getIdValue_id5ZE7FBZ0whU = new SMethodBuilder<Long>(new SJavaCompoundTypeImpl(Long.TYPE)).name("getIdValue").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5ZE7FBZ0whU").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getConcept_id5ZE7FBYYOpv, setConcept_id5ZE7FBYYR6j, getIdValue_id5ZE7FBZ0whU);
 
@@ -68,7 +65,6 @@ public final class ConceptId__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ ConceptId__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override
