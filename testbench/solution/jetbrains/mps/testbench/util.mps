@@ -308,7 +308,7 @@
                                 <node concept="3cpWs3" id="3zSLWWE6GWR" role="3uHU7B">
                                   <node concept="3cpWs3" id="3zSLWWE6EAD" role="3uHU7B">
                                     <node concept="Xl_RD" id="4_TMdeLkODh" role="3uHU7B">
-                                      <property role="Xl_RC" value="(AWT\\-.*)|(Image Fetch.*)|(Progress Cancel Checker)|(Flushing thread)" />
+                                      <property role="Xl_RC" value="(AWT\\-.*)|(Image Fetch.*)|(Progress Cancel Checker)|(Flushing thread)|(Flushing Daemon)|(Alarm Pool)" />
                                     </node>
                                     <node concept="Xl_RD" id="3zSLWWE6Ggu" role="3uHU7w">
                                       <property role="Xl_RC" value="|(Keep\\-Alive.*)|(Finalizer.*)|(MPS interrupting thread)" />
