@@ -17,6 +17,7 @@ package jetbrains.mps.smodel;
 
 import jetbrains.mps.smodel.search.SModelSearchUtil;
 import jetbrains.mps.util.annotation.ToRemove;
+import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -41,12 +42,14 @@ public final class SNodeLegacy {
   }
 
   public org.jetbrains.mps.openapi.model.SNode getPropertyDeclaration(String propertyName) {
+    LogManager.getLogger(getClass()).error("SNodeLegacy class is scheduled for removal, refactor your code", new Throwable());
     return SModelSearchUtil.findPropertyDeclaration(getConceptDeclarationNode(), propertyName);
   }
 
   //--------private-------
 
   public org.jetbrains.mps.openapi.model.SNode getLinkDeclaration(String role) {
+    LogManager.getLogger(getClass()).error("SNodeLegacy class is scheduled for removal, refactor your code", new Throwable());
     return SModelSearchUtil.findLinkDeclaration(getConceptDeclarationNode(), role);
   }
 

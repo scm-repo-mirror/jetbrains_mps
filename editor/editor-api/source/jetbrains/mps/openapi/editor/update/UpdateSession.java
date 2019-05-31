@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2014 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -146,10 +146,6 @@ public interface UpdateSession {
    */
   @NotNull
   EditorCell getAttributedCell(AttributeKind attributeKind, SNode attribute);
-
-  @Deprecated
-  @ToRemove(version = 2018.3)
-  <T> T updateReferencedNodeCell(Computable<T> update, SNode node, String role);
 
   /**
    * Should be called as a part of incremental update of EditorCells tree represented

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
 package jetbrains.mps.lang.editor.cellProviders;
 
 import jetbrains.mps.editor.runtime.impl.cellActions.CellAction_DeleteEasily;
-import jetbrains.mps.kernel.model.SModelUtil;
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode.DeleteDirection;
 import jetbrains.mps.nodeEditor.cellActions.CellAction_Insert;
@@ -31,12 +30,7 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.SubstituteInfo;
-import jetbrains.mps.smodel.NodeReadAccessCasterInEditor;
-import jetbrains.mps.smodel.SNodeLegacy;
-import jetbrains.mps.smodel.SNodeUtil;
-import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.util.IterableUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -63,28 +57,6 @@ public abstract class AbstractReferentCellProvider extends CellProviderWithRole 
     myLink = link;
     myRoleName = roleName;
     myTargetConcept = targetConcept;
-  }
-
-  @Deprecated
-  @ToRemove(version = 2018.3)
-  //use setProperty/setLink instead
-  //todo: this should be removed from generators in 2018.2, then we could remove it in 2018.3.
-  //todo: Non-generated occurences are already removed. The generator needed to generate it for compatibility reasons
-  @Override
-  public void setRole(final Object role) {
-    NodeReadAccessCasterInEditor.runReadTransparentAction(() -> {
-      SNode ld = new SNodeLegacy(getSNode()).getLinkDeclaration(role.toString());
-      SNode gld = SModelUtil.getGenuineLinkDeclaration(ld);
-      boolean ref = SNodeUtil.getLinkDeclaration_IsReference(gld);
-      myLink = ld == null ? null : (ref ? MetaAdapterByDeclaration.getReferenceLink(gld) : MetaAdapterByDeclaration.getContainmentLink(gld));
-      if (myLink == null) {
-        myErrorText = "?" + role.toString() + "?";
-        LOG.error("can't find a link declaration '" + role.toString() + "' in " + getSNode(), getSNode());
-        return;
-      }
-      myTargetConcept = MetaAdapterByDeclaration.getConcept(SNodeUtil.getLinkTarget(ld));
-      myRoleName = role.toString();
-    });
   }
 
   protected SAbstractLink getLink() {
