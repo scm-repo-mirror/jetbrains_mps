@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SAbstractType;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.api.SParameter;
+import jetbrains.mps.smodel.language.ConceptRegistry;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
@@ -47,7 +48,8 @@ public final class SMethodBuilder<T> {
 
   public SMethod<T> build(List<SParameter> paramTypes) {
     SMethodTrimmedId methodId = SMethodTrimmedId.create("", myModifiers.isVirtual() ? null : myConcept, myId64);
-    return SMethodImpl.create(myName, myModifiers, myReturnType, myConcept, methodId, myRegistry, paramTypes);
+    final BehaviorRegistry registry = myRegistry != null ? myRegistry : ConceptRegistry.getInstance().getBehaviorRegistry();
+    return SMethodImpl.create(myName, myModifiers, myReturnType, myConcept, methodId, registry, paramTypes);
   }
 
   public SMethodBuilder<T> name(@NotNull String name) {

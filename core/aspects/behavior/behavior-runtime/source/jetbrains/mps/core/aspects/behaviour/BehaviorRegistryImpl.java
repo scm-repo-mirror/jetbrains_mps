@@ -85,7 +85,7 @@ public class BehaviorRegistryImpl implements BehaviorRegistry {
           descriptor = new EmptyBHDescriptor(this, concept);
         }
         if (descriptor instanceof BaseBHDescriptor) {
-          ((BaseBHDescriptor) descriptor).init();
+          ((BaseBHDescriptor) descriptor).init(this);
         }
       } catch (Throwable e) {
         LOG.error("Exception while behavior descriptor creating " + concept, e);

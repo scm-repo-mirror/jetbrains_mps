@@ -25,6 +25,7 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.api.SParameter;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -57,7 +58,7 @@ import static jetbrains.mps.core.aspects.behaviour.BehaviorChecker.checkStatic;
  */
 public abstract class BaseBHDescriptor implements BHDescriptor {
   private final SMethodVirtualTable mySuperVTable = new SMethodVirtualTable();
-  private final BehaviorRegistry myBehaviorRegistry;
+  private BehaviorRegistry myBehaviorRegistry;
   private final AtomicReference<List<SMethod<?>>> myCachedMethods = new AtomicReference<>(); // optimization by ashatalin
 
   private SAbstractConcept myConcept;
@@ -65,17 +66,29 @@ public abstract class BaseBHDescriptor implements BHDescriptor {
   private SMethodVirtualTable myVTable;
   private AncestorCache myAncestorCache;
 
+  /**
+   * @deprecated shall use no-arg cons instead, and pass BehaviorRegistry through init()
+   *  shall survive 2019.2 release to ensure code generated/compiled with previous MPS releases works (ensures binary compatibility)
+   */
+  @Deprecated
+  @ToRemove(version = 2019.2)
   protected BaseBHDescriptor(BehaviorRegistry behaviorRegistry) {
     myBehaviorRegistry = behaviorRegistry;
   }
+
+  protected BaseBHDescriptor() {
+    // since 2019.2
+  }
+
 
   /**
    * Intended to be executed during concept behavior construction
    *
    * @see BehaviorRegistry#getBHDescriptor
    */
-  public synchronized void init() {
+  public synchronized void init(@NotNull BehaviorRegistry registry) {
     if (!myInitialized) {
+      myBehaviorRegistry = registry;
       myConcept = getConcept();
       myAncestorCache = new AncestorCache(myConcept, myBehaviorRegistry);
       initVirtualTables();
