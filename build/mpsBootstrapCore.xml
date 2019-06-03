@@ -10324,7 +10324,6 @@
   <target name="declare-mps-tasks" depends="classes">
     <jar destfile="${build.tmp}/antTasks/mps-core.jar">
       <fileset dir="${build.tmp}/java/out/mps-smodel" />
-      <fileset dir="${build.tmp}/java/out/mps-core-components" />
       <fileset dir="${build.tmp}/java/out/mps-behavior-api" />
       <fileset dir="${build.tmp}/java/out/mps-behavior-runtime" />
       <fileset dir="${build.tmp}/java/out/vfs" />
@@ -10340,15 +10339,18 @@
     <copy todir="${build.tmp}/antTasks/">
       <!--These are hardcoded locations of jars built in the project mpsBootstrapCore depends from-->
       <!--FIXME need better mechanism to deal with that-->
-      <fileset file="${artifacts.mpsTrueBootstrap}/mps-tuples.jar" />
-      <fileset file="${artifacts.mpsTrueBootstrap}/mps-references.jar" />
-      <fileset file="${artifacts.mpsTrueBootstrap}/mps-closures.jar" />
-      <fileset file="${artifacts.mpsTrueBootstrap}/mps-collections.jar" />
-      <fileset file="${artifacts.mpsTrueBootstrap}/ant-mps.jar" />
-      <fileset file="${artifacts.mpsTrueBootstrap}/mps-logging.jar" />
-      <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
-      <fileset file="${artifacts.mpsTrueBootstrap}/mps-annotations.jar" />
-      <fileset file="${artifacts.mpsTrueBootstrap}/mps-openapi.jar" />
+      <fileset dir="${artifacts.mpsTrueBootstrap}">
+        <include name="mps-tuples.jar" />
+        <include name="mps-references.jar" />
+        <include name="mps-closures.jar" />
+        <include name="mps-collections.jar" />
+        <include name="mps-logging.jar" />
+        <include name="mps-messaging.jar" />
+        <include name="mps-annotations.jar" />
+        <include name="mps-openapi.jar" />
+        <include name="ant-mps.jar" />
+        <include name="to-be-imported/*.jar" />
+      </fileset>
     </copy>
     <taskdef resource="jetbrains/mps/build/ant/antlib.xml" classpathref="path.mps.ant.path" />
   </target>
