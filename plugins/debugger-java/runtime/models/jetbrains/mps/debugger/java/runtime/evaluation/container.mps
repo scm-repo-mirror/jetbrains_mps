@@ -2335,17 +2335,17 @@
                 <node concept="3uibUv" id="jVJrchkj8r" role="1tU5fm">
                   <ref role="3uigEE" to="6qgz:~ModelRootDescriptor" resolve="ModelRootDescriptor" />
                 </node>
-                <node concept="2YIFZM" id="jVJrchkj8B" role="33vP2m">
+                <node concept="2YIFZM" id="1XOecUCD9EL" role="33vP2m">
+                  <ref role="37wK5l" to="6qgz:~ModelRootDescriptor.addSourceRoot(jetbrains.mps.vfs.IFile,java.util.Collection)" resolve="addSourceRoot" />
                   <ref role="1Pybhc" to="6qgz:~ModelRootDescriptor" resolve="ModelRootDescriptor" />
-                  <ref role="37wK5l" to="6qgz:~ModelRootDescriptor.getJavaStubsModelRoot(jetbrains.mps.vfs.IFile,java.util.Collection)" resolve="getJavaStubsModelRoot" />
-                  <node concept="37vLTw" id="jVJrchl65I" role="37wK5m">
+                  <node concept="37vLTw" id="1XOecUCD9EM" role="37wK5m">
                     <ref role="3cqZAo" node="jVJrchl5j4" resolve="file" />
                   </node>
-                  <node concept="2OqwBi" id="jVJrchkj8D" role="37wK5m">
-                    <node concept="37vLTw" id="jVJrchkj8E" role="2Oq$k0">
+                  <node concept="2OqwBi" id="1XOecUCD9EN" role="37wK5m">
+                    <node concept="37vLTw" id="1XOecUCD9EO" role="2Oq$k0">
                       <ref role="3cqZAo" node="29Pb3oJp8Wm" resolve="myDescriptor" />
                     </node>
-                    <node concept="liA8E" id="jVJrchkj8F" role="2OqNvi">
+                    <node concept="liA8E" id="1XOecUCD9EP" role="2OqNvi">
                       <ref role="37wK5l" to="w0gx:~ModuleDescriptor.getModelRootDescriptors()" resolve="getModelRootDescriptors" />
                     </node>
                   </node>

@@ -1017,17 +1017,17 @@
                           <node concept="1bVj0M" id="3tOCygy3A$h" role="23t8la">
                             <node concept="3clFbS" id="3tOCygy3A$i" role="1bW5cS">
                               <node concept="3clFbF" id="162iOiMQOUO" role="3cqZAp">
-                                <node concept="2YIFZM" id="162iOiMQOW1" role="3clFbG">
+                                <node concept="2YIFZM" id="1XOecUCDhwa" role="3clFbG">
+                                  <ref role="37wK5l" to="6qgz:~ModelRootDescriptor.addSourceRoot(jetbrains.mps.vfs.IFile)" resolve="addSourceRoot" />
                                   <ref role="1Pybhc" to="6qgz:~ModelRootDescriptor" resolve="ModelRootDescriptor" />
-                                  <ref role="37wK5l" to="6qgz:~ModelRootDescriptor.getJavaStubsModelRoot(jetbrains.mps.vfs.IFile)" resolve="getJavaStubsModelRoot" />
-                                  <node concept="2OqwBi" id="6UQiGMPpLx8" role="37wK5m">
-                                    <node concept="2YIFZM" id="5lw$Z_ggbGX" role="2Oq$k0">
+                                  <node concept="2OqwBi" id="1XOecUCDhwb" role="37wK5m">
+                                    <node concept="2YIFZM" id="1XOecUCDhwc" role="2Oq$k0">
                                       <ref role="37wK5l" to="3ju5:~FileSystem.getInstance()" resolve="getInstance" />
                                       <ref role="1Pybhc" to="3ju5:~FileSystem" resolve="FileSystem" />
                                     </node>
-                                    <node concept="liA8E" id="6UQiGMPpMb4" role="2OqNvi">
+                                    <node concept="liA8E" id="1XOecUCDhwd" role="2OqNvi">
                                       <ref role="37wK5l" to="3ju5:~FileSystem.getFile(java.lang.String)" resolve="getFile" />
-                                      <node concept="37vLTw" id="1OabvAshIdf" role="37wK5m">
+                                      <node concept="37vLTw" id="1XOecUCDhwe" role="37wK5m">
                                         <ref role="3cqZAo" node="3tOCygy3A$y" resolve="it" />
                                       </node>
                                     </node>
