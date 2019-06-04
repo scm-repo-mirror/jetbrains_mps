@@ -235,13 +235,6 @@ public class ModuleDescriptorPersistence {
   }
 
   private static String loadStubModelEntry(Element modelRootElement, MacroHelper macroHelper) {
-    Element manager = XmlUtil.first(modelRootElement, "manager");
-    if (manager != null) {
-      String className = XmlUtil.stringWithDefault(manager, "className", "");
-      if (!("jetbrains.mps.baseLanguage.stubs.JavaStubs".equals(className))) {
-        return null;
-      }
-    }
     return macroHelper.expandPath(modelRootElement.getAttributeValue("path"));
   }
 
