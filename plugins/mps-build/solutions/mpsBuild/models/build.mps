@@ -1945,16 +1945,6 @@
           <node concept="Saw0i" id="75RBgxKmGlz" role="39821P">
             <ref role="Saw0g" node="75RBgxKm6HY" resolve="mps-generator" />
           </node>
-          <node concept="398223" id="LYSlkhF6uJ" role="39821P">
-            <node concept="1bldCd" id="1OSlDLmrG9L" role="39821P">
-              <ref role="3$exzV" node="7Kfy9QB6Lfi" resolve="jetbrains.mps.generator" />
-            </node>
-            <node concept="3_J27D" id="LYSlkhF6uL" role="Nbhlr">
-              <node concept="3Mxwew" id="LYSlkhF6vx" role="3MwsjC">
-                <property role="3MwjfP" value="modules" />
-              </node>
-            </node>
-          </node>
           <node concept="3_J27D" id="LYSlkhF6l0" role="Nbhlr">
             <node concept="3Mxwew" id="LYSlkhF6pr" role="3MwsjC">
               <property role="3MwjfP" value="mps-generator.jar" />
@@ -2474,6 +2464,9 @@
                 <ref role="3ygNvj" node="wKi8DpgBx5" resolve="mps-behavior-runtime.jar" />
               </node>
             </node>
+          </node>
+          <node concept="L2wRC" id="wKi8DpZhaJ" role="39821P">
+            <ref role="L2wRA" node="7Kfy9QB6Lfi" resolve="jetbrains.mps.generator" />
           </node>
           <node concept="L2wRC" id="4DCXnKL$Qxu" role="39821P">
             <ref role="L2wRA" node="4DCXnKLylT$" resolve="jetbrains.mps.lang.makeup" />
@@ -4545,28 +4538,6 @@
         <property role="TrG5h" value="jetbrains.mps.generator" />
         <property role="3LESm3" value="5fa23c0a-216d-4571-a163-e286643e6f5f" />
         <property role="2GAjPV" value="true" />
-        <node concept="3rtmxn" id="EpEP7iihSK" role="3bR31x">
-          <node concept="3LXTmp" id="EpEP7iihSL" role="3rtmxm">
-            <node concept="3qWCbU" id="EpEP7iihSM" role="3LXTna">
-              <property role="3qWCbO" value="icons/**, resources/**" />
-            </node>
-            <node concept="398BVA" id="EpEP7iihSN" role="3LXTmr">
-              <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
-              <node concept="2Ry0Ak" id="EpEP7iihSO" role="iGT6I">
-                <property role="2Ry0Am" value="core" />
-                <node concept="2Ry0Ak" id="EpEP7iihSP" role="2Ry0An">
-                  <property role="2Ry0Am" value="generator" />
-                  <node concept="2Ry0Ak" id="EpEP7iihSQ" role="2Ry0An">
-                    <property role="2Ry0Am" value="solutions" />
-                    <node concept="2Ry0Ak" id="EpEP7iihSR" role="2Ry0An">
-                      <property role="2Ry0Am" value="generator" />
-                    </node>
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="1SiIV0" id="2a9bszgruXu" role="3bR37C">
           <node concept="3bR9La" id="2a9bszgruXt" role="1SiIV1">
             <ref role="3bR37D" node="44LXwdzyvTi" resolve="Annotations" />
