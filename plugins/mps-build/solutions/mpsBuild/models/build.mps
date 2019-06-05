@@ -1886,53 +1886,6 @@
             </node>
           </node>
         </node>
-        <node concept="3981dx" id="10txAzI7sE5" role="39821P">
-          <node concept="398223" id="3Z6FpdGV5xA" role="39821P">
-            <node concept="3_J27D" id="3Z6FpdGV5xC" role="Nbhlr">
-              <node concept="3Mxwew" id="3Z6FpdGV62m" role="3MwsjC">
-                <property role="3MwjfP" value="modules" />
-              </node>
-            </node>
-            <node concept="1bldCd" id="10txAzI7r4G" role="39821P">
-              <ref role="3$exzV" node="65IE4qV8XHw" resolve="DiffUtils" />
-            </node>
-            <node concept="1bldCd" id="1xb0AuwNebu" role="39821P">
-              <ref role="3$exzV" node="1xb0AuwMYDt" resolve="Hamcrest" />
-            </node>
-            <node concept="1bldCd" id="1xb0AuwNfIh" role="39821P">
-              <ref role="3$exzV" node="1xb0AuwN7WS" resolve="JUnit" />
-            </node>
-            <node concept="1bldCd" id="1OSlDLmrG9C" role="39821P">
-              <ref role="3$exzV" node="1jjYQYSj2TY" resolve="Ant" />
-            </node>
-            <node concept="1bldCd" id="1OSlDLmrG9G" role="39821P">
-              <ref role="3$exzV" node="mXGwHwhVPj" resolve="JDK" />
-            </node>
-            <node concept="1bldCd" id="3HxvO30VQjP" role="39821P">
-              <ref role="3$exzV" node="44LXwdzyvTi" resolve="Annotations" />
-            </node>
-            <node concept="1bldCd" id="1H905DlDUSV" role="39821P">
-              <ref role="3$exzV" node="1H905DlDUSw" resolve="MPS.OpenAPI" />
-            </node>
-            <node concept="1bldCd" id="1OSlDLmrG9$" role="39821P">
-              <ref role="3$exzV" node="1TaHNgiIbIZ" resolve="MPS.Editor" />
-            </node>
-            <node concept="1bldCd" id="1OSlDLmrG9A" role="39821P">
-              <ref role="3$exzV" node="1TaHNgiIbJb" resolve="MPS.Platform" />
-            </node>
-            <node concept="1bldCd" id="6IZ_b08t0mF" role="39821P">
-              <ref role="3$exzV" node="1ia2VB5guYy" resolve="MPS.IDEA" />
-            </node>
-            <node concept="1bldCd" id="1OSlDLmrG9E" role="39821P">
-              <ref role="3$exzV" node="1TaHNgiIbIQ" resolve="MPS.Core" />
-            </node>
-          </node>
-          <node concept="3_J27D" id="10txAzI7sE7" role="Nbhlr">
-            <node concept="3Mxwew" id="10txAzI7te9" role="3MwsjC">
-              <property role="3MwjfP" value="mps-stubs.jar" />
-            </node>
-          </node>
-        </node>
         <node concept="398223" id="6Z_3H2aRdL2" role="39821P">
           <node concept="3981dx" id="1FaKCGJSzNf" role="39821P">
             <node concept="Saw0i" id="2fQZjorSjPP" role="39821P">
@@ -2044,16 +1997,6 @@
           <node concept="Saw0i" id="2fQZjorSjPL" role="39821P">
             <ref role="Saw0g" node="1tWbYFNh9Av" resolve="mps-test" />
           </node>
-          <node concept="398223" id="7wpYgMyUMhM" role="39821P">
-            <node concept="3_J27D" id="7wpYgMyUMhN" role="Nbhlr">
-              <node concept="3Mxwew" id="7wpYgMyUMhO" role="3MwsjC">
-                <property role="3MwjfP" value="modules" />
-              </node>
-            </node>
-            <node concept="1bldCd" id="1OSlDLmrG9X" role="39821P">
-              <ref role="3$exzV" node="nbn5Dym2sp" resolve="Testbench" />
-            </node>
-          </node>
         </node>
         <node concept="3_J27D" id="IFRVVI696y" role="Nbhlr">
           <node concept="3Mxwew" id="IFRVVI696z" role="3MwsjC">
@@ -2062,6 +2005,56 @@
         </node>
       </node>
       <node concept="398223" id="16hzwWwBajV" role="39821P">
+        <node concept="3981dx" id="10txAzI7sE5" role="39821P">
+          <node concept="398223" id="3Z6FpdGV5xA" role="39821P">
+            <node concept="3_J27D" id="3Z6FpdGV5xC" role="Nbhlr">
+              <node concept="3Mxwew" id="3Z6FpdGV62m" role="3MwsjC">
+                <property role="3MwjfP" value="modules" />
+              </node>
+            </node>
+            <node concept="1bldCd" id="10txAzI7r4G" role="39821P">
+              <ref role="3$exzV" node="65IE4qV8XHw" resolve="DiffUtils" />
+            </node>
+            <node concept="1bldCd" id="1xb0AuwNebu" role="39821P">
+              <ref role="3$exzV" node="1xb0AuwMYDt" resolve="Hamcrest" />
+            </node>
+            <node concept="1bldCd" id="1xb0AuwNfIh" role="39821P">
+              <ref role="3$exzV" node="1xb0AuwN7WS" resolve="JUnit" />
+            </node>
+            <node concept="1bldCd" id="1OSlDLmrG9C" role="39821P">
+              <ref role="3$exzV" node="1jjYQYSj2TY" resolve="Ant" />
+            </node>
+            <node concept="1bldCd" id="1OSlDLmrG9G" role="39821P">
+              <ref role="3$exzV" node="mXGwHwhVPj" resolve="JDK" />
+            </node>
+            <node concept="1bldCd" id="3HxvO30VQjP" role="39821P">
+              <ref role="3$exzV" node="44LXwdzyvTi" resolve="Annotations" />
+            </node>
+            <node concept="1bldCd" id="1H905DlDUSV" role="39821P">
+              <ref role="3$exzV" node="1H905DlDUSw" resolve="MPS.OpenAPI" />
+            </node>
+            <node concept="1bldCd" id="1OSlDLmrG9$" role="39821P">
+              <ref role="3$exzV" node="1TaHNgiIbIZ" resolve="MPS.Editor" />
+            </node>
+            <node concept="1bldCd" id="1OSlDLmrG9A" role="39821P">
+              <ref role="3$exzV" node="1TaHNgiIbJb" resolve="MPS.Platform" />
+            </node>
+            <node concept="1bldCd" id="6IZ_b08t0mF" role="39821P">
+              <ref role="3$exzV" node="1ia2VB5guYy" resolve="MPS.IDEA" />
+            </node>
+            <node concept="1bldCd" id="1OSlDLmrG9E" role="39821P">
+              <ref role="3$exzV" node="1TaHNgiIbIQ" resolve="MPS.Core" />
+            </node>
+            <node concept="1bldCd" id="1OSlDLmrG9X" role="39821P">
+              <ref role="3$exzV" node="nbn5Dym2sp" resolve="Testbench" />
+            </node>
+          </node>
+          <node concept="3_J27D" id="10txAzI7sE7" role="Nbhlr">
+            <node concept="3Mxwew" id="10txAzI7te9" role="3MwsjC">
+              <property role="3MwjfP" value="mps-stubs.jar" />
+            </node>
+          </node>
+        </node>
         <node concept="398223" id="6X9_iRm9QQG" role="39821P">
           <node concept="L2wRC" id="5kC7eCQTERM" role="39821P">
             <ref role="L2wRA" node="7Kfy9QB6KXF" resolve="jetbrains.mps.devkit.bootstrap-languages" />

@@ -739,6 +739,7 @@
       <library file="${artifacts.mpsPlugin}/mps-core/languages/make/jetbrains.mps.make.facets.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/make/jetbrains.mps.make.runtime.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/make/jetbrains.mps.smodel.resources.jar" />
+      <library file="${artifacts.mpsPlugin}/mps-core/languages/mps-stubs.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/plaf/jetbrains.mps.baseLanguage.search.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/plaf/jetbrains.mps.baseLanguage.util.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/plaf/jetbrains.mps.ide.platform.jar" />
@@ -750,7 +751,6 @@
       <library file="${artifacts.mpsPlugin}/mps-core/languages/util/jetbrains.mps.refactoring.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/util/jetbrains.mps.refactoring.runtime.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/util/jetbrains.mps.runtime.jar" />
-      <library file="${artifacts.mpsPlugin}/mps-core/lib/mps-stubs.jar" />
       <chunk>
         <module file="${project_home}/languages/Constants/org.jetbrains.mps.samples.Constants.mpl" />
         <module file="${basedir}/languages/SampleExtensions/org.jetbrains.mps.samples.IfAndUnless.mpl" />
