@@ -292,7 +292,6 @@
       <library file="${artifacts.mps}/languages/util/jetbrains.mps.refactoring.jar" />
       <library file="${artifacts.mps}/languages/util/jetbrains.mps.refactoring.runtime.jar" />
       <library file="${artifacts.mps}/languages/util/jetbrains.mps.runtime.jar" />
-      <library file="${artifacts.mps}/lib/mps-core.jar" />
       <library file="${artifacts.mps}/lib/mps-stubs.jar" />
       <chunk>
         <module file="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.lang1/jetbrains.mps.generator.test.xmodel.lang1.mpl" />

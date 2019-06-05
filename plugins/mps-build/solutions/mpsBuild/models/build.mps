@@ -1827,16 +1827,6 @@
           <node concept="Saw0i" id="4_qKb05xjwk" role="39821P">
             <ref role="Saw0g" node="4_qKb05xiaz" resolve="aux-runtimes" />
           </node>
-          <node concept="398223" id="7wpYgMyUGWH" role="39821P">
-            <node concept="3_J27D" id="7wpYgMyUGWI" role="Nbhlr">
-              <node concept="3Mxwew" id="7wpYgMyUGWJ" role="3MwsjC">
-                <property role="3MwjfP" value="modules" />
-              </node>
-            </node>
-            <node concept="1bldCd" id="1OSlDLmrG9E" role="39821P">
-              <ref role="3$exzV" node="1TaHNgiIbIQ" resolve="MPS.Core" />
-            </node>
-          </node>
           <node concept="3_J27D" id="IFRVVI696F" role="Nbhlr">
             <node concept="3Mxwew" id="IFRVVI696G" role="3MwsjC">
               <property role="3MwjfP" value="mps-core.jar" />
@@ -1925,13 +1915,16 @@
               <ref role="3$exzV" node="1H905DlDUSw" resolve="MPS.OpenAPI" />
             </node>
             <node concept="1bldCd" id="1OSlDLmrG9$" role="39821P">
-              <ref role="3$exzV" node="1TaHNgiIbIZ" />
+              <ref role="3$exzV" node="1TaHNgiIbIZ" resolve="MPS.Editor" />
             </node>
             <node concept="1bldCd" id="1OSlDLmrG9A" role="39821P">
-              <ref role="3$exzV" node="1TaHNgiIbJb" />
+              <ref role="3$exzV" node="1TaHNgiIbJb" resolve="MPS.Platform" />
             </node>
             <node concept="1bldCd" id="6IZ_b08t0mF" role="39821P">
-              <ref role="3$exzV" node="1ia2VB5guYy" />
+              <ref role="3$exzV" node="1ia2VB5guYy" resolve="MPS.IDEA" />
+            </node>
+            <node concept="1bldCd" id="1OSlDLmrG9E" role="39821P">
+              <ref role="3$exzV" node="1TaHNgiIbIQ" resolve="MPS.Core" />
             </node>
           </node>
           <node concept="3_J27D" id="10txAzI7sE7" role="Nbhlr">

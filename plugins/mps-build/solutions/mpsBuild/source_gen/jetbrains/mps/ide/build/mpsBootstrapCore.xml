@@ -95,8 +95,6 @@
       <fileset dir="${build.tmp}/java/out/mps-typesystem" />
       <fileset dir="${build.tmp}/java/out/pattern-runtime" />
       <fileset dir="${build.tmp}/java/out/aux-runtimes" />
-      <zipfileset file="${mps_home}/languages/core/stub/MPS.Core/MPS.Core.msd" prefix="modules/MPS.Core" />
-      <zipfileset dir="${mps_home}/languages/core/stub/MPS.Core" includes="icons/**, resources/**" prefix="modules/MPS.Core" />
     </jar>
     <jar destfile="${build.layout}/lib/mps-generator.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/mps-generator" />
@@ -142,6 +140,8 @@
       <zipfileset dir="${mps_home}/languages/core/stub/MPS.Platform" includes="icons/**, resources/**" prefix="modules/MPS.Platform" />
       <zipfileset file="${mps_home}/languages/core/stub/MPS.IDEA/MPS.IDEA.msd" prefix="modules/MPS.IDEA" />
       <zipfileset dir="${mps_home}/languages/core/stub/MPS.IDEA" includes="icons/**, resources/**" prefix="modules/MPS.IDEA" />
+      <zipfileset file="${mps_home}/languages/core/stub/MPS.Core/MPS.Core.msd" prefix="modules/MPS.Core" />
+      <zipfileset dir="${mps_home}/languages/core/stub/MPS.Core" includes="icons/**, resources/**" prefix="modules/MPS.Core" />
     </jar>
     <mkdir dir="${build.layout}/lib/mpsant" />
     <jar destfile="${build.layout}/lib/mpsant/mps-tool.jar" duplicate="preserve">

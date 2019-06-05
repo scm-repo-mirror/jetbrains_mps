@@ -298,7 +298,6 @@
       <library file="${artifacts.mpsPlugin}/mps-core/languages/util/jetbrains.mps.refactoring.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/util/jetbrains.mps.refactoring.runtime.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/util/jetbrains.mps.runtime.jar" />
-      <library file="${artifacts.mpsPlugin}/mps-core/lib/mps-core.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/lib/mps-stubs.jar" />
       <chunk>
         <module file="${basedir}/languages/jetbrains.mps.samples.notesOrganizer/jetbrains.mps.samples.notesOrganizer.mpl" />
