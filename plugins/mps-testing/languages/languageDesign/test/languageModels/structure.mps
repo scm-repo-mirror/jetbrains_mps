@@ -922,7 +922,7 @@
   </node>
   <node concept="PlHQZ" id="7scb9XIYnWK">
     <property role="3GE5qa" value="nodeOperation" />
-    <property role="TrG5h" value="IChecksRules" />
+    <property role="TrG5h" value="ICheckForExpectedRule" />
     <property role="EcuMT" value="8578280453507219248" />
   </node>
   <node concept="1TIwiD" id="7scb9XJ6VZa">
@@ -1005,7 +1005,7 @@
     <property role="EcuMT" value="7835233914439520906" />
     <ref role="1TJDcQ" node="hG7unSw" resolve="NodeCheckOperation" />
     <node concept="PrWs8" id="6MWlVHUgHab" role="PzmwI">
-      <ref role="PrY4T" node="7scb9XIYnWK" resolve="IChecksRules" />
+      <ref role="PrY4T" node="7scb9XIYnWK" resolve="ICheckForExpectedRule" />
     </node>
   </node>
   <node concept="1TIwiD" id="7eBNsYUkBrv">

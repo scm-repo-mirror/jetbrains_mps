@@ -28,9 +28,8 @@ public final class NodeExpectedTypeCheckOperation__BehaviorDescriptor extends Ba
 
   public static final SMethod<Void> perform_id1kgh5YabdhC = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("perform").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1kgh5YabdhC").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<String> getDefaultName_id7scb9XJdmH2 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getDefaultName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7scb9XJdmH2").build();
-  public static final SMethod<Boolean> expectsErrorsInside_id3efgZvcKrj8 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("expectsErrorsInside").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3efgZvcKrj8").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(perform_id1kgh5YabdhC, getDefaultName_id7scb9XJdmH2, expectsErrorsInside_id3efgZvcKrj8);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(perform_id1kgh5YabdhC, getDefaultName_id7scb9XJdmH2);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -49,9 +48,6 @@ public final class NodeExpectedTypeCheckOperation__BehaviorDescriptor extends Ba
   }
   /*package*/ static String getDefaultName_id7scb9XJdmH2(@NotNull SNode __thisNode__) {
     return "NodeExpectedTypeCheck";
-  }
-  /*package*/ static boolean expectsErrorsInside_id3efgZvcKrj8(@NotNull SNode __thisNode__) {
-    return false;
   }
 
   /*package*/ NodeExpectedTypeCheckOperation__BehaviorDescriptor() {
@@ -74,8 +70,6 @@ public final class NodeExpectedTypeCheckOperation__BehaviorDescriptor extends Ba
         return null;
       case 1:
         return (T) ((String) getDefaultName_id7scb9XJdmH2(node));
-      case 2:
-        return (T) ((Boolean) expectsErrorsInside_id3efgZvcKrj8(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

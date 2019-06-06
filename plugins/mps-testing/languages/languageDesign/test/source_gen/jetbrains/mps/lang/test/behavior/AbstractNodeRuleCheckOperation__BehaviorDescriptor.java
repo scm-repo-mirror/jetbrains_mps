@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
+import java.util.Objects;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -32,7 +34,7 @@ public final class AbstractNodeRuleCheckOperation__BehaviorDescriptor extends Ba
   }
 
   /*package*/ static boolean expectsErrorsInside_id77$odk0vlBj(@NotNull SNode __thisNode__, NodeReportItem reportItem, SRepository repository) {
-    return ((boolean) IChecksRules__BehaviorDescriptor.hasExpectedRuleMessage_id4CT6QR8SJl8.invoke(__thisNode__, Sequence.<NodeReportItem>singleton(reportItem), repository));
+    return Objects.equals(reportItem.getNode(), SNodeOperations.getPointer(INodesTestMethod__BehaviorDescriptor.getAnnotatedNode_id38gbJV0XvZR.invoke(__thisNode__))) && ((boolean) ICheckForExpectedRule__BehaviorDescriptor.hasExpectedRuleMessage_id4CT6QR8SJl8.invoke(__thisNode__, Sequence.<NodeReportItem>singleton(reportItem), repository));
   }
 
   /*package*/ AbstractNodeRuleCheckOperation__BehaviorDescriptor() {

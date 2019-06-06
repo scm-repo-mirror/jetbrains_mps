@@ -28,7 +28,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_EditorOperation;
   private ConceptPresentation props_EditorTestCase;
   private ConceptPresentation props_ExpressionContainer;
-  private ConceptPresentation props_IChecksRules;
+  private ConceptPresentation props_ICheckForExpectedRule;
   private ConceptPresentation props_INodeAnnotation;
   private ConceptPresentation props_INodesTestMethod;
   private ConceptPresentation props_IReferenceAttachable;
@@ -225,12 +225,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ExpressionContainer = cpb.create();
         }
         return props_ExpressionContainer;
-      case LanguageConceptSwitch.IChecksRules:
-        if (props_IChecksRules == null) {
+      case LanguageConceptSwitch.ICheckForExpectedRule:
+        if (props_ICheckForExpectedRule == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          props_IChecksRules = cpb.create();
+          props_ICheckForExpectedRule = cpb.create();
         }
-        return props_IChecksRules;
+        return props_ICheckForExpectedRule;
       case LanguageConceptSwitch.INodeAnnotation:
         if (props_INodeAnnotation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

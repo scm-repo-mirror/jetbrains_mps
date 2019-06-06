@@ -59,7 +59,7 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
   private final BHDescriptor myAbstractNodeWarningCheckOperation__BehaviorDescriptor = new AbstractNodeWarningCheckOperation__BehaviorDescriptor();
   private final BHDescriptor myNodeConstraintsWarningCheckOperation__BehaviorDescriptor = new NodeConstraintsWarningCheckOperation__BehaviorDescriptor();
   private final BHDescriptor myNodeUnknownWarningCheckOperation__BehaviorDescriptor = new NodeUnknownWarningCheckOperation__BehaviorDescriptor();
-  private final BHDescriptor myIChecksRules__BehaviorDescriptor = new IChecksRules__BehaviorDescriptor();
+  private final BHDescriptor myICheckForExpectedRule__BehaviorDescriptor = new ICheckForExpectedRule__BehaviorDescriptor();
   private final BHDescriptor myNodeTypeSystemWarningCheckOperation__BehaviorDescriptor = new NodeTypeSystemWarningCheckOperation__BehaviorDescriptor();
 
   public BehaviorAspectDescriptor() {
@@ -90,7 +90,7 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
       case 9:
         return myEditorTestCase__BehaviorDescriptor;
       case 10:
-        return myIChecksRules__BehaviorDescriptor;
+        return myICheckForExpectedRule__BehaviorDescriptor;
       case 11:
         return myINodeAnnotation__BehaviorDescriptor;
       case 12:

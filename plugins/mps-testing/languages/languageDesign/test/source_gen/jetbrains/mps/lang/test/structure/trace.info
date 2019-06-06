@@ -1127,7 +1127,7 @@
     </file>
     <file name="LanguageConceptSwitch.java">
       <node id="1228584180295" at="32,0,33,0" concept="7" trace="INodeAnnotation" />
-      <node id="1228584180295" at="114,51,115,49" concept="1" />
+      <node id="1228584180295" at="114,60,115,49" concept="1" />
     </file>
     <file name="StructureAspectDescriptor.java">
       <node id="1228584180295" at="41,0,42,0" concept="2" trace="myConceptINodeAnnotation" />
@@ -2848,32 +2848,32 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590388(jetbrains.mps.lang.test.structure)/8578280453507219248">
     <file name="ConceptPresentationAspectImpl.java">
-      <node id="8578280453507219248" at="31,0,32,0" concept="2" trace="props_IChecksRules" />
-      <node id="8578280453507219248" at="229,41,230,76" concept="5" />
-      <node id="8578280453507219248" at="230,76,231,44" concept="1" />
-      <node id="8578280453507219248" at="232,9,233,34" concept="6" />
-      <node id="8578280453507219248" at="228,46,232,9" concept="3" />
-      <scope id="8578280453507219248" at="229,41,231,44">
+      <node id="8578280453507219248" at="31,0,32,0" concept="2" trace="props_ICheckForExpectedRule" />
+      <node id="8578280453507219248" at="229,50,230,76" concept="5" />
+      <node id="8578280453507219248" at="230,76,231,53" concept="1" />
+      <node id="8578280453507219248" at="232,9,233,43" concept="6" />
+      <node id="8578280453507219248" at="228,55,232,9" concept="3" />
+      <scope id="8578280453507219248" at="229,50,231,53">
         <var name="cpb" id="8578280453507219248" />
       </scope>
-      <scope id="8578280453507219248" at="228,46,233,34" />
+      <scope id="8578280453507219248" at="228,55,233,43" />
     </file>
     <file name="LanguageConceptSwitch.java">
-      <node id="8578280453507219248" at="31,0,32,0" concept="7" trace="IChecksRules" />
-      <node id="8578280453507219248" at="113,58,114,51" concept="1" />
+      <node id="8578280453507219248" at="31,0,32,0" concept="7" trace="ICheckForExpectedRule" />
+      <node id="8578280453507219248" at="113,58,114,60" concept="1" />
     </file>
     <file name="StructureAspectDescriptor.java">
-      <node id="8578280453507219248" at="40,0,41,0" concept="2" trace="myConceptIChecksRules" />
-      <node id="8578280453507219248" at="167,46,168,37" concept="6" />
+      <node id="8578280453507219248" at="40,0,41,0" concept="2" trace="myConceptICheckForExpectedRule" />
+      <node id="8578280453507219248" at="167,55,168,46" concept="6" />
       <node id="8578280453507219248" at="324,127,325,76" concept="1" />
-      <node id="8578280453507219248" at="510,70,511,170" concept="5" />
-      <node id="8578280453507219248" at="511,170,512,19" concept="1" />
+      <node id="8578280453507219248" at="510,79,511,179" concept="5" />
+      <node id="8578280453507219248" at="511,179,512,19" concept="1" />
       <node id="8578280453507219248" at="512,19,513,110" concept="1" />
       <node id="8578280453507219248" at="513,110,514,17" concept="1" />
       <node id="8578280453507219248" at="514,17,515,22" concept="6" />
-      <node id="8578280453507219248" at="510,0,517,0" concept="8" trace="createDescriptorForIChecksRules#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
-      <scope id="8578280453507219248" at="167,46,168,37" />
-      <scope id="8578280453507219248" at="510,70,515,22">
+      <node id="8578280453507219248" at="510,0,517,0" concept="8" trace="createDescriptorForICheckForExpectedRule#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <scope id="8578280453507219248" at="167,55,168,46" />
+      <scope id="8578280453507219248" at="510,79,515,22">
         <var name="b" id="8578280453507219248" />
       </scope>
       <scope id="8578280453507219248" at="510,0,517,0" />

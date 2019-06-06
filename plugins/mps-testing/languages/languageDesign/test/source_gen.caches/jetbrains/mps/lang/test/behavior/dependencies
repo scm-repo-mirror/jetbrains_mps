@@ -32,6 +32,7 @@
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.Arrays" />
     <classNode dependClassName="java.util.List" />
+    <classNode dependClassName="java.util.Objects" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.AccessPrivileges" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.SMethodBuilder" />
@@ -41,7 +42,9 @@
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SMethod" />
     <classNode dependClassName="jetbrains.mps.errors.item.NodeReportItem" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
-    <classNode dependClassName="jetbrains.mps.lang.test.behavior.IChecksRules__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
+    <classNode dependClassName="jetbrains.mps.lang.test.behavior.ICheckForExpectedRule__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.lang.test.behavior.INodesTestMethod__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
@@ -145,7 +148,7 @@
     <classNode dependClassName="jetbrains.mps.lang.test.behavior.CheckNodeForErrorMessagesOperation__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.test.behavior.DragMouseStatement__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.test.behavior.EditorTestCase__BehaviorDescriptor" />
-    <classNode dependClassName="jetbrains.mps.lang.test.behavior.IChecksRules__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.lang.test.behavior.ICheckForExpectedRule__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.test.behavior.INodeAnnotation__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.test.behavior.INodesTestMethod__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.test.behavior.IReferenceAttachable__BehaviorDescriptor" />
@@ -227,12 +230,14 @@
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SConstructor" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SMethod" />
+    <classNode dependClassName="jetbrains.mps.errors.item.NodeReportItem" />
     <classNode dependClassName="jetbrains.mps.lang.test.runtime.NodeDataFlowCheckerUtil" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor" />
   </dependency>
   <dependency className="jetbrains.mps.lang.test.behavior.CheckNodeForErrorMessagesOperation__BehaviorDescriptor">
@@ -252,13 +257,16 @@
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SConstructor" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SMethod" />
+    <classNode dependClassName="jetbrains.mps.errors.item.NodeReportItem" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
-    <classNode dependClassName="jetbrains.mps.lang.test.runtime.NodeCheckerUtil" />
+    <classNode dependClassName="jetbrains.mps.lang.test.behavior.INodesTestMethod__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.lang.test.runtime.CheckErrorMessagesAction" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor" />
   </dependency>
   <dependency className="jetbrains.mps.lang.test.behavior.DragMouseStatement__BehaviorDescriptor">
@@ -314,7 +322,7 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor" />
   </dependency>
-  <dependency className="jetbrains.mps.lang.test.behavior.IChecksRules__BehaviorDescriptor">
+  <dependency className="jetbrains.mps.lang.test.behavior.ICheckForExpectedRule__BehaviorDescriptor">
     <classNode dependClassName="java.lang.Boolean" />
     <classNode dependClassName="java.lang.Class" />
     <classNode dependClassName="java.lang.Iterable" />
@@ -560,6 +568,7 @@
   <dependency className="jetbrains.mps.lang.test.behavior.NodeCheckOperation__BehaviorDescriptor">
     <classNode dependClassName="java.lang.Boolean" />
     <classNode dependClassName="java.lang.Class" />
+    <classNode dependClassName="java.lang.Deprecated" />
     <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
@@ -576,6 +585,7 @@
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="jetbrains.mps.util.annotation.ToRemove" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
@@ -664,7 +674,6 @@
     <classNode extendsClassName="jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor" />
   </dependency>
   <dependency className="jetbrains.mps.lang.test.behavior.NodeExpectedTypeCheckOperation__BehaviorDescriptor">
-    <classNode dependClassName="java.lang.Boolean" />
     <classNode dependClassName="java.lang.Class" />
     <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
@@ -784,6 +793,7 @@
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SConstructor" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SMethod" />
+    <classNode dependClassName="jetbrains.mps.errors.item.NodeReportItem" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.test.runtime.NodeDataFlowCheckerUtil" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
@@ -791,6 +801,7 @@
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor" />
   </dependency>
   <dependency className="jetbrains.mps.lang.test.behavior.NodeRuleCheckOperation__BehaviorDescriptor">
@@ -853,6 +864,7 @@
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SConstructor" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SMethod" />
+    <classNode dependClassName="jetbrains.mps.errors.item.NodeReportItem" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.test.behavior.NodeTypeCheckingAction" />
@@ -864,6 +876,7 @@
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor" />
   </dependency>
   <dependency className="jetbrains.mps.lang.test.behavior.NodeTypeCheckingAction">
@@ -888,6 +901,7 @@
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SConstructor" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SMethod" />
+    <classNode dependClassName="jetbrains.mps.errors.item.NodeReportItem" />
     <classNode dependClassName="jetbrains.mps.lang.pattern.util.MatchingUtil" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
@@ -901,6 +915,7 @@
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor" />
   </dependency>
   <dependency className="jetbrains.mps.lang.test.behavior.NodeTypeSystemErrorCheckOperation__BehaviorDescriptor">
@@ -1031,6 +1046,7 @@
     <classNode extendsClassName="jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor" />
   </dependency>
   <dependency className="jetbrains.mps.lang.test.behavior.NodeUnreachable__BehaviorDescriptor">
+    <classNode dependClassName="java.lang.Boolean" />
     <classNode dependClassName="java.lang.Class" />
     <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
@@ -1045,13 +1061,18 @@
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SConstructor" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SMethod" />
+    <classNode dependClassName="jetbrains.mps.errors.item.NodeReportItem" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPointerOperations" />
+    <classNode dependClassName="jetbrains.mps.lang.test.runtime.NodeCheckerUtil" />
     <classNode dependClassName="jetbrains.mps.lang.test.runtime.NodeDataFlowCheckerUtil" />
+    <classNode dependClassName="jetbrains.mps.smodel.SNodePointer" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor" />
   </dependency>
   <dependency className="jetbrains.mps.lang.test.behavior.NodeWarningCheckOperation__BehaviorDescriptor">
@@ -1140,7 +1161,7 @@
     <classNode dependClassName="jetbrains.mps.errors.MessageStatus" />
     <classNode dependClassName="jetbrains.mps.errors.item.NodeReportItem" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
-    <classNode dependClassName="jetbrains.mps.lang.test.behavior.IChecksRules__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.lang.test.behavior.ICheckForExpectedRule__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.test.behavior.INodesTestMethod__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.test.runtime.NodeCheckerUtil" />
     <classNode dependClassName="jetbrains.mps.lang.test.runtime.TestsErrorsChecker" />
@@ -1273,6 +1294,7 @@
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SConstructor" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SMethod" />
+    <classNode dependClassName="jetbrains.mps.errors.item.NodeReportItem" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.test.runtime.NodeDataFlowCheckerUtil" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
@@ -1280,6 +1302,7 @@
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor" />
   </dependency>
   <dependency className="jetbrains.mps.lang.test.behavior.VariableInitialized__BehaviorDescriptor">
@@ -1298,6 +1321,7 @@
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SConstructor" />
     <classNode dependClassName="jetbrains.mps.core.aspects.behaviour.api.SMethod" />
+    <classNode dependClassName="jetbrains.mps.errors.item.NodeReportItem" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.test.runtime.NodeDataFlowCheckerUtil" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
@@ -1305,6 +1329,7 @@
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor" />
   </dependency>
   <dependency className="jetbrains.mps.lang.test.behavior.WarningStatementReference__BehaviorDescriptor">

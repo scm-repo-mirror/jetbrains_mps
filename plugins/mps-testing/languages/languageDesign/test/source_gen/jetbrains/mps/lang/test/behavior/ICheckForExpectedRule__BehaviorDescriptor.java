@@ -20,8 +20,8 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
-public final class IChecksRules__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x770c2c9f6ef97f30L, "jetbrains.mps.lang.test.structure.IChecksRules");
+public final class ICheckForExpectedRule__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x770c2c9f6ef97f30L, "jetbrains.mps.lang.test.structure.ICheckForExpectedRule");
 
   public static final SMethod<Boolean> hasExpectedRuleMessage_id4CT6QR8SJl8 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasExpectedRuleMessage").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4CT6QR8SJl8").build(SMethodBuilder.createJavaParameter((Class<Iterable<NodeReportItem>>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(SRepository.class, ""));
 
@@ -31,7 +31,7 @@ public final class IChecksRules__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
 
-  /*package*/ IChecksRules__BehaviorDescriptor() {
+  /*package*/ ICheckForExpectedRule__BehaviorDescriptor() {
   }
 
   @Override

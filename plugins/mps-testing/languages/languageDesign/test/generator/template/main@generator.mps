@@ -317,12 +317,6 @@
       </concept>
     </language>
     <language id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal">
-      <concept id="1173990517731" name="jetbrains.mps.baseLanguageInternal.structure.InternalStaticMethodCall" flags="nn" index="1niqFM">
-        <property id="1173992444083" name="methodName" index="1npL6y" />
-        <property id="1173992483054" name="fqClassName" index="1npUBZ" />
-        <child id="319021450862604085" name="actualArgument" index="2U24H$" />
-        <child id="1175794062018" name="returnType" index="32Mpfj" />
-      </concept>
       <concept id="1173996401517" name="jetbrains.mps.baseLanguageInternal.structure.InternalNewExpression" flags="nn" index="1nCR9W">
         <property id="1173996588177" name="fqClassName" index="1nD$Q0" />
         <child id="1179332974947" name="type" index="2lIhxL" />
@@ -519,11 +513,11 @@
     <node concept="3aamgX" id="3HtznTW2Nhp" role="3acgRq">
       <ref role="30HIoZ" to="tp5g:hFCa1uS" resolve="CheckNodeForErrors" />
       <node concept="gft3U" id="3HtznTW2Nhr" role="1lVwrX">
-        <node concept="3clFbF" id="3HtznTW2VNI" role="gfFT$">
-          <node concept="1niqFM" id="3HtznTW2VNK" role="3clFbG">
-            <property role="1npUBZ" value="jetbrains.mps.lang.test.runtime.NodeCheckerUtil" />
-            <property role="1npL6y" value="checkNodeForErrorMessages" />
-            <node concept="10Nm6u" id="3HtznTW2VNL" role="2U24H$">
+        <node concept="3clFbF" id="2xO1A76obQj" role="gfFT$">
+          <node concept="2YIFZM" id="2xO1A76oer$" role="3clFbG">
+            <ref role="37wK5l" to="tp6m:3fN3Qovz9c1" resolve="checkNodeForErrorMessages" />
+            <ref role="1Pybhc" to="tp6m:18jf_F1WDsS" resolve="NodeCheckerUtil" />
+            <node concept="10Nm6u" id="3HtznTW2VNL" role="37wK5m">
               <node concept="29HgVG" id="3HtznTW2VNM" role="lGtFl">
                 <node concept="3NFfHV" id="3HtznTW2VNN" role="3NFExx">
                   <node concept="3clFbS" id="3HtznTW2VNO" role="2VODD2">
@@ -539,13 +533,13 @@
                 </node>
               </node>
             </node>
-            <node concept="3clFbT" id="3fsa_am1TSR" role="2U24H$">
+            <node concept="3clFbT" id="3fsa_am1TSR" role="37wK5m">
               <property role="3clFbU" value="false" />
             </node>
-            <node concept="3clFbT" id="3fsa_am1Vjv" role="2U24H$">
+            <node concept="3clFbT" id="3fsa_am1Vjv" role="37wK5m">
               <property role="3clFbU" value="false" />
             </node>
-            <node concept="3clFbT" id="3fN3Qov$tSU" role="2U24H$">
+            <node concept="3clFbT" id="3fN3Qov$tSU" role="37wK5m">
               <property role="3clFbU" value="false" />
               <node concept="17Uvod" id="3fN3Qov$vXT" role="lGtFl">
                 <property role="P4ACc" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123137/1068580123138" />
@@ -564,7 +558,6 @@
                 </node>
               </node>
             </node>
-            <node concept="3cqZAl" id="3HtznTW2VNT" role="32Mpfj" />
           </node>
         </node>
       </node>
@@ -573,10 +566,10 @@
       <ref role="30HIoZ" to="tp5g:hHOf0Uc" resolve="CheckNodeDataflow" />
       <node concept="gft3U" id="3HtznTW2NhH" role="1lVwrX">
         <node concept="3clFbF" id="3HtznTW2VNU" role="gfFT$">
-          <node concept="1niqFM" id="3HtznTW2VNW" role="3clFbG">
-            <property role="1npL6y" value="checkDataFlow" />
-            <property role="1npUBZ" value="jetbrains.mps.lang.test.runtime.NodeDataFlowCheckerUtil" />
-            <node concept="10Nm6u" id="3HtznTW2VNX" role="2U24H$">
+          <node concept="2YIFZM" id="2xO1A76omLg" role="3clFbG">
+            <ref role="37wK5l" to="tp6m:hG87wR8" resolve="checkDataFlow" />
+            <ref role="1Pybhc" to="tp6m:hFCjDGI" resolve="NodeDataFlowCheckerUtil" />
+            <node concept="10Nm6u" id="3HtznTW2VNX" role="37wK5m">
               <node concept="29HgVG" id="3HtznTW2VNY" role="lGtFl">
                 <node concept="3NFfHV" id="3HtznTW2VNZ" role="3NFExx">
                   <node concept="3clFbS" id="3HtznTW2VO0" role="2VODD2">
@@ -592,7 +585,6 @@
                 </node>
               </node>
             </node>
-            <node concept="3cqZAl" id="3HtznTW2VO5" role="32Mpfj" />
           </node>
         </node>
       </node>

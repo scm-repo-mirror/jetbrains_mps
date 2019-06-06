@@ -433,7 +433,7 @@
       <property role="eg7rD" value="false" />
       <property role="34CwA1" value="false" />
       <property role="3TUv4t" value="false" />
-      <property role="TrG5h" value="props_IChecksRules" />
+      <property role="TrG5h" value="props_ICheckForExpectedRule" />
       <node concept="3uibUv" id="1V" role="1tU5fm">
         <ref role="3uigEE" to="ze1i:~ConceptPresentation" resolve="ConceptPresentation" />
       </node>
@@ -2415,7 +2415,7 @@
                         </node>
                       </node>
                       <node concept="37vLTw" id="dA" role="37vLTJ">
-                        <ref role="3cqZAo" node="l" resolve="props_IChecksRules" />
+                        <ref role="3cqZAo" node="l" resolve="props_ICheckForExpectedRule" />
                       </node>
                     </node>
                   </node>
@@ -2423,19 +2423,19 @@
                 <node concept="3clFbC" id="dt" role="3clFbw">
                   <node concept="10Nm6u" id="dD" role="3uHU7w" />
                   <node concept="37vLTw" id="dE" role="3uHU7B">
-                    <ref role="3cqZAo" node="l" resolve="props_IChecksRules" />
+                    <ref role="3cqZAo" node="l" resolve="props_ICheckForExpectedRule" />
                   </node>
                 </node>
               </node>
               <node concept="3cpWs6" id="dr" role="3cqZAp">
                 <node concept="37vLTw" id="dF" role="3cqZAk">
-                  <ref role="3cqZAo" node="l" resolve="props_IChecksRules" />
+                  <ref role="3cqZAo" node="l" resolve="props_ICheckForExpectedRule" />
                 </node>
               </node>
             </node>
             <node concept="10M0yZ" id="dp" role="3Kbmr1">
               <ref role="1PxDUh" node="Os" resolve="LanguageConceptSwitch" />
-              <ref role="3cqZAo" node="OL" resolve="IChecksRules" />
+              <ref role="3cqZAo" node="OL" resolve="ICheckForExpectedRule" />
             </node>
           </node>
           <node concept="3KbdKl" id="4s" role="3KbHQx">
@@ -9071,7 +9071,7 @@
       <property role="2dlcS1" value="false" />
       <property role="2dld4O" value="false" />
       <property role="3TUv4t" value="true" />
-      <property role="TrG5h" value="IChecksRules" />
+      <property role="TrG5h" value="ICheckForExpectedRule" />
       <node concept="3Tm1VV" id="QK" role="1B3o_S" />
       <node concept="10Oyi0" id="QL" role="1tU5fm" />
       <node concept="3cmrfG" id="QM" role="33vP2m">
@@ -10077,7 +10077,7 @@
                 <property role="1adDun" value="0x770c2c9f6ef97f30L" />
               </node>
               <node concept="37vLTw" id="W_" role="37wK5m">
-                <ref role="3cqZAo" node="OL" resolve="IChecksRules" />
+                <ref role="3cqZAo" node="OL" resolve="ICheckForExpectedRule" />
               </node>
             </node>
           </node>
@@ -11351,12 +11351,12 @@
       <property role="eg7rD" value="false" />
       <property role="34CwA1" value="false" />
       <property role="3TUv4t" value="true" />
-      <property role="TrG5h" value="myConceptIChecksRules" />
+      <property role="TrG5h" value="myConceptICheckForExpectedRule" />
       <node concept="3uibUv" id="153" role="1tU5fm">
         <ref role="3uigEE" to="ze1i:~ConceptDescriptor" resolve="ConceptDescriptor" />
       </node>
       <node concept="1rXfSq" id="154" role="33vP2m">
-        <ref role="37wK5l" node="13w" resolve="createDescriptorForIChecksRules" />
+        <ref role="37wK5l" node="13w" resolve="createDescriptorForICheckForExpectedRule" />
       </node>
     </node>
     <node concept="312cEg" id="120" role="jymVt">
@@ -12341,7 +12341,7 @@
               <ref role="3cqZAo" node="11Y" resolve="myConceptExpressionContainer" />
             </node>
             <node concept="37vLTw" id="18q" role="37wK5m">
-              <ref role="3cqZAo" node="11Z" resolve="myConceptIChecksRules" />
+              <ref role="3cqZAo" node="11Z" resolve="myConceptICheckForExpectedRule" />
             </node>
             <node concept="37vLTw" id="18r" role="37wK5m">
               <ref role="3cqZAo" node="120" resolve="myConceptINodeAnnotation" />
@@ -12803,13 +12803,13 @@
             <node concept="3clFbS" id="1bY" role="3Kbo56">
               <node concept="3cpWs6" id="1c0" role="3cqZAp">
                 <node concept="37vLTw" id="1c1" role="3cqZAk">
-                  <ref role="3cqZAo" node="11Z" resolve="myConceptIChecksRules" />
+                  <ref role="3cqZAo" node="11Z" resolve="myConceptICheckForExpectedRule" />
                 </node>
               </node>
             </node>
             <node concept="10M0yZ" id="1bZ" role="3Kbmr1">
               <ref role="1PxDUh" node="Os" resolve="LanguageConceptSwitch" />
-              <ref role="3cqZAo" node="OL" resolve="IChecksRules" />
+              <ref role="3cqZAo" node="OL" resolve="ICheckForExpectedRule" />
             </node>
           </node>
           <node concept="3KbdKl" id="19O" role="3KbHQx">
@@ -17478,7 +17478,7 @@
       <property role="od$2w" value="false" />
       <property role="DiZV1" value="false" />
       <property role="2aFKle" value="false" />
-      <property role="TrG5h" value="createDescriptorForIChecksRules" />
+      <property role="TrG5h" value="createDescriptorForICheckForExpectedRule" />
       <node concept="3clFbS" id="1Al" role="3clF47">
         <node concept="3cpWs8" id="1Ao" role="3cqZAp">
           <node concept="3cpWsn" id="1At" role="3cpWs9">
@@ -17493,7 +17493,7 @@
                   <property role="Xl_RC" value="jetbrains.mps.lang.test" />
                 </node>
                 <node concept="Xl_RD" id="1Ay" role="37wK5m">
-                  <property role="Xl_RC" value="IChecksRules" />
+                  <property role="Xl_RC" value="ICheckForExpectedRule" />
                 </node>
                 <node concept="1adDum" id="1Az" role="37wK5m">
                   <property role="1adDun" value="0x8585453e6bfb4d80L" />

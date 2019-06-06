@@ -38,7 +38,7 @@ public final class NodeOperationsContainer__BehaviorDescriptor extends BaseBHDes
   /*package*/ static void detachAllErrorOperations_id4QaU5oI0Q4j(@NotNull SNode __thisNode__) {
     ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, 0x11b07abae7cL, "nodeOperations"))).removeWhere(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, MetaAdapterFactory.getInterfaceConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x770c2c9f6ef97f30L, "jetbrains.mps.lang.test.structure.IChecksRules"));
+        return SNodeOperations.isInstanceOf(it, MetaAdapterFactory.getInterfaceConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x770c2c9f6ef97f30L, "jetbrains.mps.lang.test.structure.ICheckForExpectedRule"));
       }
     });
   }
