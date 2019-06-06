@@ -7139,9 +7139,13 @@
                 <node concept="37vLTw" id="6MWlVHU2Nye" role="2Oq$k0">
                   <ref role="3cqZAo" node="6MWlVHU2Ny6" resolve="property" />
                 </node>
-                <node concept="1mIQ4w" id="6MWlVHU2Nyf" role="2OqNvi">
-                  <node concept="chp4Y" id="6MWlVHU2Nyg" role="cj9EA">
-                    <ref role="cht4Q" to="tp5g:7scb9XIYnWK" resolve="ICheckForExpectedRule" />
+                <node concept="2qgKlT" id="2xO1A76qZsx" role="2OqNvi">
+                  <ref role="37wK5l" to="tp5o:77$odk0vlBj" resolve="expectsErrorsInside" />
+                  <node concept="37vLTw" id="2xO1A76r0tP" role="37wK5m">
+                    <ref role="3cqZAo" node="5eW9Q_epf4_" resolve="reportItem" />
+                  </node>
+                  <node concept="37vLTw" id="2xO1A76r13i" role="37wK5m">
+                    <ref role="3cqZAo" node="5eW9Q_epg3J" resolve="repository" />
                   </node>
                 </node>
               </node>

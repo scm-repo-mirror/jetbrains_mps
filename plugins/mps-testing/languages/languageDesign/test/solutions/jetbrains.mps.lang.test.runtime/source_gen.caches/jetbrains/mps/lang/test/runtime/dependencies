@@ -160,6 +160,7 @@
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
+    <classNode dependClassName="jetbrains.mps.lang.test.behavior.NodeCheckOperation__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.test.runtime.NodeCheckerUtil" />
     <classNode dependClassName="jetbrains.mps.lang.test.runtime.TestsErrorsChecker" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
