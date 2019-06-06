@@ -130,18 +130,23 @@ public final class CommonPaths {
     addIfExists(result, "lib/platform.jar");
     addIfExists(result, "lib/platform-api.jar");
     addIfExists(result, "lib/platform-impl.jar");
-    addIfExists(result, "lib/platform-util-concurrency.jar");
+    addIfExists(result, "lib/platform-concurrency.jar");
+    addIfExists(result, "lib/platform-core-ui.jar");
+    addIfExists(result, "lib/platform-objectSerializer.jar");
+    addIfExists(result, "lib/platform-objectSerializer-annotations.jar");
+    addIfExists(result, "lib/platform-util-ui.jar");
+    addIfExists(result, "lib/configuration-store-impl.jar");
   }
 
   private static void addIdeaJars(Collection<QualifiedPath> result) {
     addRepackedIdeaJars(result);
-    addIfExists(result, "lib/netty-buffer-4.1.34.Final.jar");
-    addIfExists(result, "lib/netty-codec-4.1.34.Final.jar");
-    addIfExists(result, "lib/netty-codec-http-4.1.34.Final.jar");
-    addIfExists(result, "lib/netty-common-4.1.34.Final.jar");
-    addIfExists(result, "lib/netty-handler-4.1.34.Final.jar");
-    addIfExists(result, "lib/netty-resolver-4.1.34.Final.jar");
-    addIfExists(result, "lib/netty-transport-4.1.34.Final.jar");
+    addIfExists(result, "lib/netty-buffer-4.1.36.Final.jar");
+    addIfExists(result, "lib/netty-codec-4.1.36.Final.jar");
+    addIfExists(result, "lib/netty-codec-http-4.1.36.Final.jar");
+    addIfExists(result, "lib/netty-common-4.1.36.Final.jar");
+    addIfExists(result, "lib/netty-handler-4.1.36.Final.jar");
+    addIfExists(result, "lib/netty-resolver-4.1.36.Final.jar");
+    addIfExists(result, "lib/netty-transport-4.1.36.Final.jar");
     addIfExists(result, "lib/commons-imaging-1.0-RC.jar");
     addIfExists(result, "lib/util.jar");
     addIfExists(result, "lib/extensions.jar");
