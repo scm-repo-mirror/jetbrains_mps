@@ -2135,6 +2135,9 @@
     <node concept="PrWs8" id="6r77ob2Ws6N" role="PrDN$">
       <ref role="PrY4T" node="6r77ob2UL4Y" resolve="IClassifierMember" />
     </node>
+    <node concept="PrWs8" id="1wGlIQ7z0N4" role="PrDN$">
+      <ref role="PrY4T" to="tpck:2WmWrdnSpX2" resolve="ICanSuppressErrors" />
+    </node>
   </node>
   <node concept="1TIwiD" id="h9VxSy2">
     <property role="R4oN_" value="this constructor invocation" />
