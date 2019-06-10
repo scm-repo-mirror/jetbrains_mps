@@ -48,7 +48,6 @@ import java.util.concurrent.ConcurrentMap;
  */
 public abstract class LanguageRuntime {
   private final ConcurrentMap<Class<? extends ILanguageAspect>, ILanguageAspect> myAspectDescriptors = new ConcurrentHashMap<>();
-  // FIXME AP: is there a contract on duplication????
   private final List<LanguageRuntime> myExtendingLanguages = new ArrayList<>();
   private final List<LanguageRuntime> myExtendedLanguages = new ArrayList<>();
 

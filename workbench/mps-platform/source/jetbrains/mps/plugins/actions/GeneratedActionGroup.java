@@ -16,29 +16,40 @@
 package jetbrains.mps.plugins.actions;
 
 import com.intellij.openapi.actionSystem.ActionManager;
-import com.intellij.openapi.actionSystem.ActionStub;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.extensions.PluginId;
+import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.workbench.action.BaseAction;
 import jetbrains.mps.workbench.action.BaseGroup;
-import jetbrains.mps.workbench.action.IActionsRegistry;
-import jetbrains.mps.workbench.action.IRegistryManager;
-import jetbrains.mps.workbench.action.MPSActions;
+import jetbrains.mps.workbench.action.ApplicationPlugin;
+import jetbrains.mps.workbench.action.ApplicationPluginHolder;
 import org.apache.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class GeneratedActionGroup extends BaseGroup {
+  @Nullable private final ApplicationPlugin myApplicationPlugin;
+
+  @ToRemove(version = 192)
+  @Deprecated
   protected GeneratedActionGroup(String text, String id) {
-    super(text, id);
+    this(text, id, null);
   }
 
-  @Deprecated//replace with action stubs
-  protected void addAction(String id) {
+  /**
+   * AP: I am not so sure about this keymap interaction here at all
+   * Probably I would rather rewrite it when we will move tool&prefs initialization out of EDT
+   */
+  protected GeneratedActionGroup(String text, String id, @Nullable ApplicationPlugin applicationPlugin) {
+    super(text, id);
+    myApplicationPlugin = applicationPlugin;
+  }
+
+  protected void addAction(@NotNull String id) {
     addActionSafe(ActionManager.getInstance().getAction(id));
   }
 
-  @Deprecated
   protected void addParameterizedAction(BaseAction action, PluginId id, Object... params) {
     if (!isStrict()){
       addActionSafe(action);
@@ -53,20 +64,24 @@ public abstract class GeneratedActionGroup extends BaseGroup {
     }
 
     addActionSafe(action);
-    // FIXME: creates an initialization cycle for {@code ApplicationPluginManager}
-    IActionsRegistry actionsRegistry = ApplicationManager.getApplication().getComponent(IRegistryManager.class).getActionsRegistry(id);
-    actionsRegistry.addParameterizedAction(action, params);
+    if (myApplicationPlugin == null) {
+      // NOTE: creates an initialization cycle for {@code ApplicationPluginManager}, to remove in 193
+      legacyAddParameterisedAction(action, id, params);
+    } else {
+      myApplicationPlugin.addParameterizedAction(action, params);
+    }
   }
 
-  protected void addAction(ActionStub creator) {
-    addActionSafe(MPSActions.getInstance().acquireAction(creator));
+  private void legacyAddParameterisedAction(BaseAction action, PluginId id, Object[] params) {
+    ApplicationPlugin actionsRegistry = ApplicationManager.getApplication().getComponent(ApplicationPluginHolder.class).getPluginById(id);
+    actionsRegistry.addParameterizedAction(action, params);
   }
 
   /**
    * For generated code, we don't want single missing/failing action in a group to break whole MPS activation sequence,
    * thus we try to minimize the damage - just report the error and go on.
    */
-  protected void addActionSafe(@Nullable AnAction action) {
+  private void addActionSafe(@Nullable AnAction action) {
     if (action == null) {
       Logger.getLogger(getClass()).error("Missing action in action group " + getId(), new Throwable());
       return;
@@ -78,6 +93,9 @@ public abstract class GeneratedActionGroup extends BaseGroup {
     }
   }
 
+  /**
+   * isStrict = enumerate function in the action group
+   */
   protected boolean isStrict(){
     return true;
   }

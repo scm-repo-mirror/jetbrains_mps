@@ -37,7 +37,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BaseGroup extends DefaultActionGroup implements DumbAware {
-  private String myId = "";
+  private final String myId;
   private boolean myIsInternal = false;
   private boolean myIsAlwaysVisible = true;
 

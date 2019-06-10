@@ -43,10 +43,13 @@ import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.MPSModuleRepository;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.JavaNameUtil;
+import jetbrains.mps.util.annotation.Hack;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SRepository;
@@ -150,10 +153,15 @@ public class PluginLoaderRegistry implements ApplicationComponent {
     synchronized (myLoadersDeltaLock) {
       LOG.debug("Registering the " + loader);
       myLoaderDelta.load(Collections.singleton(loader));
-      if (loader instanceof ProjectPluginManager) {
-        // hack to remove in 192, see GeneratedActionGroup:57
-        scheduleUpdate();
-      }
+      removeIfProjectIsLoader(loader);
+    }
+  }
+
+  @ToRemove(version = 193)
+  @Hack
+  private void removeIfProjectIsLoader(@NotNull PluginLoader loader) {
+    if (loader instanceof ProjectPluginManager) {
+      scheduleUpdate();
     }
   }
 

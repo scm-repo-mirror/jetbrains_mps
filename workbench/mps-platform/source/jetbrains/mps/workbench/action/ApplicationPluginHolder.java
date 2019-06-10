@@ -15,9 +15,14 @@
  */
 package jetbrains.mps.workbench.action;
 
+import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.annotations.Internal;
+
 /**
- * fixme get rid of it
+ * a lot of tricky implicit contracts for the order of loading is connected with this interface
  */
-public interface IActionsRegistry {
-  void addParameterizedAction(BaseAction action, Object... params);
+@Internal
+public interface ApplicationPluginHolder {
+  ApplicationPlugin getPluginById(@NotNull PluginId id);
 }

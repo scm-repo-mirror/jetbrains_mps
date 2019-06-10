@@ -22,8 +22,8 @@ import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.plugins.BasePluginManager;
 import jetbrains.mps.plugins.PluginContributor;
 import jetbrains.mps.plugins.PluginLoaderRegistry;
-import jetbrains.mps.workbench.action.IActionsRegistry;
-import jetbrains.mps.workbench.action.IRegistryManager;
+import jetbrains.mps.workbench.action.ApplicationPlugin;
+import jetbrains.mps.workbench.action.ApplicationPluginHolder;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NonNls;
@@ -35,7 +35,7 @@ import java.util.List;
  * Is a {@link BasePluginManager} which is responsible for loading application plugins {@link BaseApplicationPlugin};
  * Triggered from the superclass (#afterPluginsCreated)
  */
-public class ApplicationPluginManager extends BasePluginManager<BaseApplicationPlugin> implements ApplicationComponent, IRegistryManager {
+public class ApplicationPluginManager extends BasePluginManager<BaseApplicationPlugin> implements ApplicationComponent, ApplicationPluginHolder {
   private static final Logger LOG = LogManager.getLogger(ApplicationPluginManager.class);
 
   private final Platform myPlatform;
@@ -47,7 +47,7 @@ public class ApplicationPluginManager extends BasePluginManager<BaseApplicationP
 
   public BaseApplicationPlugin getPlugin(PluginId id) {
     for (BaseApplicationPlugin p : getPlugins()) {
-      if (p.getId() == id) {
+      if (p.getId().equals(id)) {
         return p;
       }
     }
@@ -55,7 +55,7 @@ public class ApplicationPluginManager extends BasePluginManager<BaseApplicationP
   }
 
   @Override
-  public IActionsRegistry getActionsRegistry(PluginId id) {
+  public ApplicationPlugin getPluginById(PluginId id) {
     return getPlugin(id);
   }
 

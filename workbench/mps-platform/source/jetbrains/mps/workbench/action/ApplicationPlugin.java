@@ -15,12 +15,9 @@
  */
 package jetbrains.mps.workbench.action;
 
-import com.intellij.openapi.extensions.PluginId;
-import jetbrains.mps.workbench.action.IActionsRegistry;
+import org.jetbrains.mps.annotations.Internal;
 
-/**
- * fixme get rid of it
- */
-public interface IRegistryManager {
-  IActionsRegistry getActionsRegistry(PluginId id);
+@Internal
+public interface ApplicationPlugin {
+  void addParameterizedAction(BaseAction action, Object... params);
 }

@@ -27,10 +27,11 @@ import jetbrains.mps.plugins.part.ApplicationPluginPart;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.workbench.action.BaseAction;
 import jetbrains.mps.workbench.action.BaseGroup;
-import jetbrains.mps.workbench.action.IActionsRegistry;
+import jetbrains.mps.workbench.action.ApplicationPlugin;
 import jetbrains.mps.workbench.action.MPSActions;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +40,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public abstract class BaseApplicationPlugin implements IActionsRegistry {
+public abstract class BaseApplicationPlugin implements ApplicationPlugin {
   private static final Logger LOG = org.apache.log4j.LogManager.getLogger(BaseApplicationPlugin.class);
 
   private ActionManagerEx myActionManager = ActionManagerEx.getInstanceEx();
@@ -54,6 +55,7 @@ public abstract class BaseApplicationPlugin implements IActionsRegistry {
 
   //----------plugin id------------
 
+  @NotNull
   protected abstract PluginId getId();
 
   //------actions and groups-------
