@@ -30,6 +30,8 @@ import jetbrains.mps.smodel.BootstrapLanguages;
 import jetbrains.mps.util.ClassType;
 import jetbrains.mps.util.annotation.Hack;
 import jetbrains.mps.vfs.IFile;
+import jetbrains.mps.vfs.QualifiedPath;
+import jetbrains.mps.vfs.VFSManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -41,10 +43,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Igor Alshannikov
- * Aug 26, 2005
- */
 public class Solution extends ReloadableModuleBase {
   private SolutionDescriptor mySolutionDescriptor;
   public static final String SOLUTION_MODELS = "models";
@@ -101,7 +99,7 @@ public class Solution extends ReloadableModuleBase {
         break;
       case JDK_TOOLS:
         psc = new PackageScopeControl();
-        psc.isSkipPrivate();
+        psc.setSkipPrivate(true);
         psc.includeWithPrefix("com.sun.codemodel.");
         psc.includeWithPrefix("com.sun.source.");
         psc.includeWithPrefix("com.sun.tools.");
@@ -197,15 +195,21 @@ public class Solution extends ReloadableModuleBase {
 
     // do it only for first time
     if (descriptor.getModelRootDescriptors().isEmpty()) {
-      for (String path : CommonPaths.getMPSPaths(classType)) {
+      for (QualifiedPath path : CommonPaths.getPaths(classType)) {
         final Collection<ModelRootDescriptor> modelRootDescriptors = descriptor.getModelRootDescriptors();
-        IFile pathFile = getFileSystem().getFile(path);
-        final ModelRootDescriptor javaStubsModelRoot = ModelRootDescriptor.addSourceRoot(pathFile, modelRootDescriptors);
-        if (javaStubsModelRoot != null) {
-          modelRootDescriptors.add(javaStubsModelRoot);
-          populateModelRoot(classType, javaStubsModelRoot);
+
+        if (!path.getFsId().equals(VFSManager.JRT_FS)){
+          IFile pathFile = getFileSystem().getFile(path.getPath());
+          final ModelRootDescriptor javaStubsModelRoot = ModelRootDescriptor.addSourceRoot(pathFile, modelRootDescriptors);
+          if (javaStubsModelRoot != null) {
+            modelRootDescriptors.add(javaStubsModelRoot);
+            populateModelRoot(classType, javaStubsModelRoot);
+          }
+          descriptor.getJavaLibs().add(path.getPath());
+        } else {
+          JDKStubModelRoot root;
+
         }
-        descriptor.getJavaLibs().add(path);
       }
     }
   }
