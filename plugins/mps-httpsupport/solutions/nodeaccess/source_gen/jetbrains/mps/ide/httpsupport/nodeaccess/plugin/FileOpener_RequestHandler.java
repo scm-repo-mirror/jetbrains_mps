@@ -11,11 +11,9 @@ import jetbrains.mps.ide.httpsupport.manager.plugin.HttpRequest;
 import jetbrains.mps.ide.httpsupport.runtime.base.HttpSupportUtil;
 import jetbrains.mps.project.MPSProject;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.openapi.project.ProjectUtil;
-import com.intellij.openapi.application.ApplicationManager;
-import jetbrains.mps.ide.common.FileOpenUtil;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.buffer.Unpooled;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 
 public class FileOpener_RequestHandler extends HttpRequestHandlerBase {
 
@@ -24,6 +22,7 @@ public class FileOpener_RequestHandler extends HttpRequestHandlerBase {
   private final boolean myCorrectRequest;
   private final String file;
   private final Project project;
+  private final Integer line;
 
   public FileOpener_RequestHandler(HttpRequest request) {
     super(request);
@@ -45,6 +44,14 @@ public class FileOpener_RequestHandler extends HttpRequestHandlerBase {
         this.project = HttpSupportUtil.getSomeProject();
       }
     }
+    {
+      String line_serialized = ListSequence.fromList(this.request.getParameterValue("line")).getElement(0);
+      if (line_serialized != null) {
+        this.line = HttpSupportUtil.parseInt(line_serialized);
+      } else {
+        this.line = null;
+      }
+    }
     myCorrectRequest = correctRequest;
   }
 
@@ -61,34 +68,37 @@ public class FileOpener_RequestHandler extends HttpRequestHandlerBase {
       return false;
     }
 
-    return !(this.file.endsWith(".java"));
+    return true;
   }
 
   @Override
   public void handle() throws Exception {
     if (this.project instanceof MPSProject) {
-      final com.intellij.openapi.project.Project ideaProject = as_tdoo4z_a0a0a0a0p(this.project, MPSProject.class).getProject();
-      VirtualFile projectFile = ProjectUtil.guessProjectDir(ideaProject);
-      if (projectFile != null) {
-        final VirtualFile virtualFile = projectFile.findFileByRelativePath(this.file);
-        if (virtualFile != null) {
-          ApplicationManager.getApplication().invokeLater(new Runnable() {
-            public void run() {
-              FileOpenUtil.openFile(ideaProject, virtualFile, 1);
-              HandlerUtil.requestFocus(FileOpener_RequestHandler.this.project);
-            }
-          });
+      VirtualFile fileByRelativePath = HandlerUtil.getProjectRelativeFile(this.project, this.file);
+      if (fileByRelativePath != null) {
+        if (!(HandlerUtil.tryOpenNodeByGeneratedFile(this.project, fileByRelativePath, this.line))) {
+          HandlerUtil.openFile(this.project, fileByRelativePath, this.line);
+        }
+        this.request.sendResponse(HttpResponseStatus.OK, "image/gif", Unpooled.copiedBuffer(HandlerUtil.SUCCESS_STREAM));
+        return;
+      }
+      Iterable<VirtualFile> virtualFiles = HandlerUtil.findFilesByName(this.project, this.file);
+      for (VirtualFile virtualFile : Sequence.fromIterable(virtualFiles)) {
+        if (HandlerUtil.tryOpenNodeByGeneratedFile(this.project, virtualFile, this.line)) {
           this.request.sendResponse(HttpResponseStatus.OK, "image/gif", Unpooled.copiedBuffer(HandlerUtil.SUCCESS_STREAM));
           return;
         }
       }
+      if (Sequence.fromIterable(virtualFiles).isNotEmpty()) {
+        HandlerUtil.openFile(this.project, Sequence.fromIterable(virtualFiles).first(), this.line);
+        this.request.sendResponse(HttpResponseStatus.OK, "image/gif", Unpooled.copiedBuffer(HandlerUtil.SUCCESS_STREAM));
+        return;
+      }
+      HandlerUtil.showFileNotFoundPopup(this.project, this.file);
     } else {
       HandlerUtil.showNoProjectIsAvailablePopup();
     }
 
     this.request.sendResponse(HttpResponseStatus.OK, "image/gif", Unpooled.copiedBuffer(HandlerUtil.FAILURE_STREAM));
-  }
-  private static <T> T as_tdoo4z_a0a0a0a0p(Object o, Class<T> type) {
-    return (type.isInstance(o) ? (T) o : null);
   }
 }
