@@ -12201,6 +12201,12 @@
         <fileset file="${artifacts.IDEA}/lib/openapi.jar" />
         <fileset file="${artifacts.IDEA}/lib/platform-api.jar" />
         <fileset file="${artifacts.IDEA}/lib/platform-impl.jar" />
+        <fileset file="${artifacts.IDEA}/lib/platform-concurrency.jar" />
+        <fileset file="${artifacts.IDEA}/lib/platform-core-ui.jar" />
+        <fileset file="${artifacts.IDEA}/lib/platform-objectSerializer.jar" />
+        <fileset file="${artifacts.IDEA}/lib/platform-objectSerializer-annotations.jar" />
+        <fileset file="${artifacts.IDEA}/lib/platform-util-ui.jar" />
+        <fileset file="${artifacts.IDEA}/lib/configuration-store-impl.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
@@ -12287,6 +12293,8 @@
         <fileset file="${artifacts.IDEA}/lib/icons.jar" />
         <fileset file="${artifacts.IDEA}/lib/util.jar" />
         <fileset file="${artifacts.IDEA}/lib/platform-api.jar" />
+        <fileset file="${artifacts.IDEA}/lib/platform-core-ui.jar" />
+        <fileset file="${artifacts.IDEA}/lib/platform-util-ui.jar" />
         <path refid="path.jdk.classpath" />
       </classpath>
     </javac2>
