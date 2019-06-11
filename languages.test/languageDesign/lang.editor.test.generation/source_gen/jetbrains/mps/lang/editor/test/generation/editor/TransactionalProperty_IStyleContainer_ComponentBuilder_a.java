@@ -71,8 +71,8 @@ import jetbrains.mps.editor.runtime.style.ScriptKind;
       EditorCell_Property editorCell = null;
       {
         ModelAccessor modelAccessor = new TransactionalPropertyAccessor(myNode, property, false, false, getEditorContext()) {
-          public void doCommit(final String oldValue, final String newValue) {
-            doCommitImpl(oldValue, newValue);
+          public void doCommit0(final Object oldValue, final Object newValue) {
+            doCommitImpl((String) (oldValue), (String) (newValue));
           }
           public void doCommitImpl(final String oldValue, final String newValue) {
           }
@@ -357,8 +357,8 @@ import jetbrains.mps.editor.runtime.style.ScriptKind;
       EditorCell_Property editorCell = null;
       {
         ModelAccessor modelAccessor = new TransactionalPropertyAccessor(myNode, property, false, false, getEditorContext()) {
-          public void doCommit(final String oldValue, final String newValue) {
-            doCommitImpl(oldValue, newValue);
+          public void doCommit0(final Object oldValue, final Object newValue) {
+            doCommitImpl((String) (oldValue), (String) (newValue));
           }
           public void doCommitImpl(final String oldValue, final String newValue) {
           }

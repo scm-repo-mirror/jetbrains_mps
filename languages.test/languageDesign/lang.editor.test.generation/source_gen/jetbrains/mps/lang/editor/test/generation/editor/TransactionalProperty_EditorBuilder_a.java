@@ -44,8 +44,8 @@ import jetbrains.mps.nodeEditor.EditorManager;
       EditorCell_Property editorCell = null;
       {
         ModelAccessor modelAccessor = new TransactionalPropertyAccessor(myNode, property, false, true, getEditorContext()) {
-          public void doCommit(final String oldValue, final String newValue) {
-            doCommitImpl(oldValue, newValue);
+          public void doCommit0(final Object oldValue, final Object newValue) {
+            doCommitImpl((String) (oldValue), (String) (newValue));
           }
           public void doCommitImpl(final String oldValue, final String newValue) {
             boolean var = getEditorContext() != null || myNode != null || oldValue != null || newValue != null;

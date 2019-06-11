@@ -1309,7 +1309,7 @@
       <node id="8964452308605082488" at="2414,157,2415,78" concept="2" />
       <node id="8964452308605082488" at="2415,78,2416,103" concept="6" />
       <node id="8964452308605082488" at="2416,103,2417,46" concept="6" />
-      <node id="8964452308605082488" at="2420,80,2421,47" concept="2" />
+      <node id="8964452308605082488" at="2420,81,2421,69" concept="2" />
       <node id="8964452308605082488" at="2425,12,2426,93" concept="2" />
       <node id="8964452308605082488" at="2426,93,2427,70" concept="2" />
       <node id="8964452308605082488" at="2427,70,2428,56" concept="2" />
@@ -1326,7 +1326,7 @@
       <node id="8964452308605108769" at="2446,157,2447,78" concept="2" />
       <node id="8964452308605108769" at="2447,78,2448,103" concept="6" />
       <node id="8964452308605108769" at="2448,103,2449,46" concept="6" />
-      <node id="8964452308605108769" at="2452,80,2453,47" concept="2" />
+      <node id="8964452308605108769" at="2452,81,2453,69" concept="2" />
       <node id="8964452308605108772" at="2455,84,2456,113" concept="6" />
       <node id="8964452308605108792" at="2457,24,2458,0" concept="9" />
       <node id="8964452308605108769" at="2461,12,2462,93" concept="2" />
@@ -1425,7 +1425,7 @@
       <node id="8964452308605122878" at="2737,157,2738,78" concept="2" />
       <node id="8964452308605122878" at="2738,78,2739,103" concept="6" />
       <node id="8964452308605122878" at="2739,103,2740,46" concept="6" />
-      <node id="8964452308605122878" at="2743,80,2744,47" concept="2" />
+      <node id="8964452308605122878" at="2743,81,2744,69" concept="2" />
       <node id="8964452308605122878" at="2748,12,2749,93" concept="2" />
       <node id="8964452308605122878" at="2749,93,2750,70" concept="2" />
       <node id="8964452308605122878" at="2750,70,2751,40" concept="6" />
@@ -1445,7 +1445,7 @@
       <node id="2205542354335541099" at="2772,157,2773,78" concept="2" />
       <node id="2205542354335541099" at="2773,78,2774,103" concept="6" />
       <node id="2205542354335541099" at="2774,103,2775,46" concept="6" />
-      <node id="2205542354335541099" at="2778,80,2779,47" concept="2" />
+      <node id="2205542354335541099" at="2778,81,2779,69" concept="2" />
       <node id="2205542354335541099" at="2783,12,2784,93" concept="2" />
       <node id="2205542354335541099" at="2784,93,2785,70" concept="2" />
       <node id="2205542354335541099" at="2785,70,2786,40" concept="6" />
@@ -2559,8 +2559,8 @@
       <node id="8964452308604937089" at="2134,42,2137,7" concept="4" />
       <node id="8964452308604937105" at="2137,7,2140,7" concept="4" />
       <node id="8964452308605114047" at="2399,64,2402,7" concept="4" />
-      <node id="8964452308605082488" at="2420,0,2423,0" concept="5" trace="doCommit#(Ljava/lang/String;Ljava/lang/String;)V" />
-      <node id="8964452308605108769" at="2452,0,2455,0" concept="5" trace="doCommit#(Ljava/lang/String;Ljava/lang/String;)V" />
+      <node id="8964452308605082488" at="2420,0,2423,0" concept="5" trace="doCommit0#(Ljava/lang/Object;Ljava/lang/Object;)V" />
+      <node id="8964452308605108769" at="2452,0,2455,0" concept="5" trace="doCommit0#(Ljava/lang/Object;Ljava/lang/Object;)V" />
       <node id="8964452308605108790" at="2456,113,2459,15" concept="4" />
       <node id="2205542354335541099" at="2488,36,2491,9" concept="4" />
       <node id="2205542354335541099" at="2499,0,2502,0" concept="5" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
@@ -2589,8 +2589,8 @@
       <node id="8964452308605114215" at="2662,105,2665,9" concept="4" />
       <node id="8964452308605114194" at="2667,0,2670,0" concept="5" trace="getMatchingText#()Ljava/lang/String;" />
       <node id="8964452308605114256" at="2726,0,2729,0" concept="5" trace="getReplacementConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="8964452308605122878" at="2743,0,2746,0" concept="5" trace="doCommit#(Ljava/lang/String;Ljava/lang/String;)V" />
-      <node id="2205542354335541099" at="2778,0,2781,0" concept="5" trace="doCommit#(Ljava/lang/String;Ljava/lang/String;)V" />
+      <node id="8964452308605122878" at="2743,0,2746,0" concept="5" trace="doCommit0#(Ljava/lang/Object;Ljava/lang/Object;)V" />
+      <node id="2205542354335541099" at="2778,0,2781,0" concept="5" trace="doCommit0#(Ljava/lang/Object;Ljava/lang/Object;)V" />
       <node id="8964452308605136441" at="2788,46,2791,11" concept="4" />
       <node id="8964452308605136457" at="2791,11,2794,11" concept="4" />
       <node id="2205542354335541099" at="3092,0,3095,0" concept="5" trace="getSLink#()Lorg/jetbrains/mps/openapi/language/SContainmentLink;" />
@@ -3490,9 +3490,9 @@
       <scope id="8964452308604937089" at="2135,60,2136,88" />
       <scope id="8964452308604937105" at="2138,60,2139,88" />
       <scope id="8964452308605114047" at="2400,42,2401,53" />
-      <scope id="8964452308605082488" at="2420,80,2421,47" />
+      <scope id="8964452308605082488" at="2420,81,2421,69" />
       <scope id="8964452308605082488" at="2439,17,2440,42" />
-      <scope id="8964452308605108769" at="2452,80,2453,47" />
+      <scope id="8964452308605108769" at="2452,81,2453,69" />
       <scope id="8964452308605108791" at="2457,24,2458,0" />
       <scope id="8964452308605108769" at="2475,17,2476,42" />
       <scope id="2205542354335541099" at="2489,46,2490,100" />
@@ -3528,9 +3528,9 @@
       <scope id="8964452308605114194" at="2667,39,2668,30" />
       <scope id="8964452308605114256" at="2726,55,2727,170" />
       <scope id="8964452308605114256" at="2730,119,2731,235" />
-      <scope id="8964452308605122878" at="2743,80,2744,47" />
+      <scope id="8964452308605122878" at="2743,81,2744,69" />
       <scope id="8964452308605122878" at="2765,17,2766,42" />
-      <scope id="2205542354335541099" at="2778,80,2779,47" />
+      <scope id="2205542354335541099" at="2778,81,2779,69" />
       <scope id="8964452308605136441" at="2789,64,2790,92" />
       <scope id="8964452308605136457" at="2792,64,2793,92" />
       <scope id="2205542354335541099" at="2894,17,2895,42" />
@@ -12638,7 +12638,7 @@
       <node id="53454498079406180" at="41,153,42,76" concept="2" />
       <node id="53454498079406180" at="42,76,43,101" concept="6" />
       <node id="53454498079406180" at="43,101,44,44" concept="6" />
-      <node id="53454498079406180" at="47,78,48,45" concept="2" />
+      <node id="53454498079406180" at="47,79,48,67" concept="2" />
       <node id="53454498079406180" at="52,10,53,91" concept="2" />
       <node id="53454498079406180" at="53,91,54,63" concept="2" />
       <node id="53454498079406180" at="54,63,55,54" concept="2" />
@@ -12653,7 +12653,7 @@
       <node id="53454498079369078" at="20,0,22,0" concept="3" trace="myNode" />
       <node id="53454498079406180" at="50,0,52,0" concept="5" trace="doCommitImpl#(Ljava/lang/String;Ljava/lang/String;)V" />
       <node id="53454498079369078" at="34,0,37,0" concept="5" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="53454498079406180" at="47,0,50,0" concept="5" trace="doCommit#(Ljava/lang/String;Ljava/lang/String;)V" />
+      <node id="53454498079406180" at="47,0,50,0" concept="5" trace="doCommit0#(Ljava/lang/Object;Ljava/lang/Object;)V" />
       <node id="53454498079369078" at="23,0,27,0" concept="1" trace="TransactionalProperty_Default_ComponentBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="53454498079369078" at="28,0,33,0" concept="5" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="53454498079406180" at="59,59,64,24" concept="4" />
@@ -12664,7 +12664,7 @@
       <scope id="53454498079406184" at="50,82,50,82" />
       <scope id="53454498079369078" at="30,26,31,18" />
       <scope id="53454498079369078" at="34,39,35,43" />
-      <scope id="53454498079406180" at="47,78,48,45" />
+      <scope id="53454498079406180" at="47,79,48,67" />
       <scope id="53454498079406180" at="66,15,67,40" />
       <scope id="53454498079369078" at="23,112,25,18" />
       <scope id="53454498079406180" at="50,0,52,0">
@@ -12720,7 +12720,7 @@
       <node id="53454498079406215" at="41,153,42,76" concept="2" />
       <node id="53454498079406215" at="42,76,43,101" concept="6" />
       <node id="53454498079406215" at="43,101,44,44" concept="6" />
-      <node id="53454498079406215" at="47,78,48,45" concept="2" />
+      <node id="53454498079406215" at="47,79,48,67" concept="2" />
       <node id="53454498079406927" at="50,82,51,111" concept="6" />
       <node id="53454498079407260" at="52,22,53,0" concept="9" />
       <node id="53454498079406215" at="56,10,57,91" concept="2" />
@@ -12738,7 +12738,7 @@
       <node id="53454498079406215" at="72,15,73,40" concept="2" />
       <node id="53454498079406210" at="20,0,22,0" concept="3" trace="myNode" />
       <node id="53454498079406210" at="34,0,37,0" concept="5" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="53454498079406215" at="47,0,50,0" concept="5" trace="doCommit#(Ljava/lang/String;Ljava/lang/String;)V" />
+      <node id="53454498079406215" at="47,0,50,0" concept="5" trace="doCommit0#(Ljava/lang/Object;Ljava/lang/Object;)V" />
       <node id="53454498079407259" at="51,111,54,13" concept="4" />
       <node id="53454498079406210" at="23,0,27,0" concept="1" trace="TransactionalProperty_EditorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="53454498079406210" at="28,0,33,0" concept="5" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
@@ -12750,7 +12750,7 @@
       <node id="53454498079406215" at="38,0,76,0" concept="5" trace="createTransactionalProperty_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
       <scope id="53454498079406210" at="30,26,31,18" />
       <scope id="53454498079406210" at="34,39,35,43" />
-      <scope id="53454498079406215" at="47,78,48,45" />
+      <scope id="53454498079406215" at="47,79,48,67" />
       <scope id="53454498079407261" at="52,22,53,0" />
       <scope id="53454498079406215" at="72,15,73,40" />
       <scope id="53454498079406210" at="23,101,25,18" />
@@ -12819,7 +12819,7 @@
       <node id="53454498079425120" at="68,153,69,76" concept="2" />
       <node id="53454498079425120" at="69,76,70,101" concept="6" />
       <node id="53454498079425120" at="70,101,71,44" concept="6" />
-      <node id="53454498079425120" at="74,78,75,45" concept="2" />
+      <node id="53454498079425120" at="74,79,75,67" concept="2" />
       <node id="53454498079425120" at="79,10,80,91" concept="2" />
       <node id="53454498079425120" at="80,91,81,64" concept="2" />
       <node id="53454498079425120" at="81,64,82,38" concept="6" />
@@ -13010,7 +13010,7 @@
       <node id="527043417126133912" at="354,153,355,76" concept="2" />
       <node id="527043417126133912" at="355,76,356,101" concept="6" />
       <node id="527043417126133912" at="356,101,357,44" concept="6" />
-      <node id="527043417126133912" at="360,78,361,45" concept="2" />
+      <node id="527043417126133912" at="360,79,361,67" concept="2" />
       <node id="527043417126133912" at="365,10,366,91" concept="2" />
       <node id="527043417126133912" at="366,91,367,65" concept="2" />
       <node id="527043417126133912" at="367,65,368,38" concept="6" />
@@ -13031,10 +13031,10 @@
       <node id="53454498079425120" at="77,0,79,0" concept="5" trace="doCommitImpl#(Ljava/lang/String;Ljava/lang/String;)V" />
       <node id="527043417126133912" at="363,0,365,0" concept="5" trace="doCommitImpl#(Ljava/lang/String;Ljava/lang/String;)V" />
       <node id="53454498079425120" at="54,0,57,0" concept="5" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="53454498079425120" at="74,0,77,0" concept="5" trace="doCommit#(Ljava/lang/String;Ljava/lang/String;)V" />
+      <node id="53454498079425120" at="74,0,77,0" concept="5" trace="doCommit0#(Ljava/lang/Object;Ljava/lang/Object;)V" />
       <node id="53454498079431663" at="84,44,87,9" concept="4" />
       <node id="53454498079431679" at="87,9,90,9" concept="4" />
-      <node id="527043417126133912" at="360,0,363,0" concept="5" trace="doCommit#(Ljava/lang/String;Ljava/lang/String;)V" />
+      <node id="527043417126133912" at="360,0,363,0" concept="5" trace="doCommit0#(Ljava/lang/Object;Ljava/lang/Object;)V" />
       <node id="53454498079425120" at="43,0,47,0" concept="1" trace="TransactionalProperty_IStyleContainer_ComponentBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="53454498079431664" at="194,0,198,0" concept="5" trace="_StyleParameter_QueryFunction_2eo8r0_a2a0#()Z" />
       <node id="53454498079431680" at="198,0,202,0" concept="5" trace="_StyleParameter_QueryFunction_2eo8r0_a3a0#()Z" />
@@ -13090,11 +13090,11 @@
       <scope id="527043417126134584" at="363,82,363,82" />
       <scope id="53454498079425120" at="50,26,51,18" />
       <scope id="53454498079425120" at="54,39,55,32" />
-      <scope id="53454498079425120" at="74,78,75,45" />
+      <scope id="53454498079425120" at="74,79,75,67" />
       <scope id="53454498079431663" at="85,58,86,90" />
       <scope id="53454498079431679" at="88,58,89,90" />
       <scope id="53454498079425120" at="190,15,191,40" />
-      <scope id="527043417126133912" at="360,78,361,45" />
+      <scope id="527043417126133912" at="360,79,361,67" />
       <scope id="527043417126133912" at="384,15,385,40" />
       <scope id="53454498079425120" at="43,120,45,18" />
       <scope id="53454498079425120" at="77,0,79,0">
@@ -13336,7 +13336,7 @@
       <node id="53454498079440636" at="44,153,45,76" concept="2" />
       <node id="53454498079440636" at="45,76,46,101" concept="6" />
       <node id="53454498079440636" at="46,101,47,44" concept="6" />
-      <node id="53454498079440636" at="50,78,51,45" concept="2" />
+      <node id="53454498079440636" at="50,79,51,67" concept="2" />
       <node id="53454498079440636" at="55,10,56,91" concept="2" />
       <node id="53454498079440636" at="56,91,57,63" concept="2" />
       <node id="53454498079440636" at="57,63,58,38" concept="6" />
@@ -13354,7 +13354,7 @@
       <node id="53454498079440631" at="23,0,25,0" concept="3" trace="myNode" />
       <node id="53454498079440636" at="53,0,55,0" concept="5" trace="doCommitImpl#(Ljava/lang/String;Ljava/lang/String;)V" />
       <node id="53454498079440631" at="37,0,40,0" concept="5" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
-      <node id="53454498079440636" at="50,0,53,0" concept="5" trace="doCommit#(Ljava/lang/String;Ljava/lang/String;)V" />
+      <node id="53454498079440636" at="50,0,53,0" concept="5" trace="doCommit0#(Ljava/lang/Object;Ljava/lang/Object;)V" />
       <node id="53454498079440631" at="26,0,30,0" concept="1" trace="TransactionalProperty_ICellStyle_ComponentBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="53454498079440631" at="31,0,36,0" concept="5" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="53454498079440636" at="65,59,70,24" concept="4" />
@@ -13365,7 +13365,7 @@
       <scope id="53454498079440640" at="53,82,53,82" />
       <scope id="53454498079440631" at="33,26,34,18" />
       <scope id="53454498079440631" at="37,39,38,43" />
-      <scope id="53454498079440636" at="50,78,51,45" />
+      <scope id="53454498079440636" at="50,79,51,67" />
       <scope id="53454498079440636" at="72,15,73,40" />
       <scope id="53454498079440631" at="26,115,28,18" />
       <scope id="53454498079440636" at="53,0,55,0">
