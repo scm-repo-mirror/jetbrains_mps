@@ -1166,13 +1166,13 @@
             <node concept="3clFbJ" id="5L5h3brvDTo" role="3cqZAp">
               <node concept="3clFbS" id="5L5h3brvDTp" role="3clFbx">
                 <node concept="1daRAt" id="5L5h3brvDTq" role="3cqZAp">
-                  <property role="1daRAr" value="ERROR" />
+                  <property role="1daRAr" value="WARNING" />
                   <node concept="Xl_RD" id="5L5h3brvDTr" role="1daK9t">
-                    <property role="Xl_RC" value="IntelliJ IDEA is required for compilation" />
+                    <property role="Xl_RC" value="IntelliJ IDEA is required for compilation; MPS make will continue" />
                   </node>
                 </node>
-                <node concept="3D7k6m" id="5L5h3brvDTs" role="3cqZAp">
-                  <property role="3D7k6l" value="FAILURE" />
+                <node concept="3D7k6m" id="1uuFxSxENZA" role="3cqZAp">
+                  <property role="3D7k6l" value="SUCCESS" />
                 </node>
               </node>
               <node concept="22lmx$" id="5L5h3brvDTt" role="3clFbw">

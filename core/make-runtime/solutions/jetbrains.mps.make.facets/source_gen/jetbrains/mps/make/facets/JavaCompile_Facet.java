@@ -258,8 +258,8 @@ public class JavaCompile_Facet extends IFacet.Stub {
 
               final IdeaJavaCompiler compiler = monitor.getSession().getProject().getComponent(IdeaJavaCompiler.class);
               if (compiler == null || !(compiler.isValid())) {
-                monitor.reportFeedback(new IFeedback.ERROR(String.valueOf("IntelliJ IDEA is required for compilation")));
-                return new IResult.FAILURE(_output_wf1ya0_a0b);
+                monitor.reportFeedback(new IFeedback.WARNING(String.valueOf("IntelliJ IDEA is required for compilation; MPS make will continue")));
+                return new IResult.SUCCESS(_output_wf1ya0_a0b);
               }
 
               final ProgressMonitor subProgress_p0a0b = progressMonitor.subTask(1000);
