@@ -20,6 +20,7 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.smodel.UndoHelper;
 import jetbrains.mps.util.annotation.ToRemove;
+import org.jetbrains.mps.openapi.language.SDataType;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.model.SNode;
 
@@ -70,7 +71,7 @@ public class TransactionalPropertyAccessor extends PropertyAccessor implements T
   @Override
   public void commit() {
     if (myHasValueToCommit) {
-      doCommit(getProperty().getType().toString(myOldValue), getProperty().getType().toString(myUncommittedValue));
+      doCommit0(myOldValue, myUncommittedValue);
 
       getRepository().getModelAccess().executeCommand(new ChangePropertyEditorCommand(myEditorCell.getContext(), getGroupId()) {
         @Override
@@ -85,6 +86,12 @@ public class TransactionalPropertyAccessor extends PropertyAccessor implements T
     }
   }
 
+  protected void doCommit0(Object oldValue, Object newValue) {
+    SDataType type = getProperty().getType();
+    doCommit(type.toString(oldValue), type.toString(newValue));
+  }
+
+  @Deprecated
   protected void doCommit(String oldValue, String newValue) {
   }
 
