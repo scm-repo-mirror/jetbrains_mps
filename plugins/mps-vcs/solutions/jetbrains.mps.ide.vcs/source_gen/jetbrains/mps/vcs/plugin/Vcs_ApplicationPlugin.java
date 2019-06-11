@@ -4,17 +4,22 @@ package jetbrains.mps.vcs.plugin;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.ModelActions_ActionGroup;
 import jetbrains.mps.ide.actions.NodeActions_ActionGroup;
 import jetbrains.mps.ide.actions.CommonModuleActions_ActionGroup;
 
 public class Vcs_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.ide.vcs");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.ide.vcs");
+
   public Vcs_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new AddModuleToVcs_Action());
@@ -26,10 +31,10 @@ public class Vcs_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new ShowNodeDifference_Action());
     addAction(new TestMergeAction_Action());
     // groups 
-    addGroup(new MakeFromChangesView_ActionGroup());
-    addGroup(new ModuleVcsActions_ActionGroup());
-    addGroup(new ShowDiffWithCurrRev_ActionGroup());
-    addGroup(new VCSModelActions_ActionGroup());
+    addGroup(new MakeFromChangesView_ActionGroup(this));
+    addGroup(new ModuleVcsActions_ActionGroup(this));
+    addGroup(new ShowDiffWithCurrRev_ActionGroup(this));
+    addGroup(new VCSModelActions_ActionGroup(this));
   }
   public void adjustInterfaceGroups() {
   }

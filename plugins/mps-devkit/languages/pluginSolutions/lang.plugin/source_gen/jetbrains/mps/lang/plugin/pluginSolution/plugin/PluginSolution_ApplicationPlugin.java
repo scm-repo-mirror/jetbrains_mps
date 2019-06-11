@@ -4,22 +4,27 @@ package jetbrains.mps.lang.plugin.pluginSolution.plugin;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.ProjectNewActions_ActionGroup;
 
 public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.lang.plugin.pluginSolution");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.lang.plugin.pluginSolution");
+
   public PluginSolution_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new GeneratePluginSolution_Action());
     addAction(new SortKeymapMembers_Action());
     // groups 
-    addGroup(new ProjectPaneProjectAddition_ActionGroup());
-    addGroup(new RefactoringAdditions_ActionGroup());
+    addGroup(new ProjectPaneProjectAddition_ActionGroup(this));
+    addGroup(new RefactoringAdditions_ActionGroup(this));
   }
   public void adjustRegularGroups() {
     insertGroupIntoAnother(RefactoringAdditions_ActionGroup.ID, "jetbrains.mps.ide.platform.actions.NodeRefactoring_ActionGroup", null);

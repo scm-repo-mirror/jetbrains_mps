@@ -31,6 +31,7 @@
     <classNode dependClassName="java.util.List" />
     <classNode dependClassName="jetbrains.mps.plugins.part.ApplicationPluginPart" />
     <classNode dependClassName="jetbrains.mps.samples.customizedDebugger.Bottomline.debug.plugin.DebugInfoProvider_AppPluginPart" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode extendsClassName="jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin" />
   </dependency>
 </dependenciesRoot>

@@ -16,7 +16,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1164879751025:jetbrains.mps.baseLanguage.structure.TryCatchStatement" />
   <root nodeRef="r:ca0b6fb0-5a5b-46c8-a978-40501bc316cb(jetbrains.mps.samples.ActionWithProgress.plugin)/3412919548652185654">
     <file name="ActionWithProgress_ApplicationPlugin.java">
-      <node id="3412919548652185654" at="16,30,17,57" concept="2" />
+      <node id="3412919548652185654" at="21,30,22,57" concept="2" />
     </file>
     <file name="BackgroundableProgressAction_Action.java">
       <node id="3412919548652185654" at="23,0,24,0" concept="10" trace="ICON" />
@@ -185,28 +185,28 @@
   </root>
   <root nodeRef="r:ca0b6fb0-5a5b-46c8-a978-40501bc316cb(jetbrains.mps.samples.ActionWithProgress.plugin)/7628537775846003928">
     <file name="ActionWithProgress_ApplicationPlugin.java">
-      <node id="7628537775846003928" at="9,0,10,0" concept="3" trace="myId" />
-      <node id="7628537775846003928" at="12,27,13,16" concept="7" />
-      <node id="7628537775846003928" at="15,30,16,30" concept="8" />
-      <node id="7628537775846003928" at="18,48,19,14" concept="8" />
-      <node id="7628537775846003928" at="10,0,12,0" concept="1" trace="ActionWithProgress_ApplicationPlugin#()V" />
-      <node id="7628537775846003928" at="22,0,24,0" concept="5" trace="adjustRegularGroups#()V" />
-      <node id="7628537775846003928" at="12,0,15,0" concept="5" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
-      <node id="7628537775846003928" at="15,0,22,0" concept="5" trace="createGroups#()V" />
-      <scope id="7628537775846003928" at="10,49,10,49" />
-      <scope id="7628537775846003928" at="22,37,22,37" />
-      <scope id="7628537775846003928" at="12,27,13,16" />
-      <scope id="7628537775846003928" at="10,0,12,0" />
-      <scope id="7628537775846003928" at="22,0,24,0" />
-      <scope id="7628537775846003928" at="12,0,15,0" />
-      <scope id="7628537775846003928" at="15,30,20,53" />
-      <scope id="7628537775846003928" at="15,0,22,0" />
-      <unit id="7628537775846003928" at="8,0,25,0" name="jetbrains.mps.samples.ActionWithProgress.plugin.ActionWithProgress_ApplicationPlugin" />
+      <node id="7628537775846003928" at="10,0,11,0" concept="3" trace="myId" />
+      <node id="7628537775846003928" at="16,27,17,16" concept="7" />
+      <node id="7628537775846003928" at="20,30,21,30" concept="8" />
+      <node id="7628537775846003928" at="23,48,24,14" concept="8" />
+      <node id="7628537775846003928" at="12,0,14,0" concept="1" trace="ActionWithProgress_ApplicationPlugin#()V" />
+      <node id="7628537775846003928" at="27,0,29,0" concept="5" trace="adjustRegularGroups#()V" />
+      <node id="7628537775846003928" at="15,0,19,0" concept="5" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
+      <node id="7628537775846003928" at="20,0,27,0" concept="5" trace="createGroups#()V" />
+      <scope id="7628537775846003928" at="12,49,12,49" />
+      <scope id="7628537775846003928" at="27,37,27,37" />
+      <scope id="7628537775846003928" at="16,27,17,16" />
+      <scope id="7628537775846003928" at="12,0,14,0" />
+      <scope id="7628537775846003928" at="27,0,29,0" />
+      <scope id="7628537775846003928" at="15,0,19,0" />
+      <scope id="7628537775846003928" at="20,30,25,57" />
+      <scope id="7628537775846003928" at="20,0,27,0" />
+      <unit id="7628537775846003928" at="9,0,30,0" name="jetbrains.mps.samples.ActionWithProgress.plugin.ActionWithProgress_ApplicationPlugin" />
     </file>
   </root>
   <root nodeRef="r:ca0b6fb0-5a5b-46c8-a978-40501bc316cb(jetbrains.mps.samples.ActionWithProgress.plugin)/7628537775846017637">
     <file name="ActionWithProgress_ApplicationPlugin.java">
-      <node id="7628537775846017637" at="17,57,18,48" concept="2" />
+      <node id="7628537775846017637" at="22,57,23,48" concept="2" />
     </file>
     <file name="ModalProgressAction_Action.java">
       <node id="7628537775846017637" at="26,0,27,0" concept="10" trace="ICON" />
@@ -466,19 +466,21 @@
   </root>
   <root nodeRef="r:ca0b6fb0-5a5b-46c8-a978-40501bc316cb(jetbrains.mps.samples.ActionWithProgress.plugin)/7628537775846372132">
     <file name="ActionWithProgress_ApplicationPlugin.java">
-      <node id="7628537775846372132" at="19,14,20,53" concept="2" />
+      <node id="7628537775846372132" at="24,14,25,57" concept="2" />
     </file>
     <file name="ProgressActionsGroup_ActionGroup.java">
-      <node id="7628537775846372132" at="8,0,9,0" concept="10" trace="ID" />
-      <node id="7628537775846372132" at="9,45,10,38" concept="11" />
-      <node id="7628537775846372132" at="10,38,11,30" concept="2" />
-      <node id="7628537775846372132" at="11,30,12,25" concept="2" />
-      <node id="7628537775846372137" at="12,25,13,130" concept="2" />
-      <node id="3764589745560987449" at="13,130,14,139" concept="2" />
-      <node id="7628537775846372132" at="9,0,16,0" concept="1" trace="ProgressActionsGroup_ActionGroup#()V" />
-      <scope id="7628537775846372132" at="9,45,14,139" />
-      <scope id="7628537775846372132" at="9,0,16,0" />
-      <unit id="7628537775846372132" at="7,0,17,0" name="jetbrains.mps.samples.ActionWithProgress.plugin.ProgressActionsGroup_ActionGroup" />
+      <node id="7628537775846372132" at="10,0,11,0" concept="10" trace="ID" />
+      <node id="7628537775846372132" at="12,79,13,46" concept="11" />
+      <node id="7628537775846372132" at="13,46,14,25" concept="2" />
+      <node id="7628537775846372132" at="14,25,15,20" concept="2" />
+      <node id="7628537775846372137" at="15,20,16,130" concept="2" />
+      <node id="3764589745560987449" at="16,130,17,139" concept="2" />
+      <node id="7628537775846372132" at="12,0,19,0" concept="1" trace="ProgressActionsGroup_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <scope id="7628537775846372132" at="12,79,17,139" />
+      <scope id="7628537775846372132" at="12,0,19,0">
+        <var name="plugin" id="7628537775846372132" />
+      </scope>
+      <unit id="7628537775846372132" at="9,0,20,0" name="jetbrains.mps.samples.ActionWithProgress.plugin.ProgressActionsGroup_ActionGroup" />
     </file>
   </root>
 </debug-info>

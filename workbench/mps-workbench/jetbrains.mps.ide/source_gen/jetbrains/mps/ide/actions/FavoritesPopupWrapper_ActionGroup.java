@@ -10,20 +10,22 @@ import org.jetbrains.mps.util.Condition;
 import jetbrains.mps.workbench.action.BaseAction;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.workbench.action.ApplicationPlugin;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.workbench.MPSDataKeys;
 import jetbrains.mps.ide.projectPane.favorites.FavoritesUtil;
-import org.jetbrains.annotations.Nullable;
 
 public class FavoritesPopupWrapper_ActionGroup extends GeneratedActionGroup {
   public static final String ID = "jetbrains.mps.ide.actions.FavoritesPopupWrapper_ActionGroup";
-  private Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
-  public FavoritesPopupWrapper_ActionGroup() {
-    super("FavoritesPopupWrapper", ID);
-    this.setIsAlwaysVisible(false);
-    this.setIsInternal(false);
-    this.setPopup(true);
+  private final Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
+
+  public FavoritesPopupWrapper_ActionGroup(@Nullable ApplicationPlugin plugin) {
+    super("FavoritesPopupWrapper", ID, plugin);
+    setIsAlwaysVisible(false);
+    setIsInternal(false);
+    setPopup(true);
   }
   public void doUpdate(AnActionEvent event) {
     removeAll();

@@ -118,6 +118,7 @@
     <classNode dependClassName="jetbrains.mps.execution.configurations.pluginSolution.plugin.AddExecutor_Action" />
     <classNode dependClassName="jetbrains.mps.execution.configurations.pluginSolution.plugin.AddProducer_Action" />
     <classNode dependClassName="jetbrains.mps.execution.configurations.pluginSolution.plugin.ShowAsIntentions_ExecutionConfigurations_ActionGroup" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode extendsClassName="jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin" />
   </dependency>
   <dependency className="jetbrains.mps.execution.configurations.pluginSolution.plugin.PluginSolution_ProjectPlugin">
@@ -170,6 +171,8 @@
   </dependency>
   <dependency className="jetbrains.mps.execution.configurations.pluginSolution.plugin.ShowAsIntentions_ExecutionConfigurations_ActionGroup">
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.workbench.action.ApplicationPlugin" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode extendsClassName="jetbrains.mps.plugins.actions.GeneratedActionGroup" />
   </dependency>
 </dependenciesRoot>

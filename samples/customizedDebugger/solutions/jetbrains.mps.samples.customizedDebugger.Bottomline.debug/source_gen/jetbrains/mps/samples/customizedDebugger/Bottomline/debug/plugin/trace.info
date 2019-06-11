@@ -15,20 +15,20 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1164879751025:jetbrains.mps.baseLanguage.structure.TryCatchStatement" />
   <root nodeRef="r:fe87d5f9-5256-4222-80d8-08ea6f3a69cf(jetbrains.mps.samples.customizedDebugger.Bottomline.debug.plugin)/567241428660124407">
     <file name="Debug_ApplicationPlugin.java">
-      <node id="567241428660124407" at="11,0,12,0" concept="3" trace="myId" />
-      <node id="567241428660124407" at="14,27,15,16" concept="8" />
-      <node id="567241428660124407" at="12,0,14,0" concept="1" trace="Debug_ApplicationPlugin#()V" />
-      <node id="567241428660124407" at="14,0,17,0" concept="6" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
-      <node id="567241428660124407" at="17,0,21,0" concept="6" trace="fillCustomParts#(Ljava/util/List;)V" />
-      <scope id="567241428660124407" at="12,36,12,36" />
-      <scope id="567241428660124407" at="14,27,15,16" />
-      <scope id="567241428660124407" at="18,66,19,53" />
-      <scope id="567241428660124407" at="12,0,14,0" />
-      <scope id="567241428660124407" at="14,0,17,0" />
-      <scope id="567241428660124407" at="17,0,21,0">
+      <node id="567241428660124407" at="12,0,13,0" concept="3" trace="myId" />
+      <node id="567241428660124407" at="18,27,19,16" concept="8" />
+      <node id="567241428660124407" at="14,0,16,0" concept="1" trace="Debug_ApplicationPlugin#()V" />
+      <node id="567241428660124407" at="17,0,21,0" concept="6" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
+      <node id="567241428660124407" at="22,0,26,0" concept="6" trace="fillCustomParts#(Ljava/util/List;)V" />
+      <scope id="567241428660124407" at="14,36,14,36" />
+      <scope id="567241428660124407" at="18,27,19,16" />
+      <scope id="567241428660124407" at="23,66,24,53" />
+      <scope id="567241428660124407" at="14,0,16,0" />
+      <scope id="567241428660124407" at="17,0,21,0" />
+      <scope id="567241428660124407" at="22,0,26,0">
         <var name="parts" id="567241428660124407" />
       </scope>
-      <unit id="567241428660124407" at="10,0,22,0" name="jetbrains.mps.samples.customizedDebugger.Bottomline.debug.plugin.Debug_ApplicationPlugin" />
+      <unit id="567241428660124407" at="11,0,27,0" name="jetbrains.mps.samples.customizedDebugger.Bottomline.debug.plugin.Debug_ApplicationPlugin" />
     </file>
   </root>
   <root nodeRef="r:fe87d5f9-5256-4222-80d8-08ea6f3a69cf(jetbrains.mps.samples.customizedDebugger.Bottomline.debug.plugin)/567241428660124408">
@@ -124,7 +124,7 @@
       <unit id="567241428660124408" at="27,0,91,0" name="jetbrains.mps.samples.customizedDebugger.Bottomline.debug.plugin.DebugInfoProvider_AppPluginPart" />
     </file>
     <file name="Debug_ApplicationPlugin.java">
-      <node id="567241428660124408" at="18,66,19,53" concept="2" />
+      <node id="567241428660124408" at="23,66,24,53" concept="2" />
     </file>
   </root>
 </debug-info>

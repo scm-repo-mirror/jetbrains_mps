@@ -4,20 +4,25 @@ package jetbrains.mps.lang.quotation.pluginSolution.plugin;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.DebugActions_ActionGroup;
 
 public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.lang.quotation.pluginSolution");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.lang.quotation.pluginSolution");
+
   public PluginSolution_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new ShowMetaLevel_Action());
     // groups 
-    addGroup(new MetaLevelActions_ActionGroup());
+    addGroup(new MetaLevelActions_ActionGroup(this));
   }
   public void adjustRegularGroups() {
     insertGroupIntoAnother(MetaLevelActions_ActionGroup.ID, DebugActions_ActionGroup.ID, null);

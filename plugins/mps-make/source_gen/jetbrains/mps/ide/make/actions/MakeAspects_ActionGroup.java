@@ -10,21 +10,23 @@ import org.jetbrains.mps.util.Condition;
 import jetbrains.mps.workbench.action.BaseAction;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.workbench.action.ApplicationPlugin;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Collection;
 import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
 import jetbrains.mps.smodel.language.LanguageAspectSupport;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import com.intellij.openapi.extensions.PluginId;
-import org.jetbrains.annotations.Nullable;
 
 public class MakeAspects_ActionGroup extends GeneratedActionGroup {
   public static final String ID = "jetbrains.mps.ide.make.actions.MakeAspects_ActionGroup";
-  private Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
-  public MakeAspects_ActionGroup() {
-    super("Rebuild Aspect Models", ID);
-    this.setIsInternal(false);
-    this.setPopup(true);
+  private final Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
+
+  public MakeAspects_ActionGroup(@Nullable ApplicationPlugin plugin) {
+    super("Rebuild Aspect Models", ID, plugin);
+    setIsInternal(false);
+    setPopup(true);
   }
   public void doUpdate(AnActionEvent event) {
     removeAll();

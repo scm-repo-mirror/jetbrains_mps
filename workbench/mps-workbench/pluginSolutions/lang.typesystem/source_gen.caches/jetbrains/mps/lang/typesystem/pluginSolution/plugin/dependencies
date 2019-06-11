@@ -40,10 +40,13 @@
     <classNode dependClassName="jetbrains.mps.lang.typesystem.pluginSolution.plugin.ShowNodeType_Action" />
     <classNode dependClassName="jetbrains.mps.lang.typesystem.pluginSolution.plugin.TypesystemActions_Plugin_ActionGroup" />
     <classNode dependClassName="jetbrains.mps.plugins.actions.BaseKeymapChanges" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode extendsClassName="jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin" />
   </dependency>
   <dependency className="jetbrains.mps.lang.typesystem.pluginSolution.plugin.ShowAsIntentions_TypeSystem_ActionGroup">
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.workbench.action.ApplicationPlugin" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode extendsClassName="jetbrains.mps.plugins.actions.GeneratedActionGroup" />
   </dependency>
   <dependency className="jetbrains.mps.lang.typesystem.pluginSolution.plugin.ShowNodeType_Action">
@@ -77,6 +80,8 @@
   </dependency>
   <dependency className="jetbrains.mps.lang.typesystem.pluginSolution.plugin.TypesystemActions_Plugin_ActionGroup">
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.workbench.action.ApplicationPlugin" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode extendsClassName="jetbrains.mps.plugins.actions.GeneratedActionGroup" />
   </dependency>
 </dependenciesRoot>

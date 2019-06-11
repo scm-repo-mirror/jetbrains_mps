@@ -4,6 +4,7 @@ package jetbrains.mps.lang.typesystem.devkit.pluginSolution.plugin;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.EditorInternal_ActionGroup;
 import jetbrains.mps.ide.actions.DebugActions_ActionGroup;
 import java.util.List;
@@ -12,21 +13,25 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 
 public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.lang.typesystem.devkit.pluginSolution");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.lang.typesystem.devkit.pluginSolution");
+
   public PluginSolution_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new GoToTypeErrorRule_Action());
     addAction(new ShowExpectedType_Action());
     addAction(new ShowRulesWhichAffectNodeType_Action());
     // groups 
-    addGroup(new GoToTypeErrorGroup_ActionGroup());
-    addGroup(new InternalTypeSystemActions_ActionGroup());
-    addGroup(new TypesystemActions_Devkit_ActionGroup());
+    addGroup(new GoToTypeErrorGroup_ActionGroup(this));
+    addGroup(new InternalTypeSystemActions_ActionGroup(this));
+    addGroup(new TypesystemActions_Devkit_ActionGroup(this));
   }
   public void adjustRegularGroups() {
     insertGroupIntoAnother(GoToTypeErrorGroup_ActionGroup.ID, TypesystemActions_Devkit_ActionGroup.ID, null);

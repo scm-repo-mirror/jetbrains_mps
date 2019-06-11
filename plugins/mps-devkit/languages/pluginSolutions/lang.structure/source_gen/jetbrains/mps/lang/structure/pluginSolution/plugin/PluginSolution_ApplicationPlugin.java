@@ -4,16 +4,21 @@ package jetbrains.mps.lang.structure.pluginSolution.plugin;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.NodeActions_ActionGroup;
 import jetbrains.mps.ide.actions.ModelActions_ActionGroup;
 
 public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.lang.structure.pluginSolution");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.lang.structure.pluginSolution");
+
   public PluginSolution_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new CreateReferenceConcept_Action());
@@ -22,9 +27,9 @@ public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new ShowHelpForNode_Action());
     addAction(new ShowHelpForRoot_Action());
     // groups 
-    addGroup(new ShowAsIntentions_LangStructure_ActionGroup());
-    addGroup(new ShowHelp_ActionGroup());
-    addGroup(new Structure_ActionGroup());
+    addGroup(new ShowAsIntentions_LangStructure_ActionGroup(this));
+    addGroup(new ShowHelp_ActionGroup(this));
+    addGroup(new Structure_ActionGroup(this));
   }
   public void adjustRegularGroups() {
     insertGroupIntoAnother(Structure_ActionGroup.ID, NodeActions_ActionGroup.ID, NodeActions_ActionGroup.LABEL_ID_structure);

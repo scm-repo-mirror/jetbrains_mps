@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.lightweightdsl.pluginSolution.plugin;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.CreateRootNode_ActionGroup;
 import java.util.List;
 import jetbrains.mps.plugins.actions.BaseKeymapChanges;
@@ -12,17 +13,21 @@ import java.util.ArrayList;
 import jetbrains.mps.plugins.part.ApplicationPluginPart;
 
 public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.baseLanguage.lightweightdsl.pluginSolution");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.baseLanguage.lightweightdsl.pluginSolution");
+
   public PluginSolution_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new GoToMemberDeclaration_Action());
     // groups 
-    addGroup(new ClassLikes_ActionGroup());
+    addGroup(new ClassLikes_ActionGroup(this));
   }
   public void adjustRegularGroups() {
     insertGroupIntoAnother(ClassLikes_ActionGroup.ID, CreateRootNode_ActionGroup.ID, CreateRootNode_ActionGroup.LABEL_ID_mainRoot);

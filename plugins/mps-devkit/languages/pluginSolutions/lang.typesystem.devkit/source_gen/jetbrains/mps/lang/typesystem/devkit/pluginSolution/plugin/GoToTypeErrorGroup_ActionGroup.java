@@ -10,6 +10,8 @@ import org.jetbrains.mps.util.Condition;
 import jetbrains.mps.workbench.action.BaseAction;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.workbench.action.ApplicationPlugin;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
@@ -21,16 +23,16 @@ import jetbrains.mps.errors.item.RuleIdFlavouredItem;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import com.intellij.openapi.extensions.PluginId;
-import org.jetbrains.annotations.Nullable;
 
 public class GoToTypeErrorGroup_ActionGroup extends GeneratedActionGroup {
   public static final String ID = "jetbrains.mps.lang.typesystem.devkit.pluginSolution.plugin.GoToTypeErrorGroup_ActionGroup";
-  private Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
-  public GoToTypeErrorGroup_ActionGroup() {
-    super("Go to Rule Which Caused Error", ID);
-    this.setIsAlwaysVisible(false);
-    this.setIsInternal(false);
-    this.setPopup(true);
+  private final Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
+
+  public GoToTypeErrorGroup_ActionGroup(@Nullable ApplicationPlugin plugin) {
+    super("Go to Rule Which Caused Error", ID, plugin);
+    setIsAlwaysVisible(false);
+    setIsInternal(false);
+    setPopup(true);
   }
   public void doUpdate(AnActionEvent event) {
     removeAll();

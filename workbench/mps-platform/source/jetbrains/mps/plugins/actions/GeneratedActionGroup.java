@@ -46,11 +46,11 @@ public abstract class GeneratedActionGroup extends BaseGroup {
     myApplicationPlugin = applicationPlugin;
   }
 
-  protected void addAction(@NotNull String id) {
+  protected final void addAction(@NotNull String id) {
     addActionSafe(ActionManager.getInstance().getAction(id));
   }
 
-  protected void addParameterizedAction(BaseAction action, PluginId id, Object... params) {
+  protected final void addParameterizedAction(BaseAction action, PluginId id, Object... params) {
     if (!isStrict()){
       addActionSafe(action);
       return;
@@ -70,6 +70,12 @@ public abstract class GeneratedActionGroup extends BaseGroup {
     } else {
       myApplicationPlugin.addParameterizedAction(action, params);
     }
+  }
+
+  // @NotNull
+  @Nullable
+  public final ApplicationPlugin getApplicationPlugin() {
+    return myApplicationPlugin;
   }
 
   private void legacyAddParameterisedAction(BaseAction action, PluginId id, Object[] params) {

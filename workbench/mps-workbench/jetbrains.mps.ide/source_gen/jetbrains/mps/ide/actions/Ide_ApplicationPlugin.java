@@ -4,18 +4,23 @@ package jetbrains.mps.ide.actions;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import jetbrains.mps.plugins.actions.BaseKeymapChanges;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 
 public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.ide");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.ide");
+
   public Ide_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new AddToNewFavoritesList_Action());
@@ -108,72 +113,72 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new ShowTodoViewer_Action());
     addAction(new SubmitToTracker_Action());
     // groups 
-    addGroup(new AbstractFileActions_ActionGroup());
-    addGroup(new AddToFavoritesGroup_ActionGroup());
-    addGroup(new AnalyzeModule_ActionGroup());
-    addGroup(new Analyze_ActionGroup());
-    addGroup(new BehaviourPopup_ActionGroup());
-    addGroup(new Bookmarks_ActionGroup());
-    addGroup(new Build_ActionGroup());
-    addGroup(new CommonModuleActions_ActionGroup());
-    addGroup(new CreateRootNodeAdapter_ActionGroup());
-    addGroup(new CreateRootNode_ActionGroup());
-    addGroup(new DebugActions_ActionGroup());
-    addGroup(new DevkitActions_ActionGroup());
-    addGroup(new Edit_ActionGroup());
-    addGroup(new EditorActionsAddition_ActionGroup());
-    addGroup(new EditorInternal_ActionGroup());
-    addGroup(new EditorPopupEx_ActionGroup());
-    addGroup(new EditorPopup_Show_ActionGroup());
-    addGroup(new FavoritesPopupWrapper_ActionGroup());
-    addGroup(new FavoritesPopup_ActionGroup());
-    addGroup(new Favorites_ActionGroup());
-    addGroup(new FileActions_ActionGroup());
-    addGroup(new FileSystemNewActions_ActionGroup());
-    addGroup(new FindModelUsages_ActionGroup());
-    addGroup(new FindUsages_ActionGroup());
-    addGroup(new FlyingActions_ActionGroup());
-    addGroup(new FolderActions_ActionGroup());
-    addGroup(new GeneratorActions_ActionGroup());
-    addGroup(new GeneratorNewActions_ActionGroup());
-    addGroup(new GoByReference_ActionGroup());
-    addGroup(new Goto_ActionGroup());
-    addGroup(new JUnitTestCaseActions_ActionGroup());
-    addGroup(new JUnitTestMethodActions_ActionGroup());
-    addGroup(new LanguageActions_ActionGroup());
-    addGroup(new LanguageNewActions_ActionGroup());
-    addGroup(new MessagesViewActions_ActionGroup());
-    addGroup(new ModelActions_ActionGroup());
-    addGroup(new ModelNewActions_ActionGroup());
-    addGroup(new ModelRefactoring_ActionGroup());
-    addGroup(new ModuleActions_ActionGroup());
-    addGroup(new NamespaceActions_ActionGroup());
-    addGroup(new NamespaceInternalActions_ActionGroup());
-    addGroup(new NamespaceMakeActions_ActionGroup());
-    addGroup(new NamespaceNewActions_ActionGroup());
-    addGroup(new NodeActions_ActionGroup());
-    addGroup(new PackageActions_ActionGroup());
-    addGroup(new PackageNewActions_ActionGroup());
-    addGroup(new PrintNodePosition_Addition_ActionGroup());
-    addGroup(new ProjectActionsRenameProjectContainer_ActionGroup());
-    addGroup(new ProjectActions_ActionGroup());
-    addGroup(new ProjectNewActions_ActionGroup());
-    addGroup(new PropertyNodeActions_ActionGroup());
-    addGroup(new ReferenceNodeActions_ActionGroup());
-    addGroup(new Search_ActionGroup());
-    addGroup(new SolutionActions_ActionGroup());
-    addGroup(new SolutionNewActions_ActionGroup());
-    addGroup(new SolutionRefactoring_ActionGroup());
-    addGroup(new StructurePopup_ActionGroup());
-    addGroup(new ToolsInternal_ActionGroup());
-    addGroup(new Tools_ActionGroup());
-    addGroup(new TouchBarDebug_ActionGroup());
-    addGroup(new TouchBarDefault_alt_ActionGroup());
-    addGroup(new TouchBarDefault_cmd_ActionGroup());
-    addGroup(new TouchBarDefault_cmd_alt_ActionGroup());
-    addGroup(new TouchBarDefault_shift_ActionGroup());
-    addGroup(new TransientModulesActions_ActionGroup());
-    addGroup(new View_ActionGroup());
+    addGroup(new AbstractFileActions_ActionGroup(this));
+    addGroup(new AddToFavoritesGroup_ActionGroup(this));
+    addGroup(new AnalyzeModule_ActionGroup(this));
+    addGroup(new Analyze_ActionGroup(this));
+    addGroup(new BehaviourPopup_ActionGroup(this));
+    addGroup(new Bookmarks_ActionGroup(this));
+    addGroup(new Build_ActionGroup(this));
+    addGroup(new CommonModuleActions_ActionGroup(this));
+    addGroup(new CreateRootNodeAdapter_ActionGroup(this));
+    addGroup(new CreateRootNode_ActionGroup(this));
+    addGroup(new DebugActions_ActionGroup(this));
+    addGroup(new DevkitActions_ActionGroup(this));
+    addGroup(new Edit_ActionGroup(this));
+    addGroup(new EditorActionsAddition_ActionGroup(this));
+    addGroup(new EditorInternal_ActionGroup(this));
+    addGroup(new EditorPopupEx_ActionGroup(this));
+    addGroup(new EditorPopup_Show_ActionGroup(this));
+    addGroup(new FavoritesPopupWrapper_ActionGroup(this));
+    addGroup(new FavoritesPopup_ActionGroup(this));
+    addGroup(new Favorites_ActionGroup(this));
+    addGroup(new FileActions_ActionGroup(this));
+    addGroup(new FileSystemNewActions_ActionGroup(this));
+    addGroup(new FindModelUsages_ActionGroup(this));
+    addGroup(new FindUsages_ActionGroup(this));
+    addGroup(new FlyingActions_ActionGroup(this));
+    addGroup(new FolderActions_ActionGroup(this));
+    addGroup(new GeneratorActions_ActionGroup(this));
+    addGroup(new GeneratorNewActions_ActionGroup(this));
+    addGroup(new GoByReference_ActionGroup(this));
+    addGroup(new Goto_ActionGroup(this));
+    addGroup(new JUnitTestCaseActions_ActionGroup(this));
+    addGroup(new JUnitTestMethodActions_ActionGroup(this));
+    addGroup(new LanguageActions_ActionGroup(this));
+    addGroup(new LanguageNewActions_ActionGroup(this));
+    addGroup(new MessagesViewActions_ActionGroup(this));
+    addGroup(new ModelActions_ActionGroup(this));
+    addGroup(new ModelNewActions_ActionGroup(this));
+    addGroup(new ModelRefactoring_ActionGroup(this));
+    addGroup(new ModuleActions_ActionGroup(this));
+    addGroup(new NamespaceActions_ActionGroup(this));
+    addGroup(new NamespaceInternalActions_ActionGroup(this));
+    addGroup(new NamespaceMakeActions_ActionGroup(this));
+    addGroup(new NamespaceNewActions_ActionGroup(this));
+    addGroup(new NodeActions_ActionGroup(this));
+    addGroup(new PackageActions_ActionGroup(this));
+    addGroup(new PackageNewActions_ActionGroup(this));
+    addGroup(new PrintNodePosition_Addition_ActionGroup(this));
+    addGroup(new ProjectActionsRenameProjectContainer_ActionGroup(this));
+    addGroup(new ProjectActions_ActionGroup(this));
+    addGroup(new ProjectNewActions_ActionGroup(this));
+    addGroup(new PropertyNodeActions_ActionGroup(this));
+    addGroup(new ReferenceNodeActions_ActionGroup(this));
+    addGroup(new Search_ActionGroup(this));
+    addGroup(new SolutionActions_ActionGroup(this));
+    addGroup(new SolutionNewActions_ActionGroup(this));
+    addGroup(new SolutionRefactoring_ActionGroup(this));
+    addGroup(new StructurePopup_ActionGroup(this));
+    addGroup(new ToolsInternal_ActionGroup(this));
+    addGroup(new Tools_ActionGroup(this));
+    addGroup(new TouchBarDebug_ActionGroup(this));
+    addGroup(new TouchBarDefault_alt_ActionGroup(this));
+    addGroup(new TouchBarDefault_cmd_ActionGroup(this));
+    addGroup(new TouchBarDefault_cmd_alt_ActionGroup(this));
+    addGroup(new TouchBarDefault_shift_ActionGroup(this));
+    addGroup(new TransientModulesActions_ActionGroup(this));
+    addGroup(new View_ActionGroup(this));
   }
   public void adjustInterfaceGroups() {
     insertInterfaceGroupIntoAnother("VcsGroup", AbstractFileActions_ActionGroup.ID, AbstractFileActions_ActionGroup.LABEL_ID_vcs);

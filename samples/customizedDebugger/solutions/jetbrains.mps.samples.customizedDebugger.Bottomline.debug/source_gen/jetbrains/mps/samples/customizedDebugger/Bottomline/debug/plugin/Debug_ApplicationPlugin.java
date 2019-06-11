@@ -4,16 +4,21 @@ package jetbrains.mps.samples.customizedDebugger.Bottomline.debug.plugin;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import jetbrains.mps.plugins.part.ApplicationPluginPart;
 
 public class Debug_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.samples.customizedDebugger.Bottomline.debug");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.samples.customizedDebugger.Bottomline.debug");
+
   public Debug_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   @Override
   public void fillCustomParts(List<ApplicationPluginPart> parts) {
     parts.add(new DebugInfoProvider_AppPluginPart());

@@ -4,6 +4,7 @@ package jetbrains.mps.ide.devkit.actions;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.ProjectNewActions_ActionGroup;
 import jetbrains.mps.ide.actions.DebugActions_ActionGroup;
 import jetbrains.mps.ide.actions.LanguageNewActions_ActionGroup;
@@ -24,12 +25,16 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 
 public class Mpsdevkit_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.ide.mpsdevkit");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.ide.mpsdevkit");
+
   public Mpsdevkit_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new AddAccessoryModel_Action());
@@ -63,27 +68,27 @@ public class Mpsdevkit_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new ShowStructure_Action());
     addAction(new ShowTypeSystemTrace_Action());
     // groups 
-    addGroup(new AccessoriesGroupActions_ActionGroup());
-    addGroup(new BehaviorCodeOverrideImplementMenuGroup_ActionGroup());
-    addGroup(new ContributeModuleUsage_ActionGroup());
-    addGroup(new DevKitTools_ActionGroup());
-    addGroup(new EditorInternalEx_ActionGroup());
-    addGroup(new FindLanguageUsages_ActionGroup());
-    addGroup(new GenerateEditorPopup_ActionGroup());
-    addGroup(new GenerationTraceActions_ActionGroup());
-    addGroup(new GeneratorActions_Delete_ActionGroup());
-    addGroup(new GotoConceptAspect_ActionGroup());
-    addGroup(new IntentionsGroup_ActionGroup());
-    addGroup(new LanguageActionsEx_ActionGroup());
-    addGroup(new LanguageNewActionsEx_ActionGroup());
-    addGroup(new LanguageNewCustomPartActions_ActionGroup());
-    addGroup(new LanguageNewGenerator_ActionGroup());
-    addGroup(new NamespaceNewActionsEx_ActionGroup());
-    addGroup(new ProjectNewActionsEx_ActionGroup());
-    addGroup(new RuntimeFolderActions_ActionGroup());
-    addGroup(new ShowNodeIn_ActionGroup());
-    addGroup(new StructureAdditions_ActionGroup());
-    addGroup(new TraceActions_ActionGroup());
+    addGroup(new AccessoriesGroupActions_ActionGroup(this));
+    addGroup(new BehaviorCodeOverrideImplementMenuGroup_ActionGroup(this));
+    addGroup(new ContributeModuleUsage_ActionGroup(this));
+    addGroup(new DevKitTools_ActionGroup(this));
+    addGroup(new EditorInternalEx_ActionGroup(this));
+    addGroup(new FindLanguageUsages_ActionGroup(this));
+    addGroup(new GenerateEditorPopup_ActionGroup(this));
+    addGroup(new GenerationTraceActions_ActionGroup(this));
+    addGroup(new GeneratorActions_Delete_ActionGroup(this));
+    addGroup(new GotoConceptAspect_ActionGroup(this));
+    addGroup(new IntentionsGroup_ActionGroup(this));
+    addGroup(new LanguageActionsEx_ActionGroup(this));
+    addGroup(new LanguageNewActionsEx_ActionGroup(this));
+    addGroup(new LanguageNewCustomPartActions_ActionGroup(this));
+    addGroup(new LanguageNewGenerator_ActionGroup(this));
+    addGroup(new NamespaceNewActionsEx_ActionGroup(this));
+    addGroup(new ProjectNewActionsEx_ActionGroup(this));
+    addGroup(new RuntimeFolderActions_ActionGroup(this));
+    addGroup(new ShowNodeIn_ActionGroup(this));
+    addGroup(new StructureAdditions_ActionGroup(this));
+    addGroup(new TraceActions_ActionGroup(this));
   }
   public void adjustRegularGroups() {
     insertGroupIntoAnother(GenerateEditorPopup_ActionGroup.ID, "EditorPopup_ActionGroupgoto", null);

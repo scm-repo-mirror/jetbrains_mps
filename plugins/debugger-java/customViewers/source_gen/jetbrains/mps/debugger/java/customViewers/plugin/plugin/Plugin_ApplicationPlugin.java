@@ -4,16 +4,21 @@ package jetbrains.mps.debugger.java.customViewers.plugin.plugin;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import jetbrains.mps.plugins.part.ApplicationPluginPart;
 
 public class Plugin_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.debugger.java.customViewers.plugin");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.debugger.java.customViewers.plugin");
+
   public Plugin_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   @Override
   public void fillCustomParts(List<ApplicationPluginPart> parts) {
     parts.add(new CustomViewersInitializer_AppPluginPart());

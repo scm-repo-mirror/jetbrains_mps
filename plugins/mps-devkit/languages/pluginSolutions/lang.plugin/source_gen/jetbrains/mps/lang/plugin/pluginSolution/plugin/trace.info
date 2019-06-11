@@ -15,7 +15,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
   <root nodeRef="r:e9b40035-0176-42c7-80b0-c481dc478a68(jetbrains.mps.lang.plugin.pluginSolution.plugin)/5487985028841901743">
     <file name="PluginSolution_ApplicationPlugin.java">
-      <node id="5487985028841901743" at="18,51,19,46" concept="2" />
+      <node id="5487985028841901743" at="23,51,24,46" concept="2" />
     </file>
     <file name="SortKeymapMembers_Action.java">
       <node id="5487985028841901743" at="23,0,24,0" concept="10" trace="ICON" />
@@ -101,40 +101,42 @@
   </root>
   <root nodeRef="r:e9b40035-0176-42c7-80b0-c481dc478a68(jetbrains.mps.lang.plugin.pluginSolution.plugin)/5487985028841901766">
     <file name="PluginSolution_ApplicationPlugin.java">
-      <node id="5487985028841901766" at="21,59,22,53" concept="2" />
-      <node id="5487985028841901769" at="24,37,25,136" concept="2" />
+      <node id="5487985028841901766" at="26,63,27,57" concept="2" />
+      <node id="5487985028841901769" at="29,37,30,136" concept="2" />
     </file>
     <file name="RefactoringAdditions_ActionGroup.java">
-      <node id="5487985028841901766" at="8,0,9,0" concept="10" trace="ID" />
-      <node id="5487985028841901766" at="9,45,10,38" concept="12" />
-      <node id="5487985028841901766" at="10,38,11,30" concept="2" />
-      <node id="5487985028841901766" at="11,30,12,25" concept="2" />
-      <node id="5487985028841901768" at="12,25,13,128" concept="2" />
-      <node id="5487985028841901766" at="9,0,15,0" concept="1" trace="RefactoringAdditions_ActionGroup#()V" />
-      <scope id="5487985028841901766" at="9,45,13,128" />
-      <scope id="5487985028841901766" at="9,0,15,0" />
-      <unit id="5487985028841901766" at="7,0,16,0" name="jetbrains.mps.lang.plugin.pluginSolution.plugin.RefactoringAdditions_ActionGroup" />
+      <node id="5487985028841901766" at="10,0,11,0" concept="10" trace="ID" />
+      <node id="5487985028841901766" at="12,79,13,46" concept="12" />
+      <node id="5487985028841901766" at="13,46,14,25" concept="2" />
+      <node id="5487985028841901766" at="14,25,15,20" concept="2" />
+      <node id="5487985028841901768" at="15,20,16,128" concept="2" />
+      <node id="5487985028841901766" at="12,0,18,0" concept="1" trace="RefactoringAdditions_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <scope id="5487985028841901766" at="12,79,16,128" />
+      <scope id="5487985028841901766" at="12,0,18,0">
+        <var name="plugin" id="5487985028841901766" />
+      </scope>
+      <unit id="5487985028841901766" at="9,0,19,0" name="jetbrains.mps.lang.plugin.pluginSolution.plugin.RefactoringAdditions_ActionGroup" />
     </file>
   </root>
   <root nodeRef="r:e9b40035-0176-42c7-80b0-c481dc478a68(jetbrains.mps.lang.plugin.pluginSolution.plugin)/8268629222289297283">
     <file name="PluginSolution_ApplicationPlugin.java">
-      <node id="8268629222289297283" at="10,0,11,0" concept="3" trace="myId" />
-      <node id="8268629222289297283" at="13,27,14,16" concept="7" />
-      <node id="8268629222289297283" at="16,30,17,30" concept="8" />
-      <node id="8268629222289297283" at="19,46,20,14" concept="8" />
-      <node id="8268629222289297283" at="11,0,13,0" concept="1" trace="PluginSolution_ApplicationPlugin#()V" />
-      <node id="8268629222289297283" at="13,0,16,0" concept="5" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
-      <node id="8268629222289297283" at="24,0,28,0" concept="5" trace="adjustRegularGroups#()V" />
-      <node id="8268629222289297283" at="16,0,24,0" concept="5" trace="createGroups#()V" />
-      <scope id="8268629222289297283" at="11,45,11,45" />
-      <scope id="8268629222289297283" at="13,27,14,16" />
-      <scope id="8268629222289297283" at="11,0,13,0" />
-      <scope id="8268629222289297283" at="24,37,26,110" />
-      <scope id="8268629222289297283" at="13,0,16,0" />
-      <scope id="8268629222289297283" at="24,0,28,0" />
-      <scope id="8268629222289297283" at="16,30,22,53" />
-      <scope id="8268629222289297283" at="16,0,24,0" />
-      <unit id="8268629222289297283" at="9,0,29,0" name="jetbrains.mps.lang.plugin.pluginSolution.plugin.PluginSolution_ApplicationPlugin" />
+      <node id="8268629222289297283" at="11,0,12,0" concept="3" trace="myId" />
+      <node id="8268629222289297283" at="17,27,18,16" concept="7" />
+      <node id="8268629222289297283" at="21,30,22,30" concept="8" />
+      <node id="8268629222289297283" at="24,46,25,14" concept="8" />
+      <node id="8268629222289297283" at="13,0,15,0" concept="1" trace="PluginSolution_ApplicationPlugin#()V" />
+      <node id="8268629222289297283" at="16,0,20,0" concept="5" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
+      <node id="8268629222289297283" at="29,0,33,0" concept="5" trace="adjustRegularGroups#()V" />
+      <node id="8268629222289297283" at="21,0,29,0" concept="5" trace="createGroups#()V" />
+      <scope id="8268629222289297283" at="13,45,13,45" />
+      <scope id="8268629222289297283" at="17,27,18,16" />
+      <scope id="8268629222289297283" at="13,0,15,0" />
+      <scope id="8268629222289297283" at="29,37,31,110" />
+      <scope id="8268629222289297283" at="16,0,20,0" />
+      <scope id="8268629222289297283" at="29,0,33,0" />
+      <scope id="8268629222289297283" at="21,30,27,57" />
+      <scope id="8268629222289297283" at="21,0,29,0" />
+      <unit id="8268629222289297283" at="10,0,34,0" name="jetbrains.mps.lang.plugin.pluginSolution.plugin.PluginSolution_ApplicationPlugin" />
     </file>
   </root>
   <root nodeRef="r:e9b40035-0176-42c7-80b0-c481dc478a68(jetbrains.mps.lang.plugin.pluginSolution.plugin)/8722937377469659497">
@@ -227,24 +229,26 @@
       <unit id="8722937377469659497" at="27,0,92,0" name="jetbrains.mps.lang.plugin.pluginSolution.plugin.GeneratePluginSolution_Action" />
     </file>
     <file name="PluginSolution_ApplicationPlugin.java">
-      <node id="8722937377469659497" at="17,30,18,51" concept="2" />
+      <node id="8722937377469659497" at="22,30,23,51" concept="2" />
     </file>
   </root>
   <root nodeRef="r:e9b40035-0176-42c7-80b0-c481dc478a68(jetbrains.mps.lang.plugin.pluginSolution.plugin)/8722937377469659543">
     <file name="PluginSolution_ApplicationPlugin.java">
-      <node id="8722937377469659543" at="20,14,21,59" concept="2" />
-      <node id="8722937377469659547" at="25,136,26,110" concept="2" />
+      <node id="8722937377469659543" at="25,14,26,63" concept="2" />
+      <node id="8722937377469659547" at="30,136,31,110" concept="2" />
     </file>
     <file name="ProjectPaneProjectAddition_ActionGroup.java">
-      <node id="8722937377469659543" at="8,0,9,0" concept="10" trace="ID" />
-      <node id="8722937377469659543" at="9,51,10,44" concept="12" />
-      <node id="8722937377469659543" at="10,44,11,30" concept="2" />
-      <node id="8722937377469659543" at="11,30,12,25" concept="2" />
-      <node id="8722937377469659546" at="12,25,13,139" concept="2" />
-      <node id="8722937377469659543" at="9,0,15,0" concept="1" trace="ProjectPaneProjectAddition_ActionGroup#()V" />
-      <scope id="8722937377469659543" at="9,51,13,139" />
-      <scope id="8722937377469659543" at="9,0,15,0" />
-      <unit id="8722937377469659543" at="7,0,16,0" name="jetbrains.mps.lang.plugin.pluginSolution.plugin.ProjectPaneProjectAddition_ActionGroup" />
+      <node id="8722937377469659543" at="10,0,11,0" concept="10" trace="ID" />
+      <node id="8722937377469659543" at="12,85,13,52" concept="12" />
+      <node id="8722937377469659543" at="13,52,14,25" concept="2" />
+      <node id="8722937377469659543" at="14,25,15,20" concept="2" />
+      <node id="8722937377469659546" at="15,20,16,139" concept="2" />
+      <node id="8722937377469659543" at="12,0,18,0" concept="1" trace="ProjectPaneProjectAddition_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <scope id="8722937377469659543" at="12,85,16,139" />
+      <scope id="8722937377469659543" at="12,0,18,0">
+        <var name="plugin" id="8722937377469659543" />
+      </scope>
+      <unit id="8722937377469659543" at="9,0,19,0" name="jetbrains.mps.lang.plugin.pluginSolution.plugin.ProjectPaneProjectAddition_ActionGroup" />
     </file>
   </root>
 </debug-info>
