@@ -6677,6 +6677,7 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.EnumClass_Implements_Delete" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor.EnumConstants" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.editor._ClassConcept_Implements_Delete_Last" />
+    <classNode dependClassName="jetbrains.mps.editor.runtime.EditorCell_Empty" />
     <classNode dependClassName="jetbrains.mps.editor.runtime.impl.cellActions.CellAction_DeleteSPropertyOrNode" />
     <classNode dependClassName="jetbrains.mps.editor.runtime.impl.cellActions.CellAction_DeleteSmart" />
     <classNode dependClassName="jetbrains.mps.editor.runtime.style.FocusPolicy" />
