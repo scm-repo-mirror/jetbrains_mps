@@ -79,7 +79,7 @@ public class TestsErrorsChecker {
   }
 
   private Iterable<NodeReportItem> getRootErrors() {
-    Set<NodeReportItem> cachedErrors = ourModelErrorsHolder.get(myRoot);
+    Set<NodeReportItem> cachedErrors = ourModelErrorsHolder.get();
     if (cachedErrors != null) {
       return SetSequence.fromSet(cachedErrors).toListSequence();
     }
@@ -107,30 +107,18 @@ public class TestsErrorsChecker {
         return node == null || !(ErrorReportUtil.manuallySuppressed(it, repository));
       }
     }));
-    ourModelErrorsHolder.set(myRoot, res);
+    ourModelErrorsHolder.set(res);
     return res;
   }
 
   private static class ModelErrorsHolder<T> {
     private Set<T> myCachedErrors;
-    private SNode myRoot;
-
     @Nullable
-    public Set<T> get(SNode root) {
-      if (myCachedErrors != null && sameRoot(root)) {
-        return myCachedErrors;
-      }
-      return null;
+    public Set<T> get() {
+      return myCachedErrors;
     }
-
-    private boolean sameRoot(SNode root) {
-      return root == myRoot;
-    }
-
-    public void set(SNode root, Set<T> errors) {
-      myRoot = root;
-      myCachedErrors = SetSequence.fromSet(new HashSet<T>());
-      SetSequence.fromSet(myCachedErrors).addSequence(SetSequence.fromSet(errors));
+    public void set(Set<T> errors) {
+      myCachedErrors = SetSequence.fromSetWithValues(new HashSet<T>(), errors);
     }
   }
 }
