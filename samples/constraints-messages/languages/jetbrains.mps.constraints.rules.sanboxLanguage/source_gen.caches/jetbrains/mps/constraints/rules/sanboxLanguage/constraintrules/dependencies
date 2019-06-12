@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependenciesRoot>
+  <dependency className="jetbrains.mps.constraints.rules.sanboxLanguage.constraintrules.A_Constraints">
+    <classNode dependClassName="java.lang.Class" />
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.util.ArrayList" />
+    <classNode dependClassName="java.util.Arrays" />
+    <classNode dependClassName="java.util.Collection" />
+    <classNode dependClassName="java.util.HashMap" />
+    <classNode dependClassName="java.util.Map" />
+    <classNode dependClassName="jetbrains.mps.constraints.rules.runtime.ConstraintsContext" />
+    <classNode dependClassName="jetbrains.mps.constraints.rules.runtime.ConstraintsRule" />
+    <classNode dependClassName="jetbrains.mps.constraints.rules.runtime.ConstraintsRuleKind" />
+    <classNode dependClassName="jetbrains.mps.constraints.rules.runtime.RuleId" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode extendsClassName="jetbrains.mps.constraints.rules.runtime.ConstraintsDescriptor" />
+  </dependency>
+  <dependency className="jetbrains.mps.constraints.rules.sanboxLanguage.constraintrules.ConstraintsAspectDescriptor">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.constraints.rules.runtime.ConstraintsDescriptor" />
+    <classNode dependClassName="jetbrains.mps.constraints.rules.sanboxLanguage.constraintrules.A_Constraints" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.ConceptSwitchIndex" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.ConceptSwitchIndexBuilder" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.ids.MetaIdFactory" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
+    <classNode extendsClassName="jetbrains.mps.constraints.rules.runtime.ConstraintsAspectDescriptor" />
+  </dependency>
+  <dependency className="jetbrains.mps.constraints.rules.sanboxLanguage.constraintrules.MessagesAspectDescriptor">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.util.ArrayList" />
+    <classNode dependClassName="java.util.Collection" />
+    <classNode dependClassName="jetbrains.mps.constraints.rules.runtime.MessageProvider" />
+    <classNode dependClassName="jetbrains.mps.constraints.rules.runtime.RuleId" />
+    <classNode extendsClassName="jetbrains.mps.constraints.rules.runtime.MessagesAspectDescriptor" />
+  </dependency>
+</dependenciesRoot>
+

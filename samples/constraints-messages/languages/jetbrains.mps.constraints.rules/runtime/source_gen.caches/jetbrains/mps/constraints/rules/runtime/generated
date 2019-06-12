@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product version="3" modelHash="-7wcradh3bpp6yj5epydq62kujl2belu">
+  <files names="ConstraintsAspectDescriptor.java:ConstraintsContext.java:ConstraintsDescriptor.java:ConstraintsRegistry.java:ConstraintsRule.java:ConstraintsRuleKind.java:MessageProvider.java:MessagesAspectDescriptor.java:RuleId.java" />
+</product>
+
