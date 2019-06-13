@@ -20,6 +20,7 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.vfs.VirtualFile;
+import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.smodel.SModelFileTracker;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
@@ -103,7 +104,13 @@ public class CurrentDifferenceRegistry implements ProjectComponent {
     if (file == null) {
       return;
     }
-    IFile iFile = myMpsProject.getFileSystem().fromVirtualFile(file);
+
+    IdeaFileSystem fs = myMpsProject.getFileSystem();
+    if (!((fs.canConvert(file)))) {
+      return;
+    }
+
+    IFile iFile = fs.fromVirtualFile(file);
     SModel modelDescriptor = SModelFileTracker.getInstance(myMpsProject.getRepository()).findModel(iFile);
     if (modelDescriptor == null || !(modelDescriptor.isLoaded())) {
       return;

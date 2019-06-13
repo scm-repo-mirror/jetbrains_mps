@@ -53,6 +53,7 @@
     <import index="bxo2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence.datasource(MPS.OpenAPI/)" />
     <import index="wyuk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.components(MPS.Core/)" />
     <import index="5zyv" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.concurrent(JDK/)" />
+    <import index="lcr" ref="r:d634c129-ecb4-4acd-bd8c-5f057c144ffa(jetbrains.mps.vcs.changesmanager)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
   </imports>
@@ -3751,6 +3752,44 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbH" id="6PUZm6l8yUW" role="3cqZAp" />
+        <node concept="3cpWs8" id="6PUZm6l8xAv" role="3cqZAp">
+          <node concept="3cpWsn" id="6PUZm6l8xAw" role="3cpWs9">
+            <property role="TrG5h" value="fs" />
+            <node concept="3uibUv" id="6PUZm6l8o6O" role="1tU5fm">
+              <ref role="3uigEE" to="4hrd:~IdeaFileSystem" resolve="IdeaFileSystem" />
+            </node>
+            <node concept="2OqwBi" id="6PUZm6l8xAx" role="33vP2m">
+              <node concept="37vLTw" id="6PUZm6l8xAy" role="2Oq$k0">
+                <ref role="3cqZAo" node="6y_kxB1UvQg" resolve="myMpsProject" />
+              </node>
+              <node concept="liA8E" id="6PUZm6l8xAz" role="2OqNvi">
+                <ref role="37wK5l" to="z1c3:~MPSProject.getFileSystem()" resolve="getFileSystem" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="6PUZm6l8yw3" role="3cqZAp">
+          <node concept="3fqX7Q" id="6PUZm6l8yw4" role="3clFbw">
+            <node concept="1eOMI4" id="6PUZm6l8yw7" role="3fr31v">
+              <node concept="2OqwBi" id="6PUZm6l8yIX" role="1eOMHV">
+                <node concept="37vLTw" id="6PUZm6l8yIW" role="2Oq$k0">
+                  <ref role="3cqZAo" node="6PUZm6l8xAw" resolve="fs" />
+                </node>
+                <node concept="liA8E" id="6PUZm6l8yIY" role="2OqNvi">
+                  <ref role="37wK5l" to="4hrd:~IdeaFileSystem.canConvert(com.intellij.openapi.vfs.VirtualFile)" resolve="canConvert" />
+                  <node concept="37vLTw" id="6PUZm6l8yIZ" role="37wK5m">
+                    <ref role="3cqZAo" node="2JwSLRbyYSs" resolve="file" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbS" id="6PUZm6l8yw9" role="3clFbx">
+            <node concept="3cpWs6" id="6PUZm6l8ywa" role="3cqZAp" />
+          </node>
+        </node>
+        <node concept="3clFbH" id="6PUZm6l8xU0" role="3cqZAp" />
         <node concept="3cpWs8" id="2JwSLRbyYRU" role="3cqZAp">
           <node concept="3cpWsn" id="2JwSLRbyYRV" role="3cpWs9">
             <property role="TrG5h" value="iFile" />
@@ -3758,13 +3797,8 @@
               <ref role="3uigEE" to="3ju5:~IFile" resolve="IFile" />
             </node>
             <node concept="2OqwBi" id="1iU9OXv3SO2" role="33vP2m">
-              <node concept="2OqwBi" id="1iU9OXv3N9I" role="2Oq$k0">
-                <node concept="37vLTw" id="1iU9OXv3I5$" role="2Oq$k0">
-                  <ref role="3cqZAo" node="6y_kxB1UvQg" resolve="myMpsProject" />
-                </node>
-                <node concept="liA8E" id="1iU9OXv3QD9" role="2OqNvi">
-                  <ref role="37wK5l" to="z1c3:~MPSProject.getFileSystem()" resolve="getFileSystem" />
-                </node>
+              <node concept="37vLTw" id="6PUZm6l8xA$" role="2Oq$k0">
+                <ref role="3cqZAo" node="6PUZm6l8xAw" resolve="fs" />
               </node>
               <node concept="liA8E" id="1iU9OXv3VPa" role="2OqNvi">
                 <ref role="37wK5l" to="4hrd:~IdeaFileSystem.fromVirtualFile(com.intellij.openapi.vfs.VirtualFile)" resolve="fromVirtualFile" />
