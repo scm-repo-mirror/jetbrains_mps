@@ -186,17 +186,34 @@
     <classNode dependClassName="jetbrains.mps.errors.MessageStatus" />
     <classNode extendsClassName="java.lang.Runnable" />
   </dependency>
-  <dependency className="jetbrains.mps.lang.test.runtime.CheckTypesAction">
-    <classNode dependClassName="java.lang.Override" />
+  <dependency className="jetbrains.mps.lang.test.runtime.CheckScopesAction">
+    <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.util.Collection" />
-    <classNode dependClassName="jetbrains.mps.lang.pattern.util.MatchingUtil" />
-    <classNode dependClassName="jetbrains.mps.lang.test.behavior.NodeTypeCheckingAction" />
-    <classNode dependClassName="jetbrains.mps.lang.test.behavior.PerformUtil" />
-    <classNode dependClassName="jetbrains.mps.lang.test.runtime.NodeCheckerUtil" />
-    <classNode dependClassName="jetbrains.mps.typesystem.inference.TypeChecker" />
-    <classNode dependClassName="jetbrains.mps.typesystem.inference.TypeCheckingContext" />
+    <classNode dependClassName="java.util.HashSet" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ISelector" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.SetSequence" />
+    <classNode dependClassName="jetbrains.mps.smodel.constraints.ModelConstraints" />
     <classNode dependClassName="junit.framework.Assert" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SReferenceLink" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeReference" />
+  </dependency>
+  <dependency className="jetbrains.mps.lang.test.runtime.CheckTypesAction">
+    <classNode dependClassName="jetbrains.mps.lang.test.runtime.NodeCheckerUtil" />
+    <classNode dependClassName="jetbrains.mps.typesystem.inference.ITypechecking" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.lang.test.behavior.NodeTypeCheckingAction" />
+    <classNode dependClassName="java.util.Collection" />
+    <classNode dependClassName="jetbrains.mps.typesystem.inference.TypeChecker" />
+    <classNode dependClassName="jetbrains.mps.typesystem.inference.DefaultTypecheckingContextOwner" />
+    <classNode dependClassName="jetbrains.mps.lang.pattern.util.MatchingUtil" />
+    <classNode dependClassName="jetbrains.mps.typesystem.inference.TypeCheckingContext" />
+    <classNode dependClassName="jetbrains.mps.lang.test.behavior.PerformUtil" />
+    <classNode dependClassName="jetbrains.mps.typesystem.inference.TypeContextManager" />
+    <classNode dependClassName="junit.framework.Assert" />
+    <classNode dependClassName="jetbrains.mps.typesystem.inference.ITypeContextOwner" />
   </dependency>
   <dependency className="jetbrains.mps.lang.test.runtime.CouldNotFindModelException">
     <classNode dependClassName="java.lang.String" />

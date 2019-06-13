@@ -43,8 +43,10 @@
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.SetSequence" />
     <classNode dependClassName="jetbrains.mps.lang.intentions.behavior.BaseIntentionDeclaration__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.migration.behavior.IMigrationUnit__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.lang.modelapi.behavior.NodePointer__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.plugin.behavior.KeyMapKeystroke__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.behavior.ConceptId__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.behavior.ReferenceLinkId__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations" />
@@ -56,6 +58,7 @@
     <classNode dependClassName="jetbrains.mps.lang.test.behavior.IReferenceAttachable__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.test.behavior.IgnoreMigrationDataOption__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.test.behavior.NodesTestCase__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.lang.test.behavior.ScopesTest__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.test.behavior.TestInfo__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.test.generator.template.util.TestsUtil" />
     <classNode dependClassName="jetbrains.mps.smodel.SNodePointer" />
