@@ -22,10 +22,17 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNode;
 
+/**
+ * Contains the part for the constraints aspect (presumably contains basic checks for links (refs/children), properties + some others)
+ * Here one can find the constraints logic, specific to the given {@link SAbstractConcept}
+ *
+ * ConstraintsDescriptor is specific to a single concept
+ * Generated constraints roots inherit from this interface
+ *
+ * @author sorokin
+ */
 public interface ConstraintsDescriptor {
-
-  SAbstractConcept getConcept();
-
+  // legacy part
   boolean canBeChild(@NotNull ConstraintContext_CanBeChild context, @Nullable CheckingNodeContext checkingNodeContext);
 
   boolean canBeRoot(@NotNull ConstraintContext_CanBeRoot context, @Nullable CheckingNodeContext checkingNodeContext);
@@ -47,4 +54,9 @@ public interface ConstraintsDescriptor {
 
   // FIXME why default_CONCRETE_concept is SAbstractConcept? Need to check generated code and make sure it's SConcept at generation time
   SAbstractConcept getDefaultConcreteConcept();
+
+  /**
+   * @return the hosting concept for the descriptor
+   */
+  @NotNull SAbstractConcept getConcept();
 }
