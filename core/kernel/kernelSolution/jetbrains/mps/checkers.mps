@@ -755,6 +755,7 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="2tJIrI" id="7w_sh_iLIbF" role="jymVt" />
     <node concept="3clFb_" id="320sejm6Mll" role="jymVt">
       <property role="TrG5h" value="skipCondition" />
       <property role="1EzhhJ" value="false" />
@@ -774,6 +775,7 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="2tJIrI" id="7w_sh_iLIbG" role="jymVt" />
     <node concept="3clFb_" id="1PHXAu1q14S" role="jymVt">
       <property role="1EzhhJ" value="false" />
       <property role="TrG5h" value="runCheck" />
@@ -909,6 +911,7 @@
         </node>
       </node>
     </node>
+    <node concept="2tJIrI" id="7w_sh_iLIbH" role="jymVt" />
     <node concept="3clFb_" id="6qi2OtU3uq0" role="jymVt">
       <property role="TrG5h" value="checkNodeInEditor" />
       <node concept="3cqZAl" id="6qi2OtU3uq1" role="3clF45" />
@@ -1074,6 +1077,63 @@
                       <node concept="37vLTG" id="1PHXAu1rsfm" role="1bW2Oz">
                         <property role="TrG5h" value="ruleId" />
                         <node concept="3uibUv" id="1PHXAu1rsfl" role="1tU5fm">
+                          <ref role="3uigEE" to="d6hs:~RuleIdFlavouredItem$TypesystemRuleId" resolve="RuleIdFlavouredItem.TypesystemRuleId" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="3clFbH" id="7w_sh_iLJ9s" role="3cqZAp" />
+                <node concept="3clFbF" id="7w_sh_iLILw" role="3cqZAp">
+                  <node concept="1rXfSq" id="7w_sh_iLILx" role="3clFbG">
+                    <ref role="37wK5l" node="1PHXAu1q14S" resolve="runCheck" />
+                    <node concept="37vLTw" id="7w_sh_iLILy" role="37wK5m">
+                      <ref role="3cqZAo" node="6qi2OtU3uwN" resolve="errorsCollector" />
+                    </node>
+                    <node concept="1bVj0M" id="7w_sh_iLILz" role="37wK5m">
+                      <node concept="3clFbS" id="7w_sh_iLIL$" role="1bW5cS">
+                        <node concept="3clFbF" id="7w_sh_iLIL_" role="3cqZAp">
+                          <node concept="2YIFZM" id="7w_sh_iLILA" role="3clFbG">
+                            <ref role="1Pybhc" to="ykok:~ModelConstraints" resolve="ModelConstraints" />
+                            <ref role="37wK5l" to="ykok:~ModelConstraints.canBeChild(org.jetbrains.mps.openapi.model.SNode,jetbrains.mps.smodel.runtime.CheckingNodeContext)" resolve="canBeChild" />
+                            <node concept="37vLTw" id="7w_sh_iLILB" role="37wK5m">
+                              <ref role="3cqZAo" node="6qi2OtU3uwL" resolve="node" />
+                            </node>
+                            <node concept="37vLTw" id="7w_sh_iLILC" role="37wK5m">
+                              <ref role="3cqZAo" node="7w_sh_iLILD" resolve="context" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="37vLTG" id="7w_sh_iLILD" role="1bW2Oz">
+                        <property role="TrG5h" value="context" />
+                        <node concept="3uibUv" id="7w_sh_iLILE" role="1tU5fm">
+                          <ref role="3uigEE" to="ze1i:~CheckingNodeContext" resolve="CheckingNodeContext" />
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="1bVj0M" id="7w_sh_iLILF" role="37wK5m">
+                      <node concept="3clFbS" id="7w_sh_iLILG" role="1bW5cS">
+                        <node concept="3clFbF" id="7w_sh_iLILH" role="3cqZAp">
+                          <node concept="2ShNRf" id="7w_sh_iLILI" role="3clFbG">
+                            <node concept="1pGfFk" id="7w_sh_iLILJ" role="2ShVmc">
+                              <ref role="37wK5l" to="d6hs:~ConstraintsReportItem$CanBeChildFailedReportItem.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SNode,jetbrains.mps.errors.item.RuleIdFlavouredItem$TypesystemRuleId)" resolve="ConstraintsReportItem.CanBeChildFailedReportItem" />
+                              <node concept="37vLTw" id="7w_sh_iLILK" role="37wK5m">
+                                <ref role="3cqZAo" node="6qi2OtU3uwL" resolve="node" />
+                              </node>
+                              <node concept="37vLTw" id="7w_sh_iLILL" role="37wK5m">
+                                <ref role="3cqZAo" node="552CEt2aC_M" resolve="parent" />
+                              </node>
+                              <node concept="37vLTw" id="7w_sh_iLILM" role="37wK5m">
+                                <ref role="3cqZAo" node="7w_sh_iLILN" resolve="ruleId" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="37vLTG" id="7w_sh_iLILN" role="1bW2Oz">
+                        <property role="TrG5h" value="ruleId" />
+                        <node concept="3uibUv" id="7w_sh_iLILO" role="1tU5fm">
                           <ref role="3uigEE" to="d6hs:~RuleIdFlavouredItem$TypesystemRuleId" resolve="RuleIdFlavouredItem.TypesystemRuleId" />
                         </node>
                       </node>

@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.smodel.runtime;
 
+import jetbrains.mps.core.aspects.constraints.rules.CanBeChild_Context;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -22,55 +23,57 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.model.SNode;
 
 /**
+ * Legacy, {@link CanBeChild_Context} is the replacement
  * Arguments of 'can be child' constraint function
+ * [AP]
  *
  * @author Radimir.Sorokin
  * @since 3.5
  */
+// @Deprecated
 public final class ConstraintContext_CanBeChild {
-
-  @Nullable
-  private final SNode myNode;
-
-  @NotNull
-  private final SNode myParentNode;
-
-  @NotNull
-  private final SAbstractConcept myConcept;
-
-  /*TODO @NotNull*/
-  private final SContainmentLink myLink;
+  private final CanBeChild_Context myContext;
 
   public ConstraintContext_CanBeChild(@NotNull SNode node) {
-    myNode = node;
-    myParentNode = node.getParent();
-    myConcept = node.getConcept();
-    myLink = node.getContainmentLink();
+    myContext = new CanBeChild_Context.CanBeChild_ContextBuilder().buildFromNode(node);
   }
 
   public ConstraintContext_CanBeChild(@NotNull SAbstractConcept concept, @NotNull SNode parentNode, SContainmentLink link) {
-    myNode = null;
-    myParentNode = parentNode;
-    myConcept = concept;
-    myLink = link;
+    myContext = new CanBeChild_Context.CanBeChild_ContextBuilder().concept(concept)
+                                                                  .parentNode(parentNode)
+                                                                  .link(link).build();
+  }
+
+  @NotNull
+  public static ConstraintContext_CanBeChild convert(@NotNull CanBeChild_Context context) {
+    if (context.getNode() != null) {
+      return new ConstraintContext_CanBeChild(context.getNode());
+    } else {
+      return new ConstraintContext_CanBeChild(context.getConcept(), context.getParentNode(), context.getLink());
+    }
+  }
+
+  @NotNull
+  public CanBeChild_Context adapt() {
+    return myContext;
   }
 
   @Nullable
   public SNode getNode() {
-    return myNode;
+    return myContext.getNode();
   }
 
   @NotNull
   public SNode getParentNode() {
-    return myParentNode;
+    return myContext.getParentNode();
   }
 
   @NotNull
   public SAbstractConcept getConcept() {
-    return myConcept;
+    return myContext.getConcept();
   }
 
   public SContainmentLink getLink() {
-    return myLink;
+    return myContext.getLink();
   }
 }

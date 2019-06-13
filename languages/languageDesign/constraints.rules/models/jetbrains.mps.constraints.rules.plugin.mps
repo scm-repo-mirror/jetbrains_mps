@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:81fbdfb8-d4d2-41cc-b797-345d9f028d39(jetbrains.mps.constraints.rules.plugin)">
+<model ref="r:81fbdfb8-d4d2-41cc-b797-345d9f028d39(jetbrains.mps.lang.constraints.rules.plugin)">
   <persistence version="9" />
   <languages>
     <use id="f159adf4-3c93-40f9-9c5a-1f245a8697af" name="jetbrains.mps.lang.aspect" version="2" />
@@ -8,12 +8,25 @@
     <use id="c9d137c4-3259-44f8-80ff-33ab2b506ee4" name="jetbrains.mps.lang.util.order" version="0" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
-  <imports />
+  <imports>
+    <import index="beg" ref="r:09811e4e-aa47-4ea2-ad3d-57b7b9ffc7e3(jetbrains.mps.lang.constraints.plugin)" />
+    <import index="mg3u" ref="r:0799ed23-f21a-4dba-ac61-5b80d66bec13(jetbrains.mps.lang.behavior.plugin)" />
+  </imports>
   <registry>
     <language id="f159adf4-3c93-40f9-9c5a-1f245a8697af" name="jetbrains.mps.lang.aspect">
       <concept id="3433054418424672374" name="jetbrains.mps.lang.aspect.structure.SimpleLanguageAspectDescriptor" flags="ng" index="3vrhyV">
         <child id="6106419185511570295" name="mainLanguages" index="QG$2i" />
         <child id="8222125370833980146" name="devkit" index="TkT64" />
+        <child id="2343319097654255233" name="order" index="3F_NFc" />
+      </concept>
+      <concept id="174635545557784815" name="jetbrains.mps.lang.aspect.structure.SimpleAspectOrderRef" flags="ng" index="1SjbrP" />
+    </language>
+    <language id="c9d137c4-3259-44f8-80ff-33ab2b506ee4" name="jetbrains.mps.lang.util.order">
+      <concept id="2450897840534683979" name="jetbrains.mps.lang.util.order.structure.OrderParticipantReference" flags="nn" index="2vPdvi">
+        <reference id="2450897840534683980" name="target" index="2vPdvl" />
+      </concept>
+      <concept id="2450897840534683975" name="jetbrains.mps.lang.util.order.structure.OrderDeclaration" flags="ng" index="2vPdvu">
+        <child id="2450897840534683977" name="seq" index="2vPdvg" />
       </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
@@ -33,14 +46,25 @@
     </language>
   </registry>
   <node concept="3vrhyV" id="6kKc3mjuEw_">
-    <property role="TrG5h" value="constraintrules" />
-    <node concept="2V$Bhx" id="6kKc3mjuEwB" role="QG$2i">
+    <property role="TrG5h" value="constraints2" />
+    <node concept="2V$Bhx" id="7w_sh_iHKAd" role="QG$2i">
       <property role="2V$B1T" value="47257bf3-78d3-470b-89d9-8c3261a61d15" />
-      <property role="2V$B1Q" value="jetbrains.mps.constraints.rules" />
+      <property role="2V$B1Q" value="jetbrains.mps.lang.constraints.rules" />
     </node>
     <node concept="T9mpH" id="6kKc3mj$4Ka" role="TkT64">
       <property role="T9mpF" value="2843b9cf-86fe-47f2-87c9-f256294fd769" />
       <property role="T9mpE" value="jetbrains.mps.devkit.aspect.constraints.rules" />
+    </node>
+    <node concept="2vPdvu" id="7w_sh_iHHi1" role="3F_NFc">
+      <node concept="1SjbrP" id="7w_sh_iHHit" role="2vPdvg">
+        <ref role="2vPdvl" to="beg:2LiUEk8oQ$g" resolve="constraints" />
+      </node>
+      <node concept="1SjbrP" id="7w_sh_iHHib" role="2vPdvg">
+        <ref role="2vPdvl" node="6kKc3mjuEw_" resolve="constraints2" />
+      </node>
+      <node concept="1SjbrP" id="7w_sh_iHIYc" role="2vPdvg">
+        <ref role="2vPdvl" to="mg3u:2LiUEk8oQ$g" resolve="behavior" />
+      </node>
     </node>
   </node>
 </model>

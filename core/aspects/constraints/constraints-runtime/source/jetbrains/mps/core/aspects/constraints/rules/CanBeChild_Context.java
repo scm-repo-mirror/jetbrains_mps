@@ -16,18 +16,37 @@
 package jetbrains.mps.core.aspects.constraints.rules;
 
 import org.jetbrains.mps.annotations.Immutable;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
 
 @Immutable
 public class CanBeChild_Context implements ConstraintsContext {
+  private final SAbstractConcept myConcept;
   private final SNode myNode;
   private final SNode myParentNode;
+  /*TODO @NotNull*/ private final SContainmentLink myLink;
 
-  /*package*/ CanBeChild_Context(@Nullable SNode node, @NotNull SNode parentNode) {
+  private CanBeChild_Context(@NotNull SNode node) {
+    myNode = node;
+    myParentNode = node.getParent();
+    myConcept = node.getConcept();
+    myLink = node.getContainmentLink();
+  }
+
+  private CanBeChild_Context(@NotNull SAbstractConcept concept, @Nullable SNode node, @NotNull SNode parentNode, SContainmentLink link) {
+    myConcept = concept;
     myNode = node;
     myParentNode = parentNode;
+    myLink = link;
+  }
+
+  @NotNull
+  @Override
+  public SAbstractConcept getConcept() {
+    return myConcept;
   }
 
   @Nullable
@@ -40,24 +59,46 @@ public class CanBeChild_Context implements ConstraintsContext {
     return myParentNode;
   }
 
+  @Nullable
+  public SContainmentLink getLink() {
+    return myLink;
+  }
+
   public static final class CanBeChild_ContextBuilder implements ContextBuilder<CanBeChild_Context> {
     private SNode node;
     private SNode parentNode;
+    private SAbstractConcept concept;
+    private SContainmentLink link;
 
-    public ContextBuilder<CanBeChild_Context> node(@Nullable SNode node) {
+    public CanBeChild_ContextBuilder node(@Nullable SNode node) {
       this.node = node;
       return this;
     }
 
-    public ContextBuilder<CanBeChild_Context> parentNode(@NotNull SNode parentNode) {
+    public CanBeChild_ContextBuilder parentNode(@NotNull SNode parentNode) {
       this.parentNode = parentNode;
       return this;
+    }
+
+    public CanBeChild_ContextBuilder concept(@NotNull SAbstractConcept concept) {
+      this.concept = concept;
+      return this;
+    }
+
+    public CanBeChild_ContextBuilder link(@NotNull SContainmentLink link) {
+      this.link = link;
+      return this;
+    }
+
+    @NotNull
+    public CanBeChild_Context buildFromNode(@NotNull SNode node) {
+      return new CanBeChild_Context(node);
     }
 
     @NotNull
     @Override
     public CanBeChild_Context build() {
-      return new CanBeChild_Context(node, parentNode);
+      return new CanBeChild_Context(concept, node, parentNode, link);
     }
   }
 }

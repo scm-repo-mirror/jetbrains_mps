@@ -15,11 +15,14 @@
  */
 package jetbrains.mps.smodel.constraints;
 
+import jetbrains.mps.core.aspects.constraints.rules.CanBeChild_RuleKind;
+import jetbrains.mps.core.aspects.constraints.rules.ConstraintsRuleId;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.smodel.constraints.ReferenceDescriptor.OkReferenceDescriptor;
 import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.smodel.language.ConceptRegistryUtil;
+import jetbrains.mps.smodel.language.ConstraintsRegistry;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeAncestor;
 import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild;
@@ -40,6 +43,8 @@ import org.jetbrains.mps.openapi.language.SType;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SReference;
+
+import java.util.List;
 
 /**
  * API for model constraints
@@ -155,6 +160,12 @@ public class ModelConstraints {
   }
 
   private static boolean canBeChild(@NotNull ConstraintContext_CanBeChild context, @Nullable CheckingNodeContext checkingNodeContext) {
+    boolean legacyResult = legacyCanBeChild(context, checkingNodeContext);
+    return legacyResult && !newCanBeChild(context).isEmpty();
+  }
+
+  private static boolean legacyCanBeChild(@NotNull ConstraintContext_CanBeChild context,
+                                          @Nullable CheckingNodeContext checkingNodeContext) {
     ConstraintsDescriptor descriptor = ConceptRegistry.getInstance().getConstraintsDescriptor(context.getConcept());
     return descriptor.canBeChild(context, checkingNodeContext);
   }

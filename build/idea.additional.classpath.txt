@@ -3,6 +3,9 @@ core/openapi/classes
 :aspects
 core/aspects/behavior/behavior-runtime/classes
 core/aspects/behavior/behavior-api/classes
+core/aspects/constraints/constraints-runtime/classes
+core/aspects/constraints/constraints-api/classes
+core/aspects/constraints/reporting-api/classes
 :core
 startup/startup-util/classes
 core/analyzers/classes

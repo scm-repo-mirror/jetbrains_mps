@@ -16,8 +16,12 @@
 package jetbrains.mps.core.aspects.constraints.rules;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
 public interface ConstraintsRule<Context extends ConstraintsContext> {
+  @NotNull
+  SAbstractConcept getConcept();
+
   @NotNull
   ConstraintsRuleId getId();
 

@@ -50,6 +50,10 @@
         <property role="2V$B1T" value="47257bf3-78d3-470b-89d9-8c3261a61d15" />
         <property role="2V$B1Q" value="jetbrains.mps.constraints.rules" />
       </node>
+      <node concept="2V$Bhx" id="7w_sh_iHDbD" role="1t_9vn">
+        <property role="2V$B1T" value="ad93155d-79b2-4759-b10c-55123e763903" />
+        <property role="2V$B1Q" value="jetbrains.mps.lang.messages" />
+      </node>
     </node>
     <node concept="2VgMA1" id="p4S6WR3TZu" role="2VgMA7">
       <node concept="3ps6a7" id="p4S6WR3TZB" role="3ps6aC">

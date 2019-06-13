@@ -18,6 +18,7 @@ package jetbrains.mps.errors.item;
 import jetbrains.mps.errors.MessageStatus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.model.SNode;
 
@@ -67,10 +68,17 @@ public abstract class ConstraintsReportItem extends NodeReportItemBase implement
     }
   }
 
+  @Internal
   public static class CanBeChildFailedReportItem extends ConstraintsReportItem {
-    public CanBeChildFailedReportItem(@NotNull SNode node, SNode parent, @NotNull TypesystemRuleId ruleNode) {
-      super(node, "Node " + node + " cannot be child of node " + parent, ruleNode);
+    public CanBeChildFailedReportItem(@NotNull SNode node, SNode parent, @Nullable String message, @NotNull TypesystemRuleId ruleNode) {
+      super(node, message != null ? message : getDefaultMessage(node, parent), ruleNode);
     }
+
+    @NotNull
+    private static String getDefaultMessage(@NotNull SNode node, SNode parent) {
+      return "Node " + node + " cannot be child of node " + parent;
+    }
+
     @Override
     public ItemKind getIssueKind() {
       return IssueKindReportItem.CONSTRAINTS.deriveItemKind("cannot be child");

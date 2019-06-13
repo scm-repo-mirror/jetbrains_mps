@@ -58,15 +58,26 @@ public class ConceptRegistry implements CoreComponent, LanguageRegistryListener 
 
   private static ConceptRegistry INSTANCE;
 
+  /**
+   * to avoid #getInstance calls from the generated descriptors we will pass into the aspect descriptor constructor some context paramter (like BehaviorRegistry
+   * for BehaviorAspectDescriptor)
+   * for other cases we will consider introducing a context
+   */
   public static ConceptRegistry getInstance() {
     return INSTANCE;
   }
 
   /**
-   * @deprecated use
+   * it will be dropped along with #getInstance
    */
+  @NotNull
   public BehaviorRegistry getBehaviorRegistry() {
     return myBehaviorRegistry;
+  }
+
+  @NotNull
+  public ConstraintsRegistry getConstraintsRegistry() {
+    return myConstraintsRegistry;
   }
 
   @Override

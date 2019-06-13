@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:c333438f-9631-41c0-a716-72d23eed1ba4(jetbrains.mps.constraints.rules.editor)">
+<model ref="r:c333438f-9631-41c0-a716-72d23eed1ba4(jetbrains.mps.lang.constraints.rules.editor)">
   <persistence version="9" />
   <languages>
     <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="12" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
-    <import index="bm42" ref="r:83f25986-cdbc-469a-a327-db97a2ec5a39(jetbrains.mps.constraints.rules.structure)" implicit="true" />
+    <import index="bm42" ref="r:83f25986-cdbc-469a-a327-db97a2ec5a39(jetbrains.mps.lang.constraints.rules.structure)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
     <import index="tpco" ref="r:00000000-0000-4000-0000-011c89590284(jetbrains.mps.lang.core.editor)" implicit="true" />
   </imports>
@@ -273,74 +273,6 @@
       <node concept="3F1sOY" id="6kKc3mjqf7l" role="3EZMnx">
         <ref role="1NtTu8" to="bm42:6kKc3mjmDjA" resolve="type" />
       </node>
-    </node>
-  </node>
-  <node concept="24kQdi" id="6kKc3mjFxox">
-    <ref role="1XX52x" to="bm42:6kKc3mjFxo7" resolve="MessagesRoot" />
-    <node concept="3EZMnI" id="6kKc3mjFxoA" role="2wV5jI">
-      <node concept="l2Vlx" id="6kKc3mjFxoB" role="2iSdaV" />
-      <node concept="3F0ifn" id="6kKc3mjFxoC" role="3EZMnx">
-        <property role="3F0ifm" value="messages" />
-      </node>
-      <node concept="3F0ifn" id="6f2WQqsUZgj" role="3EZMnx">
-        <property role="3F0ifm" value="for concept" />
-      </node>
-      <node concept="1iCGBv" id="6f2WQqsUZi4" role="3EZMnx">
-        <ref role="1NtTu8" to="bm42:6f2WQqsTmPt" resolve="concept" />
-        <node concept="1sVBvm" id="6f2WQqsUZi6" role="1sWHZn">
-          <node concept="3F0A7n" id="6f2WQqsV0uc" role="2wV5jI">
-            <property role="1Intyy" value="true" />
-            <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
-          </node>
-        </node>
-      </node>
-      <node concept="3F0ifn" id="6kKc3mjFxoV" role="3EZMnx">
-        <property role="3F0ifm" value="{" />
-        <node concept="ljvvj" id="6kKc3mjFDO6" role="3F10Kt">
-          <property role="VOm3f" value="true" />
-        </node>
-      </node>
-      <node concept="3F2HdR" id="6kKc3mjFDNO" role="3EZMnx">
-        <ref role="1NtTu8" to="bm42:6kKc3mjFDNM" resolve="messages" />
-        <node concept="l2Vlx" id="6kKc3mjFDNQ" role="2czzBx" />
-        <node concept="pj6Ft" id="6kKc3mjFDNX" role="3F10Kt">
-          <property role="VOm3f" value="true" />
-        </node>
-        <node concept="ljvvj" id="6kKc3mjFDO3" role="3F10Kt">
-          <property role="VOm3f" value="true" />
-        </node>
-        <node concept="lj46D" id="6kKc3mjFDO8" role="3F10Kt">
-          <property role="VOm3f" value="true" />
-        </node>
-      </node>
-      <node concept="3F0ifn" id="6kKc3mjFxp5" role="3EZMnx">
-        <property role="3F0ifm" value="}" />
-      </node>
-    </node>
-  </node>
-  <node concept="24kQdi" id="6kKc3mjFxpJ">
-    <ref role="1XX52x" to="bm42:6kKc3mjFxph" resolve="MessageProvider" />
-    <node concept="3EZMnI" id="6kKc3mjFxpL" role="2wV5jI">
-      <node concept="3F0ifn" id="6kKc3mjFxpS" role="3EZMnx">
-        <property role="3F0ifm" value="message" />
-      </node>
-      <node concept="3F0A7n" id="6kKc3mjFxpY" role="3EZMnx">
-        <ref role="1NtTu8" to="bm42:6kKc3mjFxpi" resolve="message" />
-      </node>
-      <node concept="3F0ifn" id="6kKc3mjFxq6" role="3EZMnx">
-        <property role="3F0ifm" value="for rule" />
-      </node>
-      <node concept="1iCGBv" id="6kKc3mjFxqg" role="3EZMnx">
-        <ref role="1NtTu8" to="bm42:6kKc3mjFxpk" resolve="rule" />
-        <node concept="1sVBvm" id="6kKc3mjFxqi" role="1sWHZn">
-          <node concept="3F0A7n" id="6kKc3mjFxqs" role="2wV5jI">
-            <property role="1Intyy" value="true" />
-            <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
-            <node concept="VPxyj" id="6kKc3mjFxqv" role="3F10Kt" />
-          </node>
-        </node>
-      </node>
-      <node concept="l2Vlx" id="6kKc3mjFxpO" role="2iSdaV" />
     </node>
   </node>
 </model>
