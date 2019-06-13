@@ -64,7 +64,7 @@ public final class IdeaFileSystem extends BaseIdeaFileSystem implements SafeWrit
    */
   @NotNull
   public IFile fromVirtualFile(@NotNull VirtualFile virtualFile) {
-    assert canConvert(virtualFile) : "Only local/jar platform file systems are supported by IdeaFileSystem";
+    assert canConvert(virtualFile) : "Only local/jar platform file systems are supported by IdeaFileSystem: " + virtualFile.getPath();
     return getFile(FileUtil.normalize(virtualFile.getPath()));
   }
 
