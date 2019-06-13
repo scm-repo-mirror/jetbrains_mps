@@ -25,6 +25,7 @@ import jetbrains.mps.fileTypes.MPSFileTypeFactory;
 import jetbrains.mps.ide.editor.MPSEditorUtil;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.nodefs.MPSNodeVirtualFile;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.SModelFileTracker;
@@ -67,7 +68,12 @@ public class NodeFileIconProvider implements FileIconProvider, NamedComponent {
         return null;
       }).runRead(mpsProject.getModelAccess());
     } else if(file.getFileType().equals(MPSFileTypeFactory.MPS_ROOT_FILE_TYPE)) {
-      final IFile f = mpsProject.getFileSystem().fromVirtualFile(file.getParent());
+      IdeaFileSystem fs = mpsProject.getFileSystem();
+      VirtualFile vf = file.getParent();
+      if (!fs.canConvert(vf)) {
+        return null;
+      }
+      final IFile f = fs.fromVirtualFile(vf);
       final SModelReference modelRef = SModelFileTracker.getInstance(mpsProject.getRepository()).modelFor(f);
       if (modelRef == null) {
         return null;

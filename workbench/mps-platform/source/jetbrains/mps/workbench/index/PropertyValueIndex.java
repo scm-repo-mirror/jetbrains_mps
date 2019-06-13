@@ -39,6 +39,7 @@ import jetbrains.mps.core.platform.Platform;
 import jetbrains.mps.extapi.persistence.ModelFactoryService;
 import jetbrains.mps.fileTypes.MPSFileTypeFactory;
 import jetbrains.mps.ide.MPSCoreComponents;
+import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.persistence.IndexAwareModelFactory;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.SModelFileTracker;
@@ -142,7 +143,11 @@ public class PropertyValueIndex extends FileBasedIndexExtension<WordIndexEntry, 
         // it's still possible that the values belong to different nodes
         continue;
       }
-      final IFile mpsFile = mpsProject.getFileSystem().fromVirtualFile(vf);
+      IdeaFileSystem fs = mpsProject.getFileSystem();
+      if (!fs.canConvert(vf)) {
+        return;
+      }
+      final IFile mpsFile = fs.fromVirtualFile(vf);
       mpsProject.getModelAccess().runReadAction(() -> {
         final SModel model = modelFileTracker.findModel(mpsFile);
         if (model == null) {
