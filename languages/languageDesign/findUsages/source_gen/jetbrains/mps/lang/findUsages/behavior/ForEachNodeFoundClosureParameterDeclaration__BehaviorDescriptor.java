@@ -5,8 +5,6 @@ package jetbrains.mps.lang.findUsages.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import java.util.List;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.Arrays;
@@ -22,7 +20,6 @@ import jetbrains.mps.smodel.SModelUtil_new;
 
 public final class ForEachNodeFoundClosureParameterDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x112b337a16d39f72L, "jetbrains.mps.lang.findUsages.structure.ForEachNodeFoundClosureParameterDeclaration");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList();
@@ -34,7 +31,6 @@ public final class ForEachNodeFoundClosureParameterDeclaration__BehaviorDescript
 
 
   /*package*/ ForEachNodeFoundClosureParameterDeclaration__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

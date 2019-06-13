@@ -438,7 +438,7 @@ __switch__:
                 }
                 // else this editor line has been recorded for the node of actual lineContent and later overwritten with another node 
                 // assume that other node is more relevant (e.g. actual LineContent represents closing </node> tag of a parent node 
-                // indeed, it's not necessarily true (we'd better record 'technical' lines like closing tag right in LineContent), but this heuristic is still better  
+                // indeed, it's not necessarily true (we'd better record 'technical' lines like closing tag right in LineContent), but this heuristic is still better 
                 // than 'just take the latest' approach 
               }
             }

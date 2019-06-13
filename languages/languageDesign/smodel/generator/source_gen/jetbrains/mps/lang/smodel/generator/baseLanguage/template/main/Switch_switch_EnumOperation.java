@@ -59,7 +59,7 @@ public class Switch_switch_EnumOperation extends TemplateSwitchBase implements T
         TemplateContext context1 = context.subContext();
         {
           Collection<SNode> tlist2 = null;
-          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_136_0(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_r03umb_b0a0c0d0c0b7));
+          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_143_0(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_r03umb_b0a0c0d0c0b7));
           tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_r03umb_b0a0c0d0c0b7, "tpl/r:00000000-0000-4000-0000-011c89590303/3689841190253246600", context1);
           for (SNode child3 : TemplateUtil.asNotNull(tlist2)) {
             tnode1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"), child3);
@@ -68,7 +68,7 @@ public class Switch_switch_EnumOperation extends TemplateSwitchBase implements T
         }
         {
           Collection<SNode> tlist4 = null;
-          final SNode copySrcInput4 = QueriesGenerated.sourceNodeQuery_136_1(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_r03umb_b0a0c0e0c0b7));
+          final SNode copySrcInput4 = QueriesGenerated.sourceNodeQuery_143_1(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_r03umb_b0a0c0e0c0b7));
           tlist4 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput4), copySrcMacro_r03umb_b0a0c0e0c0b7, "tpl/r:00000000-0000-4000-0000-011c89590303/3689841190252970757", context1);
           for (SNode child5 : TemplateUtil.asNotNull(tlist4)) {
             tnode1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"), child5);
@@ -94,7 +94,7 @@ public class Switch_switch_EnumOperation extends TemplateSwitchBase implements T
         TemplateContext context1 = context.subContext();
         {
           Collection<SNode> tlist2 = null;
-          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_136_2(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_r03umb_b0a0c0d0c0b8));
+          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_143_2(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_r03umb_b0a0c0d0c0b8));
           tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_r03umb_b0a0c0d0c0b8, "tpl/r:00000000-0000-4000-0000-011c89590303/3689841190253256283", context1);
           for (SNode child3 : TemplateUtil.asNotNull(tlist2)) {
             tnode1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"), child3);
@@ -103,7 +103,7 @@ public class Switch_switch_EnumOperation extends TemplateSwitchBase implements T
         }
         {
           Collection<SNode> tlist4 = null;
-          final SNode copySrcInput4 = QueriesGenerated.sourceNodeQuery_136_3(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_r03umb_b0a0c0e0c0b8));
+          final SNode copySrcInput4 = QueriesGenerated.sourceNodeQuery_143_3(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_r03umb_b0a0c0e0c0b8));
           tlist4 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput4), copySrcMacro_r03umb_b0a0c0e0c0b8, "tpl/r:00000000-0000-4000-0000-011c89590303/3689841190253256291", context1);
           for (SNode child5 : TemplateUtil.asNotNull(tlist4)) {
             tnode1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"), child5);
@@ -129,7 +129,7 @@ public class Switch_switch_EnumOperation extends TemplateSwitchBase implements T
         TemplateContext context1 = context.subContext();
         {
           Collection<SNode> tlist2 = null;
-          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_136_4(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_r03umb_b0a0c0d0c0b9));
+          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_143_4(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_r03umb_b0a0c0d0c0b9));
           tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_r03umb_b0a0c0d0c0b9, "tpl/r:00000000-0000-4000-0000-011c89590303/1144794804654563132", context1);
           for (SNode child3 : TemplateUtil.asNotNull(tlist2)) {
             tnode1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"), child3);
@@ -138,7 +138,7 @@ public class Switch_switch_EnumOperation extends TemplateSwitchBase implements T
         }
         {
           Collection<SNode> tlist4 = null;
-          SNode callInputNode4 = QueriesGenerated.sourceNodeQuery_136_5(new SourceSubstituteMacroNodeContext(context1, callMacro_r03umb_b0a0a1a4a2a1j));
+          SNode callInputNode4 = QueriesGenerated.sourceNodeQuery_143_5(new SourceSubstituteMacroNodeContext(context1, callMacro_r03umb_b0a0a1a4a2a1j));
           TemplateContext context2;
           context2 = context1.subContext(null, callInputNode4);
           if (callInputNode4 != null) {
@@ -168,7 +168,7 @@ public class Switch_switch_EnumOperation extends TemplateSwitchBase implements T
         TemplateContext context1 = context.subContext();
         {
           Collection<SNode> tlist2 = null;
-          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_136_6(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_r03umb_b0a0c0d0c0b01));
+          final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_143_6(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_r03umb_b0a0c0d0c0b01));
           tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_r03umb_b0a0c0d0c0b01, "tpl/r:00000000-0000-4000-0000-011c89590303/5162844862474298978", context1);
           for (SNode child3 : TemplateUtil.asNotNull(tlist2)) {
             tnode1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"), child3);

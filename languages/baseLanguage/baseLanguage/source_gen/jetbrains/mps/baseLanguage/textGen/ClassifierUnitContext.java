@@ -39,7 +39,7 @@ public class ClassifierUnitContext implements RootDependencies.Source {
   public ImportEntry getClassifierRefText(String packageName, String fqName, SNode contextNode) {
     addDependency(packageName, fqName);
     // FIXME there's likely no reason to pass package name and fqName (except, perhaps, for nested classes) 
-    // Could we instead pass node<Classifier> here directly? Indeed, although it's a major refactoring of crapy  
+    // Could we instead pass node<Classifier> here directly? Indeed, although it's a major refactoring of crapy 
     // BaseLanguageTextGen, where we go back and forth from node<Classifier> to strings 
     return myImports.getClassifierRefText(packageName, fqName, contextNode);
   }
@@ -86,7 +86,7 @@ public class ClassifierUnitContext implements RootDependencies.Source {
 
   private String getTopmostClassifierName(SNode c) {
     // Classifier could be inner, for our purposes it's sufficent to record dependency from the top-most classifier 
-    //     We use these to build module dependency graph for compilation, nested classes are irrelevant as  
+    //     We use these to build module dependency graph for compilation, nested classes are irrelevant as 
     //     (a) they are in the same module anyway 
     //     (b) reverse map of class to module is built for top classifiers only, we won't find anything there for nested class 
     //         (see j.m.make.Dependencies) 

@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.workbench.index;
 
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.openapi.progress.ProcessCanceledException;
 import com.intellij.openapi.util.Key;
@@ -69,7 +70,6 @@ public class RootNodeNameIndex extends SingleEntryFileBasedIndexExtension<ModelR
   private static final ID<Integer, ModelRootsData> NAME = ID.create("mps.RootNodeName");
   private static final Logger LOG = LogManager.getLogger(RootNodeNameIndex.class);
   private static final Key<SModelData> PARSED_MODEL = new Key<>("parsed-model");
-  private final MPSCoreComponents myCoreComponents;
 
   public static SModelData doModelParsing(Platform mpsPlatform, FileContent inputData) {
     SModelData modelData = inputData.getUserData(PARSED_MODEL);
@@ -165,10 +165,6 @@ public class RootNodeNameIndex extends SingleEntryFileBasedIndexExtension<ModelR
     return rv;
   }
 
-  public RootNodeNameIndex(MPSCoreComponents mpsCore) {
-    myCoreComponents = mpsCore;
-  }
-
   @Override
   @NotNull
   public ID<Integer, ModelRootsData> getName() {
@@ -184,7 +180,7 @@ public class RootNodeNameIndex extends SingleEntryFileBasedIndexExtension<ModelR
   @NotNull
   @Override
   public SingleEntryIndexer<ModelRootsData> getIndexer() {
-    return new MyIndexer(myCoreComponents.getPlatform());
+    return new MyIndexer(ApplicationManager.getApplication().getComponent(MPSCoreComponents.class).getPlatform());
   }
 
   @NotNull

@@ -164,13 +164,16 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
   }
 
   public void read(Element element, Project project) throws CantLoadSomethingException {
-    Element viewOptionsXML = element.getChild(VIEW_OPTIONS);
-    myViewOptions.read(viewOptionsXML, project);
+    try {
+      Element viewOptionsXML = element.getChild(VIEW_OPTIONS);
+      myViewOptions.read(viewOptionsXML, project);
+      Element contentsXML = element.getChild(CONTENTS);
+      myContents.read(contentsXML, project);
+    } catch (RuntimeException ex) {
+      throw new CantLoadSomethingException(ex);
+    }
+
     setComponentsViewOptions(myViewOptions);
-
-    Element contentsXML = element.getChild(CONTENTS);
-    myContents.read(contentsXML, project);
-
     myTree.setContents(myContents, myPathProvider);
   }
 
@@ -209,27 +212,28 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
   }
 
   class ViewToolbar {
-    private PathOptionsToolbar myPathOptionsToolbar;
-    private ViewOptionsToolbar myViewOptionsToolbar;
+    private final PathOptionsToolbar myPathOptionsToolbar;
+    private final ViewOptionsToolbar myViewOptionsToolbar;
+    private final DefaultActionGroup myActionGroup;
 
     public ViewToolbar() {
       myPathOptionsToolbar = new PathOptionsToolbar();
       myViewOptionsToolbar = new ViewOptionsToolbar();
-
+      myActionGroup = new DefaultActionGroup();
       recreateToolbar();
     }
 
 
     ActionGroup getActions() {
-      DefaultActionGroup actionGroup = new DefaultActionGroup();
-      actionGroup.addAll(myPathOptionsToolbar.getActions());
-      actionGroup.addSeparator();
-      actionGroup.addAll(myViewOptionsToolbar.getActions());
-      return actionGroup;
+      return myActionGroup;
     }
 
     void recreateToolbar() {
       myPathOptionsToolbar.recreateActions();
+      myActionGroup.removeAll();
+      myActionGroup.addAll(myPathOptionsToolbar.getActions());
+      myActionGroup.addSeparator();
+      myActionGroup.addAll(myViewOptionsToolbar.getActions());
     }
 
     public void setViewOptions(ViewOptions options) {
@@ -237,7 +241,6 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
       myPathOptionsToolbar.setViewOptions(options);
       myViewOptionsToolbar.setViewOptions(options);
       myTree.finishAdjusting();
-      recreateToolbar();
     }
 
     public void fillViewOptions(ViewOptions options) {

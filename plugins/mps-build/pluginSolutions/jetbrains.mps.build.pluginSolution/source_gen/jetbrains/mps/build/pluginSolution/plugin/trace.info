@@ -26,8 +26,8 @@
       <node id="3767587139140991018" at="26,102,27,53" concept="8" />
       <node id="3767587139140991018" at="27,53,28,78" concept="10" />
       <node id="3767587139140991018" at="28,78,29,118" concept="10" />
-      <node id="3767587139140991018" at="29,118,30,132" concept="10" />
-      <node id="3767587139140991018" at="30,132,31,55" concept="10" />
+      <node id="3767587139140991018" at="29,118,30,131" concept="10" />
+      <node id="3767587139140991018" at="30,131,31,55" concept="10" />
       <node id="3767587139140991018" at="33,56,34,33" concept="3" />
       <node id="3767587139140991018" at="34,33,35,14" concept="1" />
       <node id="3767587139140991018" at="38,39,39,78" concept="3" />
@@ -525,21 +525,21 @@
   </root>
   <root nodeRef="r:baa8d683-513d-4695-bd7b-2c1c3e940d01(jetbrains.mps.build.pluginSolution.plugin)/6171629945286892181">
     <file name="PluginSolution_ApplicationPlugin.java">
-      <node id="6171629945286892181" at="11,0,12,0" concept="4" trace="myId" />
-      <node id="6171629945286892181" at="14,27,15,16" concept="9" />
-      <node id="6171629945286892181" at="18,66,19,64" concept="3" />
-      <node id="6171629945286892181" at="12,0,14,0" concept="2" trace="PluginSolution_ApplicationPlugin#()V" />
-      <node id="6171629945286892181" at="14,0,17,0" concept="7" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
-      <node id="6171629945286892181" at="17,0,21,0" concept="7" trace="fillCustomParts#(Ljava/util/List;)V" />
-      <scope id="6171629945286892181" at="12,45,12,45" />
-      <scope id="6171629945286892181" at="14,27,15,16" />
-      <scope id="6171629945286892181" at="18,66,19,64" />
-      <scope id="6171629945286892181" at="12,0,14,0" />
-      <scope id="6171629945286892181" at="14,0,17,0" />
-      <scope id="6171629945286892181" at="17,0,21,0">
+      <node id="6171629945286892181" at="12,0,13,0" concept="4" trace="myId" />
+      <node id="6171629945286892181" at="18,27,19,16" concept="9" />
+      <node id="6171629945286892181" at="23,66,24,64" concept="3" />
+      <node id="6171629945286892181" at="14,0,16,0" concept="2" trace="PluginSolution_ApplicationPlugin#()V" />
+      <node id="6171629945286892181" at="17,0,21,0" concept="7" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
+      <node id="6171629945286892181" at="22,0,26,0" concept="7" trace="fillCustomParts#(Ljava/util/List;)V" />
+      <scope id="6171629945286892181" at="14,45,14,45" />
+      <scope id="6171629945286892181" at="18,27,19,16" />
+      <scope id="6171629945286892181" at="23,66,24,64" />
+      <scope id="6171629945286892181" at="14,0,16,0" />
+      <scope id="6171629945286892181" at="17,0,21,0" />
+      <scope id="6171629945286892181" at="22,0,26,0">
         <var name="parts" id="6171629945286892181" />
       </scope>
-      <unit id="6171629945286892181" at="10,0,22,0" name="jetbrains.mps.build.pluginSolution.plugin.PluginSolution_ApplicationPlugin" />
+      <unit id="6171629945286892181" at="11,0,27,0" name="jetbrains.mps.build.pluginSolution.plugin.PluginSolution_ApplicationPlugin" />
     </file>
   </root>
 </debug-info>

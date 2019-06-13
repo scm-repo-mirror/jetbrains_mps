@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ import jetbrains.mps.core.aspects.behaviour.api.BHDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.CachingMethodResolutionOrder;
 import jetbrains.mps.core.aspects.behaviour.api.MethodResolutionOrder;
+import jetbrains.mps.smodel.behaviour.BHReflectionInit;
 import jetbrains.mps.smodel.language.ConceptInLoadingStorage;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.language.LanguageRuntime;
@@ -46,6 +47,7 @@ public class BehaviorRegistryImpl implements BehaviorRegistry {
 
   public BehaviorRegistryImpl(LanguageRegistry languageRegistry) {
     myLanguageRegistry = languageRegistry;
+    BHReflectionInit.initBHReflection(this);
   }
 
   @Override
@@ -75,19 +77,15 @@ public class BehaviorRegistryImpl implements BehaviorRegistry {
         } else {
           behaviorAspect = languageRuntime.getAspect(BehaviorAspectDescriptor.class);
         }
-        if (behaviorAspect == null) {
-          descriptor = new EmptyBHDescriptor(this, concept);
-        } else if (behaviorAspect instanceof BaseBehaviorAspectDescriptor) {
+        if (behaviorAspect != null) {
           descriptor = behaviorAspect.getDescriptor(concept);
-          if (descriptor == null) {
-            // falling back to the case when we have outdated generated bh code OR we have no bh aspect at all
-            descriptor = new EmptyBHDescriptor(this, concept);
-          }
-        } else {
-          throw new IllegalArgumentException();
+        }
+        if (descriptor == null) {
+          // falling back to the case when we have outdated generated bh code OR we have no bh aspect at all
+          descriptor = new EmptyBHDescriptor(this, concept);
         }
         if (descriptor instanceof BaseBHDescriptor) {
-          ((BaseBHDescriptor) descriptor).init();
+          ((BaseBHDescriptor) descriptor).init(this);
         }
       } catch (Throwable e) {
         LOG.error("Exception while behavior descriptor creating " + concept, e);

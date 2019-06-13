@@ -40,15 +40,30 @@
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
   </dependency>
   <dependency className="jetbrains.mps.ide.httpsupport.manager.plugin.MPSIntegrationPortManager">
+    <classNode dependClassName="java.io.IOException" />
     <classNode dependClassName="java.lang.Exception" />
     <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.net.BindException" />
+    <classNode dependClassName="java.net.InetSocketAddress" />
+    <classNode dependClassName="java.net.ServerSocket" />
     <classNode dependClassName="jetbrains.mps.ide.httpsupport.manager.plugin.HttpSupportPluginNotifications" />
+    <classNode dependClassName="org.apache.log4j.Level" />
+    <classNode dependClassName="org.apache.log4j.LogManager" />
+    <classNode dependClassName="org.apache.log4j.Logger" />
     <classNode extendsClassName="org.jetbrains.io.CustomPortServerManagerBase" />
   </dependency>
   <dependency className="jetbrains.mps.ide.httpsupport.manager.plugin.MPSInternalPortManager">
+    <classNode dependClassName="com.intellij.openapi.util.registry.Registry" />
+    <classNode dependClassName="com.intellij.openapi.util.registry.RegistryValue" />
+    <classNode dependClassName="com.intellij.openapi.util.registry.RegistryValueListener" />
+    <classNode dependClassName="java.lang.Deprecated" />
     <classNode dependClassName="java.lang.Exception" />
     <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="jetbrains.mps.ide.httpsupport.manager.plugin.HttpSupportPluginNotifications" />
+    <classNode dependClassName="jetbrains.mps.util.annotation.ToRemove" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
+    <classNode dependClassName="org.jetbrains.ide.BuiltInServerManager" />
     <classNode extendsClassName="org.jetbrains.io.CustomPortServerManagerBase" />
   </dependency>
   <dependency className="jetbrains.mps.ide.httpsupport.manager.plugin.MPSRequestManager">

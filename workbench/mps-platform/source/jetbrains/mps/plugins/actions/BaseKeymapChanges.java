@@ -29,16 +29,19 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+/**
+ * The basic logic is to replace the default shortcuts with MPS provided during #init, and to revert the changes on #dispose
+ */
 public abstract class BaseKeymapChanges {
   private static final Logger LOG = LogManager.getLogger(BaseKeymapChanges.class);
 
-  private static Map<Keymap, Set<String>> ourClearedActions = new THashMap<>();
-  private Map<String, Set<Shortcut>> myRemovedShortcuts = new THashMap<>();
+  private static final Map<Keymap, Set<String>> ourClearedActions = new THashMap<>();
+  private final Map<String, Set<Shortcut>> myRemovedShortcuts = new THashMap<>();
 
-  private Map<String, Set<Shortcut>> myAddedComplexShortcuts = new THashMap<>();
+  private final Map<String, Set<ShortcutWrapper>> mySimpleShortcuts = new THashMap<>();
 
-  private Map<String, Set<ShortcutWrapper>> mySimpleShortcuts = new THashMap<>();
-  private Map<String, Set<ComplexShortcut>> myComplexShortcuts = new THashMap<>();
+  private final Map<String, Set<ComplexShortcut>> myComplexShortcuts = new THashMap<>();
+  private final Map<String, Set<Shortcut>> myAddedComplexShortcuts = new THashMap<>();
 
   private Keymap myKeymap;
 
@@ -153,15 +156,7 @@ public abstract class BaseKeymapChanges {
   private void addShortcutToKeymap(String longId, Keymap keymap, Shortcut s, boolean remove, boolean replaceAll) {
     Shortcut[] oldShortcuts = keymap.getShortcuts(longId);
 
-    boolean isClear = oldShortcuts.length == 0;
-    if (!isClear) {
-      for (Set<String> set : ourClearedActions.values()) {
-        if (set.contains(longId)) {
-          isClear = true;
-          break;
-        }
-      }
-    }
+    boolean isClear = oldShortcuts.length == 0 || ourClearedActions.values().stream().anyMatch(it -> it.contains(longId));
 
     if (!isClear) {
       myRemovedShortcuts.put(longId, new THashSet<>(Arrays.asList(oldShortcuts)));

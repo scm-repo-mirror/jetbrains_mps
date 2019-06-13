@@ -742,11 +742,11 @@
   <root nodeRef="r:f88361e7-5098-4f71-afec-1ad5641911e8(jetbrains.mps.lang.plugin.standalone.generator.template.main@generator)/7956539249523024687">
     <file name="QueriesGenerated.java">
       <node id="2220549924074119540" at="85,121,86,310" concept="4" />
-      <node id="2220549924074145019" at="86,310,87,120" concept="6" />
-      <node id="2220549924074155838" at="87,120,88,34" concept="6" />
+      <node id="2220549924074145019" at="86,310,87,119" concept="6" />
+      <node id="2220549924074155838" at="87,119,88,34" concept="6" />
       <node id="2220549924074820160" at="88,34,89,78" concept="6" />
-      <node id="2220549924075138248" at="89,78,90,112" concept="6" />
-      <node id="2220549924075139619" at="90,112,91,64" concept="6" />
+      <node id="2220549924075138248" at="89,78,90,111" concept="6" />
+      <node id="2220549924075139619" at="90,111,91,64" concept="6" />
       <node id="2220549924074074278" at="91,64,92,441" concept="5" />
       <node id="2220549924074073745" at="93,5,94,17" concept="5" />
       <node id="7956539249525275755" at="123,89,124,198" concept="5" />

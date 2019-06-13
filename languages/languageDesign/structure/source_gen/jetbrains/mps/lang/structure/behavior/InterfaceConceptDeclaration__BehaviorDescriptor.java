@@ -5,8 +5,6 @@ package jetbrains.mps.lang.structure.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -30,11 +28,10 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class InterfaceConceptDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<List<SNode>> getImmediateSuperconcepts_idhMuxyK2 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getImmediateSuperconcepts").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hMuxyK2").registry(REGISTRY).build();
-  public static final SMethod<List<SNode>> getAllMethodsInPriorityOrder_id7TwdR6lloGH = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getAllMethodsInPriorityOrder").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7TwdR6lloGH").registry(REGISTRY).build();
-  /*package*/ static final SMethod<Void> collectAllMethodsInPriorityOrder_id3waV7Ya5fRc = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("collectAllMethodsInPriorityOrder").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("3waV7Ya5fRc").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<List<SNode>>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<Set<SNode>>) ((Class) Object.class), ""));
+  public static final SMethod<List<SNode>> getImmediateSuperconcepts_idhMuxyK2 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getImmediateSuperconcepts").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hMuxyK2").build();
+  public static final SMethod<List<SNode>> getAllMethodsInPriorityOrder_id7TwdR6lloGH = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getAllMethodsInPriorityOrder").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7TwdR6lloGH").build();
+  /*package*/ static final SMethod<Void> collectAllMethodsInPriorityOrder_id3waV7Ya5fRc = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("collectAllMethodsInPriorityOrder").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("3waV7Ya5fRc").build(SMethodBuilder.createJavaParameter((Class<List<SNode>>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<Set<SNode>>) ((Class) Object.class), ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getImmediateSuperconcepts_idhMuxyK2, getAllMethodsInPriorityOrder_id7TwdR6lloGH, collectAllMethodsInPriorityOrder_id3waV7Ya5fRc);
 
@@ -67,7 +64,6 @@ public final class InterfaceConceptDeclaration__BehaviorDescriptor extends BaseB
   }
 
   /*package*/ InterfaceConceptDeclaration__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

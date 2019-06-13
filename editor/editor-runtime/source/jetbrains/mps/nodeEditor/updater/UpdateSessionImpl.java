@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2014 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,13 +31,10 @@ import jetbrains.mps.openapi.editor.cells.EditorCellFactory;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.update.AttributeKind;
 import jetbrains.mps.openapi.editor.update.UpdateSession;
-import jetbrains.mps.smodel.SNodeLegacy;
-import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.smodel.event.SModelEvent;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.util.WeakSet;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -281,13 +278,6 @@ public class UpdateSessionImpl implements UpdateSession {
     myCurrentUpdateInfo.keepAttributedInfo();
     return myAttributeKind2Cell.computeIfAbsent(attributeKind, k -> new LinkedList<>()).stream().findFirst().orElseGet(
         () -> new EditorCell_Error(getUpdater().getEditorContext(), attribute, "<attributed cell not found>"));
-  }
-
-  @Deprecated
-  @ToRemove(version = 2018.3)
-  @Override
-  public <T> T updateReferencedNodeCell(Computable<T> update, SNode node, String role) {
-    return updateReferencedNodeCell(update, node, MetaAdapterByDeclaration.getReferenceLink(new SNodeLegacy(node).getLinkDeclaration(role)));
   }
 
   @Override

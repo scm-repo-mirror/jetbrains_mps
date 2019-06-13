@@ -66,10 +66,10 @@ public class BaseGeneratorTest implements EnvironmentAware {
 
   protected final void assertMatch(final SModel m1, final SModel m2) {
     // Next is wishful thinking, imagined contract, not necessarily real at the moment, 
-    // IOW, what I'd like match(m1,m2) contract to look like. Have to refactor  
+    // IOW, what I'd like match(m1,m2) contract to look like. Have to refactor 
     // NodesMatcher first, and write some tests for it to ensure the contract: 
     // return true if models are the same from structure, metadata, value and reference perspectives 
-    // equality from reference perspective means that references within the same model point to  
+    // equality from reference perspective means that references within the same model point to 
     // equal (in aforementioned sense) nodes, for external references that the target is equal is java sense. 
     // FIXME use of myProject.getModelAccess() is wrong, empty project we've just created doesn't have modules with test data, 
     //       however, at the moment I've got no better idea how to access project of MpsTestsSuite 

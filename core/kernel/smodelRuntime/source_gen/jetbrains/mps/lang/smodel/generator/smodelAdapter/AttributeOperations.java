@@ -192,7 +192,8 @@ public class AttributeOperations {
     }
     @Override
     protected void insertBefore(SNode node, SNode anchor) {
-      SNodeOperations.insertPrevSiblingChild(((SNode) anchor), (SNode) node);
+      assert SNodeOperations.isInstanceOf(anchor, MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x47bf8397520e5939L, "jetbrains.mps.lang.core.structure.Attribute"));
+      SNodeOperations.insertPrevSiblingChild(anchor, node);
       myDescriptor.update(node);
     }
 
@@ -204,7 +205,8 @@ public class AttributeOperations {
 
     @Override
     protected void addFirst(SNode node) {
-      insertBefore(node, myNode.getFirstChild());
+      ListSequence.fromList(SLinkOperations.getChildren(myNode, MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute"))).addElement(SNodeOperations.cast(node, MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x47bf8397520e5939L, "jetbrains.mps.lang.core.structure.Attribute")));
+      myDescriptor.update(node);
     }
 
     @Override

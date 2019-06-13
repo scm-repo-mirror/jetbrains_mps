@@ -2,10 +2,14 @@
 <dependenciesRoot>
   <dependency className="jetbrains.mps.lang.dataFlow.pluginSolution.plugin.DFAActions_ActionGroup">
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.workbench.action.ApplicationPlugin" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode extendsClassName="jetbrains.mps.plugins.actions.GeneratedActionGroup" />
   </dependency>
   <dependency className="jetbrains.mps.lang.dataFlow.pluginSolution.plugin.DataFlowInternal_ActionGroup">
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.workbench.action.ApplicationPlugin" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode extendsClassName="jetbrains.mps.plugins.actions.GeneratedActionGroup" />
   </dependency>
   <dependency className="jetbrains.mps.lang.dataFlow.pluginSolution.plugin.PluginSolution_ApplicationPlugin">
@@ -17,6 +21,7 @@
     <classNode dependClassName="jetbrains.mps.lang.dataFlow.pluginSolution.plugin.PrintInitializationInformation_Action" />
     <classNode dependClassName="jetbrains.mps.lang.dataFlow.pluginSolution.plugin.PrintReachingDefinintionsInformation_Action" />
     <classNode dependClassName="jetbrains.mps.lang.dataFlow.pluginSolution.plugin.ShowDFA_Action" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode extendsClassName="jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin" />
   </dependency>
   <dependency className="jetbrains.mps.lang.dataFlow.pluginSolution.plugin.PrintDFAResult_Action">

@@ -442,8 +442,8 @@ public class QueriesGenerated extends QueryProviderBase {
     // annotation when BwfProject is split into xml and properties file. 
     // The proper (nay better) way is to attach this annotation at xml script, rather than to 
     // BwfProject, but this requires a place to keep this value from BuildProject to BwfProject. 
-    // I can't use drop attribute rule or a reduction rule as input node is the same  
-    // (BwfProject instance), and there's no output node information to tell when  
+    // I can't use drop attribute rule or a reduction rule as input node is the same 
+    // (BwfProject instance), and there's no output node information to tell when 
     // I shall and shall not drop/reduce the attribute 
     if ((AttributeOperations.getAttribute(_context.getOutputNode(), new IAttributeDescriptor.NodeAttribute(MetaAdapterFactory.getConcept(0xedf22a442bc4e5dL, 0x954f06aaaf51df00L, 0x10f9f9812b8fca93L, "jetbrains.mps.lang.makeup.structure.CopyOutcome"))) != null)) {
       String loc = SPropertyOperations.getString(AttributeOperations.getAttribute(_context.getOutputNode(), new IAttributeDescriptor.NodeAttribute(MetaAdapterFactory.getConcept(0xedf22a442bc4e5dL, 0x954f06aaaf51df00L, 0x10f9f9812b8fca93L, "jetbrains.mps.lang.makeup.structure.CopyOutcome"))), MetaAdapterFactory.getProperty(0xedf22a442bc4e5dL, 0x954f06aaaf51df00L, 0x10f9f9812b8fca93L, 0x10f9f9812b8fca94L, "location"));

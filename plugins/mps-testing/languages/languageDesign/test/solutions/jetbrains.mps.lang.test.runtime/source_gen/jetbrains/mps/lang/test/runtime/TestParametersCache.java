@@ -104,7 +104,7 @@ public final class TestParametersCache implements TestRule {
 
   private void initCachedValues(Environment environment) throws Exception {
     // MPS's in-process, out-of-process and ant script executors 
-    // supply Environment through EnvironmentAware and custom RunnerBuilder  
+    // supply Environment through EnvironmentAware and custom RunnerBuilder 
     // namely, PushEnvironmentRunnerBuilder. IDEA MPS plugin and IDEA test configurations use this RunnerBuilder, too. 
     if (environment == null) {
       throw new EnvironmentIsNullException(this.getClass().getName(), myProjectPath);

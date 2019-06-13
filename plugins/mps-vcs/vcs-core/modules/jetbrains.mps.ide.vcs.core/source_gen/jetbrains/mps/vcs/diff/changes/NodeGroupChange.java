@@ -80,7 +80,7 @@ public class NodeGroupChange extends ModelChange {
   @Nullable
   @Override
   public MergeStrategy getMergeHint() {
-    // get "nonconflicting" attribute in metamodel  
+    // get "nonconflicting" attribute in metamodel 
     SNode n = getParent(false);
     MergeStrategy hint = VCSAspectUtil.getDefaultMergeStrategy(myRole);
     if (hint != null) {

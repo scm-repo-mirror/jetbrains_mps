@@ -128,7 +128,7 @@ public final class SModelOperations {
   public static SNode getModuleStub(SModel model) {
     SModule module = model.getModule();
     // FIXME  we have to reference javastub classes, as we don't want j.m.runtime solution to depend from j.m.project 
-    // FIXME     though the true defect is that Model_GetModule operation (which uses this rt code) lives in lang.smodel that doesn't  
+    // FIXME     though the true defect is that Model_GetModule operation (which uses this rt code) lives in lang.smodel that doesn't 
     // FIXME     expose j.m.project as its runtime. Likely, shall move Model_GetModule operation to a distinct language with j.m.project as RT 
     // FIXME     or to specify j.m.project as lang.smodel's RT. This method has to get moved into respective solution regardless. 
     // I don't want to create blank model so provide the original one as a node factory. As long as PSB doesn't change it, it's all the same. 

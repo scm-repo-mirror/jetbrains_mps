@@ -9,17 +9,17 @@ import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
+import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
+import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
+import jetbrains.mps.smodel.SNodePointer;
+import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Map;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
-import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
-import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.SNodePointer;
 
 public class ParallelLoopVariable_Constraints extends BaseConstraintsDescriptor {
   public ParallelLoopVariable_Constraints() {
@@ -41,20 +41,31 @@ public class ParallelLoopVariable_Constraints extends BaseConstraintsDescriptor 
       }
     };
   }
+  public static class IsFinal_Property extends BasePropertyConstraintsDescriptor {
+    public IsFinal_Property(ConstraintsDescriptor container) {
+      super(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal"), container);
+    }
+    @Override
+    public boolean hasOwnValidator() {
+      return true;
+    }
+    private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:30f28ecb-3abe-411d-8f10-86fc65916e39(org.jetbrains.mps.samples.ParallelFor.constraints)", "7793246093816048070");
+    @Override
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, (boolean) (propertyValue));
+      if (!(result) && checkingNodeContext != null) {
+        checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
+      }
+      return result;
+    }
+    private static boolean staticValidateProperty(SNode node, boolean propertyValue) {
+      return propertyValue;
+    }
+  }
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal"), new BasePropertyConstraintsDescriptor(MetaIdFactory.propId(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL), this) {
-      @Override
-      public boolean hasOwnValidator() {
-        return true;
-      }
-      @Override
-      public boolean validateValue(SNode node, Object $propertyValue) {
-        boolean propertyValue = (Boolean) ($propertyValue);
-        return propertyValue;
-      }
-    });
+    properties.put(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal"), new ParallelLoopVariable_Constraints.IsFinal_Property(this));
     return properties;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {

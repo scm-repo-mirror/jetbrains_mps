@@ -457,7 +457,7 @@ public final class ModuleChecker {
           continue;
         }
 
-        // XXX it's odd to execute same query first against module.dependencies and then against 'previous' sequence.  
+        // XXX it's odd to execute same query first against module.dependencies and then against 'previous' sequence. 
         // It's done again and again throughout whole ModuleChecker. Worth refactoring? 
         if (type.doCheck && !(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(myLangNode, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies")), MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x64bd442e1cf7aaeeL, "jetbrains.mps.build.mps.structure.BuildMps_ExtractedModuleDependency"))).any(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
@@ -745,7 +745,7 @@ public final class ModuleChecker {
     }
 
     // java stubs: jars 
-    for (String path : myModuleDescriptor.getAdditionalJavaStubPaths()) {
+    for (String path : myModuleDescriptor.getJavaLibs()) {
       final SNode p = convertPath(path);
       if (p == null) {
         continue;
@@ -828,9 +828,9 @@ public final class ModuleChecker {
     moduleCheckerForGenerator.check(type);
     if (type.doFullImport) {
       // propagate collected generator dependencies up to generator's source language dependencies. 
-      // do it at runtime only (doFullImport == true) as extracted dependencies are enough to reconstruct  
+      // do it at runtime only (doFullImport == true) as extracted dependencies are enough to reconstruct 
       // complete set of dependencies 
-      // FIXME Note, we don't need this hack once we have proper GENERATE_INTO dependency for languages. Now (for historical reasons), we do it  
+      // FIXME Note, we don't need this hack once we have proper GENERATE_INTO dependency for languages. Now (for historical reasons), we do it 
       // wrong - we do not record/ignore GENERATE_INTO dependencies (see collectDependencies above), but copy all generator dependencies into language 
       // at full import. Otherwise, we could record GENERATE_INTO (either at doPartialImport or perhaps better, at doFullImport), and do not copy a lot of unrelated dependencies 
       // from generator. MPSModulePartitioner.runtimeClosure() (or generationDependenciesClosure?) shall respect GENERATE_INTO so that <generate> task knows what it needs to compile 
@@ -936,7 +936,7 @@ public final class ModuleChecker {
     for (SModel m : loadedModule.getModels()) {
       // we are going to generate models only that are deemed to, therefore, we don't need to respect dependencies of other models, 
       // like accessory models that otherwise result in bootstrap dependency. 
-      // This check doesn't help to eliminate bootstrap issue completely (i.e. a language is often in use by its typesystem aspect to specify  
+      // This check doesn't help to eliminate bootstrap issue completely (i.e. a language is often in use by its typesystem aspect to specify 
       // quoted type instances), but relieves few common scenarions at least. 
       if (!(GenerationFacade.canGenerate(m))) {
         continue;

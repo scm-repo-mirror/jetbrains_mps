@@ -51,7 +51,7 @@ public class RelativePathHelper {
         throw new RelativePathHelper.PathException(String.format("No common path element found for '%s' and '%s'", myBasePath, normalized));
       }
       if (base.length == target.length && target.length == commonLength) {
-        // though there's a check, above, that covers equal paths scenario, we may face normalizedPath that is the same as base path but technically not  
+        // though there's a check, above, that covers equal paths scenario, we may face normalizedPath that is the same as base path but technically not 
         // equal due to trailing slash, e.g. RPH("base/").makeRelative("base") 
         return "";
       }

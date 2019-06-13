@@ -58,13 +58,13 @@ public class BackgroundableProgressAction_Action extends BaseAction {
     // Will be  sent to the background with the flag PerformInBackgroundOption.ALWAYS_BACKGROUND 
     PerformInBackgroundOption showProgress = PerformInBackgroundOption.DEAF;
 
-    // This is a backgroundable task. It can be sent to the background and canceled  
+    // This is a backgroundable task. It can be sent to the background and canceled 
     // The PerformInBackgroundOption flag specifies if the progress is shown to the user 
-    // or if should be in the background from the start  
-    // ALWAYS_BACKGROUND is probably the best solution for quick background tasks -   
+    // or if should be in the background from the start 
+    // ALWAYS_BACKGROUND is probably the best solution for quick background tasks - 
     // the user will not get a blinking, hardly noticable progress bar visible for only a few fractions of a second 
-    // Important thing - you need to implement the onCacel() method  
-    // Your code needs to frequently check if the process has been canceled (between every calculation steps)  
+    // Important thing - you need to implement the onCacel() method 
+    // Your code needs to frequently check if the process has been canceled (between every calculation steps) 
     // and handle yourself all steps to revert the action 
 
     final Task.Backgroundable backgroundable = new Task.Backgroundable(event.getData(CommonDataKeys.PROJECT), "Backgroundable cancelable task", canBeCanceled, showProgress) {

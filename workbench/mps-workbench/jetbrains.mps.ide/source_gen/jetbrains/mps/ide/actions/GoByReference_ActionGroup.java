@@ -10,6 +10,8 @@ import org.jetbrains.mps.util.Condition;
 import jetbrains.mps.workbench.action.BaseAction;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.workbench.action.ApplicationPlugin;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import jetbrains.mps.project.MPSProject;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -18,15 +20,15 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import com.intellij.openapi.extensions.PluginId;
 import jetbrains.mps.resolve.ResolverComponent;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.annotations.Nullable;
 
 public class GoByReference_ActionGroup extends GeneratedActionGroup {
   public static final String ID = "jetbrains.mps.ide.actions.GoByReference_ActionGroup";
-  private Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
-  public GoByReference_ActionGroup() {
-    super("Go by Reference", ID);
-    this.setIsInternal(false);
-    this.setPopup(true);
+  private final Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
+
+  public GoByReference_ActionGroup(@Nullable ApplicationPlugin plugin) {
+    super("Go by Reference", ID, plugin);
+    setIsInternal(false);
+    setPopup(true);
   }
   public void doUpdate(AnActionEvent event) {
     removeAll();

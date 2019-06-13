@@ -169,11 +169,11 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
   @NotNull
   private static SModuleReference MODULE_WITH_EXECUTORS() {
     // next module used to be in defaults of TestParameters, don't see a reason why can't do it here, though. 
-    // With classpath, we have to  
+    // With classpath, we have to 
     // ensure *TestExecutor classes get loaded (unitTest.execution.server package). The best approach in that case 
     // would be for TestParameters to tell set of required modules (instead of/in addition to classpath list) 
     // as it's TestParameters class that knows specific contributor class location, however, such a change would 
-    // require changes in TestParameters#comprises() logic, which needs a thorough refactoring to get rid of  
+    // require changes in TestParameters#comprises() logic, which needs a thorough refactoring to get rid of 
     // Class<> in getExecutorClass() anyway. 
     // The reason I put it here is that I lean towards no executorClass in TestParameters at all, so that 
     // this command would pick executor class based on information whether need to start MPS or not, and therfore 

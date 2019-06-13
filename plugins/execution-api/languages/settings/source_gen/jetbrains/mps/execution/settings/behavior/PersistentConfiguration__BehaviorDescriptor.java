@@ -5,8 +5,6 @@ package jetbrains.mps.execution.settings.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -33,19 +31,18 @@ import jetbrains.mps.smodel.SModelUtil_new;
 
 public final class PersistentConfiguration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910020L, "jetbrains.mps.execution.settings.structure.PersistentConfiguration");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> getSuffix_idO$iR4JBsSb = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getSuffix").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsSb").registry(REGISTRY).build();
-  public static final SMethod<String> getGeneratedEditorName_idO$iR4J$g2J = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedEditorName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g2J").registry(REGISTRY).build();
-  public static final SMethod<String> getFullEditorName_idO$iR4J$g2V = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getFullEditorName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g2V").registry(REGISTRY).build();
-  public static final SMethod<SNode> createType_idhEwJimy = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("createType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJimy").registry(REGISTRY).build();
-  public static final SMethod<List<SNode>> getTemplateProperties_idO$iR4J$g3e = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getTemplateProperties").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g3e").registry(REGISTRY).build();
-  public static final SMethod<List<SNode>> getNonTemplateProperties_idO$iR4J$g3y = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getNonTemplateProperties").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g3y").registry(REGISTRY).build();
-  /*package*/ static final SMethod<String> getEditorSuffix_idO$iR4J$g3R = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getEditorSuffix").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("O$iR4J$g3R").registry(REGISTRY).build();
-  public static final SMethod<List<SNode>> getMembers_idhEwJink = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getMembers").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJink").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
-  public static final SMethod<SNode> getContextPersistentConfiguration_idO$iR4J$g1l = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getContextPersistentConfiguration").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g1l").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
-  public static final SMethod<List<SNode>> getContextPersistentProperties_idO$iR4J$g22 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getContextPersistentProperties").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g22").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
-  public static final SMethod<String> getCheckMethodName_idO$iR4J$g2y = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getCheckMethodName").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g2y").registry(REGISTRY).build();
+  public static final SMethod<String> getSuffix_idO$iR4JBsSb = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getSuffix").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsSb").build();
+  public static final SMethod<String> getGeneratedEditorName_idO$iR4J$g2J = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedEditorName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g2J").build();
+  public static final SMethod<String> getFullEditorName_idO$iR4J$g2V = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getFullEditorName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g2V").build();
+  public static final SMethod<SNode> createType_idhEwJimy = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("createType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJimy").build();
+  public static final SMethod<List<SNode>> getTemplateProperties_idO$iR4J$g3e = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getTemplateProperties").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g3e").build();
+  public static final SMethod<List<SNode>> getNonTemplateProperties_idO$iR4J$g3y = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getNonTemplateProperties").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g3y").build();
+  /*package*/ static final SMethod<String> getEditorSuffix_idO$iR4J$g3R = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getEditorSuffix").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("O$iR4J$g3R").build();
+  public static final SMethod<List<SNode>> getMembers_idhEwJink = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getMembers").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJink").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<SNode> getContextPersistentConfiguration_idO$iR4J$g1l = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getContextPersistentConfiguration").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g1l").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<List<SNode>> getContextPersistentProperties_idO$iR4J$g22 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getContextPersistentProperties").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g22").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<String> getCheckMethodName_idO$iR4J$g2y = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getCheckMethodName").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g2y").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getSuffix_idO$iR4JBsSb, getGeneratedEditorName_idO$iR4J$g2J, getFullEditorName_idO$iR4J$g2V, createType_idhEwJimy, getTemplateProperties_idO$iR4J$g3e, getNonTemplateProperties_idO$iR4J$g3y, getEditorSuffix_idO$iR4J$g3R, getMembers_idhEwJink, getContextPersistentConfiguration_idO$iR4J$g1l, getContextPersistentProperties_idO$iR4J$g22, getCheckMethodName_idO$iR4J$g2y);
 
@@ -115,7 +112,6 @@ public final class PersistentConfiguration__BehaviorDescriptor extends BaseBHDes
   }
 
   /*package*/ PersistentConfiguration__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

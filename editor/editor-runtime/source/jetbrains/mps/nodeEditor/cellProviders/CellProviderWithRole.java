@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.SubstituteInfo;
 import jetbrains.mps.openapi.editor.update.AttributeKind;
 import jetbrains.mps.util.annotation.ToRemove;
+import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 
@@ -54,7 +55,10 @@ public abstract class CellProviderWithRole extends AbstractCellProvider {
   @Deprecated
   @ToRemove(version = 2018.3)
   //use setProperty/setLink instead
-  public abstract void setRole(Object role);
+  public void setRole(Object role) {
+    // keep the method for another release just in case there's still code that invokes it; show where its uses reside
+    LogManager.getLogger(getClass()).error("CellProviderWithRole.setRole is no op and would be removed after MPS 2019.2", new Throwable());
+  }
 
   //gets an attribute for this provider's node hanging on this provider's role
   public SNode getRoleAttribute() {

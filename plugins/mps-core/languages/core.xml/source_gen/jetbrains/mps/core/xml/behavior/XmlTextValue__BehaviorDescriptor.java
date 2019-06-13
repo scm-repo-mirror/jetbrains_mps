@@ -5,8 +5,6 @@ package jetbrains.mps.core.xml.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -24,12 +22,11 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class XmlTextValue__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, "jetbrains.mps.core.xml.structure.XmlTextValue");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Boolean> isFirstPositionAllowed_id2EZ251g0bSk = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isFirstPositionAllowed").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2EZ251g0bSk").registry(REGISTRY).build();
-  public static final SMethod<Boolean> isLastPositionAllowed_id2EZ251g0bSp = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLastPositionAllowed").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2EZ251g0bSp").registry(REGISTRY).build();
-  public static final SMethod<Boolean> onNewLine_id2EZ251g0bS6 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("onNewLine").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2EZ251g0bS6").registry(REGISTRY).build();
-  public static final SMethod<Boolean> hasNewLineAfter_id2EZ251g0bSd = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasNewLineAfter").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2EZ251g0bSd").registry(REGISTRY).build();
+  public static final SMethod<Boolean> isFirstPositionAllowed_id2EZ251g0bSk = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isFirstPositionAllowed").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2EZ251g0bSk").build();
+  public static final SMethod<Boolean> isLastPositionAllowed_id2EZ251g0bSp = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLastPositionAllowed").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2EZ251g0bSp").build();
+  public static final SMethod<Boolean> onNewLine_id2EZ251g0bS6 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("onNewLine").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2EZ251g0bS6").build();
+  public static final SMethod<Boolean> hasNewLineAfter_id2EZ251g0bSd = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasNewLineAfter").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2EZ251g0bSd").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isFirstPositionAllowed_id2EZ251g0bSk, isLastPositionAllowed_id2EZ251g0bSp, onNewLine_id2EZ251g0bS6, hasNewLineAfter_id2EZ251g0bSd);
 
@@ -58,7 +55,6 @@ public final class XmlTextValue__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ XmlTextValue__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

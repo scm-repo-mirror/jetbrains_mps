@@ -25,6 +25,7 @@ import jetbrains.mps.fileTypes.MPSFileTypeFactory;
 import jetbrains.mps.ide.editor.MPSEditorUtil;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.nodefs.MPSNodeVirtualFile;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.SModelFileTracker;
@@ -42,11 +43,6 @@ import javax.swing.Icon;
  * evgeny, 12/25/11
  */
 public class NodeFileIconProvider implements FileIconProvider, NamedComponent {
-  private final GlobalIconManager myIconManager;
-
-  public NodeFileIconProvider(GlobalIconManager iconManager) {
-    myIconManager = iconManager;
-  }
 
   @Override
   @Nullable
@@ -61,18 +57,23 @@ public class NodeFileIconProvider implements FileIconProvider, NamedComponent {
         if (IconDeferrer.getInstance() instanceof DefaultIconDeferrer) {
           SNode node = MPSEditorUtil.getCurrentEditedNode(project, nodeFile);
           if (node != null) {
-            return myIconManager.getIconFor(node);
+            return GlobalIconManager.getInstance().getIconFor(node);
           }
           // TODO: get current empty tab component in MPSEditorUtil by using ((TabbedEditor) nodeEditor).myTabsComponent.getCurrentTabAspect()[.getIcon]
         }
         SNode node = nodeFile.getNode();
         if (node != null) {
-          return myIconManager.getIconFor(node);
+          return GlobalIconManager.getInstance().getIconFor(node);
         }
         return null;
       }).runRead(mpsProject.getModelAccess());
     } else if(file.getFileType().equals(MPSFileTypeFactory.MPS_ROOT_FILE_TYPE)) {
-      final IFile f = mpsProject.getFileSystem().fromVirtualFile(file.getParent());
+      IdeaFileSystem fs = mpsProject.getFileSystem();
+      VirtualFile vf = file.getParent();
+      if (!fs.canConvert(vf)) {
+        return null;
+      }
+      final IFile f = fs.fromVirtualFile(vf);
       final SModelReference modelRef = SModelFileTracker.getInstance(mpsProject.getRepository()).modelFor(f);
       if (modelRef == null) {
         return null;
@@ -85,7 +86,7 @@ public class NodeFileIconProvider implements FileIconProvider, NamedComponent {
         String nameWithoutExtension = file.getNameWithoutExtension();
         for (SNode node : descr.getRootNodes()) {
           if (nameWithoutExtension.equals(node.getName())) {
-            return myIconManager.getIconFor(node);
+            return GlobalIconManager.getInstance().getIconFor(node);
           }
         }
         return null;

@@ -31,9 +31,9 @@ import jetbrains.mps.openapi.intentions.IntentionExecutable;
 import java.util.Comparator;
 import com.intellij.openapi.actionSystem.AnAction;
 import jetbrains.mps.intentions.IntentionsManager;
-import jetbrains.mps.typesystem.inference.TypeContextManager;
-import jetbrains.mps.typesystem.inference.ITypechecking;
-import jetbrains.mps.typesystem.inference.TypeCheckingContext;
+import jetbrains.mps.typechecking.backend.TypecheckingSession;
+import jetbrains.mps.typechecking.TypecheckingFacade;
+import java.util.function.Supplier;
 
 public class ShowSurroundWithIntentions_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -150,9 +150,14 @@ public class ShowSurroundWithIntentions_Action extends BaseAction {
     final IntentionsManager.QueryDescriptor query = new IntentionsManager.QueryDescriptor();
     query.setSurroundWith(true);
     query.setCurrentNodeOnly(true);
-    return TypeContextManager.getInstance().runTypeCheckingComputation(((EditorComponent) ((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getEditorComponent()).getTypecheckingContextOwner(), ((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getEditorComponent().getEditedNode(), new ITypechecking.Computation<Iterable<Pair<IntentionExecutable, SNode>>>() {
+    TypecheckingSession typecheckingSession = ((EditorComponent) ((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getEditorComponent()).getTypecheckingSession();
+    if (typecheckingSession == null) {
+      return null;
+    }
+
+    return TypecheckingFacade.getFromContext().runWithSession(typecheckingSession, new Supplier<Iterable<Pair<IntentionExecutable, SNode>>>() {
       @Override
-      public Iterable<Pair<IntentionExecutable, SNode>> compute(TypeCheckingContext context) {
+      public Iterable<Pair<IntentionExecutable, SNode>> get() {
         return IntentionsManager.getInstance().getAvailableIntentions(query, ((SNode) MapSequence.fromMap(_params).get("selectedNode")), ((EditorContext) MapSequence.fromMap(_params).get("editorContext")));
       }
     });

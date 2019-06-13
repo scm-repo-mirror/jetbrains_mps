@@ -4,18 +4,23 @@ package jetbrains.mps.debugger.api.ui.actions;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import jetbrains.mps.plugins.actions.BaseKeymapChanges;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 
 public class Runtime_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.debugger.api.runtime");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.debugger.api.runtime");
+
   public Runtime_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new DeleteBreakpointAction_Action());
@@ -32,12 +37,12 @@ public class Runtime_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new ViewBreakpointSourceAction_Action());
     addAction(new ViewBreakpoints_Action());
     // groups 
-    addGroup(new AbstractWatchableNodeActions_ActionGroup());
-    addGroup(new DebugRunMenu_ActionGroup());
-    addGroup(new DebugStepsMenu_ActionGroup());
-    addGroup(new DebugTool_ActionGroup());
-    addGroup(new TouchBarDebug_ActionGroup());
-    addGroup(new TouchBarDefault_cmd_ActionGroup());
+    addGroup(new AbstractWatchableNodeActions_ActionGroup(this));
+    addGroup(new DebugRunMenu_ActionGroup(this));
+    addGroup(new DebugStepsMenu_ActionGroup(this));
+    addGroup(new DebugTool_ActionGroup(this));
+    addGroup(new TouchBarDebug_ActionGroup(this));
+    addGroup(new TouchBarDefault_cmd_ActionGroup(this));
   }
   public void adjustInterfaceGroups() {
     insertInterfaceGroupIntoAnother("DebugMuteAction", DebugTool_ActionGroup.ID, DebugTool_ActionGroup.LABEL_ID_MuteAction);

@@ -4,25 +4,30 @@ package jetbrains.mps.console.actions.plugin;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.FindUsages_ActionGroup;
 import jetbrains.mps.ide.actions.Search_ActionGroup;
 import jetbrains.mps.ide.make.actions.TextPreviewGroup_ActionGroup;
 
 public class Actions_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.console.actions");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.console.actions");
+
   public Actions_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new FindInstancesByCondition_Action());
     addAction(new ModifyInstancesByCondition_Action());
     addAction(new ShowGenerationPlan_Action());
     // groups 
-    addGroup(new FindByConditionGroup_ActionGroup());
-    addGroup(new TextPreviewGroup_Console_ActionGroup());
+    addGroup(new FindByConditionGroup_ActionGroup(this));
+    addGroup(new TextPreviewGroup_Console_ActionGroup(this));
   }
   public void adjustRegularGroups() {
     insertGroupIntoAnother(FindByConditionGroup_ActionGroup.ID, FindUsages_ActionGroup.ID, FindUsages_ActionGroup.LABEL_ID_find_instances);

@@ -5,8 +5,6 @@ package jetbrains.mps.console.ideCommands.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -26,9 +24,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class ModelReference__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x6c8954f469900928L, "jetbrains.mps.console.ideCommands.structure.ModelReference");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<SModel> getModel_id67MRmR$z8Z2 = new SMethodBuilder<SModel>(new SJavaCompoundTypeImpl((Class<SModel>) ((Class) Object.class))).name("getModel").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("67MRmR$z8Z2").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(SRepository.class, ""));
+  public static final SMethod<SModel> getModel_id67MRmR$z8Z2 = new SMethodBuilder<SModel>(new SJavaCompoundTypeImpl((Class<SModel>) ((Class) Object.class))).name("getModel").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("67MRmR$z8Z2").build(SMethodBuilder.createJavaParameter(SRepository.class, ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getModel_id67MRmR$z8Z2);
 
@@ -40,7 +37,6 @@ public final class ModelReference__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ ModelReference__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

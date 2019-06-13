@@ -249,10 +249,13 @@
     <classNode dependClassName="jetbrains.mps.lang.generator.pluginSolution.plugin.NewRootMappingRule_Action" />
     <classNode dependClassName="jetbrains.mps.lang.generator.pluginSolution.plugin.ShowAsIntentions_Generator_ActionGroup" />
     <classNode dependClassName="jetbrains.mps.plugins.part.ApplicationPluginPart" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode extendsClassName="jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin" />
   </dependency>
   <dependency className="jetbrains.mps.lang.generator.pluginSolution.plugin.ShowAsIntentions_Generator_ActionGroup">
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.workbench.action.ApplicationPlugin" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode extendsClassName="jetbrains.mps.plugins.actions.GeneratedActionGroup" />
   </dependency>
 </dependenciesRoot>

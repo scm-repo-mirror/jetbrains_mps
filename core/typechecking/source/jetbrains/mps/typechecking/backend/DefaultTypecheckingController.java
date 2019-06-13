@@ -15,24 +15,20 @@
  */
 package jetbrains.mps.typechecking.backend;
 
-import jetbrains.mps.typechecking.TypecheckingSessionHandler;
+import jetbrains.mps.typechecking.TypecheckingQueries;
 import jetbrains.mps.typechecking.backend.TypecheckingSession.Flags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
 
 /**
  * Handles a single default (basic) session.
  *
  * @author Fedor Isakov
  */
-public abstract class DefaultTypecheckingController extends TypecheckingController {
+public class DefaultTypecheckingController extends TypecheckingController {
 
-  private Token myToken;
+  private TypecheckingSession myDefaultSession;
 
   public DefaultTypecheckingController(TypecheckingBackend typecheckingBackend) {
     super(typecheckingBackend);
@@ -40,35 +36,44 @@ public abstract class DefaultTypecheckingController extends TypecheckingControll
 
   @Override
   public void dispose() {
-    if (myToken != null) {
-      myToken.release();
+    if (myDefaultSession != null) {
+      myDefaultSession.release();
+      myDefaultSession = null;
     }
   }
 
   @Override
-  protected void closeToken(@NotNull Token t) {
-    if (t == myToken) {
-      t.dispose();
-      this.myToken = null;
+  protected void sessionReleased(@NotNull TypecheckingSession session) {
+    if (session == myDefaultSession) {
+      session.dispose();
+      this.myDefaultSession = null;
 
     } else {
-      throw new IllegalArgumentException("Unknown token: " + t);
-    }
-  }
-
-  private void initToken() {
-    if (myToken == null) {
-      this.myToken = createToken(Flags.basic());
+      throw new IllegalArgumentException("Unknown session: " + session);
     }
   }
 
   @NotNull
   @Override
-  public TypecheckingSession getSession(@NotNull SNode src, SNode trg, SConcept trgConcept) {
+  protected TypecheckingSession requestSession(@NotNull Flags flags) {
+    if (myDefaultSession == null) {
+      this.myDefaultSession = new TypecheckingSession(this, flags);
+      return myDefaultSession;
+
+    } else {
+      throw new IllegalStateException("Multiple sessions not supported");
+    }
+  }
+
+  @NotNull
+  @Override
+  protected TypecheckingQueries getQueries(@NotNull SNode src, SNode trg, SConcept trgConcept) {
     // request new session on demand
-    initToken();
-    TypecheckingProvider provider = getProvider(src, trg, trgConcept);
-    return myToken.getSession(provider);
+    if (myDefaultSession == null) {
+      this.myDefaultSession = new TypecheckingSession(this, Flags.basic());
+    }
+    TypecheckingProvider provider = selectProvider(src, trg, trgConcept);
+    return myDefaultSession.getQueries(provider);
   }
 
 }

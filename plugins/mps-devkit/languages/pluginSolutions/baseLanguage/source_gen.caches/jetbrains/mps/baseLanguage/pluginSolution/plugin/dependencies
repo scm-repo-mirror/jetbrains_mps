@@ -2,6 +2,8 @@
 <dependenciesRoot>
   <dependency className="jetbrains.mps.baseLanguage.pluginSolution.plugin.AnalyzersActions_ActionGroup">
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.workbench.action.ApplicationPlugin" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode extendsClassName="jetbrains.mps.plugins.actions.GeneratedActionGroup" />
   </dependency>
   <dependency className="jetbrains.mps.baseLanguage.pluginSolution.plugin.CreateMethodDeclaration_Action">
@@ -51,6 +53,7 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.pluginSolution.plugin.ShowAsIntentions_BL_ActionGroup" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.pluginSolution.plugin.ShowNullDFA_Action" />
     <classNode dependClassName="jetbrains.mps.lang.dataFlow.pluginSolution.plugin.DFAActions_ActionGroup" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode extendsClassName="jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin" />
   </dependency>
   <dependency className="jetbrains.mps.baseLanguage.pluginSolution.plugin.RenameImplementingMethodsParticipant">
@@ -81,6 +84,8 @@
   </dependency>
   <dependency className="jetbrains.mps.baseLanguage.pluginSolution.plugin.ShowAsIntentions_BL_ActionGroup">
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.workbench.action.ApplicationPlugin" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode extendsClassName="jetbrains.mps.plugins.actions.GeneratedActionGroup" />
   </dependency>
   <dependency className="jetbrains.mps.baseLanguage.pluginSolution.plugin.ShowNullDFA_Action">

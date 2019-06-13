@@ -157,7 +157,7 @@
       <unit id="2244048449136669030" at="27,0,121,0" name="jetbrains.mps.debugger.java.customViewers.plugin.plugin.DebugInfoProvider_AppPluginPart" />
     </file>
     <file name="Plugin_ApplicationPlugin.java">
-      <node id="2244048449136669030" at="19,60,20,53" concept="2" />
+      <node id="2244048449136669030" at="24,60,25,53" concept="2" />
     </file>
   </root>
   <root nodeRef="r:9d33947d-45a8-4aa4-b61a-9c874e4614d7(jetbrains.mps.debugger.java.customViewers.plugin.plugin)/2929731761237869234">
@@ -1018,21 +1018,21 @@
   </root>
   <root nodeRef="r:9d33947d-45a8-4aa4-b61a-9c874e4614d7(jetbrains.mps.debugger.java.customViewers.plugin.plugin)/7162597690968011947">
     <file name="Plugin_ApplicationPlugin.java">
-      <node id="7162597690968011947" at="11,0,12,0" concept="3" trace="myId" />
-      <node id="7162597690968011947" at="14,27,15,16" concept="9" />
-      <node id="7162597690968011947" at="18,66,19,60" concept="2" />
-      <node id="7162597690968011947" at="12,0,14,0" concept="1" trace="Plugin_ApplicationPlugin#()V" />
-      <node id="7162597690968011947" at="14,0,17,0" concept="7" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
-      <node id="7162597690968011947" at="17,0,22,0" concept="7" trace="fillCustomParts#(Ljava/util/List;)V" />
-      <scope id="7162597690968011947" at="12,37,12,37" />
-      <scope id="7162597690968011947" at="14,27,15,16" />
-      <scope id="7162597690968011947" at="12,0,14,0" />
-      <scope id="7162597690968011947" at="18,66,20,53" />
-      <scope id="7162597690968011947" at="14,0,17,0" />
-      <scope id="7162597690968011947" at="17,0,22,0">
+      <node id="7162597690968011947" at="12,0,13,0" concept="3" trace="myId" />
+      <node id="7162597690968011947" at="18,27,19,16" concept="9" />
+      <node id="7162597690968011947" at="23,66,24,60" concept="2" />
+      <node id="7162597690968011947" at="14,0,16,0" concept="1" trace="Plugin_ApplicationPlugin#()V" />
+      <node id="7162597690968011947" at="17,0,21,0" concept="7" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
+      <node id="7162597690968011947" at="22,0,27,0" concept="7" trace="fillCustomParts#(Ljava/util/List;)V" />
+      <scope id="7162597690968011947" at="14,37,14,37" />
+      <scope id="7162597690968011947" at="18,27,19,16" />
+      <scope id="7162597690968011947" at="14,0,16,0" />
+      <scope id="7162597690968011947" at="23,66,25,53" />
+      <scope id="7162597690968011947" at="17,0,21,0" />
+      <scope id="7162597690968011947" at="22,0,27,0">
         <var name="parts" id="7162597690968011947" />
       </scope>
-      <unit id="7162597690968011947" at="10,0,23,0" name="jetbrains.mps.debugger.java.customViewers.plugin.plugin.Plugin_ApplicationPlugin" />
+      <unit id="7162597690968011947" at="11,0,28,0" name="jetbrains.mps.debugger.java.customViewers.plugin.plugin.Plugin_ApplicationPlugin" />
     </file>
   </root>
 </debug-info>

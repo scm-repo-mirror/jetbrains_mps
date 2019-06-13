@@ -192,9 +192,9 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
             continue;
           }
 
-          // this code should be removed when we are sure there are no modules without language  
+          // this code should be removed when we are sure there are no modules without language 
           // version information persisted 
-          // this code should be executed when all models are already there in the module to  
+          // this code should be executed when all models are already there in the module to 
           // produce a correct list of used languages 
           ModuleDescriptor desc = ((AbstractModule) m).getModuleDescriptor();
           if (!(desc.hasLanguageVersions())) {
@@ -288,8 +288,8 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
       return;
     }
 
-    // if a new language is added to a repo, all modules in project using it  
-    // should be checked for whether their migration is needed  
+    // if a new language is added to a repo, all modules in project using it 
+    // should be checked for whether their migration is needed 
     final Set<SModule> modules2Check = SetSequence.fromSet(new HashSet<SModule>());
     Sequence.fromIterable(MigrationModuleUtil.getMigrateableModulesFromProject(myMpsProject)).visitAll(new IVisitor<SModule>() {
       public void visit(SModule it) {
@@ -625,7 +625,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
 
     @Override
     public void beforeLanguagesUnloaded(Iterable<LanguageRuntime> iterable) {
-      // languages are still loaded when this notification comes, no way we can notice any change here, therefore we don't  
+      // languages are still loaded when this notification comes, no way we can notice any change here, therefore we don't 
       // check for changed conditions, e.g. with checkNotDeployedLanguages() 
     }
   }

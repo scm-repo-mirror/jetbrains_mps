@@ -35,6 +35,7 @@ import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.plugins.PluginLoaderRegistry.EventAccumulation.Snapshot;
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import jetbrains.mps.plugins.projectplugins.BaseProjectPlugin;
+import jetbrains.mps.plugins.projectplugins.ProjectPluginManager;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.structure.modules.SolutionKind;
@@ -42,10 +43,13 @@ import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.MPSModuleRepository;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.JavaNameUtil;
+import jetbrains.mps.util.annotation.Hack;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SRepository;
@@ -149,6 +153,15 @@ public class PluginLoaderRegistry implements ApplicationComponent {
     synchronized (myLoadersDeltaLock) {
       LOG.debug("Registering the " + loader);
       myLoaderDelta.load(Collections.singleton(loader));
+      removeIfProjectIsLoader(loader);
+    }
+  }
+
+  @ToRemove(version = 193)
+  @Hack
+  private void removeIfProjectIsLoader(@NotNull PluginLoader loader) {
+    if (loader instanceof ProjectPluginManager) {
+      scheduleUpdate();
     }
   }
 
@@ -160,7 +173,7 @@ public class PluginLoaderRegistry implements ApplicationComponent {
     synchronized (myLoadersDeltaLock) {
       LOG.debug("Unregistering the " + loader);
       myLoaderDelta.unload(Collections.singleton(loader));
-      scheduleUpdate(); // fixme hack to schedule on project closing. appropriate classloading events will do in the next release
+      scheduleUpdate();
     }
   }
 

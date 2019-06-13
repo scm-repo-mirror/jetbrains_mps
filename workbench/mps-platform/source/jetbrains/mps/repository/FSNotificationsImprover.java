@@ -22,7 +22,7 @@ import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.ide.platform.watching.WatchedRoots;
 import jetbrains.mps.util.PathManager;
-import jetbrains.mps.workbench.action.IRegistryManager;
+import jetbrains.mps.workbench.action.ApplicationPluginHolder;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class FSNotificationsImprover implements ApplicationComponent {
   //parameters left untouched while extracting from RepositoryInitializingComponentBase
   @SuppressWarnings("UnusedParameters")
   public FSNotificationsImprover(MPSCoreComponents coreComponents,
-                                 IRegistryManager registryManager,
+                                 ApplicationPluginHolder registryManager,
                                  IdeaPluginFacetComponent ideaPluginFacetComponent,
                                  IdeaFileSystem fs,
                                  PersistentFS filesystem, //see MPS-22970

@@ -15,18 +15,15 @@
  */
 package jetbrains.mps.typechecking.backend;
 
-import jetbrains.mps.typechecking.TypecheckingSessionHandler;
+import jetbrains.mps.typechecking.TypecheckingQueries;
 import jetbrains.mps.typechecking.backend.TypecheckingSession.Flags;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
-import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Handles the sessions requested by the editor.
@@ -34,11 +31,11 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author Fedor Isakov
  */
-public class WorkbenchTypecheckingController extends BasicTypecheckingController {
+public class WorkbenchTypecheckingController extends DefaultTypecheckingController {
 
   private static Logger LOG = Logger.getLogger(WorkbenchTypecheckingController.class);
 
-  private Map<SNodeHandle, Token> myRootTokens = new HashMap<>();
+  private Map<SNodeHandle, TypecheckingSession> myRootSessions = new HashMap<>();
 
   public WorkbenchTypecheckingController(TypecheckingBackend typecheckingBackend) {
     super(typecheckingBackend);
@@ -46,65 +43,57 @@ public class WorkbenchTypecheckingController extends BasicTypecheckingController
 
   @Override
   public void dispose() {
-    for (Token token : myRootTokens.values()) {
-      token.dispose();
+    for (TypecheckingSession session : myRootSessions.values()) {
+      session.dispose();
     }
-    myRootTokens.clear();
-    super.dispose();
-  }
-
-  @Override
-  protected void closeToken(@NotNull Token t) {
-    if (t.getFlags().getRoot() != null && t.getFlags().isIncremental()) {
-      SNode root = t.getFlags().getRoot();
-      if (root == null || !myRootTokens.containsKey(new SNodeHandle(root))) {
-        throw new IllegalArgumentException("Unknown token " + t);
-      }
-      if (myRootTokens.get(new SNodeHandle(root)).decUsages() <= 0) {
-        myRootTokens.remove(new SNodeHandle(root)).dispose();
-      }
-
-    } else {
-      super.closeToken(t);
-    }
+    myRootSessions.clear();
   }
 
   @NotNull
   @Override
-  public TypecheckingSession getSession(@NotNull SNode src, SNode trg, SConcept trgConcept) {
-    SNode containingRoot = src.getContainingRoot();
-    Token token = myRootTokens.get(new SNodeHandle(containingRoot));
-    if (token != null) {
-      return token.getSession(getProvider(src, trg, trgConcept));
-
-    } else {
-      return super.getSession(src, trg, trgConcept);
-    }
-  }
-
-  @NotNull
-  @Override
-  public SessionToken requestNewSession(@NotNull Flags flags) {
+  public TypecheckingSession requestSession(@NotNull Flags flags) {
     if (flags.getRoot() != null && flags.isIncremental()) {
       // the editor has requested a session for the opened root
-      Token newToken = createToken(flags);
-      Token existing = myRootTokens.putIfAbsent(new SNodeHandle(flags.getRoot()), newToken);
-      if (existing != null) {
-        // already requested, no need to create new token
-        existing.incUsages();
-        return existing;
+      TypecheckingSession session = myRootSessions.computeIfAbsent(new SNodeHandle(flags.getRoot()), (key) -> new TypecheckingSession(this, flags));
+      session.incUsages();
+      return session;
 
-      } else {
-        return newToken;
+    } else {
+      return super.requestSession(flags);
+    }
+  }
+
+  @Override
+  protected void sessionReleased(@NotNull TypecheckingSession session) {
+    if (session.flags().getRoot() != null && session.flags().isIncremental()) {
+      SNodeHandle key = new SNodeHandle(session.flags().getRoot());
+      if (!myRootSessions.containsKey(key)) {
+        throw new IllegalArgumentException("Unknown session: " + session);
+      }
+      if (myRootSessions.get(key).decUsages() <= 0) {
+        myRootSessions.remove(key).dispose();
       }
 
     } else {
-      return super.requestNewSession(flags);
+      super.sessionReleased(session);
+    }
+  }
+
+  @NotNull
+  @Override
+  protected TypecheckingQueries getQueries(@NotNull SNode src, SNode trg, SConcept trgConcept) {
+    SNode containingRoot = src.getContainingRoot();
+    TypecheckingSession session = myRootSessions.get(new SNodeHandle(containingRoot));
+    if (session != null) {
+      return session.getQueries(selectProvider(src, trg, trgConcept));
+
+    } else {
+      return super.getQueries(src, trg, trgConcept);
     }
   }
 
   /**
-   * An opaque token to represent a particular SNode instance.
+   * An opaque object to represent a particular SNode instance.
    * Used instead of SNodeReference, since the latter is useless for the purposes
    * of indicating a node w/o a model, which is a very common pattern in MPS. <sigh>
    */
@@ -130,6 +119,7 @@ public class WorkbenchTypecheckingController extends BasicTypecheckingController
     public String toString() {
       return "SNode@"+System.identityHashCode(myNode);
     }
+    
   }
 
 }

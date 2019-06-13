@@ -192,7 +192,7 @@ __switch__:
       SModule sourceLang = generator.sourceLanguage().getSourceModuleReference().resolve(mod.getRepository());
       if (sourceLang != null) {
         // perhaps, we could use slanguage.sourceModuleReference only (right into reqs if among vertexes), i.e. no resolve, but this would 
-        // affect transitive dependencies, and it's unlikely what I need here. It's seems better to collect more than to get unpleasant compile errors due  
+        // affect transitive dependencies, and it's unlikely what I need here. It's seems better to collect more than to get unpleasant compile errors due 
         // to improper make order. 
         modExt.add(sourceLang);
       }
@@ -251,7 +251,7 @@ __switch__:
     }));
 
 
-    // XXX perhaps, we shall respect target languages of used languages as well, as they may appear while generating this module.  
+    // XXX perhaps, we shall respect target languages of used languages as well, as they may appear while generating this module. 
     //     We need them anyway to build required facets in ModulesClusterizer.allLanguagesToActivateFacets 
 
     ListSequence.fromList(rv.required).addSequence(SetSequence.fromSet(reqs));

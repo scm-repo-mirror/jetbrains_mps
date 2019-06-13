@@ -45,80 +45,88 @@
       <unit id="1453248744423272129" at="10,0,24,0" name="jetbrains.mps.ide.modelchecker.actions.Default_KeymapChanges" />
     </file>
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="1453248744423272129" at="52,92,53,71" concept="4" />
+      <node id="1453248744423272129" at="57,92,58,71" concept="4" />
     </file>
   </root>
   <root nodeRef="r:e2c8c94a-404b-4b97-a3a4-c76946bd1913(jetbrains.mps.ide.modelchecker.actions)/1453248744423276122">
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="1453248744423276122" at="39,45,40,53" concept="4" />
-      <node id="1453248744423276125" at="43,37,44,126" concept="4" />
+      <node id="1453248744423276122" at="44,49,45,57" concept="4" />
+      <node id="1453248744423276125" at="48,37,49,126" concept="4" />
     </file>
     <file name="ShowModelCheckerTool_ActionGroup.java">
-      <node id="1453248744423276122" at="8,0,9,0" concept="13" trace="ID" />
-      <node id="1453248744423276122" at="9,45,10,38" concept="15" />
-      <node id="1453248744423276122" at="10,38,11,30" concept="4" />
-      <node id="1453248744423276122" at="11,30,12,25" concept="4" />
-      <node id="1453248744423276124" at="12,25,13,118" concept="4" />
-      <node id="1453248744423276122" at="9,0,15,0" concept="2" trace="ShowModelCheckerTool_ActionGroup#()V" />
-      <scope id="1453248744423276122" at="9,45,13,118" />
-      <scope id="1453248744423276122" at="9,0,15,0" />
-      <unit id="1453248744423276122" at="7,0,16,0" name="jetbrains.mps.ide.modelchecker.actions.ShowModelCheckerTool_ActionGroup" />
+      <node id="1453248744423276122" at="10,0,11,0" concept="13" trace="ID" />
+      <node id="1453248744423276122" at="12,79,13,46" concept="15" />
+      <node id="1453248744423276122" at="13,46,14,25" concept="4" />
+      <node id="1453248744423276122" at="14,25,15,20" concept="4" />
+      <node id="1453248744423276124" at="15,20,16,118" concept="4" />
+      <node id="1453248744423276122" at="12,0,18,0" concept="2" trace="ShowModelCheckerTool_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <scope id="1453248744423276122" at="12,79,16,118" />
+      <scope id="1453248744423276122" at="12,0,18,0">
+        <var name="plugin" id="1453248744423276122" />
+      </scope>
+      <unit id="1453248744423276122" at="9,0,19,0" name="jetbrains.mps.ide.modelchecker.actions.ShowModelCheckerTool_ActionGroup" />
     </file>
   </root>
   <root nodeRef="r:e2c8c94a-404b-4b97-a3a4-c76946bd1913(jetbrains.mps.ide.modelchecker.actions)/1453248744423276126">
     <file name="CheckProject_ActionGroup.java">
-      <node id="1453248744423276126" at="8,0,9,0" concept="13" trace="ID" />
-      <node id="1453248744423276126" at="9,37,10,30" concept="15" />
-      <node id="1453248744423276126" at="10,30,11,30" concept="4" />
-      <node id="1453248744423276126" at="11,30,12,25" concept="4" />
-      <node id="1453248744423276128" at="12,25,13,106" concept="4" />
-      <node id="1453248744423276126" at="9,0,15,0" concept="2" trace="CheckProject_ActionGroup#()V" />
-      <scope id="1453248744423276126" at="9,37,13,106" />
-      <scope id="1453248744423276126" at="9,0,15,0" />
-      <unit id="1453248744423276126" at="7,0,16,0" name="jetbrains.mps.ide.modelchecker.actions.CheckProject_ActionGroup" />
+      <node id="1453248744423276126" at="10,0,11,0" concept="13" trace="ID" />
+      <node id="1453248744423276126" at="12,71,13,38" concept="15" />
+      <node id="1453248744423276126" at="13,38,14,25" concept="4" />
+      <node id="1453248744423276126" at="14,25,15,20" concept="4" />
+      <node id="1453248744423276128" at="15,20,16,106" concept="4" />
+      <node id="1453248744423276126" at="12,0,18,0" concept="2" trace="CheckProject_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <scope id="1453248744423276126" at="12,71,16,106" />
+      <scope id="1453248744423276126" at="12,0,18,0">
+        <var name="plugin" id="1453248744423276126" />
+      </scope>
+      <unit id="1453248744423276126" at="9,0,19,0" name="jetbrains.mps.ide.modelchecker.actions.CheckProject_ActionGroup" />
     </file>
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="1453248744423276126" at="38,47,39,45" concept="4" />
-      <node id="1453248744423276129" at="44,126,45,130" concept="4" />
+      <node id="1453248744423276126" at="43,51,44,49" concept="4" />
+      <node id="1453248744423276129" at="49,126,50,130" concept="4" />
     </file>
   </root>
   <root nodeRef="r:e2c8c94a-404b-4b97-a3a4-c76946bd1913(jetbrains.mps.ide.modelchecker.actions)/1453248744423276130">
     <file name="CheckModule_ActionGroup.java">
-      <node id="1453248744423276130" at="8,0,9,0" concept="13" trace="ID" />
-      <node id="1453248744423276130" at="9,36,10,29" concept="15" />
-      <node id="1453248744423276130" at="10,29,11,30" concept="4" />
-      <node id="1453248744423276130" at="11,30,12,25" concept="4" />
-      <node id="1453248744423276132" at="12,25,13,104" concept="4" />
-      <node id="1453248744423276130" at="9,0,15,0" concept="2" trace="CheckModule_ActionGroup#()V" />
-      <scope id="1453248744423276130" at="9,36,13,104" />
-      <scope id="1453248744423276130" at="9,0,15,0" />
-      <unit id="1453248744423276130" at="7,0,16,0" name="jetbrains.mps.ide.modelchecker.actions.CheckModule_ActionGroup" />
+      <node id="1453248744423276130" at="10,0,11,0" concept="13" trace="ID" />
+      <node id="1453248744423276130" at="12,70,13,37" concept="15" />
+      <node id="1453248744423276130" at="13,37,14,25" concept="4" />
+      <node id="1453248744423276130" at="14,25,15,20" concept="4" />
+      <node id="1453248744423276132" at="15,20,16,104" concept="4" />
+      <node id="1453248744423276130" at="12,0,18,0" concept="2" trace="CheckModule_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <scope id="1453248744423276130" at="12,70,16,104" />
+      <scope id="1453248744423276130" at="12,0,18,0">
+        <var name="plugin" id="1453248744423276130" />
+      </scope>
+      <unit id="1453248744423276130" at="9,0,19,0" name="jetbrains.mps.ide.modelchecker.actions.CheckModule_ActionGroup" />
     </file>
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="1453248744423276130" at="36,43,37,44" concept="4" />
-      <node id="1453248744423276134" at="45,130,46,139" concept="4" />
+      <node id="1453248744423276130" at="41,47,42,48" concept="4" />
+      <node id="1453248744423276134" at="50,130,51,139" concept="4" />
     </file>
   </root>
   <root nodeRef="r:e2c8c94a-404b-4b97-a3a4-c76946bd1913(jetbrains.mps.ide.modelchecker.actions)/1453248744423276145">
     <file name="CheckModel_ActionGroup.java">
-      <node id="1453248744423276145" at="8,0,9,0" concept="13" trace="ID" />
-      <node id="1453248744423276145" at="9,35,10,28" concept="15" />
-      <node id="1453248744423276145" at="10,28,11,30" concept="4" />
-      <node id="1453248744423276145" at="11,30,12,25" concept="4" />
-      <node id="1453248744423276147" at="12,25,13,102" concept="4" />
-      <node id="1453248744423276145" at="9,0,15,0" concept="2" trace="CheckModel_ActionGroup#()V" />
-      <scope id="1453248744423276145" at="9,35,13,102" />
-      <scope id="1453248744423276145" at="9,0,15,0" />
-      <unit id="1453248744423276145" at="7,0,16,0" name="jetbrains.mps.ide.modelchecker.actions.CheckModel_ActionGroup" />
+      <node id="1453248744423276145" at="10,0,11,0" concept="13" trace="ID" />
+      <node id="1453248744423276145" at="12,69,13,36" concept="15" />
+      <node id="1453248744423276145" at="13,36,14,25" concept="4" />
+      <node id="1453248744423276145" at="14,25,15,20" concept="4" />
+      <node id="1453248744423276147" at="15,20,16,102" concept="4" />
+      <node id="1453248744423276145" at="12,0,18,0" concept="2" trace="CheckModel_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <scope id="1453248744423276145" at="12,69,16,102" />
+      <scope id="1453248744423276145" at="12,0,18,0">
+        <var name="plugin" id="1453248744423276145" />
+      </scope>
+      <unit id="1453248744423276145" at="9,0,19,0" name="jetbrains.mps.ide.modelchecker.actions.CheckModel_ActionGroup" />
     </file>
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="1453248744423276145" at="35,14,36,43" concept="4" />
-      <node id="1453248744423276148" at="46,139,47,124" concept="4" />
+      <node id="1453248744423276145" at="40,14,41,47" concept="4" />
+      <node id="1453248744423276148" at="51,139,52,124" concept="4" />
     </file>
   </root>
   <root nodeRef="r:e2c8c94a-404b-4b97-a3a4-c76946bd1913(jetbrains.mps.ide.modelchecker.actions)/1453248744423276149">
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="1453248744423276149" at="33,56,34,45" concept="4" />
+      <node id="1453248744423276149" at="38,56,39,45" concept="4" />
     </file>
     <file name="ShowModelChecker_Action.java">
       <node id="1453248744423276149" at="15,0,16,0" concept="13" trace="ICON" />
@@ -230,7 +238,7 @@
       <unit id="1453248744423276216" at="16,0,48,0" name="jetbrains.mps.ide.modelchecker.actions.CheckProject_Action" />
     </file>
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="1453248744423276216" at="29,43,30,41" concept="4" />
+      <node id="1453248744423276216" at="34,43,35,41" concept="4" />
     </file>
   </root>
   <root nodeRef="r:e2c8c94a-404b-4b97-a3a4-c76946bd1913(jetbrains.mps.ide.modelchecker.actions)/1453248744423276236">
@@ -334,7 +342,7 @@
       <unit id="1453248744423276236" at="20,0,93,0" name="jetbrains.mps.ide.modelchecker.actions.CheckModule_Action" />
     </file>
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="1453248744423276236" at="27,39,28,40" concept="4" />
+      <node id="1453248744423276236" at="32,39,33,40" concept="4" />
     </file>
   </root>
   <root nodeRef="r:e2c8c94a-404b-4b97-a3a4-c76946bd1913(jetbrains.mps.ide.modelchecker.actions)/1453248744423276340">
@@ -477,24 +485,26 @@
       <unit id="1453248744423276340" at="25,0,119,0" name="jetbrains.mps.ide.modelchecker.actions.CheckModel_Action" />
     </file>
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="1453248744423276340" at="26,30,27,39" concept="4" />
+      <node id="1453248744423276340" at="31,30,32,39" concept="4" />
     </file>
   </root>
   <root nodeRef="r:e2c8c94a-404b-4b97-a3a4-c76946bd1913(jetbrains.mps.ide.modelchecker.actions)/1526939793344460684">
     <file name="CheckNamespace_ActionGroup.java">
-      <node id="1526939793344460684" at="8,0,9,0" concept="13" trace="ID" />
-      <node id="1526939793344460684" at="9,39,10,32" concept="15" />
-      <node id="1526939793344460684" at="10,32,11,30" concept="4" />
-      <node id="1526939793344460684" at="11,30,12,25" concept="4" />
-      <node id="1526939793344460689" at="12,25,13,110" concept="4" />
-      <node id="1526939793344460684" at="9,0,15,0" concept="2" trace="CheckNamespace_ActionGroup#()V" />
-      <scope id="1526939793344460684" at="9,39,13,110" />
-      <scope id="1526939793344460684" at="9,0,15,0" />
-      <unit id="1526939793344460684" at="7,0,16,0" name="jetbrains.mps.ide.modelchecker.actions.CheckNamespace_ActionGroup" />
+      <node id="1526939793344460684" at="10,0,11,0" concept="13" trace="ID" />
+      <node id="1526939793344460684" at="12,73,13,40" concept="15" />
+      <node id="1526939793344460684" at="13,40,14,25" concept="4" />
+      <node id="1526939793344460684" at="14,25,15,20" concept="4" />
+      <node id="1526939793344460689" at="15,20,16,110" concept="4" />
+      <node id="1526939793344460684" at="12,0,18,0" concept="2" trace="CheckNamespace_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <scope id="1526939793344460684" at="12,73,16,110" />
+      <scope id="1526939793344460684" at="12,0,18,0">
+        <var name="plugin" id="1526939793344460684" />
+      </scope>
+      <unit id="1526939793344460684" at="9,0,19,0" name="jetbrains.mps.ide.modelchecker.actions.CheckNamespace_ActionGroup" />
     </file>
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="1526939793344460684" at="37,44,38,47" concept="4" />
-      <node id="1526939793344460688" at="47,124,48,136" concept="4" />
+      <node id="1526939793344460684" at="42,48,43,51" concept="4" />
+      <node id="1526939793344460688" at="52,124,53,136" concept="4" />
     </file>
   </root>
   <root nodeRef="r:e2c8c94a-404b-4b97-a3a4-c76946bd1913(jetbrains.mps.ide.modelchecker.actions)/1833497744616771108">
@@ -641,7 +651,7 @@
       <unit id="1833497744616771108" at="37,0,131,0" name="jetbrains.mps.ide.modelchecker.actions.FindReferencesToNonReferenceable_Action" />
     </file>
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="1833497744616771108" at="31,56,32,61" concept="4" />
+      <node id="1833497744616771108" at="36,56,37,61" concept="4" />
     </file>
   </root>
   <root nodeRef="r:e2c8c94a-404b-4b97-a3a4-c76946bd1913(jetbrains.mps.ide.modelchecker.actions)/1833497744617099302">
@@ -901,7 +911,7 @@
       <unit id="2843918448603437232" at="26,0,81,0" name="jetbrains.mps.ide.modelchecker.actions.FindWrongAspectDependencies_Action" />
     </file>
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="2843918448603437232" at="32,61,33,56" concept="4" />
+      <node id="2843918448603437232" at="37,61,38,56" concept="4" />
     </file>
   </root>
   <root nodeRef="r:e2c8c94a-404b-4b97-a3a4-c76946bd1913(jetbrains.mps.ide.modelchecker.actions)/2843918448603437373">
@@ -1140,49 +1150,51 @@
   </root>
   <root nodeRef="r:e2c8c94a-404b-4b97-a3a4-c76946bd1913(jetbrains.mps.ide.modelchecker.actions)/5361317699454626937">
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="5361317699454626937" at="40,53,41,48" concept="4" />
-      <node id="5361317699454650269" at="48,136,49,95" concept="4" />
+      <node id="5361317699454626937" at="45,57,46,52" concept="4" />
+      <node id="5361317699454650269" at="53,136,54,95" concept="4" />
     </file>
     <file name="ToolsInternalEx_ActionGroup.java">
-      <node id="5361317699454626937" at="8,0,9,0" concept="13" trace="ID" />
-      <node id="5361317699454626937" at="9,40,10,33" concept="15" />
-      <node id="5361317699454626937" at="10,33,11,29" concept="4" />
-      <node id="5361317699454626937" at="11,29,12,25" concept="4" />
-      <node id="603051750760797676" at="12,25,13,124" concept="4" />
-      <node id="7224745844707401201" at="13,124,14,124" concept="4" />
-      <node id="1833497744619757838" at="14,124,15,129" concept="4" />
-      <node id="5361317699454626937" at="9,0,17,0" concept="2" trace="ToolsInternalEx_ActionGroup#()V" />
-      <scope id="5361317699454626937" at="9,40,15,129" />
-      <scope id="5361317699454626937" at="9,0,17,0" />
-      <unit id="5361317699454626937" at="7,0,18,0" name="jetbrains.mps.ide.modelchecker.actions.ToolsInternalEx_ActionGroup" />
+      <node id="5361317699454626937" at="10,0,11,0" concept="13" trace="ID" />
+      <node id="5361317699454626937" at="12,74,13,41" concept="15" />
+      <node id="5361317699454626937" at="13,41,14,24" concept="4" />
+      <node id="5361317699454626937" at="14,24,15,20" concept="4" />
+      <node id="603051750760797676" at="15,20,16,124" concept="4" />
+      <node id="7224745844707401201" at="16,124,17,124" concept="4" />
+      <node id="1833497744619757838" at="17,124,18,129" concept="4" />
+      <node id="5361317699454626937" at="12,0,20,0" concept="2" trace="ToolsInternalEx_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <scope id="5361317699454626937" at="12,74,18,129" />
+      <scope id="5361317699454626937" at="12,0,20,0">
+        <var name="plugin" id="5361317699454626937" />
+      </scope>
+      <unit id="5361317699454626937" at="9,0,21,0" name="jetbrains.mps.ide.modelchecker.actions.ToolsInternalEx_ActionGroup" />
     </file>
   </root>
   <root nodeRef="r:e2c8c94a-404b-4b97-a3a4-c76946bd1913(jetbrains.mps.ide.modelchecker.actions)/7162597690968047815">
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="7162597690968047815" at="19,0,20,0" concept="5" trace="myId" />
-      <node id="7162597690968047815" at="22,27,23,16" concept="10" />
-      <node id="7162597690968047815" at="25,30,26,30" concept="11" />
-      <node id="7162597690968047815" at="34,45,35,14" concept="11" />
-      <node id="7162597690968047815" at="51,48,52,92" concept="9" />
-      <node id="7162597690968047815" at="53,71,54,15" concept="10" />
-      <node id="7162597690968047815" at="20,0,22,0" concept="2" trace="Modelchecker_ApplicationPlugin#()V" />
-      <node id="7162597690968047815" at="22,0,25,0" concept="8" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
-      <node id="7162597690968047815" at="51,0,56,0" concept="8" trace="initKeymaps#()Ljava/util/List;" />
-      <node id="7162597690968047815" at="43,0,51,0" concept="8" trace="adjustRegularGroups#()V" />
-      <node id="7162597690968047815" at="25,0,43,0" concept="8" trace="createGroups#()V" />
-      <scope id="7162597690968047815" at="20,43,20,43" />
-      <scope id="7162597690968047815" at="22,27,23,16" />
-      <scope id="7162597690968047815" at="20,0,22,0" />
-      <scope id="7162597690968047815" at="22,0,25,0" />
-      <scope id="7162597690968047815" at="51,48,54,15">
+      <node id="7162597690968047815" at="20,0,21,0" concept="5" trace="myId" />
+      <node id="7162597690968047815" at="26,27,27,16" concept="10" />
+      <node id="7162597690968047815" at="30,30,31,30" concept="11" />
+      <node id="7162597690968047815" at="39,45,40,14" concept="11" />
+      <node id="7162597690968047815" at="56,48,57,92" concept="9" />
+      <node id="7162597690968047815" at="58,71,59,15" concept="10" />
+      <node id="7162597690968047815" at="22,0,24,0" concept="2" trace="Modelchecker_ApplicationPlugin#()V" />
+      <node id="7162597690968047815" at="25,0,29,0" concept="8" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
+      <node id="7162597690968047815" at="56,0,61,0" concept="8" trace="initKeymaps#()Ljava/util/List;" />
+      <node id="7162597690968047815" at="48,0,56,0" concept="8" trace="adjustRegularGroups#()V" />
+      <node id="7162597690968047815" at="30,0,48,0" concept="8" trace="createGroups#()V" />
+      <scope id="7162597690968047815" at="22,43,22,43" />
+      <scope id="7162597690968047815" at="26,27,27,16" />
+      <scope id="7162597690968047815" at="22,0,24,0" />
+      <scope id="7162597690968047815" at="56,48,59,15">
         <var name="res" id="7162597690968047815" />
       </scope>
-      <scope id="7162597690968047815" at="51,0,56,0" />
-      <scope id="7162597690968047815" at="43,37,49,95" />
-      <scope id="7162597690968047815" at="43,0,51,0" />
-      <scope id="7162597690968047815" at="25,30,41,48" />
-      <scope id="7162597690968047815" at="25,0,43,0" />
-      <unit id="7162597690968047815" at="18,0,57,0" name="jetbrains.mps.ide.modelchecker.actions.Modelchecker_ApplicationPlugin" />
+      <scope id="7162597690968047815" at="25,0,29,0" />
+      <scope id="7162597690968047815" at="56,0,61,0" />
+      <scope id="7162597690968047815" at="48,37,54,95" />
+      <scope id="7162597690968047815" at="48,0,56,0" />
+      <scope id="7162597690968047815" at="30,30,46,52" />
+      <scope id="7162597690968047815" at="30,0,48,0" />
+      <unit id="7162597690968047815" at="19,0,62,0" name="jetbrains.mps.ide.modelchecker.actions.Modelchecker_ApplicationPlugin" />
     </file>
   </root>
   <root nodeRef="r:e2c8c94a-404b-4b97-a3a4-c76946bd1913(jetbrains.mps.ide.modelchecker.actions)/7224745844707398031">
@@ -1245,7 +1257,7 @@
       <unit id="7224745844707398031" at="25,0,67,0" name="jetbrains.mps.ide.modelchecker.actions.FindCrossTemplateReferences_Action" />
     </file>
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="7224745844707398031" at="30,41,31,56" concept="4" />
+      <node id="7224745844707398031" at="35,41,36,56" concept="4" />
     </file>
   </root>
   <root nodeRef="r:e2c8c94a-404b-4b97-a3a4-c76946bd1913(jetbrains.mps.ide.modelchecker.actions)/7502735747194136940">
@@ -1334,7 +1346,7 @@
       <unit id="7502735747194136940" at="23,0,80,0" name="jetbrains.mps.ide.modelchecker.actions.CheckNamespace_Action" />
     </file>
     <file name="Modelchecker_ApplicationPlugin.java">
-      <node id="7502735747194136940" at="28,40,29,43" concept="4" />
+      <node id="7502735747194136940" at="33,40,34,43" concept="4" />
     </file>
   </root>
 </debug-info>

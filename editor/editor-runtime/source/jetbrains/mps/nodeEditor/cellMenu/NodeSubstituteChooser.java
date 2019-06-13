@@ -29,6 +29,8 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.SubstituteAction;
 import jetbrains.mps.openapi.editor.cells.SubstituteInfo;
 import jetbrains.mps.smodel.action.AbstractNodeSubstituteAction;
+import jetbrains.mps.typechecking.TypecheckingFacade;
+import jetbrains.mps.typechecking.backend.TypecheckingSession;
 import jetbrains.mps.typesystem.inference.ITypeContextOwner;
 import jetbrains.mps.typesystem.inference.NonReusableTypecheckingContextOwner;
 import jetbrains.mps.typesystem.inference.TypeContextManager;
@@ -50,6 +52,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -264,17 +267,20 @@ public class NodeSubstituteChooser implements KeyboardHandler {
   }
 
   private List<SubstituteAction> getMatchingActions(final String pattern) {
+    if (myIsSmart) {
+      return TypecheckingFacade
+                 .getFromContext()
+                 .runIsolated(() -> myNodeSubstituteInfo.getSmartMatchingActions(pattern, false, myContextCell));
 
-    final ITypeContextOwner contextOwner = myIsSmart ? new NonReusableTypecheckingContextOwner() : myEditorComponent.getTypecheckingContextOwner();
-    List<SubstituteAction> substituteActions =
-        TypeContextManager.getInstance().runTypeCheckingComputation(contextOwner, myEditorComponent.getEditedNode(), context -> {
-          if (myIsSmart) {
-            return myNodeSubstituteInfo.getSmartMatchingActions(pattern, false, myContextCell);
-          } else {
-            return myNodeSubstituteInfo.getMatchingActions(pattern, false);
-          }
-        });
-    return substituteActions;
+    } else {
+      TypecheckingSession typecheckingSession = myEditorComponent.getTypecheckingSession();
+      if (typecheckingSession == null) return Collections.emptyList();
+      
+      return TypecheckingFacade
+                 .getFromContext()
+                 .runWithSession(typecheckingSession,
+                                 () -> myNodeSubstituteInfo.getMatchingActions(pattern, false));
+    }
   }
 
   private void rebuildMenuEntries() {

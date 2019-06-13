@@ -56,7 +56,7 @@ public abstract class GeneratedFinder extends BaseFinder implements IInterfacedF
   }
 
   protected SNodeReference buildNodePointer(SModelReference modelRef, String nodeId) {
-    // auxiliary method to help generated code deal with string node id values  
+    // auxiliary method to help generated code deal with string node id values 
     return new SNodePointer(modelRef, PersistenceFacade.getInstance().createNodeId(nodeId));
   }
 

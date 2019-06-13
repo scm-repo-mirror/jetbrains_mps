@@ -4,6 +4,7 @@ package jetbrains.mps.ide.make.actions;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.ToolsInternal_ActionGroup;
 import jetbrains.mps.ide.actions.ProjectActions_ActionGroup;
 import jetbrains.mps.ide.actions.CommonModuleActions_ActionGroup;
@@ -17,12 +18,16 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 
 public class Make_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.ide.make");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.ide.make");
+
   public Make_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new BuildAllGeneratableGenerators_Action());
@@ -45,19 +50,19 @@ public class Make_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new RecompileProject_Action());
     addAction(new TextPreviewModel_Action());
     // groups 
-    addGroup(new GenerateOptions_ActionGroup());
-    addGroup(new GlobalMake_ActionGroup());
-    addGroup(new JavaModuleActions_ActionGroup());
-    addGroup(new MakeAddition_ActionGroup());
-    addGroup(new MakeAspects_ActionGroup());
-    addGroup(new Make_ActionGroup());
-    addGroup(new NamespaceMake_ActionGroup());
-    addGroup(new ProjectCompileActions_ActionGroup());
-    addGroup(new ProjectMake_ActionGroup());
-    addGroup(new SaveTransientModels_ActionGroup());
-    addGroup(new TextPreviewGroup_ActionGroup());
-    addGroup(new ToolbarMake_ActionGroup());
-    addGroup(new TouchBarDefault_ActionGroup());
+    addGroup(new GenerateOptions_ActionGroup(this));
+    addGroup(new GlobalMake_ActionGroup(this));
+    addGroup(new JavaModuleActions_ActionGroup(this));
+    addGroup(new MakeAddition_ActionGroup(this));
+    addGroup(new MakeAspects_ActionGroup(this));
+    addGroup(new Make_ActionGroup(this));
+    addGroup(new NamespaceMake_ActionGroup(this));
+    addGroup(new ProjectCompileActions_ActionGroup(this));
+    addGroup(new ProjectMake_ActionGroup(this));
+    addGroup(new SaveTransientModels_ActionGroup(this));
+    addGroup(new TextPreviewGroup_ActionGroup(this));
+    addGroup(new ToolbarMake_ActionGroup(this));
+    addGroup(new TouchBarDefault_ActionGroup(this));
   }
   public void adjustRegularGroups() {
     insertGroupIntoAnother(MakeAddition_ActionGroup.ID, ToolsInternal_ActionGroup.ID, null);

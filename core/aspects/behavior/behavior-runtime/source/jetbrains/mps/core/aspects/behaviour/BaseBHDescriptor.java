@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2014 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,7 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.api.SParameter;
 import jetbrains.mps.smodel.SModelUtil_new;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -58,10 +57,8 @@ import static jetbrains.mps.core.aspects.behaviour.BehaviorChecker.checkStatic;
  * @author apyshkin
  */
 public abstract class BaseBHDescriptor implements BHDescriptor {
-  private static final Logger LOG = LogManager.getLogger(BaseBHDescriptor.class);
-
   private final SMethodVirtualTable mySuperVTable = new SMethodVirtualTable();
-  private final BehaviorRegistry myBehaviorRegistry;
+  private BehaviorRegistry myBehaviorRegistry;
   private final AtomicReference<List<SMethod<?>>> myCachedMethods = new AtomicReference<>(); // optimization by ashatalin
 
   private SAbstractConcept myConcept;
@@ -69,17 +66,29 @@ public abstract class BaseBHDescriptor implements BHDescriptor {
   private SMethodVirtualTable myVTable;
   private AncestorCache myAncestorCache;
 
+  /**
+   * @deprecated shall use no-arg cons instead, and pass BehaviorRegistry through init()
+   *  shall survive 2019.2 release to ensure code generated/compiled with previous MPS releases works (ensures binary compatibility)
+   */
+  @Deprecated
+  @ToRemove(version = 2019.2)
   protected BaseBHDescriptor(BehaviorRegistry behaviorRegistry) {
     myBehaviorRegistry = behaviorRegistry;
   }
+
+  protected BaseBHDescriptor() {
+    // since 2019.2
+  }
+
 
   /**
    * Intended to be executed during concept behavior construction
    *
    * @see BehaviorRegistry#getBHDescriptor
    */
-  public synchronized void init() {
+  public synchronized void init(@NotNull BehaviorRegistry registry) {
     if (!myInitialized) {
+      myBehaviorRegistry = registry;
       myConcept = getConcept();
       myAncestorCache = new AncestorCache(myConcept, myBehaviorRegistry);
       initVirtualTables();
@@ -209,11 +218,11 @@ public abstract class BaseBHDescriptor implements BHDescriptor {
   }
 
   /**
-   * Presumably to move upwards to the interface however the status of node construction
-   * is not clear in the project MPS.
+   * Though status of node construction is not clear, we keep this API due to legacy reasons.
    * There are already several similar approaches to construct a node and not everybody agrees that
    * the main point for this activity is here, behavior rt.
    */
+  @Override
   public void initNode(@NotNull SNode node) {
     SConstructor defaultConstructor = new SDefaultConstructorImpl(this, AccessPrivileges.PUBLIC);
     Object[] emptyParameters = new Object[0];

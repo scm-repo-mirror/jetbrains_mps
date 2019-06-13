@@ -8,8 +8,8 @@ import org.apache.log4j.LogManager;
 import java.util.Map;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import java.util.HashMap;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.util.FileUtil;
@@ -26,11 +26,6 @@ public class WatchedRoots implements ApplicationComponent {
   private static final Logger LOG = LogManager.getLogger(WatchedRoots.class);
   private final Map<String, LocalFileSystem.WatchRequest> myRequests = new HashMap<String, LocalFileSystem.WatchRequest>();
   private final Map<String, Integer> myRequestedPaths = new HashMap<String, Integer>();
-  private final LocalFileSystem myLocalFileSystem;
-
-  public WatchedRoots(@NotNull LocalFileSystem lfs) {
-    myLocalFileSystem = lfs;
-  }
 
   @Override
   public void initComponent() {
@@ -77,7 +72,7 @@ public class WatchedRoots implements ApplicationComponent {
       if (LOG.isDebugEnabled()) {
         LOG.debug("Adding watch request for the path " + path);
       }
-      LocalFileSystem.WatchRequest request = myLocalFileSystem.addRootToWatch(path, true);
+      LocalFileSystem.WatchRequest request = LocalFileSystem.getInstance().addRootToWatch(path, true);
       if (LOG.isDebugEnabled()) {
         LOG.debug("Watch request added");
       }
@@ -104,7 +99,7 @@ public class WatchedRoots implements ApplicationComponent {
       myRequestedPaths.remove(path);
       LocalFileSystem.WatchRequest req = myRequests.get(path);
       if (req != null) {
-        myLocalFileSystem.removeWatchedRoot(req);
+        LocalFileSystem.getInstance().removeWatchedRoot(req);
       }
       myRequests.remove(path);
     }

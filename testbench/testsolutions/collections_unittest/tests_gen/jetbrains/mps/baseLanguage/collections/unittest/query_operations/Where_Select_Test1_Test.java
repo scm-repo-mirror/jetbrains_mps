@@ -89,7 +89,7 @@ __switch__:
     Assert.assertEquals(5, count.value);
   }
   public void test__2() throws Exception {
-    // 'where' and 'select' tolerate 'null' operand  
+    // 'where' and 'select' tolerate 'null' operand 
     List<Integer> nums = null;
     Iterable<Integer> evenNums = ListSequence.fromList(nums).where(new IWhereFilter<Integer>() {
       public boolean accept(Integer n) {

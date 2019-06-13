@@ -2,9 +2,9 @@
 <model ref="r:dc79d042-ba38-4e91-9392-42f38106ae44(jetbrains.mps.lang.behavior.editor)">
   <persistence version="9" />
   <languages>
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="15" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="-1" />
     <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="-1" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="8" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
     <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="-1" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
@@ -130,6 +130,10 @@
       </concept>
       <concept id="7291101478617127464" name="jetbrains.mps.lang.editor.structure.IExtensibleTransformationMenuPart" flags="ng" index="1joUw2">
         <child id="8954657570916349207" name="features" index="2jZA2a" />
+      </concept>
+      <concept id="7597241200646296619" name="jetbrains.mps.lang.editor.structure.QueryFunction_SNode" flags="in" index="3k4GqP" />
+      <concept id="7597241200646296617" name="jetbrains.mps.lang.editor.structure.NavigatableNodeStyleClassItem" flags="ln" index="3k4GqR">
+        <child id="7597241200646296618" name="functionNode" index="3k4GqO" />
       </concept>
       <concept id="1381004262292414836" name="jetbrains.mps.lang.editor.structure.ICellStyle" flags="ng" index="1k5N5V">
         <reference id="1381004262292426837" name="parentStyleClass" index="1k5W1q" />
@@ -280,11 +284,8 @@
         <child id="1081773367580" name="leftExpression" index="3uHU7B" />
       </concept>
       <concept id="1073239437375" name="jetbrains.mps.baseLanguage.structure.NotEqualsExpression" flags="nn" index="3y3z36" />
-      <concept id="6329021646629104957" name="jetbrains.mps.baseLanguage.structure.TextCommentPart" flags="nn" index="3SKdUq">
-        <property id="6329021646629104958" name="text" index="3SKdUp" />
-      </concept>
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
-        <child id="6329021646629175155" name="commentPart" index="3SKWNk" />
+        <child id="1350122676458893092" name="text" index="3ndbpf" />
       </concept>
       <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
     </language>
@@ -356,6 +357,14 @@
       </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
+      </concept>
+    </language>
+    <language id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text">
+      <concept id="155656958578482948" name="jetbrains.mps.lang.text.structure.Word" flags="ng" index="3oM_SD">
+        <property id="155656958578482949" name="value" index="3oM_SC" />
+      </concept>
+      <concept id="2535923850359271782" name="jetbrains.mps.lang.text.structure.Line" flags="ng" index="1PaTwC">
+        <child id="2535923850359271783" name="elements" index="1PaTwD" />
       </concept>
     </language>
   </registry>
@@ -614,10 +623,29 @@
               <node concept="3TQlhw" id="hrceH_FJVc" role="1Hhtcw">
                 <node concept="3clFbS" id="hrceH_FJVd" role="2VODD2">
                   <node concept="3clFbF" id="hrceH_FJVe" role="3cqZAp">
-                    <node concept="2OqwBi" id="hrceH_FJVf" role="3clFbG">
-                      <node concept="pncrf" id="hrceH_FJVg" role="2Oq$k0" />
-                      <node concept="2qgKlT" id="hrceH_FJVh" role="2OqNvi">
-                        <ref role="37wK5l" to="csvn:hP3pnOc" resolve="getOverridenMethodConceptName" />
+                    <node concept="2OqwBi" id="77$odk0nvJj" role="3clFbG">
+                      <node concept="2OqwBi" id="hrceH_FJVf" role="2Oq$k0">
+                        <node concept="pncrf" id="hrceH_FJVg" role="2Oq$k0" />
+                        <node concept="2qgKlT" id="hrceH_FJVh" role="2OqNvi">
+                          <ref role="37wK5l" to="csvn:hP3pnOc" resolve="getOverridenMethodConcept" />
+                        </node>
+                      </node>
+                      <node concept="3TrcHB" id="77$odk0nx61" role="2OqNvi">
+                        <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3k4GqR" id="77$odk0nzO1" role="3F10Kt">
+              <node concept="3k4GqP" id="77$odk0nzO3" role="3k4GqO">
+                <node concept="3clFbS" id="77$odk0nzO5" role="2VODD2">
+                  <node concept="3clFbF" id="77$odk0nA1S" role="3cqZAp">
+                    <node concept="2OqwBi" id="77$odk0nAsx" role="3clFbG">
+                      <node concept="pncrf" id="77$odk0nA1R" role="2Oq$k0" />
+                      <node concept="2qgKlT" id="77$odk0nF6f" role="2OqNvi">
+                        <ref role="37wK5l" to="csvn:hP3pnOc" resolve="getOverridenMethodConcept" />
                       </node>
                     </node>
                   </node>
@@ -1299,8 +1327,58 @@
                 </node>
               </node>
               <node concept="3SKdUt" id="3EEhNT1y37e" role="3cqZAp">
-                <node concept="3SKdUq" id="3EEhNT1y37f" role="3SKWNk">
-                  <property role="3SKdUp" value="I expect superConcept to be the only editable cell there, so didn't bother with custom cell id" />
+                <node concept="1PaTwC" id="ATZLwXnU5a" role="3ndbpf">
+                  <node concept="3oM_SD" id="ATZLwXnU5b" role="1PaTwD">
+                    <property role="3oM_SC" value="I" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5c" role="1PaTwD">
+                    <property role="3oM_SC" value="expect" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5d" role="1PaTwD">
+                    <property role="3oM_SC" value="superConcept" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5e" role="1PaTwD">
+                    <property role="3oM_SC" value="to" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5f" role="1PaTwD">
+                    <property role="3oM_SC" value="be" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5g" role="1PaTwD">
+                    <property role="3oM_SC" value="the" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5h" role="1PaTwD">
+                    <property role="3oM_SC" value="only" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5i" role="1PaTwD">
+                    <property role="3oM_SC" value="editable" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5j" role="1PaTwD">
+                    <property role="3oM_SC" value="cell" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5k" role="1PaTwD">
+                    <property role="3oM_SC" value="there," />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5l" role="1PaTwD">
+                    <property role="3oM_SC" value="so" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5m" role="1PaTwD">
+                    <property role="3oM_SC" value="didn't" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5n" role="1PaTwD">
+                    <property role="3oM_SC" value="bother" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5o" role="1PaTwD">
+                    <property role="3oM_SC" value="with" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5p" role="1PaTwD">
+                    <property role="3oM_SC" value="custom" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5q" role="1PaTwD">
+                    <property role="3oM_SC" value="cell" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5r" role="1PaTwD">
+                    <property role="3oM_SC" value="id" />
+                  </node>
                 </node>
               </node>
               <node concept="3clFbF" id="3EEhNT1y37g" role="3cqZAp">
@@ -1644,8 +1722,58 @@
                 </node>
               </node>
               <node concept="3SKdUt" id="3EEhNT1y2vq" role="3cqZAp">
-                <node concept="3SKdUq" id="3EEhNT1y2vs" role="3SKWNk">
-                  <property role="3SKdUp" value="I expect superConcept to be the only editable cell there, so didn't bother with custom cell id" />
+                <node concept="1PaTwC" id="ATZLwXnU5s" role="3ndbpf">
+                  <node concept="3oM_SD" id="ATZLwXnU5t" role="1PaTwD">
+                    <property role="3oM_SC" value="I" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5u" role="1PaTwD">
+                    <property role="3oM_SC" value="expect" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5v" role="1PaTwD">
+                    <property role="3oM_SC" value="superConcept" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5w" role="1PaTwD">
+                    <property role="3oM_SC" value="to" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5x" role="1PaTwD">
+                    <property role="3oM_SC" value="be" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5y" role="1PaTwD">
+                    <property role="3oM_SC" value="the" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5z" role="1PaTwD">
+                    <property role="3oM_SC" value="only" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5$" role="1PaTwD">
+                    <property role="3oM_SC" value="editable" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5_" role="1PaTwD">
+                    <property role="3oM_SC" value="cell" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5A" role="1PaTwD">
+                    <property role="3oM_SC" value="there," />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5B" role="1PaTwD">
+                    <property role="3oM_SC" value="so" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5C" role="1PaTwD">
+                    <property role="3oM_SC" value="didn't" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5D" role="1PaTwD">
+                    <property role="3oM_SC" value="bother" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5E" role="1PaTwD">
+                    <property role="3oM_SC" value="with" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5F" role="1PaTwD">
+                    <property role="3oM_SC" value="custom" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5G" role="1PaTwD">
+                    <property role="3oM_SC" value="cell" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnU5H" role="1PaTwD">
+                    <property role="3oM_SC" value="id" />
+                  </node>
                 </node>
               </node>
               <node concept="3clFbF" id="3EEhNT1xYMS" role="3cqZAp">

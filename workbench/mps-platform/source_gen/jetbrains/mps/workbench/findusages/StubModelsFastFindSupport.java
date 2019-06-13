@@ -182,7 +182,7 @@ public class StubModelsFastFindSupport implements ApplicationComponent, FindUsag
         }
       }
       for (VirtualFile vf : vFiles) {
-        // do not enter any directories but one at the top level.  Java package (corresponds to model) is just a list of files under single folder,  
+        // do not enter any directories but one at the top level.  Java package (corresponds to model) is just a list of files under single folder, 
         // nested folder corresponds to another package 
         if (vf.isDirectory()) {
           continue;

@@ -16,6 +16,7 @@
 package jetbrains.mps.typechecking.backend;
 
 import jetbrains.mps.typechecking.TypecheckingQueries;
+import jetbrains.mps.typechecking.backend.TypecheckingSession.Flags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -23,7 +24,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 /**
  * Backend interface of a type checker.
  */
-public interface TypecheckingProvider {
+public interface TypecheckingProvider<Queries extends TypecheckingQueries> {
 
   /**
    * This methods are responsible for selecting the appropriate typechecking provided given the specified query parameters:
@@ -36,8 +37,8 @@ public interface TypecheckingProvider {
   boolean isRelevant(@NotNull SNode src, SNode trg, SConcept trgConcept);
   
   @NotNull
-  TypecheckingSession newSession(@NotNull TypecheckingSession.Flags flags);
+  Queries createQueries(@NotNull Flags flags);
 
-  void closeSession(@NotNull TypecheckingSession session);
+  void disposeQueries(@NotNull TypecheckingQueries queries);
 
 }

@@ -204,7 +204,7 @@ public class ModelStorageProblemsListener extends SRepositoryContentAdapter {
         if (needSave) {
           // FIXME it used to be executeCommand (that replaced runWriteActionInCommand) here. 
           //       as long as our modules are always loaded into global repository, model.getRepository().getModelAccess() gives 
-          //       GlobalModelAccess of MPSModuleRepository, which doesn't support commands.  
+          //       GlobalModelAccess of MPSModuleRepository, which doesn't support commands. 
           //       Earlier code went fine with runWriteActionInCommand() which looked up active project from UI. 
           //       MSPL, however, listens to all repositories, and it's odd to execute a command in a project for a model that may belong to a completely different one. 
           //       Therefore, it's better to stick to model's native repository. What we lack with runWriteAction instead of executeCommand is undo capability, perhaps. 

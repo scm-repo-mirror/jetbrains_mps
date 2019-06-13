@@ -5,8 +5,6 @@ package jetbrains.mps.lang.editor.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -25,12 +23,11 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class StyleAttributeDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3744c0f9ea5367ebL, "jetbrains.mps.lang.editor.structure.StyleAttributeDeclaration");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> getModuleName_id3t4KfBFPS7O = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getModuleName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3t4KfBFPS7O").registry(REGISTRY).build();
-  public static final SMethod<SNode> getDefaultValue_id6EcLR7UbKOp = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getDefaultValue").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6EcLR7UbKOp").registry(REGISTRY).build();
-  public static final SMethod<SNode> getType_id6EcLR7UbLta = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6EcLR7UbLta").registry(REGISTRY).build();
-  public static final SMethod<SNode> getClassifierType_id5eGiGGHenb_ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getClassifierType").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5eGiGGHenb_").registry(REGISTRY).build();
+  public static final SMethod<String> getModuleName_id3t4KfBFPS7O = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getModuleName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3t4KfBFPS7O").build();
+  public static final SMethod<SNode> getDefaultValue_id6EcLR7UbKOp = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getDefaultValue").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6EcLR7UbKOp").build();
+  public static final SMethod<SNode> getType_id6EcLR7UbLta = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6EcLR7UbLta").build();
+  public static final SMethod<SNode> getClassifierType_id5eGiGGHenb_ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getClassifierType").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5eGiGGHenb_").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getModuleName_id3t4KfBFPS7O, getDefaultValue_id6EcLR7UbKOp, getType_id6EcLR7UbLta, getClassifierType_id5eGiGGHenb_);
 
@@ -51,7 +48,6 @@ public final class StyleAttributeDeclaration__BehaviorDescriptor extends BaseBHD
   }
 
   /*package*/ StyleAttributeDeclaration__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

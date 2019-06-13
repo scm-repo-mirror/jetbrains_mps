@@ -5,8 +5,6 @@ package jetbrains.mps.baseLanguage.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -25,9 +23,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class IVisible__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, "jetbrains.mps.baseLanguage.structure.IVisible");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<IconResource> getVisibilityIcon_id4mxbjAOAG0d = new SMethodBuilder<IconResource>(new SJavaCompoundTypeImpl(IconResource.class)).name("getVisibilityIcon").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4mxbjAOAG0d").registry(REGISTRY).build();
+  public static final SMethod<IconResource> getVisibilityIcon_id4mxbjAOAG0d = new SMethodBuilder<IconResource>(new SJavaCompoundTypeImpl(IconResource.class)).name("getVisibilityIcon").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4mxbjAOAG0d").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getVisibilityIcon_id4mxbjAOAG0d);
 
@@ -50,7 +47,6 @@ public final class IVisible__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ IVisible__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

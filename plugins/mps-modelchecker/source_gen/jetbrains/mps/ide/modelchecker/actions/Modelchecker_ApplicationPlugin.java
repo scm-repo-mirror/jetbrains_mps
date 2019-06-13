@@ -4,6 +4,7 @@ package jetbrains.mps.ide.modelchecker.actions;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.Tools_ActionGroup;
 import jetbrains.mps.ide.actions.ProjectActions_ActionGroup;
 import jetbrains.mps.ide.actions.CommonModuleActions_ActionGroup;
@@ -16,12 +17,16 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 
 public class Modelchecker_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.ide.modelchecker");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.ide.modelchecker");
+
   public Modelchecker_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new CheckModel_Action());
@@ -33,12 +38,12 @@ public class Modelchecker_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new FindWrongAspectDependencies_Action());
     addAction(new ShowModelChecker_Action());
     // groups 
-    addGroup(new CheckModel_ActionGroup());
-    addGroup(new CheckModule_ActionGroup());
-    addGroup(new CheckNamespace_ActionGroup());
-    addGroup(new CheckProject_ActionGroup());
-    addGroup(new ShowModelCheckerTool_ActionGroup());
-    addGroup(new ToolsInternalEx_ActionGroup());
+    addGroup(new CheckModel_ActionGroup(this));
+    addGroup(new CheckModule_ActionGroup(this));
+    addGroup(new CheckNamespace_ActionGroup(this));
+    addGroup(new CheckProject_ActionGroup(this));
+    addGroup(new ShowModelCheckerTool_ActionGroup(this));
+    addGroup(new ToolsInternalEx_ActionGroup(this));
   }
   public void adjustRegularGroups() {
     insertGroupIntoAnother(ShowModelCheckerTool_ActionGroup.ID, Tools_ActionGroup.ID, Tools_ActionGroup.LABEL_ID_customTools);

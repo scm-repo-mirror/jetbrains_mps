@@ -4,15 +4,20 @@ package jetbrains.mps.lang.dataFlow.pluginSolution.plugin;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.DebugActions_ActionGroup;
 
 public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.lang.dataFlow.pluginSolution");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.lang.dataFlow.pluginSolution");
+
   public PluginSolution_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new PrintDFAResult_Action());
@@ -20,8 +25,8 @@ public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new PrintReachingDefinintionsInformation_Action());
     addAction(new ShowDFA_Action());
     // groups 
-    addGroup(new DFAActions_ActionGroup());
-    addGroup(new DataFlowInternal_ActionGroup());
+    addGroup(new DFAActions_ActionGroup(this));
+    addGroup(new DataFlowInternal_ActionGroup(this));
   }
   public void adjustRegularGroups() {
     insertGroupIntoAnother(DFAActions_ActionGroup.ID, DebugActions_ActionGroup.ID, DebugActions_ActionGroup.LABEL_ID_dataFlow);

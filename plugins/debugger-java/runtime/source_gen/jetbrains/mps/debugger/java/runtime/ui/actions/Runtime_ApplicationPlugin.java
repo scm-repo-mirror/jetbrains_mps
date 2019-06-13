@@ -4,15 +4,20 @@ package jetbrains.mps.debugger.java.runtime.ui.actions;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.debugger.api.ui.actions.AbstractWatchableNodeActions_ActionGroup;
 
 public class Runtime_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.debugger.java.runtime");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.debugger.java.runtime");
+
   public Runtime_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new AddWatchAction_Action());
@@ -21,10 +26,10 @@ public class Runtime_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new EditWatchAction_Action());
     addAction(new RemoveWatchAction_Action());
     // groups 
-    addGroup(new JavaWatchableNodeActions_ActionGroup());
-    addGroup(new ViewAs_Group_ActionGroup());
-    addGroup(new WatchesToolbarActions_ActionGroup());
-    addGroup(new WatchesTreeActions_ActionGroup());
+    addGroup(new JavaWatchableNodeActions_ActionGroup(this));
+    addGroup(new ViewAs_Group_ActionGroup(this));
+    addGroup(new WatchesToolbarActions_ActionGroup(this));
+    addGroup(new WatchesTreeActions_ActionGroup(this));
   }
   public void adjustRegularGroups() {
     insertGroupIntoAnother(ViewAs_Group_ActionGroup.ID, JavaWatchableNodeActions_ActionGroup.ID, null);

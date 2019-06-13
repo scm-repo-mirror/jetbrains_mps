@@ -125,7 +125,7 @@ public class Java_Command {
     File java = Java_Command.getJavaCommand(myJrePath_String);
     // FIXME need better logic to decide when to use java -jar, and when directly java -classpath 
     // Now I just throw in some magic number I consider too big to get tired of looking at long CP 
-    // XXX Besides, I'd like to test this, therefore would like to see this branch to trigger often (MPS JUnit  
+    // XXX Besides, I'd like to test this, therefore would like to see this branch to trigger often (MPS JUnit 
     // tests shall get into it, I believe). Earlier approach relied on dedicated ClassRunner, capable of reading 
     // classpath and arguments from serialized form in temp files, I don't think we can ever get to the limit 
     // with program arguments (and even if we do, e.g. enumerating all test methods from JUnit command, we can still 

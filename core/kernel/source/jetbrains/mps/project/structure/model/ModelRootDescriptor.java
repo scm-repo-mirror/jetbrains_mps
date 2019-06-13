@@ -19,6 +19,7 @@ import jetbrains.mps.extapi.persistence.FileBasedModelRoot;
 import jetbrains.mps.persistence.MementoImpl;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import jetbrains.mps.project.structure.modules.Copyable;
+import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.util.io.MementoStreamUtil;
 import jetbrains.mps.util.io.ModelInputStream;
 import jetbrains.mps.util.io.ModelOutputStream;
@@ -32,9 +33,6 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
 
-/**
- * evgeny, 10/24/12
- */
 @Immutable
 public final class ModelRootDescriptor implements Copyable<ModelRootDescriptor> {
   private static final int MODEL_ROOT_START_MARKER = 0x6a;
@@ -84,8 +82,9 @@ public final class ModelRootDescriptor implements Copyable<ModelRootDescriptor> 
 
   @Override
   public boolean equals(Object obj) {
-    if(!(obj instanceof ModelRootDescriptor))
+    if (!(obj instanceof ModelRootDescriptor)) {
       return false;
+    }
 
     ModelRootDescriptor modelRootDescriptor = (ModelRootDescriptor) obj;
 
@@ -99,15 +98,15 @@ public final class ModelRootDescriptor implements Copyable<ModelRootDescriptor> 
     return (myType != null ? myType.hashCode() : 0) + 17 * myMemento.hashCode();
   }
 
-  public static ModelRootDescriptor getJavaStubsModelRoot(IFile file) {
-    return getJavaStubsModelRoot(file, Collections.emptyList());
+  public static ModelRootDescriptor addSourceRoot(IFile file) {
+    return addSourceRoot(file, Collections.emptyList());
   }
 
   /**
    * @return {@code null} if one of supplied descriptors has been updated with the path, or new descriptor if none matched
    */
   @Nullable
-  public static ModelRootDescriptor getJavaStubsModelRoot(IFile file, final Collection<ModelRootDescriptor> modelRootDescriptors) {
+  public static ModelRootDescriptor addSourceRoot(IFile file, final Collection<ModelRootDescriptor> modelRootDescriptors) {
     String path = file.getParent().getPath();
 
     for (ModelRootDescriptor descriptor : modelRootDescriptors) {
@@ -123,5 +122,21 @@ public final class ModelRootDescriptor implements Copyable<ModelRootDescriptor> 
     Memento child = m.createChild(FileBasedModelRoot.SOURCE_ROOTS);
     child.put(FileBasedModelRoot.LOCATION, file.getName());
     return new ModelRootDescriptor(PersistenceRegistry.JAVA_CLASSES_ROOT, m);
+  }
+
+  @Deprecated
+  @ToRemove(version = 2019.2)
+  @Nullable
+  //use addSourceRoot instead
+  public static ModelRootDescriptor getJavaStubsModelRoot(IFile file, final Collection<ModelRootDescriptor> modelRootDescriptors) {
+    return addSourceRoot(file, modelRootDescriptors);
+  }
+
+  @Deprecated
+  @ToRemove(version = 2019.2)
+  @Nullable
+  //use addSourceRoot instead
+  public static ModelRootDescriptor getJavaStubsModelRoot(IFile file) {
+    return addSourceRoot(file);
   }
 }

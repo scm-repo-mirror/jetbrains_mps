@@ -19,20 +19,78 @@ import jetbrains.mps.typechecking.TypecheckingQueries;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
 /**
- * Represents the state of typechecking.
+ * Provides the means to release and dispose a previously allocated session.
  *
- * Sessions are created on demand, and disposed when no longer used.
- *
- *
- * @author Fedor Isakov
+ * This object corresponds to a session, which may contain several instances of {@link TypecheckingQueries}
+ * coming from different providers.
  */
-public interface TypecheckingSession extends TypecheckingQueries {
+public class TypecheckingSession {
+
+  private int myUsages = 0;
+
+  private final TypecheckingController myController;
+  
+  private final Flags myFlags;
+
+  private Map<TypecheckingProvider, TypecheckingQueries> myQueries = new HashMap<>();
+
+  protected TypecheckingSession(TypecheckingController controller, Flags flags) {
+    myController = controller;
+    myFlags = flags;
+  }
+
+  public Flags flags() {
+    return myFlags;
+  }
+
+  public void release() {
+    myController.sessionReleased(this);
+  }
+
+  public <Q extends TypecheckingQueries> Q getQueries(Class<? extends TypecheckingProvider<Q>> providerClass) {
+    return getQueries(myController.selectProvider(providerClass));
+  }
+
+  protected void dispose () {
+    for (Entry<TypecheckingProvider, TypecheckingQueries> entry : myQueries.entrySet()) {
+      entry.getKey().disposeQueries(entry.getValue());
+    }
+    myQueries.clear();
+  }
+
+  @NotNull
+  @SuppressWarnings("unchecked")
+  protected <Q extends TypecheckingQueries> Q getQueries(TypecheckingProvider<Q> provider) {
+    myQueries.computeIfAbsent(provider, (key) -> provider.createQueries(flags()));
+    return (Q) myQueries.get(provider);
+  }
+
+  protected int getUsages() {
+    return myUsages;
+  }
+
+  protected int incUsages() {
+    return ++myUsages;
+  }
+
+  protected int decUsages() {
+    return --myUsages;
+  }
+  
+  @Override
+  public String toString() {
+    return String.format("Session{%s, usages=%d}", flags(), getUsages());
+  }
 
   /**
-   * Provides flags for new session instantiation. 
+   * Provides flags for new session instantiation.
    */
-  class Flags {
+  public static class Flags {
 
     public static long FLAG_BASIC         = 0x1;
     public static long FLAG_ROOT_SPECIFIC = 0x1 << 1;

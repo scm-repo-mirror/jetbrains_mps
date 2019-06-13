@@ -5,7 +5,7 @@
     <use id="774bf8a0-62e5-41e1-af63-f4812e60e48b" name="jetbrains.mps.baseLanguage.checkedDots" version="0" />
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="8" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
     <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="0" />
   </languages>
   <imports>
@@ -440,12 +440,6 @@
           <ref role="3uigEE" to="lcr:2JwSLRbyYN6" resolve="CurrentDifferenceRegistry" />
         </node>
       </node>
-      <node concept="37vLTG" id="5IHtz9v0ApQ" role="3clF46">
-        <property role="TrG5h" value="nodeFileSystem" />
-        <node concept="3uibUv" id="5IHtz9v0ACH" role="1tU5fm">
-          <ref role="3uigEE" to="kip1:~NodeVirtualFileSystem" resolve="NodeVirtualFileSystem" />
-        </node>
-      </node>
       <node concept="3cqZAl" id="2n7wcdLayE2" role="3clF45" />
       <node concept="3Tm1VV" id="2n7wcdLayE3" role="1B3o_S" />
       <node concept="3clFbS" id="2n7wcdLayE4" role="3clF47">
@@ -456,9 +450,6 @@
           </node>
           <node concept="37vLTw" id="2BHiRxglnog" role="37wK5m">
             <ref role="3cqZAo" node="2n7wcdLayEv" resolve="registry" />
-          </node>
-          <node concept="37vLTw" id="5IHtz9v0AHM" role="37wK5m">
-            <ref role="3cqZAo" node="5IHtz9v0ApQ" resolve="nodeFileSystem" />
           </node>
         </node>
       </node>

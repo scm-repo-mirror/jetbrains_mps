@@ -482,11 +482,11 @@ public class BHTest_Test extends EnvironmentAwareTestCase {
     // Piece of knowledge: 
     // MPSProject loads its modules and injects them into repository with classloading event dispatch paused (uses runNonReloadableTransaction) 
     // The reason for this is assumption there's StartupModuleMaker that would compile dirty modules and then brand new and shiny languages can get loaded. 
-    // However, in test app, there's DummyStartupModuleMakerImpl, which is no-op. Without languages properly registered, tests issue  
+    // However, in test app, there's DummyStartupModuleMakerImpl, which is no-op. Without languages properly registered, tests issue 
     // a warning "No language for: BHL1.structure.A, while looking for the behavior descriptor" and eventually fail. 
-    // Nevertheless, it seems right NOT to compile project modules during test mode automatically. Instead, we can explicitly  
+    // Nevertheless, it seems right NOT to compile project modules during test mode automatically. Instead, we can explicitly 
     // make target projects in a test like this one (which knows it gonna use languages from the target project). 
-    // As for module-added events not being dispatched on project init, once we switch to distinct project and classloading repositories, there would be no need for  
+    // As for module-added events not being dispatched on project init, once we switch to distinct project and classloading repositories, there would be no need for 
     // runNonReloadableTransaction, events from project repository won't trigger classloading anyway. 
     // 
     myProject.getModelAccess().runWriteAction(new Runnable() {

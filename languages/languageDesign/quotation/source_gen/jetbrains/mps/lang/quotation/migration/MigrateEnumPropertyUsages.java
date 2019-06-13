@@ -71,7 +71,7 @@ public class MigrateEnumPropertyUsages extends MigrationScriptBase {
 
 
   private void migratePropertyAntiquotation_rawValueToTyped(SNode propertyAntiquotation) {
-    if (SPropertyOperations.getBoolean(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, 0x1e2950a3c41b89ecL, "stringValueMigrated"))) {
+    if (SPropertyOperations.getBoolean(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated"))) {
       return;
     }
 
@@ -82,7 +82,7 @@ public class MigrateEnumPropertyUsages extends MigrationScriptBase {
     }
 
     if (SNodeOperations.is(dataType, new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1082983041843")) || SNodeOperations.isInstanceOf(dataType, MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc268c7a37L, "jetbrains.mps.lang.structure.structure.ConstrainedDataTypeDeclaration"))) {
-      SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
+      SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
       return;
     }
 
@@ -102,7 +102,7 @@ public class MigrateEnumPropertyUsages extends MigrationScriptBase {
           if (matches_32rjqx_a0a21a9) {
             if (TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(matchingPattern_32rjqx_a0a21a9.getMatchedNode("boolExpr")), _quotation_createNode_32rjqx_b0a0a0a3a1a0a21a9())) {
               SNodeOperations.replaceWithAnother(expr, matchingPattern_32rjqx_a0a21a9.getMatchedNode("boolExpr"));
-              SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
+              SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
               return;
             }
           } else {
@@ -112,7 +112,7 @@ public class MigrateEnumPropertyUsages extends MigrationScriptBase {
             if (matches_32rjqx_b0a21a9) {
               if (TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(matchingPattern_32rjqx_b0a21a9.getMatchedNode("boolExpr")), _quotation_createNode_32rjqx_b0a0a0a3a0d0b0a0m0j())) {
                 SNodeOperations.replaceWithAnother(expr, matchingPattern_32rjqx_b0a21a9.getMatchedNode("boolExpr"));
-                SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
+                SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
                 return;
               }
             } else {
@@ -122,7 +122,7 @@ public class MigrateEnumPropertyUsages extends MigrationScriptBase {
               if (matches_32rjqx_c0a21a9) {
                 if (TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(matchingPattern_32rjqx_c0a21a9.getMatchedNode("boolExpr")), _quotation_createNode_32rjqx_b0a0a0a3a0d0a3a1a0a21a9())) {
                   SNodeOperations.replaceWithAnother(expr, matchingPattern_32rjqx_c0a21a9.getMatchedNode("boolExpr"));
-                  SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
+                  SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
                   return;
                 }
               } else {
@@ -132,7 +132,7 @@ public class MigrateEnumPropertyUsages extends MigrationScriptBase {
                 if (matches_32rjqx_d0a21a9) {
                   if (TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(matchingPattern_32rjqx_d0a21a9.getMatchedNode("boolExpr")), _quotation_createNode_32rjqx_b0a0a0a3a0d0a3a0d0b0a0m0j())) {
                     SNodeOperations.replaceWithAnother(expr, matchingPattern_32rjqx_d0a21a9.getMatchedNode("boolExpr"));
-                    SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
+                    SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
                     return;
                   }
                 } else {
@@ -142,7 +142,7 @@ public class MigrateEnumPropertyUsages extends MigrationScriptBase {
                   if (matches_32rjqx_e0a21a9) {
                     if (TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(matchingPattern_32rjqx_e0a21a9.getMatchedNode("boolExpr")), _quotation_createNode_32rjqx_b0a0a0a3a0d0a3a0d0a3a1a0a21a9())) {
                       SNodeOperations.replaceWithAnother(expr, matchingPattern_32rjqx_e0a21a9.getMatchedNode("boolExpr"));
-                      SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
+                      SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
                       return;
                     }
                   }
@@ -155,7 +155,7 @@ public class MigrateEnumPropertyUsages extends MigrationScriptBase {
       SNode replacement = _quotation_createNode_32rjqx_a0b0m0j();
       SNodeOperations.replaceWithAnother(expr, replacement);
       ListSequence.fromList(SLinkOperations.getChildren(replacement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"))).addElement(expr);
-      SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
+      SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
       return;
     }
 
@@ -169,7 +169,7 @@ public class MigrateEnumPropertyUsages extends MigrationScriptBase {
           if (matches_32rjqx_a0a41a9) {
             if (TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(matchingPattern_32rjqx_a0a41a9.getMatchedNode("intExpr")), _quotation_createNode_32rjqx_b0a0a0a3a1a0a41a9())) {
               SNodeOperations.replaceWithAnother(expr, matchingPattern_32rjqx_a0a41a9.getMatchedNode("intExpr"));
-              SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
+              SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
               return;
             }
           } else {
@@ -179,7 +179,7 @@ public class MigrateEnumPropertyUsages extends MigrationScriptBase {
             if (matches_32rjqx_b0a41a9) {
               if (TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(matchingPattern_32rjqx_b0a41a9.getMatchedNode("intExpr")), _quotation_createNode_32rjqx_b0a0a0a3a0d0b0a0o0j())) {
                 SNodeOperations.replaceWithAnother(expr, matchingPattern_32rjqx_b0a41a9.getMatchedNode("intExpr"));
-                SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
+                SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
                 return;
               }
             } else {
@@ -189,7 +189,7 @@ public class MigrateEnumPropertyUsages extends MigrationScriptBase {
               if (matches_32rjqx_c0a41a9) {
                 if (TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(matchingPattern_32rjqx_c0a41a9.getMatchedNode("intExpr")), _quotation_createNode_32rjqx_b0a0a0a3a0d0a3a1a0a41a9())) {
                   SNodeOperations.replaceWithAnother(expr, matchingPattern_32rjqx_c0a41a9.getMatchedNode("intExpr"));
-                  SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
+                  SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
                   return;
                 }
               } else {
@@ -199,7 +199,7 @@ public class MigrateEnumPropertyUsages extends MigrationScriptBase {
                 if (matches_32rjqx_d0a41a9) {
                   if (TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(matchingPattern_32rjqx_d0a41a9.getMatchedNode("intExpr")), _quotation_createNode_32rjqx_b0a0a0a3a0d0a3a0d0b0a0o0j())) {
                     SNodeOperations.replaceWithAnother(expr, matchingPattern_32rjqx_d0a41a9.getMatchedNode("intExpr"));
-                    SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
+                    SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
                     return;
                   }
                 } else {
@@ -209,7 +209,7 @@ public class MigrateEnumPropertyUsages extends MigrationScriptBase {
                   if (matches_32rjqx_e0a41a9) {
                     if (TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(matchingPattern_32rjqx_e0a41a9.getMatchedNode("intExpr")), _quotation_createNode_32rjqx_b0a0a0a3a0d0a3a0d0a3a1a0a41a9())) {
                       SNodeOperations.replaceWithAnother(expr, matchingPattern_32rjqx_e0a41a9.getMatchedNode("intExpr"));
-                      SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
+                      SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
                       return;
                     }
                   }
@@ -222,7 +222,7 @@ public class MigrateEnumPropertyUsages extends MigrationScriptBase {
       SNode replacement = _quotation_createNode_32rjqx_a0b0o0j();
       SNodeOperations.replaceWithAnother(expr, replacement);
       ListSequence.fromList(SLinkOperations.getChildren(replacement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"))).addElement(expr);
-      SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
+      SPropertyOperations.assign(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated"), true);
     }
   }
   private static SNode _quotation_createNode_32rjqx_b0a0k0j() {

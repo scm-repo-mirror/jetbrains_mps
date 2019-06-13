@@ -10,21 +10,23 @@ import org.jetbrains.mps.util.Condition;
 import jetbrains.mps.workbench.action.BaseAction;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.workbench.action.ApplicationPlugin;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import jetbrains.mps.ide.projectPane.CreateRootNodeGroup;
-import org.jetbrains.annotations.Nullable;
 
 public class CreateRootNodeAdapter_ActionGroup extends GeneratedActionGroup {
   public static final String ID = "jetbrains.mps.ide.actions.CreateRootNodeAdapter_ActionGroup";
-  private Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
-  public CreateRootNodeAdapter_ActionGroup() {
-    super("Root Node", ID);
-    this.setIsInternal(false);
-    this.setPopup(false);
+  private final Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
+
+  public CreateRootNodeAdapter_ActionGroup(@Nullable ApplicationPlugin plugin) {
+    super("Root Node", ID, plugin);
+    setIsInternal(false);
+    setPopup(false);
   }
   public void doUpdate(AnActionEvent event) {
     removeAll();

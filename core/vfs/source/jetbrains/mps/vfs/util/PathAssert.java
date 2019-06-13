@@ -41,7 +41,7 @@ public final class PathAssert {
   }
 
   public PathAssert absolute() {
-    assert myPath.startsWith(IFileSystem.SEPARATOR) || myPath.contains(":/") : "Path should be absolute: " + myPath;
+    assert new File(myPath).isAbsolute() : "Path should be absolute: " + myPath;
     return this;
   }
 

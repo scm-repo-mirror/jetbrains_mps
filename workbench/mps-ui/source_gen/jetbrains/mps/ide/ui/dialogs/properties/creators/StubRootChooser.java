@@ -48,7 +48,7 @@ public class StubRootChooser implements Computable<List<String>> {
       if (res == Messages.YES) {
         ListSequence.fromList(myRoots).addSequence(ListSequence.fromList(result).select(new ISelector<String, ModelRootDescriptor>() {
           public ModelRootDescriptor select(String it) {
-            return ModelRootDescriptor.getJavaStubsModelRoot(FileSystem.getInstance().getFile(it));
+            return ModelRootDescriptor.addSourceRoot(FileSystem.getInstance().getFile(it));
           }
         }));
       }
@@ -60,7 +60,7 @@ public class StubRootChooser implements Computable<List<String>> {
 
       List<String> modelRootNames = ListSequence.fromList(modelRootTypes).select(new ISelector<String, String>() {
         public String select(String it) {
-          // TODO  
+          // TODO 
           return it;
         }
       }).toListSequence();

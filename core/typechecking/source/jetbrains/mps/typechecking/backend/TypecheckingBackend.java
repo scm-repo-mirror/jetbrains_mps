@@ -16,6 +16,7 @@
 package jetbrains.mps.typechecking.backend;
 
 import jetbrains.mps.components.CoreComponent;
+import jetbrains.mps.typechecking.TypecheckingQueries;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -41,7 +42,7 @@ public class TypecheckingBackend implements CoreComponent {
 
   private static Logger LOG = Logger.getLogger(TypecheckingBackend.class);
 
-  private SortedMap<ProviderLevel, TypecheckingProvider> myProviders = new TreeMap<>();
+  private SortedMap<ProviderLevel, TypecheckingProvider<? extends TypecheckingQueries>> myProviders = new TreeMap<>();
 
   /**
    * Instantiated by {@link jetbrains.mps.typechecking.internal.MPSTypechecking}.
@@ -53,7 +54,7 @@ public class TypecheckingBackend implements CoreComponent {
    * No guarantees are provided as to synchronization of the internal state. The caller is responsible for all synchronization.
    */
   @NotNull
-  public ProviderToken installProvider(@NotNull TypecheckingProvider provider, @NotNull ProviderLevel level) {
+  public ProviderToken installProvider(@NotNull TypecheckingProvider<? extends TypecheckingQueries> provider, @NotNull ProviderLevel level) {
     if (myProviders.containsKey(level)) {
       LOG.error("Provider already installed at level: " + level.getLevelID());
       throw new IllegalStateException("Provider already installed at level: " + level.getLevelID());
@@ -87,21 +88,36 @@ public class TypecheckingBackend implements CoreComponent {
    * @throws IllegalStateException if no provider is available.
    */
   @NotNull
-  public TypecheckingProvider selectProvider(@NotNull SNode src, SNode trg, SConcept trgConcept) {
-    for (TypecheckingProvider candidate: providersSortedDescending()) {
+  @SuppressWarnings("unchecked")
+  protected <Q extends TypecheckingQueries> TypecheckingProvider<Q> selectProvider(@NotNull Class<? extends TypecheckingProvider<Q>> providerClass) {
+    for (TypecheckingProvider<? extends TypecheckingQueries> provider : myProviders.values()) {
+      if (providerClass.isAssignableFrom(provider.getClass())) {
+        return (TypecheckingProvider<Q>) provider;
+      }
+    }
+
+    throw new IllegalStateException("No available TypecheckingProvider");
+  }
+
+  /**
+   * @throws IllegalStateException if no provider is available.
+   */
+  @NotNull
+  protected TypecheckingProvider<? extends TypecheckingQueries> selectProvider(@NotNull SNode src, SNode trg, SConcept trgConcept) {
+    for (TypecheckingProvider<? extends TypecheckingQueries> candidate: providersSortedDescending()) {
       try {
         if (candidate.isRelevant(src, trg, trgConcept)) return candidate;
         
       } catch (Error e) {
-        // TODO skip on error: the provider can be misconfigured
+        // FIXME skip on error: the provider can be misconfigured
       }
     }
 
     throw new IllegalStateException("No available TypecheckingProvider");
   }
   
-  private ArrayList<TypecheckingProvider> providersSortedDescending() {
-    ArrayList<TypecheckingProvider> providers = new ArrayList<>(myProviders.values());
+  private ArrayList<TypecheckingProvider<? extends TypecheckingQueries>> providersSortedDescending() {
+    ArrayList<TypecheckingProvider<? extends TypecheckingQueries>> providers = new ArrayList<>(myProviders.values());
     Collections.reverse(providers);
     return providers;
   }

@@ -74,7 +74,7 @@ public class ModuleProperties_Action extends BaseAction {
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     // save all is sort of hack - changes to a module might lead to module re-load 
     // (happens for Generator) and close of all respective modified editors (and changes lost) 
-    // The best way to fix would be Generator module not changing its language (which in turn triggers  
+    // The best way to fix would be Generator module not changing its language (which in turn triggers 
     // removal of all generator models), but preserving everything intact as it is for e.g. language module changes 
     new SaveRepositoryCommand(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository()).execute();
     MPSPropertiesConfigurable configurable = new ModulePropertiesConfigurable(((SModule) MapSequence.fromMap(_params).get("module")), ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")));

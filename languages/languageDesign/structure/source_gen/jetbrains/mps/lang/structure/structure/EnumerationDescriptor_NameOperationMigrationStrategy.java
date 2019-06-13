@@ -15,22 +15,16 @@ public class EnumerationDescriptor_NameOperationMigrationStrategy extends Enumer
     super(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5a14f10359640640L, "NameOperationMigrationStrategy", "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634650688");
   }
 
-  private final EnumerationDescriptor.MemberDescriptor myMemberby_name_0 = new EnumerationDescriptor.MemberDescriptor("by_name", "by_name", 0x5a14f10359640641L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634650689");
-  private final EnumerationDescriptor.MemberDescriptor myMemberby_presentation_0 = new EnumerationDescriptor.MemberDescriptor("by_presentation", "by_presentation", 0x5a14f10359640642L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634650690");
-  private final EnumerationDescriptor.MemberDescriptor myMemberby_custom_methods_0 = new EnumerationDescriptor.MemberDescriptor("by_custom_methods", "by_custom_methods", 0x5a14f10359640645L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634650693");
+  private final EnumerationDescriptor.MemberDescriptor myMember_by_name_0 = new EnumerationDescriptor.MemberDescriptor("by_name", "by_name", 0x5a14f10359640641L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634650689");
+  private final EnumerationDescriptor.MemberDescriptor myMember_by_presentation_0 = new EnumerationDescriptor.MemberDescriptor("by_presentation", "by_presentation", 0x5a14f10359640642L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634650690");
+  private final EnumerationDescriptor.MemberDescriptor myMember_by_custom_methods_0 = new EnumerationDescriptor.MemberDescriptor("by_custom_methods", "by_custom_methods", 0x5a14f10359640645L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634650693");
 
   private final EnumerationLiteralsIndex myIndex = EnumerationLiteralsIndex.build(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5a14f10359640640L, 0x5a14f10359640641L, 0x5a14f10359640642L, 0x5a14f10359640645L);
-  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMemberby_name_0, myMemberby_presentation_0, myMemberby_custom_methods_0);
+  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMember_by_name_0, myMember_by_presentation_0, myMember_by_custom_methods_0);
 
   @Nullable
   @Override
   public EnumerationDescriptor.MemberDescriptor getDefault() {
-    return null;
-  }
-
-  @Nullable
-  @Override
-  public EnumerationDescriptor.ValueToIdMigrationFacility getMigrationFacility() {
     return null;
   }
 
@@ -48,11 +42,11 @@ public class EnumerationDescriptor_NameOperationMigrationStrategy extends Enumer
     }
     switch (memberName) {
       case "by_name":
-        return myMemberby_name_0;
+        return myMember_by_name_0;
       case "by_presentation":
-        return myMemberby_presentation_0;
+        return myMember_by_presentation_0;
       case "by_custom_methods":
-        return myMemberby_custom_methods_0;
+        return myMember_by_custom_methods_0;
     }
     return null;
   }

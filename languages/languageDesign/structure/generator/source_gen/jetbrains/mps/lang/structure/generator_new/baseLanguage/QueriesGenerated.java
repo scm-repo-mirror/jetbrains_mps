@@ -814,7 +814,7 @@ public class QueriesGenerated extends QueryProviderBase {
     }, true);
   }
   public static Object varMacro_Value_2_3(final TemplateVarContext _context) {
-    //  source node not specified or (likely, erroneously) points to the same (transient) model,  
+    //  source node not specified or (likely, erroneously) points to the same (transient) model, 
     // therefore, we try to use generator's trace to original 
     if (SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x45b8a887cfd27b2cL, "sourceNode")) == null || SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x45b8a887cfd27b2cL, "sourceNode")) == _context.getNode()) {
       return TracingUtil.getInput(_context.getNode());

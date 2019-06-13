@@ -183,21 +183,21 @@ import java.net.URLClassLoader;
       }
     }
     // XXX classloader relations are tricky, given that there might be few <plugin> tags along with few <library> tags 
-    //     in a single task: without IDEA, how does dependencies between two different <plugin> work? If there's shared  
+    //     in a single task: without IDEA, how does dependencies between two different <plugin> work? If there's shared 
     //     classloader (global classpath), then myRootClassLoader has to represent one. If classloader is distinct per plugin, 
     //     we would need to manage dependencies here, take them into account and do not use myRootClassLoader here. 
     //     As for <library>-specified modules, what if it points to a module coming from a plugin with a dependency to the 
     //     sibling <plugin>? This is not necessarily 'proper' scenario, as we should use <plugin> rather than <library> in this case, 
     //     but alas mps.build language has its own perspective (the point is, can not control that). Again, for shared classpath 
     //     it's ok to reference this global CL here with myRootClassLoader. If one day plugins get distinct CL, then we would need to 
-    //     decide whether a <library> specified module may depend on classes available from <plugin> (note, dependency on a module  
-    //     distributed with <plugin> is fine, as the latter would get proper plugin CL as a fallback. Does scenario that concerns me  
+    //     decide whether a <library> specified module may depend on classes available from <plugin> (note, dependency on a module 
+    //     distributed with <plugin> is fine, as the latter would get proper plugin CL as a fallback. Does scenario that concerns me 
     //     here, with <library> dependency on <plugin> CLASSPATH, relevant at all?) 
-    // FIXME the funny thing about plugin CL here is that at the moment we collect plugin CP with all the libraries into global  
+    // FIXME the funny thing about plugin CL here is that at the moment we collect plugin CP with all the libraries into global 
     //       classpath and we could use myRootClassLoader right away. Moreover, CL built here is plain wrong for IdeaEnvironment case 
     //       as <plugin>/lib/ classses are already available in the global CP and it's odd to expose them again for SLibrary's fallback CL. 
     //       What saves us here is the fact ClassLoader consults parent CL first and finds the classes there. 
-    //       I keep it this way just for the record, and as a reference for future implementation if I decide to use distinct plugin  
+    //       I keep it this way just for the record, and as a reference for future implementation if I decide to use distinct plugin 
     //       classloaders after all. 
     // Here used to be outdated copy of IDEA's UrlClassLoader, with uncertain benefits over standard Java's one. 
     // I don't think there's anything wrong with java.net counterpart. The only issue I'm aware of, http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=5041014 

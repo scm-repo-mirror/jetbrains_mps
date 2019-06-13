@@ -5,8 +5,6 @@ package jetbrains.mps.lang.editor.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -24,12 +22,11 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class CellMenuPart_Abstract__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f34f8c0deL, "jetbrains.mps.lang.editor.structure.CellMenuPart_Abstract");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<SNode> getEditedFeature_idhJEvH7P = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getEditedFeature").modifiers(SModifiersImpl.create(0, AccessPrivileges.PACKAGE)).concept(CONCEPT).id("hJEvH7P").registry(REGISTRY).build();
-  public static final SMethod<SNode> getEditedLink_idhJEvotS = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getEditedLink").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hJEvotS").registry(REGISTRY).build();
-  public static final SMethod<SNode> getEditedAggregationLink_idhJEvgUM = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getEditedAggregationLink").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hJEvgUM").registry(REGISTRY).build();
-  public static final SMethod<SNode> getReferenceDeclaration_id1o9RazL_axx = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getReferenceDeclaration").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1o9RazL_axx").registry(REGISTRY).build();
+  public static final SMethod<SNode> getEditedFeature_idhJEvH7P = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getEditedFeature").modifiers(SModifiersImpl.create(0, AccessPrivileges.PACKAGE)).concept(CONCEPT).id("hJEvH7P").build();
+  public static final SMethod<SNode> getEditedLink_idhJEvotS = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getEditedLink").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hJEvotS").build();
+  public static final SMethod<SNode> getEditedAggregationLink_idhJEvgUM = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getEditedAggregationLink").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hJEvgUM").build();
+  public static final SMethod<SNode> getReferenceDeclaration_id1o9RazL_axx = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getReferenceDeclaration").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1o9RazL_axx").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getEditedFeature_idhJEvH7P, getEditedLink_idhJEvotS, getEditedAggregationLink_idhJEvgUM, getReferenceDeclaration_id1o9RazL_axx);
 
@@ -58,7 +55,6 @@ public final class CellMenuPart_Abstract__BehaviorDescriptor extends BaseBHDescr
   }
 
   /*package*/ CellMenuPart_Abstract__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

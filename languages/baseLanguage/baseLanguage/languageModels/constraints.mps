@@ -22,6 +22,8 @@
     <import index="l46t" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.compiler(MPS.Core/)" />
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" />
     <import index="u78q" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.typesystem.inference(MPS.Core/)" />
+    <import index="1ka" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.typechecking(MPS.Core/)" />
+    <import index="ev0w" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.typechecking.backend(MPS.Core/)" implicit="true" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" implicit="true" />
   </imports>
   <registry>
@@ -178,11 +180,8 @@
         <child id="1163668922816" name="ifTrue" index="3K4E3e" />
         <child id="1163668934364" name="ifFalse" index="3K4GZi" />
       </concept>
-      <concept id="6329021646629104957" name="jetbrains.mps.baseLanguage.structure.TextCommentPart" flags="nn" index="3SKdUq">
-        <property id="6329021646629104958" name="text" index="3SKdUp" />
-      </concept>
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
-        <child id="6329021646629175155" name="commentPart" index="3SKWNk" />
+        <child id="1350122676458893092" name="text" index="3ndbpf" />
       </concept>
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
@@ -359,6 +358,14 @@
       </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
+      </concept>
+    </language>
+    <language id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text">
+      <concept id="155656958578482948" name="jetbrains.mps.lang.text.structure.Word" flags="ng" index="3oM_SD">
+        <property id="155656958578482949" name="value" index="3oM_SC" />
+      </concept>
+      <concept id="2535923850359271782" name="jetbrains.mps.lang.text.structure.Line" flags="ng" index="1PaTwC">
+        <child id="2535923850359271783" name="elements" index="1PaTwD" />
       </concept>
     </language>
     <language id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections">
@@ -679,8 +686,55 @@
       <node concept="3dgokm" id="5Vvmn_Qkhwo" role="1N6uqs">
         <node concept="3clFbS" id="5Vvmn_Qkhwp" role="2VODD2">
           <node concept="3SKdUt" id="5Vvmn_Qkhwq" role="3cqZAp">
-            <node concept="3SKdUq" id="5Vvmn_Qkhwr" role="3SKWNk">
-              <property role="3SKdUp" value="false is essential here: not include parent hierarchy into the scope (will lead to infinite rescursion)" />
+            <node concept="1PaTwC" id="ATZLwXnPyr" role="3ndbpf">
+              <node concept="3oM_SD" id="ATZLwXnPys" role="1PaTwD">
+                <property role="3oM_SC" value="false" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyt" role="1PaTwD">
+                <property role="3oM_SC" value="is" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyu" role="1PaTwD">
+                <property role="3oM_SC" value="essential" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyv" role="1PaTwD">
+                <property role="3oM_SC" value="here:" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyw" role="1PaTwD">
+                <property role="3oM_SC" value="not" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyx" role="1PaTwD">
+                <property role="3oM_SC" value="include" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyy" role="1PaTwD">
+                <property role="3oM_SC" value="parent" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyz" role="1PaTwD">
+                <property role="3oM_SC" value="hierarchy" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPy$" role="1PaTwD">
+                <property role="3oM_SC" value="into" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPy_" role="1PaTwD">
+                <property role="3oM_SC" value="the" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyA" role="1PaTwD">
+                <property role="3oM_SC" value="scope" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyB" role="1PaTwD">
+                <property role="3oM_SC" value="(will" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyC" role="1PaTwD">
+                <property role="3oM_SC" value="lead" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyD" role="1PaTwD">
+                <property role="3oM_SC" value="to" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyE" role="1PaTwD">
+                <property role="3oM_SC" value="infinite" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyF" role="1PaTwD">
+                <property role="3oM_SC" value="rescursion)" />
+              </node>
             </node>
           </node>
           <node concept="3clFbJ" id="5Vvmn_Qkhws" role="3cqZAp">
@@ -2067,21 +2121,21 @@
             <node concept="3cpWsn" id="44Fw_CVecp6" role="3cpWs9">
               <property role="TrG5h" value="instanceType" />
               <node concept="3Tqbb2" id="44Fw_CVecoV" role="1tU5fm" />
-              <node concept="2OqwBi" id="44Fw_CVeDux" role="33vP2m">
-                <node concept="2YIFZM" id="44Fw_CVeDuy" role="2Oq$k0">
-                  <ref role="37wK5l" to="u78q:~TypeContextManager.getInstance()" resolve="getInstance" />
-                  <ref role="1Pybhc" to="u78q:~TypeContextManager" resolve="TypeContextManager" />
+              <node concept="2OqwBi" id="3oDoAYRBipE" role="33vP2m">
+                <node concept="2YIFZM" id="3oDoAYRBi5B" role="2Oq$k0">
+                  <ref role="37wK5l" to="1ka:~TypecheckingFacade.getFromContext()" resolve="getFromContext" />
+                  <ref role="1Pybhc" to="1ka:~TypecheckingFacade" resolve="TypecheckingFacade" />
                 </node>
-                <node concept="liA8E" id="44Fw_CVeDuz" role="2OqNvi">
-                  <ref role="37wK5l" to="u78q:~TypeContextManager.runResolveAction(jetbrains.mps.util.Computable)" resolve="runResolveAction" />
-                  <node concept="1bVj0M" id="44Fw_CVeDu$" role="37wK5m">
-                    <node concept="3clFbS" id="44Fw_CVeDu_" role="1bW5cS">
-                      <node concept="3clFbF" id="44Fw_CVeDuA" role="3cqZAp">
-                        <node concept="2OqwBi" id="44Fw_CVeDuB" role="3clFbG">
-                          <node concept="37vLTw" id="44Fw_CVeDuC" role="2Oq$k0">
+                <node concept="liA8E" id="3oDoAYRBiEt" role="2OqNvi">
+                  <ref role="37wK5l" to="ev0w:~TypecheckingSessionHandler.runIsolated(java.util.function.Supplier)" resolve="runIsolated" />
+                  <node concept="1bVj0M" id="3oDoAYRBiLj" role="37wK5m">
+                    <node concept="3clFbS" id="3oDoAYRBiLk" role="1bW5cS">
+                      <node concept="3clFbF" id="3oDoAYRBiLl" role="3cqZAp">
+                        <node concept="2OqwBi" id="3oDoAYRBiLm" role="3clFbG">
+                          <node concept="37vLTw" id="3oDoAYRBiLn" role="2Oq$k0">
                             <ref role="3cqZAo" node="5Vvmn_QkhF8" resolve="instance" />
                           </node>
-                          <node concept="3JvlWi" id="44Fw_CVeDuD" role="2OqNvi" />
+                          <node concept="3JvlWi" id="3oDoAYRBiLo" role="2OqNvi" />
                         </node>
                       </node>
                     </node>
@@ -2469,8 +2523,55 @@
       <node concept="3dgokm" id="5Vvmn_QkhDP" role="1N6uqs">
         <node concept="3clFbS" id="5Vvmn_QkhDQ" role="2VODD2">
           <node concept="3SKdUt" id="5Vvmn_QkhDR" role="3cqZAp">
-            <node concept="3SKdUq" id="5Vvmn_QkhDS" role="3SKWNk">
-              <property role="3SKdUp" value="fields declared in hierarhy of class specified by left expression. only applicable to expressions of classifier-type" />
+            <node concept="1PaTwC" id="ATZLwXnPyG" role="3ndbpf">
+              <node concept="3oM_SD" id="ATZLwXnPyH" role="1PaTwD">
+                <property role="3oM_SC" value="fields" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyI" role="1PaTwD">
+                <property role="3oM_SC" value="declared" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyJ" role="1PaTwD">
+                <property role="3oM_SC" value="in" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyK" role="1PaTwD">
+                <property role="3oM_SC" value="hierarhy" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyL" role="1PaTwD">
+                <property role="3oM_SC" value="of" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyM" role="1PaTwD">
+                <property role="3oM_SC" value="class" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyN" role="1PaTwD">
+                <property role="3oM_SC" value="specified" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyO" role="1PaTwD">
+                <property role="3oM_SC" value="by" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyP" role="1PaTwD">
+                <property role="3oM_SC" value="left" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyQ" role="1PaTwD">
+                <property role="3oM_SC" value="expression." />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyR" role="1PaTwD">
+                <property role="3oM_SC" value="only" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyS" role="1PaTwD">
+                <property role="3oM_SC" value="applicable" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyT" role="1PaTwD">
+                <property role="3oM_SC" value="to" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyU" role="1PaTwD">
+                <property role="3oM_SC" value="expressions" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyV" role="1PaTwD">
+                <property role="3oM_SC" value="of" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPyW" role="1PaTwD">
+                <property role="3oM_SC" value="classifier-type" />
+              </node>
             </node>
           </node>
           <node concept="3cpWs8" id="5Vvmn_QkhDT" role="3cqZAp">
@@ -2508,21 +2609,21 @@
             <node concept="3cpWsn" id="4QTAjAf5A3J" role="3cpWs9">
               <property role="TrG5h" value="instanceType" />
               <node concept="3Tqbb2" id="4QTAjAf5A3K" role="1tU5fm" />
-              <node concept="2OqwBi" id="4QTAjAf5A3L" role="33vP2m">
-                <node concept="2YIFZM" id="4QTAjAf5A3M" role="2Oq$k0">
-                  <ref role="1Pybhc" to="u78q:~TypeContextManager" resolve="TypeContextManager" />
-                  <ref role="37wK5l" to="u78q:~TypeContextManager.getInstance()" resolve="getInstance" />
+              <node concept="2OqwBi" id="3oDoAYRAUkd" role="33vP2m">
+                <node concept="2YIFZM" id="3oDoAYRAU0Z" role="2Oq$k0">
+                  <ref role="37wK5l" to="1ka:~TypecheckingFacade.getFromContext()" resolve="getFromContext" />
+                  <ref role="1Pybhc" to="1ka:~TypecheckingFacade" resolve="TypecheckingFacade" />
                 </node>
-                <node concept="liA8E" id="4QTAjAf5A3N" role="2OqNvi">
-                  <ref role="37wK5l" to="u78q:~TypeContextManager.runResolveAction(jetbrains.mps.util.Computable)" resolve="runResolveAction" />
-                  <node concept="1bVj0M" id="4QTAjAf5A3O" role="37wK5m">
-                    <node concept="3clFbS" id="4QTAjAf5A3P" role="1bW5cS">
-                      <node concept="3clFbF" id="4QTAjAf5A3Q" role="3cqZAp">
-                        <node concept="2OqwBi" id="4QTAjAf5A3R" role="3clFbG">
-                          <node concept="37vLTw" id="4QTAjAf5A3S" role="2Oq$k0">
+                <node concept="liA8E" id="3oDoAYRAUF_" role="2OqNvi">
+                  <ref role="37wK5l" to="ev0w:~TypecheckingSessionHandler.runIsolated(java.util.function.Supplier)" resolve="runIsolated" />
+                  <node concept="1bVj0M" id="3oDoAYRAULz" role="37wK5m">
+                    <node concept="3clFbS" id="3oDoAYRAUL$" role="1bW5cS">
+                      <node concept="3clFbF" id="3oDoAYRAUL_" role="3cqZAp">
+                        <node concept="2OqwBi" id="3oDoAYRAULA" role="3clFbG">
+                          <node concept="37vLTw" id="3oDoAYRAULB" role="2Oq$k0">
                             <ref role="3cqZAo" node="5Vvmn_QkhDU" resolve="instance" />
                           </node>
-                          <node concept="3JvlWi" id="4QTAjAf5A3T" role="2OqNvi" />
+                          <node concept="3JvlWi" id="3oDoAYRAULC" role="2OqNvi" />
                         </node>
                       </node>
                     </node>
@@ -2730,8 +2831,37 @@
     <node concept="9S07l" id="147CB3QsTSe" role="9Vyp8">
       <node concept="3clFbS" id="147CB3QsTSf" role="2VODD2">
         <node concept="3SKdUt" id="147CB3QsTSg" role="3cqZAp">
-          <node concept="3SKdUq" id="147CB3QsTSh" role="3SKWNk">
-            <property role="3SKdUp" value=" an operation can only be 'operation' child in DotExpression" />
+          <node concept="1PaTwC" id="ATZLwXnPyX" role="3ndbpf">
+            <node concept="3oM_SD" id="ATZLwXnPyY" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="ATZLwXnPyZ" role="1PaTwD">
+              <property role="3oM_SC" value="an" />
+            </node>
+            <node concept="3oM_SD" id="ATZLwXnPz0" role="1PaTwD">
+              <property role="3oM_SC" value="operation" />
+            </node>
+            <node concept="3oM_SD" id="ATZLwXnPz1" role="1PaTwD">
+              <property role="3oM_SC" value="can" />
+            </node>
+            <node concept="3oM_SD" id="ATZLwXnPz2" role="1PaTwD">
+              <property role="3oM_SC" value="only" />
+            </node>
+            <node concept="3oM_SD" id="ATZLwXnPz3" role="1PaTwD">
+              <property role="3oM_SC" value="be" />
+            </node>
+            <node concept="3oM_SD" id="ATZLwXnPz4" role="1PaTwD">
+              <property role="3oM_SC" value="'operation'" />
+            </node>
+            <node concept="3oM_SD" id="ATZLwXnPz5" role="1PaTwD">
+              <property role="3oM_SC" value="child" />
+            </node>
+            <node concept="3oM_SD" id="ATZLwXnPz6" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="ATZLwXnPz7" role="1PaTwD">
+              <property role="3oM_SC" value="DotExpression" />
+            </node>
           </node>
         </node>
         <node concept="3clFbF" id="147CB3QsTSi" role="3cqZAp">
@@ -3538,8 +3668,58 @@
             </node>
           </node>
           <node concept="3SKdUt" id="4qTO$MWtir3" role="3cqZAp">
-            <node concept="3SKdUq" id="4qTO$MWtir5" role="3SKWNk">
-              <property role="3SKdUp" value="XXX Beware, classifier.getMembers() gives members of that classifier only, unlike classifierType.getMembers() that gives inherited members as well" />
+            <node concept="1PaTwC" id="ATZLwXnPz8" role="3ndbpf">
+              <node concept="3oM_SD" id="ATZLwXnPz9" role="1PaTwD">
+                <property role="3oM_SC" value="XXX" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPza" role="1PaTwD">
+                <property role="3oM_SC" value="Beware," />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzb" role="1PaTwD">
+                <property role="3oM_SC" value="classifier.getMembers()" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzc" role="1PaTwD">
+                <property role="3oM_SC" value="gives" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzd" role="1PaTwD">
+                <property role="3oM_SC" value="members" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPze" role="1PaTwD">
+                <property role="3oM_SC" value="of" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzf" role="1PaTwD">
+                <property role="3oM_SC" value="that" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzg" role="1PaTwD">
+                <property role="3oM_SC" value="classifier" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzh" role="1PaTwD">
+                <property role="3oM_SC" value="only," />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzi" role="1PaTwD">
+                <property role="3oM_SC" value="unlike" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzj" role="1PaTwD">
+                <property role="3oM_SC" value="classifierType.getMembers()" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzk" role="1PaTwD">
+                <property role="3oM_SC" value="that" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzl" role="1PaTwD">
+                <property role="3oM_SC" value="gives" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzm" role="1PaTwD">
+                <property role="3oM_SC" value="inherited" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzn" role="1PaTwD">
+                <property role="3oM_SC" value="members" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzo" role="1PaTwD">
+                <property role="3oM_SC" value="as" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzp" role="1PaTwD">
+                <property role="3oM_SC" value="well" />
+              </node>
             </node>
           </node>
           <node concept="3clFbF" id="5Vvmn_QkhBP" role="3cqZAp">
@@ -3715,8 +3895,31 @@
       <node concept="3dgokm" id="5Vvmn_QkhtX" role="1N6uqs">
         <node concept="3clFbS" id="5Vvmn_QkhtY" role="2VODD2">
           <node concept="3SKdUt" id="5Vvmn_QkhtZ" role="3cqZAp">
-            <node concept="3SKdUq" id="5Vvmn_Qkhu0" role="3SKWNk">
-              <property role="3SKdUp" value="TEMP doing it not through ScopeProvider for now" />
+            <node concept="1PaTwC" id="ATZLwXnPzq" role="3ndbpf">
+              <node concept="3oM_SD" id="ATZLwXnPzr" role="1PaTwD">
+                <property role="3oM_SC" value="TEMP" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzs" role="1PaTwD">
+                <property role="3oM_SC" value="doing" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzt" role="1PaTwD">
+                <property role="3oM_SC" value="it" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzu" role="1PaTwD">
+                <property role="3oM_SC" value="not" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzv" role="1PaTwD">
+                <property role="3oM_SC" value="through" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzw" role="1PaTwD">
+                <property role="3oM_SC" value="ScopeProvider" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzx" role="1PaTwD">
+                <property role="3oM_SC" value="for" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzy" role="1PaTwD">
+                <property role="3oM_SC" value="now" />
+              </node>
             </node>
           </node>
           <node concept="3cpWs8" id="5Vvmn_Qkhu1" role="3cqZAp">
@@ -3771,8 +3974,28 @@
           <node concept="3clFbJ" id="6ZkNa8kzJOX" role="3cqZAp">
             <node concept="3clFbS" id="6ZkNa8kzJOZ" role="3clFbx">
               <node concept="3SKdUt" id="6ZkNa8kzKIu" role="3cqZAp">
-                <node concept="3SKdUq" id="6ZkNa8kzKIw" role="3SKWNk">
-                  <property role="3SKdUp" value="remove this Classifier from the completion menu" />
+                <node concept="1PaTwC" id="ATZLwXnPzz" role="3ndbpf">
+                  <node concept="3oM_SD" id="ATZLwXnPz$" role="1PaTwD">
+                    <property role="3oM_SC" value="remove" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnPz_" role="1PaTwD">
+                    <property role="3oM_SC" value="this" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnPzA" role="1PaTwD">
+                    <property role="3oM_SC" value="Classifier" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnPzB" role="1PaTwD">
+                    <property role="3oM_SC" value="from" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnPzC" role="1PaTwD">
+                    <property role="3oM_SC" value="the" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnPzD" role="1PaTwD">
+                    <property role="3oM_SC" value="completion" />
+                  </node>
+                  <node concept="3oM_SD" id="ATZLwXnPzE" role="1PaTwD">
+                    <property role="3oM_SC" value="menu" />
+                  </node>
                 </node>
               </node>
               <node concept="3cpWs6" id="6ZkNa8kzKgc" role="3cqZAp">
@@ -4068,8 +4291,19 @@
             </node>
           </node>
           <node concept="3SKdUt" id="4qTO$MWt_Jm" role="3cqZAp">
-            <node concept="3SKdUq" id="4qTO$MWt_Jo" role="3SKWNk">
-              <property role="3SKdUp" value="sic! classifierType.getMembers(), not clasifier.getMembers()" />
+            <node concept="1PaTwC" id="ATZLwXnPzF" role="3ndbpf">
+              <node concept="3oM_SD" id="ATZLwXnPzG" role="1PaTwD">
+                <property role="3oM_SC" value="sic!" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzH" role="1PaTwD">
+                <property role="3oM_SC" value="classifierType.getMembers()," />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzI" role="1PaTwD">
+                <property role="3oM_SC" value="not" />
+              </node>
+              <node concept="3oM_SD" id="ATZLwXnPzJ" role="1PaTwD">
+                <property role="3oM_SC" value="clasifier.getMembers()" />
+              </node>
             </node>
           </node>
           <node concept="3clFbF" id="5Vvmn_QkhyA" role="3cqZAp">

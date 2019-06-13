@@ -5,8 +5,6 @@ package org.jetbrains.mps.samples.Money.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.samples.money.runtime.Money;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -27,9 +25,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class CurrentStockPrice__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x3786e3f4808999c3L, "org.jetbrains.mps.samples.Money.structure.CurrentStockPrice");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Money> getCurrentPrice_id3u6SZi0yq4L = new SMethodBuilder<Money>(new SJavaCompoundTypeImpl(Money.class)).name("getCurrentPrice").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3u6SZi0yq4L").registry(REGISTRY).build();
+  public static final SMethod<Money> getCurrentPrice_id3u6SZi0yq4L = new SMethodBuilder<Money>(new SJavaCompoundTypeImpl(Money.class)).name("getCurrentPrice").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3u6SZi0yq4L").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getCurrentPrice_id3u6SZi0yq4L);
 
@@ -48,7 +45,6 @@ public final class CurrentStockPrice__BehaviorDescriptor extends BaseBHDescripto
   }
 
   /*package*/ CurrentStockPrice__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

@@ -7,6 +7,7 @@
   <imports>
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="356a" ref="r:3b7ed80f-6cfd-45bc-b051-2f66c620dd27(jetbrains.mps.lang.traceable.structure)" />
+    <import index="zqge" ref="r:59e90602-6655-4552-86eb-441a42a9a0e4(jetbrains.mps.lang.text.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
@@ -2134,6 +2135,9 @@
     <node concept="PrWs8" id="6r77ob2Ws6N" role="PrDN$">
       <ref role="PrY4T" node="6r77ob2UL4Y" resolve="IClassifierMember" />
     </node>
+    <node concept="PrWs8" id="1wGlIQ7z0N4" role="PrDN$">
+      <ref role="PrY4T" to="tpck:2WmWrdnSpX2" resolve="ICanSuppressErrors" />
+    </node>
   </node>
   <node concept="1TIwiD" id="h9VxSy2">
     <property role="R4oN_" value="this constructor invocation" />
@@ -3279,6 +3283,9 @@
     <node concept="PrWs8" id="U99cpalq9E" role="PzmwI">
       <ref role="PrY4T" to="tpck:2WmWrdnSpX3" resolve="ISuppressErrors" />
     </node>
+    <node concept="asaX9" id="45vN3dCxhkT" role="lGtFl">
+      <property role="YLQ7P" value="SingleLineComment now uses j.m.lang.text in the &quot;text&quot; child" />
+    </node>
   </node>
   <node concept="1TIwiD" id="65UE62YxxrG">
     <property role="TrG5h" value="MulAssignmentExpression" />
@@ -3706,6 +3713,9 @@
       <property role="IQ2nx" value="6329021646629104958" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
+    <node concept="asaX9" id="45vN3dCxhkV" role="lGtFl">
+      <property role="YLQ7P" value="SingleLineComment now uses j.m.lang.text in the &quot;text&quot; child" />
+    </node>
   </node>
   <node concept="1TIwiD" id="5vlcUuJ5JXB">
     <property role="TrG5h" value="StatementCommentPart" />
@@ -3745,6 +3755,16 @@
       <property role="20lbJX" value="0..n" />
       <property role="IQ2ns" value="6329021646629175155" />
       <ref role="20lvS9" node="5vlcUuJ5uOV" resolve="CommentPart" />
+      <node concept="asaX9" id="1aWAmJ5y2Yd" role="lGtFl">
+        <property role="YLQ7P" value="SingleLineComment now uses j.m.lang.text in the &quot;text&quot; child" />
+      </node>
+    </node>
+    <node concept="1TJgyj" id="1aWAmJ5y2W$" role="1TKVEi">
+      <property role="IQ2ns" value="1350122676458893092" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="text" />
+      <property role="20lbJX" value="0..n" />
+      <ref role="20lvS9" to="zqge:2cLqkTm6J5A" resolve="Line" />
     </node>
   </node>
   <node concept="1TIwiD" id="6KbE6jv0m5S">

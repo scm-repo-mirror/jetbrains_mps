@@ -17,13 +17,16 @@ import jetbrains.mps.nodeEditor.checking.UpdateResult;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.util.Cancellable;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.typechecking.backend.TypecheckingSession;
 import jetbrains.mps.nodeEditor.EditorMessage;
-import jetbrains.mps.typesystem.inference.TypeContextManager;
-import jetbrains.mps.typesystem.inference.ITypechecking;
-import jetbrains.mps.typesystem.inference.TypeCheckingContext;
+import jetbrains.mps.typechecking.TypecheckingFacade;
+import java.util.function.Supplier;
 import com.intellij.openapi.project.IndexNotReadyException;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.nodeEditor.inspector.InspectorEditorComponent;
+import jetbrains.mps.typesystem.LegacyTypecheckingQueries;
+import jetbrains.mps.typesystem.LegacyTypecheckingProvider;
+import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import org.apache.log4j.Level;
 import java.util.Collections;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -34,7 +37,6 @@ import jetbrains.mps.errors.item.QuickFixBase;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.errors.item.NodeReportItem;
-import jetbrains.mps.checkers.ErrorReportUtil;
 import jetbrains.mps.nodeEditor.HighlighterMessage;
 import jetbrains.mps.errors.item.QuickFixReportItem;
 import com.intellij.openapi.application.ApplicationManager;
@@ -79,11 +81,17 @@ public class LanguageEditorChecker extends BaseEditorChecker implements Disposab
   public UpdateResult update(final EditorComponent editorComponent, final boolean incremental, boolean applyQuickFixes, final Cancellable cancellable) {
     final SNode node = editorComponent.getEditedNode();
     try {
-      Set<EditorMessage> messages = TypeContextManager.getInstance().runTypeCheckingComputation(editorComponent.getTypecheckingContextOwner(), node, new ITypechecking.Computation<Set<EditorMessage>>() {
+      TypecheckingSession typecheckingSession = editorComponent.getTypecheckingSession();
+      if (typecheckingSession == null) {
+        return UpdateResult.CANCELLED;
+      }
+
+      Set<EditorMessage> messages = TypecheckingFacade.getFromContext().runWithSession(typecheckingSession, new Supplier<Set<EditorMessage>>() {
         @Override
-        public Set<EditorMessage> compute(TypeCheckingContext typeCheckingContext) {
-          return doCreateMessages(node, incremental, editorComponent.getEditorContext(), typeCheckingContext, cancellable);
+        public Set<EditorMessage> get() {
+          return doCreateMessages(node, incremental, editorComponent.getEditorContext(), cancellable);
         }
+
       });
       return new UpdateResult.Completed(myMessagesChanged, messages);
     } catch (IndexNotReadyException e) {
@@ -92,9 +100,13 @@ public class LanguageEditorChecker extends BaseEditorChecker implements Disposab
     }
   }
 
-  private Set<EditorMessage> doCreateMessages(SNode node, boolean wasCheckedOnce, EditorContext editorContext, TypeCheckingContext typeCheckingContext, Cancellable cancellable) {
+  private Set<EditorMessage> doCreateMessages(SNode node, boolean wasCheckedOnce, EditorContext editorContext, Cancellable cancellable) {
     EditorComponent editorComponent = (EditorComponent) editorContext.getEditorComponent();
     boolean inspector = editorComponent instanceof InspectorEditorComponent;
+
+    // FIXME assuming it's safe to access legacy session 
+    LegacyTypecheckingQueries ltq = editorComponent.getTypecheckingSession().getQueries(LegacyTypecheckingProvider.class);
+    TypeCheckingContext typeCheckingContext = ltq.getTypeCheckingContext();
 
     myMessagesChanged = false;
 
@@ -155,9 +167,6 @@ public class LanguageEditorChecker extends BaseEditorChecker implements Disposab
     for (NodeReportItem errorReporter : errorsComponent.getErrors()) {
       // todo here should be processor-based architecture, like in other checkers 
       SNode nodeWithError = errorReporter.getNode().resolve(editorContext.getRepository());
-      if (!(ErrorReportUtil.shouldReportError(errorReporter, editorContext.getRepository()))) {
-        continue;
-      }
 
       if (!(ListSequence.fromList(SNodeOperations.getNodeAncestors(nodeWithError, null, true)).contains(editedNode))) {
         // in inspector skipping all messages for invisible nodes 

@@ -21,7 +21,7 @@ public class TreeHighlighterFactory implements ProjectComponent {
   public TreeHighlighterFactory(@NotNull Project project, @NotNull CurrentDifferenceRegistry registry, @NotNull FeatureForestMapSupport featureForestMapSupport) {
     myRegistry = registry;
     myFeatureForestMapSupport = featureForestMapSupport;
-    // given cycle in TreeHighlighter (queue(myHighlightAllFeaturesUpdate), myHighlightAllFeaturesUpdate.run-> queue(myHighlightAllFeaturesUpdate)),  
+    // given cycle in TreeHighlighter (queue(myHighlightAllFeaturesUpdate), myHighlightAllFeaturesUpdate.run-> queue(myHighlightAllFeaturesUpdate)), 
     // it's vital not to allow pass-through model of MergingUpdateQueue, otherwise we risk StackOverflowException, see MPS-29973 
     myQueue.setPassThrough(false);
     // MUQ used to be per-TH, which lead to memory leaks as not all MPSTree instances get properly disposed (e.g usage views from AnalyzeDependenciesViewTool) 

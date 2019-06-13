@@ -5,8 +5,6 @@ package jetbrains.mps.build.tips.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -22,10 +20,9 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class MPSTipsAndTricks__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfeee615f9f2b486fL, 0x804f8987b652fceaL, 0x5ea1926fdf2f93c6L, "jetbrains.mps.build.tips.structure.MPSTipsAndTricks");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> getPath_id4Y6KxqQL3ag = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPath").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4Y6KxqQL3ag").registry(REGISTRY).build();
-  public static final SMethod<String> getLocatedDirectory_id4Y6KxqQN2O7 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getLocatedDirectory").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4Y6KxqQN2O7").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(String.class, ""));
+  public static final SMethod<String> getPath_id4Y6KxqQL3ag = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPath").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4Y6KxqQL3ag").build();
+  public static final SMethod<String> getLocatedDirectory_id4Y6KxqQN2O7 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getLocatedDirectory").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4Y6KxqQN2O7").build(SMethodBuilder.createJavaParameter(String.class, ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPath_id4Y6KxqQL3ag, getLocatedDirectory_id4Y6KxqQN2O7);
 
@@ -43,7 +40,6 @@ public final class MPSTipsAndTricks__BehaviorDescriptor extends BaseBHDescriptor
   }
 
   /*package*/ MPSTipsAndTricks__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

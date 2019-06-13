@@ -40,6 +40,7 @@ import com.intellij.psi.PsiJavaFile;
 import com.intellij.psi.PsiManager;
 import com.intellij.psi.PsiMethod;
 import jetbrains.mps.extapi.model.SModelBase;
+import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.java.core.newparser.JavaParseException;
 import jetbrains.mps.java.core.newparser.JavaToMpsConverter;
 import jetbrains.mps.ide.messages.MessagesViewTool;
@@ -275,7 +276,12 @@ public class ConvertPackageToModel extends AnAction {
     List<IFile> result = new ArrayList<>(psiFiles.size());
 
     for (PsiFile file : psiFiles) {
-      IFile ifile = mpsProject.getFileSystem().fromVirtualFile(file.getVirtualFile());
+      VirtualFile vf = file.getVirtualFile();
+      IdeaFileSystem fs = mpsProject.getFileSystem();
+      if (!fs.canConvert(vf)) {
+        continue;
+      }
+      IFile ifile = fs.fromVirtualFile(vf);
       result.add(ifile);
     }
 

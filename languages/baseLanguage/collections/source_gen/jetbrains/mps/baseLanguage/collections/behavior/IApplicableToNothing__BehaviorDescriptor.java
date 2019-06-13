@@ -5,8 +5,6 @@ package jetbrains.mps.baseLanguage.collections.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -35,12 +33,11 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class IApplicableToNothing__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x53310200e8d9eaf6L, "jetbrains.mps.baseLanguage.collections.structure.IApplicableToNothing");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<List<SNode>> getApplicableTypes_id5cL0w3DYzxf = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getApplicableTypes").modifiers(SModifiersImpl.create(13, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("5cL0w3DYzxf").registry(REGISTRY).build();
-  public static final SMethod<Set<SNode>> getAllApplicableTypes_id5cL0w3DYWgB = new SMethodBuilder<Set<SNode>>(new SJavaCompoundTypeImpl((Class<Set<SNode>>) ((Class) Object.class))).name("getAllApplicableTypes").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5cL0w3DYWgB").registry(REGISTRY).build();
-  /*package*/ static final SMethod<Boolean> hasApplicableTypes_id1QUKo_K_4f7 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasApplicableTypes").modifiers(SModifiersImpl.create(1, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("1QUKo_K_4f7").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""));
-  public static final SMethod<SNode> expectedOperandType_id5xvLnyYzY1Q = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("expectedOperandType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5xvLnyYzY1Q").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<List<SNode>> getApplicableTypes_id5cL0w3DYzxf = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getApplicableTypes").modifiers(SModifiersImpl.create(13, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("5cL0w3DYzxf").build();
+  public static final SMethod<Set<SNode>> getAllApplicableTypes_id5cL0w3DYWgB = new SMethodBuilder<Set<SNode>>(new SJavaCompoundTypeImpl((Class<Set<SNode>>) ((Class) Object.class))).name("getAllApplicableTypes").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5cL0w3DYWgB").build();
+  /*package*/ static final SMethod<Boolean> hasApplicableTypes_id1QUKo_K_4f7 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasApplicableTypes").modifiers(SModifiersImpl.create(1, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("1QUKo_K_4f7").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""));
+  public static final SMethod<SNode> expectedOperandType_id5xvLnyYzY1Q = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("expectedOperandType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5xvLnyYzY1Q").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getApplicableTypes_id5cL0w3DYzxf, getAllApplicableTypes_id5cL0w3DYWgB, hasApplicableTypes_id1QUKo_K_4f7, expectedOperandType_id5xvLnyYzY1Q);
 
@@ -94,7 +91,6 @@ public final class IApplicableToNothing__BehaviorDescriptor extends BaseBHDescri
   }
 
   /*package*/ IApplicableToNothing__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

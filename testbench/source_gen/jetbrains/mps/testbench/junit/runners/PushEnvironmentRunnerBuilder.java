@@ -65,7 +65,7 @@ public final class PushEnvironmentRunnerBuilder extends RunnerBuilder {
 
     @Override
     protected Object createTest() throws Exception {
-      // FIXME Seems better to invoke cons(Environment), if present, to instantiate test object, rather than use setter.  
+      // FIXME Seems better to invoke cons(Environment), if present, to instantiate test object, rather than use setter. 
       // Need another (marker) interface then (not to force empty EA.setEnvironment) 
       Object target = super.createTest();
       if (target instanceof EnvironmentAware) {

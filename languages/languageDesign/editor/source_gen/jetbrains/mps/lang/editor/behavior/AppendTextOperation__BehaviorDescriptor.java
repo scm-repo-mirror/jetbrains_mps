@@ -5,8 +5,6 @@ package jetbrains.mps.lang.editor.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -25,10 +23,9 @@ import jetbrains.mps.smodel.SModelUtil_new;
 
 public final class AppendTextOperation__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3e34c38c0ad5587L, "jetbrains.mps.lang.editor.structure.AppendTextOperation");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> getMethodToGenerate_id1653mnvAf1C = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getMethodToGenerate").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAf1C").registry(REGISTRY).build();
-  public static final SMethod<List<SNode>> getOperationArgumentType_id5GZRL5t2d36 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getOperationArgumentType").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5GZRL5t2d36").registry(REGISTRY).build();
+  public static final SMethod<String> getMethodToGenerate_id1653mnvAf1C = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getMethodToGenerate").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAf1C").build();
+  public static final SMethod<List<SNode>> getOperationArgumentType_id5GZRL5t2d36 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getOperationArgumentType").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5GZRL5t2d36").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getMethodToGenerate_id1653mnvAf1C, getOperationArgumentType_id5GZRL5t2d36);
 
@@ -45,7 +42,6 @@ public final class AppendTextOperation__BehaviorDescriptor extends BaseBHDescrip
   }
 
   /*package*/ AppendTextOperation__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

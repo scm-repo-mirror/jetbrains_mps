@@ -186,18 +186,18 @@ public class Utils {
       ModelRootDescriptor mrDesc = new ModelRootDescriptor(PersistenceRegistry.DEFAULT_MODEL_ROOT, mem);
 
       // DirParser uses API to create models through ModelRoot, therefore we've got root descriptor here 
-      // OTOH, it seems Utils is the only client of DirParser now, and we don't need to keep it generic,  
+      // OTOH, it seems Utils is the only client of DirParser now, and we don't need to keep it generic, 
       //       and could use whatever we like for model creation, e.g. explicit new RegularModelDescriptor 
       //       along with SModuleBase.registerModel(). 
       TempModuleOptions tempModOpts = TempModuleOptions.forNewModule(Collections.singleton(mrDesc));
       testMaterials = tempModOpts.createModule();
 
-      // It looks like dirParser and its use of YetUnknownResolver needs a model from a module attached to a  
-      // repository (to get references resolved). The best we can do here is to have own repository for the  
+      // It looks like dirParser and its use of YetUnknownResolver needs a model from a module attached to a 
+      // repository (to get references resolved). The best we can do here is to have own repository for the 
       // testMaterials module which is capable to delegate to another (one supplied at construction). 
       DirParser dirParser = new DirParser(testMaterials, myRepo.getModelAccess(), dirPath);
       // XXX the use of model access in DirParser looks odd. Here, we are inside a command already (test setting), 
-      // and DirParser assumes it can execute command, so we can not be in model read here. As long as it's the  
+      // and DirParser assumes it can execute command, so we can not be in model read here. As long as it's the 
       // only use of DirParser, perhaps, we shall not use ModelAccess at all, as we ensure we're inside command. 
 
       dirParser.parseDirs();

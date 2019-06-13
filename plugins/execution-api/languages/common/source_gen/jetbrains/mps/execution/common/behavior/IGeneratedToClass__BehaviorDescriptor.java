@@ -5,8 +5,6 @@ package jetbrains.mps.execution.common.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -29,18 +27,17 @@ import java.util.regex.Pattern;
 
 public final class IGeneratedToClass__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x73c1a49099fa4d0dL, 0x8292b8985697c74bL, 0xd244b712f9dcdabL, "jetbrains.mps.execution.common.structure.IGeneratedToClass");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> getSuffix_idO$iR4JBsSb = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getSuffix").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsSb").registry(REGISTRY).build();
-  public static final SMethod<String> getGeneratedClassName_idO$iR4JBsSg = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedClassName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsSg").registry(REGISTRY).build();
-  public static final SMethod<String> getFullName_idO$iR4JBsSv = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getFullName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsSv").registry(REGISTRY).build();
-  public static final SMethod<String> getValidClassName_id2eOtvO7hJjT = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getValidClassName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("2eOtvO7hJjT").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(String.class, ""));
-  public static final SMethod<String> getGeneratedClassName_idO$iR4JBsSG = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedClassName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("O$iR4JBsSG").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(String.class, ""));
-  public static final SMethod<String> getBaseName_id3MnZbusxcPI = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getBaseName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("3MnZbusxcPI").registry(REGISTRY).build();
-  public static final SMethod<String> getNamespace_id1XgDflG1h$6 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getNamespace").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1XgDflG1h$6").registry(REGISTRY).build();
-  public static final SMethod<String> replaceProhibitedSymbol_idO$iR4JBsQI = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("replaceProhibitedSymbol").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsQI").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(String.class, ""), SMethodBuilder.createJavaParameter(String.class, ""));
-  public static final SMethod<String> makeUpperCase_idO$iR4JBsRn = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("makeUpperCase").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsRn").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(String.class, ""), SMethodBuilder.createJavaParameter(Integer.TYPE, ""));
-  public static final SMethod<String> getValidClassName_id3gpm$NHlLi1 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getValidClassName").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3gpm$NHlLi1").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(String.class, ""));
+  public static final SMethod<String> getSuffix_idO$iR4JBsSb = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getSuffix").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsSb").build();
+  public static final SMethod<String> getGeneratedClassName_idO$iR4JBsSg = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedClassName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsSg").build();
+  public static final SMethod<String> getFullName_idO$iR4JBsSv = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getFullName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsSv").build();
+  public static final SMethod<String> getValidClassName_id2eOtvO7hJjT = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getValidClassName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("2eOtvO7hJjT").build(SMethodBuilder.createJavaParameter(String.class, ""));
+  public static final SMethod<String> getGeneratedClassName_idO$iR4JBsSG = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedClassName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("O$iR4JBsSG").build(SMethodBuilder.createJavaParameter(String.class, ""));
+  public static final SMethod<String> getBaseName_id3MnZbusxcPI = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getBaseName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("3MnZbusxcPI").build();
+  public static final SMethod<String> getNamespace_id1XgDflG1h$6 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getNamespace").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1XgDflG1h$6").build();
+  public static final SMethod<String> replaceProhibitedSymbol_idO$iR4JBsQI = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("replaceProhibitedSymbol").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsQI").build(SMethodBuilder.createJavaParameter(String.class, ""), SMethodBuilder.createJavaParameter(String.class, ""));
+  public static final SMethod<String> makeUpperCase_idO$iR4JBsRn = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("makeUpperCase").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsRn").build(SMethodBuilder.createJavaParameter(String.class, ""), SMethodBuilder.createJavaParameter(Integer.TYPE, ""));
+  public static final SMethod<String> getValidClassName_id3gpm$NHlLi1 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getValidClassName").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3gpm$NHlLi1").build(SMethodBuilder.createJavaParameter(String.class, ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getSuffix_idO$iR4JBsSb, getGeneratedClassName_idO$iR4JBsSg, getFullName_idO$iR4JBsSv, getValidClassName_id2eOtvO7hJjT, getGeneratedClassName_idO$iR4JBsSG, getBaseName_id3MnZbusxcPI, getNamespace_id1XgDflG1h$6, replaceProhibitedSymbol_idO$iR4JBsQI, makeUpperCase_idO$iR4JBsRn, getValidClassName_id3gpm$NHlLi1);
 
@@ -84,16 +81,15 @@ public final class IGeneratedToClass__BehaviorDescriptor extends BaseBHDescripto
   }
   /*package*/ static String getValidClassName_id3gpm$NHlLi1(@NotNull SAbstractConcept __thisConcept__, @NonNls String name) {
     // in between 
-    name = RegexpOperations.replace(name, REGEXP_mgabp8_b0a1a62, new _Replacer_mgabp8_a0a0b0ab(null));
+    name = RegexpOperations.replace(name, REGEXP_mgabp8_b0a1a52, new _Replacer_mgabp8_a0a0b0z(null));
     // in the end 
-    name = RegexpOperations.replace(name, REGEXP_mgabp8_b0a3a62, new _Replacer_mgabp8_a0a0d0ab(null));
+    name = RegexpOperations.replace(name, REGEXP_mgabp8_b0a3a52, new _Replacer_mgabp8_a0a0d0z(null));
     // in the beggining 
-    name = RegexpOperations.replace(name, REGEXP_mgabp8_b0a5a62, new _Replacer_mgabp8_a0a0f0ab(null));
+    name = RegexpOperations.replace(name, REGEXP_mgabp8_b0a5a52, new _Replacer_mgabp8_a0a0f0z(null));
     return (String) IGeneratedToClass__BehaviorDescriptor.makeUpperCase_idO$iR4JBsRn.invoke(SNodeOperations.asSConcept(MetaAdapterFactory.getInterfaceConcept(0x73c1a49099fa4d0dL, 0x8292b8985697c74bL, 0xd244b712f9dcdabL, "jetbrains.mps.execution.common.structure.IGeneratedToClass")), name, ((int) 0));
   }
 
   /*package*/ IGeneratedToClass__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override
@@ -154,7 +150,7 @@ public final class IGeneratedToClass__BehaviorDescriptor extends BaseBHDescripto
   public SAbstractConcept getConcept() {
     return CONCEPT;
   }
-  private static Pattern REGEXP_mgabp8_b0a1a62 = Pattern.compile("(\\w)\\W+(\\w)", 0);
-  private static Pattern REGEXP_mgabp8_b0a3a62 = Pattern.compile("(.)\\W+$", 0);
-  private static Pattern REGEXP_mgabp8_b0a5a62 = Pattern.compile("^\\W+(\\w)", 0);
+  private static Pattern REGEXP_mgabp8_b0a1a52 = Pattern.compile("(\\w)\\W+(\\w)", 0);
+  private static Pattern REGEXP_mgabp8_b0a3a52 = Pattern.compile("(.)\\W+$", 0);
+  private static Pattern REGEXP_mgabp8_b0a5a52 = Pattern.compile("^\\W+(\\w)", 0);
 }

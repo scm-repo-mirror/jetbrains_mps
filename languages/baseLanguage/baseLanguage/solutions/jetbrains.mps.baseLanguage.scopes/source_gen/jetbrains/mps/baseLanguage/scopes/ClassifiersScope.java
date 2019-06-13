@@ -36,7 +36,7 @@ public class ClassifiersScope extends FilteringScope {
     super(new ModelPlusImportedScope(model, false, concept));
     // Another important aspect of includeAncestors is scope for dynamic references 
     // Imagine we need a scope for 'implements' reference of a ClassConcept. If we includeAncestors == true, then 
-    //   the moment ClassifierResolveUtils.resolve() later tries to build ancestors, it would end up with the need to follow  
+    //   the moment ClassifierResolveUtils.resolve() later tries to build ancestors, it would end up with the need to follow 
     //   'implements' reference of the class again, and we face a loop 
     myIncludeAncestors = includeAncestors;
     myClassifier = clas;

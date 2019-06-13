@@ -24,6 +24,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.fileTypes.MPSFileTypeFactory;
+import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.nodefs.MPSNodeVirtualFile;
 import jetbrains.mps.nodefs.NodeVirtualFileSystem;
 import jetbrains.mps.openapi.editor.EditorState;
@@ -61,7 +62,7 @@ public class MPSFileNodeEditorProvider implements FileEditorProvider, DumbAware 
     }
 
     SRepository repository = mpsProject.getRepository();
-    NodeFileComputable nodeFileComputable = new NodeFileComputable(repository, mpsProject.getFileSystem().fromVirtualFile(file));
+    NodeFileComputable nodeFileComputable = new NodeFileComputable(repository, file, mpsProject.getFileSystem());
     MPSNodeVirtualFile mpsNodeVirtualFile = new ModelAccessHelper(repository).runReadAction(nodeFileComputable);
     return mpsNodeVirtualFile != null ? new MPSFileNodeEditor(mpsProject, mpsNodeVirtualFile) :
            new MPSFileNodeEditor(mpsProject, repository, nodeFileComputable);
@@ -123,23 +124,30 @@ public class MPSFileNodeEditorProvider implements FileEditorProvider, DumbAware 
 
   static class NodeFileComputable implements Computable<MPSNodeVirtualFile> {
     private final SRepository myRepository;
-    private final IFile myFile;
+    private final VirtualFile myFile;
     private final String myNameToMatch;
+    private IdeaFileSystem myFileSystem;
 
-    NodeFileComputable(SRepository repository, IFile file) {
+    NodeFileComputable(SRepository repository, VirtualFile file, IdeaFileSystem fileSystem) {
       myRepository = repository;
       myFile = file;
+      myFileSystem = fileSystem;
       myNameToMatch = FileUtil.getNameWithoutExtension(file.getName());
     }
 
     @Override
     public MPSNodeVirtualFile compute() {
-      SModel model = SModelFileTracker.getInstance(myRepository).findModel(myFile);
-      if (model != null) {
-        for (SNode node : model.getRootNodes()) {
-          if (myNameToMatch.equals(node.getName()) || myNameToMatch.equals(node.getNodeId().toString())) {
-            return NodeVirtualFileSystem.getInstance().getFileFor(myRepository, node);
-          }
+      if (!myFileSystem.canConvert(myFile)){
+        return null;
+      }
+      SModel model = SModelFileTracker.getInstance(myRepository).findModel(myFileSystem.fromVirtualFile(myFile));
+      if (model == null) {
+        return null;
+      }
+
+      for (SNode node : model.getRootNodes()) {
+        if (myNameToMatch.equals(node.getName()) || myNameToMatch.equals(node.getNodeId().toString())) {
+          return NodeVirtualFileSystem.getInstance().getFileFor(myRepository, node);
         }
       }
       return null;

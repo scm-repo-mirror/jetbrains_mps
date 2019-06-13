@@ -21,13 +21,13 @@ import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.library.contributor.BootstrapLibraryContributor;
 import jetbrains.mps.library.contributor.PluginLibraryContributor;
 import jetbrains.mps.library.contributor.WorkbenchLibraryContributor;
-import jetbrains.mps.workbench.action.IRegistryManager;
+import jetbrains.mps.workbench.action.ApplicationPluginHolder;
 
 public final class RepositoryInitializingComponent extends RepositoryInitializingComponentBase {
   @SuppressWarnings("UnusedParameters")
   public RepositoryInitializingComponent(FSNotificationsImprover improver,
                                          MPSCoreComponents coreComponents,
-                                         IRegistryManager registryManager,
+                                         ApplicationPluginHolder registryManager,
                                          IdeaPluginFacetComponent ideaPluginFacetComponent,
                                          IdeaFileSystem fs,
                                          PersistentFS filesystem //see MPS-22970

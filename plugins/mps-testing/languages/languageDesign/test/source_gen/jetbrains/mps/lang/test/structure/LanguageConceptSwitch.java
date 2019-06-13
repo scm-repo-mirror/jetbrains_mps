@@ -28,7 +28,7 @@ public final class LanguageConceptSwitch {
   public static final int EditorOperation = 16;
   public static final int EditorTestCase = 17;
   public static final int ExpressionContainer = 18;
-  public static final int IChecksRules = 19;
+  public static final int ICheckForExpectedRule = 19;
   public static final int INodeAnnotation = 20;
   public static final int INodesTestMethod = 21;
   public static final int IReferenceAttachable = 22;
@@ -111,7 +111,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x11daf16c21cL, EditorOperation);
     builder.put(0x11e314b20e0L, EditorTestCase);
     builder.put(0x254649f227ff5d72L, ExpressionContainer);
-    builder.put(0x770c2c9f6ef97f30L, IChecksRules);
+    builder.put(0x770c2c9f6ef97f30L, ICheckForExpectedRule);
     builder.put(0x11e0d52da47L, INodeAnnotation);
     builder.put(0x1510445f8a2c272dL, INodesTestMethod);
     builder.put(0x2827acdc621ed3acL, IReferenceAttachable);

@@ -68,7 +68,7 @@ import jetbrains.mps.ide.findusages.view.UsageToolOptions;
   }
 
   /*package*/ void invoke() {
-    // this one requires model read as well, due to scopeOptions.getScope() and SearchQuery(SNode)  
+    // this one requires model read as well, due to scopeOptions.getScope() and SearchQuery(SNode) 
     if (myUsageOptions == null) {
       // no-op, dialog was cancelled 
       return;

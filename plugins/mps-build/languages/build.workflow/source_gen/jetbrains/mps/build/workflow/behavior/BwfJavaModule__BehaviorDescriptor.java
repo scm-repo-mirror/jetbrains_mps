@@ -5,8 +5,6 @@ package jetbrains.mps.build.workflow.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -23,11 +21,10 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class BwfJavaModule__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, "jetbrains.mps.build.workflow.structure.BwfJavaModule");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<List<String>> getCompilerNames_id3Par5_LaIPl = new SMethodBuilder<List<String>>(new SJavaCompoundTypeImpl((Class<List<String>>) ((Class) Object.class))).name("getCompilerNames").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3Par5_LaIPl").registry(REGISTRY).build();
-  public static final SMethod<String> getAntTargetName_id6pYRYgn8i1z = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAntTargetName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6pYRYgn8i1z").registry(REGISTRY).build();
-  public static final SMethod<Boolean> needsFork_id3Par5_LaArg = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("needsFork").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3Par5_LaArg").registry(REGISTRY).build();
+  public static final SMethod<List<String>> getCompilerNames_id3Par5_LaIPl = new SMethodBuilder<List<String>>(new SJavaCompoundTypeImpl((Class<List<String>>) ((Class) Object.class))).name("getCompilerNames").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3Par5_LaIPl").build();
+  public static final SMethod<String> getAntTargetName_id6pYRYgn8i1z = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAntTargetName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6pYRYgn8i1z").build();
+  public static final SMethod<Boolean> needsFork_id3Par5_LaArg = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("needsFork").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3Par5_LaArg").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getCompilerNames_id3Par5_LaIPl, getAntTargetName_id6pYRYgn8i1z, needsFork_id3Par5_LaArg);
 
@@ -48,7 +45,6 @@ public final class BwfJavaModule__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ BwfJavaModule__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

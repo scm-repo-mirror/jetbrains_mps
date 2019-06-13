@@ -21,12 +21,9 @@
     <orderEntry type="module" module-name="kernel-resources" />
     <orderEntry type="module" module-name="make-runtime" />
     <orderEntry type="module" module-name="persistence" />
-    <orderEntry type="module" module-name="typesystemEngine" />
     <orderEntry type="module" module-name="make-facets" />
     <orderEntry type="module" module-name="environment" />
     <orderEntry type="module" module-name="platform" />
     <orderEntry type="module" module-name="components" />
-    <orderEntry type="module" module-name="mps-platform" />
-    <orderEntry type="library" name="Idea-platform" level="project" />
   </component>
 </module>

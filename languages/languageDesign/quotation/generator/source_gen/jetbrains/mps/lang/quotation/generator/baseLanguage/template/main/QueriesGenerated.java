@@ -502,7 +502,7 @@ public class QueriesGenerated {
           // this is reference to quotaion internals 
           innerQuotationRef = SNodeOperations.getContainingRoot(targetNode) == SNodeOperations.getContainingRoot(originalNode);
         } else {
-          // 2) source node is under quotation, target node is external to the quotation then  
+          // 2) source node is under quotation, target node is external to the quotation then 
           innerQuotationRef = false;
         }
       }

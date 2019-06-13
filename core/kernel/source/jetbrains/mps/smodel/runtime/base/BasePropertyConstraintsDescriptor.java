@@ -19,7 +19,10 @@ import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.smodel.adapter.ids.SPropertyId;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.adapter.structure.concept.SAbstractConceptAdapter;
+import jetbrains.mps.smodel.adapter.structure.types.SEnumerationAdapter;
+import jetbrains.mps.smodel.adapter.structure.types.SEnumerationAdapter.SEnumLiteralAdapter;
 import jetbrains.mps.smodel.language.ConceptRegistry;
+import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.ConceptDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.InheritanceIterable;
@@ -181,7 +184,7 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDis
 
   @Override
   @Deprecated
-  @ToRemove(version = 19.1)
+  @ToRemove(version = 2019.2)
   public void setValue(SNode node, String value) {
     if (!isSetterDefault()) {
       setterDescriptor.setValue(node, value);
@@ -205,7 +208,7 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDis
   }
 
   @Deprecated
-  @ToRemove(version = 19.1)
+  @ToRemove(version = 2019.2)
   @Override
   public boolean validateValue(SNode node, String value) {
     if (!isValidatorDefault()) {
@@ -216,13 +219,13 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDis
   }
 
   @Override
-  public boolean validateValue(SNode node, Object value) {
+  public boolean validateValue(SNode node, Object value, CheckingNodeContext checkingNodeContext) {
     if (!isValidatorDefault()) {
       if (validatorDescriptor == this) {
         // TODO remove clause after 19.1
         return validateValue(node, passAsRawValue(value));
       }
-      return validatorDescriptor.validateValue(node, value);
+      return validatorDescriptor.validateValue(node, value, checkingNodeContext);
     } else {
       return true;
     }
@@ -230,11 +233,11 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDis
 
   private String passAsRawValue(Object value) {
     SDataType type = myProperty.getType();
-    if (type instanceof SEnumeration && value instanceof SEnumerationLiteral) {
+    if (type instanceof SEnumerationAdapter && value instanceof SEnumerationLiteral) {
       SEnumerationLiteral literal = (SEnumerationLiteral) value;
-      if (type.equals(literal.getEnumeration())) {
-        return literal.getName();
-      }
+      assert type.equals(literal.getEnumeration());
+      // non-regenerated queries operated with old raw value of enumerations (regardless it is already migrated or not)
+      return SEnumerationAdapter.getEnumMemberRawValue(literal);
     }
     return type.toString(value);
   }

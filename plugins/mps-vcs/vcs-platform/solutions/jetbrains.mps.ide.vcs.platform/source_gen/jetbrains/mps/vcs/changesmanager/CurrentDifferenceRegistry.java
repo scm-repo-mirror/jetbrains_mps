@@ -20,6 +20,7 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.vfs.VirtualFile;
+import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.smodel.SModelFileTracker;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
@@ -57,7 +58,7 @@ public class CurrentDifferenceRegistry implements ProjectComponent {
     myFileStatusManager.addFileStatusListener(myFileStatusListener);
     new RepoListenerRegistrar(myMpsProject.getRepository(), myModelRepositoryListener).attach();
     // do not start the command thread immediately, let project refresh its structures and components. 
-    // Not sure whether to use StartupManager.registerPostStartupActivity or runWhenSmart; chose latter as its javadoc  
+    // Not sure whether to use StartupManager.registerPostStartupActivity or runWhenSmart; chose latter as its javadoc 
     // promises initialized project in addition to indexing done (to some extent). 
     DumbService.getInstance(getProject()).runWhenSmart(new Runnable() {
       public void run() {
@@ -103,7 +104,13 @@ public class CurrentDifferenceRegistry implements ProjectComponent {
     if (file == null) {
       return;
     }
-    IFile iFile = myMpsProject.getFileSystem().fromVirtualFile(file);
+
+    IdeaFileSystem fs = myMpsProject.getFileSystem();
+    if (!(fs.canConvert(file))) {
+      return;
+    }
+
+    IFile iFile = fs.fromVirtualFile(file);
     SModel modelDescriptor = SModelFileTracker.getInstance(myMpsProject.getRepository()).findModel(iFile);
     if (modelDescriptor == null || !(modelDescriptor.isLoaded())) {
       return;

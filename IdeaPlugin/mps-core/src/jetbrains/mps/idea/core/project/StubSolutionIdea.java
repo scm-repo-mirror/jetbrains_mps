@@ -172,7 +172,7 @@ public abstract class StubSolutionIdea extends StubSolution {
     for (VirtualFile f : roots) {
       String localPath = getLocalPath(f);
       if (!seenPaths.add(localPath)) continue;
-      solutionDescriptor.getModelRootDescriptors().add(ModelRootDescriptor.getJavaStubsModelRoot(FileSystem.getInstance().getFile(localPath)));
+      solutionDescriptor.getModelRootDescriptors().add(ModelRootDescriptor.addSourceRoot(FileSystem.getInstance().getFile(localPath)));
     }
   }
 

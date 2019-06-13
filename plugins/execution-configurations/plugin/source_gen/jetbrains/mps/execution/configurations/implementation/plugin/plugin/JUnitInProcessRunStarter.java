@@ -110,7 +110,7 @@ public class JUnitInProcessRunStarter implements JUnitProcessStarter {
           if (LOG.isInfoEnabled()) {
             LOG.info(terminateMessage);
           }
-          // once this Future is completed (isDone() == true), FakeProcessHandler terminates and process listeners  
+          // once this Future is completed (isDone() == true), FakeProcessHandler terminates and process listeners 
           // have a change to notify others (e.g. TestRunState though UnitTestProcessListener with TestEventsDispatcher) 
         } finally {
           RuntimeFlags.setTestMode(oldTestMode);

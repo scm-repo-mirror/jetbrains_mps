@@ -12,6 +12,11 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 
+/**
+ * 
+ * @deprecated SingleLineComment now utilizes j.m.lang.text, this class is no longer needed
+ */
+@Deprecated
 public class SingleLineCommentUtil {
   public static void divideSingleLineCommentText(SNode node, EditorContext editorContext) {
 

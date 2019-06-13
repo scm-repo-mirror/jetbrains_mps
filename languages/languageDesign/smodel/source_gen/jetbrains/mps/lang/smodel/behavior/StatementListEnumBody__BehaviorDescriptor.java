@@ -5,8 +5,6 @@ package jetbrains.mps.lang.smodel.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -24,11 +22,10 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class StatementListEnumBody__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc9L, "jetbrains.mps.lang.smodel.structure.StatementListEnumBody");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Boolean> isExecuteSynchronous_idhTIpcC8 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isExecuteSynchronous").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hTIpcC8").registry(REGISTRY).build();
-  public static final SMethod<Boolean> isPassLastExpressionValue_id28aPEVv$IZv = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isPassLastExpressionValue").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("28aPEVv$IZv").registry(REGISTRY).build();
-  public static final SMethod<SNode> getStatementList_id28aPEVv_31A = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getStatementList").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("28aPEVv_31A").registry(REGISTRY).build();
+  public static final SMethod<Boolean> isExecuteSynchronous_idhTIpcC8 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isExecuteSynchronous").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hTIpcC8").build();
+  public static final SMethod<Boolean> isPassLastExpressionValue_id28aPEVv$IZv = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isPassLastExpressionValue").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("28aPEVv$IZv").build();
+  public static final SMethod<SNode> getStatementList_id28aPEVv_31A = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getStatementList").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("28aPEVv_31A").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isExecuteSynchronous_idhTIpcC8, isPassLastExpressionValue_id28aPEVv$IZv, getStatementList_id28aPEVv_31A);
 
@@ -46,7 +43,6 @@ public final class StatementListEnumBody__BehaviorDescriptor extends BaseBHDescr
   }
 
   /*package*/ StatementListEnumBody__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

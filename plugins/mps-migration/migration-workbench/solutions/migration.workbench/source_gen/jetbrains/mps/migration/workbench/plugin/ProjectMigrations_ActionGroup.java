@@ -10,21 +10,23 @@ import org.jetbrains.mps.util.Condition;
 import jetbrains.mps.workbench.action.BaseAction;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.workbench.action.ApplicationPlugin;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import jetbrains.mps.migration.global.ProjectMigration;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.migration.global.ProjectMigrationsRegistry;
 import com.intellij.openapi.extensions.PluginId;
-import org.jetbrains.annotations.Nullable;
 
 public class ProjectMigrations_ActionGroup extends GeneratedActionGroup {
   public static final String ID = "jetbrains.mps.migration.workbench.plugin.ProjectMigrations_ActionGroup";
-  private Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
-  public ProjectMigrations_ActionGroup() {
-    super("Project Migrations", ID);
-    this.setIsInternal(false);
-    this.setMnemonic("p".charAt(0));
-    this.setPopup(true);
+  private final Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
+
+  public ProjectMigrations_ActionGroup(@Nullable ApplicationPlugin plugin) {
+    super("Project Migrations", ID, plugin);
+    setIsInternal(false);
+    setMnemonic("p".charAt(0));
+    setPopup(true);
   }
   public void doUpdate(AnActionEvent event) {
     removeAll();

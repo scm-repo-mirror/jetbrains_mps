@@ -19,16 +19,17 @@ import jetbrains.mps.components.CoreComponent;
 import jetbrains.mps.languageScope.LanguageScopeFactory;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.typechecking.TypecheckingFacade;
-import jetbrains.mps.typechecking.backend.BasicTypecheckingController;
+import jetbrains.mps.typechecking.backend.DefaultTypecheckingController;
+import jetbrains.mps.typechecking.backend.SharedSessionTypecheckingController;
 import jetbrains.mps.typechecking.backend.TypecheckingBackend;
 import jetbrains.mps.typechecking.backend.TypecheckingController;
-import jetbrains.mps.typechecking.backend.TypecheckingSession.Flags;
+import jetbrains.mps.typechecking.backend.TypecheckingSession;
 import jetbrains.mps.typechecking.backend.WorkbenchTypecheckingController;
-import jetbrains.mps.util.containers.ConcurrentHashSet;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.SwingUtilities;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.function.Supplier;
 
@@ -59,17 +60,39 @@ public class TypecheckingFacadeComponent implements CoreComponent {
   @Override
   public void init() {
     // TODO: context instance is supposed to be provided by the environment running the user code, it's not meant to be a static field
-//    this.myTypecheckingController = new BasicTypecheckingController(myTypecheckingBackend);
-//    this.myTypecheckingFacade = new ContextTypecheckingFacade(myTypecheckingController);
     ContextTypecheckingFacade.setFactoryInstance(
         () -> {
           if (SwingUtilities.isEventDispatchThread()) {
             // TODO correctly initialize facade for AWT thread
-            return createFacade(() -> new WorkbenchTypecheckingController(myTypecheckingBackend));
+            return createFacade(new TypecheckingControllerFactory() {
+              public TypecheckingController context() {
+                return new WorkbenchTypecheckingController(myTypecheckingBackend);
+              }
+
+              public TypecheckingController isolated() {
+                return new DefaultTypecheckingController(myTypecheckingBackend);
+              }
+
+              public TypecheckingController shared(@NotNull TypecheckingSession session) {
+                return new SharedSessionTypecheckingController(myTypecheckingBackend, session);
+              }
+            });
 
           } else {
             // TODO correctly initialize facade for threads other than AWT
-            return createFacade(() -> new BasicTypecheckingController(myTypecheckingBackend));
+            return createFacade(new TypecheckingControllerFactory() {
+              public TypecheckingController context() {
+                return new DefaultTypecheckingController(myTypecheckingBackend);
+              }
+
+              public TypecheckingController isolated() {
+                return new DefaultTypecheckingController(myTypecheckingBackend);
+              }
+
+              public TypecheckingController shared(@NotNull TypecheckingSession session) {
+                return new SharedSessionTypecheckingController(myTypecheckingBackend, session);
+              }
+            });
           }
         });
   }
@@ -81,40 +104,68 @@ public class TypecheckingFacadeComponent implements CoreComponent {
     }
   }
 
-  private ContextTypecheckingFacade createFacade(Supplier<TypecheckingController> controllerSupplier) {
-    ContextTypecheckingFacade facade = new ContextTypecheckingFacade(controllerSupplier);
+  private ContextTypecheckingFacade createFacade(TypecheckingControllerFactory sharedControllerFactory)
+  {
+    ContextTypecheckingFacade facade = new ContextTypecheckingFacade(sharedControllerFactory);
     myFacadeQueue.add(facade);
     return facade;
+  }
+
+  protected interface TypecheckingControllerFactory {
+
+    TypecheckingController context();
+
+    TypecheckingController isolated();
+
+    TypecheckingController shared(@NotNull TypecheckingSession session);
+
   }
 
   protected static class ContextTypecheckingFacade extends TypecheckingFacade {
 
     protected static void setFactoryInstance(Supplier<TypecheckingFacade> factoryInstance) {
-      FACTORY_INSTANCE = factoryInstance;
+      TypecheckingFacade.DEFAULT_INSTANCE_FACTORY = factoryInstance;
     }
 
-    private final TypecheckingController myTypecheckingController;
+    @NotNull
+    private final TypecheckingControllerFactory myControllerFactory;
 
-    public ContextTypecheckingFacade(Supplier<TypecheckingController> controllerSupplier) {
-      myTypecheckingController = controllerSupplier.get();
+    private Deque<TypecheckingController> myControllerStack = new ArrayDeque<>();
+
+    public ContextTypecheckingFacade(@NotNull TypecheckingControllerFactory controllerFactory) {
+      myControllerFactory = controllerFactory;
     }
 
-    public void dispose() {
-      myTypecheckingController.dispose();
+    protected void dispose() {
+      while (!myControllerStack.isEmpty()) {
+        myControllerStack.pop().dispose();
+      }
     }
 
     @NotNull
     @Override
-    protected TypecheckingController getController() {
-      return myTypecheckingController;
-    }
-    @NotNull
-    @Override
-    public SessionToken requestNewSession(@NotNull Flags flags) {
-      return myTypecheckingController.requestNewSession(flags);
+    protected TypecheckingController controller() {
+      if (myControllerStack.isEmpty()) {
+        myControllerStack.push(myControllerFactory.context());
+      }
+      //noinspection ConstantConditions
+      return myControllerStack.peek();
     }
 
+    @Override
+    protected void overrideSharedController(@NotNull TypecheckingSession session) {
+      myControllerStack.push(myControllerFactory.shared(session));
+    }
+
+    @Override
+    protected void overrideIsolatedController() {
+      myControllerStack.push(myControllerFactory.isolated());
+    }
+
+    @Override
+    protected void resetOverride() {
+      myControllerStack.pop().dispose();
+    }
   }
-
 
 }

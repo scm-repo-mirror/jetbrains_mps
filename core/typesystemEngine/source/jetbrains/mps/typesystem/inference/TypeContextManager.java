@@ -43,6 +43,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * @deprecated {@link jetbrains.mps.typechecking.TypecheckingFacade} should be used for executing typechecking actions.
+ */
+@Deprecated
 public class TypeContextManager implements CoreComponent {
 
   private static final Logger LOG = LogManager.getLogger(TypeContextManager.class);

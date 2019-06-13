@@ -124,7 +124,7 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
    */
   /*package*/ void collectGeneratedFiles(SModel generatedInputModel) {
     // each file of generated model reported as stale 
-    // alternatively, collect files of generatedModels (recorded in 'generated'), then update with delta of generated files (i.e. substract),  
+    // alternatively, collect files of generatedModels (recorded in 'generated'), then update with delta of generated files (i.e. substract), 
     // and those that left report as 'stale' (not to merge stale delta with written/touched) 
     final FilesDelta fd = new FilesDelta(new DeltaKey(myModule, generatedInputModel));
     visitGeneratedFiles(generatedInputModel, new Consumer<IFile>() {
@@ -144,7 +144,7 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
       return;
     }
     final IFile outputRoot = gtf.getOutputRoot(generatedInputModel);
-    // XXX what if model ceased to have output, here we don't recognize scenario when model used to be generated somewhere.  
+    // XXX what if model ceased to have output, here we don't recognize scenario when model used to be generated somewhere. 
     // Seems we are not capable to report these files as generated/stale here 
     if (outputRoot == null) {
       return;

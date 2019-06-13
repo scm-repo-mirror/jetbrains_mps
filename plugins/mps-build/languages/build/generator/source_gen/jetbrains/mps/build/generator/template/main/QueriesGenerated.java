@@ -1700,9 +1700,9 @@ public class QueriesGenerated extends QueryProviderBase {
     });
   }
   public static void mapSrcMacro_post_12_0(final MapSrcMacroPostProcContext _context) {
-    // HACK. At the moment, DependenciesHelper is populated with locations, with  
+    // HACK. At the moment, DependenciesHelper is populated with locations, with 
     // inputNode (BuildLayout_File) serving as a key. Here, the file gets replaced with 
-    // BuildLayout_Copy, and incoming references (like BuildLayout_Import in another project)  
+    // BuildLayout_Copy, and incoming references (like BuildLayout_Import in another project) 
     // get re-routed to this node. However, once that import is processed, there's nothing in DH.locations() 
     // that match its target (it's outputNode, BL_Copy at the time). To workaround, I record original location 
     // key here with the new target node, and use it from main.BuildLayout_Import template. 

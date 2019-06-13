@@ -21,78 +21,80 @@
   </root>
   <root nodeRef="r:a3396333-01e8-4d8f-ac7d-92203e663cdb(jetbrains.mps.debugger.java.runtime.ui.actions)/4225554808929802673">
     <file name="Runtime_ApplicationPlugin.java">
-      <node id="4225554808929802673" at="24,57,25,45" concept="2" />
-      <node id="4225554808930022146" at="29,37,30,103" concept="2" />
+      <node id="4225554808929802673" at="29,61,30,49" concept="2" />
+      <node id="4225554808930022146" at="34,37,35,103" concept="2" />
     </file>
     <file name="ViewAs_Group_ActionGroup.java">
-      <node id="4225554808929802673" at="28,0,29,0" concept="11" trace="ID" />
-      <node id="4225554808929802673" at="29,0,30,0" concept="3" trace="myPlaces" />
-      <node id="4225554808929802673" at="30,37,31,25" concept="13" />
-      <node id="4225554808929802673" at="31,25,32,30" concept="2" />
-      <node id="4225554808929802673" at="32,30,33,24" concept="2" />
-      <node id="4225554808929802673" at="35,45,36,16" concept="2" />
-      <node id="4225554808929829222" at="36,16,37,90" concept="7" />
-      <node id="4225554808929829231" at="38,60,39,48" concept="2" />
-      <node id="4225554808929858028" at="39,48,40,13" concept="8" />
-      <node id="6981609696259494663" at="41,5,42,0" concept="10" />
-      <node id="6981609696259494580" at="42,0,43,80" concept="7" />
-      <node id="6981609696259495248" at="44,31,45,48" concept="2" />
-      <node id="6981609696259494587" at="45,48,46,13" concept="8" />
-      <node id="6981609696259501202" at="47,5,48,0" concept="10" />
-      <node id="6981609696259500847" at="48,0,49,66" concept="7" />
-      <node id="4225554808929830903" at="49,66,50,103" concept="7" />
-      <node id="4381621564931149606" at="52,64,53,183" concept="8" />
-      <node id="6981609696259494485" at="55,7,56,0" concept="10" />
-      <node id="4225554808929858965" at="57,54,58,48" concept="2" />
-      <node id="4225554808929858972" at="58,48,59,13" concept="8" />
-      <node id="4225554808929981383" at="61,72,62,151" concept="2" />
-      <node id="4225554808929802673" at="64,70,65,39" concept="2" />
-      <node id="4225554808929802673" at="68,81,69,109" concept="2" />
-      <node id="4225554808929802673" at="71,29,72,17" concept="8" />
-      <node id="6981609696259507195" at="52,0,55,0" concept="6" trace="invoke#()Ljetbrains/mps/internal/collections/runtime/ICollectionSequence;" />
-      <node id="4225554808929943881" at="60,5,63,5" concept="4" />
-      <node id="4225554808929802673" at="63,5,66,5" concept="4" />
-      <node id="4225554808929802673" at="68,0,71,0" concept="6" trace="addPlace#(Ljetbrains/mps/workbench/ActionPlace;Lorg/jetbrains/mps/util/Condition;)V" />
-      <node id="4225554808929802673" at="71,0,74,0" concept="6" trace="isStrict#()Z" />
-      <node id="4225554808929857258" at="37,90,41,5" concept="5" />
-      <node id="6981609696259494585" at="43,80,47,5" concept="5" />
-      <node id="4225554808929856583" at="56,0,60,5" concept="5" />
-      <node id="4225554808929802673" at="30,0,35,0" concept="1" trace="ViewAs_Group_ActionGroup#()V" />
-      <node id="6981609696259501598" at="50,103,55,7" concept="2" />
-      <node id="4225554808929802673" at="35,0,68,0" concept="6" trace="doUpdate#(Lcom/intellij/openapi/actionSystem/AnActionEvent;)V" />
-      <scope id="6981609696259507196" at="52,64,53,183" />
-      <scope id="4225554808929943887" at="61,72,62,151" />
-      <scope id="4225554808929802673" at="64,70,65,39" />
-      <scope id="4225554808929802673" at="68,81,69,109" />
-      <scope id="4225554808929802673" at="71,29,72,17" />
-      <scope id="4225554808929857261" at="38,60,40,13" />
-      <scope id="6981609696259494586" at="44,31,46,13" />
-      <scope id="4225554808929856586" at="57,54,59,13" />
-      <scope id="4225554808929802673" at="30,37,33,24" />
-      <scope id="6981609696259507195" at="52,0,55,0" />
-      <scope id="4225554808929943881" at="60,5,63,5">
+      <node id="4225554808929802673" at="29,0,30,0" concept="11" trace="ID" />
+      <node id="4225554808929802673" at="30,0,31,0" concept="3" trace="myPlaces" />
+      <node id="4225554808929802673" at="32,71,33,33" concept="13" />
+      <node id="4225554808929802673" at="33,33,34,25" concept="2" />
+      <node id="4225554808929802673" at="34,25,35,19" concept="2" />
+      <node id="4225554808929802673" at="37,45,38,16" concept="2" />
+      <node id="4225554808929829222" at="38,16,39,90" concept="7" />
+      <node id="4225554808929829231" at="40,60,41,48" concept="2" />
+      <node id="4225554808929858028" at="41,48,42,13" concept="8" />
+      <node id="6981609696259494663" at="43,5,44,0" concept="10" />
+      <node id="6981609696259494580" at="44,0,45,80" concept="7" />
+      <node id="6981609696259495248" at="46,31,47,48" concept="2" />
+      <node id="6981609696259494587" at="47,48,48,13" concept="8" />
+      <node id="6981609696259501202" at="49,5,50,0" concept="10" />
+      <node id="6981609696259500847" at="50,0,51,66" concept="7" />
+      <node id="4225554808929830903" at="51,66,52,103" concept="7" />
+      <node id="4381621564931149606" at="54,64,55,183" concept="8" />
+      <node id="6981609696259494485" at="57,7,58,0" concept="10" />
+      <node id="4225554808929858965" at="59,54,60,48" concept="2" />
+      <node id="4225554808929858972" at="60,48,61,13" concept="8" />
+      <node id="4225554808929981383" at="63,72,64,151" concept="2" />
+      <node id="4225554808929802673" at="66,70,67,39" concept="2" />
+      <node id="4225554808929802673" at="70,81,71,109" concept="2" />
+      <node id="4225554808929802673" at="73,29,74,17" concept="8" />
+      <node id="6981609696259507195" at="54,0,57,0" concept="6" trace="invoke#()Ljetbrains/mps/internal/collections/runtime/ICollectionSequence;" />
+      <node id="4225554808929943881" at="62,5,65,5" concept="4" />
+      <node id="4225554808929802673" at="65,5,68,5" concept="4" />
+      <node id="4225554808929802673" at="70,0,73,0" concept="6" trace="addPlace#(Ljetbrains/mps/workbench/ActionPlace;Lorg/jetbrains/mps/util/Condition;)V" />
+      <node id="4225554808929802673" at="73,0,76,0" concept="6" trace="isStrict#()Z" />
+      <node id="4225554808929857258" at="39,90,43,5" concept="5" />
+      <node id="6981609696259494585" at="45,80,49,5" concept="5" />
+      <node id="4225554808929856583" at="58,0,62,5" concept="5" />
+      <node id="4225554808929802673" at="32,0,37,0" concept="1" trace="ViewAs_Group_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <node id="6981609696259501598" at="52,103,57,7" concept="2" />
+      <node id="4225554808929802673" at="37,0,70,0" concept="6" trace="doUpdate#(Lcom/intellij/openapi/actionSystem/AnActionEvent;)V" />
+      <scope id="6981609696259507196" at="54,64,55,183" />
+      <scope id="4225554808929943887" at="63,72,64,151" />
+      <scope id="4225554808929802673" at="66,70,67,39" />
+      <scope id="4225554808929802673" at="70,81,71,109" />
+      <scope id="4225554808929802673" at="73,29,74,17" />
+      <scope id="4225554808929857261" at="40,60,42,13" />
+      <scope id="6981609696259494586" at="46,31,48,13" />
+      <scope id="4225554808929856586" at="59,54,61,13" />
+      <scope id="4225554808929802673" at="32,71,35,19" />
+      <scope id="6981609696259507195" at="54,0,57,0" />
+      <scope id="4225554808929943881" at="62,5,65,5">
         <var name="factory" id="4225554808929943883" />
       </scope>
-      <scope id="4225554808929802673" at="63,5,66,5">
+      <scope id="4225554808929802673" at="65,5,68,5">
         <var name="p" id="4225554808929802673" />
       </scope>
-      <scope id="4225554808929802673" at="68,0,71,0">
+      <scope id="4225554808929802673" at="70,0,73,0">
         <var name="cond" id="4225554808929802673" />
         <var name="place" id="4225554808929802673" />
       </scope>
-      <scope id="4225554808929802673" at="71,0,74,0" />
-      <scope id="4225554808929802673" at="30,0,35,0" />
-      <scope id="4225554808929802673" at="35,45,66,5">
+      <scope id="4225554808929802673" at="73,0,76,0" />
+      <scope id="4225554808929802673" at="32,0,37,0">
+        <var name="plugin" id="4225554808929802673" />
+      </scope>
+      <scope id="4225554808929802673" at="37,45,68,5">
         <var name="debugSession" id="6981609696259494581" />
         <var name="factories" id="4225554808929830904" />
         <var name="uiState" id="6981609696259500848" />
         <var name="value" id="4225554808929829223" />
       </scope>
-      <scope id="4225554808929802673" at="35,0,68,0">
+      <scope id="4225554808929802673" at="37,0,70,0">
         <var name="event" id="4225554808929802673" />
       </scope>
-      <unit id="6981609696259507195" at="51,46,55,5" name="jetbrains.mps.debugger.java.runtime.ui.actions.ViewAs_Group_ActionGroup$1" />
-      <unit id="4225554808929802673" at="27,0,75,0" name="jetbrains.mps.debugger.java.runtime.ui.actions.ViewAs_Group_ActionGroup" />
+      <unit id="6981609696259507195" at="53,46,57,5" name="jetbrains.mps.debugger.java.runtime.ui.actions.ViewAs_Group_ActionGroup$1" />
+      <unit id="4225554808929802673" at="28,0,77,0" name="jetbrains.mps.debugger.java.runtime.ui.actions.ViewAs_Group_ActionGroup" />
     </file>
   </root>
   <root nodeRef="r:a3396333-01e8-4d8f-ac7d-92203e663cdb(jetbrains.mps.debugger.java.runtime.ui.actions)/4225554808929945133">
@@ -175,20 +177,22 @@
   </root>
   <root nodeRef="r:a3396333-01e8-4d8f-ac7d-92203e663cdb(jetbrains.mps.debugger.java.runtime.ui.actions)/4613144939628065112">
     <file name="JavaWatchableNodeActions_ActionGroup.java">
-      <node id="4613144939628065112" at="8,0,9,0" concept="11" trace="ID" />
-      <node id="4613144939628065112" at="9,49,10,42" concept="13" />
-      <node id="4613144939628065112" at="10,42,11,30" concept="2" />
-      <node id="4613144939628065112" at="11,30,12,25" concept="2" />
-      <node id="4613144939628065115" at="12,25,13,129" concept="2" />
-      <node id="8468903939742242945" at="13,129,14,139" concept="2" />
-      <node id="4613144939628065112" at="9,0,16,0" concept="1" trace="JavaWatchableNodeActions_ActionGroup#()V" />
-      <scope id="4613144939628065112" at="9,49,14,139" />
-      <scope id="4613144939628065112" at="9,0,16,0" />
-      <unit id="4613144939628065112" at="7,0,17,0" name="jetbrains.mps.debugger.java.runtime.ui.actions.JavaWatchableNodeActions_ActionGroup" />
+      <node id="4613144939628065112" at="10,0,11,0" concept="11" trace="ID" />
+      <node id="4613144939628065112" at="12,83,13,50" concept="13" />
+      <node id="4613144939628065112" at="13,50,14,25" concept="2" />
+      <node id="4613144939628065112" at="14,25,15,20" concept="2" />
+      <node id="4613144939628065115" at="15,20,16,129" concept="2" />
+      <node id="8468903939742242945" at="16,129,17,139" concept="2" />
+      <node id="4613144939628065112" at="12,0,19,0" concept="1" trace="JavaWatchableNodeActions_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <scope id="4613144939628065112" at="12,83,17,139" />
+      <scope id="4613144939628065112" at="12,0,19,0">
+        <var name="plugin" id="4613144939628065112" />
+      </scope>
+      <unit id="4613144939628065112" at="9,0,20,0" name="jetbrains.mps.debugger.java.runtime.ui.actions.JavaWatchableNodeActions_ActionGroup" />
     </file>
     <file name="Runtime_ApplicationPlugin.java">
-      <node id="4613144939628065112" at="23,14,24,57" concept="2" />
-      <node id="4613144939628065116" at="30,103,31,175" concept="2" />
+      <node id="4613144939628065112" at="28,14,29,61" concept="2" />
+      <node id="4613144939628065116" at="35,103,36,175" concept="2" />
     </file>
   </root>
   <root nodeRef="r:a3396333-01e8-4d8f-ac7d-92203e663cdb(jetbrains.mps.debugger.java.runtime.ui.actions)/4893181994832024376">
@@ -232,46 +236,48 @@
       <unit id="4893181994832024376" at="15,0,44,0" name="jetbrains.mps.debugger.java.runtime.ui.actions.CopyStackTraceToClipboard_Action" />
     </file>
     <file name="Runtime_ApplicationPlugin.java">
-      <node id="4893181994832024376" at="18,43,19,54" concept="2" />
+      <node id="4893181994832024376" at="23,43,24,54" concept="2" />
     </file>
   </root>
   <root nodeRef="r:a3396333-01e8-4d8f-ac7d-92203e663cdb(jetbrains.mps.debugger.java.runtime.ui.actions)/7162597690968011948">
     <file name="Runtime_ApplicationPlugin.java">
-      <node id="7162597690968011948" at="10,0,11,0" concept="3" trace="myId" />
-      <node id="7162597690968011948" at="13,27,14,16" concept="8" />
-      <node id="7162597690968011948" at="16,30,17,30" concept="9" />
-      <node id="7162597690968011948" at="22,46,23,14" concept="9" />
-      <node id="7162597690968011948" at="11,0,13,0" concept="1" trace="Runtime_ApplicationPlugin#()V" />
-      <node id="7162597690968011948" at="13,0,16,0" concept="6" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
-      <node id="7162597690968011948" at="29,0,33,0" concept="6" trace="adjustRegularGroups#()V" />
-      <node id="7162597690968011948" at="16,0,29,0" concept="6" trace="createGroups#()V" />
-      <scope id="7162597690968011948" at="11,38,11,38" />
-      <scope id="7162597690968011948" at="13,27,14,16" />
-      <scope id="7162597690968011948" at="11,0,13,0" />
-      <scope id="7162597690968011948" at="29,37,31,175" />
-      <scope id="7162597690968011948" at="13,0,16,0" />
-      <scope id="7162597690968011948" at="29,0,33,0" />
-      <scope id="7162597690968011948" at="16,30,27,51" />
-      <scope id="7162597690968011948" at="16,0,29,0" />
-      <unit id="7162597690968011948" at="9,0,34,0" name="jetbrains.mps.debugger.java.runtime.ui.actions.Runtime_ApplicationPlugin" />
+      <node id="7162597690968011948" at="11,0,12,0" concept="3" trace="myId" />
+      <node id="7162597690968011948" at="17,27,18,16" concept="8" />
+      <node id="7162597690968011948" at="21,30,22,30" concept="9" />
+      <node id="7162597690968011948" at="27,46,28,14" concept="9" />
+      <node id="7162597690968011948" at="13,0,15,0" concept="1" trace="Runtime_ApplicationPlugin#()V" />
+      <node id="7162597690968011948" at="16,0,20,0" concept="6" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
+      <node id="7162597690968011948" at="34,0,38,0" concept="6" trace="adjustRegularGroups#()V" />
+      <node id="7162597690968011948" at="21,0,34,0" concept="6" trace="createGroups#()V" />
+      <scope id="7162597690968011948" at="13,38,13,38" />
+      <scope id="7162597690968011948" at="17,27,18,16" />
+      <scope id="7162597690968011948" at="13,0,15,0" />
+      <scope id="7162597690968011948" at="34,37,36,175" />
+      <scope id="7162597690968011948" at="16,0,20,0" />
+      <scope id="7162597690968011948" at="34,0,38,0" />
+      <scope id="7162597690968011948" at="21,30,32,55" />
+      <scope id="7162597690968011948" at="21,0,34,0" />
+      <unit id="7162597690968011948" at="10,0,39,0" name="jetbrains.mps.debugger.java.runtime.ui.actions.Runtime_ApplicationPlugin" />
     </file>
   </root>
   <root nodeRef="r:a3396333-01e8-4d8f-ac7d-92203e663cdb(jetbrains.mps.debugger.java.runtime.ui.actions)/8643693251546861612">
     <file name="Runtime_ApplicationPlugin.java">
-      <node id="8643693251546861612" at="26,54,27,51" concept="2" />
+      <node id="8643693251546861612" at="31,58,32,55" concept="2" />
     </file>
     <file name="WatchesTreeActions_ActionGroup.java">
-      <node id="8643693251546861612" at="8,0,9,0" concept="11" trace="ID" />
-      <node id="8643693251546861612" at="9,43,10,36" concept="13" />
-      <node id="8643693251546861612" at="10,36,11,30" concept="2" />
-      <node id="8643693251546861612" at="11,30,12,25" concept="2" />
-      <node id="8643693251546861824" at="12,25,13,122" concept="2" />
-      <node id="8643693251546861829" at="13,122,14,123" concept="2" />
-      <node id="8643693251546861831" at="14,123,15,125" concept="2" />
-      <node id="8643693251546861612" at="9,0,17,0" concept="1" trace="WatchesTreeActions_ActionGroup#()V" />
-      <scope id="8643693251546861612" at="9,43,15,125" />
-      <scope id="8643693251546861612" at="9,0,17,0" />
-      <unit id="8643693251546861612" at="7,0,18,0" name="jetbrains.mps.debugger.java.runtime.ui.actions.WatchesTreeActions_ActionGroup" />
+      <node id="8643693251546861612" at="10,0,11,0" concept="11" trace="ID" />
+      <node id="8643693251546861612" at="12,77,13,44" concept="13" />
+      <node id="8643693251546861612" at="13,44,14,25" concept="2" />
+      <node id="8643693251546861612" at="14,25,15,20" concept="2" />
+      <node id="8643693251546861824" at="15,20,16,122" concept="2" />
+      <node id="8643693251546861829" at="16,122,17,123" concept="2" />
+      <node id="8643693251546861831" at="17,123,18,125" concept="2" />
+      <node id="8643693251546861612" at="12,0,20,0" concept="1" trace="WatchesTreeActions_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <scope id="8643693251546861612" at="12,77,18,125" />
+      <scope id="8643693251546861612" at="12,0,20,0">
+        <var name="plugin" id="8643693251546861612" />
+      </scope>
+      <unit id="8643693251546861612" at="9,0,21,0" name="jetbrains.mps.debugger.java.runtime.ui.actions.WatchesTreeActions_ActionGroup" />
     </file>
   </root>
   <root nodeRef="r:a3396333-01e8-4d8f-ac7d-92203e663cdb(jetbrains.mps.debugger.java.runtime.ui.actions)/8643693251546861633">
@@ -309,7 +315,7 @@
       <unit id="8643693251546861633" at="15,0,39,0" name="jetbrains.mps.debugger.java.runtime.ui.actions.AddWatchAction_Action" />
     </file>
     <file name="Runtime_ApplicationPlugin.java">
-      <node id="8643693251546861633" at="17,30,18,43" concept="2" />
+      <node id="8643693251546861633" at="22,30,23,43" concept="2" />
     </file>
   </root>
   <root nodeRef="r:a3396333-01e8-4d8f-ac7d-92203e663cdb(jetbrains.mps.debugger.java.runtime.ui.actions)/8643693251546861699">
@@ -349,7 +355,7 @@
       <unit id="8643693251546861699" at="17,0,42,0" name="jetbrains.mps.debugger.java.runtime.ui.actions.RemoveWatchAction_Action" />
     </file>
     <file name="Runtime_ApplicationPlugin.java">
-      <node id="8643693251546861699" at="21,44,22,46" concept="2" />
+      <node id="8643693251546861699" at="26,44,27,46" concept="2" />
     </file>
   </root>
   <root nodeRef="r:a3396333-01e8-4d8f-ac7d-92203e663cdb(jetbrains.mps.debugger.java.runtime.ui.actions)/8643693251546861757">
@@ -409,7 +415,7 @@
       <unit id="8643693251546861757" at="17,0,57,0" name="jetbrains.mps.debugger.java.runtime.ui.actions.EditWatchAction_Action" />
     </file>
     <file name="Runtime_ApplicationPlugin.java">
-      <node id="8643693251546861757" at="20,44,21,44" concept="2" />
+      <node id="8643693251546861757" at="25,44,26,44" concept="2" />
     </file>
   </root>
   <root nodeRef="r:a3396333-01e8-4d8f-ac7d-92203e663cdb(jetbrains.mps.debugger.java.runtime.ui.actions)/8894158296385402494">
@@ -493,24 +499,26 @@
       <unit id="8894158296385402494" at="23,0,80,0" name="jetbrains.mps.debugger.java.runtime.ui.actions.CopyValueAction_Action" />
     </file>
     <file name="Runtime_ApplicationPlugin.java">
-      <node id="8894158296385402494" at="19,54,20,44" concept="2" />
+      <node id="8894158296385402494" at="24,54,25,44" concept="2" />
     </file>
   </root>
   <root nodeRef="r:a3396333-01e8-4d8f-ac7d-92203e663cdb(jetbrains.mps.debugger.java.runtime.ui.actions)/9133858534420786537">
     <file name="Runtime_ApplicationPlugin.java">
-      <node id="9133858534420786537" at="25,45,26,54" concept="2" />
+      <node id="9133858534420786537" at="30,49,31,58" concept="2" />
     </file>
     <file name="WatchesToolbarActions_ActionGroup.java">
-      <node id="9133858534420786537" at="8,0,9,0" concept="11" trace="ID" />
-      <node id="9133858534420786537" at="9,46,10,39" concept="13" />
-      <node id="9133858534420786537" at="10,39,11,30" concept="2" />
-      <node id="9133858534420786537" at="11,30,12,25" concept="2" />
-      <node id="9133858534420786540" at="12,25,13,125" concept="2" />
-      <node id="9133858534420786542" at="13,125,14,128" concept="2" />
-      <node id="9133858534420786537" at="9,0,16,0" concept="1" trace="WatchesToolbarActions_ActionGroup#()V" />
-      <scope id="9133858534420786537" at="9,46,14,128" />
-      <scope id="9133858534420786537" at="9,0,16,0" />
-      <unit id="9133858534420786537" at="7,0,17,0" name="jetbrains.mps.debugger.java.runtime.ui.actions.WatchesToolbarActions_ActionGroup" />
+      <node id="9133858534420786537" at="10,0,11,0" concept="11" trace="ID" />
+      <node id="9133858534420786537" at="12,80,13,47" concept="13" />
+      <node id="9133858534420786537" at="13,47,14,25" concept="2" />
+      <node id="9133858534420786537" at="14,25,15,20" concept="2" />
+      <node id="9133858534420786540" at="15,20,16,125" concept="2" />
+      <node id="9133858534420786542" at="16,125,17,128" concept="2" />
+      <node id="9133858534420786537" at="12,0,19,0" concept="1" trace="WatchesToolbarActions_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <scope id="9133858534420786537" at="12,80,17,128" />
+      <scope id="9133858534420786537" at="12,0,19,0">
+        <var name="plugin" id="9133858534420786537" />
+      </scope>
+      <unit id="9133858534420786537" at="9,0,20,0" name="jetbrains.mps.debugger.java.runtime.ui.actions.WatchesToolbarActions_ActionGroup" />
     </file>
   </root>
 </debug-info>

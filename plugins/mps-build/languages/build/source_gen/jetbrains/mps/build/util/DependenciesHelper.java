@@ -75,7 +75,7 @@ public class DependenciesHelper {
   }
 
   public void preserveLocations(SNode from, SNode to) {
-    // this method is invoked from generation for specific usecases (wrap of a File wuth Copy),  
+    // this method is invoked from generation for specific usecases (wrap of a File wuth Copy), 
     // hence we expect nodes to be free-floating/transient, never from a regular model 
     assert SNodeOperations.getModel(to) == null || SNodeOperations.getModel(to) instanceof TransientSModel;
     to.putUserObject(myLocationKey, from.getUserObject(myLocationKey));
@@ -170,7 +170,7 @@ public class DependenciesHelper {
 
   public static SNode getOriginalNode(SNode node, TemplateQueryContext genContext) {
     // node.model could be legitimately == null for a node from transient model which is already disposed. 
-    // however, we need to answer its original node anyway, or the whole build process would fail:  
+    // however, we need to answer its original node anyway, or the whole build process would fail: 
     // RequiredPlugins records transient nodes and getArtifact(node<>) needs to find out original node of that node. 
     // If generation doesn't keep transient models (or uses in-place transformation), check for node.model==null here 
     // would effectively prevent from using getArtifacts(recordedTransientNode). 

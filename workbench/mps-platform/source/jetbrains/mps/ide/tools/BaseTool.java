@@ -131,16 +131,7 @@ public abstract class BaseTool {
   }
 
   /**
-   * Runs {@link jetbrains.mps.ide.tools.BaseTool#close} later in EDT event pool.
-   */
-  // TODO: remove unused?
-  public void closeLater() {
-    ThreadUtils.runInUIThreadNoWait(this::close);
-  }
-
-  /**
    * Minimizes the window, doesn't remove tool from panel
-   * Need to be called in EDT.
    */
   public void close() {
     ThreadUtils.assertEDT();

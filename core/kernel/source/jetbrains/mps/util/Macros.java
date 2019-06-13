@@ -18,6 +18,7 @@ package jetbrains.mps.util;
 import jetbrains.mps.project.PathMacros;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.path.Path;
+import jetbrains.mps.vfs.util.PathAssert;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -81,20 +82,22 @@ class Macros {
     return File.separator + FileUtil.getRelativePath(path, prefix, File.separator);
   }
 
-  static boolean pathStartsWith(String path, @NotNull String with) {
-    // shrink uses getCanonicalPath
-    path = getCanonicalPath(path);
+  static boolean pathStartsWith(String absolutePath, @NotNull String with) {
+    new PathAssert(absolutePath).absolute();
 
-    if (path.equals(with)) {
+    // shrink uses getCanonicalPath
+    absolutePath = getCanonicalPath(absolutePath);
+
+    if (absolutePath.equals(with)) {
       return true;
     }
 
     String fullPart = with + (with.endsWith(File.separator) ? "" : File.separator);
-    if (!path.toLowerCase().startsWith(fullPart.toLowerCase())) {
+    if (!absolutePath.toLowerCase().startsWith(fullPart.toLowerCase())) {
       return false;
     }
 
-    String pathReplaced = getCanonicalPath(with + path.substring(with.length()));
-    return path.equals(pathReplaced);
+    String pathReplaced = getCanonicalPath(with + absolutePath.substring(with.length()));
+    return absolutePath.equals(pathReplaced);
   }
 }

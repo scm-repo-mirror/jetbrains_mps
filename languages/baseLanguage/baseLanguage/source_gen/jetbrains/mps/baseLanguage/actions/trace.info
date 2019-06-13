@@ -1589,17 +1589,19 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902bf(jetbrains.mps.baseLanguage.actions)/4123120730936387297">
     <file name="SingleLineComment_factories.java">
-      <node id="4123120730936387314" at="13,91,14,338" concept="4" />
-      <node id="4123120730936387298" at="13,0,16,0" concept="8" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="4123120730936387298" at="13,91,14,338" />
-      <scope id="4123120730936387298" at="13,0,16,0">
+      <node id="4710708256415534253" at="15,65,16,231" concept="4" />
+      <node id="4710708256415521267" at="14,91,17,7" concept="7" />
+      <node id="4123120730936387298" at="14,0,19,0" concept="8" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="4710708256415521269" at="15,65,16,231" />
+      <scope id="4123120730936387298" at="14,91,17,7" />
+      <scope id="4123120730936387298" at="14,0,19,0">
         <var name="enclosingNode" id="4123120730936387298" />
         <var name="model" id="4123120730936387298" />
         <var name="newNode" id="4123120730936387298" />
         <var name="sampleNode" id="4123120730936387298" />
       </scope>
-      <unit id="4123120730936387298" at="12,0,17,0" name="jetbrains.mps.baseLanguage.actions.SingleLineComment_factories$NodeFactory_4123120730936387298" />
-      <unit id="4123120730936387297" at="11,0,18,0" name="jetbrains.mps.baseLanguage.actions.SingleLineComment_factories" />
+      <unit id="4123120730936387298" at="13,0,20,0" name="jetbrains.mps.baseLanguage.actions.SingleLineComment_factories$NodeFactory_4123120730936387298" />
+      <unit id="4123120730936387297" at="12,0,21,0" name="jetbrains.mps.baseLanguage.actions.SingleLineComment_factories" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902bf(jetbrains.mps.baseLanguage.actions)/4920206213429821380">

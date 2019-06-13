@@ -10,22 +10,24 @@ import org.jetbrains.mps.util.Condition;
 import jetbrains.mps.workbench.action.BaseAction;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.workbench.action.ApplicationPlugin;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.workbench.MPSDataKeys;
 import jetbrains.mps.workbench.action.BaseGroup;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.extensions.PluginId;
-import org.jetbrains.annotations.Nullable;
 
 public class ScriptsGlobally_ActionGroup extends GeneratedActionGroup {
   public static final String ID = "jetbrains.mps.lang.script.pluginSolution.plugin.ScriptsGlobally_ActionGroup";
-  private Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
-  public ScriptsGlobally_ActionGroup() {
-    super("Scripts", ID);
-    this.setIsInternal(false);
-    this.setMnemonic("S".charAt(0));
-    this.setPopup(true);
+  private final Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
+
+  public ScriptsGlobally_ActionGroup(@Nullable ApplicationPlugin plugin) {
+    super("Scripts", ID, plugin);
+    setIsInternal(false);
+    setMnemonic("S".charAt(0));
+    setPopup(true);
   }
   public void doUpdate(AnActionEvent event) {
     removeAll();

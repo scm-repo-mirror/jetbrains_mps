@@ -1199,8 +1199,8 @@
       <node id="9070483889460815039" at="30,61,31,31" concept="16" />
       <node id="5374841768518430237" at="33,0,34,0" concept="9" trace="createMapper#()Ljetbrains/jetpad/mapper/Mapper;" />
       <node id="1164387862488813845" at="34,0,35,0" concept="9" trace="createDecorationMapper#()Ljetbrains/jetpad/mapper/Mapper;" />
-      <node id="8082246476505738717" at="35,109,36,32" concept="12" />
-      <node id="1755573558918326108" at="36,32,37,40" concept="10" />
+      <node id="8082246476505738717" at="35,109,36,31" concept="12" />
+      <node id="1755573558918326108" at="36,31,37,40" concept="10" />
       <node id="1755573558918326126" at="38,23,39,13" concept="11" />
       <node id="1755573558918326130" at="40,5,41,101" concept="10" />
       <node id="1755573558918326144" at="42,35,43,97" concept="5" />

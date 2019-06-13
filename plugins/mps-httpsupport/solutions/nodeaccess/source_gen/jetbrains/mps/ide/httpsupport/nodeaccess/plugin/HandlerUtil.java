@@ -10,9 +10,23 @@ import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.ide.ThreadUtils;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
-import jetbrains.mps.project.MPSProject;
-import com.intellij.ide.impl.ProjectUtil;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.project.ProjectUtil;
 import com.intellij.openapi.application.ApplicationManager;
+import java.util.Collection;
+import com.intellij.psi.search.FilenameIndex;
+import com.intellij.psi.search.GlobalSearchScope;
+import java.util.stream.Stream;
+import jetbrains.mps.textgen.trace.DebugInfo;
+import jetbrains.mps.textgen.trace.DefaultTraceInfoProvider;
+import java.util.Iterator;
+import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import jetbrains.mps.textgen.trace.BaseLanguageNodeLookup;
+import jetbrains.mps.textgen.trace.DebugInfoRoot;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.project.MPSProject;
+import jetbrains.mps.ide.common.FileOpenUtil;
 import javax.swing.JComponent;
 import com.intellij.openapi.wm.WindowManager;
 import com.intellij.openapi.wm.IdeFrame;
@@ -33,11 +47,17 @@ public class HandlerUtil {
 
   public static final int POPUP_TIME = 10000;
 
-  public static final byte[] SUCCESS_STREAM = new byte[]{(byte) 0x47, (byte) 0x49, (byte) 0x46, (byte) 0x38, (byte) 0x39, (byte) 0x61, (byte) 0x02, (byte) 0x00, (byte) 0x02, (byte) 0x00, (byte) 0x80, (byte) 0xFF, (byte) 0x00, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x2C, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x01, (byte) 0x00, (byte) 0x01, (byte) 0x00, (byte) 0x00, (byte) 0x02, (byte) 0x02, (byte) 0x44, (byte) 0x01, (byte) 0x00, (byte) 0x3B};
+  public static final byte[] SUCCESS_STREAM = stream(71, 73, 70, 56, 57, 97, 2, 0, 2, 0, -128, -1, 0, -1, -1, -1, 0, 0, 0, 44, 0, 0, 0, 0, 1, 0, 1, 0, 0, 2, 2, 68, 1, 0, 59);
 
-  public static final byte[] FAILURE_STREAM = new byte[]{(byte) 0x47, (byte) 0x49, (byte) 0x46, (byte) 0x38, (byte) 0x39, (byte) 0x61, (byte) 0x01, (byte) 0x00, (byte) 0x01, (byte) 0x00, (byte) 0x80, (byte) 0xFF, (byte) 0x00, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x2C, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x01, (byte) 0x00, (byte) 0x01, (byte) 0x00, (byte) 0x00, (byte) 0x02, (byte) 0x02, (byte) 0x44, (byte) 0x01, (byte) 0x00, (byte) 0x3B};
+  public static final byte[] FAILURE_STREAM = stream(71, 73, 70, 56, 57, 97, 1, 0, 1, 0, -128, -1, 0, -1, -1, -1, 0, 0, 0, 44, 0, 0, 0, 0, 1, 0, 1, 0, 0, 2, 2, 68, 1, 0, 59);
 
-
+  private static byte[] stream(int... values) {
+    byte[] bytes = new byte[values.length];
+    for (int i = 0; i < values.length; i++) {
+      bytes[i] = (byte) values[i];
+    }
+    return bytes;
+  }
 
   public static SNode openNode(final Project project, final SNodeReference nodeReference) {
     if (nodeReference == null) {
@@ -61,34 +81,120 @@ public class HandlerUtil {
     });
   }
 
-  /*package*/ static void requestFocus(final Project project) {
-    // requires EDT 
-    if (project instanceof MPSProject) {
-      ThreadUtils.assertEDT();
-      ProjectUtil.focusProjectWindow(((MPSProject) project).getProject(), true);
+  public static VirtualFile getProjectRelativeFile(final Project project, String path) {
+    com.intellij.openapi.project.Project ideaProject = ideaProject(project);
+    VirtualFile projectFile = ProjectUtil.guessProjectDir(ideaProject);
+    if (projectFile == null) {
+      return null;
     }
+    return projectFile.findFileByRelativePath(path);
+  }
+
+  public static Iterable<VirtualFile> findFilesByName(final Project project, final String fileName) {
+    final com.intellij.openapi.project.Project ideaProject = ideaProject(project);
+    return ApplicationManager.getApplication().runReadAction(new com.intellij.openapi.util.Computable<Collection<VirtualFile>>() {
+      public Collection<VirtualFile> compute() {
+        return FilenameIndex.getVirtualFilesByName(ideaProject, fileName, GlobalSearchScope.everythingScope(ideaProject));
+      }
+    });
+  }
+
+  public static boolean tryOpenNodeByGeneratedFile(final Project project, final VirtualFile file, final Integer line) {
+    final String fileName = file.getName();
+    String path = file.getCanonicalPath();
+
+    int sourceGen = path.lastIndexOf(SOURCE_GEN);
+    if (sourceGen == -1) {
+      return false;
+    }
+    int unitNamePosition = (sourceGen == -1 ? 0 : sourceGen + SOURCE_GEN.length());
+    String ext = file.getExtension();
+    int extLength = (ext == null ? 0 : ext.length() + 1);
+    int unitNameEndPostion = path.length() - extLength;
+    String unitName = path.substring(unitNamePosition, unitNameEndPostion).replace('/', '.');
+    int modelNameEndPosition = unitName.lastIndexOf(".");
+    if (modelNameEndPosition == -1) {
+      return false;
+    }
+    String modelName = unitName.substring(0, modelNameEndPosition);
+
+    Stream<DebugInfo> debugInfos = new DefaultTraceInfoProvider(project.getRepository()).debugInfo(modelName);
+    Iterator<DebugInfo> it = debugInfos.iterator();
+    _FunctionTypes._return_P1_E0<? extends SNodeReference, ? super DebugInfo> nodeChooser = (line != null ? new _FunctionTypes._return_P1_E0<SNodeReference, DebugInfo>() {
+      public SNodeReference invoke(DebugInfo info) {
+        return new BaseLanguageNodeLookup(info).getNodeAt(fileName, line);
+      }
+    } : new _FunctionTypes._return_P1_E0<SNodeReference, DebugInfo>() {
+      public SNodeReference invoke(DebugInfo info) {
+        Iterable<DebugInfoRoot> roots = info.getRoots();
+        return Sequence.fromIterable(roots).findFirst(new IWhereFilter<DebugInfoRoot>() {
+          public boolean accept(DebugInfoRoot it) {
+            return it.getFileNames().contains(fileName);
+          }
+        }).getNodeRef();
+      }
+    });
+    while (it.hasNext()) {
+      SNodeReference reference = nodeChooser.invoke(it.next());
+      if (HandlerUtil.openNode(project, reference) != null) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private static com.intellij.openapi.project.Project ideaProject(Project project) {
+    return ((MPSProject) project).getProject();
+  }
+
+  public static void openFile(final Project project, final VirtualFile file, final Integer line) {
+    ApplicationManager.getApplication().invokeLater(new Runnable() {
+      public void run() {
+        FileOpenUtil.openFile(ideaProject(project), file, (line == null ? 1 : line));
+        requestFocus(project);
+      }
+    });
+  }
+
+  public static void requestFocus(final Project project) {
+    // requires EDT 
+    ThreadUtils.assertEDT();
+    com.intellij.ide.impl.ProjectUtil.focusProjectWindow(ideaProject(project), true);
   }
 
   public static String getNodeNotFoundText(final SNodeReference ref) {
-    return "Can not find node <i>" + ref + "</i>\nMaybe it has been deleted?";
+    return "Can not find node <i>" + ref + "</i>\nNode might be deleted or not belong to the project";
+  }
+  public static String getFileNotFoundText(final String path) {
+    return "Can not find file <i>" + path + "</i>\nFile might be deleted or not belong to the project";
   }
 
   public static void showNoProjectIsAvailablePopup() {
     ApplicationManager.getApplication().invokeLater(new Runnable() {
       public void run() {
-        JComponent component = (as_qa1yjq_a0a0a0a0a0a0a0a32(WindowManager.getInstance().findVisibleFrame(), IdeFrame.class)).getComponent();
+        JComponent component = (as_qa1yjq_a0a0a0a0a0a0a0a43(WindowManager.getInstance().findVisibleFrame(), IdeFrame.class)).getComponent();
         createPopupAndShow(HEADER + NO_PROJECT_IS_AVAILABLE, component);
       }
     });
   }
 
   public static void showNodeNotFoundPopup(final Project project, final SNodeReference ref) {
-    final MPSProject mpsProject = as_qa1yjq_a0a0a52(project, MPSProject.class);
+    String text = HEADER + getNodeNotFoundText(ref);
+    HandlerUtil.showNotFoundPopup(project, text);
+  }
+
+  public static void showFileNotFoundPopup(final Project project, final String path) {
+    String text = HEADER + getFileNotFoundText(path);
+    HandlerUtil.showNotFoundPopup(project, text);
+  }
+
+  private static void showNotFoundPopup(final Project project, final String text) {
+    final MPSProject mpsProject = as_qa1yjq_a0a0a04(project, MPSProject.class);
     final com.intellij.openapi.project.Project ideaProject = mpsProject.getProject();
     ApplicationManager.getApplication().invokeLater(new Runnable() {
       public void run() {
         JComponent component = WindowManager.getInstance().getStatusBar(ideaProject).getComponent();
-        createPopupAndShow(HEADER + getNodeNotFoundText(ref), component);
+        createPopupAndShow(text, component);
       }
     });
   }
@@ -96,10 +202,10 @@ public class HandlerUtil {
   private static void createPopupAndShow(String text, JComponent component) {
     JBPopupFactory.getInstance().createHtmlTextBalloonBuilder(text, MessageType.WARNING, null).setFadeoutTime(POPUP_TIME).createBalloon().show(RelativePoint.getSouthWestOf(component), Balloon.Position.above);
   }
-  private static <T> T as_qa1yjq_a0a0a0a0a0a0a0a32(Object o, Class<T> type) {
+  private static <T> T as_qa1yjq_a0a0a0a0a0a0a0a43(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
-  private static <T> T as_qa1yjq_a0a0a52(Object o, Class<T> type) {
+  private static <T> T as_qa1yjq_a0a0a04(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 }

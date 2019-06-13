@@ -5,8 +5,6 @@ package jetbrains.mps.lang.generator.generationParameters.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -24,9 +22,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class DefaultGeneratorParameter__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x289fcc83654341e8L, 0xa5ca768235715ce4L, 0x75bebc44281efab4L, "jetbrains.mps.lang.generator.generationParameters.structure.DefaultGeneratorParameter");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> getUniqueId_id$79JWCe2bn = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getUniqueId").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("$79JWCe2bn").registry(REGISTRY).build();
+  public static final SMethod<String> getUniqueId_id$79JWCe2bn = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getUniqueId").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("$79JWCe2bn").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getUniqueId_id$79JWCe2bn);
 
@@ -39,7 +36,6 @@ public final class DefaultGeneratorParameter__BehaviorDescriptor extends BaseBHD
   }
 
   /*package*/ DefaultGeneratorParameter__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

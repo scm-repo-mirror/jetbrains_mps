@@ -5,8 +5,6 @@ package jetbrains.mps.execution.settings.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -29,17 +27,16 @@ import jetbrains.mps.smodel.SModelUtil_new;
 
 public final class PersistentPropertyDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910119L, "jetbrains.mps.execution.settings.structure.PersistentPropertyDeclaration");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Boolean> isTemplate_idO$iR4J$g8G = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isTemplate").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g8G").registry(REGISTRY).build();
-  public static final SMethod<String> getAccessorName_idO$iR4J$g8R = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAccessorName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g8R").registry(REGISTRY).build();
-  public static final SMethod<Boolean> isInitializable_idhEwJfMK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isInitializable").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJfMK").registry(REGISTRY).build();
-  public static final SMethod<String> getTypeFqName_idO$iR4J$g9n = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getTypeFqName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g9n").registry(REGISTRY).build();
-  public static final SMethod<String> getTypeEditorFqName_idO$iR4J$g9_ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getTypeEditorFqName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g9_").registry(REGISTRY).build();
-  /*package*/ static final SMethod<SNode> getTemplate_idO$iR4J$gak = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getTemplate").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("O$iR4J$gak").registry(REGISTRY).build();
-  public static final SMethod<String> addMyPrefix_id5uxO0H8rOhC = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("addMyPrefix").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5uxO0H8rOhC").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(String.class, ""));
-  /*package*/ static final SMethod<String> removeMyPrefixInternal_idO$iR4J$g9N = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("removeMyPrefixInternal").modifiers(SModifiersImpl.create(1, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("O$iR4J$g9N").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(String.class, ""));
-  public static final SMethod<String> removeMyPrefix_idO$iR4J$g8k = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("removeMyPrefix").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g8k").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(String.class, ""));
+  public static final SMethod<Boolean> isTemplate_idO$iR4J$g8G = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isTemplate").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g8G").build();
+  public static final SMethod<String> getAccessorName_idO$iR4J$g8R = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAccessorName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g8R").build();
+  public static final SMethod<Boolean> isInitializable_idhEwJfMK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isInitializable").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJfMK").build();
+  public static final SMethod<String> getTypeFqName_idO$iR4J$g9n = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getTypeFqName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g9n").build();
+  public static final SMethod<String> getTypeEditorFqName_idO$iR4J$g9_ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getTypeEditorFqName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g9_").build();
+  /*package*/ static final SMethod<SNode> getTemplate_idO$iR4J$gak = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getTemplate").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("O$iR4J$gak").build();
+  public static final SMethod<String> addMyPrefix_id5uxO0H8rOhC = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("addMyPrefix").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5uxO0H8rOhC").build(SMethodBuilder.createJavaParameter(String.class, ""));
+  /*package*/ static final SMethod<String> removeMyPrefixInternal_idO$iR4J$g9N = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("removeMyPrefixInternal").modifiers(SModifiersImpl.create(1, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("O$iR4J$g9N").build(SMethodBuilder.createJavaParameter(String.class, ""));
+  public static final SMethod<String> removeMyPrefix_idO$iR4J$g8k = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("removeMyPrefix").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g8k").build(SMethodBuilder.createJavaParameter(String.class, ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isTemplate_idO$iR4J$g8G, getAccessorName_idO$iR4J$g8R, isInitializable_idhEwJfMK, getTypeFqName_idO$iR4J$g9n, getTypeEditorFqName_idO$iR4J$g9_, getTemplate_idO$iR4J$gak, addMyPrefix_id5uxO0H8rOhC, removeMyPrefixInternal_idO$iR4J$g9N, removeMyPrefix_idO$iR4J$g8k);
 
@@ -92,7 +89,6 @@ public final class PersistentPropertyDeclaration__BehaviorDescriptor extends Bas
   }
 
   /*package*/ PersistentPropertyDeclaration__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

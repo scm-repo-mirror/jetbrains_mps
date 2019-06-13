@@ -77,7 +77,7 @@ public class QueriesGenerated extends QueryProviderBase {
   public static boolean rule_Condition_0_0(final BaseMappingRuleContext _context) {
     // hence inheritors == false not to handle OrPatternClause which is 
     // handled inside the template for top-most PatternExpression 
-    // If there are reasonable subconcepts, might need to check  
+    // If there are reasonable subconcepts, might need to check 
     // !node.isInstanceOf(OrPatternClause) instead 
     // 
     return true;
@@ -235,8 +235,8 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.collect(SLinkOperations.collectMany(SNodeOperations.getNodeDescendants(_context.getNode(), MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x27f758f8bc6aaa84L, "jetbrains.mps.lang.pattern.structure.OrPattern"), false, new SAbstractConcept[]{}), MetaAdapterFactory.getContainmentLink(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x27f758f8bc6aaa84L, 0x27f758f8bc6acaceL, "clause")), MetaAdapterFactory.getContainmentLink(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4791L, 0x7d8b4408504314cdL, "pattern"));
   }
   public static Iterable<SNode> sourceNodesQuery_6_0(final SourceSubstituteMacroNodesContext _context) {
-    // NOTE: DO NOT TRY TO SET MappingLabel here, leave it at nested, as we need  
-    // LocalVariableDeclaration, not LVDStatement as  
+    // NOTE: DO NOT TRY TO SET MappingLabel here, leave it at nested, as we need 
+    // LocalVariableDeclaration, not LVDStatement as 
     return ((Iterable<SNode>) _context.getVariable("var:disjunctionPatterns"));
   }
   public static Iterable<SNode> sourceNodesQuery_6_1(final SourceSubstituteMacroNodesContext _context) {

@@ -216,9 +216,9 @@ public class EvaluationWithContextContainer extends EvaluationContainer {
     }
     // try other (non-stub) models 
     // XXX for whatever reason, we used to check models with stereotypes matching SModelStereotype.values (i.e. none, tests and generator). 
-    //     as I don't see why a model with another stereotype can't serve as a source one for generated code, now we search all models with  
+    //     as I don't see why a model with another stereotype can't serve as a source one for generated code, now we search all models with 
     //     incompletely matching name (i.e. match qualified name only). 
-    //     With that, there's little reason to handle @java_stub explicitly, above (other than give them priority), perhaps, shall  
+    //     With that, there's little reason to handle @java_stub explicitly, above (other than give them priority), perhaps, shall 
     //     combine into single piece of code? Need to pay attention, though, if stubs get indexed or not (common code could't use FindUsagesFacade if not, then) 
     ModelsScope scope = new ModelsScope(Sequence.fromIterable(((Iterable<SModel>) repoFacade.getAllModels())).where(new IWhereFilter<SModel>() {
       public boolean accept(SModel it) {

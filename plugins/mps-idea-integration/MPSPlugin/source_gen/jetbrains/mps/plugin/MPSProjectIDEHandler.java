@@ -221,7 +221,7 @@ public class MPSProjectIDEHandler extends UnicastRemoteObject implements IMPSIDE
       return new SNodePointer(null);
     }
 
-    // now, between all those "best local" positions, we select the global best one  
+    // now, between all those "best local" positions, we select the global best one 
     Pair<TraceablePositionInfo, DebugInfoRoot> bestPosition = ListSequence.fromList(nicePositions).sort(new ISelector<Pair<TraceablePositionInfo, DebugInfoRoot>, Integer>() {
       public Integer select(Pair<TraceablePositionInfo, DebugInfoRoot> it) {
         return it.o1.getStartLine();

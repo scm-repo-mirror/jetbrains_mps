@@ -34,7 +34,7 @@
   
   <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="path.javac2.classpath" />
   
-  <target name="assemble" depends="classes, declare-mps-tasks">
+  <target name="assemble" depends="classes">
     <mkdir dir="${build.layout}/lib" />
     <jar destfile="${build.layout}/lib/java-workbench.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/mps-java-workbench" />
@@ -73,12 +73,6 @@
   
   <target name="check" depends="test" />
   
-  <target name="generate" depends="declare-mps-tasks" />
-  
-  <target name="declare-mps-tasks" />
-  
-  <target name="makeDependents" />
-  
   <target name="java.compile.mps-java-workbench" depends="fetchDependencies">
     <mkdir dir="${mps_home}/plugins/mps-java/workbench/modules/jetbrains.mps.java.workbench/source_gen" />
     <mkdir dir="${build.tmp}/java/out/mps-java-workbench" />
@@ -93,8 +87,8 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-annotations.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-openapi.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-core.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-logging.jar" />
+        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-core.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-closures.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-collections.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-tuples.jar" />
@@ -102,7 +96,6 @@
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-messaging.jar" />
-        <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-platform.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-environment.jar" />
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-editor.jar" />

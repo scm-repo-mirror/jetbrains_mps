@@ -228,7 +228,7 @@ public final class MergeSession {
           changeSet.add(newChange);
           ListSequence.fromList(MapSequence.fromMap(myRootToChanges).get(ch.getRootId())).addElement(newChange);
           ListSequence.fromList(MapSequence.fromMap(myNodeToChanges).get(ch.getParentNodeId())).addElement(newChange);
-          // hack: replace this change with the new insertion change 
+          // this change with the new insertion change 
           // which is conflicted with the resolved change, so it will be red and will not autoapply 
           MapSequence.fromMap(myConflictingChanges).put(newChange, ListSequence.fromList(new ArrayList<ModelChange>()));
           ListSequence.fromList(MapSequence.fromMap(myConflictingChanges).get(newChange)).addElement(change);

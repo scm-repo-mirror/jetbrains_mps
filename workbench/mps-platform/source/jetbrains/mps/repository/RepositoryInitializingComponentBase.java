@@ -18,7 +18,6 @@ package jetbrains.mps.repository;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.vfs.newvfs.persistent.PersistentFS;
 import jetbrains.mps.InternalFlag;
-import jetbrains.mps.classloading.ClassLoaderManager;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.library.LibraryInitializer;
@@ -27,7 +26,7 @@ import jetbrains.mps.util.PathManager;
 import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.FileSystemExtPoint;
 import jetbrains.mps.vfs.impl.IoFileSystem;
-import jetbrains.mps.workbench.action.IRegistryManager;
+import jetbrains.mps.workbench.action.ApplicationPluginHolder;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -57,7 +56,7 @@ public class RepositoryInitializingComponentBase implements ApplicationComponent
   @SuppressWarnings("UnusedParameters")
   public RepositoryInitializingComponentBase(FSNotificationsImprover improver, //improve before loading any libs
                                              MPSCoreComponents coreComponents,
-                                             IRegistryManager registryManager,
+                                             ApplicationPluginHolder registryManager,
                                              IdeaPluginFacetComponent ideaPluginFacetComponent,
                                              IdeaFileSystem fs,
                                              PersistentFS filesystem //see MPS-22970

@@ -4,16 +4,21 @@ package jetbrains.mps.lang.generator.pluginSolution.plugin;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import jetbrains.mps.plugins.part.ApplicationPluginPart;
 
 public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.lang.generator.pluginSolution");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.lang.generator.pluginSolution");
+
   public PluginSolution_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new AttachMappingLabel_Action());
@@ -21,7 +26,7 @@ public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new NewCreateRootRule_Action());
     addAction(new NewRootMappingRule_Action());
     // groups 
-    addGroup(new ShowAsIntentions_Generator_ActionGroup());
+    addGroup(new ShowAsIntentions_Generator_ActionGroup(this));
   }
   public void adjustRegularGroups() {
     insertGroupIntoAnother(ShowAsIntentions_Generator_ActionGroup.ID, "jetbrains.mps.ide.editor.actions.ActionsAsIntentions_ActionGroup", null);

@@ -189,7 +189,7 @@ public class JDOMUtil {
                 quotation = Character.toString((char) value);
               }
             } catch (NumberFormatException ex) {
-              //  ignore, skip  
+              //  ignore, skip 
             }
           } else {
             if (val.length() == 2) {

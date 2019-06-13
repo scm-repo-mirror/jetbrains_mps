@@ -69,6 +69,8 @@
   </dependency>
   <dependency className="jetbrains.mps.debugger.java.runtime.ui.actions.JavaWatchableNodeActions_ActionGroup">
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.workbench.action.ApplicationPlugin" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode extendsClassName="jetbrains.mps.plugins.actions.GeneratedActionGroup" />
   </dependency>
   <dependency className="jetbrains.mps.debugger.java.runtime.ui.actions.RemoveWatchAction_Action">
@@ -99,6 +101,7 @@
     <classNode dependClassName="jetbrains.mps.debugger.java.runtime.ui.actions.ViewAs_Group_ActionGroup" />
     <classNode dependClassName="jetbrains.mps.debugger.java.runtime.ui.actions.WatchesToolbarActions_ActionGroup" />
     <classNode dependClassName="jetbrains.mps.debugger.java.runtime.ui.actions.WatchesTreeActions_ActionGroup" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode extendsClassName="jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin" />
   </dependency>
   <dependency className="jetbrains.mps.debugger.java.runtime.ui.actions.ViewAs_Action">
@@ -142,6 +145,7 @@
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ICollectionSequence" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.SetSequence" />
     <classNode dependClassName="jetbrains.mps.workbench.ActionPlace" />
+    <classNode dependClassName="jetbrains.mps.workbench.action.ApplicationPlugin" />
     <classNode dependClassName="jetbrains.mps.workbench.action.BaseAction" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.util.Condition" />
@@ -149,10 +153,14 @@
   </dependency>
   <dependency className="jetbrains.mps.debugger.java.runtime.ui.actions.WatchesToolbarActions_ActionGroup">
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.workbench.action.ApplicationPlugin" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode extendsClassName="jetbrains.mps.plugins.actions.GeneratedActionGroup" />
   </dependency>
   <dependency className="jetbrains.mps.debugger.java.runtime.ui.actions.WatchesTreeActions_ActionGroup">
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.workbench.action.ApplicationPlugin" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode extendsClassName="jetbrains.mps.plugins.actions.GeneratedActionGroup" />
   </dependency>
 </dependenciesRoot>

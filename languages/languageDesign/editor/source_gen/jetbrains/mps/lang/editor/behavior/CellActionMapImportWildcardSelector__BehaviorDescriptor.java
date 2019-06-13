@@ -5,8 +5,6 @@ package jetbrains.mps.lang.editor.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -23,11 +21,10 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class CellActionMapImportWildcardSelector__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x4f883d04112b75cfL, "jetbrains.mps.lang.editor.structure.CellActionMapImportWildcardSelector");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Boolean> selectsActionId_id3XXPjz_pJfc = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("selectsActionId").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3XXPjz_pJfc").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<SEnumerationLiteral>) ((Class) Object.class), ""));
-  public static final SMethod<CheckingResult> checkPresenceOfImportee_id3XXPjz_qqny = new SMethodBuilder<CheckingResult>(new SJavaCompoundTypeImpl(CheckingResult.class)).name("checkPresenceOfImportee").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3XXPjz_qqny").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
-  public static final SMethod<SNode> getNavigatableNodeWithin_id5Sx2dSLnDj7 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getNavigatableNodeWithin").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5Sx2dSLnDj7").registry(REGISTRY).build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Boolean> selectsActionId_id3XXPjz_pJfc = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("selectsActionId").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3XXPjz_pJfc").build(SMethodBuilder.createJavaParameter((Class<SEnumerationLiteral>) ((Class) Object.class), ""));
+  public static final SMethod<CheckingResult> checkPresenceOfImportee_id3XXPjz_qqny = new SMethodBuilder<CheckingResult>(new SJavaCompoundTypeImpl(CheckingResult.class)).name("checkPresenceOfImportee").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3XXPjz_qqny").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<SNode> getNavigatableNodeWithin_id5Sx2dSLnDj7 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getNavigatableNodeWithin").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5Sx2dSLnDj7").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(selectsActionId_id3XXPjz_pJfc, checkPresenceOfImportee_id3XXPjz_qqny, getNavigatableNodeWithin_id5Sx2dSLnDj7);
 
@@ -46,7 +43,6 @@ public final class CellActionMapImportWildcardSelector__BehaviorDescriptor exten
   }
 
   /*package*/ CellActionMapImportWildcardSelector__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

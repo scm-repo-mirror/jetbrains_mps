@@ -5,8 +5,6 @@ package jetbrains.mps.build.mps.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -23,12 +21,11 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class BuildMps_Tips__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x71731b16a201d7bcL, "jetbrains.mps.build.mps.structure.BuildMps_Tips");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> getOutPath_id1tkeUOkqjtp = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getOutPath").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1tkeUOkqjtp").registry(REGISTRY).build();
-  public static final SMethod<String> getPath_id4Y6KxqQL3ag = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPath").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4Y6KxqQL3ag").registry(REGISTRY).build();
-  public static final SMethod<String> getMpsTipsPath_id8yBQgWtrz8 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getMpsTipsPath").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("8yBQgWtrz8").registry(REGISTRY).build();
-  public static final SMethod<String> getLocatedDirectory_id4Y6KxqQN2O7 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getLocatedDirectory").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4Y6KxqQN2O7").registry(REGISTRY).build(SMethodBuilder.createJavaParameter(String.class, ""));
+  public static final SMethod<String> getOutPath_id1tkeUOkqjtp = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getOutPath").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1tkeUOkqjtp").build();
+  public static final SMethod<String> getPath_id4Y6KxqQL3ag = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPath").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4Y6KxqQL3ag").build();
+  public static final SMethod<String> getMpsTipsPath_id8yBQgWtrz8 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getMpsTipsPath").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("8yBQgWtrz8").build();
+  public static final SMethod<String> getLocatedDirectory_id4Y6KxqQN2O7 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getLocatedDirectory").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4Y6KxqQN2O7").build(SMethodBuilder.createJavaParameter(String.class, ""));
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getOutPath_id1tkeUOkqjtp, getPath_id4Y6KxqQL3ag, getMpsTipsPath_id8yBQgWtrz8, getLocatedDirectory_id4Y6KxqQN2O7);
 
@@ -52,7 +49,6 @@ public final class BuildMps_Tips__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ BuildMps_Tips__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

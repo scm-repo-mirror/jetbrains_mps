@@ -749,6 +749,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.CommentPart:
         if (props_CommentPart == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.deprecated(true);
           props_CommentPart = cpb.create();
         }
         return props_CommentPart;
@@ -1912,7 +1913,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         return props_ShortType;
       case LanguageConceptSwitch.SingleLineComment:
         if (props_SingleLineComment == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL);
+          cpb.deprecateAggregation(0x57d533a7af16ff73L, "commentPart");
           cpb.shortDesc("single-line comment");
           cpb.rawPresentation("//");
           props_SingleLineComment = cpb.create();
@@ -2096,6 +2098,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.TextCommentPart:
         if (props_TextCommentPart == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.deprecated(true);
           cpb.rawPresentation("TextCommentPart");
           props_TextCommentPart = cpb.create();
         }

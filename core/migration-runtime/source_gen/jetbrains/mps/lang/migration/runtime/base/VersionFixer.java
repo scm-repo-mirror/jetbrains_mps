@@ -262,7 +262,7 @@ public class VersionFixer {
   }
 
   private void checkModelVersionsAreValid(SModule myModule, Map<SLanguage, Integer> langVersions) {
-    // TODO [MM] get rid of this method, check on model load etc.  
+    // TODO [MM] get rid of this method, check on model load etc. 
     myModule.getRepository().getModelAccess().checkReadAccess();
     for (SModel m : myModule.getModels()) {
       SModelInternal modelInternal = (SModelInternal) m;

@@ -60,11 +60,11 @@ public class GeneratorUtil {
           final String fullClassName = JavaNameUtil.packageName(model) + '.' + className;
           // FIXME I know ICResource is deprecated and FResource replaced with CResource looks a bit odd, however my point is to 
           //       drop FResource from TextGen facet ASAP, not to make java.evaluation perfect. That activity requires thorough redesign of a whole piece 
-          //       and I'm not the brave one (too much of a hate flows in me).  
+          //       and I'm not the brave one (too much of a hate flows in me). 
           // In fact, to get anything out from Make facet (MPS-compiled code) to this place (IDEA-compiled code), I still need an IResource declared somewhere 
           // in a module accessible to both lang java.evaluation and this debugger.java.runtime solution. As there's not too many options to put this class to, 
           // I'll end up with IResource declared in this (IDEA-compiled) solution, introducing yet another dependency cycle (this solutuin references Make facet 
-          // and JavaDebugEvaluate would reference IResource class), which is not the way I like. Indeed, depedency from solution to language works, as JavaDebugEvaluate  
+          // and JavaDebugEvaluate would reference IResource class), which is not the way I like. Indeed, depedency from solution to language works, as JavaDebugEvaluate 
           // facet reference is translated into a string AND solution is not loaded by MPS (therefore, MPS classloader doesn't deal with the cycle). Nevertheless, I don't like it. 
           for (CResource cres : Sequence.fromIterable(result.output()).ofType(CResource.class)) {
             try {

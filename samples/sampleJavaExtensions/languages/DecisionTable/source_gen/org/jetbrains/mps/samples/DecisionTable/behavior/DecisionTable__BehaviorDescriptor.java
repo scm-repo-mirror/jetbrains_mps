@@ -5,8 +5,6 @@ package org.jetbrains.mps.samples.DecisionTable.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.Set;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -30,10 +28,9 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class DecisionTable__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x65c13e6709b64695L, 0xaf8852024b7d2027L, 0x1b942309931b1581L, "org.jetbrains.mps.samples.DecisionTable.structure.DecisionTable");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Set<SNode>> referencedLVDs_id3mtcPBWFCmw = new SMethodBuilder<Set<SNode>>(new SJavaCompoundTypeImpl((Class<Set<SNode>>) ((Class) Object.class))).name("referencedLVDs").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3mtcPBWFCmw").registry(REGISTRY).build();
-  public static final SMethod<Set<SNode>> referencedParams_id3mtcPBWFDo3 = new SMethodBuilder<Set<SNode>>(new SJavaCompoundTypeImpl((Class<Set<SNode>>) ((Class) Object.class))).name("referencedParams").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3mtcPBWFDo3").registry(REGISTRY).build();
+  public static final SMethod<Set<SNode>> referencedLVDs_id3mtcPBWFCmw = new SMethodBuilder<Set<SNode>>(new SJavaCompoundTypeImpl((Class<Set<SNode>>) ((Class) Object.class))).name("referencedLVDs").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3mtcPBWFCmw").build();
+  public static final SMethod<Set<SNode>> referencedParams_id3mtcPBWFDo3 = new SMethodBuilder<Set<SNode>>(new SJavaCompoundTypeImpl((Class<Set<SNode>>) ((Class) Object.class))).name("referencedParams").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3mtcPBWFDo3").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(referencedLVDs_id3mtcPBWFCmw, referencedParams_id3mtcPBWFDo3);
 
@@ -76,7 +73,6 @@ public final class DecisionTable__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ DecisionTable__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

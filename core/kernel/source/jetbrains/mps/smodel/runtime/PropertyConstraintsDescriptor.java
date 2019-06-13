@@ -29,16 +29,22 @@ public interface PropertyConstraintsDescriptor {
   Object getValue(SNode node);
 
   @Deprecated
-  @ToRemove(version = 19.1)
+  @ToRemove(version = 2019.2)
   void setValue(SNode node, String value);
 
   void setPropertyValue(SNode node, Object value);
 
   @Deprecated
-  @ToRemove(version = 19.1)
+  @ToRemove(version = 2019.2)
   boolean validateValue(SNode node, String value);
 
-  boolean validateValue(SNode node, Object value);
+  boolean validateValue(SNode node, Object value, CheckingNodeContext checkingNodeContext);
+
+  @Deprecated
+  @ToRemove(version = 2019.2)
+  default boolean validateValue(SNode node, Object value) {
+    return validateValue(node, value, null);
+  }
 
   boolean isReadOnly();
 }

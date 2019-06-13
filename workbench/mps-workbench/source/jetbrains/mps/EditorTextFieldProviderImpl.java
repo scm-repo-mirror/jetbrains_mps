@@ -70,7 +70,7 @@ public class EditorTextFieldProviderImpl implements EditorTextFieldProvider {
   @Override
   public EditorTextField getEditorField(@NotNull Language language,
                                         @NotNull Project project,
-                                        @NotNull Iterable<EditorCustomization> features) {
+                                        @NotNull Iterable<? extends EditorCustomization> features) {
     return primGetEditorField(project);
   }
 

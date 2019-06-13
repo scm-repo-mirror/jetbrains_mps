@@ -16,10 +16,12 @@
 package jetbrains.mps.ide.typesystem.trace;
 
 import jetbrains.mps.newTypesystem.context.IncrementalTypecheckingContext;
+import jetbrains.mps.newTypesystem.context.TracingTypecheckingContext;
 import jetbrains.mps.newTypesystem.operation.AbstractOperation;
 import jetbrains.mps.newTypesystem.state.State;
 import jetbrains.mps.typesystem.inference.ITypeContextOwner;
 import jetbrains.mps.typesystem.inference.ITypechecking;
+import jetbrains.mps.typesystem.inference.TypeChecker;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.typesystem.inference.TypeContextManager;
 import jetbrains.mps.typesystem.inference.util.ConcurrentSubtypingCache;
@@ -35,11 +37,10 @@ import java.util.List;
 * Time: 2:07 PM
 * To change this template use File | Settings | File Templates.
 */
-public class TypecheckingContextTracker implements ITypeContextOwner {
+public class TypecheckingContextTracker {
 
-  private final TypeCheckingContext myTypecheckingContext;
   private final SNode myRootNode;
-  private TypeCheckingContext myCurrentContext;
+  private TypeCheckingContext myTypecheckingContext;
   private AbstractOperation myOperation;
   private AbstractOperation myOldOperation;
   private State myCurrentState;
@@ -53,28 +54,12 @@ public class TypecheckingContextTracker implements ITypeContextOwner {
     myOperation = myTypecheckingContext.getOperation();
     myStateCopy = new State(myTypecheckingContext, myTypecheckingContext.getState().getOperation());
     myCurrentState = myStateCopy;
-    myCurrentContext = myTypecheckingContext;
   }
 
   private TypeCheckingContext initContext() {
-    final TypeCheckingContext context = TypeContextManager.getInstance().acquireTypecheckingContext(myRootNode, this);
-    TypeContextManager.getInstance().runTypeCheckingAction(this, myRootNode, context1 -> context1.checkRootInTraceMode(true));
+    final TypeCheckingContext context = new TracingTypecheckingContext(myRootNode, TypeChecker.getInstance());
+    context.checkRootInTraceMode(true);
     return context;
-  }
-
-  @Override
-  public TypeCheckingContext createTypecheckingContext(SNode sNode, TypeContextManager typeContextManager) {
-    return typeContextManager.createTracingTypeCheckingContext(sNode);
-  }
-
-  @Override
-  public boolean reuseTypecheckingContext() {
-    return true;
-  }
-
-  @Override
-  public SubtypingCache createSubtypingCache() {
-    return new ConcurrentSubtypingCache();
   }
 
   public void setGenerationMode(boolean generationMode, SNode selectedNode) {
@@ -84,12 +69,11 @@ public class TypecheckingContextTracker implements ITypeContextOwner {
     this.generationMode = generationMode;
     myOldOperation = null;
     myOperation = myTypecheckingContext.getOperation();
-    myCurrentContext = myTypecheckingContext;
     myCurrentState = myStateCopy;
   }
 
   public State resetCurrentState(AbstractOperation fromDiff) {
-    AbstractOperation rootDiff = myCurrentContext.getOperation();
+    AbstractOperation rootDiff = myTypecheckingContext.getOperation();
     if (myOldOperation == null) {
       myCurrentState.clear(false);
       myCurrentState.executeOperationsBeforeAnchor(rootDiff, fromDiff);
@@ -147,6 +131,7 @@ public class TypecheckingContextTracker implements ITypeContextOwner {
   }
 
   public void dispose() {
-    TypeContextManager.getInstance().releaseTypecheckingContext(this);
+    myTypecheckingContext.dispose();
+    this.myTypecheckingContext = null;
   }
 }

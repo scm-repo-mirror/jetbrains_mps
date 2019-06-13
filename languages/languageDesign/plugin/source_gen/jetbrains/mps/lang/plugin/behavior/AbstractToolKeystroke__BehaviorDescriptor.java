@@ -5,8 +5,6 @@ package jetbrains.mps.lang.plugin.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -22,10 +20,9 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class AbstractToolKeystroke__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x68b8d4843e384caL, "jetbrains.mps.lang.plugin.structure.AbstractToolKeystroke");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> getKeymap_idqbzkx4pM3M = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getKeymap").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("qbzkx4pM3M").registry(REGISTRY).build();
-  public static final SMethod<String> getKeystroke_idqbzkx4pLZr = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getKeystroke").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("qbzkx4pLZr").registry(REGISTRY).build();
+  public static final SMethod<String> getKeymap_idqbzkx4pM3M = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getKeymap").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("qbzkx4pM3M").build();
+  public static final SMethod<String> getKeystroke_idqbzkx4pLZr = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getKeystroke").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("qbzkx4pLZr").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getKeymap_idqbzkx4pM3M, getKeystroke_idqbzkx4pLZr);
 
@@ -34,7 +31,6 @@ public final class AbstractToolKeystroke__BehaviorDescriptor extends BaseBHDescr
 
 
   /*package*/ AbstractToolKeystroke__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

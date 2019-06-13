@@ -58,8 +58,8 @@ public class ModalProgressAction_Action extends BaseAction {
     // Indicates whether the progress dialog has the'Cancel' option 
     boolean canBeCanceled = true;
 
-    // This is a common modal task. It can't be sent to the background, but can be canceled  
-    // Your code needs to frequently check if the process has been canceled (between every calculation steps)  
+    // This is a common modal task. It can't be sent to the background, but can be canceled 
+    // Your code needs to frequently check if the process has been canceled (between every calculation steps) 
     // and handle yourself all steps to revert the action 
     final Task.Modal modalTask = new Task.Modal(event.getData(CommonDataKeys.PROJECT), "Modal cancelable task", canBeCanceled) {
       @Override

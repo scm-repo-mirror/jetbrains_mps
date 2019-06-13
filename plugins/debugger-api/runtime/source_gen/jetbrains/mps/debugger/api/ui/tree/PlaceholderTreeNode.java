@@ -39,7 +39,7 @@ public final class PlaceholderTreeNode extends MPSTreeNode {
         // which seems to be always empty (i.e. pathString always(?) starts with '/') 
         continue;
       }
-      // pathComponent has TREE_PATH_SEPARATOR == '/' escaped as '-'  
+      // pathComponent has TREE_PATH_SEPARATOR == '/' escaped as '-' 
       boolean found = false;
       for (int i = 0; i < current.getChildCount(); i++) {
         MPSTreeNode node = (MPSTreeNode) current.getChildAt(i);

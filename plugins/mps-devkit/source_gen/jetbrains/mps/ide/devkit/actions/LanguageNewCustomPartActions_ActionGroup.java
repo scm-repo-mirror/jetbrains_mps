@@ -10,19 +10,21 @@ import org.jetbrains.mps.util.Condition;
 import jetbrains.mps.workbench.action.BaseAction;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.workbench.action.ApplicationPlugin;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
 import jetbrains.mps.smodel.language.LanguageAspectSupport;
 import com.intellij.openapi.extensions.PluginId;
-import org.jetbrains.annotations.Nullable;
 
 public class LanguageNewCustomPartActions_ActionGroup extends GeneratedActionGroup {
   public static final String ID = "jetbrains.mps.ide.devkit.actions.LanguageNewCustomPartActions_ActionGroup";
-  private Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
-  public LanguageNewCustomPartActions_ActionGroup() {
-    super("LanguageNewCustomPartActions", ID);
-    this.setIsInternal(false);
-    this.setPopup(false);
+  private final Set<Pair<ActionPlace, Condition<BaseAction>>> myPlaces = SetSequence.fromSet(new HashSet<Pair<ActionPlace, Condition<BaseAction>>>());
+
+  public LanguageNewCustomPartActions_ActionGroup(@Nullable ApplicationPlugin plugin) {
+    super("LanguageNewCustomPartActions", ID, plugin);
+    setIsInternal(false);
+    setPopup(false);
   }
   public void doUpdate(AnActionEvent event) {
     removeAll();

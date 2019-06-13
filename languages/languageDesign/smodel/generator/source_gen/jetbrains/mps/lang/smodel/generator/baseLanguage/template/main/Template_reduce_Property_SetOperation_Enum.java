@@ -45,7 +45,7 @@ public class Template_reduce_Property_SetOperation_Enum extends TemplateDeclarat
       TemplateContext context1 = context.subContext();
       {
         Collection<SNode> tlist2 = null;
-        final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_140_0(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_543klu_b0a0c0d0c0g));
+        final SNode copySrcInput2 = QueriesGenerated.sourceNodeQuery_142_0(new SourceSubstituteMacroNodeContext(context1, copySrcMacro_543klu_b0a0c0d0c0g));
         tlist2 = environment.copyNodes(TemplateUtil.singletonList(copySrcInput2), copySrcMacro_543klu_b0a0c0d0c0g, "tpl/r:00000000-0000-4000-0000-011c89590303/6202631021711153838", context1);
         for (SNode child3 : TemplateUtil.asNotNull(tlist2)) {
           tnode1.addChild(myAggregationLinks[0], child3);
@@ -54,7 +54,7 @@ public class Template_reduce_Property_SetOperation_Enum extends TemplateDeclarat
       }
       {
         Collection<SNode> tlist4 = null;
-        SNode callInputNode4 = QueriesGenerated.sourceNodeQuery_140_1(new SourceSubstituteMacroNodeContext(context1, callMacro_543klu_b0a0a1a4a2a6));
+        SNode callInputNode4 = QueriesGenerated.sourceNodeQuery_142_1(new SourceSubstituteMacroNodeContext(context1, callMacro_543klu_b0a0a1a4a2a6));
         TemplateContext context2;
         context2 = context1.subContext(null, callInputNode4);
         if (callInputNode4 != null) {
@@ -67,7 +67,7 @@ public class Template_reduce_Property_SetOperation_Enum extends TemplateDeclarat
       }
       {
         Collection<SNode> tlist6 = null;
-        SNode callInputNode6 = QueriesGenerated.sourceNodeQuery_140_2(new SourceSubstituteMacroNodeContext(context1, callMacro_543klu_b0a0a1a5a2a6));
+        SNode callInputNode6 = QueriesGenerated.sourceNodeQuery_142_2(new SourceSubstituteMacroNodeContext(context1, callMacro_543klu_b0a0a1a5a2a6));
         TemplateContext context3;
         context3 = context1.subContext(null, callInputNode6);
         if (callInputNode6 != null) {

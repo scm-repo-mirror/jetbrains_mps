@@ -4,22 +4,27 @@ package jetbrains.mps.baseLanguage.pluginSolution.plugin;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.dataFlow.pluginSolution.plugin.DFAActions_ActionGroup;
 
 public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.baseLanguage.pluginSolution");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.baseLanguage.pluginSolution");
+
   public PluginSolution_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new CreateMethodDeclaration_Action());
     addAction(new ShowNullDFA_Action());
     // groups 
-    addGroup(new AnalyzersActions_ActionGroup());
-    addGroup(new ShowAsIntentions_BL_ActionGroup());
+    addGroup(new AnalyzersActions_ActionGroup(this));
+    addGroup(new ShowAsIntentions_BL_ActionGroup(this));
   }
   public void adjustRegularGroups() {
     insertGroupIntoAnother(ShowAsIntentions_BL_ActionGroup.ID, "jetbrains.mps.ide.editor.actions.ActionsAsIntentions_ActionGroup", null);

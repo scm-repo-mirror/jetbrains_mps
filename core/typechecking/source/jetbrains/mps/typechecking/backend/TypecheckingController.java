@@ -15,25 +15,26 @@
  */
 package jetbrains.mps.typechecking.backend;
 
-import jetbrains.mps.typechecking.TypecheckingFacade;
-import jetbrains.mps.typechecking.TypecheckingSessionHandler;
+import jetbrains.mps.lang.pattern.INodeMatchingPattern;
+import jetbrains.mps.typechecking.TypecheckingQueries;
 import jetbrains.mps.typechecking.backend.TypecheckingSession.Flags;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.Collection;
 
 /**
- * Manages instances of {@link TypecheckingSession}.
+ * A composite of {@link TypecheckingQueries} coming from different providers.
  *
  * One can assume a default session is always present, if no other session has been requested.
  *
+ * This class represents a strategy for creating and disposing sessions as is required by the particular use case.
+ *
  * @author Fedor Isakov
  */
-public abstract class TypecheckingController implements TypecheckingSessionHandler {
+public abstract class TypecheckingController implements TypecheckingQueries {
 
   private final TypecheckingBackend myTypecheckingBackend;
 
@@ -43,86 +44,85 @@ public abstract class TypecheckingController implements TypecheckingSessionHandl
 
   public abstract void dispose();
 
-  /**
-   * Requests that a new session is initiated with provided flags.
-   * All typechecking queries in this context are to be run via this session until it is released.
-   * See {@link TypecheckingFacade#getFromContext()} for the discussion of what context is.
-   */
+  @Nullable
+  @Override
+  public SNode getTypeOf(SNode expression) {
+    return getQueries(expression, null, null).getTypeOf(expression);
+  }
+
+  @Nullable
+  @Override
+  public SNode getInferredType(SNode expression) {
+    return getQueries(expression, null, null).getInferredType(expression);
+  }
+
+  @Override
+  public boolean convertsTo(@NotNull SNode typeA, @NotNull SNode typeB) {
+    return getQueries(typeA, typeB, null).convertsTo(typeA, typeB);
+  }
+
+  @Override
+  public boolean isSubtype(SNode typeA, SNode typeB) {
+    return getQueries(typeA, typeB, null).isSubtype(typeA, typeB);
+  }
+
+  @Override
+  public boolean isStrongSubtype(SNode typeA, SNode typeB) {
+    return getQueries(typeA, typeB, null).isStrongSubtype(typeA, typeB);
+  }
+
   @NotNull
   @Override
-  public abstract SessionToken requestNewSession(@NotNull TypecheckingSession.Flags flags);
+  public Collection<SNode> getImmediateSupertypes(@NotNull SNode type) {
+    return getQueries(type, null, null).getImmediateSupertypes(type);
+  }
+
+  @Nullable
+  @Override
+  public SNode coerceType(SNode type, @NotNull SConcept typeConcept) {
+    return getQueries(type, null, typeConcept).coerceType(type, typeConcept);
+  }
+
+  @Nullable
+  @Override
+  public SNode coerceType(SNode type, @NotNull INodeMatchingPattern targetPattern) {
+    return getQueries(type, null, targetPattern.getConcept()).coerceType(type, targetPattern);
+  }
+
+  @Nullable
+  @Override
+  public SNode strongCoerceType(SNode type, @NotNull SConcept typeConcept) {
+    return getQueries(type, null, typeConcept).strongCoerceType(type, typeConcept);
+  }
+
+  @Nullable
+  @Override
+  public SNode strongCoerceType(SNode type, @NotNull INodeMatchingPattern targetPattern) {
+    return getQueries(type, null, targetPattern.getConcept()).strongCoerceType(type, targetPattern);
+  }
+
+  /**
+   * Either initialize a new session or return a sharable session.
+   */
+  @NotNull
+  protected abstract TypecheckingSession requestSession(@NotNull Flags flags);
 
   /**
    * @throws IllegalStateException if no session is available.
    */
   @NotNull
-  public abstract TypecheckingSession getSession(@NotNull SNode src, SNode trg, SConcept trgConcept);
+  protected abstract TypecheckingQueries getQueries(@NotNull SNode src, SNode trg, SConcept trgConcept);
 
   @NotNull
-  protected final TypecheckingProvider getProvider(@NotNull SNode src, SNode trg, SConcept trgConcept) {
+  public <Q extends TypecheckingQueries> TypecheckingProvider<Q> selectProvider(@NotNull Class<? extends TypecheckingProvider<Q>> providerClass) {
+    return myTypecheckingBackend.selectProvider(providerClass);
+  }
+
+  @NotNull
+  protected final TypecheckingProvider<? extends TypecheckingQueries> selectProvider(@NotNull SNode src, SNode trg, SConcept trgConcept) {
     return myTypecheckingBackend.selectProvider(src, trg, trgConcept);
   }
 
-  @NotNull
-  protected Token createToken(Flags flags) {
-    return new Token(flags);
-  }
-
-  protected abstract void closeToken(@NotNull Token t);
-
-  /**
-   * Manages a simple map of provider to session.
-   */
-  protected class Token implements TypecheckingSessionHandler.SessionToken {
-
-    private int myUsages = 1;
-
-    private final Flags myFlags;
-
-    private Map<TypecheckingProvider, TypecheckingSession> mySessions = new HashMap<>();
-
-    public Token(Flags flags) {
-      myFlags = flags;
-    }
-
-    @Override
-    public void release() {
-      closeToken(this);
-    }
-
-    protected Flags getFlags() {
-      return myFlags;
-    }
-
-    protected void dispose () {
-      for (Entry<TypecheckingProvider, TypecheckingSession> entry : mySessions.entrySet()) {
-        entry.getKey().closeSession(entry.getValue());
-      }
-      mySessions.clear();
-    }
-
-    protected int getUsages() {
-      return myUsages;
-    }
-
-    protected int incUsages() {
-      return ++myUsages;
-    }
-
-    protected int decUsages() {
-      return --myUsages;
-    }
-
-    @NotNull
-    protected TypecheckingSession getSession(TypecheckingProvider provider) {
-      mySessions.putIfAbsent(provider, provider.newSession(myFlags));
-      return mySessions.get(provider);
-    }
-
-    @Override
-    public String toString() {
-      return "Token{" + myFlags + "}";
-    }
-  }
+  protected abstract void sessionReleased(@NotNull TypecheckingSession session);
 
 }

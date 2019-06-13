@@ -5,8 +5,6 @@ package jetbrains.mps.lang.smodel.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -29,9 +27,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class LanguageReferenceExpression__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3dc174aL, "jetbrains.mps.lang.smodel.structure.LanguageReferenceExpression");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<List<SModule>> getVisibleModules_id3wj3sjzSgF$ = new SMethodBuilder<List<SModule>>(new SJavaCompoundTypeImpl((Class<List<SModule>>) ((Class) Object.class))).name("getVisibleModules").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3wj3sjzSgF$").registry(REGISTRY).build();
+  public static final SMethod<List<SModule>> getVisibleModules_id3wj3sjzSgF$ = new SMethodBuilder<List<SModule>>(new SJavaCompoundTypeImpl((Class<List<SModule>>) ((Class) Object.class))).name("getVisibleModules").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3wj3sjzSgF$").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getVisibleModules_id3wj3sjzSgF$);
 
@@ -46,7 +43,6 @@ public final class LanguageReferenceExpression__BehaviorDescriptor extends BaseB
   }
 
   /*package*/ LanguageReferenceExpression__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

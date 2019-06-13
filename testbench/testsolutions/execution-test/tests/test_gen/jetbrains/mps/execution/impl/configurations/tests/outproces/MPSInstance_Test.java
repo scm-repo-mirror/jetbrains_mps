@@ -43,7 +43,7 @@ public class MPSInstance_Test extends BaseTransformationTest {
     }
 
     public void test_simpleConfigurationIsRunnable() throws Exception {
-      // [NOTE] not to be run out of process from sources since  
+      // [NOTE] not to be run out of process from sources since 
       // classpath is not very well-built for mps command being build from testmode MPS from sources 
       // in this test we expect the run configruation MPSInstance to start 
       // as for 191 we just pass headless flag to the system, which is not tolerated by IDEA platform, so 

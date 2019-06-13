@@ -82,7 +82,7 @@ public class EvaluationContainer implements IEvaluationContainer {
     SModel containerModel = myContainerModel.resolve(myDebuggerRepository);
     // FIXME in fact, I'm pretty sure we can accomplish the same with regular dependency to j.m.d.java.api from EvaluationModule 
     //       Then, classpath built for EvaluationModule would include everything we try to push here with an extra CL. However, 
-    //       don't want to dive too deep into this mess now, shall refactor make facet to get rid of CResource use anyway, and  
+    //       don't want to dive too deep into this mess now, shall refactor make facet to get rid of CResource use anyway, and 
     //       refresh the whole idea of EvaluationModule and its temp models, and how are they handled/processed. Then, this code is likely to fade away. 
     ClassLoader extraCL = new ModelAccessHelper(myDebuggerRepository).runReadAction(new Computable<MPSModuleClassLoader>() {
       public MPSModuleClassLoader compute() {

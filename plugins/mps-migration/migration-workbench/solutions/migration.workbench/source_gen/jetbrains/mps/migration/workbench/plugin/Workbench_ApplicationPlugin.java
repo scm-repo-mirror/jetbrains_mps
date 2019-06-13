@@ -4,15 +4,20 @@ package jetbrains.mps.migration.workbench.plugin;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.ToolsInternal_ActionGroup;
 
 public class Workbench_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.migration.workbench");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.migration.workbench");
+
   public Workbench_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new ExecuteRerunnableMigrations_Action());
@@ -23,12 +28,12 @@ public class Workbench_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new RunPreUpdateCheck_Action());
     addAction(new TestMigrationWizard_Action());
     // groups 
-    addGroup(new LanguageMigrations_ActionGroup());
-    addGroup(new MigrationsMenuLegacyCode_ActionGroup());
-    addGroup(new MigrationsMenu_ActionGroup());
-    addGroup(new Migrations_ActionGroup());
-    addGroup(new ProjectMigrations_ActionGroup());
-    addGroup(new ToolsInternalAddition_ActionGroup());
+    addGroup(new LanguageMigrations_ActionGroup(this));
+    addGroup(new MigrationsMenuLegacyCode_ActionGroup(this));
+    addGroup(new MigrationsMenu_ActionGroup(this));
+    addGroup(new Migrations_ActionGroup(this));
+    addGroup(new ProjectMigrations_ActionGroup(this));
+    addGroup(new ToolsInternalAddition_ActionGroup(this));
   }
   public void adjustInterfaceGroups() {
   }

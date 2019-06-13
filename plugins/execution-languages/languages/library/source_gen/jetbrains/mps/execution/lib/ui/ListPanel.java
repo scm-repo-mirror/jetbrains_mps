@@ -232,7 +232,7 @@ public abstract class ListPanel<T> extends JBPanel {
       }
       int minSelectionIndex = myList.getMinSelectionIndex();
       // XXX I cried with blood tears over the code below. 
-      //  ListPanel.this.myListComponent == myList,  
+      //  ListPanel.this.myListComponent == myList, 
       // and access to myListModel is mind-blowing. Need to find enough courage to refactor this mess. 
       for (Object value : ListPanel.this.myListComponent.getSelectedValuesList()) {
         for (final T node : ListPanel.this.myValues) {

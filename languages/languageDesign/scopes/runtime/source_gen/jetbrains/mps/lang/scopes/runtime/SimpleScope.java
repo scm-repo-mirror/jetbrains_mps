@@ -18,7 +18,7 @@ public abstract class SimpleScope extends Scope {
 
     // Checking nodes var for null first because null value can be easily passed here as a result of the combination of 
     // smodel language calls & bahaviour method calls on top of it like: 
-    //     sNodeType.concept.getPropertyDeclarations()  
+    //     sNodeType.concept.getPropertyDeclarations() 
     // in this case, if conept (reference inside sNodeType) is null (not specified yet) then the result of 
     // .getPropertyDeclarations() method call will be null despite null-safety inside any of smodel/collection 
     // languages returning empty collections in similar cases. 

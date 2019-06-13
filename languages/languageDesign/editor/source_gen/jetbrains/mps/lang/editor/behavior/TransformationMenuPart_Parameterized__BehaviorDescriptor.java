@@ -5,8 +5,6 @@ package jetbrains.mps.lang.editor.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -25,10 +23,9 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class TransformationMenuPart_Parameterized__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3abfebf456f8ad25L, "jetbrains.mps.lang.editor.structure.TransformationMenuPart_Parameterized");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<SContainmentLink> getLinkNodeOfParameterizedPart_id1quYWAD03b2 = new SMethodBuilder<SContainmentLink>(new SJavaCompoundTypeImpl(SContainmentLink.class)).name("getLinkNodeOfParameterizedPart").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1quYWAD03b2").registry(REGISTRY).build();
-  public static final SMethod<SNode> getOutputConcept_id3mnwiBI8ZE2 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getOutputConcept").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3mnwiBI8ZE2").registry(REGISTRY).build();
+  public static final SMethod<SContainmentLink> getLinkNodeOfParameterizedPart_id1quYWAD03b2 = new SMethodBuilder<SContainmentLink>(new SJavaCompoundTypeImpl(SContainmentLink.class)).name("getLinkNodeOfParameterizedPart").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1quYWAD03b2").build();
+  public static final SMethod<SNode> getOutputConcept_id3mnwiBI8ZE2 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getOutputConcept").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3mnwiBI8ZE2").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getLinkNodeOfParameterizedPart_id1quYWAD03b2, getOutputConcept_id3mnwiBI8ZE2);
 
@@ -46,7 +43,6 @@ public final class TransformationMenuPart_Parameterized__BehaviorDescriptor exte
   }
 
   /*package*/ TransformationMenuPart_Parameterized__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

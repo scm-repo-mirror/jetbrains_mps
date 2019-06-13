@@ -101,7 +101,7 @@ import org.jetbrains.mps.openapi.language.SLanguage;
     }
     @Override
     public void findNotMigrated(ProgressMonitor m, Iterable<ScriptApplied> toCheck, Processor<Problem> processor) {
-      // todo  
+      // todo 
     }
   };
   private MigrationExecutor myExecutor = new MigrationExecutor() {

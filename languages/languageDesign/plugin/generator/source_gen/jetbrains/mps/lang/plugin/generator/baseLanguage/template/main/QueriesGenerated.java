@@ -2792,7 +2792,7 @@ public class QueriesGenerated extends QueryProviderBase {
     rtqMethods.put("4109043866296271182", new QueriesGenerated.RTQ(21, "GeneratedGroup"));
     rtqMethods.put("4109043866296271139", new QueriesGenerated.RTQ(22, "GeneratedAction_Template"));
     rtqMethods.put("7167571922052023658", new QueriesGenerated.RTQ(23, "GeneratedGroup"));
-    rtqMethods.put("7458954884159668340", new QueriesGenerated.RTQ(24, "Object"));
+    rtqMethods.put("7458954884159668340", new QueriesGenerated.RTQ(24, "MainGeneratedGroup"));
     rtqMethods.put("7458954884159668433", new QueriesGenerated.RTQ(25, "GeneratedGroup"));
     rtqMethods.put("2386704358800499388", new QueriesGenerated.RTQ(26, "ShortcutChange"));
     rtqMethods.put("6423922349611078611", new QueriesGenerated.RTQ(27, "ToolClass"));

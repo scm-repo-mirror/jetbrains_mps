@@ -5,6 +5,7 @@
     <classNode dependClassName="jetbrains.mps.ide.actions.LanguageActions_ActionGroup" />
     <classNode dependClassName="jetbrains.mps.lang.migration.actions.plugin.CorrectLanguageVersion_Action" />
     <classNode dependClassName="jetbrains.mps.lang.migration.actions.plugin.MigrationGroup_ActionGroup" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode extendsClassName="jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin" />
   </dependency>
   <dependency className="jetbrains.mps.lang.migration.actions.plugin.CorrectLanguageVersion_Action">
@@ -33,6 +34,8 @@
   </dependency>
   <dependency className="jetbrains.mps.lang.migration.actions.plugin.MigrationGroup_ActionGroup">
     <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.workbench.action.ApplicationPlugin" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode extendsClassName="jetbrains.mps.plugins.actions.GeneratedActionGroup" />
   </dependency>
 </dependenciesRoot>

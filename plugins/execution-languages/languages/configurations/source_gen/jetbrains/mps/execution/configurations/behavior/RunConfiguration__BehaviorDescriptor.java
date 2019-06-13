@@ -5,8 +5,6 @@ package jetbrains.mps.execution.configurations.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -29,11 +27,10 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class RunConfiguration__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f46e49L, "jetbrains.mps.execution.configurations.structure.RunConfiguration");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<SNode> getExecutor_id3gs394eDyIj = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getExecutor").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3gs394eDyIj").registry(REGISTRY).build();
-  public static final SMethod<Boolean> isForeign_id3wpI_WC06mf = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isForeign").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3wpI_WC06mf").registry(REGISTRY).build();
-  public static final SMethod<String> getGeneratedFactoryName_id1XgDflG1h5w = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedFactoryName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1XgDflG1h5w").registry(REGISTRY).build();
+  public static final SMethod<SNode> getExecutor_id3gs394eDyIj = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getExecutor").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3gs394eDyIj").build();
+  public static final SMethod<Boolean> isForeign_id3wpI_WC06mf = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isForeign").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3wpI_WC06mf").build();
+  public static final SMethod<String> getGeneratedFactoryName_id1XgDflG1h5w = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedFactoryName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1XgDflG1h5w").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getExecutor_id3gs394eDyIj, isForeign_id3wpI_WC06mf, getGeneratedFactoryName_id1XgDflG1h5w);
 
@@ -59,7 +56,6 @@ public final class RunConfiguration__BehaviorDescriptor extends BaseBHDescriptor
   }
 
   /*package*/ RunConfiguration__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

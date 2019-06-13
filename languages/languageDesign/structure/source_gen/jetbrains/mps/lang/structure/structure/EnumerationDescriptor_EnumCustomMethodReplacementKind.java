@@ -15,23 +15,17 @@ public class EnumerationDescriptor_EnumCustomMethodReplacementKind extends Enume
     super(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e9237b686f1e935L, "EnumCustomMethodReplacementKind", "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/3355805929432017205");
   }
 
-  private final EnumerationDescriptor.MemberDescriptor myMembermemberToValue_0 = new EnumerationDescriptor.MemberDescriptor("memberToValue", "member -> value", 0x2e9237b686f1e936L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/3355805929432017206");
-  private final EnumerationDescriptor.MemberDescriptor myMembervalueToMember_0 = new EnumerationDescriptor.MemberDescriptor("valueToMember", "value -> member", 0x2e9237b686f1e937L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/3355805929432017207");
-  private final EnumerationDescriptor.MemberDescriptor myMembermemberToName_0 = new EnumerationDescriptor.MemberDescriptor("memberToName", "name -> member", 0x2e9237b686f1e93aL, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/3355805929432017210");
-  private final EnumerationDescriptor.MemberDescriptor myMembernameToMember_0 = new EnumerationDescriptor.MemberDescriptor("nameToMember", "member -> name", 0x2e9237b686f1e93eL, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/3355805929432017214");
+  private final EnumerationDescriptor.MemberDescriptor myMember_memberToValue_0 = new EnumerationDescriptor.MemberDescriptor("memberToValue", "member -> value", 0x2e9237b686f1e936L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/3355805929432017206");
+  private final EnumerationDescriptor.MemberDescriptor myMember_valueToMember_0 = new EnumerationDescriptor.MemberDescriptor("valueToMember", "value -> member", 0x2e9237b686f1e937L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/3355805929432017207");
+  private final EnumerationDescriptor.MemberDescriptor myMember_memberToName_0 = new EnumerationDescriptor.MemberDescriptor("memberToName", "name -> member", 0x2e9237b686f1e93aL, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/3355805929432017210");
+  private final EnumerationDescriptor.MemberDescriptor myMember_nameToMember_0 = new EnumerationDescriptor.MemberDescriptor("nameToMember", "member -> name", 0x2e9237b686f1e93eL, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/3355805929432017214");
 
   private final EnumerationLiteralsIndex myIndex = EnumerationLiteralsIndex.build(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e9237b686f1e935L, 0x2e9237b686f1e936L, 0x2e9237b686f1e937L, 0x2e9237b686f1e93aL, 0x2e9237b686f1e93eL);
-  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMembermemberToValue_0, myMembervalueToMember_0, myMembermemberToName_0, myMembernameToMember_0);
+  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMember_memberToValue_0, myMember_valueToMember_0, myMember_memberToName_0, myMember_nameToMember_0);
 
   @Nullable
   @Override
   public EnumerationDescriptor.MemberDescriptor getDefault() {
-    return null;
-  }
-
-  @Nullable
-  @Override
-  public EnumerationDescriptor.ValueToIdMigrationFacility getMigrationFacility() {
     return null;
   }
 
@@ -49,13 +43,13 @@ public class EnumerationDescriptor_EnumCustomMethodReplacementKind extends Enume
     }
     switch (memberName) {
       case "memberToValue":
-        return myMembermemberToValue_0;
+        return myMember_memberToValue_0;
       case "valueToMember":
-        return myMembervalueToMember_0;
+        return myMember_valueToMember_0;
       case "memberToName":
-        return myMembermemberToName_0;
+        return myMember_memberToName_0;
       case "nameToMember":
-        return myMembernameToMember_0;
+        return myMember_nameToMember_0;
     }
     return null;
   }

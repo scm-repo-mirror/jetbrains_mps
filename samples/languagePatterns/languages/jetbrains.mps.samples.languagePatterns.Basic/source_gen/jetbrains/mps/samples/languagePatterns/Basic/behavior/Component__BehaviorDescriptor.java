@@ -5,8 +5,6 @@ package jetbrains.mps.samples.languagePatterns.Basic.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -24,9 +22,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class Component__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x4ed97160b0a7fa2aL, "jetbrains.mps.samples.languagePatterns.Basic.structure.Component");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> fullName_id4Vpsm2KEoLo = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("fullName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4Vpsm2KEoLo").registry(REGISTRY).build();
+  public static final SMethod<String> fullName_id4Vpsm2KEoLo = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("fullName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4Vpsm2KEoLo").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(fullName_id4Vpsm2KEoLo);
 
@@ -38,7 +35,6 @@ public final class Component__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ Component__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

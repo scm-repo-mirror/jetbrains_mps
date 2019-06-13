@@ -94,7 +94,7 @@ public final class IdeaEnvironment extends EnvironmentBase implements Disposable
    */
   @Hack
   private void addRequiredPlugins(EnvironmentConfig config) {
-    // [MM]: looks like a hack, should we regenerate it to a regular plugin specification?  
+    // [MM]: looks like a hack, should we regenerate it to a regular plugin specification? 
     // Probably, with plugin-set-ref to ensure the same plugin set is used 
     // typically, this property is set by generated ant scripts before running tests 
     // otherwise, we set it from config 
@@ -129,7 +129,7 @@ public final class IdeaEnvironment extends EnvironmentBase implements Disposable
     }
     // IMPORTANT! "plugin.path" doesn't tell plugin's classpath, it points to location where to read plugin.xml from 
     // I.e. for unit test mode, complete plugin's classpath has to be in global CP already, 
-    // and therefore would be loaded by PluginManagerCore.loadDescriptorsFromClassPath.  
+    // PluginManagerCore.loadDescriptorsFromClassPath. 
     System.setProperty(PLUGIN_PATH, pluginPathResult.toString());
   }
 
@@ -233,7 +233,7 @@ public final class IdeaEnvironment extends EnvironmentBase implements Disposable
         for (final Project project : openedProjects) {
           if (project instanceof MPSProject) {
             // MPSProject need to be disposed outside writeAction to prevent exception: 
-            // java.lang.IllegalStateException: Must not call closeProject() from under write action  
+            // java.lang.IllegalStateException: Must not call closeProject() from under write action 
             // because fireProjectClosing() listeners must have a chance to do something useful 
             // TODO: find way to put MPSProject#dispose() under writeAction 
             project.dispose();

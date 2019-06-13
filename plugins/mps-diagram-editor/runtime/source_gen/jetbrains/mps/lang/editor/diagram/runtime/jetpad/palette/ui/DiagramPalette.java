@@ -12,8 +12,6 @@ import jetbrains.mps.lang.editor.diagram.runtime.jetpad.palette.openapi.PaletteE
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.openapi.actionSystem.ActionToolbar;
 import com.intellij.openapi.actionSystem.ActionPlaces;
-import com.intellij.ide.DataManager;
-import com.intellij.openapi.actionSystem.ex.ActionManagerEx;
 import com.intellij.openapi.keymap.ex.KeymapManagerEx;
 import javax.swing.JComponent;
 
@@ -48,7 +46,7 @@ public class DiagramPalette extends JPanel {
   }
   protected void createPalette() {
     GridConstraints gridConstraints = new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null);
-    ActionToolbar myToolbar = new DiagramPaletteActionToolbar(ActionPlaces.UNKNOWN, myMainActionGroup, false, DataManager.getInstance(), ActionManagerEx.getInstanceEx(), KeymapManagerEx.getInstanceEx());
+    ActionToolbar myToolbar = new DiagramPaletteActionToolbar(ActionPlaces.UNKNOWN, myMainActionGroup, false, KeymapManagerEx.getInstanceEx());
     JComponent actionPanel = myToolbar.getComponent();
     add(actionPanel, gridConstraints);
   }

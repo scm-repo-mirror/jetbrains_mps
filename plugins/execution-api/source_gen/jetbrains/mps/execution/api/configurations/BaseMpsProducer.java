@@ -72,7 +72,7 @@ public abstract class BaseMpsProducer<T> extends RuntimeConfigurationProducer {
    */
   @Override
   @Nullable
-  protected RunnerAndConfigurationSettings findExistingByElement(Location location, @NotNull List<RunnerAndConfigurationSettings> existingConfigurations, ConfigurationContext context) {
+  protected RunnerAndConfigurationSettings findExistingByElement(Location location, @NotNull List<? extends RunnerAndConfigurationSettings> existingConfigurations, ConfigurationContext context) {
     RunnerAndConfigurationSettings given = getConfiguration();
     for (RunnerAndConfigurationSettings existing : existingConfigurations) {
       if (Objects.equals(existing.getType(), given.getType())) {
@@ -108,7 +108,7 @@ public abstract class BaseMpsProducer<T> extends RuntimeConfigurationProducer {
     if (psiElement.isTransientElement()) {
       // Generally, no run configurations for transient elements might be too much - one may desire 
       // e.g. to run a main class for a transient model. Perhaps, each producer shall decide itself (in isApplicable) whether 
-      // to ignore tranient models, however, at the moment I decided to prevent any code execution for transient models for  
+      // to ignore tranient models, however, at the moment I decided to prevent any code execution for transient models for 
       // the sake of change simplicity. 
       return null;
     }

@@ -909,7 +909,7 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Object propertyMacro_GetValue_78_2(final PropertyMacroContext _context) {
     SNode templateTarget = SNodeOperations.getParent(_context.getNode()).getReferenceTarget(LinkAttribute__BehaviorDescriptor.getLink_id1avfQ4BEFo6.invoke(_context.getNode()));
-    // This is what MacroResolver used to do in getDefaultResolveInfo().  
+    // This is what MacroResolver used to do in getDefaultResolveInfo(). 
     // I wonder why IResolveInfo case wasn't considered 
     return (templateTarget == null ? "null" : templateTarget.getName());
   }
@@ -2277,7 +2277,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return GenUtil.getVarHack(_context, SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x190d31fe6a12ebb4L, 0x190d31fe6a12ebb8L, "ruleConsequence"))) != null;
   }
   public static boolean ifMacro_Condition_43_0(final IfMacroContext _context) {
-    // reduce_TemplateDeclarationReferenceConsequence checks for node.template.parameter,  
+    // reduce_TemplateDeclarationReferenceConsequence checks for node.template.parameter, 
     // though the rest of the code uses actualArguments to tell presense of arguments. Which one is right? 
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3125L, "actualArgument"))).isNotEmpty();
   }
@@ -3086,12 +3086,12 @@ public class QueriesGenerated extends QueryProviderBase {
     }), MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x67b585b44f4d943bL, 0x67b585b44f4df327L, "condition"))).where(new NotNullWhereFilter<SNode>());
   }
   public static Iterable<SNode> sourceNodesQuery_0_3(final SourceSubstituteMacroNodesContext _context) {
-    // If we found condition or a rule with condition inside a template declaration or under rule  
-    // consequence (argh! except inline switch - corner case),  
+    // If we found condition or a rule with condition inside a template declaration or under rule 
+    // consequence (argh! except inline switch - corner case), 
     // we assume it's  lang.generator as target language then, and do not generate any code for it. 
-    // Altenatively, shall filter by condition's parent and grandparent (reduction rules could be  
+    // Altenatively, shall filter by condition's parent and grandparent (reduction rules could be 
     // inside Switch and MC, while Pattern and RootMR could be inside MC only) 
-    // which I consider more complicated query compared to the one with ancestors, though I don't  
+    // which I consider more complicated query compared to the one with ancestors, though I don't 
     // like that conditions here and in inject_DirectMethodAccess are different 
     return ListSequence.fromList(SModelOperations.nodes(_context.getInputModel(), MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b05beaL, "jetbrains.mps.lang.generator.structure.BaseMappingRule_Condition"))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
@@ -3101,7 +3101,7 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Iterable<SNode> sourceNodesQuery_0_4(final SourceSubstituteMacroNodesContext _context) {
     // isAttribute check is to ensure we don't process PropertyMacro which is template target (i.e. if one generates template models) 
-    // Note, this check (containmentLink == smodelAttributes) won't suffice once we we have PropertyMacro not as a top template node  
+    // Note, this check (containmentLink == smodelAttributes) won't suffice once we we have PropertyMacro not as a top template node 
     // (i.e. if we produce a template with few PropertyMacro inside it), although not sure if we ever get to such scenario. 
     return SLinkOperations.collect(ListSequence.fromList(SModelOperations.nodes(_context.getInputModel(), MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd47e9f6f0L, "jetbrains.mps.lang.generator.structure.PropertyMacro"))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
@@ -3367,7 +3367,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, 0x7786936d61bf9231L, "referenceReductionRule"));
   }
   public static Iterable<SNode> sourceNodesQuery_18_0(final SourceSubstituteMacroNodesContext _context) {
-    // see comment in the same code in reduce_TemplateDeclarationReferenceConsequence  
+    // see comment in the same code in reduce_TemplateDeclarationReferenceConsequence 
     // for reason why we iterate arguments, not parameter declarations 
     // Besides, actualArgument.isNotEmpty is condition for the field, above 
     return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3125L, "actualArgument"));
@@ -3399,8 +3399,8 @@ public class QueriesGenerated extends QueryProviderBase {
     //     or declared parameters. If both match, it's all the same, however, 
     //     we may face cases when it's not true. Iterating over parameter declarations 
     //     looks safer (we can always inject null value for missing argument). 
-    //     Nevertheless, I decided to iterate over arguments as I hope some day to  
-    //     have parameters with default values, so that we'd need to take only  
+    //     Nevertheless, I decided to iterate over arguments as I hope some day to 
+    //     have parameters with default values, so that we'd need to take only 
     //     actual arguments here anyway 
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3125L, "actualArgument"))).skip(1);
   }
@@ -3430,7 +3430,7 @@ public class QueriesGenerated extends QueryProviderBase {
     });
   }
   public static Iterable<SNode> sourceNodesQuery_43_0(final SourceSubstituteMacroNodesContext _context) {
-    // see reduce_TemplateDeclarationReferenceConsequence for details  
+    // see reduce_TemplateDeclarationReferenceConsequence for details 
     // of atualArgument choice for iteration 
     return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3125L, "actualArgument"))).skip(1);
   }

@@ -21,13 +21,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SModuleReference" />
     <classNode extendsClassName="jetbrains.mps.tool.builder.CoreWorker" />
   </dependency>
-  <dependency className="jetbrains.mps.tool.builder.PlatformWorker">
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="jetbrains.mps.tool.common.Script" />
-    <classNode dependClassName="jetbrains.mps.tool.environment.Environment" />
-    <classNode dependClassName="jetbrains.mps.tool.environment.IdeaEnvironment" />
-    <classNode extendsClassName="jetbrains.mps.tool.builder.WorkerBase" />
-  </dependency>
   <dependency className="jetbrains.mps.tool.builder.WorkerBase">
     <classNode dependClassName="java.io.File" />
     <classNode dependClassName="java.io.PrintWriter" />

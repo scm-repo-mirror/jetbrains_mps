@@ -4,20 +4,25 @@ package jetbrains.mps.ide.httpsupport.nodeaccess.plugin;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.NodeActions_ActionGroup;
 
 public class Nodeaccess_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.ide.httpsupport.nodeaccess");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.ide.httpsupport.nodeaccess");
+
   public Nodeaccess_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   public void createGroups() {
     // actions w/o parameters 
     addAction(new NodeReferenceURL_Action());
     // groups 
-    addGroup(new NodeAsUriActions_ActionGroup());
+    addGroup(new NodeAsUriActions_ActionGroup(this));
   }
   public void adjustRegularGroups() {
     insertGroupIntoAnother(NodeAsUriActions_ActionGroup.ID, NodeActions_ActionGroup.ID, NodeActions_ActionGroup.LABEL_ID_copy);

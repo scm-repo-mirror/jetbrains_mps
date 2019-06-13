@@ -296,7 +296,7 @@ public class MpsLoadTask extends Task {
         return constructor.newInstance(myWhatToDo, this);
       }
     }
-    // Then, resort to a worker that doesn't depend from Ant  
+    // Then, resort to a worker that doesn't depend from Ant 
     for (Constructor<?> constructor : workerClass.getConstructors()) {
       if (constructor.getParameterCount() != 1) {
         continue;

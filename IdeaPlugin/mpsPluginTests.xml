@@ -156,8 +156,8 @@
       <classpath>
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-annotations.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-openapi.jar" />
-        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-core.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-logging.jar" />
+        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-core.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-closures.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-collections.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-tuples.jar" />
@@ -165,7 +165,6 @@
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-messaging.jar" />
-        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-common.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-platform.jar" />
@@ -177,7 +176,7 @@
         <fileset file="${artifacts.mpsJavaIdeaPlugin}/mps-idea-java/lib/mps-java-idea.jar" />
         <fileset file="${artifacts.mpsJavaPlatform}/lib/java-core.jar" />
         <fileset file="${artifacts.mpsJavaPlatform}/lib/java-platform.jar" />
-        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-tool.jar" />
+        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mpsant/mps-tool.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-project-check.jar" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -207,8 +206,8 @@
       <classpath>
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-annotations.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-openapi.jar" />
-        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-core.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-logging.jar" />
+        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-core.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-closures.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-collections.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-tuples.jar" />
@@ -216,7 +215,6 @@
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-messaging.jar" />
-        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-common.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-platform.jar" />
@@ -225,7 +223,7 @@
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-editor-runtime.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-plugin.jar" />
-        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-tool.jar" />
+        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mpsant/mps-tool.jar" />
         <fileset file="${artifacts.mpsJpsIdea}/lib/jps/mps-core-jps-plugin.jar" />
         <fileset file="${artifacts.mpsJavaIdeaPlugin}/mps-idea-java/lib/jps/mps-java-jps-plugin.jar" />
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />

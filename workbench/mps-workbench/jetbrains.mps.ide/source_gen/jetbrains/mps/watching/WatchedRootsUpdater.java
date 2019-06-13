@@ -31,22 +31,23 @@ public class WatchedRootsUpdater implements ApplicationComponent {
   private final ClassLoaderManager myClassLoaderManager;
   private final Map<Library, LocalFileSystem.WatchRequest> myLibrariesRequests = new HashMap<Library, LocalFileSystem.WatchRequest>();
   private final Map<Library, LocalFileSystem.WatchRequest> myProjectLibrariesRequests = new HashMap<Library, LocalFileSystem.WatchRequest>();
-  private final LocalFileSystem myLocalFileSystem;
   private final WatchedRoots myWatchedRootsBase;
   private final ProjectManager myProjectManager;
   private ProjectManagerAdapter myProjectManagerListener;
-  public WatchedRootsUpdater(LocalFileSystem lfs, WatchedRoots watchedRoots, MPSCoreComponents coreComponents, AdditionalLibrariesManager libraryManager, ProjectManager projectManager) {
+
+  public WatchedRootsUpdater(WatchedRoots watchedRoots, MPSCoreComponents coreComponents, AdditionalLibrariesManager libraryManager, ProjectManager projectManager) {
     myLibraryManager = libraryManager;
     myProjectManager = projectManager;
     myClassLoaderManager = coreComponents.getClassLoaderManager();
-    myLocalFileSystem = lfs;
     myWatchedRootsBase = watchedRoots;
   }
+
   @NotNull
   @Override
   public String getComponentName() {
     return "Watched Roots Updater";
   }
+
   @Override
   public void initComponent() {
     processLibrariesChange();
@@ -86,7 +87,7 @@ public class WatchedRootsUpdater implements ApplicationComponent {
 
   private void addLibraryWatch(List<Library> toAdd, Map<Library, LocalFileSystem.WatchRequest> librariesRequests) {
     for (Library l : toAdd) {
-      LocalFileSystem.WatchRequest watchRequest = myLocalFileSystem.addRootToWatch(l.getPath(), true);
+      LocalFileSystem.WatchRequest watchRequest = LocalFileSystem.getInstance().addRootToWatch(l.getPath(), true);
       librariesRequests.put(l, watchRequest);
     }
   }
@@ -95,7 +96,7 @@ public class WatchedRootsUpdater implements ApplicationComponent {
     for (Library l : toRemove) {
       final LocalFileSystem.WatchRequest watchRequest = librariesRequests.get(l);
       if (watchRequest != null) {
-        myLocalFileSystem.removeWatchedRoot(watchRequest);
+        LocalFileSystem.getInstance().removeWatchedRoot(watchRequest);
       }
       librariesRequests.remove(l);
     }

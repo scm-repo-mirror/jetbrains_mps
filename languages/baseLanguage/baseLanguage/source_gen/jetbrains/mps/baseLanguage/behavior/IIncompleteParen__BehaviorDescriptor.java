@@ -5,8 +5,6 @@ package jetbrains.mps.baseLanguage.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -24,11 +22,10 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class IIncompleteParen__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xede3fe8510255edL, "jetbrains.mps.baseLanguage.structure.IIncompleteParen");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<Void> increaseCount_idVufYxgmE1y = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("increaseCount").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VufYxgmE1y").registry(REGISTRY).build();
-  public static final SMethod<Void> decreaseCount_idVufYxgmFtR = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("decreaseCount").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VufYxgmFtR").registry(REGISTRY).build();
-  public static final SMethod<Boolean> isSingleParen_idVufYxgmHsD = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isSingleParen").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VufYxgmHsD").registry(REGISTRY).build();
+  public static final SMethod<Void> increaseCount_idVufYxgmE1y = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("increaseCount").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VufYxgmE1y").build();
+  public static final SMethod<Void> decreaseCount_idVufYxgmFtR = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("decreaseCount").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VufYxgmFtR").build();
+  public static final SMethod<Boolean> isSingleParen_idVufYxgmHsD = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isSingleParen").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VufYxgmHsD").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(increaseCount_idVufYxgmE1y, decreaseCount_idVufYxgmFtR, isSingleParen_idVufYxgmHsD);
 
@@ -47,7 +44,6 @@ public final class IIncompleteParen__BehaviorDescriptor extends BaseBHDescriptor
   }
 
   /*package*/ IIncompleteParen__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

@@ -35,7 +35,7 @@ public class check_AnonymousClassWithNoConstructorInheritsDefaultConstructor_Non
         }
       }
     }
-    // MethodCallsFixer_Rule and check_AnonymousClassHasConstructorDeclaration  
+    // MethodCallsFixer_Rule and check_AnonymousClassHasConstructorDeclaration 
     // take care of null in constructorDeclaration 
   }
   public SAbstractConcept getApplicableConcept() {

@@ -5,8 +5,6 @@ package jetbrains.mps.samples.lambdaCalculus.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -26,12 +24,11 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class LambdaApplication__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dddL, "jetbrains.mps.samples.lambdaCalculus.structure.LambdaApplication");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<List<SNode>> getArguments_id4pfsEnSNDeV = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getArguments").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4pfsEnSNDeV").registry(REGISTRY).build();
-  public static final SMethod<SNode> getLambdaAbstraction_id4khEFTQ$3U7 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getLambdaAbstraction").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4khEFTQ$3U7").registry(REGISTRY).build();
-  public static final SMethod<Boolean> isInner_id18EhrW3IE$z = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isInner").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("18EhrW3IE$z").registry(REGISTRY).build();
-  public static final SMethod<Boolean> isFullApplication_id18EhrW3IFXQ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isFullApplication").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("18EhrW3IFXQ").registry(REGISTRY).build();
+  public static final SMethod<List<SNode>> getArguments_id4pfsEnSNDeV = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getArguments").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4pfsEnSNDeV").build();
+  public static final SMethod<SNode> getLambdaAbstraction_id4khEFTQ$3U7 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getLambdaAbstraction").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4khEFTQ$3U7").build();
+  public static final SMethod<Boolean> isInner_id18EhrW3IE$z = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isInner").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("18EhrW3IE$z").build();
+  public static final SMethod<Boolean> isFullApplication_id18EhrW3IFXQ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isFullApplication").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("18EhrW3IFXQ").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getArguments_id4pfsEnSNDeV, getLambdaAbstraction_id4khEFTQ$3U7, isInner_id18EhrW3IE$z, isFullApplication_id18EhrW3IFXQ);
 
@@ -64,7 +61,6 @@ public final class LambdaApplication__BehaviorDescriptor extends BaseBHDescripto
   }
 
   /*package*/ LambdaApplication__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

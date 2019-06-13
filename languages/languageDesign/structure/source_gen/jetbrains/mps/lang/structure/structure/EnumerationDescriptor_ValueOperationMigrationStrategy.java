@@ -15,25 +15,19 @@ public class EnumerationDescriptor_ValueOperationMigrationStrategy extends Enume
     super(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5a14f103596433bdL, "ValueOperationMigrationStrategy", "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634662333");
   }
 
-  private final EnumerationDescriptor.MemberDescriptor myMemberstring_name_0 = new EnumerationDescriptor.MemberDescriptor("string_name", "string_name", 0x5a14f103596433beL, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634662334");
-  private final EnumerationDescriptor.MemberDescriptor myMemberstring_presentation_0 = new EnumerationDescriptor.MemberDescriptor("string_presentation", "string_presentation", 0x5a14f103596433bfL, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634662335");
-  private final EnumerationDescriptor.MemberDescriptor myMemberboolean_0 = new EnumerationDescriptor.MemberDescriptor("boolean", "boolean", 0x5a14f103596433c6L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634662342");
-  private final EnumerationDescriptor.MemberDescriptor myMemberint_ordinal_0 = new EnumerationDescriptor.MemberDescriptor("int_ordinal", "int_ordinal", 0x5a14f103596433cbL, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634662347");
-  private final EnumerationDescriptor.MemberDescriptor myMemberint_ordinal_plus_one_0 = new EnumerationDescriptor.MemberDescriptor("int_ordinal_plus_one", "int_ordinal_plus_one", 0x5a14f103596433d1L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634662353");
-  private final EnumerationDescriptor.MemberDescriptor myMemberby_custom_methods_0 = new EnumerationDescriptor.MemberDescriptor("by_custom_methods", "by_custom_methods", 0x5a14f103596433d8L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634662360");
+  private final EnumerationDescriptor.MemberDescriptor myMember_string_name_0 = new EnumerationDescriptor.MemberDescriptor("string_name", "string_name", 0x5a14f103596433beL, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634662334");
+  private final EnumerationDescriptor.MemberDescriptor myMember_string_presentation_0 = new EnumerationDescriptor.MemberDescriptor("string_presentation", "string_presentation", 0x5a14f103596433bfL, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634662335");
+  private final EnumerationDescriptor.MemberDescriptor myMember_boolean_0 = new EnumerationDescriptor.MemberDescriptor("boolean", "boolean", 0x5a14f103596433c6L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634662342");
+  private final EnumerationDescriptor.MemberDescriptor myMember_int_ordinal_0 = new EnumerationDescriptor.MemberDescriptor("int_ordinal", "int_ordinal", 0x5a14f103596433cbL, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634662347");
+  private final EnumerationDescriptor.MemberDescriptor myMember_int_ordinal_plus_one_0 = new EnumerationDescriptor.MemberDescriptor("int_ordinal_plus_one", "int_ordinal_plus_one", 0x5a14f103596433d1L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634662353");
+  private final EnumerationDescriptor.MemberDescriptor myMember_by_custom_methods_0 = new EnumerationDescriptor.MemberDescriptor("by_custom_methods", "by_custom_methods", 0x5a14f103596433d8L, "r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)/6491077959634662360");
 
   private final EnumerationLiteralsIndex myIndex = EnumerationLiteralsIndex.build(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5a14f103596433bdL, 0x5a14f103596433beL, 0x5a14f103596433bfL, 0x5a14f103596433c6L, 0x5a14f103596433cbL, 0x5a14f103596433d1L, 0x5a14f103596433d8L);
-  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMemberstring_name_0, myMemberstring_presentation_0, myMemberboolean_0, myMemberint_ordinal_0, myMemberint_ordinal_plus_one_0, myMemberby_custom_methods_0);
+  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMember_string_name_0, myMember_string_presentation_0, myMember_boolean_0, myMember_int_ordinal_0, myMember_int_ordinal_plus_one_0, myMember_by_custom_methods_0);
 
   @Nullable
   @Override
   public EnumerationDescriptor.MemberDescriptor getDefault() {
-    return null;
-  }
-
-  @Nullable
-  @Override
-  public EnumerationDescriptor.ValueToIdMigrationFacility getMigrationFacility() {
     return null;
   }
 
@@ -51,17 +45,17 @@ public class EnumerationDescriptor_ValueOperationMigrationStrategy extends Enume
     }
     switch (memberName) {
       case "string_name":
-        return myMemberstring_name_0;
+        return myMember_string_name_0;
       case "string_presentation":
-        return myMemberstring_presentation_0;
+        return myMember_string_presentation_0;
       case "boolean":
-        return myMemberboolean_0;
+        return myMember_boolean_0;
       case "int_ordinal":
-        return myMemberint_ordinal_0;
+        return myMember_int_ordinal_0;
       case "int_ordinal_plus_one":
-        return myMemberint_ordinal_plus_one_0;
+        return myMember_int_ordinal_plus_one_0;
       case "by_custom_methods":
-        return myMemberby_custom_methods_0;
+        return myMember_by_custom_methods_0;
     }
     return null;
   }

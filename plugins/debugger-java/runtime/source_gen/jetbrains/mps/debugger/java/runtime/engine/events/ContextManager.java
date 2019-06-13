@@ -71,7 +71,7 @@ public class ContextManager {
         // InternalException 13 means that there are running threads that we are trying to resume 
         // On MacOS it happened that native thread didn't stop while some java thread reached breakpoint 
         if (e.errorCode() == 13 && context.getSuspendPolicy() == EventRequest.SUSPEND_ALL) {
-          // Patches.MAC_RESUME_VM_HACK &&  
+          // Patches.MAC_RESUME_VM_HACK && 
           // Its funny, but second resume solves the problem 
         } else {
           if (LOG.isEnabledFor(Level.ERROR)) {

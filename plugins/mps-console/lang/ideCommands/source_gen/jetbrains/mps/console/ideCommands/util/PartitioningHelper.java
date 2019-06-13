@@ -113,7 +113,7 @@ public class PartitioningHelper {
     console.addText(ccp.toString());
 
     // viewTool.append("---------- conflicts ------------\n"); 
-    //   
+    //  
     // Map<String, String> existing = new HashMap<String, String>(); 
     // MPSModuleRepository repo = MPSModuleRepository.getInstance(); 
     // for(Generator g : repo.getAllGenerators()) { 

@@ -37,7 +37,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BaseGroup extends DefaultActionGroup implements DumbAware {
-  private String myId = "";
+  private final String myId;
   private boolean myIsInternal = false;
   private boolean myIsAlwaysVisible = true;
 
@@ -55,15 +55,15 @@ public class BaseGroup extends DefaultActionGroup implements DumbAware {
     getTemplatePresentation().setIcon(icon);
   }
 
-  public void setIsAlwaysVisible(boolean isAlwaysVisible) {
+  public final void setIsAlwaysVisible(boolean isAlwaysVisible) {
     myIsAlwaysVisible = isAlwaysVisible;
   }
 
-  public void setIsInternal(boolean isInternal) {
+  public final void setIsInternal(boolean isInternal) {
     myIsInternal = isInternal;
   }
 
-  public void setMnemonic(char mnemonic) {
+  public final void setMnemonic(char mnemonic) {
     String text = getTemplatePresentation().getText();
     int pos = text.indexOf(Character.toUpperCase(mnemonic));
     if (pos == -1) pos = text.indexOf(Character.toLowerCase(mnemonic));
@@ -72,21 +72,21 @@ public class BaseGroup extends DefaultActionGroup implements DumbAware {
     getTemplatePresentation().setText(newText.toString());
   }
 
-  public String getId() {
+  public final String getId() {
     return myId;
   }
 
-  public void disable(Presentation p) {
+  public final void disable(Presentation p) {
     p.setEnabled(false);
     p.setVisible(myIsAlwaysVisible);
   }
 
-  public void enable(Presentation p) {
+  public final void enable(Presentation p) {
     p.setEnabled(true);
     p.setVisible(true);
   }
 
-  protected void setEnabledState(Presentation p, boolean state) {
+  protected final void setEnabledState(Presentation p, boolean state) {
     if (state) enable(p);
     else disable(p);
   }

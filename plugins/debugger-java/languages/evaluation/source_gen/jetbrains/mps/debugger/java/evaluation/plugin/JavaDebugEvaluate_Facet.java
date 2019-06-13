@@ -221,9 +221,9 @@ public class JavaDebugEvaluate_Facet extends IFacet.Stub {
                 // XXX in fact, likely need original module as there might be troubles deducing CP from a transient module which is likely to be in TGOR. 
                 //     Besides, it's impossible to calculate runtime modules of languages used during generation 
                 // FIXME To deal with that, we pass evaluationClasspathModule from outside, the module which is populated with all possible dependencies. 
-                //       It's a hack, indeed, and un ugly one (the code that populates properties pool makes me cry). Alternative approach I don't find  
-                //       enough mental powers to try to is to find original input resource (likely, need to use 'transform IResource' as resource policy then,  
-                //       although not sure I can get access to the original input resource sequence, as Make has some magic to prepare input for a task based on  
+                //       It's a hack, indeed, and un ugly one (the code that populates properties pool makes me cry). Alternative approach I don't find 
+                //       enough mental powers to try to is to find original input resource (likely, need to use 'transform IResource' as resource policy then, 
+                //       although not sure I can get access to the original input resource sequence, as Make has some magic to prepare input for a task based on 
                 //       an output of a predecessor). 
                 modules.add(tgRes.getModule());
                 String packageName = JavaNameUtil.packageName(tgRes.getModel());

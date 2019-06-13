@@ -24,6 +24,7 @@ import jetbrains.mps.fileTypes.MPSFileTypesManager;
 import jetbrains.mps.ide.editor.MPSFileNodeEditor;
 import jetbrains.mps.ide.projectPane.logicalview.ProjectTreeFindHelper;
 import jetbrains.mps.ide.ui.tree.module.ProjectModuleTreeNode;
+import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.nodefs.MPSNodeVirtualFile;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.SModelFileTracker;
@@ -88,7 +89,11 @@ public final class ProjectPaneSelectInTarget extends AbstractProjectViewSelectIn
   }
 
   private SModel getModel(VirtualFile virtualFile) {
-    IFile modelFile = myProject.getFileSystem().fromVirtualFile(virtualFile);
+    IdeaFileSystem fs = myProject.getFileSystem();
+    if (!fs.canConvert(virtualFile)) {
+      return null;
+    }
+    IFile modelFile = fs.fromVirtualFile(virtualFile);
     // XXX perhaps, shall take same approach as with module files (see #getModule, below)?
     //     with ProjectTreeFindHelper we at least make sure there's a tree node to navigate to, SModelFileTracker doesn't guarantee us that
     return SModelFileTracker.getInstance(myProject.getRepository()).findModel(modelFile);
@@ -100,7 +105,11 @@ public final class ProjectPaneSelectInTarget extends AbstractProjectViewSelectIn
   }
 
   private SModule getModule(VirtualFile virtualFile) {
-    IFile moduleFile = myProject.getFileSystem().fromVirtualFile(virtualFile);
+    IdeaFileSystem fs = myProject.getFileSystem();
+    if (!fs.canConvert(virtualFile)) {
+      return null;
+    }
+    IFile moduleFile = fs.fromVirtualFile(virtualFile);
     final ProjectModuleTreeNode moduleTreeNode = myProjectTreeFinder.findModuleTreeNode(moduleFile);
     // XXX in fact, no reason to complicate life and to use SModule to pass navigation destination, shall use tree node in doSelectIn right away
     return moduleTreeNode == null ? null : moduleTreeNode.getModule();

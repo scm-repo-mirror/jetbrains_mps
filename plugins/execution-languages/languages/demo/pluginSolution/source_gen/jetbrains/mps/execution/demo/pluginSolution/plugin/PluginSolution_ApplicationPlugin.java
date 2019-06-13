@@ -4,16 +4,21 @@ package jetbrains.mps.execution.demo.pluginSolution.plugin;
 
 import jetbrains.mps.plugins.applicationplugins.BaseApplicationPlugin;
 import com.intellij.openapi.extensions.PluginId;
+import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import jetbrains.mps.plugins.part.ApplicationPluginPart;
 
 public class PluginSolution_ApplicationPlugin extends BaseApplicationPlugin {
-  private PluginId myId = PluginId.getId("jetbrains.mps.execution.demo.pluginSolution");
+  private final PluginId myId = PluginId.getId("jetbrains.mps.execution.demo.pluginSolution");
+
   public PluginSolution_ApplicationPlugin() {
   }
+
+  @NotNull
   public PluginId getId() {
     return myId;
   }
+
   @Override
   public void fillCustomParts(List<ApplicationPluginPart> parts) {
     parts.add(new RunConfigurationsInitializer_AppPluginPart());

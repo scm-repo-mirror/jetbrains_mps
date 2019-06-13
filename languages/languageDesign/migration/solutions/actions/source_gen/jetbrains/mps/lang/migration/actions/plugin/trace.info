@@ -14,24 +14,26 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
   <root nodeRef="fd5162e1-98b8-43e1-a33f-62e46fc97404/r:adde35cf-3cf9-4b55-82d6-5122b6082b2f(jetbrains.mps.migration.actions/jetbrains.mps.lang.migration.actions.plugin)/4436301628118322512">
     <file name="Actions_ApplicationPlugin.java">
-      <node id="4436301628118322512" at="19,14,20,47" concept="2" />
-      <node id="4436301628118410065" at="22,37,23,131" concept="2" />
+      <node id="4436301628118322512" at="24,14,25,51" concept="2" />
+      <node id="4436301628118410065" at="27,37,28,131" concept="2" />
     </file>
     <file name="MigrationGroup_ActionGroup.java">
-      <node id="4436301628118322512" at="8,0,9,0" concept="10" trace="ID" />
-      <node id="4436301628118322512" at="9,39,10,32" concept="11" />
-      <node id="4436301628118322512" at="10,32,11,30" concept="2" />
-      <node id="4436301628118322512" at="11,30,12,25" concept="2" />
-      <node id="4436301628118340695" at="12,25,13,123" concept="2" />
-      <node id="4436301628118322512" at="9,0,15,0" concept="1" trace="MigrationGroup_ActionGroup#()V" />
-      <scope id="4436301628118322512" at="9,39,13,123" />
-      <scope id="4436301628118322512" at="9,0,15,0" />
-      <unit id="4436301628118322512" at="7,0,16,0" name="jetbrains.mps.lang.migration.actions.plugin.MigrationGroup_ActionGroup" />
+      <node id="4436301628118322512" at="10,0,11,0" concept="10" trace="ID" />
+      <node id="4436301628118322512" at="12,73,13,40" concept="11" />
+      <node id="4436301628118322512" at="13,40,14,25" concept="2" />
+      <node id="4436301628118322512" at="14,25,15,20" concept="2" />
+      <node id="4436301628118340695" at="15,20,16,123" concept="2" />
+      <node id="4436301628118322512" at="12,0,18,0" concept="1" trace="MigrationGroup_ActionGroup#(Ljetbrains/mps/workbench/action/ApplicationPlugin;)V" />
+      <scope id="4436301628118322512" at="12,73,16,123" />
+      <scope id="4436301628118322512" at="12,0,18,0">
+        <var name="plugin" id="4436301628118322512" />
+      </scope>
+      <unit id="4436301628118322512" at="9,0,19,0" name="jetbrains.mps.lang.migration.actions.plugin.MigrationGroup_ActionGroup" />
     </file>
   </root>
   <root nodeRef="fd5162e1-98b8-43e1-a33f-62e46fc97404/r:adde35cf-3cf9-4b55-82d6-5122b6082b2f(jetbrains.mps.migration.actions/jetbrains.mps.lang.migration.actions.plugin)/6845384137766004712">
     <file name="Actions_ApplicationPlugin.java">
-      <node id="6845384137766004712" at="17,30,18,51" concept="2" />
+      <node id="6845384137766004712" at="22,30,23,51" concept="2" />
     </file>
     <file name="CorrectLanguageVersion_Action.java">
       <node id="6845384137766004712" at="25,0,26,0" concept="10" trace="ICON" />
@@ -128,23 +130,23 @@
   </root>
   <root nodeRef="fd5162e1-98b8-43e1-a33f-62e46fc97404/r:adde35cf-3cf9-4b55-82d6-5122b6082b2f(jetbrains.mps.migration.actions/jetbrains.mps.lang.migration.actions.plugin)/7630817440603946693">
     <file name="Actions_ApplicationPlugin.java">
-      <node id="7630817440603946693" at="10,0,11,0" concept="3" trace="myId" />
-      <node id="7630817440603946693" at="13,27,14,16" concept="7" />
-      <node id="7630817440603946693" at="16,30,17,30" concept="8" />
-      <node id="7630817440603946693" at="18,51,19,14" concept="8" />
-      <node id="7630817440603946693" at="11,0,13,0" concept="1" trace="Actions_ApplicationPlugin#()V" />
-      <node id="7630817440603946693" at="13,0,16,0" concept="5" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
-      <node id="7630817440603946693" at="22,0,25,0" concept="5" trace="adjustRegularGroups#()V" />
-      <node id="7630817440603946693" at="16,0,22,0" concept="5" trace="createGroups#()V" />
-      <scope id="7630817440603946693" at="11,38,11,38" />
-      <scope id="7630817440603946693" at="13,27,14,16" />
-      <scope id="7630817440603946693" at="22,37,23,131" />
-      <scope id="7630817440603946693" at="11,0,13,0" />
-      <scope id="7630817440603946693" at="13,0,16,0" />
-      <scope id="7630817440603946693" at="22,0,25,0" />
-      <scope id="7630817440603946693" at="16,30,20,47" />
-      <scope id="7630817440603946693" at="16,0,22,0" />
-      <unit id="7630817440603946693" at="9,0,26,0" name="jetbrains.mps.lang.migration.actions.plugin.Actions_ApplicationPlugin" />
+      <node id="7630817440603946693" at="11,0,12,0" concept="3" trace="myId" />
+      <node id="7630817440603946693" at="17,27,18,16" concept="7" />
+      <node id="7630817440603946693" at="21,30,22,30" concept="8" />
+      <node id="7630817440603946693" at="23,51,24,14" concept="8" />
+      <node id="7630817440603946693" at="13,0,15,0" concept="1" trace="Actions_ApplicationPlugin#()V" />
+      <node id="7630817440603946693" at="27,0,30,0" concept="5" trace="adjustRegularGroups#()V" />
+      <node id="7630817440603946693" at="16,0,20,0" concept="5" trace="getId#()Lcom/intellij/openapi/extensions/PluginId;" />
+      <node id="7630817440603946693" at="21,0,27,0" concept="5" trace="createGroups#()V" />
+      <scope id="7630817440603946693" at="13,38,13,38" />
+      <scope id="7630817440603946693" at="17,27,18,16" />
+      <scope id="7630817440603946693" at="27,37,28,131" />
+      <scope id="7630817440603946693" at="13,0,15,0" />
+      <scope id="7630817440603946693" at="27,0,30,0" />
+      <scope id="7630817440603946693" at="16,0,20,0" />
+      <scope id="7630817440603946693" at="21,30,25,51" />
+      <scope id="7630817440603946693" at="21,0,27,0" />
+      <unit id="7630817440603946693" at="10,0,31,0" name="jetbrains.mps.lang.migration.actions.plugin.Actions_ApplicationPlugin" />
     </file>
   </root>
 </debug-info>

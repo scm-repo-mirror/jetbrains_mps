@@ -253,7 +253,7 @@ public class TextGen_Facet extends IFacet.Stub {
                 final BLDependenciesCache blDepsCache = new BLDependenciesCache();
                 // same as above applies to cache of trace.info 
                 final TraceInfoCache traceInfoCache = new TraceInfoCache();
-                // we don't care about cached values of 'generated', but we need a way to read values, if any (e.g. StaleFilesCollector),  
+                // we don't care about cached values of 'generated', but we need a way to read values, if any (e.g. StaleFilesCollector), 
                 // and the cache instance doesn't hurt 
                 while (modelsCount-- > 0) {
                   final TextGenResult tgr = resultQueue.poll(3, TimeUnit.MINUTES);
@@ -294,7 +294,7 @@ public class TextGen_Facet extends IFacet.Stub {
                       assert staleFilesManager != null;
 
                       // we'd like to report delta per (module, model) pair (DResource is not sufficient, there are TResource clients) 
-                      // And I don't want to report complete module delta for each model just not to face any trouble with delta merge.  
+                      // And I don't want to report complete module delta for each model just not to face any trouble with delta merge. 
                       // Therefore, I don't use staleFilesManager.completeDelta, but report (module, model) deltas here with ResourceDeltaCollector 
                       // and separately report module-wide delta with staleFilesManager.getModuleWideDelta. 
                       // However, would like to get this fixed (get rid of TResource use and report single combined delta per module) 

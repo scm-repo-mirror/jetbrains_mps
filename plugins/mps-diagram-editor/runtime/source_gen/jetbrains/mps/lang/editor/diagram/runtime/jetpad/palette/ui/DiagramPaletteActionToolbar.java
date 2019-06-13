@@ -5,8 +5,6 @@ package jetbrains.mps.lang.editor.diagram.runtime.jetpad.palette.ui;
 import com.intellij.openapi.actionSystem.impl.ActionToolbarImpl;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.actionSystem.ActionGroup;
-import com.intellij.ide.DataManager;
-import com.intellij.openapi.actionSystem.ex.ActionManagerEx;
 import com.intellij.openapi.keymap.ex.KeymapManagerEx;
 import com.intellij.openapi.actionSystem.impl.ActionButton;
 import com.intellij.openapi.actionSystem.AnAction;
@@ -17,8 +15,8 @@ import com.intellij.openapi.actionSystem.DataContext;
 import java.awt.event.MouseEvent;
 
 /*package*/ class DiagramPaletteActionToolbar extends ActionToolbarImpl {
-  public DiagramPaletteActionToolbar(String place, @NotNull ActionGroup actionGroup, boolean horizontal, DataManager dataManager, ActionManagerEx actionManager, KeymapManagerEx keymapManager) {
-    super(place, actionGroup, horizontal, dataManager, actionManager, keymapManager);
+  public DiagramPaletteActionToolbar(String place, @NotNull ActionGroup actionGroup, boolean horizontal, KeymapManagerEx keymapManager) {
+    super(place, actionGroup, horizontal, keymapManager);
   }
 
   @Override

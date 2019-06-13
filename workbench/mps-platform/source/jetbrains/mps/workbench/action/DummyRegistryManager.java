@@ -20,9 +20,9 @@ import com.intellij.openapi.extensions.PluginId;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Is a dummy {@link IRegistryManager}. Used in Idea plugin.
+ * Is a dummy {@link ApplicationPluginHolder}. Used in Idea plugin.
  */
-public class DummyRegistryManager implements ApplicationComponent, IRegistryManager {
+public class DummyRegistryManager implements ApplicationComponent, ApplicationPluginHolder {
   @Override
   public void initComponent() {
   }
@@ -32,7 +32,7 @@ public class DummyRegistryManager implements ApplicationComponent, IRegistryMana
   }
 
   @Override
-  public IActionsRegistry getActionsRegistry(PluginId id) {
+  public ApplicationPlugin getPluginById(PluginId id) {
     throw new UnsupportedOperationException("DummyRegistryManager must not be asked anything");
   }
 

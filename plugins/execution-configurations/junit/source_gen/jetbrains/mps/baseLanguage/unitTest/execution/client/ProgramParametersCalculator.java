@@ -85,7 +85,7 @@ import org.apache.log4j.Level;
     addPluginsToStartupArgs(startupArgs);
     startupArgs.setLoadBootstrapLibraries(true);
 
-    // XXX May want to pass value of idea.additional.classpath system property further to new IdeaApplication instance to ensure plugins that are  
+    // XXX May want to pass value of idea.additional.classpath system property further to new IdeaApplication instance to ensure plugins that are 
     // loaded from sources could get loaded in the new application as well. 
     for (ITestNodeWrapper test : ListSequence.fromList(myTestsToRun.getTests())) {
       args.addTest(test);
@@ -167,8 +167,8 @@ import org.apache.log4j.Level;
         return MapSequence.fromMap(allRTs2Lang).get((Solution) it);
       }
     }).where(new NotNullWhereFilter<Language>()).distinct();
-    // used lang for runtimes we need since we are not capable of locating the runtime classes  
-    // without the corresponding used lang when we are running java class for example 
+    // used lang for runtimes we need since we are not capable of locating the runtime classes 
+    // when we are running java class for example 
     return SetSequence.fromSetWithValues(new HashSet<SModule>(), Sequence.fromIterable(javaModules).union(CollectionSequence.fromCollection(getExecuteDeps(Sequence.fromIterable(usedLangsForRTs).toListSequence()))));
   }
 

@@ -228,7 +228,7 @@ public class BreakpointsBrowserDialog extends DialogWrapper implements DataProvi
     group.add(new AnAction("Expand All", "Expand All", jetbrains.mps.ide.findusages.view.icons.Icons.EXPAND_ICON) {
       @Override
       public void update(AnActionEvent e) {
-        //  todo refactor actions: each view should provide their own actions  
+        //  todo refactor actions: each view should provide their own actions 
         e.getPresentation().setEnabled(isTreeView());
       }
       @Override

@@ -5,8 +5,6 @@ package jetbrains.mps.lang.smodel.query.behavior;
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.core.aspects.behaviour.api.BehaviorRegistry;
-import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -22,9 +20,8 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class OperationHelpProvider__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x5252d9021b8b6c03L, "jetbrains.mps.lang.smodel.query.structure.OperationHelpProvider");
-  private static final BehaviorRegistry REGISTRY = ConceptRegistry.getInstance().getBehaviorRegistry();
 
-  public static final SMethod<String> getKind_id64VftqEenf4 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getKind").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("64VftqEenf4").registry(REGISTRY).build();
+  public static final SMethod<String> getKind_id64VftqEenf4 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getKind").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("64VftqEenf4").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getKind_id64VftqEenf4);
 
@@ -36,7 +33,6 @@ public final class OperationHelpProvider__BehaviorDescriptor extends BaseBHDescr
   }
 
   /*package*/ OperationHelpProvider__BehaviorDescriptor() {
-    super(REGISTRY);
   }
 
   @Override

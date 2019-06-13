@@ -82,11 +82,8 @@
       <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
       </concept>
-      <concept id="6329021646629104957" name="jetbrains.mps.baseLanguage.structure.TextCommentPart" flags="nn" index="3SKdUq">
-        <property id="6329021646629104958" name="text" index="3SKdUp" />
-      </concept>
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
-        <child id="6329021646629175155" name="commentPart" index="3SKWNk" />
+        <child id="1350122676458893092" name="text" index="3ndbpf" />
       </concept>
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
     </language>
@@ -117,6 +114,14 @@
       </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
+      </concept>
+    </language>
+    <language id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text">
+      <concept id="155656958578482948" name="jetbrains.mps.lang.text.structure.Word" flags="ng" index="3oM_SD">
+        <property id="155656958578482949" name="value" index="3oM_SC" />
+      </concept>
+      <concept id="2535923850359271782" name="jetbrains.mps.lang.text.structure.Line" flags="ng" index="1PaTwC">
+        <child id="2535923850359271783" name="elements" index="1PaTwD" />
       </concept>
     </language>
     <language id="36a4d1c5-6ec1-426f-8192-1875a7cc48de" name="testSubtypingA">
@@ -297,8 +302,40 @@
         <node concept="3clFbS" id="Bcyb5kJ5f6" role="3clF47">
           <node concept="3clFbH" id="Bcyb5kJ5f7" role="3cqZAp" />
           <node concept="3SKdUt" id="7xW2VNwj5Bx" role="3cqZAp">
-            <node concept="3SKdUq" id="7xW2VNwj5BH" role="3SKWNk">
-              <property role="3SKdUp" value="absent string property is not the same as empty string property" />
+            <node concept="1PaTwC" id="RbAU21o$qq" role="3ndbpf">
+              <node concept="3oM_SD" id="RbAU21o$qs" role="1PaTwD">
+                <property role="3oM_SC" value="absent" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$qt" role="1PaTwD">
+                <property role="3oM_SC" value="string" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$qu" role="1PaTwD">
+                <property role="3oM_SC" value="property" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$qv" role="1PaTwD">
+                <property role="3oM_SC" value="is" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$qw" role="1PaTwD">
+                <property role="3oM_SC" value="not" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$qx" role="1PaTwD">
+                <property role="3oM_SC" value="the" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$qy" role="1PaTwD">
+                <property role="3oM_SC" value="same" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$qz" role="1PaTwD">
+                <property role="3oM_SC" value="as" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$q$" role="1PaTwD">
+                <property role="3oM_SC" value="empty" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$q_" role="1PaTwD">
+                <property role="3oM_SC" value="string" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$qA" role="1PaTwD">
+                <property role="3oM_SC" value="property" />
+              </node>
             </node>
           </node>
           <node concept="3clFbF" id="Bcyb5kJ5f8" role="3cqZAp">
@@ -351,8 +388,40 @@
         <node concept="3clFbS" id="Bcyb5kJ5fq" role="3clF47">
           <node concept="3clFbH" id="Bcyb5kJ5fr" role="3cqZAp" />
           <node concept="3SKdUt" id="2Cc_hjaOfku" role="3cqZAp">
-            <node concept="3SKdUq" id="2Cc_hjaOfkw" role="3SKWNk">
-              <property role="3SKdUp" value="absent integer property is not the same as 0 integer property" />
+            <node concept="1PaTwC" id="RbAU21o$z6" role="3ndbpf">
+              <node concept="3oM_SD" id="RbAU21o$z8" role="1PaTwD">
+                <property role="3oM_SC" value="absent" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$z9" role="1PaTwD">
+                <property role="3oM_SC" value="integer" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$za" role="1PaTwD">
+                <property role="3oM_SC" value="property" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$zb" role="1PaTwD">
+                <property role="3oM_SC" value="is" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$zc" role="1PaTwD">
+                <property role="3oM_SC" value="not" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$zd" role="1PaTwD">
+                <property role="3oM_SC" value="the" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$ze" role="1PaTwD">
+                <property role="3oM_SC" value="same" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$zf" role="1PaTwD">
+                <property role="3oM_SC" value="as" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$zg" role="1PaTwD">
+                <property role="3oM_SC" value="0" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$zh" role="1PaTwD">
+                <property role="3oM_SC" value="integer" />
+              </node>
+              <node concept="3oM_SD" id="RbAU21o$zi" role="1PaTwD">
+                <property role="3oM_SC" value="property" />
+              </node>
             </node>
           </node>
           <node concept="3clFbF" id="Bcyb5kJ5fs" role="3cqZAp">

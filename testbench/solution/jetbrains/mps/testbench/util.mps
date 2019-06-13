@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="8" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
   </languages>
   <imports>
     <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
@@ -308,7 +308,7 @@
                                 <node concept="3cpWs3" id="3zSLWWE6GWR" role="3uHU7B">
                                   <node concept="3cpWs3" id="3zSLWWE6EAD" role="3uHU7B">
                                     <node concept="Xl_RD" id="4_TMdeLkODh" role="3uHU7B">
-                                      <property role="Xl_RC" value="(AWT\\-.*)|(Image Fetch.*)|(Progress Cancel Checker)|(Flushing thread)" />
+                                      <property role="Xl_RC" value="(AWT\\-.*)|(Image Fetch.*)|(Progress Cancel Checker)|(Flushing thread)|(Flushing Daemon)|(Alarm Pool)" />
                                     </node>
                                     <node concept="Xl_RD" id="3zSLWWE6Ggu" role="3uHU7w">
                                       <property role="Xl_RC" value="|(Keep\\-Alive.*)|(Finalizer.*)|(MPS interrupting thread)" />
