@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:6dda976c-1b90-4b12-9c1c-d7b95337bf45(A)">
+<model ref="r:6dda976c-1b90-4b12-9c1c-d7b95337bf45(A)" doNotGenerate="true">
   <persistence version="9" />
   <languages>
     <use id="a6518565-7876-48e9-8d43-9ef97836a52e" name="constraints.rules.sandbox" version="0" />
@@ -17,7 +17,7 @@
   </registry>
   <node concept="2ouw3J" id="7FO6JFyzxJl">
     <node concept="E$Ump" id="7FO6JFyzxJm" role="2ouw3G">
-      <property role="EBmjO" value="1" />
+      <property role="EBmjO" value="100" />
     </node>
   </node>
 </model>

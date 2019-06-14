@@ -12,6 +12,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_AbstractConstraintsDefNative;
   private ConceptPresentation props_ConstraintsDef;
   private ConceptPresentation props_ConstraintsDefNative;
+  private ConceptPresentation props_ConstraintsDefNativeNode;
   private ConceptPresentation props_ConstraintsExpressionHolder;
   private ConceptPresentation props_ConstraintsMember;
   private ConceptPresentation props_ConstraintsRoot;
@@ -19,6 +20,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ConstraintsRuleBlock;
   private ConceptPresentation props_ConstraintsRuleBlockMember;
   private ConceptPresentation props_ConstraintsRuleKind;
+  private ConceptPresentation props_ConstraintsRuleKindParameterConcept;
   private ConceptPresentation props_ContextExpression;
   private ConceptPresentation props_ContextRefOperation;
   private ConceptPresentation props_ContextType;
@@ -49,6 +51,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ConstraintsDefNative = cpb.create();
         }
         return props_ConstraintsDefNative;
+      case LanguageConceptSwitch.ConstraintsDefNativeNode:
+        if (props_ConstraintsDefNativeNode == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_ConstraintsDefNativeNode = cpb.create();
+        }
+        return props_ConstraintsDefNativeNode;
       case LanguageConceptSwitch.ConstraintsExpressionHolder:
         if (props_ConstraintsExpressionHolder == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -95,6 +104,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ConstraintsRuleKind = cpb.create();
         }
         return props_ConstraintsRuleKind;
+      case LanguageConceptSwitch.ConstraintsRuleKindParameterConcept:
+        if (props_ConstraintsRuleKindParameterConcept == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_ConstraintsRuleKindParameterConcept = cpb.create();
+        }
+        return props_ConstraintsRuleKindParameterConcept;
       case LanguageConceptSwitch.ContextExpression:
         if (props_ContextExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

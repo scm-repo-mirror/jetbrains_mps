@@ -9,7 +9,6 @@ import jetbrains.mps.core.aspects.constraints.rules.CanBeChild_RuleKind;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.core.aspects.constraints.rules.ConstraintsRuleId;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.constraints.rules.ConstraintsRuleKind;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -30,13 +29,13 @@ public class A_Constraints2 implements ConstraintsDescriptor2 {
 
     @Override
     public ConstraintsRuleId getId() {
-      return new ConstraintsRuleId("8b78ddd7-cf7d-4438-993f-2e9671b4b47a/i:10001000(constraints.rules.sandbox@transient4/constraints.rules.sandbox.constraints2@0)/8657450212265562102");
+      return new ConstraintsRuleId("35419192-20f7-48f9-9226-a3eeecf3a6da/i:10001000(constraints.rules.sandbox@transient18/constraints.rules.sandbox.constraints2@0)/8657450212265562102");
     }
 
 
     @Override
     public boolean check(@NotNull CanBeChild_Context context) {
-      return SPropertyOperations.getInteger(SNodeOperations.cast(context.getNode(), MetaAdapterFactory.getConcept(0xa6518565787648e9L, 0x8d439ef97836a52eL, 0x7825711952b6d480L, "constraints.rules.sandbox.structure.A")), MetaAdapterFactory.getProperty(0xa6518565787648e9L, 0x8d439ef97836a52eL, 0x7825711952b6d480L, 0x7825711952b815edL, "a")) > 1;
+      return SPropertyOperations.getInteger(context.getNode(), MetaAdapterFactory.getProperty(0xa6518565787648e9L, 0x8d439ef97836a52eL, 0x7825711952b6d480L, 0x7825711952b815edL, "a")) > 1;
     }
 
     @NotNull
@@ -60,13 +59,13 @@ public class A_Constraints2 implements ConstraintsDescriptor2 {
 
     @Override
     public ConstraintsRuleId getId() {
-      return new ConstraintsRuleId("8b78ddd7-cf7d-4438-993f-2e9671b4b47a/i:10001000(constraints.rules.sandbox@transient4/constraints.rules.sandbox.constraints2@0)/1702082180406136556");
+      return new ConstraintsRuleId("35419192-20f7-48f9-9226-a3eeecf3a6da/i:10001000(constraints.rules.sandbox@transient18/constraints.rules.sandbox.constraints2@0)/1702082180406136556");
     }
 
 
     @Override
     public boolean check(@NotNull CanBeChild_Context context) {
-      return SPropertyOperations.getInteger(SNodeOperations.cast(context.getNode(), MetaAdapterFactory.getConcept(0xa6518565787648e9L, 0x8d439ef97836a52eL, 0x7825711952b6d480L, "constraints.rules.sandbox.structure.A")), MetaAdapterFactory.getProperty(0xa6518565787648e9L, 0x8d439ef97836a52eL, 0x7825711952b6d480L, 0x7825711952b815edL, "a")) < 100;
+      return SPropertyOperations.getInteger(context.getNode(), MetaAdapterFactory.getProperty(0xa6518565787648e9L, 0x8d439ef97836a52eL, 0x7825711952b6d480L, 0x7825711952b815edL, "a")) < 100;
     }
 
     @NotNull

@@ -18,6 +18,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptAbstractConstraintsDefNative = createDescriptorForAbstractConstraintsDefNative();
   /*package*/ final ConceptDescriptor myConceptConstraintsDef = createDescriptorForConstraintsDef();
   /*package*/ final ConceptDescriptor myConceptConstraintsDefNative = createDescriptorForConstraintsDefNative();
+  /*package*/ final ConceptDescriptor myConceptConstraintsDefNativeNode = createDescriptorForConstraintsDefNativeNode();
   /*package*/ final ConceptDescriptor myConceptConstraintsExpressionHolder = createDescriptorForConstraintsExpressionHolder();
   /*package*/ final ConceptDescriptor myConceptConstraintsMember = createDescriptorForConstraintsMember();
   /*package*/ final ConceptDescriptor myConceptConstraintsRoot = createDescriptorForConstraintsRoot();
@@ -25,6 +26,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptConstraintsRuleBlock = createDescriptorForConstraintsRuleBlock();
   /*package*/ final ConceptDescriptor myConceptConstraintsRuleBlockMember = createDescriptorForConstraintsRuleBlockMember();
   /*package*/ final ConceptDescriptor myConceptConstraintsRuleKind = createDescriptorForConstraintsRuleKind();
+  /*package*/ final ConceptDescriptor myConceptConstraintsRuleKindParameterConcept = createDescriptorForConstraintsRuleKindParameterConcept();
   /*package*/ final ConceptDescriptor myConceptContextExpression = createDescriptorForContextExpression();
   /*package*/ final ConceptDescriptor myConceptContextRefOperation = createDescriptorForContextRefOperation();
   /*package*/ final ConceptDescriptor myConceptContextType = createDescriptorForContextType();
@@ -45,7 +47,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAbstractConstraintsDefNative, myConceptConstraintsDef, myConceptConstraintsDefNative, myConceptConstraintsExpressionHolder, myConceptConstraintsMember, myConceptConstraintsRoot, myConceptConstraintsRule, myConceptConstraintsRuleBlock, myConceptConstraintsRuleBlockMember, myConceptConstraintsRuleKind, myConceptContextExpression, myConceptContextRefOperation, myConceptContextType, myConceptTypedIdentifier);
+    return Arrays.asList(myConceptAbstractConstraintsDefNative, myConceptConstraintsDef, myConceptConstraintsDefNative, myConceptConstraintsDefNativeNode, myConceptConstraintsExpressionHolder, myConceptConstraintsMember, myConceptConstraintsRoot, myConceptConstraintsRule, myConceptConstraintsRuleBlock, myConceptConstraintsRuleBlockMember, myConceptConstraintsRuleKind, myConceptConstraintsRuleKindParameterConcept, myConceptContextExpression, myConceptContextRefOperation, myConceptContextType, myConceptTypedIdentifier);
   }
 
   @Override
@@ -58,6 +60,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptConstraintsDef;
       case LanguageConceptSwitch.ConstraintsDefNative:
         return myConceptConstraintsDefNative;
+      case LanguageConceptSwitch.ConstraintsDefNativeNode:
+        return myConceptConstraintsDefNativeNode;
       case LanguageConceptSwitch.ConstraintsExpressionHolder:
         return myConceptConstraintsExpressionHolder;
       case LanguageConceptSwitch.ConstraintsMember:
@@ -72,6 +76,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptConstraintsRuleBlockMember;
       case LanguageConceptSwitch.ConstraintsRuleKind:
         return myConceptConstraintsRuleKind;
+      case LanguageConceptSwitch.ConstraintsRuleKindParameterConcept:
+        return myConceptConstraintsRuleKindParameterConcept;
       case LanguageConceptSwitch.ContextExpression:
         return myConceptContextExpression;
       case LanguageConceptSwitch.ContextRefOperation:
@@ -122,6 +128,17 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.aggregate("type", 0x4bf59690bc00f6b2L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL).optional(false).ordered(true).multiple(false).origin("5473446470512342706").done();
     b.alias("def");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForConstraintsDefNativeNode() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.constraints.rules", "ConstraintsDefNativeNode", 0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286da99051L);
+    b.class_(false, false, false);
+    b.super_("jetbrains.mps.lang.constraints.rules.structure.AbstractConstraintsDefNative", 0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x653030359355429dL);
+    b.parent(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x653030359368062cL);
+    b.origin("r:83f25986-cdbc-469a-a327-db97a2ec5a39(jetbrains.mps.lang.constraints.rules.structure)/315923949159026769");
+    b.version(2);
+    b.associate("conceptParameter", 0x46263286da99433L).target(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x4bf59690bc05b735L).optional(false).origin("315923949159027763").done();
+    b.alias("node<>");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForConstraintsExpressionHolder() {
@@ -185,8 +202,18 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11a3afa8c0dL);
     b.origin("r:83f25986-cdbc-469a-a327-db97a2ec5a39(jetbrains.mps.lang.constraints.rules.structure)/7291380803376071240");
     b.version(2);
+    b.aggregate("parameter", 0x4bf59690bc05b732L).target(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x4bf59690bc05b735L).optional(true).ordered(true).multiple(true).origin("5473446470512654130").done();
     b.aggregate("contextMember", 0x653030359355429eL).target(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x653030359355429dL).optional(true).ordered(true).multiple(true).origin("7291380803376071326").done();
     b.alias("rule kind");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForConstraintsRuleKindParameterConcept() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.constraints.rules", "ConstraintsRuleKindParameterConcept", 0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x4bf59690bc05b735L);
+    b.class_(false, false, false);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
+    b.origin("r:83f25986-cdbc-469a-a327-db97a2ec5a39(jetbrains.mps.lang.constraints.rules.structure)/5473446470512654133");
+    b.version(2);
+    b.alias("parametrized by concept");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForContextExpression() {

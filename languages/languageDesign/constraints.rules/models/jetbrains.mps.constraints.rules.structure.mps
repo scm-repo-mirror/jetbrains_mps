@@ -102,6 +102,13 @@
     <property role="TrG5h" value="ConstraintsRuleKind" />
     <property role="34LRSv" value="rule kind" />
     <property role="19KtqR" value="true" />
+    <node concept="1TJgyj" id="4JP_D2W1rsM" role="1TKVEi">
+      <property role="IQ2ns" value="5473446470512654130" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="parameter" />
+      <property role="20lbJX" value="0..n" />
+      <ref role="20lvS9" node="4JP_D2W1rsP" resolve="ConstraintsRuleKindParameterConcept" />
+    </node>
     <node concept="PrWs8" id="6kKc3mjmAXJ" role="PzmwI">
       <ref role="PrY4T" to="tpee:hCUYCKd" resolve="IValidIdentifier" />
     </node>
@@ -210,6 +217,30 @@
       <ref role="20lvS9" to="tpee:fz3vP1H" resolve="Type" />
     </node>
     <node concept="PrWs8" id="4JP_D2W0fqN" role="PzmwI">
+      <ref role="PrY4T" node="6kKc3mjq0oG" resolve="TypedIdentifier" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="4JP_D2W1rsP">
+    <property role="EcuMT" value="5473446470512654133" />
+    <property role="TrG5h" value="ConstraintsRuleKindParameterConcept" />
+    <property role="34LRSv" value="parametrized by concept" />
+    <node concept="PrWs8" id="4JP_D2W1rsQ" role="PzmwI">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="hyoMxHEp1h">
+    <property role="EcuMT" value="315923949159026769" />
+    <property role="TrG5h" value="ConstraintsDefNativeNode" />
+    <property role="34LRSv" value="node&lt;&gt;" />
+    <ref role="1TJDcQ" node="6kKc3mjlkat" resolve="AbstractConstraintsDefNative" />
+    <node concept="1TJgyj" id="hyoMxHEpgN" role="1TKVEi">
+      <property role="IQ2ns" value="315923949159027763" />
+      <property role="20lmBu" value="reference" />
+      <property role="20lbJX" value="1" />
+      <property role="20kJfa" value="conceptParameter" />
+      <ref role="20lvS9" node="4JP_D2W1rsP" resolve="ConstraintsRuleKindParameterConcept" />
+    </node>
+    <node concept="PrWs8" id="hyoMxHEp1j" role="PzmwI">
       <ref role="PrY4T" node="6kKc3mjq0oG" resolve="TypedIdentifier" />
     </node>
   </node>
