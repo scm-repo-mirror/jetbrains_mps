@@ -172,13 +172,12 @@
       </concept>
     </language>
     <language id="47257bf3-78d3-470b-89d9-8c3261a61d15" name="jetbrains.mps.lang.constraints.rules">
-      <concept id="7291380803377301036" name="jetbrains.mps.lang.constraints.rules.structure.TypedIdentifier" flags="ng" index="3Qm3op">
-        <child id="7291380803376420070" name="type" index="3QqEjj" />
-      </concept>
       <concept id="7291380803376071240" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsRuleKind" flags="ng" index="3Qpn9X">
         <child id="7291380803376071326" name="contextMember" index="3QpnaF" />
       </concept>
-      <concept id="7291380803376071325" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNative" flags="ng" index="3QpnaC" />
+      <concept id="5473446470512342705" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNative" flags="ng" index="3RXm0x">
+        <child id="5473446470512342706" name="type" index="3RXm0y" />
+      </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
@@ -377,7 +376,7 @@
               <node concept="1pGfFk" id="1i" role="2ShVmc">
                 <ref role="37wK5l" to="o99v:~ConstraintsRuleId.&lt;init&gt;(java.lang.String)" resolve="ConstraintsRuleId" />
                 <node concept="Xl_RD" id="1k" role="37wK5m">
-                  <property role="Xl_RC" value="6e676fa3-85e6-4bae-a48b-d1d365530ccd/i:10001000(constraints.rules.sandbox@transient1/constraints.rules.sandbox.constraints2@0)/8657450212265562102" />
+                  <property role="Xl_RC" value="8b78ddd7-cf7d-4438-993f-2e9671b4b47a/i:10001000(constraints.rules.sandbox@transient4/constraints.rules.sandbox.constraints2@0)/8657450212265562102" />
                   <node concept="cd27G" id="1m" role="lGtFl">
                     <node concept="3u3nmq" id="1n" role="cd27D">
                       <property role="3u3nmv" value="8657450212265501576" />
@@ -881,7 +880,7 @@
               <node concept="1pGfFk" id="4p" role="2ShVmc">
                 <ref role="37wK5l" to="o99v:~ConstraintsRuleId.&lt;init&gt;(java.lang.String)" resolve="ConstraintsRuleId" />
                 <node concept="Xl_RD" id="4r" role="37wK5m">
-                  <property role="Xl_RC" value="6e676fa3-85e6-4bae-a48b-d1d365530ccd/i:10001000(constraints.rules.sandbox@transient1/constraints.rules.sandbox.constraints2@0)/1702082180406136556" />
+                  <property role="Xl_RC" value="8b78ddd7-cf7d-4438-993f-2e9671b4b47a/i:10001000(constraints.rules.sandbox@transient4/constraints.rules.sandbox.constraints2@0)/1702082180406136556" />
                   <node concept="cd27G" id="4t" role="lGtFl">
                     <node concept="3u3nmq" id="4u" role="cd27D">
                       <property role="3u3nmv" value="8657450212265501576" />
@@ -1797,7 +1796,7 @@
               <node concept="1pGfFk" id="9R" role="2ShVmc">
                 <ref role="37wK5l" to="o99v:~ConstraintsRuleId.&lt;init&gt;(java.lang.String)" resolve="ConstraintsRuleId" />
                 <node concept="Xl_RD" id="9T" role="37wK5m">
-                  <property role="Xl_RC" value="6e676fa3-85e6-4bae-a48b-d1d365530ccd/i:10001000(constraints.rules.sandbox@transient1/constraints.rules.sandbox.constraints2@0)/8657450212265562102" />
+                  <property role="Xl_RC" value="8b78ddd7-cf7d-4438-993f-2e9671b4b47a/i:10001000(constraints.rules.sandbox@transient4/constraints.rules.sandbox.constraints2@0)/8657450212265562102" />
                   <node concept="cd27G" id="9V" role="lGtFl">
                     <node concept="3u3nmq" id="9W" role="cd27D">
                       <property role="3u3nmv" value="8859736031789706125" />
@@ -1949,7 +1948,7 @@
               <node concept="1pGfFk" id="aM" role="2ShVmc">
                 <ref role="37wK5l" to="o99v:~ConstraintsRuleId.&lt;init&gt;(java.lang.String)" resolve="ConstraintsRuleId" />
                 <node concept="Xl_RD" id="aO" role="37wK5m">
-                  <property role="Xl_RC" value="6e676fa3-85e6-4bae-a48b-d1d365530ccd/i:10001000(constraints.rules.sandbox@transient1/constraints.rules.sandbox.constraints2@0)/1702082180406136556" />
+                  <property role="Xl_RC" value="8b78ddd7-cf7d-4438-993f-2e9671b4b47a/i:10001000(constraints.rules.sandbox@transient4/constraints.rules.sandbox.constraints2@0)/1702082180406136556" />
                   <node concept="cd27G" id="aQ" role="lGtFl">
                     <node concept="3u3nmq" id="aR" role="cd27D">
                       <property role="3u3nmv" value="8859736031789706125" />
@@ -2287,33 +2286,33 @@
   </node>
   <node concept="3Qpn9X" id="cF">
     <property role="TrG5h" value="CanBeChild" />
-    <node concept="3QpnaC" id="cG" role="3QpnaF">
+    <node concept="3RXm0x" id="cG" role="3QpnaF">
       <property role="TrG5h" value="Node" />
-      <node concept="3Tqbb2" id="cJ" role="3QqEjj">
+      <node concept="3Tqbb2" id="cJ" role="3RXm0y">
         <node concept="cd27G" id="cL" role="lGtFl">
           <node concept="3u3nmq" id="cM" role="cd27D">
-            <property role="3u3nmv" value="8657450212265562064" />
+            <property role="3u3nmv" value="5473446470512578749" />
           </node>
         </node>
       </node>
       <node concept="cd27G" id="cK" role="lGtFl">
         <node concept="3u3nmq" id="cN" role="cd27D">
-          <property role="3u3nmv" value="8657450212265562056" />
+          <property role="3u3nmv" value="5473446470512578739" />
         </node>
       </node>
     </node>
-    <node concept="3QpnaC" id="cH" role="3QpnaF">
+    <node concept="3RXm0x" id="cH" role="3QpnaF">
       <property role="TrG5h" value="ParentNode" />
-      <node concept="3Tqbb2" id="cO" role="3QqEjj">
+      <node concept="3Tqbb2" id="cO" role="3RXm0y">
         <node concept="cd27G" id="cQ" role="lGtFl">
           <node concept="3u3nmq" id="cR" role="cd27D">
-            <property role="3u3nmv" value="8657450212265562085" />
+            <property role="3u3nmv" value="5473446470512578772" />
           </node>
         </node>
       </node>
       <node concept="cd27G" id="cP" role="lGtFl">
         <node concept="3u3nmq" id="cS" role="cd27D">
-          <property role="3u3nmv" value="8657450212265562069" />
+          <property role="3u3nmv" value="5473446470512578760" />
         </node>
       </node>
     </node>

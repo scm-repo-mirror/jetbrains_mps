@@ -197,13 +197,12 @@
       </concept>
     </language>
     <language id="47257bf3-78d3-470b-89d9-8c3261a61d15" name="jetbrains.mps.lang.constraints.rules">
-      <concept id="7291380803377301036" name="jetbrains.mps.lang.constraints.rules.structure.TypedIdentifier" flags="ng" index="3Qm3op">
-        <child id="7291380803376420070" name="type" index="3QqEjj" />
-      </concept>
       <concept id="7291380803376071240" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsRuleKind" flags="ng" index="3Qpn9X">
         <child id="7291380803376071326" name="contextMember" index="3QpnaF" />
       </concept>
-      <concept id="7291380803376071325" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNative" flags="ng" index="3QpnaC" />
+      <concept id="5473446470512342705" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNative" flags="ng" index="3RXm0x">
+        <child id="5473446470512342706" name="type" index="3RXm0y" />
+      </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="6911370362349121511" name="jetbrains.mps.lang.smodel.structure.ConceptId" flags="nn" index="2x4n5u">
@@ -374,7 +373,7 @@
               <node concept="1pGfFk" id="1i" role="2ShVmc">
                 <ref role="37wK5l" to="o99v:~ConstraintsRuleId.&lt;init&gt;(java.lang.String)" resolve="ConstraintsRuleId" />
                 <node concept="Xl_RD" id="1k" role="37wK5m">
-                  <property role="Xl_RC" value="6e676fa3-85e6-4bae-a48b-d1d365530ccd/i:10001000(constraints.rules.sandbox@transient1/constraints.rules.sandbox.constraints2@0)/8657450212265562102" />
+                  <property role="Xl_RC" value="8b78ddd7-cf7d-4438-993f-2e9671b4b47a/i:10001000(constraints.rules.sandbox@transient4/constraints.rules.sandbox.constraints2@0)/8657450212265562102" />
                   <node concept="cd27G" id="1m" role="lGtFl">
                     <node concept="3u3nmq" id="1n" role="cd27D">
                       <property role="3u3nmv" value="84" />
@@ -1145,7 +1144,7 @@
               <node concept="1pGfFk" id="5R" role="2ShVmc">
                 <ref role="37wK5l" to="o99v:~ConstraintsRuleId.&lt;init&gt;(java.lang.String)" resolve="ConstraintsRuleId" />
                 <node concept="Xl_RD" id="5T" role="37wK5m">
-                  <property role="Xl_RC" value="6e676fa3-85e6-4bae-a48b-d1d365530ccd/i:10001000(constraints.rules.sandbox@transient1/constraints.rules.sandbox.constraints2@0)/1702082180406136556" />
+                  <property role="Xl_RC" value="8b78ddd7-cf7d-4438-993f-2e9671b4b47a/i:10001000(constraints.rules.sandbox@transient4/constraints.rules.sandbox.constraints2@0)/1702082180406136556" />
                   <node concept="cd27G" id="5V" role="lGtFl">
                     <node concept="3u3nmq" id="5W" role="cd27D">
                       <property role="3u3nmv" value="283" />
@@ -2328,7 +2327,7 @@
               <node concept="1pGfFk" id="cN" role="2ShVmc">
                 <ref role="37wK5l" to="o99v:~ConstraintsRuleId.&lt;init&gt;(java.lang.String)" resolve="ConstraintsRuleId" />
                 <node concept="Xl_RD" id="cP" role="37wK5m">
-                  <property role="Xl_RC" value="6e676fa3-85e6-4bae-a48b-d1d365530ccd/i:10001000(constraints.rules.sandbox@transient1/constraints.rules.sandbox.constraints2@0)/8657450212265562102" />
+                  <property role="Xl_RC" value="8b78ddd7-cf7d-4438-993f-2e9671b4b47a/i:10001000(constraints.rules.sandbox@transient4/constraints.rules.sandbox.constraints2@0)/8657450212265562102" />
                   <node concept="cd27G" id="cR" role="lGtFl">
                     <node concept="3u3nmq" id="cS" role="cd27D">
                       <property role="3u3nmv" value="633" />
@@ -2480,7 +2479,7 @@
               <node concept="1pGfFk" id="dI" role="2ShVmc">
                 <ref role="37wK5l" to="o99v:~ConstraintsRuleId.&lt;init&gt;(java.lang.String)" resolve="ConstraintsRuleId" />
                 <node concept="Xl_RD" id="dK" role="37wK5m">
-                  <property role="Xl_RC" value="6e676fa3-85e6-4bae-a48b-d1d365530ccd/i:10001000(constraints.rules.sandbox@transient1/constraints.rules.sandbox.constraints2@0)/1702082180406136556" />
+                  <property role="Xl_RC" value="8b78ddd7-cf7d-4438-993f-2e9671b4b47a/i:10001000(constraints.rules.sandbox@transient4/constraints.rules.sandbox.constraints2@0)/1702082180406136556" />
                   <node concept="cd27G" id="dM" role="lGtFl">
                     <node concept="3u3nmq" id="dN" role="cd27D">
                       <property role="3u3nmv" value="692" />
@@ -2818,9 +2817,9 @@
   </node>
   <node concept="3Qpn9X" id="fB">
     <property role="TrG5h" value="CanBeChild" />
-    <node concept="3QpnaC" id="fC" role="3QpnaF">
+    <node concept="3RXm0x" id="fC" role="3QpnaF">
       <property role="TrG5h" value="Node" />
-      <node concept="3uibUv" id="fF" role="3QqEjj">
+      <node concept="3uibUv" id="fF" role="3RXm0y">
         <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
         <node concept="cd27G" id="fH" role="lGtFl">
           <node concept="3u3nmq" id="fI" role="cd27D">
@@ -2834,9 +2833,9 @@
         </node>
       </node>
     </node>
-    <node concept="3QpnaC" id="fD" role="3QpnaF">
+    <node concept="3RXm0x" id="fD" role="3QpnaF">
       <property role="TrG5h" value="ParentNode" />
-      <node concept="3uibUv" id="fK" role="3QqEjj">
+      <node concept="3uibUv" id="fK" role="3RXm0y">
         <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
         <node concept="cd27G" id="fM" role="lGtFl">
           <node concept="3u3nmq" id="fN" role="cd27D">
@@ -3527,7 +3526,7 @@
         <node concept="385nmt" id="jT" role="385vvn">
           <property role="385vuF" value="concept switch" />
           <node concept="2$VJBW" id="jV" role="385v07">
-            <property role="2$VJBR" value="873" />
+            <property role="2$VJBR" value="840" />
             <node concept="2x4n5u" id="jW" role="3iCydw">
               <property role="2x4mPI" value="ConceptSwitchStatement" />
               <property role="2x4n5l" value="195uihc0nrdil" />
@@ -3539,14 +3538,14 @@
           </node>
         </node>
         <node concept="39e2AT" id="jU" role="39e2AY">
-          <ref role="39e2AS" node="iy" resolve="cncpt" />
+          <ref role="39e2AS" node="gp" resolve="cncpt" />
         </node>
       </node>
       <node concept="39e2AG" id="jS" role="39e3Y0">
         <node concept="385nmt" id="jY" role="385vvn">
           <property role="385vuF" value="concept switch" />
           <node concept="2$VJBW" id="k0" role="385v07">
-            <property role="2$VJBR" value="840" />
+            <property role="2$VJBR" value="873" />
             <node concept="2x4n5u" id="k1" role="3iCydw">
               <property role="2x4mPI" value="ConceptSwitchStatement" />
               <property role="2x4n5l" value="195uihc0nrdil" />
@@ -3558,7 +3557,7 @@
           </node>
         </node>
         <node concept="39e2AT" id="jZ" role="39e2AY">
-          <ref role="39e2AS" node="gp" resolve="cncpt" />
+          <ref role="39e2AS" node="iy" resolve="cncpt" />
         </node>
       </node>
     </node>

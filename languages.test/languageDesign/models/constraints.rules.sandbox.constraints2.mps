@@ -26,9 +26,6 @@
       </concept>
     </language>
     <language id="47257bf3-78d3-470b-89d9-8c3261a61d15" name="jetbrains.mps.lang.constraints.rules">
-      <concept id="7291380803377301036" name="jetbrains.mps.lang.constraints.rules.structure.TypedIdentifier" flags="ng" index="3Qm3op">
-        <child id="7291380803376420070" name="type" index="3QqEjj" />
-      </concept>
       <concept id="7291380803376071201" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsRoot" flags="ng" index="3Qpn8k">
         <reference id="7291380803380183169" name="concept" index="3QD32O" />
         <child id="7291380803376071241" name="member" index="3Qpn9W" />
@@ -40,7 +37,6 @@
       <concept id="7291380803376071240" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsRuleKind" flags="ng" index="3Qpn9X">
         <child id="7291380803376071326" name="contextMember" index="3QpnaF" />
       </concept>
-      <concept id="7291380803376071325" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNative" flags="ng" index="3QpnaC" />
       <concept id="7291380803376179560" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsExpressionHolder" flags="ng" index="3QpH_t">
         <child id="7291380803376179561" name="expression" index="3QpH_s" />
       </concept>
@@ -49,6 +45,9 @@
       </concept>
       <concept id="7291380803376202512" name="jetbrains.mps.lang.constraints.rules.structure.ContextExpression" flags="ng" index="3QpRc_" />
       <concept id="7291380803376279010" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsRule" flags="ng" index="3Qq5Rn" />
+      <concept id="5473446470512342705" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNative" flags="ng" index="3RXm0x">
+        <child id="5473446470512342706" name="type" index="3RXm0y" />
+      </concept>
     </language>
     <language id="ad93155d-79b2-4759-b10c-55123e763903" name="jetbrains.mps.lang.messages">
       <concept id="7291380803381892615" name="jetbrains.mps.lang.messages.structure.MessagesRoot" flags="ng" index="3QByoM">
@@ -97,8 +96,8 @@
               </node>
               <node concept="2OqwBi" id="7w_sh_iI10d" role="1m5AlR">
                 <node concept="3QpRc_" id="7w_sh_iI100" role="2Oq$k0" />
-                <node concept="3QpRc$" id="7w_sh_iI10N" role="2OqNvi">
-                  <ref role="3QpVTF" node="7w_sh_iI0Z8" resolve="Node" />
+                <node concept="3QpRc$" id="4JP_D2W19bX" role="2OqNvi">
+                  <ref role="3QpVTF" node="4JP_D2W192N" resolve="Node" />
                 </node>
               </node>
             </node>
@@ -121,8 +120,8 @@
               </node>
               <node concept="2OqwBi" id="1uv0FAtCkW9" role="1m5AlR">
                 <node concept="3QpRc_" id="1uv0FAtCkVW" role="2Oq$k0" />
-                <node concept="3QpRc$" id="1uv0FAtCkX2" role="2OqNvi">
-                  <ref role="3QpVTF" node="7w_sh_iI0Z8" resolve="Node" />
+                <node concept="3QpRc$" id="4JP_D2W19mN" role="2OqNvi">
+                  <ref role="3QpVTF" node="4JP_D2W192N" resolve="Node" />
                 </node>
               </node>
             </node>
@@ -136,13 +135,13 @@
   </node>
   <node concept="3Qpn9X" id="7w_sh_iI0Z7">
     <property role="TrG5h" value="CanBeChild" />
-    <node concept="3QpnaC" id="7w_sh_iI0Z8" role="3QpnaF">
+    <node concept="3RXm0x" id="4JP_D2W192N" role="3QpnaF">
       <property role="TrG5h" value="Node" />
-      <node concept="3Tqbb2" id="7w_sh_iI0Zg" role="3QqEjj" />
+      <node concept="3Tqbb2" id="4JP_D2W192X" role="3RXm0y" />
     </node>
-    <node concept="3QpnaC" id="7w_sh_iI0Zl" role="3QpnaF">
+    <node concept="3RXm0x" id="4JP_D2W1938" role="3QpnaF">
       <property role="TrG5h" value="ParentNode" />
-      <node concept="3Tqbb2" id="7w_sh_iI0Z_" role="3QqEjj" />
+      <node concept="3Tqbb2" id="4JP_D2W193k" role="3RXm0y" />
     </node>
   </node>
   <node concept="3QByoM" id="7FO6JFyzuId">
