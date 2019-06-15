@@ -156,6 +156,9 @@
       <unit id="1702082180406149963" at="23,0,34,0" name="constraints.rules.sandbox.constraints2.A_Messages$second_MessageProvider_b" />
       <unit id="8859736031789706125" at="11,0,42,0" name="constraints.rules.sandbox.constraints2.A_Messages" />
     </file>
+    <file name="GeneratedMessagesAspectDescriptor.java">
+      <node id="8859736031789706125" at="20,13,21,32" concept="6" />
+    </file>
   </root>
 </debug-info>
 

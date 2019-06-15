@@ -20,8 +20,8 @@ public final class GeneratedMessagesAspectDescriptor implements MessagesAspectDe
       case 0:
         return new A_Messages();
       default:
+        return null;
     }
-    return null;
   }
   private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xa6518565787648e9L, 0x8d439ef97836a52eL, 0x7825711952b6d480L)).seal();
 }
