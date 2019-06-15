@@ -18,6 +18,8 @@ public class ActionAspectDescriptorImpl extends BaseActionAspectDescriptor imple
     if (LANGUAGE_FQ_NAME.equals(concept.getLanguage().getQualifiedName())) {
       switch (Arrays.binarySearch(stringSwitchCases_tpto26_a0a0a0c, concept.getName())) {
         case 0:
+          return Collections.<NodeFactory>singletonList(new ConstraintsRule_factories.NodeFactory_5258059200640692079());
+        case 1:
           return Collections.<NodeFactory>singletonList(new TypedIdentifier_preserveName.NodeFactory_315923949159711976());
         default:
       }
@@ -25,5 +27,5 @@ public class ActionAspectDescriptorImpl extends BaseActionAspectDescriptor imple
     return Collections.<NodeFactory>emptyList();
   }
 
-  private static String[] stringSwitchCases_tpto26_a0a0a0c = new String[]{"TypedIdentifier"};
+  private static String[] stringSwitchCases_tpto26_a0a0a0c = new String[]{"ConstraintsRule", "TypedIdentifier"};
 }

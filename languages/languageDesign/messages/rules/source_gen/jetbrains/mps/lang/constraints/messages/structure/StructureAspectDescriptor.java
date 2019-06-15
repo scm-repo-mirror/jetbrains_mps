@@ -59,10 +59,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForConstraintsRuleWithMessage() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.constraints.messages", "ConstraintsRuleWithMessage", 0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L);
     b.class_(false, false, false);
-    b.super_("jetbrains.mps.lang.constraints.rules.structure.ConstraintsRuleBlockMember", 0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593698b98L);
-    b.parent(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11a3afa8c0dL);
-    b.parent(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286dbf54aaL);
-    b.parent(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x653030359356e968L);
+    b.super_("jetbrains.mps.lang.constraints.rules.structure.ConstraintsRule", 0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593586de2L);
     b.origin("r:ee5c0e5f-69e3-4669-a4e4-2d16da1e8263(jetbrains.mps.lang.constraints.messages.structure)/315923949160549991");
     b.version(2);
     b.aggregate("messageProvider", 0x46263286dc0ce86L).target(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce81L).optional(false).ordered(true).multiple(false).origin("315923949160550022").done();

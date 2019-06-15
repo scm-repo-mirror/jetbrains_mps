@@ -7,6 +7,9 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.reporting.api.MessagesDescriptor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import java.util.List;
+import jetbrains.mps.core.aspects.reporting.api.MessageProvider;
+import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.ConceptSwitchIndex;
 import jetbrains.mps.lang.smodel.ConceptSwitchIndexBuilder;
 import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
@@ -18,7 +21,16 @@ public final class GeneratedMessagesAspectDescriptor implements MessagesAspectDe
     SAbstractConcept cncpt = concept;
     switch (conceptIndex.index(cncpt)) {
       case 0:
-        return new A_Messages();
+        return new MessagesDescriptor() {
+          @NotNull
+          @Override
+          public List<MessageProvider> getMessageProviders() {
+            List<MessageProvider> result = new ArrayList<MessageProvider>();
+            result.addAll(new A_Messages().getMessageProviders());
+            result.addAll(new A_DefaultMessages().getMessageProviders());
+            return result;
+          }
+        };
       default:
         return null;
     }

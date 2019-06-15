@@ -19,12 +19,8 @@
         <child id="1071489727083" name="linkDeclaration" index="1TKVEi" />
         <child id="1071489727084" name="propertyDeclaration" index="1TKVEl" />
       </concept>
-      <concept id="1169127622168" name="jetbrains.mps.lang.structure.structure.InterfaceConceptReference" flags="ig" index="PrWs8">
-        <reference id="1169127628841" name="intfc" index="PrY4T" />
-      </concept>
       <concept id="1071489090640" name="jetbrains.mps.lang.structure.structure.ConceptDeclaration" flags="ig" index="1TIwiD">
         <reference id="1071489389519" name="extends" index="1TJDcQ" />
-        <child id="1169129564478" name="implements" index="PzmwI" />
       </concept>
       <concept id="1071489288299" name="jetbrains.mps.lang.structure.structure.PropertyDeclaration" flags="ig" index="1TJgyi">
         <property id="241647608299431129" name="propertyId" index="IQ2nx" />
@@ -49,16 +45,7 @@
     <property role="TrG5h" value="ConstraintsRuleWithMessage" />
     <property role="34LRSv" value="rule" />
     <property role="R4oN_" value="rule with message" />
-    <ref role="1TJDcQ" to="bm42:6kKc3mjqoIo" resolve="ConstraintsRuleBlockMember" />
-    <node concept="PrWs8" id="hyoMxHKcTE" role="PzmwI">
-      <ref role="PrY4T" to="tpee:hCUYCKd" resolve="IValidIdentifier" />
-    </node>
-    <node concept="PrWs8" id="hyoMxHKcTO" role="PzmwI">
-      <ref role="PrY4T" to="bm42:hyoMxHJPiE" resolve="ConstraintsRuleIdHolder" />
-    </node>
-    <node concept="PrWs8" id="hyoMxHKcTW" role="PzmwI">
-      <ref role="PrY4T" to="bm42:6kKc3mjlI_C" resolve="ConstraintsExpressionHolder" />
-    </node>
+    <ref role="1TJDcQ" to="bm42:6kKc3mjm6Ry" resolve="ConstraintsRule" />
     <node concept="1TJgyj" id="hyoMxHKcU6" role="1TKVEi">
       <property role="IQ2ns" value="315923949160550022" />
       <property role="20lmBu" value="aggregation" />
