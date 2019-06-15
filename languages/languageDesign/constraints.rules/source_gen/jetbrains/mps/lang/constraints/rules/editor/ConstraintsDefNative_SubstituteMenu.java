@@ -13,11 +13,17 @@ import jetbrains.mps.lang.editor.menus.substitute.ConstraintsFilteringSubstitute
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
+import jetbrains.mps.lang.editor.menus.substitute.SingleItemSubstituteMenuPart;
+import org.jetbrains.annotations.Nullable;
+import org.apache.log4j.Logger;
+import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
+import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.editor.runtime.selection.SelectionUtil;
+import jetbrains.mps.editor.runtime.cells.CellIdManager;
 import jetbrains.mps.lang.editor.menus.substitute.WrapperSubstituteMenuPart;
 import jetbrains.mps.editor.runtime.menus.SubstituteItemProxy;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuItemWrapper;
-import org.jetbrains.mps.openapi.model.SNode;
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemCreatingCustomizationContext;
@@ -40,7 +46,8 @@ public class ConstraintsDefNative_SubstituteMenu extends SubstituteMenuBase {
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new ConstraintsDefNative_SubstituteMenu.SMP_Wrap_34kkp5_a(), MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x4bf59690bc00f6b1L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNative")));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new ConstraintsDefNative_SubstituteMenu.SMP_Action_34kkp5_a(), MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x4bf59690bc00f6b1L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNative")));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new ConstraintsDefNative_SubstituteMenu.SMP_Wrap_34kkp5_b(), MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x4bf59690bc00f6b1L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNative")));
     return result;
   }
 
@@ -57,7 +64,65 @@ public class ConstraintsDefNative_SubstituteMenu extends SubstituteMenuBase {
   }
 
 
-  private class SMP_Wrap_34kkp5_a extends WrapperSubstituteMenuPart {
+  private class SMP_Action_34kkp5_a extends SingleItemSubstituteMenuPart {
+
+    @Nullable
+    @Override
+    protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
+      ConstraintsDefNative_SubstituteMenu.SMP_Action_34kkp5_a.Item item = new ConstraintsDefNative_SubstituteMenu.SMP_Action_34kkp5_a.Item(_context);
+      String description;
+      try {
+        description = "Substitute item: " + item.getMatchingText("");
+      } catch (Throwable t) {
+        Logger.getLogger(getClass()).error("Exception while executing getMatchingText() of the item " + item, t);
+        return null;
+      }
+
+      _context.getEditorMenuTrace().pushTraceInfo();
+      try {
+        _context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase(description, new SNodePointer("r:c333438f-9631-41c0-a716-72d23eed1ba4(jetbrains.mps.lang.constraints.rules.editor)", "315923949159579505")));
+        item.setTraceInfo(_context.getEditorMenuTrace().getTraceInfo());
+      } finally {
+        _context.getEditorMenuTrace().popTraceInfo();
+      }
+
+      return item;
+    }
+    private class Item extends DefaultSubstituteMenuItem {
+      private final SubstituteMenuContext _context;
+      private EditorMenuTraceInfo myTraceInfo;
+      public Item(SubstituteMenuContext context) {
+        super(MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x4bf59690bc00f6b1L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNative"), context);
+        _context = context;
+      }
+
+      private void setTraceInfo(EditorMenuTraceInfo traceInfo) {
+        myTraceInfo = traceInfo;
+      }
+
+      @Nullable
+      @Override
+      public SNode createNode(@NotNull String pattern) {
+        return createConstraintsDefNative_34kkp5_a0a0a(pattern);
+      }
+
+      @Override
+      public EditorMenuTraceInfo getTraceInfo() {
+        return myTraceInfo;
+      }
+      @Nullable
+      @Override
+      public String getMatchingText(@NotNull String pattern) {
+        return pattern;
+      }
+      @Override
+      public void select(@NotNull SNode createdNode, @NotNull String pattern) {
+        SelectionUtil.selectLabelCellWithSelection(_context.getEditorContext(), createdNode, "*" + CellIdManager.createPropertyId("name"), -1, -1);
+
+      }
+    }
+  }
+  private class SMP_Wrap_34kkp5_b extends WrapperSubstituteMenuPart {
     @NotNull
     @Override
     public List<SubstituteMenuItem> createItems(SubstituteMenuContext context) {
@@ -87,7 +152,7 @@ public class ConstraintsDefNative_SubstituteMenu extends SubstituteMenuBase {
         public SNode createNode(@NotNull String pattern) {
           SNode nodeToWrap = super.createNode(pattern);
           myCreatedNode = nodeToWrap;
-          return createConstraintsDefNative_34kkp5_a0a0a(nodeToWrap);
+          return createConstraintsDefNative_34kkp5_a0a0b(nodeToWrap);
         }
         @Override
         public void select(@NotNull SNode createdNode, @NotNull String pattern) {
@@ -116,7 +181,13 @@ public class ConstraintsDefNative_SubstituteMenu extends SubstituteMenuBase {
       return MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
     }
   }
-  private static SNode createConstraintsDefNative_34kkp5_a0a0a(SNode node0) {
+  private static SNode createConstraintsDefNative_34kkp5_a0a0a(Object p0) {
+    PersistenceFacade facade = PersistenceFacade.getInstance();
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x4bf59690bc00f6b1L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNative"), null, null, false);
+    n1.setProperty(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), p0 + "");
+    return n1;
+  }
+  private static SNode createConstraintsDefNative_34kkp5_a0a0b(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x4bf59690bc00f6b1L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNative"), null, null, false);
     if (node0 != null) {

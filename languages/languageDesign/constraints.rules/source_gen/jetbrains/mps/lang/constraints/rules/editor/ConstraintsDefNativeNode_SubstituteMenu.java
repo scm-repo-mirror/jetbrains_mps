@@ -13,29 +13,20 @@ import jetbrains.mps.lang.editor.menus.substitute.ConstraintsFilteringSubstitute
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
-import jetbrains.mps.lang.editor.menus.ParameterizedMenuPart;
+import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuItem;
 import org.jetbrains.mps.openapi.model.SNode;
-import org.jetbrains.annotations.Nullable;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.editor.menus.substitute.SingleItemSubstituteMenuPart;
-import org.apache.log4j.Logger;
-import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
-import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
-import jetbrains.mps.smodel.presentation.NodePresentationUtil;
-import jetbrains.mps.smodel.runtime.IconResource;
-import jetbrains.mps.smodel.runtime.IconResourceUtil;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
-import jetbrains.mps.smodel.SModelUtil_new;
 
 public class ConstraintsDefNativeNode_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new ConstraintsDefNativeNode_SubstituteMenu.SMP_Param_3vsm54_a(), MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286da99051L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNativeNode")));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new ConstraintsDefNativeNode_SubstituteMenu.SMP_ReferenceScope_3vsm54_a(), MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286da99051L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNativeNode")));
     return result;
   }
 
@@ -52,112 +43,53 @@ public class ConstraintsDefNativeNode_SubstituteMenu extends SubstituteMenuBase 
   }
 
 
-  private class SMP_Param_3vsm54_a extends ParameterizedMenuPart<SNode, SubstituteMenuItem, SubstituteMenuContext> {
-    @NotNull
-    @Override
-    protected List<SubstituteMenuItem> createItems(SNode parameter, SubstituteMenuContext context) {
-      return new ConstraintsDefNativeNode_SubstituteMenu.SMP_Param_3vsm54_a.SMP_Action_3vsm54_a0(parameter).createItems(context);
+  public class SMP_ReferenceScope_3vsm54_a extends ReferenceScopeSubstituteMenuPart {
+
+    public SMP_ReferenceScope_3vsm54_a() {
+      // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
+      super((SAbstractConcept) MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286da99051L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNativeNode"), MetaAdapterFactory.getReferenceLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286da99051L, 0x46263286da99433L, "conceptParameter"));
     }
     @NotNull
     @Override
-    public List<SubstituteMenuItem> createItems(@NotNull SubstituteMenuContext context) {
+    public List<SubstituteMenuItem> createItems(SubstituteMenuContext context) {
       context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("parameterized substitute menu part", new SNodePointer("r:c333438f-9631-41c0-a716-72d23eed1ba4(jetbrains.mps.lang.constraints.rules.editor)", "315923949159207196")));
+      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("reference scope substitute menu part", new SNodePointer("r:c333438f-9631-41c0-a716-72d23eed1ba4(jetbrains.mps.lang.constraints.rules.editor)", "315923949159506997")));
       try {
         return super.createItems(context);
       } finally {
         context.getEditorMenuTrace().popTraceInfo();
       }
     }
-    @Nullable
+
     @Override
-    protected Iterable<? extends SNode> getParameters(SubstituteMenuContext _context) {
-      return SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(_context.getParentNode(), MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593554248L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsRuleKind"), true, false), MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593554248L, 0x4bf59690bc05b732L, "parameter")), MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x4bf59690bc05b735L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsRuleKindParameterConcept"));
+    @NotNull
+    protected ReferenceScopeSubstituteMenuItem createItem(SubstituteMenuContext context, SNode referencedNode) {
+      return new ConstraintsDefNativeNode_SubstituteMenu.SMP_ReferenceScope_3vsm54_a.Item(context, referencedNode, getSConcept(), getReferenceLink());
     }
-    private class SMP_Action_3vsm54_a0 extends SingleItemSubstituteMenuPart {
-      private final SNode myParameterObject;
-      public SMP_Action_3vsm54_a0(SNode parameterObject) {
-        myParameterObject = parameterObject;
-      }
+    private class Item extends ReferenceScopeSubstituteMenuItem {
+      private final SubstituteMenuContext _context;
+      private final SNode referencedNode;
+      private EditorMenuTraceInfo myTraceInfo;
 
-      @Nullable
+      private Item(SubstituteMenuContext context, SNode refNode, SAbstractConcept concept, SReferenceLink referenceLink) {
+        super(concept, context, refNode, referenceLink);
+        _context = context;
+        referencedNode = refNode;
+        myTraceInfo = context.getEditorMenuTrace().getTraceInfo();
+      }
       @Override
-      protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-        ConstraintsDefNativeNode_SubstituteMenu.SMP_Param_3vsm54_a.SMP_Action_3vsm54_a0.Item item = new ConstraintsDefNativeNode_SubstituteMenu.SMP_Param_3vsm54_a.SMP_Action_3vsm54_a0.Item(_context);
-        String description;
-        try {
-          description = "Substitute item: " + item.getMatchingText("");
-          description += ". Parameter object: " + myParameterObject;
-        } catch (Throwable t) {
-          Logger.getLogger(getClass()).error("Exception while executing getMatchingText() of the item " + item, t);
-          return null;
-        }
-
-        _context.getEditorMenuTrace().pushTraceInfo();
-        try {
-          _context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase(description, new SNodePointer("r:c333438f-9631-41c0-a716-72d23eed1ba4(jetbrains.mps.lang.constraints.rules.editor)", "315923949159207208")));
-          item.setTraceInfo(_context.getEditorMenuTrace().getTraceInfo());
-        } finally {
-          _context.getEditorMenuTrace().popTraceInfo();
-        }
-
-        return item;
+      public String getMatchingText(String pattern) {
+        return "node<" + SPropertyOperations.getString(referencedNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ">";
       }
-      private class Item extends DefaultSubstituteMenuItem {
-        private final SubstituteMenuContext _context;
-        private EditorMenuTraceInfo myTraceInfo;
-        public Item(SubstituteMenuContext context) {
-          super(MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286da99051L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNativeNode"), context);
-          _context = context;
-        }
+      @Override
+      public String getVisibleMatchingText(String pattern) {
+        return getMatchingText(pattern);
+      }
 
-        private void setTraceInfo(EditorMenuTraceInfo traceInfo) {
-          myTraceInfo = traceInfo;
-        }
-
-        @Nullable
-        @Override
-        public SNode createNode(@NotNull String pattern) {
-          return createConstraintsDefNativeNode_3vsm54_a0a0a0(myParameterObject);
-        }
-
-        @Override
-        public EditorMenuTraceInfo getTraceInfo() {
-          return myTraceInfo;
-        }
-        @NotNull
-        protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286da99051L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNativeNode"), getMatchingText(pattern), getDescriptionText(pattern));
-        }
-        @Nullable
-        @Override
-        public String getDescriptionText(@NotNull String pattern) {
-          if (myParameterObject instanceof SNode) {
-            return NodePresentationUtil.descriptionText((SNode) myParameterObject);
-          }
-          return "" + myParameterObject;
-        }
-        @Nullable
-        @Override
-        public IconResource getIcon(@NotNull String pattern) {
-          if (myParameterObject instanceof SNode) {
-            return IconResourceUtil.getIconResourceForNode(((SNode) myParameterObject));
-          }
-          return null;
-        }
-        @Nullable
-        @Override
-        public String getMatchingText(@NotNull String pattern) {
-          return "node<" + SPropertyOperations.getString(myParameterObject, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ">";
-        }
+      @Override
+      public EditorMenuTraceInfo getTraceInfo() {
+        return myTraceInfo;
       }
     }
-
-  }
-  private static SNode createConstraintsDefNativeNode_3vsm54_a0a0a0(SNode node0) {
-    PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286da99051L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNativeNode"), null, null, false);
-    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286da99051L, 0x46263286da99433L, "conceptParameter"), node0);
-    return n1;
   }
 }
