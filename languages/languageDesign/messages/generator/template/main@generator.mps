@@ -2,7 +2,7 @@
 <model ref="r:d6af9f13-1294-423f-9614-96aa7e60c9c9(main@generator)">
   <persistence version="9" />
   <languages>
-    <use id="69b8a993-9b87-4d96-bf0c-3559f4bb0c63" name="jetbrains.mps.lang.slanguage" version="0" />
+    <use id="69b8a993-9b87-4d96-bf0c-3559f4bb0c63" name="jetbrains.mps.lang.slanguage" version="-1" />
     <devkit ref="a2eb3a43-fcc2-4200-80dc-c60110c4862d(jetbrains.mps.devkit.templates)" />
   </languages>
   <imports>
@@ -339,6 +339,29 @@
   </registry>
   <node concept="bUwia" id="6kKc3mjlk7F">
     <property role="TrG5h" value="main" />
+    <node concept="3aamgX" id="4zSofKedTjp" role="3acgRq">
+      <ref role="30HIoZ" to="t9po:4zSofKedyR5" resolve="LiteralMessageExpression" />
+      <node concept="gft3U" id="4zSofKedTnN" role="1lVwrX">
+        <node concept="Xl_RD" id="4zSofKedTnT" role="gfFT$">
+          <node concept="17Uvod" id="4zSofKedTnY" role="lGtFl">
+            <property role="2qtEX9" value="value" />
+            <property role="P4ACc" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1070475926800/1070475926801" />
+            <node concept="3zFVjK" id="4zSofKedTo1" role="3zH0cK">
+              <node concept="3clFbS" id="4zSofKedTo2" role="2VODD2">
+                <node concept="3clFbF" id="4zSofKedTo8" role="3cqZAp">
+                  <node concept="2OqwBi" id="4zSofKedTo3" role="3clFbG">
+                    <node concept="3TrcHB" id="4zSofKedTo6" role="2OqNvi">
+                      <ref role="3TsBF5" to="t9po:4zSofKedyR6" resolve="message" />
+                    </node>
+                    <node concept="30H73N" id="4zSofKedTo7" role="2Oq$k0" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
     <node concept="2rT7sh" id="6kKc3mjHfXo" role="2rTMjI">
       <property role="TrG5h" value="messagesDescriptorClass" />
       <ref role="2rZz_L" to="tpee:fz12cDA" resolve="ClassConcept" />
@@ -377,41 +400,11 @@
       <ref role="2sgKRv" node="6f2WQqsThF2" resolve="messagesRootClass" />
       <ref role="3lhOvi" node="6kKc3mjG117" resolve="Generated_MessagesDescriptor" />
     </node>
-    <node concept="3aamgX" id="4zSofKedTjp" role="3acgRq">
-      <ref role="30HIoZ" to="t9po:4zSofKedyR5" resolve="LiteralMessageExpression" />
-      <node concept="gft3U" id="4zSofKedTnN" role="1lVwrX">
-        <node concept="Xl_RD" id="4zSofKedTnT" role="gfFT$">
-          <node concept="17Uvod" id="4zSofKedTnY" role="lGtFl">
-            <property role="2qtEX9" value="value" />
-            <property role="P4ACc" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1070475926800/1070475926801" />
-            <node concept="3zFVjK" id="4zSofKedTo1" role="3zH0cK">
-              <node concept="3clFbS" id="4zSofKedTo2" role="2VODD2">
-                <node concept="3clFbF" id="4zSofKedTo8" role="3cqZAp">
-                  <node concept="2OqwBi" id="4zSofKedTo3" role="3clFbG">
-                    <node concept="3TrcHB" id="4zSofKedTo6" role="2OqNvi">
-                      <ref role="3TsBF5" to="t9po:4zSofKedyR6" resolve="message" />
-                    </node>
-                    <node concept="30H73N" id="4zSofKedTo7" role="2Oq$k0" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
   </node>
   <node concept="312cEu" id="6kKc3mjG117">
     <property role="TrG5h" value="Generated_MessagesDescriptor" />
     <property role="3GE5qa" value="" />
     <property role="1EXbeo" value="true" />
-    <node concept="3Tm1VV" id="6kKc3mjG118" role="1B3o_S" />
-    <node concept="n94m4" id="6kKc3mjG119" role="lGtFl">
-      <ref role="n9lRv" to="t9po:6kKc3mjFxo7" resolve="MessagesRoot" />
-    </node>
-    <node concept="3uibUv" id="7w_sh_iFu2P" role="EKbjA">
-      <ref role="3uigEE" to="16ha:~MessagesDescriptor" resolve="MessagesDescriptor" />
-    </node>
     <node concept="Wx3nA" id="1ToVZma5I1n" role="jymVt">
       <property role="TrG5h" value="PROVIDER" />
       <property role="3TUv4t" value="true" />
@@ -532,7 +525,7 @@
                 <node concept="17QB3L" id="1ToVZma5JoU" role="1tU5fm" />
                 <node concept="3cpWs3" id="1ToVZma5JoV" role="33vP2m">
                   <node concept="Xl_RD" id="1ToVZma5JoW" role="3uHU7w">
-                    <property role="Xl_RC" value="_MessageProvider" />
+                    <property role="Xl_RC" value="_MSGPROVIDER" />
                   </node>
                   <node concept="3cpWs3" id="1ToVZma6uX3" role="3uHU7B">
                     <node concept="Xl_RD" id="1ToVZma6v4L" role="3uHU7B">
@@ -645,6 +638,13 @@
       </node>
     </node>
     <node concept="2tJIrI" id="68U29HUcxnq" role="jymVt" />
+    <node concept="3Tm1VV" id="6kKc3mjG118" role="1B3o_S" />
+    <node concept="n94m4" id="6kKc3mjG119" role="lGtFl">
+      <ref role="n9lRv" to="t9po:6kKc3mjFxo7" resolve="MessagesRoot" />
+    </node>
+    <node concept="3uibUv" id="7w_sh_iFu2P" role="EKbjA">
+      <ref role="3uigEE" to="16ha:~MessagesDescriptor" resolve="MessagesDescriptor" />
+    </node>
     <node concept="3clFb_" id="6kKc3mjG1Bj" role="jymVt">
       <property role="TrG5h" value="getMessageProviders" />
       <node concept="3uibUv" id="6kKc3mjG1Bk" role="3clF45">

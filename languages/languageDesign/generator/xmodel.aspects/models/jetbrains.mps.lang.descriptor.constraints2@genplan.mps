@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:65159e81-a36c-493f-8048-da466b844a4f(jetbrains.mps.lang.descriptor.constraints2@genplan)">
+<model ref="r:65159e81-a36c-493f-8048-da466b844a4f(jetbrains.mps.lang.descriptor.constraints2@genplan)" doNotGenerate="true">
   <persistence version="9" />
   <languages>
     <use id="7ab1a6fa-0a11-4b95-9e48-75f363d6cb00" name="jetbrains.mps.lang.generator.plan" version="1" />
@@ -45,18 +45,12 @@
         <property role="2V$B1Q" value="jetbrains.mps.lang.core" />
       </node>
     </node>
-    <node concept="2VgMA2" id="ENHtKxERMF" role="2VgMA7">
-      <node concept="2V$Bhx" id="ENHtKxERMX" role="1t_9vn">
-        <property role="2V$B1T" value="b3551702-269c-4f05-ba61-58060cef4292" />
-        <property role="2V$B1Q" value="jetbrains.mps.lang.constraints.messages" />
-      </node>
-    </node>
     <node concept="2VgMA2" id="p4S6WR9xjG" role="2VgMA7">
       <node concept="2V$Bhx" id="6kKc3mj$4JN" role="1t_9vn">
         <property role="2V$B1T" value="47257bf3-78d3-470b-89d9-8c3261a61d15" />
         <property role="2V$B1Q" value="jetbrains.mps.constraints.rules" />
       </node>
-      <node concept="2V$Bhx" id="7w_sh_iHDbD" role="1t_9vn">
+      <node concept="2V$Bhx" id="2rhesRz5hVh" role="1t_9vn">
         <property role="2V$B1T" value="ad93155d-79b2-4759-b10c-55123e763903" />
         <property role="2V$B1Q" value="jetbrains.mps.lang.messages" />
       </node>
