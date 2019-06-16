@@ -15,11 +15,8 @@
  */
 package jetbrains.mps.core.aspects.constraints.rules;
 
-import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.model.SModelReference;
-import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.util.Objects;
@@ -42,7 +39,7 @@ public final class ConstraintsRuleId implements ConstraintsRulePointer {
     return myId;
   }
 
-  @NotNull
+  @Nullable
   @Override
   public SNodeReference getRuleSourceNode() {
     return mySourceRuleDecl;

@@ -57,6 +57,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static jetbrains.mps.smodel.constraints.ModelConstraints2.checkRulesOfKind;
+import static jetbrains.mps.smodel.constraints.ModelConstraints2.legacyCanBeChild;
+import static jetbrains.mps.smodel.constraints.ModelConstraints2.legacyCanBeParent;
+
 /**
  * API for model constraints
  * All methods require read action
@@ -115,55 +119,6 @@ public class ModelConstraints {
     return canBeParent0(new ConstraintContext_CanBeParent(childNode), checkingNodeContext);
   }
 
-  /**
-   * @return canBeParent failing rules
-   */
-  @NotNull
-  public static List<ConstraintsRulePointer> checkCanBeParent(@NotNull CanBeParent_Context context) {
-    if (context.getChildNode() != null && context.getChildNode().getParent() == null) {
-      // for root nodes it should return true
-      return Collections.emptyList();
-    }
-    CheckingNodeContextImpl debugInfo = new CheckingNodeContextImpl();
-    List<ConstraintsRulePointer> constraintsRuleIds = checkRulesOfKind(context, CanBeParent_RuleKind.INSTANCE).stream()
-                                                                                                              .map(ConstraintsRule::getId)
-                                                                                                              .collect(Collectors.toList());
-    boolean legacyAreOk = legacyCanBeParent(ConstraintContext_CanBeParent.convert(context), debugInfo);
-    if (!legacyAreOk) {
-      constraintsRuleIds.add(new AdaptedLegacyConstraintsRuleId(debugInfo.getBreakingNode()));
-    }
-    return constraintsRuleIds;
-  }
-
-  /**
-   * @return canBeChild failing rules
-   */
-  @NotNull
-  public static List<ConstraintsRulePointer> checkCanBeChild(@NotNull CanBeChild_Context context) {
-    CheckingNodeContextImpl debugInfo = new CheckingNodeContextImpl();
-    List<ConstraintsRulePointer> constraintsRuleIds = checkRulesOfKind(context, CanBeChild_RuleKind.INSTANCE).stream()
-                                                                                                             .map(ConstraintsRule::getId)
-                                                                                                             .collect(Collectors.toList());
-    boolean legacyAreOk = legacyCanBeChild(ConstraintContext_CanBeChild.convert(context), debugInfo);
-    if (!legacyAreOk) {
-      constraintsRuleIds.add(new AdaptedLegacyConstraintsRuleId(debugInfo.getBreakingNode()));
-    }
-    return constraintsRuleIds;
-  }
-
-  static class AdaptedLegacyConstraintsRuleId implements ConstraintsRulePointer {
-    private final SNodeReference myRef;
-
-    AdaptedLegacyConstraintsRuleId(@NotNull SNodeReference ref) {
-      myRef = ref;
-    }
-
-    @Override
-    @NotNull
-    public SNodeReference getRuleSourceNode() {
-      return myRef;
-    }
-  }
 
   @Deprecated
   public static boolean canBeChild(@NotNull SNode parentNode, @NotNull SAbstractConcept childConcept, /*TODO @NotNull*/ SContainmentLink link,
@@ -229,29 +184,6 @@ public class ModelConstraints {
   private static boolean canBeChild0(@NotNull ConstraintContext_CanBeChild context, @Nullable CheckingNodeContext checkingNodeContext) {
     boolean legacyResult = legacyCanBeChild(context, checkingNodeContext);
     return legacyResult && checkRulesOfKind(context.adapt(), CanBeChild_RuleKind.INSTANCE).isEmpty();
-  }
-
-  /**
-   * @return the list of failed rules for the kind
-   */
-  @NotNull
-  private static <C extends ConstraintsContext> List<ConstraintsRule<C>> checkRulesOfKind(@NotNull C context, @NotNull ConstraintsRuleKind<C> kind) {
-    ConstraintsRegistry2 constraintsRegistry = ConceptRegistry.getInstance().getConstraintsRegistry().getNewRegistry();
-    return constraintsRegistry.getFailingRulesFor(context, kind);
-  }
-
-  @ToRemove(version = 300)
-  private static boolean legacyCanBeChild(@NotNull ConstraintContext_CanBeChild context,
-                                          @Nullable CheckingNodeContext checkingNodeContext) {
-    ConstraintsDescriptor descriptor = ConceptRegistry.getInstance().getConstraintsDescriptor(context.getConcept());
-    return descriptor.canBeChild(context, checkingNodeContext);
-  }
-
-  @ToRemove(version = 300)
-  private static boolean legacyCanBeParent(@NotNull ConstraintContext_CanBeParent context,
-                                           @Nullable CheckingNodeContext checkingNodeContext) {
-    ConstraintsDescriptor descriptor = ConceptRegistry.getInstance().getConstraintsDescriptor(context.getConcept());
-    return descriptor.canBeParent(context, checkingNodeContext);
   }
 
   // scopes part

@@ -18,6 +18,7 @@ package jetbrains.mps.errors.item;
 import jetbrains.mps.errors.item.ReportItemBase.MultipleReportItemFlavour;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.util.ArrayList;
@@ -26,14 +27,14 @@ import java.util.Iterator;
 import java.util.List;
 
 public interface RuleIdFlavouredItem extends FlavouredItem {
-  class TypesystemRuleId {
-    private final @NotNull SNodeReference myNodeReference;
+  final class TypesystemRuleId {
+    @Nullable private final SNodeReference myNodeReference;
 
-    public TypesystemRuleId(@NotNull SNodeReference nodeReference) {
+    public TypesystemRuleId(@Nullable SNodeReference nodeReference) {
       myNodeReference = nodeReference;
     }
 
-    @NotNull
+    @Nullable
     public SNodeReference getSourceNode() {
       return myNodeReference;
     }
