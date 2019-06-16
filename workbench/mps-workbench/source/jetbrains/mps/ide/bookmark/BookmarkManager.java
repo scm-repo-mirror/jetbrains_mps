@@ -29,7 +29,7 @@ import com.intellij.ui.JBColor;
 import com.intellij.ui.RetrievableIcon;
 import com.intellij.util.IconUtil;
 import com.intellij.util.PlatformIcons;
-import com.intellij.util.ui.JBUI;
+import com.intellij.util.ui.JBCachingScalableIcon;
 import jetbrains.mps.ide.bookmark.BookmarkManager.MyState;
 import jetbrains.mps.nodeEditor.Highlighter;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
@@ -57,7 +57,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static com.intellij.util.ui.JBUIScale.ScaleType.OBJ_SCALE;
+import static com.intellij.ui.scale.ScaleType.OBJ_SCALE;
 import static java.lang.Math.ceil;
 
 /* TODO: think of reusing com.intellij.ide.bookmarks.Bookmark:
@@ -398,7 +398,7 @@ public class BookmarkManager implements ProjectComponent, PersistentStateCompone
   /**
    * Partly copy/paste of {@link Bookmark.MnemonicIcon}
    */
-  private final static class MnemonicIcon extends JBUI.CachingScalableJBIcon<MnemonicIcon> {
+  private final static class MnemonicIcon extends JBCachingScalableIcon<MnemonicIcon> {
     private static final MnemonicIcon[] CACHE = new MnemonicIcon[]{
         new MnemonicIcon('0'), new MnemonicIcon('1'),
         new MnemonicIcon('2'), new MnemonicIcon('3'),
@@ -487,7 +487,7 @@ public class BookmarkManager implements ProjectComponent, PersistentStateCompone
   /**
    * Copy/paste of {@link Bookmark.MyCheckedIcon}
    */
-  private static class MyCheckedIcon extends JBUI.CachingScalableJBIcon<MyCheckedIcon> implements RetrievableIcon {
+  private static class MyCheckedIcon extends JBCachingScalableIcon<MyCheckedIcon> implements RetrievableIcon {
     @Nullable
     @Override
     public Icon retrieveIcon() {
