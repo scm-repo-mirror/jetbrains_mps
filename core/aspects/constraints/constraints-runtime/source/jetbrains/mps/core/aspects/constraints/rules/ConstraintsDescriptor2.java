@@ -17,8 +17,18 @@ package jetbrains.mps.core.aspects.constraints.rules;
 
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public interface ConstraintsDescriptor2 {
+  @NotNull List<ConstraintsRule<?>> getRules();
+
   @NotNull
-  <Context extends ConstraintsContext> List<ConstraintsRule<Context>> getRules(@NotNull ConstraintsRuleKind<Context> kind);
+  default <Context extends ConstraintsContext> List<ConstraintsRule<Context>> getRules(@NotNull ConstraintsRuleKind<Context> kind) {
+    List<ConstraintsRule<?>> rules = getRules();
+    return rules.stream()
+                .filter(it1 -> it1.getKind() == kind)
+                .map(it -> (ConstraintsRule<Context>) it)
+                .collect(Collectors.toList());
+  }
 }

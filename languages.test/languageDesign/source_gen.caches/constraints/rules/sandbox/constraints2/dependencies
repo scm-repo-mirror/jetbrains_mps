@@ -2,6 +2,7 @@
 <dependenciesRoot>
   <dependency className="constraints.rules.sandbox.constraints2.A_Constraints2">
     <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.util.ArrayList" />
     <classNode dependClassName="java.util.Arrays" />
     <classNode dependClassName="java.util.Collections" />
     <classNode dependClassName="java.util.HashMap" />
@@ -17,7 +18,6 @@
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.model.SModelReference" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeReference" />
     <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.constraints.rules.ConstraintsDescriptor2" />
@@ -38,7 +38,7 @@
     <classNode dependClassName="jetbrains.mps.core.aspects.reporting.api.MessageProvider" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.reporting.api.MessagesDescriptor" />
   </dependency>
-  <dependency className="constraints.rules.sandbox.constraints2.GeneratedConstraintsAspectDescriptor">
+  <dependency className="constraints.rules.sandbox.constraints2.GeneratedConstraintsAspectDescriptor2">
     <classNode dependClassName="constraints.rules.sandbox.constraints2.A_Constraints2" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.Arrays" />
@@ -46,6 +46,7 @@
     <classNode dependClassName="jetbrains.mps.core.aspects.constraints.rules.ConstraintsDescriptor2" />
     <classNode dependClassName="jetbrains.mps.core.aspects.constraints.rules.ConstraintsRuleKind" />
     <classNode dependClassName="jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChild_RuleKind" />
+    <classNode dependClassName="jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParent_RuleKind" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.ConceptSwitchIndex" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.ConceptSwitchIndexBuilder" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.ids.MetaIdFactory" />

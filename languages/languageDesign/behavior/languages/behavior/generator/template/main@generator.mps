@@ -515,11 +515,6 @@
       <ref role="2rTdP9" to="1i04:hP3h7Gq" resolve="ConceptBehavior" />
       <ref role="2rZz_L" to="tpee:fzclF84" resolve="ConstructorDeclaration" />
     </node>
-    <node concept="2rT7sh" id="78MdKhpIE2y" role="2rTMjI">
-      <property role="TrG5h" value="BHClassConceptField" />
-      <ref role="2rTdP9" to="1i04:hP3h7Gq" resolve="ConceptBehavior" />
-      <ref role="2rZz_L" to="tpee:f$Wx3kv" resolve="StaticFieldDeclaration" />
-    </node>
     <node concept="2rT7sh" id="78MdKhpEC37" role="2rTMjI">
       <property role="TrG5h" value="BHMethodImpl" />
       <ref role="2rZz_L" to="tpee:fIYIFWa" resolve="StaticMethodDeclaration" />
@@ -1912,9 +1907,6 @@
       </node>
       <node concept="3uibUv" id="3uq0yNaWTuK" role="1tU5fm">
         <ref role="3uigEE" to="c17a:~SAbstractConcept" resolve="SAbstractConcept" />
-      </node>
-      <node concept="2ZBi8u" id="78MdKhpIBul" role="lGtFl">
-        <ref role="2rW$FS" node="78MdKhpIE2y" resolve="BHClassConceptField" />
       </node>
     </node>
     <node concept="2tJIrI" id="22P$f14BEIX" role="jymVt" />

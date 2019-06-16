@@ -8,6 +8,8 @@
     <devkit ref="2843b9cf-86fe-47f2-87c9-f256294fd769(jetbrains.mps.devkit.aspect.constraints.rules)" />
   </languages>
   <imports>
+    <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
+    <import index="qffw" ref="r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)" />
     <import index="ktae" ref="r:2207aff5-dd54-403c-bdeb-0b38c43db7b7(constraints.rules.sandbox.structure)" implicit="true" />
   </imports>
   <registry>
@@ -36,9 +38,6 @@
       </concept>
     </language>
     <language id="47257bf3-78d3-470b-89d9-8c3261a61d15" name="jetbrains.mps.lang.constraints.rules">
-      <concept id="315923949159026769" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNativeNode" flags="ng" index="1DMZdT">
-        <reference id="315923949159027763" name="conceptParameter" index="1DMZsr" />
-      </concept>
       <concept id="315923949160453290" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsRuleIdHolder" flags="ng" index="1DRju2">
         <property id="6714410169261853888" name="ruleId" index="EcuMT" />
       </concept>
@@ -50,10 +49,6 @@
         <reference id="7291380803376071243" name="kind" index="3Qpn9Y" />
         <child id="7291380803376071328" name="member" index="3Qpnal" />
       </concept>
-      <concept id="7291380803376071240" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsRuleKind" flags="ng" index="3Qpn9X">
-        <child id="7291380803376071326" name="contextMember" index="3QpnaF" />
-        <child id="5473446470512654130" name="parameter" index="3RW26y" />
-      </concept>
       <concept id="7291380803376179560" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsExpressionHolder" flags="ng" index="3QpH_t">
         <child id="7291380803376179561" name="expression" index="3QpH_s" />
       </concept>
@@ -62,10 +57,6 @@
       </concept>
       <concept id="7291380803376202512" name="jetbrains.mps.lang.constraints.rules.structure.ContextExpression" flags="ng" index="3QpRc_" />
       <concept id="7291380803376279010" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsRule" flags="ng" index="3Qq5Rn" />
-      <concept id="5473446470512654133" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsRuleKindParameterConcept" flags="ng" index="3RW26_" />
-      <concept id="5473446470512342705" name="jetbrains.mps.lang.constraints.rules.structure.ConstraintsDefNative" flags="ng" index="3RXm0x">
-        <child id="5473446470512342706" name="type" index="3RXm0y" />
-      </concept>
     </language>
     <language id="ad93155d-79b2-4759-b10c-55123e763903" name="jetbrains.mps.lang.messages">
       <concept id="7291380803381892615" name="jetbrains.mps.lang.messages.structure.MessagesRoot" flags="ng" index="3QByoM">
@@ -78,7 +69,6 @@
       </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
-      <concept id="1138055754698" name="jetbrains.mps.lang.smodel.structure.SNodeType" flags="in" index="3Tqbb2" />
       <concept id="1138056022639" name="jetbrains.mps.lang.smodel.structure.SPropertyAccess" flags="nn" index="3TrcHB">
         <reference id="1138056395725" name="property" index="3TsBF5" />
       </concept>
@@ -92,7 +82,7 @@
   <node concept="3Qpn8k" id="7w_sh_iHMe8">
     <ref role="3QD32O" to="ktae:7w_sh_iHHi0" resolve="A" />
     <node concept="3Qpn9N" id="7w_sh_iI0ZE" role="3Qpn9W">
-      <ref role="3Qpn9Y" node="7w_sh_iI0Z7" resolve="CanBeChild" />
+      <ref role="3Qpn9Y" to="qffw:7w_sh_iI0Z7" resolve="CanBeChild" />
       <node concept="3Qq5Rn" id="4zSofKebyg2" role="3Qpnal">
         <property role="TrG5h" value="first" />
         <property role="EcuMT" value="5258059200640984066" />
@@ -103,8 +93,8 @@
           <node concept="2OqwBi" id="4zSofKebyg6" role="3uHU7B">
             <node concept="2OqwBi" id="4zSofKebyg7" role="2Oq$k0">
               <node concept="3QpRc_" id="4zSofKebyg8" role="2Oq$k0" />
-              <node concept="3QpRc$" id="4zSofKebyg9" role="2OqNvi">
-                <ref role="3QpVTF" node="hyoMxHFKoi" resolve="Node" />
+              <node concept="3QpRc$" id="7qY6fvuQLCC" role="2OqNvi">
+                <ref role="3QpVTF" to="qffw:hyoMxHFKoi" resolve="Node" />
               </node>
             </node>
             <node concept="3TrcHB" id="4zSofKebyga" role="2OqNvi">
@@ -123,8 +113,8 @@
           <node concept="2OqwBi" id="4zSofKebypC" role="3uHU7B">
             <node concept="2OqwBi" id="4zSofKebypD" role="2Oq$k0">
               <node concept="3QpRc_" id="4zSofKebypE" role="2Oq$k0" />
-              <node concept="3QpRc$" id="4zSofKebypF" role="2OqNvi">
-                <ref role="3QpVTF" node="hyoMxHFKoi" resolve="Node" />
+              <node concept="3QpRc$" id="7qY6fvuQLIj" role="2OqNvi">
+                <ref role="3QpVTF" to="qffw:hyoMxHFKoi" resolve="Node" />
               </node>
             </node>
             <node concept="3TrcHB" id="4zSofKebypG" role="2OqNvi">
@@ -143,8 +133,8 @@
           <node concept="2OqwBi" id="hyoMxHLT6L" role="3uHU7B">
             <node concept="2OqwBi" id="hyoMxHLT6M" role="2Oq$k0">
               <node concept="3QpRc_" id="hyoMxHLT6N" role="2Oq$k0" />
-              <node concept="3QpRc$" id="hyoMxHLT6O" role="2OqNvi">
-                <ref role="3QpVTF" node="hyoMxHFKoi" resolve="Node" />
+              <node concept="3QpRc$" id="7qY6fvuQLNW" role="2OqNvi">
+                <ref role="3QpVTF" to="qffw:hyoMxHFKoi" resolve="Node" />
               </node>
             </node>
             <node concept="3TrcHB" id="hyoMxHLT6P" role="2OqNvi">
@@ -156,20 +146,6 @@
           </node>
         </node>
       </node>
-    </node>
-  </node>
-  <node concept="3Qpn9X" id="7w_sh_iI0Z7">
-    <property role="TrG5h" value="CanBeChild" />
-    <node concept="1DMZdT" id="hyoMxHFKoi" role="3QpnaF">
-      <property role="TrG5h" value="Node" />
-      <ref role="1DMZsr" node="hyoMxHEp1f" resolve="C" />
-    </node>
-    <node concept="3RXm0x" id="4JP_D2W1938" role="3QpnaF">
-      <property role="TrG5h" value="ParentNode" />
-      <node concept="3Tqbb2" id="4JP_D2W193k" role="3RXm0y" />
-    </node>
-    <node concept="3RW26_" id="hyoMxHEp1f" role="3RW26y">
-      <property role="TrG5h" value="C" />
     </node>
   </node>
   <node concept="3QByoM" id="7FO6JFyzuId">

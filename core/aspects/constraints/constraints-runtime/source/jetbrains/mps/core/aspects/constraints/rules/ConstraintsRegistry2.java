@@ -72,6 +72,12 @@ public final class ConstraintsRegistry2 {
   private static class EmptyConstraintsDescriptor2 implements ConstraintsDescriptor2 {
     @NotNull
     @Override
+    public List<ConstraintsRule<?>> getRules() {
+      return Collections.emptyList();
+    }
+
+    @NotNull
+    @Override
     public <Context extends ConstraintsContext> List<ConstraintsRule<Context>> getRules(@NotNull ConstraintsRuleKind<Context> kind) {
       return Collections.emptyList();
     }

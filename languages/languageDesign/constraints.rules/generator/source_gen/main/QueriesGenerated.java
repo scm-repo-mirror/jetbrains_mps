@@ -18,11 +18,13 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.generator.template.ReferenceMacroContext;
-import jetbrains.mps.generator.template.IfMacroContext;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.constraints.rules.behavior.ConstraintsExpressionHolder__BehaviorDescriptor;
+import java.util.Objects;
+import jetbrains.mps.smodel.SNodePointer;
+import jetbrains.mps.generator.template.IfMacroContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
-import jetbrains.mps.lang.constraints.rules.behavior.ConstraintsExpressionHolder__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.ISelector;
@@ -64,10 +66,12 @@ public class QueriesGenerated extends QueryProviderBase {
     return SModuleOperations.isAspect(((SModel) _context.getVariable("model")), "constraints2");
   }
   public static Object propertyMacro_GetValue_1_0(final PropertyMacroContext _context) {
-    return SModelOperations.getPointer(_context.getOriginalInputModel()) + "";
+    SModel model = ((SNodeOperations.getModel(_context.getNode()) == _context.getInputModel()) ? _context.getOriginalInputModel() : SNodeOperations.getModel(_context.getNode()));
+    return SModelOperations.getPointer(model) + "";
   }
   public static Object propertyMacro_GetValue_1_1(final PropertyMacroContext _context) {
-    return ((SModel) _context.getVariable("var:model")).getName().getNamespace() + ":" + ConstraintsRuleIdHolder__BehaviorDescriptor.getRuleId_id6kKc3mjG9Hb.invoke(_context.getNode());
+    SModel model = ((SNodeOperations.getModel(_context.getNode()) == _context.getInputModel()) ? _context.getOriginalInputModel() : SNodeOperations.getModel(_context.getNode()));
+    return model.getName().getNamespace() + ":" + ConstraintsRuleIdHolder__BehaviorDescriptor.getRuleId_id6kKc3mjG9Hb.invoke(_context.getNode());
   }
   public static Object propertyMacro_GetValue_1_2(final PropertyMacroContext _context) {
     return PersistenceFacade.getInstance().asString(((SNodeReference) _context.getVariable("var:sourceNode")));
@@ -82,7 +86,79 @@ public class QueriesGenerated extends QueryProviderBase {
     return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
   }
   public static Object referenceMacro_GetReferent_1_0(final ReferenceMacroContext _context) {
-    return SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getNode(), MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593554221L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsRoot"), false, false), MetaAdapterFactory.getReferenceLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593554221L, 0x6530303593940081L, "concept"));
+    return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593554221L, 0x6530303593940081L, "concept"));
+  }
+  public static Object referenceMacro_GetReferent_1_1(final ReferenceMacroContext _context) {
+    SNode ruleKind = ConstraintsExpressionHolder__BehaviorDescriptor.getRuleKind_id6kKc3mjmXYb.invoke(_context.getNode());
+    if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8657450212265562055"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeChild_RuleKind");
+    } else if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8556303794924492211"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeParent_RuleKind");
+    }
+    return null;
+  }
+  public static Object referenceMacro_GetReferent_1_2(final ReferenceMacroContext _context) {
+    SNode ruleKind = ConstraintsExpressionHolder__BehaviorDescriptor.getRuleKind_id6kKc3mjmXYb.invoke(_context.getNode());
+    if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8657450212265562055"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeChild_RuleKind");
+    } else if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8556303794924492211"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeParent_RuleKind");
+    }
+    return null;
+  }
+  public static Object referenceMacro_GetReferent_1_3(final ReferenceMacroContext _context) {
+    SNode ruleKind = ConstraintsExpressionHolder__BehaviorDescriptor.getRuleKind_id6kKc3mjmXYb.invoke(_context.getNode());
+    if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8657450212265562055"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeChild_Context");
+    } else if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8556303794924492211"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeParent_Context");
+    }
+    return null;
+  }
+  public static Object referenceMacro_GetReferent_1_4(final ReferenceMacroContext _context) {
+    SNode ruleKind = ConstraintsExpressionHolder__BehaviorDescriptor.getRuleKind_id6kKc3mjmXYb.invoke(_context.getNode());
+    if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8657450212265562055"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeChild_Context");
+    } else if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8556303794924492211"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeParent_Context");
+    }
+    return null;
+  }
+  public static Object referenceMacro_GetReferent_1_5(final ReferenceMacroContext _context) {
+    SNode ruleKind = ConstraintsExpressionHolder__BehaviorDescriptor.getRuleKind_id6kKc3mjmXYb.invoke(_context.getNode());
+    if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8657450212265562055"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeChild_Context");
+    } else if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8556303794924492211"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeParent_Context");
+    }
+    return null;
+  }
+  public static Object referenceMacro_GetReferent_1_6(final ReferenceMacroContext _context) {
+    SNode ruleKind = ConstraintsExpressionHolder__BehaviorDescriptor.getRuleKind_id6kKc3mjmXYb.invoke(_context.getNode());
+    if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8657450212265562055"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeChild_Context");
+    } else if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8556303794924492211"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeParent_Context");
+    }
+    return null;
+  }
+  public static Object referenceMacro_GetReferent_1_7(final ReferenceMacroContext _context) {
+    SNode ruleKind = _context.getNode();
+    if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8657450212265562055"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeChild_RuleKind");
+    } else if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8556303794924492211"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeParent_RuleKind");
+    }
+    return null;
+  }
+  public static Object referenceMacro_GetReferent_1_8(final ReferenceMacroContext _context) {
+    SNode ruleKind = ConstraintsExpressionHolder__BehaviorDescriptor.getRuleKind_id6kKc3mjmXYb.invoke(_context.getNode());
+    if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8657450212265562055"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeChild_RuleKind");
+    } else if (Objects.equals(SNodeOperations.getPointer(ruleKind), new SNodePointer("r:bf693f8c-6f67-4402-a1e2-e61c34b6993e(jetbrains.mps.lang.constraints.rules.constraints2)", "8556303794924492211"))) {
+      return new SNodePointer("8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules.kinds(jetbrains.mps.lang.constraints.rules.runtime/)", "~CanBeParent_RuleKind");
+    }
+    return null;
   }
   public static Object referenceMacro_GetReferent_2_0(final ReferenceMacroContext _context) {
     return _context.getOutputNodeByInputNodeAndMappingLabel(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593574311L, 0x6530303593578e5eL, "declaration")), "def");
@@ -138,10 +214,6 @@ public class QueriesGenerated extends QueryProviderBase {
     return SModelOperations.roots(_context.getInputModel(), MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593554221L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsRoot"));
   }
   public static Object varMacro_Value_1_0(final TemplateVarContext _context) {
-    SModel model = ((SNodeOperations.getModel(_context.getNode()) == _context.getInputModel()) ? _context.getOriginalInputModel() : SNodeOperations.getModel(_context.getNode()));
-    return model;
-  }
-  public static Object varMacro_Value_1_1(final TemplateVarContext _context) {
     // source node not specified or (likely, erroneously) points to the same (transient) model, 
     // therefore, we try to use generator's trace to original 
     if (SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286dbf54aaL, 0x46263286dc8547aL, "sourceNode")) == null || SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286dbf54aaL, 0x46263286dc8547aL, "sourceNode")) == _context.getNode()) {
@@ -154,7 +226,7 @@ public class QueriesGenerated extends QueryProviderBase {
       return SLinkOperations.getPointer(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286dbf54aaL, 0x46263286dc8547aL, "sourceNode"));
     }
   }
-  public static Object varMacro_Value_1_2(final TemplateVarContext _context) {
+  public static Object varMacro_Value_1_1(final TemplateVarContext _context) {
     return _context.getNode();
   }
   private final Map<String, ReductionRuleCondition> rrcMethods = new HashMap<String, ReductionRuleCondition>();
@@ -373,12 +445,20 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   private final Map<String, ReferenceTargetQuery> rtqMethods = new HashMap<String, ReferenceTargetQuery>();
   {
-    rtqMethods.put("8859736031789531103", new QueriesGenerated.RTQ(0, "BaseConcept"));
-    rtqMethods.put("7291380803376597011", new QueriesGenerated.RTQ(1, "getDef"));
-    rtqMethods.put("7291380803376618261", new QueriesGenerated.RTQ(2, "getDef"));
-    rtqMethods.put("6479337755439617190", new QueriesGenerated.RTQ(3, "GeneratedConstraintsAspectDescriptor"));
-    rtqMethods.put("7291380803380540141", new QueriesGenerated.RTQ(4, "Generated_ConstraintsDescriptor2"));
-    rtqMethods.put("6551427688186219814", new QueriesGenerated.RTQ(5, "BaseConcept"));
+    rtqMethods.put("4006517209906256416", new QueriesGenerated.RTQ(0, "BaseConcept"));
+    rtqMethods.put("8556303794924611039", new QueriesGenerated.RTQ(1, "CanBeChild_RuleKind"));
+    rtqMethods.put("8556303794924604422", new QueriesGenerated.RTQ(2, "CanBeChild_RuleKind"));
+    rtqMethods.put("8556303794924619534", new QueriesGenerated.RTQ(3, "CanBeChild_Context"));
+    rtqMethods.put("8556303794924365547", new QueriesGenerated.RTQ(4, "CanBeChild_Context"));
+    rtqMethods.put("8556303794924669906", new QueriesGenerated.RTQ(5, "CanBeChild_Context"));
+    rtqMethods.put("8556303794924673649", new QueriesGenerated.RTQ(6, "CanBeChild_Context"));
+    rtqMethods.put("8556303794925437528", new QueriesGenerated.RTQ(7, "CanBeChild_RuleKind"));
+    rtqMethods.put("8556303794925493504", new QueriesGenerated.RTQ(8, "CanBeChild_RuleKind"));
+    rtqMethods.put("7291380803376597011", new QueriesGenerated.RTQ(9, "getDef"));
+    rtqMethods.put("7291380803376618261", new QueriesGenerated.RTQ(10, "getDef"));
+    rtqMethods.put("6479337755439617190", new QueriesGenerated.RTQ(11, "GeneratedConstraintsAspectDescriptor2"));
+    rtqMethods.put("7291380803380540141", new QueriesGenerated.RTQ(12, "Generated_ConstraintsDescriptor2"));
+    rtqMethods.put("6551427688186219814", new QueriesGenerated.RTQ(13, "BaseConcept"));
   }
   @NotNull
   @Override
@@ -401,14 +481,30 @@ public class QueriesGenerated extends QueryProviderBase {
         case 0:
           return QueriesGenerated.referenceMacro_GetReferent_1_0(ctx);
         case 1:
-          return QueriesGenerated.referenceMacro_GetReferent_2_0(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_1_1(ctx);
         case 2:
-          return QueriesGenerated.referenceMacro_GetReferent_2_1(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_1_2(ctx);
         case 3:
-          return QueriesGenerated.referenceMacro_GetReferent_3_0(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_1_3(ctx);
         case 4:
-          return QueriesGenerated.referenceMacro_GetReferent_4_0(ctx);
+          return QueriesGenerated.referenceMacro_GetReferent_1_4(ctx);
         case 5:
+          return QueriesGenerated.referenceMacro_GetReferent_1_5(ctx);
+        case 6:
+          return QueriesGenerated.referenceMacro_GetReferent_1_6(ctx);
+        case 7:
+          return QueriesGenerated.referenceMacro_GetReferent_1_7(ctx);
+        case 8:
+          return QueriesGenerated.referenceMacro_GetReferent_1_8(ctx);
+        case 9:
+          return QueriesGenerated.referenceMacro_GetReferent_2_0(ctx);
+        case 10:
+          return QueriesGenerated.referenceMacro_GetReferent_2_1(ctx);
+        case 11:
+          return QueriesGenerated.referenceMacro_GetReferent_3_0(ctx);
+        case 12:
+          return QueriesGenerated.referenceMacro_GetReferent_4_0(ctx);
+        case 13:
           return QueriesGenerated.referenceMacro_GetReferent_4_1(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
@@ -417,9 +513,8 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   private final Map<String, VariableValueQuery> vvqMethods = new HashMap<String, VariableValueQuery>();
   {
-    vvqMethods.put("4056803054980046637", new QueriesGenerated.VVQ(0));
-    vvqMethods.put("315923949161315804", new QueriesGenerated.VVQ(1));
-    vvqMethods.put("7291380803377166756", new QueriesGenerated.VVQ(2));
+    vvqMethods.put("315923949161315804", new QueriesGenerated.VVQ(0));
+    vvqMethods.put("7291380803377166756", new QueriesGenerated.VVQ(1));
   }
   @NotNull
   @Override
@@ -442,8 +537,6 @@ public class QueriesGenerated extends QueryProviderBase {
           return QueriesGenerated.varMacro_Value_1_0(ctx);
         case 1:
           return QueriesGenerated.varMacro_Value_1_1(ctx);
-        case 2:
-          return QueriesGenerated.varMacro_Value_1_2(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }

@@ -307,7 +307,7 @@ public class QueriesGenerated extends QueryProviderBase {
     rtqMethods.put("5258059200640315111", new QueriesGenerated.RTQ(2, "Generated_MessagesDescriptor"));
     rtqMethods.put("7188575577281176239", new QueriesGenerated.RTQ(3, "BaseConcept"));
     rtqMethods.put("7291380803382021648", new QueriesGenerated.RTQ(4, "GeneratedMessagesAspectDescriptor"));
-    rtqMethods.put("6479337755439617190", new QueriesGenerated.RTQ(5, "GeneratedConstraintsAspectDescriptor"));
+    rtqMethods.put("6479337755439617190", new QueriesGenerated.RTQ(5, "GeneratedConstraintsAspectDescriptor2"));
   }
   @NotNull
   @Override

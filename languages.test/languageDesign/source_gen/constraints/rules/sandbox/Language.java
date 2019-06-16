@@ -11,7 +11,7 @@ import jetbrains.mps.smodel.runtime.ConstraintsAspectDescriptor;
 import jetbrains.mps.core.aspects.reporting.api.MessagesAspectDescriptor;
 import constraints.rules.sandbox.constraints2.GeneratedMessagesAspectDescriptor;
 import jetbrains.mps.core.aspects.constraints.rules.ConstraintsAspectDescriptor2;
-import constraints.rules.sandbox.constraints2.GeneratedConstraintsAspectDescriptor;
+import constraints.rules.sandbox.constraints2.GeneratedConstraintsAspectDescriptor2;
 import jetbrains.mps.openapi.editor.descriptor.EditorAspectDescriptor;
 import constraints.rules.sandbox.editor.EditorAspectDescriptorImpl;
 import jetbrains.mps.smodel.runtime.StructureAspectDescriptor;
@@ -52,7 +52,7 @@ public class Language extends LanguageRuntime {
       return aspectClass.cast(new GeneratedMessagesAspectDescriptor());
     }
     if (aspectClass == ConstraintsAspectDescriptor2.class) {
-      return aspectClass.cast(new GeneratedConstraintsAspectDescriptor());
+      return aspectClass.cast(new GeneratedConstraintsAspectDescriptor2());
     }
     if (aspectClass == EditorAspectDescriptor.class) {
       return aspectClass.cast(new EditorAspectDescriptorImpl());
