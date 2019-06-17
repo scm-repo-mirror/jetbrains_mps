@@ -21,11 +21,11 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 public final class A_Constraints2 extends BaseConstraintsDescriptor2 {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xa6518565787648e9L, 0x8d439ef97836a52eL, 0x7825711952b6d480L, "constraints.rules.sandbox.structure.A");
 
-  public static final ConstraintsRule<CanBeChild_Context> first_id5258059200640984066 = new A_Constraints2.Rule_first();
+  public static final ConstraintsRule<CanBeChild_Context> first_id686743897209654265 = new A_Constraints2.Rule_first();
   public static final ConstraintsRule<CanBeChild_Context> second_id5258059200644191828 = new A_Constraints2.Rule_second();
   public static final ConstraintsRule<CanBeChild_Context> third_id315923949160993128 = new A_Constraints2.Rule_third();
 
-  private static final List<ConstraintsRule<?>> RULES = Collections.unmodifiableList(Arrays.<ConstraintsRule<?>>asList(first_id5258059200640984066, second_id5258059200644191828, third_id315923949160993128));
+  private static final List<ConstraintsRule<?>> RULES = Collections.unmodifiableList(Arrays.<ConstraintsRule<?>>asList(first_id686743897209654265, second_id5258059200644191828, third_id315923949160993128));
 
   /*package*/ A_Constraints2() {
     super(CONCEPT);
@@ -38,8 +38,8 @@ public final class A_Constraints2 extends BaseConstraintsDescriptor2 {
   }
 
   public static final class Rule_first extends BaseConstraintsRule<CanBeChild_Context> {
-    private static final SNodeReference SOURCE_NODE_REF = PersistenceFacade.getInstance().createNodeReference("r:d8115b4c-62c9-4566-9bc7-9fa3c8929293(constraints.rules.sandbox.constraints2)/5258059200640984066");
-    public static final ConstraintsRuleId ID_FIRST = new ConstraintsRuleId(5258059200640984066L, SOURCE_NODE_REF);
+    private static final SNodeReference SOURCE_NODE_REF = PersistenceFacade.getInstance().createNodeReference("r:d8115b4c-62c9-4566-9bc7-9fa3c8929293(constraints.rules.sandbox.constraints2)/686743897209654265");
+    public static final ConstraintsRuleId ID_FIRST = new ConstraintsRuleId(686743897209654265L, SOURCE_NODE_REF);
 
     public Rule_first() {
       super(CONCEPT, CanBeChild_RuleKind.INSTANCE, ID_FIRST);

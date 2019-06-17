@@ -56,7 +56,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return SModuleOperations.isAspect(((SModel) _context.getVariable("model")), "constraints2");
   }
   public static Object propertyMacro_GetValue_0_0(final PropertyMacroContext _context) {
-    return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"));
+    return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")).replaceAll("\\\\%", "%");
   }
   public static Object propertyMacro_GetValue_1_0(final PropertyMacroContext _context) {
     String baseName = "FOR_" + SPropertyOperations.getString(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x6530303593ae1651L, 0x6530303593ae1654L, "rule")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).toUpperCase() + "_MSGPROVIDER";
@@ -97,6 +97,9 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Object referenceMacro_GetReferent_3_1(final ReferenceMacroContext _context) {
     return _context.getOutputNodeByMappingLabel("constraintsDescriptorClass", ((SModel) _context.getVariable("model")));
+  }
+  public static Object referenceMacro_GetReferent_5_0(final ReferenceMacroContext _context) {
+    return "get" + SPropertyOperations.getString(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e41e4a2L, 0x48f860fc0e50649fL, "declaration")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
   }
   public static boolean ifMacro_Condition_2_0(final IfMacroContext _context) {
     return ListSequence.fromList(SModelOperations.roots(_context.getInputModel(), MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x6530303593ae1607L, "jetbrains.mps.lang.messages.structure.MessagesRoot"))).where(new IWhereFilter<SNode>() {
@@ -373,6 +376,7 @@ public class QueriesGenerated extends QueryProviderBase {
     rtqMethods.put("7188575577281176239", new QueriesGenerated.RTQ(8, "BaseConcept"));
     rtqMethods.put("7291380803382021648", new QueriesGenerated.RTQ(9, "GeneratedMessagesAspectDescriptor"));
     rtqMethods.put("6479337755439617190", new QueriesGenerated.RTQ(10, "GeneratedConstraintsAspectDescriptor2"));
+    rtqMethods.put("686743897209981124", new QueriesGenerated.RTQ(11, "getConcept"));
   }
   @NotNull
   @Override
@@ -414,6 +418,8 @@ public class QueriesGenerated extends QueryProviderBase {
           return QueriesGenerated.referenceMacro_GetReferent_3_0(ctx);
         case 10:
           return QueriesGenerated.referenceMacro_GetReferent_3_1(ctx);
+        case 11:
+          return QueriesGenerated.referenceMacro_GetReferent_5_0(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }

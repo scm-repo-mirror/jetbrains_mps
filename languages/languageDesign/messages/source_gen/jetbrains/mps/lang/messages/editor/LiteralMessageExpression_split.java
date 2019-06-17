@@ -14,6 +14,7 @@ import java.util.List;
 import jetbrains.mps.openapi.editor.selection.Selection;
 import jetbrains.mps.openapi.editor.selection.SingularSelection;
 import jetbrains.mps.openapi.editor.cells.EditorCell_Label;
+import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
@@ -50,11 +51,26 @@ public class LiteralMessageExpression_split extends KeyMapImpl {
       if (!(SNodeOperations.isInstanceOf(contextNode, MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression")))) {
         return false;
       }
-      return true;
+      return this.canExecute_internal(editorContext, contextNode, this.getSelectedNodes(editorContext));
     }
     public void execute(final EditorContext editorContext) {
       EditorCell contextCell = editorContext.getContextCell();
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
+    }
+    private boolean canExecute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
+      Selection selection = editorContext.getSelectionManager().getSelection();
+      if (!(selection instanceof SingularSelection)) {
+        return false;
+      }
+      EditorCell selectedCell = ((SingularSelection) selection).getEditorCell();
+      if (!(selectedCell instanceof EditorCell_Label)) {
+        return false;
+      }
+      int splitPosition = ((EditorCell_Label) selectedCell).getCaretPosition();
+      if (splitPosition == 0) {
+        return true;
+      }
+      return !(Objects.equals(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")).charAt(splitPosition - 1), '\\'));
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
       Selection selection = editorContext.getSelectionManager().getSelection();
