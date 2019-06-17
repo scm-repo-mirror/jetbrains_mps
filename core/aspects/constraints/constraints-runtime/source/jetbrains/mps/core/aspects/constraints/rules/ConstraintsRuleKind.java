@@ -32,6 +32,7 @@ public interface ConstraintsRuleKind<Context extends ConstraintsContext> {
    * do we need it?
    */
   @NotNull String getName();
+
   /**
    * todo currently with only this API it is impossible to construct a context from non-concrete rule kind
    * @return
