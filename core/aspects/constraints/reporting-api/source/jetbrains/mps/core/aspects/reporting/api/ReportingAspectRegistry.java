@@ -16,7 +16,9 @@
 package jetbrains.mps.core.aspects.reporting.api;
 
 import jetbrains.mps.components.CoreComponent;
+import jetbrains.mps.core.aspects.constraints.rules.ConstraintsContext;
 import jetbrains.mps.core.aspects.constraints.rules.ConstraintsRuleId;
+import jetbrains.mps.core.aspects.constraints.rules.ConstraintsRuleKind;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.language.LanguageRuntime;
 import org.apache.log4j.LogManager;
@@ -58,16 +60,23 @@ public final class ReportingAspectRegistry implements CoreComponent {
   }
 
   @NotNull
-  public String findMessageForRule(@NotNull SAbstractConcept concept, @NotNull ConstraintsRuleId ruleId) {
+  public MessageProvider<?> findMessageForRule(@NotNull SAbstractConcept concept, @NotNull ConstraintsRuleId ruleId) {
     MessagesDescriptor descriptor = getMessagesDescriptor(concept);
     Collection<MessageProvider<?>> messageProviders = requireNonNull(descriptor).getMessageProviders();
     List<MessageProvider> applicableMessageProviders = messageProviders.stream()
                                                                        .filter(it -> Objects.equals(it.forRule(), ruleId))
                                                                        .collect(Collectors.toList());
     if (!applicableMessageProviders.isEmpty()) {
-      return applicableMessageProviders.get(0).getMessage();
+      return applicableMessageProviders.get(0);
     } else {
-      return "default message"; // default message for kind
+      // todo: default message for kind
+      return new BaseMessageProvider<ConstraintsContext>(ruleId) {
+        @NotNull
+        @Override
+        public String getMessage(ConstraintsContext context) {
+          return "default message";
+        }
+      };
     }
   }
 
