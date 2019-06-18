@@ -1,5 +1,5 @@
 /*
-* Copyright 2003-2018 JetBrains s.r.o.
+* Copyright 2003-2019 JetBrains s.r.o.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -132,27 +132,29 @@ public class ModelOrNodeChooser extends ProjectViewPane implements ModelElementT
     if (module == null) {
       return false;
     }
-    MPSFacet mpsFacet = FacetManager.getInstance(module).getFacetByType(MPSFacetType.ID);
-    if (mpsFacet == null || !mpsFacet.wasInitialized()) {
+    MPSFacet mpsFacet = getFacetIfInitialized(module);
+    if (mpsFacet == null) {
       return false;
     }
 
     return mpsFacet.getSolution().getModelRoots().iterator().hasNext();
   }
 
+  public static MPSFacet getFacetIfInitialized(Module ideaModule) {
+    MPSFacet mpsFacet = FacetManager.getInstance(ideaModule).getFacetByType(MPSFacetType.ID);
+    if (mpsFacet != null || mpsFacet.wasInitialized()) {
+      return mpsFacet;
+    }
+    return null;
+  }
+
   // needs model read over project repo
   // XXX it tells if vf intersects with any model root path (either as parent or a child), which doesn't make too much sense to me.
   // public solely to avoid duplucation of this cryptic logic from [Mark|Unmark]ModelRootAction
-  public static boolean isModelRootOrParent(Module ideaModule, VirtualFile virtualFile) {
+  public static boolean isModelRootOrParent(MPSFacet mpsFacet, VirtualFile virtualFile) {
     if (!(virtualFile.isDirectory())) {
       return false;
     }
-
-    MPSFacet mpsFacet = FacetManager.getInstance(ideaModule).getFacetByType(MPSFacetType.ID);
-    if (mpsFacet == null || !(mpsFacet.wasInitialized())) {
-      return false;
-    }
-
     if (!virtualFile.isInLocalFileSystem()) {
       // no idea why restrict to local fs, just a replacement for ugly
       //    LocalFileSystem.PROTOCOL.equals(VirtualFileManager.extractProtocol(virtualFile.getUrl()))
@@ -185,16 +187,10 @@ public class ModelOrNodeChooser extends ProjectViewPane implements ModelElementT
    * important difference here is that we check path for 'equals' instead of 'startsWith'
    */
   @Nullable
-  public static Pair<DefaultModelRoot, SourceRoot> getModelRoot(Module ideaModule, VirtualFile virtualFile) {
+  public static Pair<DefaultModelRoot, SourceRoot> getModelRoot(MPSFacet mpsFacet, VirtualFile virtualFile) {
     if (!(virtualFile.isDirectory())) {
       return null;
     }
-
-    MPSFacet mpsFacet = FacetManager.getInstance(ideaModule).getFacetByType(MPSFacetType.ID);
-    if (mpsFacet == null || !(mpsFacet.wasInitialized())) {
-      return null;
-    }
-
     if (!virtualFile.isInLocalFileSystem()) {
       // see #isModelRootOrParent
       return null;

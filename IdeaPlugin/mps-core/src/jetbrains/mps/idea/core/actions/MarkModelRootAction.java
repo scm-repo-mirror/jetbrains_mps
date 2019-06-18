@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
 
 package jetbrains.mps.idea.core.actions;
 
-import com.intellij.facet.FacetManager;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.LangDataKeys;
@@ -26,17 +25,12 @@ import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.idea.core.MPSBundle;
 import jetbrains.mps.idea.core.facet.MPSFacet;
-import jetbrains.mps.idea.core.facet.MPSFacetType;
 import jetbrains.mps.idea.core.ui.ModelOrNodeChooser;
 import jetbrains.mps.persistence.DefaultModelRoot;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.project.structure.model.ModelRootDescriptor;
 import jetbrains.mps.project.structure.modules.SolutionDescriptor;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.vfs.IFile;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MarkModelRootAction extends AnAction {
   public MarkModelRootAction() {
@@ -49,7 +43,7 @@ public class MarkModelRootAction extends AnAction {
     assert module != null;
     VirtualFile[] vFiles = e.getData(PlatformDataKeys.VIRTUAL_FILE_ARRAY);
     assert vFiles != null;
-    MPSFacet mpsFacet = FacetManager.getInstance(module).getFacetByType(MPSFacetType.ID);
+    final MPSFacet mpsFacet = ModelOrNodeChooser.getFacetIfInitialized(module);
     assert mpsFacet != null;
     final MPSProject mpsProject = MPSCommonDataKeys.MPS_PROJECT.getData(e.getDataContext());
     assert mpsProject != null;
@@ -60,12 +54,17 @@ public class MarkModelRootAction extends AnAction {
       // the way the rest of MPS does it, as well as UnmarkModelRootAction. OTHO, MPSConfigurationBean is, well, configuration bean
       // and there's code in the rest of mps-idea-plugin that uses approach with the bean to configure the facet.
       final SolutionDescriptor sd = mpsFacet.getSolution().getModuleDescriptor();
-      List<ModelRootDescriptor> modelRoots = new ArrayList<>(sd.getModelRootDescriptors());
+      boolean changed = false;
       for (VirtualFile vFile : vFiles) {
         IFile modelDir = mpsProject.getFileSystem().fromVirtualFile(vFile);
-        modelRoots.add(DefaultModelRoot.createSingleFolderDescriptor(modelDir));
+        sd.getModelRootDescriptors().add(DefaultModelRoot.createSingleFolderDescriptor(modelDir));
+        changed = true;
       }
-      mpsFacet.getSolution().setModuleDescriptor(sd);
+      if (changed) {
+        mpsFacet.getSolution().setModuleDescriptor(sd);
+        // the next time MPSFacetConfiguration.getState() is invoked, it yields MPSConfigurationBean.toState() with actual, changed SD, thus reflecting
+        // the change in model roots
+      }
     });
   }
 
@@ -80,12 +79,13 @@ public class MarkModelRootAction extends AnAction {
     Module module = e.getData(LangDataKeys.MODULE);
     VirtualFile[] vFiles = e.getData(PlatformDataKeys.VIRTUAL_FILE_ARRAY);
     final MPSProject mpsProject = MPSCommonDataKeys.MPS_PROJECT.getData(e.getDataContext());
-    if (mpsProject == null || module == null || vFiles == null) {
+    final MPSFacet mpsFacet = ModelOrNodeChooser.getFacetIfInitialized(module);
+    if (mpsFacet == null || mpsProject == null || module == null || vFiles == null) {
       return false;
     }
     return new ModelAccessHelper(mpsProject.getModelAccess()).runReadAction(() -> {
       for (VirtualFile vFile : vFiles) {
-        if (ModelOrNodeChooser.isModelRootOrParent(module, vFile)) {
+        if (ModelOrNodeChooser.isModelRootOrParent(mpsFacet, vFile)) {
           return false;
         }
       }
