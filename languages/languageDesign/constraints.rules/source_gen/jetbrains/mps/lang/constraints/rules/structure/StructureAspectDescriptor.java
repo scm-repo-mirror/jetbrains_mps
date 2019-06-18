@@ -15,6 +15,8 @@ import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
 
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptAbstractConstraintsDefNative = createDescriptorForAbstractConstraintsDefNative();
+  /*package*/ final ConceptDescriptor myConceptApplicableCondition = createDescriptorForApplicableCondition();
+  /*package*/ final ConceptDescriptor myConceptApplicableConditionHolder = createDescriptorForApplicableConditionHolder();
   /*package*/ final ConceptDescriptor myConceptConstraintsBlock = createDescriptorForConstraintsBlock();
   /*package*/ final ConceptDescriptor myConceptConstraintsDef = createDescriptorForConstraintsDef();
   /*package*/ final ConceptDescriptor myConceptConstraintsDefNative = createDescriptorForConstraintsDefNative();
@@ -45,7 +47,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAbstractConstraintsDefNative, myConceptConstraintsBlock, myConceptConstraintsDef, myConceptConstraintsDefNative, myConceptConstraintsDefNativeNode, myConceptConstraintsExpressionHolder, myConceptConstraintsRoot, myConceptConstraintsRule, myConceptConstraintsRuleBlock, myConceptConstraintsRuleBlockMember, myConceptConstraintsRuleIdHolder, myConceptConstraintsRuleKind, myConceptConstraintsRuleKindParameterConcept, myConceptContextReference, myConceptTypedIdentifier);
+    return Arrays.asList(myConceptAbstractConstraintsDefNative, myConceptApplicableCondition, myConceptApplicableConditionHolder, myConceptConstraintsBlock, myConceptConstraintsDef, myConceptConstraintsDefNative, myConceptConstraintsDefNativeNode, myConceptConstraintsExpressionHolder, myConceptConstraintsRoot, myConceptConstraintsRule, myConceptConstraintsRuleBlock, myConceptConstraintsRuleBlockMember, myConceptConstraintsRuleIdHolder, myConceptConstraintsRuleKind, myConceptConstraintsRuleKindParameterConcept, myConceptContextReference, myConceptTypedIdentifier);
   }
 
   @Override
@@ -54,6 +56,10 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     switch (myIndexSwitch.index(id)) {
       case LanguageConceptSwitch.AbstractConstraintsDefNative:
         return myConceptAbstractConstraintsDefNative;
+      case LanguageConceptSwitch.ApplicableCondition:
+        return myConceptApplicableCondition;
+      case LanguageConceptSwitch.ApplicableConditionHolder:
+        return myConceptApplicableConditionHolder;
       case LanguageConceptSwitch.ConstraintsBlock:
         return myConceptConstraintsBlock;
       case LanguageConceptSwitch.ConstraintsDef:
@@ -103,6 +109,23 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForApplicableCondition() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.constraints.rules", "ApplicableCondition", 0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3172094ab484cd2cL);
+    b.class_(false, false, false);
+    b.parent(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x653030359356e968L);
+    b.origin("r:83f25986-cdbc-469a-a327-db97a2ec5a39(jetbrains.mps.lang.constraints.rules.structure)/3562920471664315692");
+    b.version(2);
+    b.alias("when");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForApplicableConditionHolder() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.constraints.rules", "ApplicableConditionHolder", 0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x13709eac5f4898edL);
+    b.interface_();
+    b.origin("r:83f25986-cdbc-469a-a327-db97a2ec5a39(jetbrains.mps.lang.constraints.rules.structure)/1400793947282381037");
+    b.version(2);
+    b.aggregate("condition", 0x3172094ab484cd67L).target(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3172094ab484cd2cL).optional(true).ordered(true).multiple(false).origin("3562920471664315751").done();
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForConstraintsBlock() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.constraints.rules", "ConstraintsBlock", 0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x93b1733caaa9766L);
     b.interface_();
@@ -116,6 +139,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_("jetbrains.mps.lang.constraints.rules.structure.ConstraintsRuleBlockMember", 0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593698b98L);
     b.parent(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x653030359368062cL);
     b.parent(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x653030359356e968L);
+    b.parent(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x13709eac5f4898edL);
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L);
     b.origin("r:83f25986-cdbc-469a-a327-db97a2ec5a39(jetbrains.mps.lang.constraints.rules.structure)/7291380803377228245");
     b.version(2);
@@ -171,6 +195,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11a3afa8c0dL);
     b.parent(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286dbf54aaL);
     b.parent(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x653030359356e968L);
+    b.parent(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x13709eac5f4898edL);
     b.origin("r:83f25986-cdbc-469a-a327-db97a2ec5a39(jetbrains.mps.lang.constraints.rules.structure)/7291380803376279010");
     b.version(2);
     b.alias("rule");

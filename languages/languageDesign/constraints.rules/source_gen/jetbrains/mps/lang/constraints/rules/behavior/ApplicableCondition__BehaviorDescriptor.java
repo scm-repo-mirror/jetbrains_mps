@@ -14,30 +14,26 @@ import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
-public final class TypedIdentifier__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x653030359368062cL, "jetbrains.mps.lang.constraints.rules.structure.TypedIdentifier");
+public final class ApplicableCondition__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3172094ab484cd2cL, "jetbrains.mps.lang.constraints.rules.structure.ApplicableCondition");
 
-  public static final SMethod<SNode> buildTypeForRule_id4JP_D2W1aNL = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("buildTypeForRule").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4JP_D2W1aNL").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
-  public static final SMethod<SNode> getErasedType_id4JP_D2W1aPH = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getErasedType").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4JP_D2W1aPH").build();
-  public static final SMethod<Boolean> hasApplicableCondition_id35M2kEOydzo = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasApplicableCondition").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("35M2kEOydzo").build();
+  public static final SMethod<SNode> getContainingRule_id1dKBELviPCA = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getContainingRule").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1dKBELviPCA").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(buildTypeForRule_id4JP_D2W1aNL, getErasedType_id4JP_D2W1aPH, hasApplicableCondition_id35M2kEOydzo);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getContainingRule_id1dKBELviPCA);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static SNode buildTypeForRule_id4JP_D2W1aNL(@NotNull SNode __thisNode__, SNode rule) {
-    return ((SNode) TypedIdentifier__BehaviorDescriptor.getErasedType_id4JP_D2W1aPH.invoke(__thisNode__));
-  }
-  /*package*/ static boolean hasApplicableCondition_id35M2kEOydzo(@NotNull SNode __thisNode__) {
-    return false;
+  /*package*/ static SNode getContainingRule_id1dKBELviPCA(@NotNull SNode __thisNode__) {
+    return SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), MetaAdapterFactory.getInterfaceConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x653030359356e968L, "jetbrains.mps.lang.constraints.rules.structure.ConstraintsExpressionHolder"));
   }
 
-  /*package*/ TypedIdentifier__BehaviorDescriptor() {
+  /*package*/ ApplicableCondition__BehaviorDescriptor() {
   }
 
   @Override
@@ -53,9 +49,7 @@ public final class TypedIdentifier__BehaviorDescriptor extends BaseBHDescriptor 
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((SNode) buildTypeForRule_id4JP_D2W1aNL(node, (SNode) parameters[0]));
-      case 2:
-        return (T) ((Boolean) hasApplicableCondition_id35M2kEOydzo(node));
+        return (T) ((SNode) getContainingRule_id1dKBELviPCA(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

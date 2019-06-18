@@ -10,6 +10,8 @@ import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AbstractConstraintsDefNative;
+  private ConceptPresentation props_ApplicableCondition;
+  private ConceptPresentation props_ApplicableConditionHolder;
   private ConceptPresentation props_ConstraintsBlock;
   private ConceptPresentation props_ConstraintsDef;
   private ConceptPresentation props_ConstraintsDefNative;
@@ -36,6 +38,19 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_AbstractConstraintsDefNative = cpb.create();
         }
         return props_AbstractConstraintsDefNative;
+      case LanguageConceptSwitch.ApplicableCondition:
+        if (props_ApplicableCondition == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("when");
+          props_ApplicableCondition = cpb.create();
+        }
+        return props_ApplicableCondition;
+      case LanguageConceptSwitch.ApplicableConditionHolder:
+        if (props_ApplicableConditionHolder == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_ApplicableConditionHolder = cpb.create();
+        }
+        return props_ApplicableConditionHolder;
       case LanguageConceptSwitch.ConstraintsBlock:
         if (props_ConstraintsBlock == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

@@ -171,6 +171,9 @@
     <node concept="PrWs8" id="6kKc3mjm6R$" role="PzmwI">
       <ref role="PrY4T" node="6kKc3mjlI_C" resolve="ConstraintsExpressionHolder" />
     </node>
+    <node concept="PrWs8" id="1dKBELvi9zJ" role="PzmwI">
+      <ref role="PrY4T" node="1dKBELvi9zH" resolve="ApplicableConditionHolder" />
+    </node>
   </node>
   <node concept="1TIwiD" id="6kKc3mjpIBl">
     <property role="EcuMT" value="7291380803377228245" />
@@ -189,6 +192,9 @@
     </node>
     <node concept="PrWs8" id="6kKc3mjpIBo" role="PzmwI">
       <ref role="PrY4T" node="6kKc3mjlI_C" resolve="ConstraintsExpressionHolder" />
+    </node>
+    <node concept="PrWs8" id="1dKBELvi9zW" role="PzmwI">
+      <ref role="PrY4T" node="1dKBELvi9zH" resolve="ApplicableConditionHolder" />
     </node>
     <node concept="PrWs8" id="6fJcw0tqQ_q" role="PzmwI">
       <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
@@ -272,6 +278,24 @@
   <node concept="PlHQZ" id="$V5NfaEDtA">
     <property role="EcuMT" value="665150881178228582" />
     <property role="TrG5h" value="ConstraintsBlock" />
+  </node>
+  <node concept="1TIwiD" id="35M2kEOxcOG">
+    <property role="EcuMT" value="3562920471664315692" />
+    <property role="TrG5h" value="ApplicableCondition" />
+    <property role="34LRSv" value="when" />
+    <node concept="PrWs8" id="35M2kEOxcOJ" role="PzmwI">
+      <ref role="PrY4T" node="6kKc3mjlI_C" resolve="ConstraintsExpressionHolder" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="1dKBELvi9zH">
+    <property role="EcuMT" value="1400793947282381037" />
+    <property role="TrG5h" value="ApplicableConditionHolder" />
+    <node concept="1TJgyj" id="35M2kEOxcPB" role="1TKVEi">
+      <property role="IQ2ns" value="3562920471664315751" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="condition" />
+      <ref role="20lvS9" node="35M2kEOxcOG" resolve="ApplicableCondition" />
+    </node>
   </node>
 </model>
 
