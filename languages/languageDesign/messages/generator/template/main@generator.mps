@@ -996,6 +996,7 @@
                           <ref role="3uigEE" to="33ny:~List" resolve="List" />
                           <node concept="3uibUv" id="4zSofKe8WUM" role="11_B2D">
                             <ref role="3uigEE" to="16ha:~MessageProvider" resolve="MessageProvider" />
+                            <node concept="3qTvmN" id="6fJcw0tt6Mt" role="11_B2D" />
                           </node>
                         </node>
                         <node concept="3clFbS" id="4zSofKe8WUN" role="3clF47">
@@ -1006,6 +1007,7 @@
                                 <ref role="3uigEE" to="33ny:~List" resolve="List" />
                                 <node concept="3uibUv" id="4zSofKe8YUb" role="11_B2D">
                                   <ref role="3uigEE" to="16ha:~MessageProvider" resolve="MessageProvider" />
+                                  <node concept="3qTvmN" id="6fJcw0tt8BJ" role="11_B2D" />
                                 </node>
                               </node>
                               <node concept="2ShNRf" id="4zSofKe8Z5K" role="33vP2m">
@@ -1013,6 +1015,7 @@
                                   <ref role="37wK5l" to="33ny:~ArrayList.&lt;init&gt;()" resolve="ArrayList" />
                                   <node concept="3uibUv" id="4zSofKe8ZSP" role="1pMfVU">
                                     <ref role="3uigEE" to="16ha:~MessageProvider" resolve="MessageProvider" />
+                                    <node concept="3qTvmN" id="6fJcw0tt9Cg" role="11_B2D" />
                                   </node>
                                 </node>
                               </node>
