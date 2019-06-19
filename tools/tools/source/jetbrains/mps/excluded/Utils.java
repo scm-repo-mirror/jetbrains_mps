@@ -16,10 +16,14 @@
 package jetbrains.mps.excluded;
 
 import jetbrains.mps.library.ModulesMiner;
+import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.MacroHelper;
 import jetbrains.mps.util.MacrosFactory;
+import jetbrains.mps.util.PathManager;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.util.IFileUtil;
+import jetbrains.mps.vfs.IFileSystem;
+import jetbrains.mps.vfs.util.PathAssert;
 import org.jdom.Document;
 import org.jdom.Element;
 
@@ -117,6 +121,8 @@ public class Utils {
 
     @Override
     public String expandPath(String path) {
+      new PathAssert(path).osIndependentPath();
+
       if (path.startsWith(MacrosFactory.MODULE)) {
         IFile anchorFolder = myModuleIFile.getParent();
         if (myModuleIFile.getPath().endsWith(ModulesMiner.META_INF_MODULE_XML)) {
@@ -127,14 +133,14 @@ public class Utils {
       }
       if (path.startsWith(MacrosFactory.MPS_HOME)) {
         String relativePath = removePrefix(path);
-        try {
-          return new File("./" + relativePath).getCanonicalPath();
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
+        String expanded = FileUtil.normalize(PathManager.getHomePath()) + IFileSystem.SEPARATOR + relativePath;
+        return FileUtil.resolveParentDirs(expanded);
       }
 
-
+      //if we were unable to resolve any macro, check we are returning a "normalized" path
+      if (!path.startsWith("${")) {
+        new PathAssert(path).noDots().absolute();
+      }
       return path;
     }
 
