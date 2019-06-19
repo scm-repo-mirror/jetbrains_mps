@@ -11,5 +11,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="kernel" />
+    <orderEntry type="library" scope="TEST" name="JMock" level="project" />
+    <orderEntry type="library" scope="TEST" name="JUnit4" level="project" />
   </component>
 </module>

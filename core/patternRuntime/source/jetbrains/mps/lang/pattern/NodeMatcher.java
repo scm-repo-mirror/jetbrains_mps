@@ -30,6 +30,7 @@ import org.jetbrains.mps.openapi.model.SReference;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -176,7 +177,7 @@ public final class NodeMatcher {
   }
 
   private boolean matchStructure(SNode pattern, SNode against) {
-    if (myPatternVarName != null && myChildExtractors == null && myPropertyToVariableName_old == null && myReferenceToVariableName == null) {
+    if (myPatternVarName != null && myChildExtractors == null && myPropertyToVariableName == null && myPropertyToVariableName_old == null && myReferenceToVariableName == null) {
       // FIXME if it's a mere accessor to a node to capture it, do not check concept match. Though IMO it's a defect in original implementation,
       // it's left here for the time being to get existing tests pass before I fix them with a distinct change
       // The case is "if (#v1) { #v2 }", where v2 attributes ExpressionStatement, and input comes as an empty Statement.
@@ -190,20 +191,23 @@ public final class NodeMatcher {
     if (!against.getConcept().isSubConceptOf(pattern.getConcept())) {
       return false;
     }
-    // properties (deprecated)
-    if (!matchPropertties_old(pattern, against)) {
-      return false;
-    }
+    //
     // properties
     Map<SProperty, String> prop2var = myPropertyToVariableName == null ? Collections.emptyMap() : myPropertyToVariableName;
-    ArrayList<SProperty> propsToCheck = new ArrayList<>(prop2var.keySet());
+    Map<SProperty, String> prop2var_old = myPropertyToVariableName_old == null ? Collections.emptyMap() : myPropertyToVariableName_old; // compatibility code
+    HashSet<SProperty> propsToCheck = new HashSet<>(prop2var.keySet());
+    propsToCheck.addAll(prop2var_old.keySet());                                                                                         // compatibility code
     propsToCheck.addAll(IterableUtil.asCollection(pattern.getProperties()));
     for (SProperty p : propsToCheck) {
       if (prop2var.containsKey(p)) {
         Object propertyValue = p.getType().fromString(against.getProperty(p));
         if (propertyValue != SType.NOT_A_VALUE) {
           getValues().putProperty(prop2var.get(p), propertyValue);
+        } else{
+          return false;
         }
+      } else if (prop2var_old.containsKey(p)) {                                                                                         // compatibility code
+        getValues().put(prop2var_old.get(p), against.getProperty(p));                                                                   // remove after 19.2
       } else {
         if (!pattern.getProperty(p).equals(against.getProperty(p))) {
           return false;
@@ -251,26 +255,6 @@ public final class NodeMatcher {
       }
       if (!childExtractor.match(IterableUtil.asList(pattern.getChildren(l)), IterableUtil.asList(against.getChildren(l)))) {
         return false;
-      }
-    }
-    return true;
-  }
-
-  @Deprecated
-  private boolean matchPropertties_old(SNode pattern, SNode against) {
-    Map<SProperty, String> prop2var = myPropertyToVariableName_old == null ? Collections.emptyMap() : myPropertyToVariableName_old;
-    ArrayList<SProperty> propsToCheck = new ArrayList<>(prop2var.keySet());
-    propsToCheck.addAll(IterableUtil.asCollection(pattern.getProperties()));
-    for (SProperty p : propsToCheck) {
-      if (prop2var.containsKey(p)) {
-        Object property = p.getType().fromString(against.getProperty(p));
-        if (property != SType.NOT_A_VALUE) {
-          getValues().putProperty(prop2var.get(p), property);
-        }
-      } else {
-        if (!pattern.getProperty(p).equals(against.getProperty(p))) {
-          return false;
-        }
       }
     }
     return true;

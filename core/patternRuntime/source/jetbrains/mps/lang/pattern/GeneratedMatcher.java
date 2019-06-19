@@ -101,6 +101,12 @@ public class GeneratedMatcher extends GeneratedMatchingPattern implements INodeM
 
   @Nullable
   @Override
+  public Object getMatchedPropertyValue(String varName) {
+    return myValues.getPropertyValue(varName);
+  }
+
+  @Nullable
+  @Override
   public List<SNode> getMatchedList(String varName) {
     return myValues.getList(varName);
   }
