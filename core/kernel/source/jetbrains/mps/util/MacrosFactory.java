@@ -186,18 +186,36 @@ public final class MacrosFactory implements MacroHelper.Source {
       new PathAssert(path).osIndependentPath();
 
       if (path.startsWith(LIB_EXT)) {
-        return expand(path, PathManager.getLibExtPath());
+        //[MM] PathManager now returns windows-style paths. This should be changed, but I don't do it in bugfix
+        return expand(path, libExtPath());
       }
 
       if (path.startsWith(PLATFORM_LIB)) {
-        return expand(path, PathManager.getPlatformLibPath());
+        //[MM] PathManager now returns windows-style paths. This should be changed, but I don't do it in bugfix
+        return expand(path, platformLibPath());
       }
 
       if (path.startsWith(MPS_HOME)) {
-        return expand(path, PathManager.getHomePath());
+        //[MM] PathManager now returns windows-style paths. This should be changed, but I don't do it in bugfix
+        return expand(path, homePath());
       }
 
       return super.expand(path, anchorFile);
+    }
+
+    @NotNull
+    private String homePath() {
+      return FileUtil.normalize(PathManager.getHomePath());
+    }
+
+    @NotNull
+    private String platformLibPath() {
+      return FileUtil.normalize(PathManager.getPlatformLibPath());
+    }
+
+    @NotNull
+    private String libExtPath() {
+      return FileUtil.normalize(PathManager.getLibExtPath());
     }
 
     private String expand(String pathWithMacro, String macroPath) {
@@ -211,18 +229,18 @@ public final class MacrosFactory implements MacroHelper.Source {
     protected String shrink(String absolutePath, IFile anchorFile) {
       new PathAssert(absolutePath).osIndependentPath().noDots().absolute();
 
-      if (pathStartsWith(absolutePath, PathManager.getLibExtPath())) {
-        String relationalPath = shrink(absolutePath, PathManager.getLibExtPath());
+      if (pathStartsWith(absolutePath, libExtPath())) {
+        String relationalPath = shrink(absolutePath, libExtPath());
         return LIB_EXT + relationalPath;
       }
 
-      if (pathStartsWith(absolutePath, PathManager.getPlatformLibPath())) {
-        String relationalPath = shrink(absolutePath, PathManager.getPlatformLibPath());
+      if (pathStartsWith(absolutePath, platformLibPath())) {
+        String relationalPath = shrink(absolutePath, platformLibPath());
         return PLATFORM_LIB + relationalPath;
       }
 
-      if (pathStartsWith(absolutePath, PathManager.getHomePath())) {
-        String relationalPath = shrink(absolutePath, PathManager.getHomePath());
+      if (pathStartsWith(absolutePath, homePath())) {
+        String relationalPath = shrink(absolutePath, homePath());
         return MPS_HOME + relationalPath;
       }
 
