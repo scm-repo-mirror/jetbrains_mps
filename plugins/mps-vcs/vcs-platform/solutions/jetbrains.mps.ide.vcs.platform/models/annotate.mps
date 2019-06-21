@@ -64,7 +64,6 @@
     <import index="tcg7" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.fileTypes(MPS.Platform/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="dxuu" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:javax.swing(JDK/)" />
-    <import index="guwi" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.io(JDK/)" />
     <import index="hyam" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.awt.event(JDK/)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
     <import index="z60i" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.awt(JDK/)" />
@@ -336,14 +335,6 @@
       </concept>
       <concept id="1228997946467" name="jetbrains.mps.baseLanguage.closures.structure.YieldAllStatement" flags="nn" index="_Z6PX">
         <child id="1228997959377" name="expression" index="_Z9Zf" />
-      </concept>
-      <concept id="1235746970280" name="jetbrains.mps.baseLanguage.closures.structure.CompactInvokeFunctionExpression" flags="nn" index="2Sg_IR">
-        <child id="1235746996653" name="function" index="2SgG2M" />
-        <child id="1235747002942" name="parameter" index="2SgHGx" />
-      </concept>
-      <concept id="1199542442495" name="jetbrains.mps.baseLanguage.closures.structure.FunctionType" flags="in" index="1ajhzC">
-        <child id="1199542457201" name="resultType" index="1ajl9A" />
-        <child id="1199542501692" name="parameterType" index="1ajw0F" />
       </concept>
       <concept id="1199569711397" name="jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral" flags="nn" index="1bVj0M">
         <child id="1199569906740" name="parameter" index="1bW2Oz" />
@@ -7052,10 +7043,10 @@
           <node concept="3cpWsn" id="13$TqNLIgwJ" role="3cpWs9">
             <property role="TrG5h" value="file" />
             <property role="3TUv4t" value="true" />
-            <node concept="2YIFZM" id="13$TqNLIgwK" role="33vP2m">
+            <node concept="2YIFZM" id="F8s4TbNsTw" role="33vP2m">
+              <ref role="37wK5l" to="4hrd:~VirtualFileUtils.getProjectVirtualFile(jetbrains.mps.vfs.IFile)" resolve="getProjectVirtualFile" />
               <ref role="1Pybhc" to="4hrd:~VirtualFileUtils" resolve="VirtualFileUtils" />
-              <ref role="37wK5l" to="4hrd:~VirtualFileUtils.getVirtualFile(jetbrains.mps.vfs.IFile)" resolve="getVirtualFile" />
-              <node concept="37vLTw" id="13$TqNLIgwL" role="37wK5m">
+              <node concept="37vLTw" id="F8s4TbNsTx" role="37wK5m">
                 <ref role="3cqZAo" node="13$TqNLIgvS" resolve="iFile" />
               </node>
             </node>
@@ -7119,85 +7110,23 @@
           </node>
         </node>
         <node concept="3clFbH" id="13$TqNLIgxj" role="3cqZAp" />
-        <node concept="3cpWs8" id="13$TqNLIgxk" role="3cqZAp">
-          <node concept="3cpWsn" id="13$TqNLIgxl" role="3cpWs9">
-            <property role="TrG5h" value="checkFileStatus" />
-            <node concept="1bVj0M" id="13$TqNLIgxm" role="33vP2m">
-              <node concept="3clFbS" id="13$TqNLIgxn" role="1bW5cS">
-                <node concept="3clFbF" id="13$TqNLIgxo" role="3cqZAp">
-                  <node concept="22lmx$" id="13$TqNLIgxp" role="3clFbG">
-                    <node concept="3clFbC" id="13$TqNLIgxq" role="3uHU7w">
-                      <node concept="10M0yZ" id="13$TqNLIgxr" role="3uHU7w">
-                        <ref role="1PxDUh" to="jlcu:~FileStatus" resolve="FileStatus" />
-                        <ref role="3cqZAo" to="jlcu:~FileStatus.IGNORED" resolve="IGNORED" />
-                      </node>
-                      <node concept="37vLTw" id="13$TqNLIgxs" role="3uHU7B">
-                        <ref role="3cqZAo" node="13$TqNLIgx$" resolve="fs" />
-                      </node>
-                    </node>
-                    <node concept="22lmx$" id="13$TqNLIgxt" role="3uHU7B">
-                      <node concept="3clFbC" id="13$TqNLIgxu" role="3uHU7B">
-                        <node concept="37vLTw" id="13$TqNLIgxv" role="3uHU7B">
-                          <ref role="3cqZAo" node="13$TqNLIgx$" resolve="fs" />
-                        </node>
-                        <node concept="10M0yZ" id="13$TqNLIgxw" role="3uHU7w">
-                          <ref role="1PxDUh" to="jlcu:~FileStatus" resolve="FileStatus" />
-                          <ref role="3cqZAo" to="jlcu:~FileStatus.UNKNOWN" resolve="UNKNOWN" />
-                        </node>
-                      </node>
-                      <node concept="3clFbC" id="13$TqNLIgxx" role="3uHU7w">
-                        <node concept="10M0yZ" id="13$TqNLIgxy" role="3uHU7w">
-                          <ref role="1PxDUh" to="jlcu:~FileStatus" resolve="FileStatus" />
-                          <ref role="3cqZAo" to="jlcu:~FileStatus.ADDED" resolve="ADDED" />
-                        </node>
-                        <node concept="37vLTw" id="13$TqNLIgxz" role="3uHU7B">
-                          <ref role="3cqZAo" node="13$TqNLIgx$" resolve="fs" />
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-              <node concept="37vLTG" id="13$TqNLIgx$" role="1bW2Oz">
-                <property role="TrG5h" value="fs" />
-                <node concept="3uibUv" id="13$TqNLIgx_" role="1tU5fm">
-                  <ref role="3uigEE" to="jlcu:~FileStatus" resolve="FileStatus" />
-                </node>
-              </node>
-            </node>
-            <node concept="1ajhzC" id="13$TqNLIgxA" role="1tU5fm">
-              <node concept="10P_77" id="13$TqNLIgxB" role="1ajl9A" />
-              <node concept="3uibUv" id="13$TqNLIgxC" role="1ajw0F">
-                <ref role="3uigEE" to="jlcu:~FileStatus" resolve="FileStatus" />
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="3clFbJ" id="13$TqNLIgxD" role="3cqZAp">
-          <node concept="2Sg_IR" id="13$TqNLIgxE" role="3clFbw">
-            <node concept="37vLTw" id="13$TqNLIgxF" role="2SgG2M">
-              <ref role="3cqZAo" node="13$TqNLIgxl" resolve="checkFileStatus" />
-            </node>
-            <node concept="2OqwBi" id="13$TqNLIgxG" role="2SgHGx">
-              <node concept="liA8E" id="13$TqNLIgxH" role="2OqNvi">
-                <ref role="37wK5l" to="jlcu:~FileStatusManager.getStatus(com.intellij.openapi.vfs.VirtualFile)" resolve="getStatus" />
-                <node concept="37vLTw" id="13$TqNLIgxI" role="37wK5m">
-                  <ref role="3cqZAo" node="13$TqNLIgwJ" resolve="file" />
-                </node>
-              </node>
-              <node concept="2YIFZM" id="13$TqNLIgxJ" role="2Oq$k0">
-                <ref role="1Pybhc" to="jlcu:~FileStatusManager" resolve="FileStatusManager" />
-                <ref role="37wK5l" to="jlcu:~FileStatusManager.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
-                <node concept="37vLTw" id="13$TqNLIgxK" role="37wK5m">
-                  <ref role="3cqZAo" node="13$TqNLIgwW" resolve="ideaProject" />
-                </node>
-              </node>
-            </node>
-          </node>
           <node concept="3clFbS" id="13$TqNLIgxL" role="3clFbx">
             <node concept="3cpWs6" id="13$TqNLIgxM" role="3cqZAp">
               <node concept="3clFbT" id="13$TqNLIgxN" role="3cqZAk">
                 <property role="3clFbU" value="false" />
+              </node>
+            </node>
+          </node>
+          <node concept="3fqX7Q" id="F8s4TbNqa5" role="3clFbw">
+            <node concept="2YIFZM" id="F8s4TbNqa7" role="3fr31v">
+              <ref role="1Pybhc" to="jlcu:~AbstractVcs" resolve="AbstractVcs" />
+              <ref role="37wK5l" to="jlcu:~AbstractVcs.fileInVcsByFileStatus(com.intellij.openapi.project.Project,com.intellij.openapi.vfs.VirtualFile)" resolve="fileInVcsByFileStatus" />
+              <node concept="37vLTw" id="F8s4TbNqa8" role="37wK5m">
+                <ref role="3cqZAo" node="13$TqNLIgwW" resolve="ideaProject" />
+              </node>
+              <node concept="37vLTw" id="F8s4TbNqa9" role="37wK5m">
+                <ref role="3cqZAo" node="13$TqNLIgwJ" resolve="file" />
               </node>
             </node>
           </node>

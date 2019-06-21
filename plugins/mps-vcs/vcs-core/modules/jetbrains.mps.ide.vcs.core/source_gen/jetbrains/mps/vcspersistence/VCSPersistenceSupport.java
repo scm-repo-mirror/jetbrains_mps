@@ -34,6 +34,7 @@ import jetbrains.mps.smodel.SModel;
 import java.util.List;
 import jetbrains.mps.smodel.persistence.lines.LineContent;
 import java.io.StringReader;
+import java.io.ByteArrayInputStream;
 import jetbrains.mps.util.JDOMUtil;
 import org.jdom.JDOMException;
 import jetbrains.mps.smodel.DefaultSModel;
@@ -224,6 +225,31 @@ public class VCSPersistenceSupport {
       }
 
       parseAndHandleExceptions(new InputSource(new StringReader(content)), handler, "line to content map");
+      return handler.getResult();
+    } catch (IOException e) {
+      throw new ModelReadException(e.toString(), e);
+    }
+  }
+
+  /**
+   * Alternative {@link jetbrains.mps.vcspersistence.VCSPersistenceSupport#getLineToContentMap(String) } that takes {@code byte[]} instead of {@code String} to be a bit more memory friendly
+   */
+  @Nullable
+  public static List<LineContent> getLineToContentMap(byte[] content) throws ModelReadException {
+    try {
+      SModelHeader header;
+      header = loadDescriptor(new InputSource(new ByteArrayInputStream(content)));
+      IModelPersistence mp = getPersistence(header.getPersistenceVersion());
+      if (mp == null) {
+        return null;
+      }
+
+      XMLSAXHandler<List<LineContent>> handler = mp.getLineToContentMapReaderHandler();
+      if (handler == null) {
+        return null;
+      }
+
+      parseAndHandleExceptions(new InputSource(new ByteArrayInputStream(content)), handler, "line to content map");
       return handler.getResult();
     } catch (IOException e) {
       throw new ModelReadException(e.toString(), e);

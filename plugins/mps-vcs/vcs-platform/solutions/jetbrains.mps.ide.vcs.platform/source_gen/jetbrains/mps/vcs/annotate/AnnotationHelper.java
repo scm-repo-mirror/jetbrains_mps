@@ -22,9 +22,6 @@ import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import com.intellij.openapi.vcs.AbstractVcs;
 import com.intellij.openapi.vcs.ProjectLevelVcsManager;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
-import com.intellij.openapi.vcs.FileStatus;
-import com.intellij.openapi.vcs.FileStatusManager;
 import com.intellij.openapi.vcs.annotate.AnnotationProvider;
 import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.progress.PerformInBackgroundOption;
@@ -94,7 +91,7 @@ public class AnnotationHelper {
       return false;
     }
     final Project ideaProject = myProject.getProject();
-    final VirtualFile file = VirtualFileUtils.getVirtualFile(iFile);
+    final VirtualFile file = VirtualFileUtils.getProjectVirtualFile(iFile);
     if (file == null) {
       return false;
     }
@@ -103,12 +100,7 @@ public class AnnotationHelper {
       return false;
     }
 
-    _FunctionTypes._return_P1_E0<? extends Boolean, ? super FileStatus> checkFileStatus = new _FunctionTypes._return_P1_E0<Boolean, FileStatus>() {
-      public Boolean invoke(FileStatus fs) {
-        return fs == FileStatus.UNKNOWN || fs == FileStatus.ADDED || fs == FileStatus.IGNORED;
-      }
-    };
-    if (checkFileStatus.invoke(FileStatusManager.getInstance(ideaProject).getStatus(file))) {
+    if (!(AbstractVcs.fileInVcsByFileStatus(ideaProject, file))) {
       return false;
     }
 
