@@ -93,6 +93,7 @@
     <classNode dependClassName="jetbrains.mps.java.stub.JavaPackageNameStub" />
     <classNode dependClassName="jetbrains.mps.java.stub.PackageScopeControl" />
     <classNode dependClassName="jetbrains.mps.persistence.CopyFileBasedModelRootHelper" />
+    <classNode dependClassName="jetbrains.mps.persistence.java.library.JDKStubsModelRoot" />
     <classNode dependClassName="jetbrains.mps.persistence.java.library.JavaClassStubConstants" />
     <classNode dependClassName="jetbrains.mps.persistence.java.library.JavaClassStubModelDescriptor" />
     <classNode dependClassName="jetbrains.mps.vfs.IFile" />
@@ -103,6 +104,7 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SModelId" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SModelReference" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SModule" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.DataSourceListener" />
     <classNode dependClassName="org.jetbrains.mps.openapi.persistence.Memento" />
     <classNode dependClassName="org.jetbrains.mps.openapi.persistence.ModelRoot" />
     <classNode extendsClassName="jetbrains.mps.extapi.persistence.CopyableModelRoot" />

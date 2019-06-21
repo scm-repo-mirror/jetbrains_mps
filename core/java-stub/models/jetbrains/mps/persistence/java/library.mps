@@ -153,6 +153,7 @@
       <concept id="1068581242864" name="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" flags="nn" index="3cpWs8">
         <child id="1068581242865" name="localVariableDeclaration" index="3cpWs9" />
       </concept>
+      <concept id="1068581242867" name="jetbrains.mps.baseLanguage.structure.LongType" flags="in" index="3cpWsb" />
       <concept id="1068581242863" name="jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration" flags="nr" index="3cpWsn" />
       <concept id="1068581517677" name="jetbrains.mps.baseLanguage.structure.VoidType" flags="in" index="3cqZAl" />
       <concept id="1206060495898" name="jetbrains.mps.baseLanguage.structure.ElsifClause" flags="ng" index="3eNFk2">
@@ -2897,6 +2898,38 @@
                   </node>
                   <node concept="9aQIb" id="7aqpU4Hxurp" role="9aQIa">
                     <node concept="3clFbS" id="7aqpU4Hxurq" role="9aQI4">
+                      <node concept="3cpWs8" id="1pjrRCBkRLV" role="3cqZAp">
+                        <node concept="3cpWsn" id="1pjrRCBkRLW" role="3cpWs9">
+                          <property role="TrG5h" value="ds" />
+                          <node concept="3uibUv" id="1pjrRCBkPw2" role="1tU5fm">
+                            <ref role="3uigEE" to="ends:~FolderSetDataSource" resolve="FolderSetDataSource" />
+                          </node>
+                          <node concept="3K4zz7" id="1pjrRCBkTbF" role="33vP2m">
+                            <node concept="2ShNRf" id="1pjrRCBlacT" role="3K4GZi">
+                              <node concept="HV5vD" id="1pjrRCBlaFw" role="2ShVmc">
+                                <ref role="HV5vE" node="1pjrRCBl1Gt" resolve="JavaClassStubsModelRoot.JDKFolderSetDataSource" />
+                              </node>
+                            </node>
+                            <node concept="3fqX7Q" id="1pjrRCBkTzc" role="3K4Cdx">
+                              <node concept="1eOMI4" id="1pjrRCBkTze" role="3fr31v">
+                                <node concept="2ZW3vV" id="1pjrRCBkTzf" role="1eOMHV">
+                                  <node concept="3uibUv" id="1pjrRCBkTzg" role="2ZW6by">
+                                    <ref role="3uigEE" node="7aqpU4HvU6$" resolve="JDKStubsModelRoot" />
+                                  </node>
+                                  <node concept="37vLTw" id="1pjrRCBkTzh" role="2ZW6bz">
+                                    <ref role="3cqZAo" node="EP2r_yWS1i" resolve="mr" />
+                                  </node>
+                                </node>
+                              </node>
+                            </node>
+                            <node concept="2ShNRf" id="1pjrRCBkRLX" role="3K4E3e">
+                              <node concept="1pGfFk" id="1pjrRCBkRLY" role="2ShVmc">
+                                <ref role="37wK5l" to="ends:~FolderSetDataSource.&lt;init&gt;()" resolve="FolderSetDataSource" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
                       <node concept="3clFbF" id="7aqpU4Hxurr" role="3cqZAp">
                         <node concept="37vLTI" id="7aqpU4Hxurs" role="3clFbG">
                           <node concept="2ShNRf" id="7aqpU4Hxurt" role="37vLTx">
@@ -2905,10 +2938,8 @@
                               <node concept="37vLTw" id="7aqpU4Hxurv" role="37wK5m">
                                 <ref role="3cqZAo" node="7aqpU4Hxuqc" resolve="modelReference" />
                               </node>
-                              <node concept="2ShNRf" id="7aqpU4Hxurw" role="37wK5m">
-                                <node concept="1pGfFk" id="7aqpU4Hxurx" role="2ShVmc">
-                                  <ref role="37wK5l" to="ends:~FolderSetDataSource.&lt;init&gt;()" resolve="FolderSetDataSource" />
-                                </node>
+                              <node concept="37vLTw" id="1pjrRCBkRLZ" role="37wK5m">
+                                <ref role="3cqZAo" node="1pjrRCBkRLW" resolve="ds" />
                               </node>
                             </node>
                           </node>
@@ -3101,6 +3132,84 @@
       <node concept="3cqZAl" id="7aqpU4Hxuou" role="3clF45" />
     </node>
     <node concept="2tJIrI" id="7aqpU4HxszS" role="jymVt" />
+    <node concept="312cEu" id="1pjrRCBl1Gt" role="jymVt">
+      <property role="TrG5h" value="JDKFolderSetDataSource" />
+      <node concept="3clFb_" id="1pjrRCBkWg9" role="jymVt">
+        <property role="TrG5h" value="refresh" />
+        <node concept="3Tm1VV" id="1pjrRCBkWga" role="1B3o_S" />
+        <node concept="3cqZAl" id="1pjrRCBkWgc" role="3clF45" />
+        <node concept="3clFbS" id="1pjrRCBkWge" role="3clF47" />
+        <node concept="2AHcQZ" id="1pjrRCBkWgf" role="2AJF6D">
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+        </node>
+      </node>
+      <node concept="2tJIrI" id="1pjrRCBkWof" role="jymVt" />
+      <node concept="3clFb_" id="1pjrRCBkWrO" role="jymVt">
+        <property role="TrG5h" value="addListener" />
+        <node concept="3Tm1VV" id="1pjrRCBkWrP" role="1B3o_S" />
+        <node concept="3cqZAl" id="1pjrRCBkWrR" role="3clF45" />
+        <node concept="37vLTG" id="1pjrRCBkWrS" role="3clF46">
+          <property role="TrG5h" value="listener" />
+          <node concept="3uibUv" id="1pjrRCBkWrT" role="1tU5fm">
+            <ref role="3uigEE" to="dush:~DataSourceListener" resolve="DataSourceListener" />
+          </node>
+          <node concept="2AHcQZ" id="1pjrRCBkWrU" role="2AJF6D">
+            <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+          </node>
+        </node>
+        <node concept="3clFbS" id="1pjrRCBkWrW" role="3clF47" />
+        <node concept="2AHcQZ" id="1pjrRCBkWrX" role="2AJF6D">
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+        </node>
+      </node>
+      <node concept="2tJIrI" id="1pjrRCBkX9m" role="jymVt" />
+      <node concept="2tJIrI" id="1pjrRCBkXdV" role="jymVt" />
+      <node concept="3clFb_" id="1pjrRCBkXiM" role="jymVt">
+        <property role="TrG5h" value="removeListener" />
+        <node concept="3Tm1VV" id="1pjrRCBkXiN" role="1B3o_S" />
+        <node concept="3cqZAl" id="1pjrRCBkXiP" role="3clF45" />
+        <node concept="37vLTG" id="1pjrRCBkXiQ" role="3clF46">
+          <property role="TrG5h" value="listener" />
+          <node concept="3uibUv" id="1pjrRCBkXiR" role="1tU5fm">
+            <ref role="3uigEE" to="dush:~DataSourceListener" resolve="DataSourceListener" />
+          </node>
+          <node concept="2AHcQZ" id="1pjrRCBkXiS" role="2AJF6D">
+            <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+          </node>
+        </node>
+        <node concept="3clFbS" id="1pjrRCBkXiU" role="3clF47" />
+        <node concept="2AHcQZ" id="1pjrRCBkXiV" role="2AJF6D">
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+        </node>
+      </node>
+      <node concept="2tJIrI" id="1pjrRCBlxPH" role="jymVt" />
+      <node concept="3Tm6S6" id="1pjrRCBl02H" role="1B3o_S" />
+      <node concept="3UR2Jj" id="1pjrRCBl8GP" role="lGtFl">
+        <node concept="TZ5HA" id="1pjrRCBl8GQ" role="TZ5H$">
+          <node concept="1dT_AC" id="1pjrRCBl8GR" role="1dT_Ay">
+            <property role="1dT_AB" value="notifications disabled" />
+          </node>
+        </node>
+      </node>
+      <node concept="3uibUv" id="1pjrRCBlcKr" role="1zkMxy">
+        <ref role="3uigEE" to="ends:~FolderSetDataSource" resolve="FolderSetDataSource" />
+      </node>
+      <node concept="3clFb_" id="1pjrRCBlyMT" role="jymVt">
+        <property role="TrG5h" value="getTimestamp" />
+        <node concept="3Tm1VV" id="1pjrRCBlyMU" role="1B3o_S" />
+        <node concept="3cpWsb" id="1pjrRCBlyMW" role="3clF45" />
+        <node concept="3clFbS" id="1pjrRCBlyMX" role="3clF47">
+          <node concept="3clFbF" id="1pjrRCBl$4n" role="3cqZAp">
+            <node concept="3cmrfG" id="1pjrRCBl$4m" role="3clFbG">
+              <property role="3cmrfH" value="0" />
+            </node>
+          </node>
+        </node>
+        <node concept="2AHcQZ" id="1pjrRCBlyMY" role="2AJF6D">
+          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+        </node>
+      </node>
+    </node>
     <node concept="2tJIrI" id="6sKuV4a33jZ" role="jymVt" />
     <node concept="2YIFZL" id="EP2r_yX32q" role="jymVt">
       <property role="TrG5h" value="getModelAlreadyRegistered" />

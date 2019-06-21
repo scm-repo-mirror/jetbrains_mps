@@ -28,6 +28,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.java.stub.JavaPackageNameStub;
 import jetbrains.mps.extapi.persistence.FolderSetDataSource;
+import org.jetbrains.mps.openapi.persistence.DataSourceListener;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.extapi.persistence.CopyNotSupportedException;
 import jetbrains.mps.persistence.CopyFileBasedModelRootHelper;
@@ -188,7 +189,8 @@ public class JavaClassStubsModelRoot extends FileBasedModelRoot implements Copya
           assert modelDescriptor instanceof JavaClassStubModelDescriptor;
           smd = (JavaClassStubModelDescriptor) modelDescriptor;
         } else {
-          smd = new JavaClassStubModelDescriptor(modelReference, new FolderSetDataSource());
+          FolderSetDataSource ds = (!((mr instanceof JDKStubsModelRoot)) ? new FolderSetDataSource() : new JavaClassStubsModelRoot.JDKFolderSetDataSource());
+          smd = new JavaClassStubModelDescriptor(modelReference, ds);
           smd.setModelRoot(mr);
           if (psc != null) {
             smd.setSkipPrivate(psc.isSkipPrivate());
@@ -201,6 +203,28 @@ public class JavaClassStubsModelRoot extends FileBasedModelRoot implements Copya
     }
   }
 
+  /**
+   * notifications disabled
+   */
+  private static class JDKFolderSetDataSource extends FolderSetDataSource {
+    @Override
+    public void refresh() {
+    }
+
+    @Override
+    public void addListener(@NotNull DataSourceListener listener) {
+    }
+
+
+    @Override
+    public void removeListener(@NotNull DataSourceListener listener) {
+    }
+
+    @Override
+    public long getTimestamp() {
+      return 0;
+    }
+  }
 
   /**
    * DIRTY_HACK
