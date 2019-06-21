@@ -1627,11 +1627,13 @@
   <dependency className="jetbrains.mps.baseLanguage.typesystem.VariableReferenceUtil">
     <classNode dependClassName="java.lang.Integer" />
     <classNode dependClassName="java.lang.Iterable" />
+    <classNode dependClassName="java.util.ArrayList" />
     <classNode dependClassName="java.util.Iterator" />
     <classNode dependClassName="java.util.List" />
     <classNode dependClassName="java.util.Objects" />
     <classNode dependClassName="java.util.Set" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.behavior.ConstructorDeclaration__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.behavior.StatementList__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.typesystem.CheckingUtil" />
     <classNode dependClassName="jetbrains.mps.errors.BaseQuickFixProvider" />

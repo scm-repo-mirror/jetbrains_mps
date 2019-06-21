@@ -24,6 +24,8 @@ import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import java.util.List;
+import java.util.ArrayList;
+import jetbrains.mps.baseLanguage.behavior.ConstructorDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.dataFlow.framework.instructions.Instruction;
 import java.util.Iterator;
 import jetbrains.mps.lang.dataFlow.framework.instructions.WriteInstruction;
@@ -140,6 +142,9 @@ public class VariableReferenceUtil {
 
     if (SNodeOperations.isInstanceOf(firstStatement, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1127b878882L, "jetbrains.mps.baseLanguage.structure.ThisConstructorInvocation")) && !(instanceInitializersOnly)) {
       SNode thisConstructor = SLinkOperations.getTarget(SNodeOperations.cast(firstStatement, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1127b878882L, "jetbrains.mps.baseLanguage.structure.ThisConstructorInvocation")), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"));
+      if (hasCycleInThisInvocations(thisConstructor)) {
+        return false;
+      }
       return containsWrite(SLinkOperations.getTarget(thisConstructor, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body")), field) || isInitializedInPrecedingInitializersOrConstructors(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(thisConstructor, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).first(), field);
     } else {
       SNode myInitializer = SNodeOperations.getNodeAncestor(firstStatement, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118f0b909f7L, "jetbrains.mps.baseLanguage.structure.InstanceInitializer"), false, false);
@@ -161,6 +166,20 @@ public class VariableReferenceUtil {
         }
       });
     }
+  }
+
+  private static boolean hasCycleInThisInvocations(SNode thisConstructor) {
+    List<SNode> constructors = ListSequence.fromList(new ArrayList<SNode>());
+    ListSequence.fromList(constructors).addElement(thisConstructor);
+    SNode calledThis = ConstructorDeclaration__BehaviorDescriptor.getThisConstructorInvocation_id5e6QuLS30e$.invoke(thisConstructor);
+    while ((calledThis != null)) {
+      if (ListSequence.fromList(constructors).contains(calledThis)) {
+        return true;
+      }
+      ListSequence.fromList(constructors).addElement(calledThis);
+      calledThis = ConstructorDeclaration__BehaviorDescriptor.getThisConstructorInvocation_id5e6QuLS30e$.invoke(calledThis);
+    }
+    return false;
   }
 
   public static boolean containsWrite(SNode statements, SNode field) {
