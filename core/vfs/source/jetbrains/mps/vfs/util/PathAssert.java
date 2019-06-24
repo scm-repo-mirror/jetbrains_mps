@@ -19,56 +19,89 @@ import jetbrains.mps.vfs.IFileSystem;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
-import java.nio.file.FileSystem;
 
 //this is an internal class with assertions usable for checking formats of file paths in File/Jar/Jrt FSes
 public final class PathAssert {
-  private String myPath;
+  private final String myPath;
 
   public PathAssert(String path) {
     myPath = path;
   }
 
   public PathAssert osIndependentPath() {
-    assert !myPath.contains("\\") : "Not os-independent path: " + myPath;
+    if (myPath.contains("\\")) {
+      throw new PathAssertionException("Not os-independent path: " + myPath, myPath);
+    }
     return this;
   }
 
+  /*
+    Michael, by the way some filesystems can create paths with '\'
+   */
   public PathAssert osDependentPath() {
     String badSeparator = File.separator.equals("/") ? "\\" : "/";
-    assert !myPath.contains(badSeparator) : "Not os-dependent path: " + myPath;
+    if (myPath.contains(badSeparator)) {
+      throw new PathAssertionException("Not os-dependent path: " + myPath, myPath);
+    }
     return this;
   }
 
   public PathAssert absolute() {
-    assert myPath.startsWith(IFileSystem.SEPARATOR) || myPath.contains(":/") : "Path should be absolute: " + myPath;
+    if (!(myPath.startsWith(IFileSystem.SEPARATOR) || myPath.contains(":/"))) {
+      throw new PathAssertionException("Path should be absolute: " + myPath, myPath);
+    }
     return this;
   }
 
   public PathAssert noDots() {
     for (String part : myPath.split(IFileSystem.SEPARATOR)) {
-      assert !part.equals(".") && !part.equals("..") : "Path should not contain \".\" and \"..\": " + myPath;
+      if (".".equals(part) || "..".equals(part)) {
+        throw new PathAssertionException("Path should not contain \".\" and \"..\": " + myPath, myPath);
+      }
     }
     return this;
   }
 
   public PathAssert nonEmpty() {
-    assert !myPath.trim().isEmpty() : "Empty suffix not allowed: " + myPath;
+    if (myPath.trim().isEmpty()) {
+      throw new PathAssertionException("Empty suffix not allowed: " + myPath, myPath);
+    }
     return this;
   }
 
   public PathAssert noSeparators() {
-    assert !myPath.contains(IFileSystem.SEPARATOR) : "Separators are not allowed: " + myPath;
+    if (myPath.contains(IFileSystem.SEPARATOR)) {
+      throw new PathAssertionException("Separators are not allowed: " + myPath, myPath);
+    }
     return this;
   }
 
   //Checks that no slash is after file name. E.g. /a/b/ is error, while c:/, /a.jar!/ and / are not
   public PathAssert noOddEndSlash() {
-    assert
-        PathUtil.isRoot(myPath) ||
+    if (!(PathUtil.isRoot(myPath) ||
         !myPath.endsWith(IFileSystem.SEPARATOR) ||
-        myPath.endsWith("!" + IFileSystem.SEPARATOR) :
-        "Only archive paths can end with " + IFileSystem.SEPARATOR + ": " + myPath;
+        myPath.endsWith("!" + IFileSystem.SEPARATOR)))  {
+      throw new PathAssertionException("Only archive paths can end with " + IFileSystem.SEPARATOR + ": " + myPath, myPath);
+    }
     return this;
+  }
+
+  /**
+   * Control flow exception for now
+   * MM, please rewrite this hell
+   */
+  public static final class PathAssertionException extends RuntimeException {
+    @NotNull
+    private final String myProblemPath;
+
+    public PathAssertionException(@NotNull String msg, @NotNull String problemPath) {
+      super(msg);
+      myProblemPath = problemPath;
+    }
+
+    @NotNull
+    public String getProblemPath() {
+      return myProblemPath;
+    }
   }
 }
