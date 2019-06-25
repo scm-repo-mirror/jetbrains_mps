@@ -50,10 +50,10 @@ public class ForMessageProviderKeyMap extends KeyMapImpl {
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
     }
     private boolean canExecute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      return SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e30f402L, 0x48f860fc0e362dc8L, "message")) == null;
+      return SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce81L, 0x48f860fc0e362dc8L, "message")) == null;
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e30f402L, 0x48f860fc0e362dc8L, "message"), SNodeFactoryOperations.createNewNode(MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, "jetbrains.mps.lang.messages.structure.CombinedMessageExpression"), null));
+      SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce81L, 0x48f860fc0e362dc8L, "message"), SNodeFactoryOperations.createNewNode(MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, "jetbrains.mps.lang.messages.structure.CombinedMessageExpression"), null));
     }
     public String getKeyStroke() {
       return " letter or digit";

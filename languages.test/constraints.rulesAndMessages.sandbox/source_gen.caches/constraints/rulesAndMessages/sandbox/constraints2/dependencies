@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dependenciesRoot>
-  <dependency className="constraints.rulesAndMessages.sandbox.constraints2.ChildConcept1_Constraints2">
+  <dependency className="constraints.rulesAndMessages.sandbox.constraints2.ChildConcept_Constraints2">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.Arrays" />
     <classNode dependClassName="java.util.Collections" />
@@ -20,8 +20,8 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.constraints.rules.BaseConstraintsDescriptor2" />
   </dependency>
-  <dependency className="constraints.rulesAndMessages.sandbox.constraints2.ChildConcept1_Messages">
-    <classNode dependClassName="constraints.rulesAndMessages.sandbox.constraints2.ChildConcept1_Constraints2" />
+  <dependency className="constraints.rulesAndMessages.sandbox.constraints2.ChildConcept_Messages">
+    <classNode dependClassName="constraints.rulesAndMessages.sandbox.constraints2.ChildConcept_Constraints2" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.Arrays" />
@@ -36,8 +36,8 @@
     <classNode extendsClassName="jetbrains.mps.core.aspects.reporting.api.BaseMessageDescriptor" />
   </dependency>
   <dependency className="constraints.rulesAndMessages.sandbox.constraints2.GeneratedConstraintsAspectDescriptor2">
-    <classNode dependClassName="constraints.rulesAndMessages.sandbox.constraints2.ChildConcept1_Constraints2" />
-    <classNode dependClassName="constraints.rulesAndMessages.sandbox.constraints2.ParentConcept1_Constraints2" />
+    <classNode dependClassName="constraints.rulesAndMessages.sandbox.constraints2.ChildConcept_Constraints2" />
+    <classNode dependClassName="constraints.rulesAndMessages.sandbox.constraints2.ParentConcept_Constraints2" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.Arrays" />
     <classNode dependClassName="java.util.List" />
@@ -55,8 +55,8 @@
     <classNode extendsClassName="jetbrains.mps.core.aspects.constraints.rules.ConstraintsAspectDescriptor2" />
   </dependency>
   <dependency className="constraints.rulesAndMessages.sandbox.constraints2.GeneratedMessagesAspectDescriptor">
-    <classNode dependClassName="constraints.rulesAndMessages.sandbox.constraints2.ChildConcept1_Messages" />
-    <classNode dependClassName="constraints.rulesAndMessages.sandbox.constraints2.ParentConcept1_Messages" />
+    <classNode dependClassName="constraints.rulesAndMessages.sandbox.constraints2.ChildConcept_Messages" />
+    <classNode dependClassName="constraints.rulesAndMessages.sandbox.constraints2.ParentConcept_Messages" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.core.aspects.reporting.api.MessagesDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.ConceptSwitchIndex" />
@@ -67,7 +67,7 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.reporting.api.MessagesAspectDescriptor" />
   </dependency>
-  <dependency className="constraints.rulesAndMessages.sandbox.constraints2.ParentConcept1_Constraints2">
+  <dependency className="constraints.rulesAndMessages.sandbox.constraints2.ParentConcept_Constraints2">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.Arrays" />
     <classNode dependClassName="java.util.Collections" />
@@ -86,8 +86,8 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.constraints.rules.BaseConstraintsDescriptor2" />
   </dependency>
-  <dependency className="constraints.rulesAndMessages.sandbox.constraints2.ParentConcept1_Messages">
-    <classNode dependClassName="constraints.rulesAndMessages.sandbox.constraints2.ParentConcept1_Constraints2" />
+  <dependency className="constraints.rulesAndMessages.sandbox.constraints2.ParentConcept_Messages">
+    <classNode dependClassName="constraints.rulesAndMessages.sandbox.constraints2.ParentConcept_Constraints2" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.Arrays" />
     <classNode dependClassName="java.util.Collections" />

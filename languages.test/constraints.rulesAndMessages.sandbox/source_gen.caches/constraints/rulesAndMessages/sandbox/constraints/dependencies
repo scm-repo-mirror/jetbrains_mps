@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dependenciesRoot>
-  <dependency className="constraints.rulesAndMessages.sandbox.constraints.ChildConcept1_Constraints">
+  <dependency className="constraints.rulesAndMessages.sandbox.constraints.ChildConcept_Constraints">
     <classNode dependClassName="java.lang.Boolean" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />
@@ -17,7 +17,7 @@
     <classNode extendsClassName="jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor" />
   </dependency>
   <dependency className="constraints.rulesAndMessages.sandbox.constraints.ConstraintsAspectDescriptor">
-    <classNode dependClassName="constraints.rulesAndMessages.sandbox.constraints.ChildConcept1_Constraints" />
+    <classNode dependClassName="constraints.rulesAndMessages.sandbox.constraints.ChildConcept_Constraints" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.ConceptSwitchIndex" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.ConceptSwitchIndexBuilder" />

@@ -13,24 +13,24 @@ import java.util.List;
 import java.util.Collections;
 import java.util.Arrays;
 
-public final class ChildConcept1_Messages extends BaseMessageDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept1");
+public final class ChildConcept_Messages extends BaseMessageDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept");
 
-  private static final MessageProvider<CanBeChildContext> MSGPROVIDER_PARENTCNCPTCORRECT_db6343_a = new BaseMessageProvider<CanBeChildContext>(ChildConcept1_Constraints2.Rule_parentCncptCorrect.ID_parentCncptCorrect) {
+  private static final MessageProvider<CanBeChildContext> MSGPROVIDER_parentCncptCorrect_9pg9j3_a = new BaseMessageProvider<CanBeChildContext>(ChildConcept_Constraints2.Rule_parentCncptCorrect.ID_parentCncptCorrect) {
     @NotNull
     @Override
     public MessageProvider.StringMsg yieldMessage(CanBeChildContext context) {
       return new MessageProvider.StringMsg("The parent node '" + String.valueOf(context.getParentNode()) + "' must be of ParentConcept1");
     }
   };
-  private static final MessageProvider<CanBeChildContext> MSGPROVIDER_NOTTOOSMALLPROPERTY_db6343_b = new BaseMessageProvider<CanBeChildContext>(ChildConcept1_Constraints2.Rule_notTooSmallProperty.ID_notTooSmallProperty) {
+  private static final MessageProvider<CanBeChildContext> MSGPROVIDER_notTooSmallProperty_9pg9j3_b = new BaseMessageProvider<CanBeChildContext>(ChildConcept_Constraints2.Rule_notTooSmallProperty.ID_notTooSmallProperty) {
     @NotNull
     @Override
     public MessageProvider.StringMsg yieldMessage(CanBeChildContext context) {
       return new MessageProvider.StringMsg("The property 'testProp' in the node " + String.valueOf(context.getChildNode()) + " is too small");
     }
   };
-  private static final MessageProvider<CanBeChildContext> MSGPROVIDER_NOTTOOLARGEPROPERTY_db6343_c = new BaseMessageProvider<CanBeChildContext>(ChildConcept1_Constraints2.Rule_notTooLargeProperty.ID_notTooLargeProperty) {
+  private static final MessageProvider<CanBeChildContext> MSGPROVIDER_notTooLargeProperty_9pg9j3_c = new BaseMessageProvider<CanBeChildContext>(ChildConcept_Constraints2.Rule_notTooLargeProperty.ID_notTooLargeProperty) {
     @NotNull
     @Override
     public MessageProvider.StringMsg yieldMessage(CanBeChildContext context) {
@@ -38,9 +38,9 @@ public final class ChildConcept1_Messages extends BaseMessageDescriptor {
     }
   };
 
-  private static final List<MessageProvider<?>> PROVIDERS = Collections.unmodifiableList(Arrays.<MessageProvider<?>>asList(MSGPROVIDER_PARENTCNCPTCORRECT_db6343_a, MSGPROVIDER_NOTTOOSMALLPROPERTY_db6343_b, MSGPROVIDER_NOTTOOLARGEPROPERTY_db6343_c));
+  private static final List<MessageProvider<?>> PROVIDERS = Collections.unmodifiableList(Arrays.<MessageProvider<?>>asList(MSGPROVIDER_parentCncptCorrect_9pg9j3_a, MSGPROVIDER_notTooSmallProperty_9pg9j3_b, MSGPROVIDER_notTooLargeProperty_9pg9j3_c));
 
-  public ChildConcept1_Messages() {
+  public ChildConcept_Messages() {
     super(CONCEPT);
   }
 

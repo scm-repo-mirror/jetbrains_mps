@@ -8,9 +8,9 @@
   <imports>
     <import index="bm42" ref="r:83f25986-cdbc-469a-a327-db97a2ec5a39(jetbrains.mps.lang.constraints.rules.structure)" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" />
+    <import index="t9po" ref="r:21b4a58c-8629-4511-bd63-7fc9a4e5fc38(jetbrains.mps.lang.messages.structure)" />
     <import index="mqj2" ref="r:1d4f6f82-1219-47a2-a4fa-ac3ba14c9fd5(jetbrains.mps.lang.constraints.rules.skeleton.structure)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
-    <import index="t9po" ref="r:21b4a58c-8629-4511-bd63-7fc9a4e5fc38(jetbrains.mps.lang.messages.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
@@ -69,6 +69,13 @@
     <property role="TrG5h" value="InlineMessageProvider" />
     <property role="34LRSv" value="message" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="4zSofKedyR8" role="1TKVEi">
+      <property role="IQ2ns" value="5258059200641510856" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="message" />
+      <property role="20lbJX" value="1" />
+      <ref role="20lvS9" to="t9po:4zSofKeg4lv" resolve="CombinedMessageExpression" />
+    </node>
     <node concept="PrWs8" id="4zSofKecqAN" role="PzmwI">
       <ref role="PrY4T" to="t9po:4zSofKecfg2" resolve="MessageProvider" />
     </node>

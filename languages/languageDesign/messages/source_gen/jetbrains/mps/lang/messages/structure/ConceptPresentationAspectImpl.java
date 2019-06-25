@@ -16,7 +16,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_MessageProvider;
   private ConceptPresentation props_MessageProviderForRule;
   private ConceptPresentation props_MessagesRoot;
-  private ConceptPresentation props_ModelRefForMe;
 
   @Override
   @Nullable
@@ -70,13 +69,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_MessagesRoot = cpb.create();
         }
         return props_MessagesRoot;
-      case LanguageConceptSwitch.ModelRefForMe:
-        if (props_ModelRefForMe == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("ModelRefForMe");
-          props_ModelRefForMe = cpb.create();
-        }
-        return props_ModelRefForMe;
     }
     return null;
   }

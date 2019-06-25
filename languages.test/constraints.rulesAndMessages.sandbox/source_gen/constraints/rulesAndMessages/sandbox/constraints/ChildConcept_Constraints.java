@@ -15,9 +15,9 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
 
-public class ChildConcept1_Constraints extends BaseConstraintsDescriptor {
-  public ChildConcept1_Constraints() {
-    super(MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept1"));
+public class ChildConcept_Constraints extends BaseConstraintsDescriptor {
+  public ChildConcept_Constraints() {
+    super(MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept"));
   }
 
   @Override

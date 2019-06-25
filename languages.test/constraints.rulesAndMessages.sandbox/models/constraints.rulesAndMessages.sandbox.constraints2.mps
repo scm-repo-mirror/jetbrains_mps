@@ -4,7 +4,6 @@
   <languages>
     <use id="b3551702-269c-4f05-ba61-58060cef4292" name="jetbrains.mps.lang.rulesAndMessages" version="0" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="15" />
-    <use id="ad93155d-79b2-4759-b10c-55123e763903" name="jetbrains.mps.lang.messages" version="0" />
     <devkit ref="4843b9cf-86fe-47f2-87c9-f256294fd740(jetbrains.mps.devkit.aspect.constraints.rulesAndMessages)" />
   </languages>
   <imports>
@@ -35,7 +34,9 @@
         <child id="1400749580825440508" name="rule" index="2j4cqI" />
         <child id="315923949160550022" name="messageProvider" index="1DCEQI" />
       </concept>
-      <concept id="315923949160550017" name="jetbrains.mps.lang.rulesAndMessages.structure.InlineMessageProvider" flags="ng" index="1DCEQD" />
+      <concept id="315923949160550017" name="jetbrains.mps.lang.rulesAndMessages.structure.InlineMessageProvider" flags="ng" index="1DCEQD">
+        <child id="5258059200641510856" name="" index="16N$OO" />
+      </concept>
     </language>
     <language id="134c38d4-e3af-4d9e-b069-1c7df0a4005d" name="jetbrains.mps.lang.constraints.rules.skeleton">
       <concept id="1867733327984720090" name="jetbrains.mps.lang.constraints.rules.skeleton.structure.ConstraintsRoot2" flags="ng" index="3Oh7Pa">
@@ -73,10 +74,13 @@
         <reference id="5258059200643228831" name="declaration" index="16E0hz" />
       </concept>
       <concept id="5258059200641168386" name="jetbrains.mps.lang.messages.structure.MessageProvider" flags="ng" index="16M9jY">
-        <child id="5258059200641510856" name="message" index="16N$OO" />
+        <child id="5258059200641510856" name="message" index="16N$OP" />
       </concept>
       <concept id="5258059200641510853" name="jetbrains.mps.lang.messages.structure.LiteralMessageExpression" flags="ng" index="16N$OT">
         <property id="5258059200641510854" name="message" index="16N$OU" />
+      </concept>
+      <concept id="7291380803381892689" name="jetbrains.mps.lang.messages.structure.MessageProviderForRule" flags="ng" index="3QByp$">
+        <child id="5258059200641510856" name="message" index="16N$OQ" />
       </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
@@ -106,7 +110,7 @@
     </language>
   </registry>
   <node concept="3Oh7Pa" id="1TfWqDAKmRD">
-    <ref role="3Oh7Pe" to="npmf:7w_sh_iHHi0" resolve="ChildConcept1" />
+    <ref role="3Oh7Pe" to="npmf:7w_sh_iHHi0" resolve="ChildConcept" />
     <node concept="3OnDbq" id="6ijHUgUSgF_" role="3Oh7Pb">
       <ref role="3OnDbs" to="qffw:1dKt_a0noks" resolve="CanBeChild" />
       <node concept="1DCEPf" id="7M8nn$ybZUj" role="3OnDbr">
@@ -123,14 +127,14 @@
               </node>
               <node concept="3O6GUB" id="7M8nn$ybZUz" role="2OqNvi">
                 <node concept="chp4Y" id="7M8nn$ybZU$" role="3QVz_e">
-                  <ref role="cht4Q" to="npmf:7FO6JFyzxCl" resolve="ParentConcept1" />
+                  <ref role="cht4Q" to="npmf:7FO6JFyzxCl" resolve="ParentConcept" />
                 </node>
               </node>
             </node>
           </node>
         </node>
         <node concept="1DCEQD" id="7M8nn$ybZV$" role="1DCEQI">
-          <node concept="16I2mz" id="7M8nn$ybZV_" role="16N$OO">
+          <node concept="16I2mz" id="7M8nn$ybZV_" role="16N$OP">
             <node concept="16N$OT" id="7M8nn$yc09W" role="16I2mt">
               <property role="16N$OU" value="The parent node '" />
             </node>
@@ -139,6 +143,49 @@
             </node>
             <node concept="16N$OT" id="7M8nn$yc0a0" role="16I2mt">
               <property role="16N$OU" value="' must be of ParentConcept1" />
+            </node>
+          </node>
+          <node concept="16I2mz" id="2RaX98HsVym" role="16N$OQ">
+            <node concept="16N$OT" id="2RaX98Ht8UC" role="16I2mt">
+              <property role="16N$OU" value="asdfahskfha" />
+            </node>
+          </node>
+          <node concept="16I2mz" id="2RaX98Ht8Uy" role="16N$OO">
+            <node concept="16N$OT" id="2RaX98Ht8Uz" role="16I2mt" />
+          </node>
+        </node>
+      </node>
+      <node concept="1DCEPf" id="2RaX98Ht8Vo" role="3OnDbr">
+        <node concept="3Qq5Rn" id="2RaX98Ht8Vq" role="2j4cqI">
+          <property role="EcuMT" value="3299718585667325658" />
+          <property role="TrG5h" value="parentConceptIsCorrect" />
+          <node concept="2K0Yjh" id="2RaX98Ht8Vs" role="2K0Fuo">
+            <node concept="2OqwBi" id="2RaX98Ht9sB" role="2K0yoH">
+              <node concept="2OqwBi" id="2RaX98Ht94_" role="2Oq$k0">
+                <node concept="3QpRc$" id="2RaX98Ht8WC" role="2Oq$k0">
+                  <ref role="3QpVTF" to="qffw:1dKt_a0nok$" resolve="parentNode" />
+                </node>
+                <node concept="2yIwOk" id="2RaX98Ht9eN" role="2OqNvi" />
+              </node>
+              <node concept="3O6GUB" id="2RaX98Ht9Bu" role="2OqNvi">
+                <node concept="chp4Y" id="2RaX98Ht9Es" role="3QVz_e">
+                  <ref role="cht4Q" to="npmf:7FO6JFyzxCl" resolve="ParentConcept" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1DCEQD" id="2RaX98Ht9Fw" role="1DCEQI">
+          <node concept="16I2mz" id="2RaX98Ht9Fy" role="16N$OO">
+            <node concept="16N$OT" id="2RaX98Ht9Fz" role="16I2mt" />
+          </node>
+          <node concept="16I2mz" id="2RaX98Ht9FA" role="16N$OQ">
+            <node concept="16N$OT" id="2RaX98Ht9FB" role="16I2mt">
+              <property role="16N$OU" value="a" />
+            </node>
+            <node concept="16N$OT" id="2RaX98Ht9FE" role="16I2mt" />
+            <node concept="16N$OT" id="2RaX98Ht9FH" role="16I2mt">
+              <property role="16N$OU" value="dsdddsafdfadsfasfsdf" />
             </node>
           </node>
         </node>
@@ -164,7 +211,7 @@
           </node>
         </node>
         <node concept="1DCEQD" id="3S9PUGX9Npa" role="1DCEQI">
-          <node concept="16I2mz" id="3S9PUGX9Npb" role="16N$OO">
+          <node concept="16I2mz" id="3S9PUGX9Npb" role="16N$OP">
             <node concept="16N$OT" id="3S9PUGX9NU8" role="16I2mt">
               <property role="16N$OU" value="The property 'testProp' in the node " />
             </node>
@@ -198,7 +245,7 @@
           </node>
         </node>
         <node concept="1DCEQD" id="3S9PUGX9O31" role="1DCEQI">
-          <node concept="16I2mz" id="3S9PUGX9O32" role="16N$OO">
+          <node concept="16I2mz" id="3S9PUGX9O32" role="16N$OP">
             <node concept="16N$OT" id="3S9PUGX9O4f" role="16I2mt">
               <property role="16N$OU" value="The property 'testProp' in the node " />
             </node>
@@ -214,7 +261,7 @@
     </node>
   </node>
   <node concept="3Oh7Pa" id="6ijHUgUTa2Q">
-    <ref role="3Oh7Pe" to="npmf:7FO6JFyzxCl" resolve="ParentConcept1" />
+    <ref role="3Oh7Pe" to="npmf:7FO6JFyzxCl" resolve="ParentConcept" />
     <node concept="3OnDbq" id="6ijHUgUTa2R" role="3Oh7Pb">
       <ref role="3OnDbs" to="qffw:1dKt_a0nokQ" resolve="CanBeParent" />
       <node concept="1DCEPf" id="7M8nn$yhbVs" role="3OnDbr">
@@ -233,7 +280,7 @@
           </node>
         </node>
         <node concept="1DCEQD" id="7M8nn$yhh6l" role="1DCEQI">
-          <node concept="16I2mz" id="7M8nn$yhh6m" role="16N$OO">
+          <node concept="16I2mz" id="7M8nn$yhh6m" role="16N$OP">
             <node concept="16N$OT" id="7M8nn$yhh6y" role="16I2mt">
               <property role="16N$OU" value="The node cannot have children if the property is set to false" />
             </node>
@@ -252,7 +299,7 @@
               <node concept="2OqwBi" id="7M8nn$yhfje" role="3uHU7B">
                 <node concept="1PxgMI" id="7M8nn$yhf9n" role="2Oq$k0">
                   <node concept="chp4Y" id="7M8nn$yhf9K" role="3oSUPX">
-                    <ref role="cht4Q" to="npmf:7w_sh_iHHi0" resolve="ChildConcept1" />
+                    <ref role="cht4Q" to="npmf:7w_sh_iHHi0" resolve="ChildConcept" />
                   </node>
                   <node concept="3QpRc$" id="7M8nn$yhf1p" role="1m5AlR">
                     <ref role="3QpVTF" to="qffw:1dKt_a0nokT" resolve="childNode" />
@@ -273,7 +320,7 @@
                   </node>
                   <node concept="1mIQ4w" id="7M8nn$yhgYz" role="2OqNvi">
                     <node concept="chp4Y" id="7M8nn$yhh0E" role="cj9EA">
-                      <ref role="cht4Q" to="npmf:7w_sh_iHHi0" resolve="ChildConcept1" />
+                      <ref role="cht4Q" to="npmf:7w_sh_iHHi0" resolve="ChildConcept" />
                     </node>
                   </node>
                 </node>
@@ -288,7 +335,7 @@
           </node>
         </node>
         <node concept="1DCEQD" id="7M8nn$yhh6K" role="1DCEQI">
-          <node concept="16I2mz" id="7M8nn$yhh6L" role="16N$OO">
+          <node concept="16I2mz" id="7M8nn$yhh6L" role="16N$OP">
             <node concept="16N$OT" id="7M8nn$yhha6" role="16I2mt">
               <property role="16N$OU" value="The child property cannot be equal to 65" />
             </node>

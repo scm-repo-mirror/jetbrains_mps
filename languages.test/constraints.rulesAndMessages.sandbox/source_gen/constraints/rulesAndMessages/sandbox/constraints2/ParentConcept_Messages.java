@@ -13,17 +13,17 @@ import java.util.List;
 import java.util.Collections;
 import java.util.Arrays;
 
-public final class ParentConcept1_Messages extends BaseMessageDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7af41afae28e1a15L, "constraints.rulesAndMessages.sandbox.structure.ParentConcept1");
+public final class ParentConcept_Messages extends BaseMessageDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7af41afae28e1a15L, "constraints.rulesAndMessages.sandbox.structure.ParentConcept");
 
-  private static final MessageProvider<CanBeParentContext> MSGPROVIDER_PROPERTYISSETCORRECTLY_36wrwc_a = new BaseMessageProvider<CanBeParentContext>(ParentConcept1_Constraints2.Rule_propertyIsSetCorrectly.ID_propertyIsSetCorrectly) {
+  private static final MessageProvider<CanBeParentContext> MSGPROVIDER_propertyIsSetCorrectly_737pd2_a = new BaseMessageProvider<CanBeParentContext>(ParentConcept_Constraints2.Rule_propertyIsSetCorrectly.ID_propertyIsSetCorrectly) {
     @NotNull
     @Override
     public MessageProvider.StringMsg yieldMessage(CanBeParentContext context) {
       return new MessageProvider.StringMsg("The node cannot have children if the property is set to false");
     }
   };
-  private static final MessageProvider<CanBeParentContext> MSGPROVIDER_PROPERTYINCHILDISSETCORRECTLY_36wrwc_b = new BaseMessageProvider<CanBeParentContext>(ParentConcept1_Constraints2.Rule_propertyInChildIsSetCorrectly.ID_propertyInChildIsSetCorrectly) {
+  private static final MessageProvider<CanBeParentContext> MSGPROVIDER_propertyInChildIsSetCorrectly_737pd2_b = new BaseMessageProvider<CanBeParentContext>(ParentConcept_Constraints2.Rule_propertyInChildIsSetCorrectly.ID_propertyInChildIsSetCorrectly) {
     @NotNull
     @Override
     public MessageProvider.StringMsg yieldMessage(CanBeParentContext context) {
@@ -31,9 +31,9 @@ public final class ParentConcept1_Messages extends BaseMessageDescriptor {
     }
   };
 
-  private static final List<MessageProvider<?>> PROVIDERS = Collections.unmodifiableList(Arrays.<MessageProvider<?>>asList(MSGPROVIDER_PROPERTYISSETCORRECTLY_36wrwc_a, MSGPROVIDER_PROPERTYINCHILDISSETCORRECTLY_36wrwc_b));
+  private static final List<MessageProvider<?>> PROVIDERS = Collections.unmodifiableList(Arrays.<MessageProvider<?>>asList(MSGPROVIDER_propertyIsSetCorrectly_737pd2_a, MSGPROVIDER_propertyInChildIsSetCorrectly_737pd2_b));
 
-  public ParentConcept1_Messages() {
+  public ParentConcept_Messages() {
     super(CONCEPT);
   }
 

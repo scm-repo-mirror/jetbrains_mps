@@ -47,7 +47,7 @@
     </language>
   </registry>
   <node concept="1M2fIO" id="1uv0FAtCoKz">
-    <ref role="1M2myG" to="npmf:7w_sh_iHHi0" resolve="ChildConcept1" />
+    <ref role="1M2myG" to="npmf:7w_sh_iHHi0" resolve="ChildConcept" />
     <node concept="9S07l" id="1uv0FAtCoK$" role="9Vyp8">
       <node concept="3clFbS" id="1uv0FAtCoK_" role="2VODD2">
         <node concept="3clFbF" id="1uv0FAtCoOs" role="3cqZAp">

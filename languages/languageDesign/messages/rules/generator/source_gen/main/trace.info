@@ -21,7 +21,7 @@
   <root nodeRef="r:adc831e9-1d88-4ceb-8acb-e4cd3ccdce71(main@generator)/1438037335490771096">
     <file name="QueriesGenerated.java">
       <node id="3256707683831272121" at="59,93,60,252" concept="5" />
-      <node id="5155963451167373640" at="65,92,66,358" concept="5" />
+      <node id="5155963451167373640" at="65,92,66,357" concept="5" />
       <node id="5155963451167379055" at="74,104,75,215" concept="4" />
       <node id="5155963451167379074" at="77,39,78,204" concept="5" />
       <node id="5155963451167373638" at="199,73,200,73" concept="0" />
@@ -36,7 +36,7 @@
       <node id="5155963451167379062" at="75,215,80,207" concept="5" />
       <node id="5155963451167378346" at="74,0,82,0" concept="7" trace="sourceNodesQuery_3_0#(Ljetbrains/mps/generator/template/SourceSubstituteMacroNodesContext;)Ljava/lang/Iterable;" />
       <scope id="3256707683831270893" at="59,93,60,252" />
-      <scope id="5155963451167373639" at="65,92,66,358" />
+      <scope id="5155963451167373639" at="65,92,66,357" />
       <scope id="5155963451167379073" at="77,39,78,204" />
       <scope id="5155963451167373638" at="222,15,223,59" />
       <scope id="5155963451167378346" at="256,15,257,87" />
@@ -109,7 +109,7 @@
     <file name="QueriesGenerated.java">
       <node id="3256707683831016151" at="53,93,54,252" concept="5" />
       <node id="3256707683830975756" at="56,93,57,189" concept="5" />
-      <node id="3256707683831016107" at="62,92,63,358" concept="5" />
+      <node id="3256707683831016107" at="62,92,63,357" concept="5" />
       <node id="3256707683831016124" at="71,104,72,257" concept="5" />
       <node id="3256707683831016105" at="198,14,199,73" concept="0" />
       <node id="3256707683831016105" at="220,15,221,59" concept="5" />
@@ -125,7 +125,7 @@
       <node id="3256707683831016115" at="71,0,74,0" concept="7" trace="sourceNodesQuery_1_0#(Ljetbrains/mps/generator/template/SourceSubstituteMacroNodesContext;)Ljava/lang/Iterable;" />
       <scope id="3256707683831016150" at="53,93,54,252" />
       <scope id="3256707683830974015" at="56,93,57,189" />
-      <scope id="3256707683831016106" at="62,92,63,358" />
+      <scope id="3256707683831016106" at="62,92,63,357" />
       <scope id="3256707683831016116" at="71,104,72,257" />
       <scope id="3256707683831016105" at="220,15,221,59" />
       <scope id="3256707683831016115" at="254,15,255,87" />

@@ -46,7 +46,7 @@
       <modulePath path="$PROJECT_DIR$/editor/editor-runtime/jetbrains.mps.editor.runtime.msd" folder="core.aspects.editor" />
       <modulePath path="$PROJECT_DIR$/editor/editorlang-runtime/jetbrains.mps.editorlang.runtime.msd" folder="core.aspects.editor" />
       <modulePath path="$PROJECT_DIR$/editor/typesystemIntegration/typesystemIntegration.msd" folder="core.aspects.editor" />
-      <modulePath path="$PROJECT_DIR$/languages.test/constraints.rulesAndMessages.sandbox/constraints.rulesAndMessages.sandbox.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/languages.test/constraints.rulesAndMessages.sandbox/constraints.rulesAndMessages.sandbox.mpl" folder="samplesForNewConstraints" />
       <modulePath path="$PROJECT_DIR$/languages.test/languageDesign/constraints.rules.sandbox.mpl" folder="" />
       <modulePath path="$PROJECT_DIR$/languages.test/languageDesign/lang.editor.editorTest.extension/jetbrains.mps.lang.editor.editorTest.extension.mpl" folder="core.aspects.editor" />
       <modulePath path="$PROJECT_DIR$/languages.test/languageDesign/lang.editor.editorTest/jetbrains.mps.lang.editor.editorTest.mpl" folder="core.aspects.editor" />
@@ -454,7 +454,7 @@
       <modulePath path="$PROJECT_DIR$/samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence.build/jetbrains.mps.samples.xmlPersistence.build.msd" folder="samples.persistence" />
       <modulePath path="$PROJECT_DIR$/samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence.ideaPlugin/jetbrains.mps.samples.xmlPersistence.ideaPlugin.msd" folder="samples.persistence" />
       <modulePath path="$PROJECT_DIR$/samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence/jetbrains.mps.samples.xmlPersistence.msd" folder="samples.persistence" />
-      <modulePath path="$PROJECT_DIR$/solutions/rules.sandbox.sln/rules.sandbox.sln.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/rules.sandbox.sln/rules.sandbox.sln.msd" folder="samplesForNewConstraints" />
       <modulePath path="$PROJECT_DIR$/testbench/build/jetbrains.mps.build.mps.testModules/jetbrains.mps.build.mps.testModules.msd" folder="platform.build" />
       <modulePath path="$PROJECT_DIR$/testbench/ideatestsolutions/ide.vcs.test/jetbrains.mps.ide.vcs.test.msd" folder="platform.vcs" />
       <modulePath path="$PROJECT_DIR$/testbench/languages/jetbrains.mps.testbench.suite.mpl" folder="tests" />

@@ -84,7 +84,7 @@ public class ConstraintsFacade {
    */
   @NotNull
   public static List<Rule<CanBeParentContext>> checkCanBeParent(@NotNull CanBeParentContext context) {
-    if (context.getChildNode() != null && context.getChildNode().getParent() == null) {
+    if (context.getChildNode() != null) {
       // for root nodes it should return true
       return Collections.emptyList();
     }

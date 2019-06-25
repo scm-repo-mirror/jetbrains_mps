@@ -24,9 +24,9 @@ public final class GeneratedConstraintsAspectDescriptor2 implements ConstraintsA
     SAbstractConcept cncpt = concept;
     switch (conceptIndex.index(cncpt)) {
       case 0:
-        return new ChildConcept1_Constraints2();
+        return new ChildConcept_Constraints2();
       case 1:
-        return new ParentConcept1_Constraints2();
+        return new ParentConcept_Constraints2();
       default:
     }
     return null;

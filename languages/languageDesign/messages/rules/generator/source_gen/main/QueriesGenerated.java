@@ -60,10 +60,10 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.getOutputNodeByInputNodeAndMappingLabel(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, 0x137076528060b0fcL, "rule")), "reducedRule");
   }
   public static SNode sourceNodeQuery_1_0(final SourceSubstituteMacroNodeContext _context) {
-    return SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, 0x46263286dc0ce86L, "messageProvider")), MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e30f402L, 0x48f860fc0e362dc8L, "message"));
+    return SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, 0x46263286dc0ce86L, "messageProvider")), MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce81L, 0x48f860fc0e362dc8L, "message"));
   }
   public static SNode sourceNodeQuery_3_0(final SourceSubstituteMacroNodeContext _context) {
-    return SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, 0x46263286dc0ce86L, "messageProvider")), MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e30f402L, 0x48f860fc0e362dc8L, "message"));
+    return SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, 0x46263286dc0ce86L, "messageProvider")), MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce81L, 0x48f860fc0e362dc8L, "message"));
   }
   public static SNode sourceNodeQuery_4_0(final SourceSubstituteMacroNodeContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, 0x137076528060b0fcL, "rule"));

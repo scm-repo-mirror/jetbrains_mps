@@ -7,11 +7,8 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.EditorContext;
 import org.jetbrains.mps.openapi.model.SNode;
 
-public class ParentConcept1_Editor extends DefaultNodeEditor {
+public class ChildConcept_Editor extends DefaultNodeEditor {
   public EditorCell createEditorCell(EditorContext editorContext, SNode node) {
-    return new ParentConcept1_EditorBuilder_a(editorContext, node).createCell();
-  }
-  public EditorCell createInspectedCell(EditorContext editorContext, SNode node) {
-    return new ParentConcept1_InspectorBuilder_a(editorContext, node).createCell();
+    return new ChildConcept_EditorBuilder_a(editorContext, node).createCell();
   }
 }

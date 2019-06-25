@@ -201,7 +201,7 @@
       <property role="eg7rD" value="false" />
       <property role="34CwA1" value="false" />
       <property role="3TUv4t" value="false" />
-      <property role="TrG5h" value="props_ChildConcept1" />
+      <property role="TrG5h" value="props_ChildConcept" />
       <node concept="3uibUv" id="7" role="1tU5fm">
         <ref role="3uigEE" to="ze1i:~ConceptPresentation" resolve="ConceptPresentation" />
       </node>
@@ -211,7 +211,7 @@
       <property role="eg7rD" value="false" />
       <property role="34CwA1" value="false" />
       <property role="3TUv4t" value="false" />
-      <property role="TrG5h" value="props_ParentConcept1" />
+      <property role="TrG5h" value="props_ParentConcept" />
       <node concept="3uibUv" id="9" role="1tU5fm">
         <ref role="3uigEE" to="ze1i:~ConceptPresentation" resolve="ConceptPresentation" />
       </node>
@@ -311,7 +311,7 @@
                         </node>
                       </node>
                       <node concept="37vLTw" id="R" role="37vLTJ">
-                        <ref role="3cqZAo" node="2" resolve="props_ChildConcept1" />
+                        <ref role="3cqZAo" node="2" resolve="props_ChildConcept" />
                       </node>
                     </node>
                   </node>
@@ -319,19 +319,19 @@
                 <node concept="3clFbC" id="C" role="3clFbw">
                   <node concept="10Nm6u" id="U" role="3uHU7w" />
                   <node concept="37vLTw" id="V" role="3uHU7B">
-                    <ref role="3cqZAo" node="2" resolve="props_ChildConcept1" />
+                    <ref role="3cqZAo" node="2" resolve="props_ChildConcept" />
                   </node>
                 </node>
               </node>
               <node concept="3cpWs6" id="A" role="3cqZAp">
                 <node concept="37vLTw" id="W" role="3cqZAk">
-                  <ref role="3cqZAo" node="2" resolve="props_ChildConcept1" />
+                  <ref role="3cqZAo" node="2" resolve="props_ChildConcept" />
                 </node>
               </node>
             </node>
             <node concept="10M0yZ" id="$" role="3Kbmr1">
               <ref role="1PxDUh" node="1v" resolve="LanguageConceptSwitch" />
-              <ref role="3cqZAo" node="1x" resolve="ChildConcept1" />
+              <ref role="3cqZAo" node="1x" resolve="ChildConcept" />
             </node>
           </node>
           <node concept="3KbdKl" id="v" role="3KbHQx">
@@ -377,7 +377,7 @@
                         </node>
                       </node>
                       <node concept="37vLTw" id="1h" role="37vLTJ">
-                        <ref role="3cqZAo" node="3" resolve="props_ParentConcept1" />
+                        <ref role="3cqZAo" node="3" resolve="props_ParentConcept" />
                       </node>
                     </node>
                   </node>
@@ -385,19 +385,19 @@
                 <node concept="3clFbC" id="12" role="3clFbw">
                   <node concept="10Nm6u" id="1k" role="3uHU7w" />
                   <node concept="37vLTw" id="1l" role="3uHU7B">
-                    <ref role="3cqZAo" node="3" resolve="props_ParentConcept1" />
+                    <ref role="3cqZAo" node="3" resolve="props_ParentConcept" />
                   </node>
                 </node>
               </node>
               <node concept="3cpWs6" id="10" role="3cqZAp">
                 <node concept="37vLTw" id="1m" role="3cqZAk">
-                  <ref role="3cqZAo" node="3" resolve="props_ParentConcept1" />
+                  <ref role="3cqZAo" node="3" resolve="props_ParentConcept" />
                 </node>
               </node>
             </node>
             <node concept="10M0yZ" id="Y" role="3Kbmr1">
               <ref role="1PxDUh" node="1v" resolve="LanguageConceptSwitch" />
-              <ref role="3cqZAo" node="1y" resolve="ParentConcept1" />
+              <ref role="3cqZAo" node="1y" resolve="ParentConcept" />
             </node>
           </node>
         </node>
@@ -453,7 +453,7 @@
       <property role="2dlcS1" value="false" />
       <property role="2dld4O" value="false" />
       <property role="3TUv4t" value="true" />
-      <property role="TrG5h" value="ChildConcept1" />
+      <property role="TrG5h" value="ChildConcept" />
       <node concept="3Tm1VV" id="1G" role="1B3o_S" />
       <node concept="10Oyi0" id="1H" role="1tU5fm" />
       <node concept="3cmrfG" id="1I" role="33vP2m">
@@ -464,7 +464,7 @@
       <property role="2dlcS1" value="false" />
       <property role="2dld4O" value="false" />
       <property role="3TUv4t" value="true" />
-      <property role="TrG5h" value="ParentConcept1" />
+      <property role="TrG5h" value="ParentConcept" />
       <node concept="3Tm1VV" id="1J" role="1B3o_S" />
       <node concept="10Oyi0" id="1K" role="1tU5fm" />
       <node concept="3cmrfG" id="1L" role="33vP2m">
@@ -506,7 +506,7 @@
                 <property role="1adDun" value="0x7825711952b6d480L" />
               </node>
               <node concept="37vLTw" id="23" role="37wK5m">
-                <ref role="3cqZAo" node="1x" resolve="ChildConcept1" />
+                <ref role="3cqZAo" node="1x" resolve="ChildConcept" />
               </node>
             </node>
           </node>
@@ -522,7 +522,7 @@
                 <property role="1adDun" value="0x7af41afae28e1a15L" />
               </node>
               <node concept="37vLTw" id="28" role="37wK5m">
-                <ref role="3cqZAo" node="1y" resolve="ParentConcept1" />
+                <ref role="3cqZAo" node="1y" resolve="ParentConcept" />
               </node>
             </node>
           </node>
@@ -608,24 +608,24 @@
       <property role="eg7rD" value="false" />
       <property role="34CwA1" value="false" />
       <property role="3TUv4t" value="true" />
-      <property role="TrG5h" value="myConceptChildConcept1" />
+      <property role="TrG5h" value="myConceptChildConcept" />
       <node concept="3uibUv" id="2R" role="1tU5fm">
         <ref role="3uigEE" to="ze1i:~ConceptDescriptor" resolve="ConceptDescriptor" />
       </node>
       <node concept="1rXfSq" id="2S" role="33vP2m">
-        <ref role="37wK5l" node="2P" resolve="createDescriptorForChildConcept1" />
+        <ref role="37wK5l" node="2P" resolve="createDescriptorForChildConcept" />
       </node>
     </node>
     <node concept="312cEg" id="2$" role="jymVt">
       <property role="eg7rD" value="false" />
       <property role="34CwA1" value="false" />
       <property role="3TUv4t" value="true" />
-      <property role="TrG5h" value="myConceptParentConcept1" />
+      <property role="TrG5h" value="myConceptParentConcept" />
       <node concept="3uibUv" id="2T" role="1tU5fm">
         <ref role="3uigEE" to="ze1i:~ConceptDescriptor" resolve="ConceptDescriptor" />
       </node>
       <node concept="1rXfSq" id="2U" role="33vP2m">
-        <ref role="37wK5l" node="2Q" resolve="createDescriptorForParentConcept1" />
+        <ref role="37wK5l" node="2Q" resolve="createDescriptorForParentConcept" />
       </node>
     </node>
     <node concept="312cEg" id="2_" role="jymVt">
@@ -705,10 +705,10 @@
             <ref role="1Pybhc" to="33ny:~Arrays" resolve="Arrays" />
             <ref role="37wK5l" to="33ny:~Arrays.asList(java.lang.Object...)" resolve="asList" />
             <node concept="37vLTw" id="3o" role="37wK5m">
-              <ref role="3cqZAo" node="2z" resolve="myConceptChildConcept1" />
+              <ref role="3cqZAo" node="2z" resolve="myConceptChildConcept" />
             </node>
             <node concept="37vLTw" id="3p" role="37wK5m">
-              <ref role="3cqZAo" node="2$" resolve="myConceptParentConcept1" />
+              <ref role="3cqZAo" node="2$" resolve="myConceptParentConcept" />
             </node>
           </node>
         </node>
@@ -743,26 +743,26 @@
             <node concept="3clFbS" id="3B" role="3Kbo56">
               <node concept="3cpWs6" id="3D" role="3cqZAp">
                 <node concept="37vLTw" id="3E" role="3cqZAk">
-                  <ref role="3cqZAo" node="2z" resolve="myConceptChildConcept1" />
+                  <ref role="3cqZAo" node="2z" resolve="myConceptChildConcept" />
                 </node>
               </node>
             </node>
             <node concept="10M0yZ" id="3C" role="3Kbmr1">
               <ref role="1PxDUh" node="1v" resolve="LanguageConceptSwitch" />
-              <ref role="3cqZAo" node="1x" resolve="ChildConcept1" />
+              <ref role="3cqZAo" node="1x" resolve="ChildConcept" />
             </node>
           </node>
           <node concept="3KbdKl" id="3$" role="3KbHQx">
             <node concept="3clFbS" id="3F" role="3Kbo56">
               <node concept="3cpWs6" id="3H" role="3cqZAp">
                 <node concept="37vLTw" id="3I" role="3cqZAk">
-                  <ref role="3cqZAo" node="2$" resolve="myConceptParentConcept1" />
+                  <ref role="3cqZAo" node="2$" resolve="myConceptParentConcept" />
                 </node>
               </node>
             </node>
             <node concept="10M0yZ" id="3G" role="3Kbmr1">
               <ref role="1PxDUh" node="1v" resolve="LanguageConceptSwitch" />
-              <ref role="3cqZAo" node="1y" resolve="ParentConcept1" />
+              <ref role="3cqZAo" node="1y" resolve="ParentConcept" />
             </node>
           </node>
           <node concept="2OqwBi" id="3_" role="3KbGdf">
@@ -846,7 +846,7 @@
       <property role="od$2w" value="false" />
       <property role="DiZV1" value="false" />
       <property role="2aFKle" value="false" />
-      <property role="TrG5h" value="createDescriptorForChildConcept1" />
+      <property role="TrG5h" value="createDescriptorForChildConcept" />
       <node concept="3clFbS" id="44" role="3clF47">
         <node concept="3cpWs8" id="47" role="3cqZAp">
           <node concept="3cpWsn" id="4e" role="3cpWs9">
@@ -861,7 +861,7 @@
                   <property role="Xl_RC" value="constraints.rulesAndMessages.sandbox" />
                 </node>
                 <node concept="Xl_RD" id="4j" role="37wK5m">
-                  <property role="Xl_RC" value="ChildConcept1" />
+                  <property role="Xl_RC" value="ChildConcept" />
                 </node>
                 <node concept="1adDum" id="4k" role="37wK5m">
                   <property role="1adDun" value="0xfc39d7264089464aL" />
@@ -992,7 +992,7 @@
       <property role="od$2w" value="false" />
       <property role="DiZV1" value="false" />
       <property role="2aFKle" value="false" />
-      <property role="TrG5h" value="createDescriptorForParentConcept1" />
+      <property role="TrG5h" value="createDescriptorForParentConcept" />
       <node concept="3clFbS" id="4V" role="3clF47">
         <node concept="3cpWs8" id="4Y" role="3cqZAp">
           <node concept="3cpWsn" id="56" role="3cpWs9">
@@ -1007,7 +1007,7 @@
                   <property role="Xl_RC" value="constraints.rulesAndMessages.sandbox" />
                 </node>
                 <node concept="Xl_RD" id="5b" role="37wK5m">
-                  <property role="Xl_RC" value="ParentConcept1" />
+                  <property role="Xl_RC" value="ParentConcept" />
                 </node>
                 <node concept="1adDum" id="5c" role="37wK5m">
                   <property role="1adDun" value="0xfc39d7264089464aL" />

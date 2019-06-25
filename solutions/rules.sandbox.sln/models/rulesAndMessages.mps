@@ -7,10 +7,10 @@
   <imports />
   <registry>
     <language id="fc39d726-4089-464a-8fc1-5f71edfdf03b" name="constraints.rulesAndMessages.sandbox">
-      <concept id="8859736031789718037" name="constraints.rulesAndMessages.sandbox.structure.ParentConcept1" flags="ng" index="2ouw3J">
+      <concept id="8859736031789718037" name="constraints.rulesAndMessages.sandbox.structure.ParentConcept" flags="ng" index="2ouw3J">
         <child id="8859736031789718038" name="children" index="2ouw3G" />
       </concept>
-      <concept id="8657450212265481344" name="constraints.rulesAndMessages.sandbox.structure.ChildConcept1" flags="ng" index="E$Ump">
+      <concept id="8657450212265481344" name="constraints.rulesAndMessages.sandbox.structure.ChildConcept" flags="ng" index="E$Ump">
         <property id="8657450212265563629" name="testProp" index="EBmjO" />
       </concept>
     </language>

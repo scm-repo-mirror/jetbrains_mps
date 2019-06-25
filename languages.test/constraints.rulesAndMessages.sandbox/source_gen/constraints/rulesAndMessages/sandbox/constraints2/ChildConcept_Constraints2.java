@@ -20,15 +20,15 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 
-public final class ChildConcept1_Constraints2 extends BaseConstraintsDescriptor2 {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept1");
+public final class ChildConcept_Constraints2 extends BaseConstraintsDescriptor2 {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept");
 
-  /*package*/ ChildConcept1_Constraints2() {
+  /*package*/ ChildConcept_Constraints2() {
     super(CONCEPT);
   }
-  public static final Rule<CanBeChildContext> parentCncptCorrect_id8973525032381709980 = new ChildConcept1_Constraints2.Rule_parentCncptCorrect();
-  public static final Rule<CanBeChildContext> notTooSmallProperty_id1962130386538219691 = new ChildConcept1_Constraints2.Rule_notTooSmallProperty();
-  public static final Rule<CanBeChildContext> notTooLargeProperty_id1962130386538254993 = new ChildConcept1_Constraints2.Rule_notTooLargeProperty();
+  public static final Rule<CanBeChildContext> parentCncptCorrect_id8973525032381709980 = new ChildConcept_Constraints2.Rule_parentCncptCorrect();
+  public static final Rule<CanBeChildContext> notTooSmallProperty_id1962130386538219691 = new ChildConcept_Constraints2.Rule_notTooSmallProperty();
+  public static final Rule<CanBeChildContext> notTooLargeProperty_id1962130386538254993 = new ChildConcept_Constraints2.Rule_notTooLargeProperty();
 
   private static final List<Rule<?>> RULES = Collections.unmodifiableList(Arrays.<Rule<?>>asList(parentCncptCorrect_id8973525032381709980, notTooSmallProperty_id1962130386538219691, notTooLargeProperty_id1962130386538254993));
 
@@ -47,7 +47,7 @@ public final class ChildConcept1_Constraints2 extends BaseConstraintsDescriptor2
     }
     @Override
     public boolean check(@NotNull CanBeChildContext context) {
-      return SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(context.getParentNode())), MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7af41afae28e1a15L, "constraints.rulesAndMessages.sandbox.structure.ParentConcept1"));
+      return SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(context.getParentNode())), MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7af41afae28e1a15L, "constraints.rulesAndMessages.sandbox.structure.ParentConcept"));
     }
   }
   public static final class Rule_notTooSmallProperty extends BaseRule<CanBeChildContext> {

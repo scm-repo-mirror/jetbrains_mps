@@ -43,7 +43,7 @@
   </registry>
   <node concept="1TIwiD" id="7w_sh_iHHi0">
     <property role="EcuMT" value="8657450212265481344" />
-    <property role="TrG5h" value="ChildConcept1" />
+    <property role="TrG5h" value="ChildConcept" />
     <node concept="1TJgyi" id="7w_sh_iI1nH" role="1TKVEl">
       <property role="IQ2nx" value="8657450212265563629" />
       <property role="TrG5h" value="testProp" />
@@ -55,7 +55,7 @@
   </node>
   <node concept="1TIwiD" id="7FO6JFyzxCl">
     <property role="EcuMT" value="8859736031789718037" />
-    <property role="TrG5h" value="ParentConcept1" />
+    <property role="TrG5h" value="ParentConcept" />
     <property role="19KtqR" value="true" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyj" id="7FO6JFyzxCm" role="1TKVEi">
@@ -63,7 +63,7 @@
       <property role="20lmBu" value="aggregation" />
       <property role="20kJfa" value="children" />
       <property role="20lbJX" value="0..n" />
-      <ref role="20lvS9" node="7w_sh_iHHi0" resolve="ChildConcept1" />
+      <ref role="20lvS9" node="7w_sh_iHHi0" resolve="ChildConcept" />
     </node>
     <node concept="1TJgyi" id="6ijHUgUSyYU" role="1TKVEl">
       <property role="IQ2nx" value="7247338141359681466" />

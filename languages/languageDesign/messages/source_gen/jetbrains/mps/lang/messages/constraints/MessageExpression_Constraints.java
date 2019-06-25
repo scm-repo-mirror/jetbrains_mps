@@ -4,10 +4,15 @@ package jetbrains.mps.lang.messages.constraints;
 
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class MessageExpression_Constraints extends BaseConstraintsDescriptor {
   public MessageExpression_Constraints() {
     super(MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc4L, "jetbrains.mps.lang.messages.structure.MessageExpression"));
   }
 
+  @Override
+  public SConcept getDefaultConcreteConcept() {
+    return MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression");
+  }
 }

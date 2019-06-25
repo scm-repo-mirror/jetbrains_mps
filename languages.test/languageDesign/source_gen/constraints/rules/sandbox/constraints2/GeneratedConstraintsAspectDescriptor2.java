@@ -12,6 +12,7 @@ import jetbrains.mps.core.aspects.constraints.rules.RuleKind;
 import java.util.Arrays;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChildRuleKind;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParentRuleKind;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeRootRuleKind;
 import jetbrains.mps.lang.smodel.ConceptSwitchIndex;
 import jetbrains.mps.lang.smodel.ConceptSwitchIndexBuilder;
 import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
@@ -34,7 +35,7 @@ public final class GeneratedConstraintsAspectDescriptor2 implements ConstraintsA
   @NotNull
   @Override
   public List<RuleKind> getRegisteredRuleKinds() {
-    return Arrays.<RuleKind>asList(CanBeChildRuleKind.INSTANCE, CanBeParentRuleKind.INSTANCE);
+    return Arrays.<RuleKind>asList(CanBeChildRuleKind.INSTANCE, CanBeParentRuleKind.INSTANCE, CanBeRootRuleKind.INSTANCE);
   }
   private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xa6518565787648e9L, 0x8d439ef97836a52eL, 0x7825711952b6d480L), MetaIdFactory.conceptId(0xa6518565787648e9L, 0x8d439ef97836a52eL, 0x7af41afae28e1a15L)).seal();
 }

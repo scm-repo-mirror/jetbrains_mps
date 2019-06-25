@@ -12,7 +12,7 @@ import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
-import jetbrains.mps.lang.messages.editor.Constraints2_styles_StyleSheet.MessageMacroStyleClass;
+import jetbrains.mps.lang.messages.editor.MessageStyles_StyleSheet.MessageMacroStyleClass;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;

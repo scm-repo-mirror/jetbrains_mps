@@ -172,7 +172,7 @@ public class ConstraintsChecker extends AbstractNodeCheckerInEditor implements I
             ReportingAspectRegistry reportingRegistry = getReportingAspectRegistry();
             String message = CanBeParentRuleKind.INSTANCE.getDefaultMessage(context).toText();
             if (reportingRegistry != null) {
-              MessageProvider<CanBeParentContext> messageProvider = reportingRegistry.findMessageForRule(concept, ruleWeReport, context);
+              MessageProvider<CanBeParentContext> messageProvider = reportingRegistry.findMessageForRule(parentConcept, ruleWeReport, context);
               message = messageProvider.yieldMessage(context).toText();
             }
             TypesystemRuleId ruleId = new TypesystemRuleId(ruleWeReport.getRuleSourceNode());

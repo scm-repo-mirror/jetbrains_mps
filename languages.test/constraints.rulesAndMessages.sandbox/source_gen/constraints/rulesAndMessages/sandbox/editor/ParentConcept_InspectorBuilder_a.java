@@ -29,11 +29,11 @@ import jetbrains.mps.lang.core.behavior.PropertyAttribute__BehaviorDescriptor;
 import jetbrains.mps.nodeEditor.EditorManager;
 import jetbrains.mps.openapi.editor.update.AttributeKind;
 
-/*package*/ class ParentConcept1_InspectorBuilder_a extends AbstractEditorBuilder {
+/*package*/ class ParentConcept_InspectorBuilder_a extends AbstractEditorBuilder {
   @NotNull
   private SNode myNode;
 
-  public ParentConcept1_InspectorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
+  public ParentConcept_InspectorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
     super(context);
     myNode = node;
   }
@@ -50,7 +50,7 @@ import jetbrains.mps.openapi.editor.update.AttributeKind;
 
   private EditorCell createCollection_0() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Horizontal());
-    editorCell.setCellId("Collection_f28zpo_0");
+    editorCell.setCellId("Collection_5n4rx3_0");
     editorCell.setBig(true);
     setCellContext(editorCell);
     editorCell.addEditorCell(createConstant_0());
@@ -59,7 +59,7 @@ import jetbrains.mps.openapi.editor.update.AttributeKind;
   }
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "canHaveChildren");
-    editorCell.setCellId("Constant_f28zpo_0");
+    editorCell.setCellId("Constant_5n4rx3_0");
     editorCell.setDefaultText("");
     return editorCell;
   }

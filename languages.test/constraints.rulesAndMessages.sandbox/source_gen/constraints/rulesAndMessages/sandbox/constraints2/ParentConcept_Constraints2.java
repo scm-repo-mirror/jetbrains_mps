@@ -19,14 +19,14 @@ import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParentRuleKind;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 
-public final class ParentConcept1_Constraints2 extends BaseConstraintsDescriptor2 {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7af41afae28e1a15L, "constraints.rulesAndMessages.sandbox.structure.ParentConcept1");
+public final class ParentConcept_Constraints2 extends BaseConstraintsDescriptor2 {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7af41afae28e1a15L, "constraints.rulesAndMessages.sandbox.structure.ParentConcept");
 
-  /*package*/ ParentConcept1_Constraints2() {
+  /*package*/ ParentConcept_Constraints2() {
     super(CONCEPT);
   }
-  public static final Rule<CanBeParentContext> propertyIsSetCorrectly_id8973525032383069918 = new ParentConcept1_Constraints2.Rule_propertyIsSetCorrectly();
-  public static final Rule<CanBeParentContext> propertyInChildIsSetCorrectly_id8973525032383069990 = new ParentConcept1_Constraints2.Rule_propertyInChildIsSetCorrectly();
+  public static final Rule<CanBeParentContext> propertyIsSetCorrectly_id8973525032383069918 = new ParentConcept_Constraints2.Rule_propertyIsSetCorrectly();
+  public static final Rule<CanBeParentContext> propertyInChildIsSetCorrectly_id8973525032383069990 = new ParentConcept_Constraints2.Rule_propertyInChildIsSetCorrectly();
 
   private static final List<Rule<?>> RULES = Collections.unmodifiableList(Arrays.<Rule<?>>asList(propertyIsSetCorrectly_id8973525032383069918, propertyInChildIsSetCorrectly_id8973525032383069990));
 
@@ -60,12 +60,12 @@ public final class ParentConcept1_Constraints2 extends BaseConstraintsDescriptor
       if (!(appliesTo(context))) {
         return true;
       }
-      return SPropertyOperations.getInteger(SNodeOperations.cast(context.getChildNode(), MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept1")), MetaAdapterFactory.getProperty(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, 0x7825711952b815edL, "testProp")) != 65;
+      return SPropertyOperations.getInteger(SNodeOperations.cast(context.getChildNode(), MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept")), MetaAdapterFactory.getProperty(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, 0x7825711952b815edL, "testProp")) != 65;
     }
 
     @Override
     public boolean appliesTo(@NotNull CanBeParentContext context) {
-      return context.getChildNode() != null && SNodeOperations.isInstanceOf(context.getChildNode(), MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept1"));
+      return context.getChildNode() != null && SNodeOperations.isInstanceOf(context.getChildNode(), MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept"));
     }
   }
 }

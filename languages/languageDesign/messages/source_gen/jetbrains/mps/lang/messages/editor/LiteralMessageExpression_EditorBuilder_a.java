@@ -7,6 +7,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
+import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
+import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Horizontal;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.transformation.SPropertyInfo;
@@ -47,9 +49,17 @@ import jetbrains.mps.openapi.editor.update.AttributeKind;
   }
 
   /*package*/ EditorCell createCell() {
-    return createProperty_0();
+    return createCollection_0();
   }
 
+  private EditorCell createCollection_0() {
+    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Horizontal());
+    editorCell.setCellId("Collection_gykata_a");
+    editorCell.setBig(true);
+    setCellContext(editorCell);
+    editorCell.addEditorCell(createProperty_0());
+    return editorCell;
+  }
   private EditorCell createProperty_0() {
     getCellFactory().pushCellContext();
     try {
@@ -60,10 +70,7 @@ import jetbrains.mps.openapi.editor.update.AttributeKind;
       editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSPropertyOrNode(myNode, property, CellAction_DeleteNode.DeleteDirection.FORWARD));
       editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSPropertyOrNode(myNode, property, CellAction_DeleteNode.DeleteDirection.BACKWARD));
       editorCell.setCellId("property_message");
-      editorCell.setBig(true);
-      setCellContext(editorCell);
       Style style = new StyleImpl();
-      style.set(StyleAttributes.AUTO_DELETABLE, true);
       style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.LIGHT_BLUE));
       editorCell.getStyle().putAll(style);
       editorCell.addKeyMap(new LiteralMessageExpression_split());

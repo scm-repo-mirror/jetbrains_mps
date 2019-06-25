@@ -31,6 +31,7 @@
       <concept id="4510086454722552739" name="jetbrains.mps.lang.editor.structure.PropertyDeclarationCellSelector" flags="ng" index="eBIwv">
         <reference id="4510086454740628767" name="propertyDeclaration" index="fyFUz" />
       </concept>
+      <concept id="1106270549637" name="jetbrains.mps.lang.editor.structure.CellLayout_Horizontal" flags="nn" index="2iRfu4" />
       <concept id="1106270571710" name="jetbrains.mps.lang.editor.structure.CellLayout_Vertical" flags="nn" index="2iRkQZ" />
       <concept id="6089045305654894366" name="jetbrains.mps.lang.editor.structure.SubstituteMenuReference_Default" flags="ng" index="2kknPJ" />
       <concept id="1237303669825" name="jetbrains.mps.lang.editor.structure.CellLayout_Indent" flags="nn" index="l2Vlx" />
@@ -79,14 +80,12 @@
       </concept>
       <concept id="1186403694788" name="jetbrains.mps.lang.editor.structure.ColorStyleClassItem" flags="ln" index="VaVBg">
         <property id="1186403713874" name="color" index="Vb096" />
-        <child id="1186403803051" name="query" index="VblUZ" />
       </concept>
       <concept id="1186404549998" name="jetbrains.mps.lang.editor.structure.ForegroundColorStyleClassItem" flags="ln" index="VechU" />
       <concept id="1186414536763" name="jetbrains.mps.lang.editor.structure.BooleanStyleSheetItem" flags="ln" index="VOi$J">
         <property id="1186414551515" name="flag" index="VOm3f" />
         <child id="1223387335081" name="query" index="3n$kyP" />
       </concept>
-      <concept id="1186414949600" name="jetbrains.mps.lang.editor.structure.AutoDeletableStyleClassItem" flags="ln" index="VPRnO" />
       <concept id="1630016958697718209" name="jetbrains.mps.lang.editor.structure.IMenuReference_Default" flags="ng" index="2Z_bC8">
         <reference id="1630016958698373342" name="concept" index="2ZyFGn" />
       </concept>
@@ -137,6 +136,7 @@
       <concept id="1223387125302" name="jetbrains.mps.lang.editor.structure.QueryFunction_Boolean" flags="in" index="3nzxsE" />
       <concept id="3308396621974580100" name="jetbrains.mps.lang.editor.structure.SubstituteMenu_Default" flags="ng" index="3p36aQ" />
       <concept id="1088185857835" name="jetbrains.mps.lang.editor.structure.InlineEditorComponent" flags="ig" index="1sVBvm" />
+      <concept id="1219226236603" name="jetbrains.mps.lang.editor.structure.DrawBracketsStyleClassItem" flags="ln" index="3vyZuw" />
       <concept id="1075375595203" name="jetbrains.mps.lang.editor.structure.CellModel_Error" flags="sg" stub="8104358048506729356" index="1xolST" />
       <concept id="1215007762405" name="jetbrains.mps.lang.editor.structure.FloatStyleClassItem" flags="ln" index="3$6MrZ">
         <property id="1215007802031" name="value" index="3$6WeP" />
@@ -185,7 +185,6 @@
       <concept id="1166049232041" name="jetbrains.mps.lang.editor.structure.AbstractComponent" flags="ng" index="1XWOmA">
         <reference id="1166049300910" name="conceptDeclaration" index="1XX52x" />
       </concept>
-      <concept id="1176809959526" name="jetbrains.mps.lang.editor.structure.QueryFunction_Color" flags="in" index="3ZlJ5R" />
     </language>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
       <concept id="1224071154655" name="jetbrains.mps.baseLanguage.structure.AsExpression" flags="nn" index="0kSF2">
@@ -270,7 +269,6 @@
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
-      <concept id="1212685548494" name="jetbrains.mps.baseLanguage.structure.ClassCreator" flags="nn" index="1pGfFk" />
       <concept id="1107535904670" name="jetbrains.mps.baseLanguage.structure.ClassifierType" flags="in" index="3uibUv">
         <reference id="1107535924139" name="classifier" index="3uigEE" />
       </concept>
@@ -592,30 +590,20 @@
     </node>
   </node>
   <node concept="V5hpn" id="4zSofKel4Jm">
-    <property role="TrG5h" value="Constraints2_styles" />
+    <property role="TrG5h" value="MessageStyles" />
     <node concept="14StLt" id="4zSofKel4Jp" role="V601i">
       <property role="TrG5h" value="MessageMacro" />
       <node concept="VechU" id="4zSofKehgVV" role="3F10Kt">
-        <node concept="3ZlJ5R" id="4zSofKehgVW" role="VblUZ">
-          <node concept="3clFbS" id="4zSofKehgVX" role="2VODD2">
-            <node concept="3clFbF" id="4zSofKehgVY" role="3cqZAp">
-              <node concept="2ShNRf" id="4zSofKehgVZ" role="3clFbG">
-                <node concept="1pGfFk" id="4zSofKehgW0" role="2ShVmc">
-                  <ref role="37wK5l" to="z60i:~Color.&lt;init&gt;(int,int,int)" resolve="Color" />
-                  <node concept="3cmrfG" id="4zSofKehgW1" role="37wK5m">
-                    <property role="3cmrfH" value="200" />
-                  </node>
-                  <node concept="3cmrfG" id="4zSofKehgW2" role="37wK5m">
-                    <property role="3cmrfH" value="150" />
-                  </node>
-                  <node concept="3cmrfG" id="4zSofKehgW3" role="37wK5m">
-                    <property role="3cmrfH" value="0" />
-                  </node>
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
+        <property role="Vb096" value="DARK_GREEN" />
+      </node>
+    </node>
+    <node concept="14StLt" id="2RaX98HsX6Z" role="V601i">
+      <property role="TrG5h" value="MessageText" />
+      <node concept="3vyZuw" id="2RaX98Ht2Y_" role="3F10Kt">
+        <property role="VOm3f" value="true" />
+      </node>
+      <node concept="VechU" id="2RaX98HsX7i" role="3F10Kt">
+        <property role="Vb096" value="LIGHT_BLUE" />
       </node>
     </node>
   </node>
@@ -1295,14 +1283,14 @@
   </node>
   <node concept="24kQdi" id="4zSofKedyRI">
     <ref role="1XX52x" to="t9po:4zSofKedyR5" resolve="LiteralMessageExpression" />
-    <node concept="3F0A7n" id="4zSofKedyRK" role="2wV5jI">
-      <ref role="1NtTu8" to="t9po:4zSofKedyR6" resolve="message" />
-      <ref role="34QXea" node="4zSofKefGKG" resolve="LiteralMessageExpression_split" />
-      <node concept="VPRnO" id="4zSofKeeAVr" role="3F10Kt">
-        <property role="VOm3f" value="true" />
-      </node>
-      <node concept="VechU" id="4zSofKeajWj" role="3F10Kt">
-        <property role="Vb096" value="LIGHT_BLUE" />
+    <node concept="3EZMnI" id="2RaX98HsX1G" role="2wV5jI">
+      <node concept="2iRfu4" id="2RaX98HsX1H" role="2iSdaV" />
+      <node concept="3F0A7n" id="4zSofKedyRK" role="3EZMnx">
+        <ref role="1NtTu8" to="t9po:4zSofKedyR6" resolve="message" />
+        <ref role="34QXea" node="4zSofKefGKG" resolve="LiteralMessageExpression_split" />
+        <node concept="VechU" id="4zSofKeajWj" role="3F10Kt">
+          <property role="Vb096" value="LIGHT_BLUE" />
+        </node>
       </node>
     </node>
   </node>

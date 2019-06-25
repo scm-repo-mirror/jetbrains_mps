@@ -16,7 +16,6 @@ public final class LanguageConceptSwitch {
   public static final int MessageProvider = 4;
   public static final int MessageProviderForRule = 5;
   public static final int MessagesRoot = 6;
-  public static final int ModelRefForMe = 7;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xad93155d79b24759L, 0xb10c55123e763903L);
@@ -27,7 +26,6 @@ public final class LanguageConceptSwitch {
     builder.put(0x48f860fc0e30f402L, MessageProvider);
     builder.put(0x6530303593ae1651L, MessageProviderForRule);
     builder.put(0x6530303593ae1607L, MessagesRoot);
-    builder.put(0x62f92a2818b3508fL, ModelRefForMe);
     myIndex = builder.seal();
   }
 

@@ -14,8 +14,8 @@ import jetbrains.mps.smodel.runtime.impl.ConceptDescriptorBuilder2;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
-  /*package*/ final ConceptDescriptor myConceptChildConcept1 = createDescriptorForChildConcept1();
-  /*package*/ final ConceptDescriptor myConceptParentConcept1 = createDescriptorForParentConcept1();
+  /*package*/ final ConceptDescriptor myConceptChildConcept = createDescriptorForChildConcept();
+  /*package*/ final ConceptDescriptor myConceptParentConcept = createDescriptorForParentConcept();
   private final LanguageConceptSwitch myIndexSwitch;
 
   public StructureAspectDescriptor() {
@@ -30,17 +30,17 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptChildConcept1, myConceptParentConcept1);
+    return Arrays.asList(myConceptChildConcept, myConceptParentConcept);
   }
 
   @Override
   @Nullable
   public ConceptDescriptor getDescriptor(SConceptId id) {
     switch (myIndexSwitch.index(id)) {
-      case LanguageConceptSwitch.ChildConcept1:
-        return myConceptChildConcept1;
-      case LanguageConceptSwitch.ParentConcept1:
-        return myConceptParentConcept1;
+      case LanguageConceptSwitch.ChildConcept:
+        return myConceptChildConcept;
+      case LanguageConceptSwitch.ParentConcept:
+        return myConceptParentConcept;
       default:
         return null;
     }
@@ -55,8 +55,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     return myIndexSwitch.index(c);
   }
 
-  private static ConceptDescriptor createDescriptorForChildConcept1() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("constraints.rulesAndMessages.sandbox", "ChildConcept1", 0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L);
+  private static ConceptDescriptor createDescriptorForChildConcept() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("constraints.rulesAndMessages.sandbox", "ChildConcept", 0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L);
     b.class_(false, false, false);
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.origin("r:3fd4e667-8fcb-4728-850d-184116dcdf79(constraints.rulesAndMessages.sandbox.structure)/8657450212265481344");
@@ -64,8 +64,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.property("testProp", 0x7825711952b815edL).type(PrimitiveTypeId.INTEGER).origin("8657450212265563629").done();
     return b.create();
   }
-  private static ConceptDescriptor createDescriptorForParentConcept1() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("constraints.rulesAndMessages.sandbox", "ParentConcept1", 0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7af41afae28e1a15L);
+  private static ConceptDescriptor createDescriptorForParentConcept() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("constraints.rulesAndMessages.sandbox", "ParentConcept", 0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7af41afae28e1a15L);
     b.class_(false, false, true);
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.origin("r:3fd4e667-8fcb-4728-850d-184116dcdf79(constraints.rulesAndMessages.sandbox.structure)/8859736031789718037");

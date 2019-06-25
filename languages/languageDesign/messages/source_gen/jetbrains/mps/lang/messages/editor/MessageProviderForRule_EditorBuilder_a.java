@@ -93,7 +93,7 @@ import jetbrains.mps.lang.core.behavior.PropertyAttribute__BehaviorDescriptor;
     return editorCell;
   }
   private EditorCell createRefNode_0() {
-    SingleRoleCellProvider provider = new MessageProviderForRule_EditorBuilder_a.messageSingleRoleHandler_dgsr4v_a1a(myNode, MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e30f402L, 0x48f860fc0e362dc8L, "message"), getEditorContext());
+    SingleRoleCellProvider provider = new MessageProviderForRule_EditorBuilder_a.messageSingleRoleHandler_dgsr4v_a1a(myNode, MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x6530303593ae1651L, 0x48f860fc0e362dc8L, "message"), getEditorContext());
     return provider.createCell();
   }
   private static class messageSingleRoleHandler_dgsr4v_a1a extends SingleRoleCellProvider {
@@ -113,8 +113,8 @@ import jetbrains.mps.lang.core.behavior.PropertyAttribute__BehaviorDescriptor;
 
     protected EditorCell createChildCell(SNode child) {
       EditorCell editorCell = getUpdateSession().updateChildNodeCell(child);
-      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSmart(getNode(), MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e30f402L, 0x48f860fc0e362dc8L, "message"), child));
-      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSmart(getNode(), MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e30f402L, 0x48f860fc0e362dc8L, "message"), child));
+      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSmart(getNode(), MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x6530303593ae1651L, 0x48f860fc0e362dc8L, "message"), child));
+      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSmart(getNode(), MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x6530303593ae1651L, 0x48f860fc0e362dc8L, "message"), child));
       installCellInfo(child, editorCell, false);
       return editorCell;
     }
@@ -126,13 +126,13 @@ import jetbrains.mps.lang.core.behavior.PropertyAttribute__BehaviorDescriptor;
         editorCell.setSubstituteInfo((isEmpty ? new SEmptyContainmentSubstituteInfo(editorCell) : new SChildSubstituteInfo(editorCell)));
       }
       if (editorCell.getSRole() == null) {
-        editorCell.setSRole(MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e30f402L, 0x48f860fc0e362dc8L, "message"));
+        editorCell.setSRole(MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x6530303593ae1651L, 0x48f860fc0e362dc8L, "message"));
       }
     }
     @Override
     protected EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e30f402L, 0x48f860fc0e362dc8L, "message")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x6530303593ae1651L, 0x48f860fc0e362dc8L, "message")));
       try {
         EditorCell editorCell = super.createEmptyCell();
         editorCell.setCellId("empty_message");

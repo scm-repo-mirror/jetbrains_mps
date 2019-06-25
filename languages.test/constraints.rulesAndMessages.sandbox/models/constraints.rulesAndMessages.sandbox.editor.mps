@@ -56,13 +56,13 @@
     </language>
   </registry>
   <node concept="24kQdi" id="7FO6JFyzuQw">
-    <ref role="1XX52x" to="npmf:7w_sh_iHHi0" resolve="ChildConcept1" />
+    <ref role="1XX52x" to="npmf:7w_sh_iHHi0" resolve="ChildConcept" />
     <node concept="3EZMnI" id="7FO6JFyzuQB" role="2wV5jI">
       <node concept="2iRfu4" id="7FO6JFyzuQC" role="2iSdaV" />
       <node concept="3EZMnI" id="2o8jHTOBTe_" role="3EZMnx">
         <node concept="2iR$Sn" id="2o8jHTOBTeA" role="2iSdaV" />
         <node concept="3F0ifn" id="2o8jHTOBTeB" role="3EZMnx">
-          <property role="3F0ifm" value="ChildConcept" />
+          <property role="3F0ifm" value="Child" />
           <node concept="3$7fVu" id="2o8jHTOBTeC" role="3F10Kt">
             <property role="3$6WeP" value="0.5" />
           </node>
@@ -98,12 +98,12 @@
     </node>
   </node>
   <node concept="24kQdi" id="7FO6JFyzxCL">
-    <ref role="1XX52x" to="npmf:7FO6JFyzxCl" resolve="ParentConcept1" />
+    <ref role="1XX52x" to="npmf:7FO6JFyzxCl" resolve="ParentConcept" />
     <node concept="3EZMnI" id="7FO6JFyzxCQ" role="2wV5jI">
       <node concept="3EZMnI" id="2o8jHTOBTfs" role="3EZMnx">
         <node concept="2iR$Sn" id="2o8jHTOBTft" role="2iSdaV" />
         <node concept="3F0ifn" id="2o8jHTOBTfu" role="3EZMnx">
-          <property role="3F0ifm" value="ParentConcept" />
+          <property role="3F0ifm" value="Parent" />
           <node concept="3$7fVu" id="2o8jHTOBTfv" role="3F10Kt">
             <property role="3$6WeP" value="0.5" />
           </node>
