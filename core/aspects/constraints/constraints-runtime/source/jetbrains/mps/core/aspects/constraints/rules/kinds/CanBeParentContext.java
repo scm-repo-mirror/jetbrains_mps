@@ -28,7 +28,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import static java.util.Objects.*;
 
 @Immutable
-public class CanBeParent_Context implements RuleContext {
+public class CanBeParentContext implements RuleContext {
   @NotNull private final SAbstractConcept myConcept;
   @NotNull private final SNode myParentNode;
   @NotNull private final SAbstractConcept myChildConcept;
@@ -36,7 +36,7 @@ public class CanBeParent_Context implements RuleContext {
   @Nullable/*TODO @NotNull*/ private final SContainmentLink myLink;
 
 
-  private CanBeParent_Context(@NotNull SNode childNode) {
+  private CanBeParentContext(@NotNull SNode childNode) {
     myChildNode = childNode;
     myChildConcept = childNode.getConcept();
     myParentNode = requireNonNull(childNode.getParent());
@@ -44,9 +44,9 @@ public class CanBeParent_Context implements RuleContext {
     myLink = childNode.getContainmentLink();
   }
 
-  private CanBeParent_Context(@NotNull SAbstractConcept childConcept,
-                              @NotNull SNode parentNode,
-                              @Nullable /*NotNull*/ SContainmentLink link) {
+  private CanBeParentContext(@NotNull SAbstractConcept childConcept,
+                             @NotNull SNode parentNode,
+                             @Nullable /*NotNull*/ SContainmentLink link) {
     myChildConcept = childConcept;
     myParentNode = parentNode;
     myConcept = parentNode.getConcept();
@@ -62,7 +62,7 @@ public class CanBeParent_Context implements RuleContext {
   @NotNull
   @Override
   public RuleKind<? extends RuleContext> getKind() {
-    return CanBeParent_RuleKind.INSTANCE;
+    return CanBeParentRuleKind.INSTANCE;
   }
 
   @NotNull
@@ -86,7 +86,7 @@ public class CanBeParent_Context implements RuleContext {
     return myLink;
   }
 
-  public static final class Builder implements ContextBuilder<CanBeParent_Context> {
+  public static final class Builder implements ContextBuilder<CanBeParentContext> {
     private SNode node;
     private SAbstractConcept childConcept;
     private SContainmentLink link;
@@ -107,14 +107,14 @@ public class CanBeParent_Context implements RuleContext {
     }
 
     @NotNull
-    public CanBeParent_Context buildFromChildNode(@NotNull SNode childNode) {
-      return new CanBeParent_Context(childNode);
+    public CanBeParentContext buildFromChildNode(@NotNull SNode childNode) {
+      return new CanBeParentContext(childNode);
     }
 
     @NotNull
     @Override
-    public CanBeParent_Context build() {
-      return new CanBeParent_Context(childConcept, node, link);
+    public CanBeParentContext build() {
+      return new CanBeParentContext(childConcept, node, link);
     }
   }
 }

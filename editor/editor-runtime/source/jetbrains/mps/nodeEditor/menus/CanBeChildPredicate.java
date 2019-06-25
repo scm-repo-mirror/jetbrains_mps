@@ -15,8 +15,8 @@
  */
 package jetbrains.mps.nodeEditor.menus;
 
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChild_Context;
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChild_Context.Builder;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChildContext;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChildContext.Builder;
 import jetbrains.mps.smodel.constraints.ConstraintsFacade;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -44,9 +44,9 @@ public class CanBeChildPredicate implements Predicate<SAbstractConcept> {
   @Override
   public boolean test(@Nullable SAbstractConcept concept) {
     if (concept == null) return true;
-    CanBeChild_Context context = new Builder().concept(concept)
-                                              .parentNode(myParentNode)
-                                              .link(myContainmentLink).build();
+    CanBeChildContext context = new Builder().concept(concept)
+                                             .parentNode(myParentNode)
+                                             .link(myContainmentLink).build();
 
     return ConstraintsFacade.checkCanBeChild(context).isEmpty();
   }

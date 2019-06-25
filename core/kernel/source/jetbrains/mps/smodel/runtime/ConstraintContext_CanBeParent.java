@@ -15,7 +15,7 @@
  */
 package jetbrains.mps.smodel.runtime;
 
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParent_Context;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParentContext;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -30,26 +30,26 @@ import org.jetbrains.mps.openapi.model.SNode;
  */
 // @Deprecated
 public final class ConstraintContext_CanBeParent {
-  @NotNull private final CanBeParent_Context myNewContext;
+  @NotNull private final CanBeParentContext myNewContext;
 
-  private ConstraintContext_CanBeParent(@NotNull CanBeParent_Context context) {
+  private ConstraintContext_CanBeParent(@NotNull CanBeParentContext context) {
     myNewContext = context;
   }
 
   public ConstraintContext_CanBeParent(@NotNull SNode childNode) {
-    myNewContext = new CanBeParent_Context.Builder().buildFromChildNode(childNode);
+    myNewContext = new CanBeParentContext.Builder().buildFromChildNode(childNode);
   }
 
   public ConstraintContext_CanBeParent(@NotNull SAbstractConcept childConcept, @NotNull SNode node, SContainmentLink link) {
-    myNewContext = new CanBeParent_Context.Builder().childConcept(childConcept).node(node).link(link).build();
+    myNewContext = new CanBeParentContext.Builder().childConcept(childConcept).node(node).link(link).build();
   }
 
-  public static ConstraintContext_CanBeParent convert(@NotNull CanBeParent_Context context) {
+  public static ConstraintContext_CanBeParent convert(@NotNull CanBeParentContext context) {
     return new ConstraintContext_CanBeParent(context);
   }
 
   @NotNull
-  public CanBeParent_Context adapt() {
+  public CanBeParentContext adapt() {
     return myNewContext;
   }
 

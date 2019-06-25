@@ -3412,6 +3412,7 @@
   </node>
   <node concept="312cEu" id="50RHf4RGVPk">
     <property role="TrG5h" value="VisibleModules" />
+    <property role="1EXbeo" value="true" />
     <node concept="312cEg" id="50RHf4RGXQW" role="jymVt">
       <property role="TrG5h" value="myModules" />
       <node concept="2ShNRf" id="50RHf4RGXRZ" role="33vP2m">

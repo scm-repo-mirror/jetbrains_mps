@@ -16,14 +16,14 @@
 package jetbrains.mps.core.aspects.constraints.rules.kinds;
 
 import jetbrains.mps.core.aspects.constraints.rules.RuleKind;
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParent_Context.Builder;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParentContext.Builder;
 import jetbrains.mps.core.aspects.reporting.api.MessageProvider.Msg;
 import jetbrains.mps.core.aspects.reporting.api.MessageProvider.StringMsg;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.MessageFormat;
 
-public enum CanBeParent_RuleKind implements RuleKind<CanBeParent_Context>, LegacyKind<CanBeParent_Context> {
+public enum CanBeParentRuleKind implements RuleKind<CanBeParentContext>, LegacyKind<CanBeParentContext> {
   INSTANCE();
 
   @NotNull
@@ -40,7 +40,7 @@ public enum CanBeParent_RuleKind implements RuleKind<CanBeParent_Context>, Legac
 
   @NotNull
   @Override
-  public Msg getDefaultMessage(@NotNull CanBeParent_Context context) {
+  public Msg getDefaultMessage(@NotNull CanBeParentContext context) {
     String text = MessageFormat.format("Node ''{1}'' cannot be parent of node ''{0}''", context.getChildNode(), context.getParentNode());
     return new StringMsg(text);
   }

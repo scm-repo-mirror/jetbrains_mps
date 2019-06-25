@@ -37,6 +37,6 @@ public interface RuleKind<Context extends RuleContext> {
   /**
    * todo currently with only this API it is impossible to construct a context from non-concrete rule kind
    */
-  @Internal
-  @NotNull ContextBuilder<Context> getContextBuilder();
+//  @Internal
+//  @NotNull ContextBuilder<Context> getContextBuilder();
 }

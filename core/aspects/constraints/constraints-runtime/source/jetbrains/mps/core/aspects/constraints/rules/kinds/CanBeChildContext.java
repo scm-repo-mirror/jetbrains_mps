@@ -28,20 +28,20 @@ import org.jetbrains.annotations.NotNull;
 import static java.util.Objects.requireNonNull;
 
 @Immutable
-public class CanBeChild_Context implements RuleContext {
+public class CanBeChildContext implements RuleContext {
   @NotNull private final SAbstractConcept myConcept;
   @Nullable private final SNode myChildNode;
   @NotNull private final SNode myParentNode;
   @Nullable/*TODO @NotNull*/ private final SContainmentLink myLink;
 
-  private CanBeChild_Context(@NotNull SNode childNode) {
+  private CanBeChildContext(@NotNull SNode childNode) {
     myChildNode = childNode;
     myParentNode = requireNonNull(childNode.getParent());
     myConcept = childNode.getConcept();
     myLink = childNode.getContainmentLink();
   }
 
-  private CanBeChild_Context(@NotNull SAbstractConcept concept, @Nullable SNode node, @NotNull SNode parentNode, SContainmentLink link) {
+  private CanBeChildContext(@NotNull SAbstractConcept concept, @Nullable SNode node, @NotNull SNode parentNode, SContainmentLink link) {
     myConcept = concept;
     myChildNode = node;
     myParentNode = parentNode;
@@ -56,7 +56,7 @@ public class CanBeChild_Context implements RuleContext {
   @NotNull
   @Override
   public RuleKind<? extends RuleContext> getKind() {
-    return CanBeChild_RuleKind.INSTANCE;
+    return CanBeChildRuleKind.INSTANCE;
   }
 
   @Nullable
@@ -74,7 +74,7 @@ public class CanBeChild_Context implements RuleContext {
     return myLink;
   }
 
-  public static final class Builder implements ContextBuilder<CanBeChild_Context> {
+  public static final class Builder implements ContextBuilder<CanBeChildContext> {
     private SNode node;
     private SNode parentNode;
     private SAbstractConcept concept;
@@ -101,8 +101,8 @@ public class CanBeChild_Context implements RuleContext {
     }
 
     @NotNull
-    public CanBeChild_Context buildFromNode(@NotNull SNode node) {
-      return new CanBeChild_Context(node);
+    public CanBeChildContext buildFromNode(@NotNull SNode node) {
+      return new CanBeChildContext(node);
     }
 
     // you can start here if you want
@@ -113,8 +113,8 @@ public class CanBeChild_Context implements RuleContext {
 
     @NotNull
     @Override
-    public CanBeChild_Context build() {
-      return new CanBeChild_Context(concept, node, parentNode, link);
+    public CanBeChildContext build() {
+      return new CanBeChildContext(concept, node, parentNode, link);
     }
   }
 }

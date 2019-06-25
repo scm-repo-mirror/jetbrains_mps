@@ -15,8 +15,8 @@
  */
 package jetbrains.mps.smodel.runtime;
 
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChild_Context;
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChild_Context.Builder;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChildContext;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChildContext.Builder;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -24,7 +24,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.model.SNode;
 
 /**
- * Legacy, {@link CanBeChild_Context} is the replacement
+ * Legacy, {@link CanBeChildContext} is the replacement
  * Arguments of 'can be child' constraint function
  * [AP]
  *
@@ -33,9 +33,9 @@ import org.jetbrains.mps.openapi.model.SNode;
  */
 // @Deprecated
 public final class ConstraintContext_CanBeChild {
-  @NotNull private final CanBeChild_Context myNewContext;
+  @NotNull private final CanBeChildContext myNewContext;
 
-  private ConstraintContext_CanBeChild(@NotNull CanBeChild_Context newContext) {
+  private ConstraintContext_CanBeChild(@NotNull CanBeChildContext newContext) {
     myNewContext = newContext;
   }
 
@@ -50,12 +50,12 @@ public final class ConstraintContext_CanBeChild {
   }
 
   @NotNull
-  public static ConstraintContext_CanBeChild convert(@NotNull CanBeChild_Context context) {
+  public static ConstraintContext_CanBeChild convert(@NotNull CanBeChildContext context) {
     return new ConstraintContext_CanBeChild(context);
   }
 
   @NotNull
-  public CanBeChild_Context adapt() {
+  public CanBeChildContext adapt() {
     return myNewContext;
   }
 

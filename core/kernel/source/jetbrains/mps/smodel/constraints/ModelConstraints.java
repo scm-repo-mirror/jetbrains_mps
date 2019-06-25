@@ -15,8 +15,6 @@
  */
 package jetbrains.mps.smodel.constraints;
 
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChild_RuleKind;
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParent_RuleKind;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.smodel.constraints.ReferenceDescriptor.OkReferenceDescriptor;
@@ -45,6 +43,7 @@ import org.jetbrains.mps.openapi.model.SReference;
 import static jetbrains.mps.smodel.constraints.ConstraintsFacade.checkRulesOfKind;
 import static jetbrains.mps.smodel.constraints.ConstraintsFacade.legacyCanBeChild;
 import static jetbrains.mps.smodel.constraints.ConstraintsFacade.legacyCanBeParent;
+import static jetbrains.mps.smodel.constraints.ConstraintsFacade.legacyCanBeRoot;
 
 /**
  * API for model constraints
@@ -104,10 +103,8 @@ public class ModelConstraints {
     return canBeParent0(new ConstraintContext_CanBeParent(childNode), checkingNodeContext);
   }
 
-
   @Deprecated
-  public static boolean canBeChild(@NotNull SNode parentNode, @NotNull SAbstractConcept childConcept, /*TODO @NotNull*/ SContainmentLink link,
-      @Nullable CheckingNodeContext checkingNodeContext) {
+  public static boolean canBeChild(@NotNull SNode parentNode, @NotNull SAbstractConcept childConcept, /*TODO @NotNull*/ SContainmentLink link, @Nullable CheckingNodeContext checkingNodeContext) {
     return canBeChild0(new ConstraintContext_CanBeChild(childConcept, parentNode, link), checkingNodeContext);
   }
 
@@ -116,25 +113,16 @@ public class ModelConstraints {
     return canBeChild0(new ConstraintContext_CanBeChild(node), checkingNodeContext);
   }
 
+  @Deprecated
   public static boolean canBeRoot(@NotNull SAbstractConcept concept, @NotNull SModel model) {
     return canBeRoot(concept, model, null);
   }
 
+  @Deprecated
   public static boolean canBeRoot(@NotNull SAbstractConcept concept, @NotNull SModel model, CheckingNodeContext checkingNodeContext) {
-    if (concept.isAbstract()) {
-      return false;
-    }
-
-    assert concept instanceof SConcept : "non-abstract SAbstractConcept should be an instance of SConcept";
-    if (!((SConcept) concept).isRootable()) {
-      if (checkingNodeContext != null && concept.getSourceNode() != null) {
-        checkingNodeContext.setBreakingNode(concept.getSourceNode());
-      }
-      return false;
-    }
-
-    ConstraintsDescriptor descriptor = ConceptRegistryUtil.getConstraintsDescriptor(concept);
-    return descriptor.canBeRoot(new ConstraintContext_CanBeRoot(model), checkingNodeContext);
+    ConstraintContext_CanBeRoot context = new ConstraintContext_CanBeRoot(concept, model);
+    boolean legacyResult = legacyCanBeRoot(context, checkingNodeContext);
+    return legacyResult && checkRulesOfKind(context.adapt()).isEmpty();
   }
 
   // private canBe* section
@@ -163,12 +151,12 @@ public class ModelConstraints {
 
   private static boolean canBeParent0(@NotNull ConstraintContext_CanBeParent context, @Nullable CheckingNodeContext checkingNodeContext) {
     boolean legacyResult = legacyCanBeParent(context, checkingNodeContext);
-    return legacyResult && checkRulesOfKind(context.adapt(), CanBeParent_RuleKind.INSTANCE).isEmpty();
+    return legacyResult && checkRulesOfKind(context.adapt()).isEmpty();
   }
 
   private static boolean canBeChild0(@NotNull ConstraintContext_CanBeChild context, @Nullable CheckingNodeContext checkingNodeContext) {
     boolean legacyResult = legacyCanBeChild(context, checkingNodeContext);
-    return legacyResult && checkRulesOfKind(context.adapt(), CanBeChild_RuleKind.INSTANCE).isEmpty();
+    return legacyResult && checkRulesOfKind(context.adapt()).isEmpty();
   }
 
   // scopes part

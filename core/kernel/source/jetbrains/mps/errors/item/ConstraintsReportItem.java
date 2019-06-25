@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.errors.item;
 
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeRootRuleKind;
 import jetbrains.mps.errors.MessageStatus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -79,10 +80,13 @@ public abstract class ConstraintsReportItem extends NodeReportItemBase implement
     }
   }
 
+  @Internal
   public static class CanBeRootFailedReportItem extends ConstraintsReportItem {
-    public CanBeRootFailedReportItem(@NotNull SNode node, @NotNull TypesystemRuleId ruleNode) {
-      super(node, "Not rootable concept added as root", ruleNode);
+    public CanBeRootFailedReportItem(@NotNull SNode node, @NotNull String message, @NotNull TypesystemRuleId ruleNode) {
+
+      super(node, message, ruleNode);
     }
+
     @Override
     public ItemKind getIssueKind() {
       return IssueKindReportItem.CONSTRAINTS.deriveItemKind("not rootable");

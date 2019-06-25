@@ -6,16 +6,19 @@ import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.core.aspects.constraints.rules.Rule;
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChild_Context;
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChild_Context.Builder;
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChild_RuleKind;
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParent_Context;
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParent_RuleKind;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChildContext;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChildContext.Builder;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChildRuleKind;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParentContext;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParentRuleKind;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeRootContext;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeRootRuleKind;
 import jetbrains.mps.core.aspects.reporting.api.MessageProvider;
 import jetbrains.mps.core.aspects.reporting.api.ReportingAspectRegistry;
 import jetbrains.mps.errors.item.ConstraintsReportItem;
 import jetbrains.mps.errors.item.ConstraintsReportItem.CanBeChildFailedReportItem;
 import jetbrains.mps.errors.item.ConstraintsReportItem.CanBeParentFailedReportItem;
+import jetbrains.mps.errors.item.ConstraintsReportItem.CanBeRootFailedReportItem;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 import jetbrains.mps.errors.item.NodeReportItem;
 import jetbrains.mps.errors.item.RuleIdFlavouredItem;
@@ -116,22 +119,28 @@ public class ConstraintsChecker extends AbstractNodeCheckerInEditor implements I
     }
   }
 
-  private void checkCanBeRoot(SNode node, LanguageErrorsCollector errorsCollector, SAbstractConcept nodeConcept) {
+  private void checkCanBeRoot(SNode node, LanguageErrorsCollector errorsCollector, SAbstractConcept concept) {
     if ((SNodeOperations.getParent(node) == null)) {
       final SModel model = SNodeOperations.getModel(node);
-      runCheck(errorsCollector, new _FunctionTypes._return_P1_E0<Boolean, CheckingNodeContext>() {
-        public Boolean invoke(CheckingNodeContext context) {
-          return ModelConstraints.canBeRoot(nodeConcept, model, context);
+      {
+        final CanBeRootContext context = new CanBeRootContext(concept, model);
+        List<Rule<CanBeRootContext>> failingRules = errorsCollector.runCheckingAction(() -> ConstraintsFacade.checkCanBeRoot(context));
+        if (!failingRules.isEmpty()) {
+          @NotNull Rule<CanBeRootContext> ruleWeReport = failingRules.get(0);
+          ReportingAspectRegistry reportingRegistry = getReportingAspectRegistry();
+          String message = CanBeRootRuleKind.INSTANCE.getDefaultMessage(context).toText();
+          if (reportingRegistry != null) {
+            MessageProvider<CanBeRootContext> messageProvider = reportingRegistry.findMessageForRule(concept, ruleWeReport, context);
+            message = messageProvider.yieldMessage(context).toText();
+          }
+          TypesystemRuleId ruleId = new TypesystemRuleId(ruleWeReport.getRuleSourceNode());
+          errorsCollector.addError(new CanBeRootFailedReportItem(node, message, ruleId));
         }
-      }, new _FunctionTypes._return_P1_E0<ConstraintsReportItem.CanBeRootFailedReportItem, TypesystemRuleId>() {
-        public ConstraintsReportItem.CanBeRootFailedReportItem invoke(TypesystemRuleId ruleId) {
-          return new ConstraintsReportItem.CanBeRootFailedReportItem(node, ruleId);
-        }
-      });
+      }
     }
   }
 
-  private void checkParentChild(SNode node, LanguageErrorsCollector errorsCollector, SAbstractConcept nodeConcept, SNode parentNode) {
+  private void checkParentChild(SNode node, LanguageErrorsCollector errorsCollector, SAbstractConcept concept, SNode parentNode) {
     if (parentNode != null) {
       errorsCollector.addDependency(parentNode);
       SConcept parentConcept = SNodeOperations.getConcept(parentNode);
@@ -140,14 +149,14 @@ public class ConstraintsChecker extends AbstractNodeCheckerInEditor implements I
           checkContainmentLinkIsPresentInConcept(node, errorsCollector, parentConcept);
         }
         {
-          final CanBeChild_Context context = new Builder().buildFromNode(node);
-          List<Rule<CanBeChild_Context>> failingRules = errorsCollector.runCheckingAction(() -> ConstraintsFacade.checkCanBeChild(context));
+          final CanBeChildContext context = new Builder().buildFromNode(node);
+          List<Rule<CanBeChildContext>> failingRules = errorsCollector.runCheckingAction(() -> ConstraintsFacade.checkCanBeChild(context));
           if (!failingRules.isEmpty()) {
-            @NotNull Rule<CanBeChild_Context> ruleWeReport = failingRules.get(0);
+            @NotNull Rule<CanBeChildContext> ruleWeReport = failingRules.get(0);
             ReportingAspectRegistry reportingRegistry = getReportingAspectRegistry();
-            String message = CanBeChild_RuleKind.INSTANCE.getDefaultMessage(context).toText();
+            String message = CanBeChildRuleKind.INSTANCE.getDefaultMessage(context).toText();
             if (reportingRegistry != null) {
-              MessageProvider<CanBeChild_Context> messageProvider = reportingRegistry.findMessageForRule(nodeConcept, ruleWeReport, context);
+              MessageProvider<CanBeChildContext> messageProvider = reportingRegistry.findMessageForRule(concept, ruleWeReport, context);
               message = messageProvider.yieldMessage(context).toText();
             }
             TypesystemRuleId ruleId = new TypesystemRuleId(ruleWeReport.getRuleSourceNode());
@@ -156,14 +165,14 @@ public class ConstraintsChecker extends AbstractNodeCheckerInEditor implements I
         }
 
         {
-          final CanBeParent_Context context = new CanBeParent_Context.Builder().buildFromChildNode(node);
-          List<Rule<CanBeParent_Context>> failingRules = errorsCollector.runCheckingAction(() -> ConstraintsFacade.checkCanBeParent(context));
+          final CanBeParentContext context = new CanBeParentContext.Builder().buildFromChildNode(node);
+          List<Rule<CanBeParentContext>> failingRules = errorsCollector.runCheckingAction(() -> ConstraintsFacade.checkCanBeParent(context));
           if (!failingRules.isEmpty()) {
-            @NotNull Rule<CanBeParent_Context> ruleWeReport = failingRules.get(0);
+            @NotNull Rule<CanBeParentContext> ruleWeReport = failingRules.get(0);
             ReportingAspectRegistry reportingRegistry = getReportingAspectRegistry();
-            String message = CanBeParent_RuleKind.INSTANCE.getDefaultMessage(context).toText();
+            String message = CanBeParentRuleKind.INSTANCE.getDefaultMessage(context).toText();
             if (reportingRegistry != null) {
-              MessageProvider<CanBeParent_Context> messageProvider = reportingRegistry.findMessageForRule(nodeConcept, ruleWeReport, context);
+              MessageProvider<CanBeParentContext> messageProvider = reportingRegistry.findMessageForRule(concept, ruleWeReport, context);
               message = messageProvider.yieldMessage(context).toText();
             }
             TypesystemRuleId ruleId = new TypesystemRuleId(ruleWeReport.getRuleSourceNode());
