@@ -26,7 +26,6 @@
     <import index="5ths" ref="r:0cf7389f-e174-4742-a3d2-15c79317838a(jetbrains.mps.debug.api.run)" />
     <import index="uu3z" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.execution.process(MPS.IDEA/)" />
     <import index="3v5a" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.execution(MPS.IDEA/)" />
-    <import index="u78q" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.typesystem.inference(MPS.Core/)" />
   </imports>
   <registry>
     <language id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts">
@@ -153,7 +152,6 @@
         <child id="1081773367579" name="rightExpression" index="3uHU7w" />
         <child id="1081773367580" name="leftExpression" index="3uHU7B" />
       </concept>
-      <concept id="1204200696010" name="jetbrains.mps.baseLanguage.structure.NullType" flags="in" index="1vX6Bi" />
       <concept id="1073239437375" name="jetbrains.mps.baseLanguage.structure.NotEqualsExpression" flags="nn" index="3y3z36" />
       <concept id="1178549954367" name="jetbrains.mps.baseLanguage.structure.IVisible" flags="ng" index="1B3ioH">
         <child id="1178549979242" name="visibility" index="1B3o_S" />
@@ -843,30 +841,19 @@
           <node concept="1W57fq" id="jOEsSnxNKz" role="lGtFl">
             <node concept="3IZrLx" id="jOEsSnxNK$" role="3IZSJc">
               <node concept="3clFbS" id="jOEsSnxNK_" role="2VODD2">
-                <node concept="3clFbF" id="VEh2cXR347" role="3cqZAp">
-                  <node concept="2OqwBi" id="VEh2cXR348" role="3clFbG">
-                    <node concept="2OqwBi" id="VEh2cXR349" role="2Oq$k0">
-                      <node concept="2YIFZM" id="VEh2cXR34a" role="2Oq$k0">
-                        <ref role="37wK5l" to="u78q:~TypeChecker.getInstance()" resolve="getInstance" />
-                        <ref role="1Pybhc" to="u78q:~TypeChecker" resolve="TypeChecker" />
-                      </node>
-                      <node concept="liA8E" id="VEh2cXR34b" role="2OqNvi">
-                        <ref role="37wK5l" to="u78q:~TypeChecker.getSubtypingManager()" resolve="getSubtypingManager" />
-                      </node>
-                    </node>
-                    <node concept="liA8E" id="VEh2cXR34c" role="2OqNvi">
-                      <ref role="37wK5l" to="u78q:~SubtypingManager.isComparable(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SNode,boolean)" resolve="isComparable" />
-                      <node concept="2OqwBi" id="VEh2cXR34d" role="37wK5m">
-                        <node concept="30H73N" id="VEh2cXR34e" role="2Oq$k0" />
-                        <node concept="3TrEf2" id="VEh2cXR34f" role="2OqNvi">
+                <node concept="3clFbF" id="7cqGThzNPZU" role="3cqZAp">
+                  <node concept="3fqX7Q" id="7cqGThzNSNN" role="3clFbG">
+                    <node concept="2OqwBi" id="7cqGThzNSNP" role="3fr31v">
+                      <node concept="2OqwBi" id="7cqGThzNSNQ" role="2Oq$k0">
+                        <node concept="30H73N" id="7cqGThzNSNR" role="2Oq$k0" />
+                        <node concept="3TrEf2" id="7cqGThzNSNS" role="2OqNvi">
                           <ref role="3Tt5mk" to="tpee:4VkOLwjf83e" resolve="type" />
                         </node>
                       </node>
-                      <node concept="2c44tf" id="VEh2cXR34g" role="37wK5m">
-                        <node concept="1vX6Bi" id="VEh2cXR34h" role="2c44tc" />
-                      </node>
-                      <node concept="3clFbT" id="VEh2cXR34i" role="37wK5m">
-                        <property role="3clFbU" value="true" />
+                      <node concept="1mIQ4w" id="7cqGThzNSNT" role="2OqNvi">
+                        <node concept="chp4Y" id="7cqGThzNSNU" role="cj9EA">
+                          <ref role="cht4Q" to="tpee:gWaQbR$" resolve="PrimitiveType" />
+                        </node>
                       </node>
                     </node>
                   </node>
