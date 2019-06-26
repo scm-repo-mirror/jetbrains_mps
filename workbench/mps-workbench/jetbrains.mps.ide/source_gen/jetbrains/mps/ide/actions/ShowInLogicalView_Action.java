@@ -15,6 +15,9 @@ import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.projectPane.logicalview.ProjectTree;
 import jetbrains.mps.ide.projectPane.logicalview.ProjectTreeFindHelper;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.model.SNodeReference;
+import jetbrains.mps.smodel.ModelAccessHelper;
+import jetbrains.mps.util.Computable;
 
 public class ShowInLogicalView_Action extends BaseAction {
   private static final Icon ICON = MPSIcons.ProjectPane.LogicalView;
@@ -22,7 +25,7 @@ public class ShowInLogicalView_Action extends BaseAction {
   public ShowInLogicalView_Action() {
     super("Show Node in Logical View", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -72,8 +75,17 @@ public class ShowInLogicalView_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    ProjectPane pane = ProjectPane.getInstance(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")));
-    SNode nodeToSelect = (pane.showNodeStructure() ? ((SNode) MapSequence.fromMap(_params).get("node")) : ((SNode) MapSequence.fromMap(_params).get("node")).getContainingRoot());
+    final ProjectPane pane = ProjectPane.getInstance(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")));
+    SNodeReference nodeToSelect;
+    if (pane.showNodeStructure()) {
+      nodeToSelect = ((SNode) MapSequence.fromMap(_params).get("node")).getReference();
+    } else {
+      nodeToSelect = new ModelAccessHelper(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModelAccess()).runReadAction(new Computable<SNodeReference>() {
+        public SNodeReference compute() {
+          return ((SNode) MapSequence.fromMap(_params).get("node")).getContainingRoot().getReference();
+        }
+      });
+    }
     pane.selectNode(nodeToSelect, true);
   }
 }

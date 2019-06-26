@@ -9,8 +9,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.actionSystem.CommonDataKeys;
+import jetbrains.mps.project.MPSProject;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.findusages.model.SearchQuery;
 import jetbrains.mps.project.GlobalScope;
@@ -28,7 +27,7 @@ public class FindModuleUsage_Action extends BaseAction {
   public FindModuleUsage_Action() {
     super("Find Usages", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -46,7 +45,7 @@ public class FindModuleUsage_Action extends BaseAction {
       }
     }
     {
-      Project p = event.getData(CommonDataKeys.PROJECT);
+      MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
       if (p == null) {
         return false;
       }
@@ -56,7 +55,7 @@ public class FindModuleUsage_Action extends BaseAction {
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     final SModule module = event.getData(MPSCommonDataKeys.MODULE);
-    final SearchQuery query = new SearchQuery(module, GlobalScope.getInstance());
+    final SearchQuery query = new SearchQuery(module, new GlobalScope(event.getData(MPSCommonDataKeys.MPS_PROJECT).getRepository()));
     final IResultProvider provider;
     if (module instanceof Language) {
       // Given language context module, we are not certain whether intention is to look up module uses or its uses as a language, hence include both 
@@ -65,6 +64,6 @@ public class FindModuleUsage_Action extends BaseAction {
       provider = FindUtils.makeProvider(new ModuleUsagesFinder());
     }
     UsageToolOptions opt = new UsageToolOptions().allowRunAgain(true).forceNewTab(false).navigateIfSingle(false).notFoundMessage(String.format("No usages found for %s", module.getModuleName()));
-    UsagesViewTool.showUsages(event.getData(CommonDataKeys.PROJECT), provider, query, opt);
+    UsagesViewTool.showUsages(event.getData(MPSCommonDataKeys.MPS_PROJECT).getProject(), provider, query, opt);
   }
 }

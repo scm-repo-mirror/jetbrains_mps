@@ -11,6 +11,7 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 
 public class ShowHelpForRoot_Action extends BaseAction {
@@ -19,7 +20,7 @@ public class ShowHelpForRoot_Action extends BaseAction {
   public ShowHelpForRoot_Action() {
     super("Show Help for Root", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -37,6 +38,13 @@ public class ShowHelpForRoot_Action extends BaseAction {
   protected boolean collectActionData(AnActionEvent event, final Map<String, Object> _params) {
     if (!(super.collectActionData(event, _params))) {
       return false;
+    }
+    {
+      MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
+      MapSequence.fromMap(_params).put("project", p);
+      if (p == null) {
+        return false;
+      }
     }
     {
       SModel p = event.getData(MPSCommonDataKeys.CONTEXT_MODEL);
@@ -57,6 +65,10 @@ public class ShowHelpForRoot_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    HelpHelper.showHelpForRoot(((SNode) MapSequence.fromMap(_params).get("node")));
+    ((MPSProject) MapSequence.fromMap(_params).get("project")).getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        HelpHelper.showHelpForRoot(((SNode) MapSequence.fromMap(_params).get("node")));
+      }
+    });
   }
 }

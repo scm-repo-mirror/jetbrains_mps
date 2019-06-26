@@ -28,7 +28,7 @@ public class ShowConceptInHierarchy_Action extends BaseAction {
   public ShowConceptInHierarchy_Action() {
     super("Show Concept in Hierarchy", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -86,8 +86,12 @@ public class ShowConceptInHierarchy_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    HierarchyViewTool tool = ((Project) MapSequence.fromMap(_params).get("ideaProject")).getComponent(HierarchyViewTool.class);
-    tool.showItemInHierarchy(ShowConceptInHierarchy_Action.this.getConceptNode(_params));
+    final HierarchyViewTool tool = ((Project) MapSequence.fromMap(_params).get("ideaProject")).getComponent(HierarchyViewTool.class);
+    ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        tool.showItemInHierarchy(ShowConceptInHierarchy_Action.this.getConceptNode(_params));
+      }
+    });
     tool.openToolLater(true);
   }
   private SNode getConceptNode(final Map<String, Object> _params) {

@@ -12,6 +12,7 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.nodeEditor.NodeHighlightManager;
+import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.openapi.editor.message.EditorMessageOwner;
 import jetbrains.mps.ide.actions.HighlightConstants;
 import java.util.Set;
@@ -25,7 +26,7 @@ public class HighlightCellDependencies_Action extends BaseAction {
   public HighlightCellDependencies_Action() {
     super("Highlighted Cell's Dependent Nodes", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -57,24 +58,29 @@ public class HighlightCellDependencies_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    NodeHighlightManager highlightManager = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getHighlightManager();
-    EditorMessageOwner messageOwner = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getHighlightMessagesOwner();
-    highlightManager.mark(((EditorCell) MapSequence.fromMap(_params).get("editorCell")).getSNode(), HighlightConstants.NODE_COLOR, "node", messageOwner);
-    Set<SNode> nodes = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getNodesCellDependOn(((EditorCell) MapSequence.fromMap(_params).get("editorCell")));
-    if (nodes != null) {
-      for (SNode node : SetSequence.fromSet(nodes)) {
-        highlightManager.mark(node, HighlightConstants.DEPENDENCY_COLOR, "usage", messageOwner);
-      }
-    }
-    Set<SNodeReference> copyOfRefTargets = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getCopyOfRefTargetsCellDependsOn(((EditorCell) MapSequence.fromMap(_params).get("editorCell")));
-    if (copyOfRefTargets != null) {
-      for (SNodeReference nodePointer : SetSequence.fromSet(copyOfRefTargets)) {
-        SNode tgt = nodePointer.resolve(((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getEditorContext().getRepository());
-        if (tgt != null) {
-          highlightManager.mark(tgt, HighlightConstants.DEPENDENCY_COLOR, "usage", messageOwner);
+    final NodeHighlightManager highlightManager = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getHighlightManager();
+    final SRepository repo = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getEditorContext().getRepository();
+    repo.getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        EditorMessageOwner messageOwner = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getHighlightMessagesOwner();
+        highlightManager.mark(((EditorCell) MapSequence.fromMap(_params).get("editorCell")).getSNode(), HighlightConstants.NODE_COLOR, "node", messageOwner);
+        Set<SNode> nodes = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getNodesCellDependOn(((EditorCell) MapSequence.fromMap(_params).get("editorCell")));
+        if (nodes != null) {
+          for (SNode node : SetSequence.fromSet(nodes)) {
+            highlightManager.mark(node, HighlightConstants.DEPENDENCY_COLOR, "usage", messageOwner);
+          }
+        }
+        Set<SNodeReference> copyOfRefTargets = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getCopyOfRefTargetsCellDependsOn(((EditorCell) MapSequence.fromMap(_params).get("editorCell")));
+        if (copyOfRefTargets != null) {
+          for (SNodeReference nodePointer : SetSequence.fromSet(copyOfRefTargets)) {
+            SNode tgt = nodePointer.resolve(repo);
+            if (tgt != null) {
+              highlightManager.mark(tgt, HighlightConstants.DEPENDENCY_COLOR, "usage", messageOwner);
+            }
+          }
         }
       }
-    }
+    });
     highlightManager.repaintAndRebuildEditorMessages();
   }
 }

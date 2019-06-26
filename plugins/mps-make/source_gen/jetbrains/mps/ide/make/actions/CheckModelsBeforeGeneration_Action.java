@@ -8,8 +8,10 @@ import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.generator.GenerationSettingsProvider;
+import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import com.intellij.icons.AllIcons;
 import com.intellij.util.ui.EmptyIcon;
+import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.generator.IModifiableGenerationSettings;
 
 public class CheckModelsBeforeGeneration_Action extends BaseAction {
@@ -18,7 +20,7 @@ public class CheckModelsBeforeGeneration_Action extends BaseAction {
   public CheckModelsBeforeGeneration_Action() {
     super("Check Models Before Generation", "Check models for errors before generation", ICON);
     this.setIsAlwaysVisible(true);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -26,16 +28,35 @@ public class CheckModelsBeforeGeneration_Action extends BaseAction {
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
-    boolean optionEnabled = GenerationSettingsProvider.getInstance().getGenerationSettings().isCheckModelsBeforeGeneration();
+    GenerationSettingsProvider sp = event.getData(MPSCommonDataKeys.MPS_PROJECT).getPlatform().findComponent(GenerationSettingsProvider.class);
+    if (sp == null) {
+      disable(event.getPresentation());
+      return;
+    }
+    boolean optionEnabled = sp.getGenerationSettings().isCheckModelsBeforeGeneration();
     if (optionEnabled) {
-      event.getPresentation().setIcon(AllIcons.Actions.Checked_small);
+      event.getPresentation().setIcon(AllIcons.Actions.Checked);
     } else {
-      event.getPresentation().setIcon(new EmptyIcon(18, 18));
+      event.getPresentation().setIcon(EmptyIcon.create(18, 18));
     }
   }
   @Override
+  protected boolean collectActionData(AnActionEvent event, final Map<String, Object> _params) {
+    if (!(super.collectActionData(event, _params))) {
+      return false;
+    }
+    {
+      MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
+      if (p == null) {
+        return false;
+      }
+    }
+    return true;
+  }
+  @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    IModifiableGenerationSettings settings = GenerationSettingsProvider.getInstance().getGenerationSettings();
+    GenerationSettingsProvider sp = event.getData(MPSCommonDataKeys.MPS_PROJECT).getPlatform().findComponent(GenerationSettingsProvider.class);
+    IModifiableGenerationSettings settings = sp.getGenerationSettings();
     settings.setCheckModelsBeforeGeneration(!(settings.isCheckModelsBeforeGeneration()));
   }
 }

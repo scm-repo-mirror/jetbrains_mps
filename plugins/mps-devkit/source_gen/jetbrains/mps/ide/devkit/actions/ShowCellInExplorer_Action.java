@@ -17,7 +17,7 @@ import com.intellij.openapi.fileEditor.FileEditor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.devkit.cellExplorer.CellExplorerTool;
-import jetbrains.mps.project.Project;
+import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 
 public class ShowCellInExplorer_Action extends BaseAction {
@@ -26,7 +26,7 @@ public class ShowCellInExplorer_Action extends BaseAction {
   public ShowCellInExplorer_Action() {
     super("Show Cell in Explorer", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -87,24 +87,20 @@ public class ShowCellInExplorer_Action extends BaseAction {
     if (toolWindow != null) {
       return new Runnable() {
         public void run() {
-          ShowCellInExplorer_Action.this.activateInToolWindow(toolWindow, event);
+          toolWindow.activate(null, true, true);
         }
       };
     }
 
     if (fileEditor != null) {
+      final MPSProject project = event.getData(MPSCommonDataKeys.MPS_PROJECT);
+      final SNodeReference node = event.getData(MPSCommonDataKeys.NODE).getReference();
       return new Runnable() {
         public void run() {
-          ShowCellInExplorer_Action.this.activateByOpeningNode(event.getData(MPSCommonDataKeys.MPS_PROJECT), event.getData(MPSCommonDataKeys.NODE), event);
+          new EditorNavigator(project).shallFocus(true).open(node);
         }
       };
     }
     return null;
-  }
-  private void activateByOpeningNode(Project project, SNode node, final AnActionEvent event) {
-    new EditorNavigator(project).shallFocus(true).open(node.getReference());
-  }
-  private void activateInToolWindow(ToolWindow toolWindow, final AnActionEvent event) {
-    toolWindow.activate(null, true, true);
   }
 }

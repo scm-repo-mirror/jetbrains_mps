@@ -24,7 +24,7 @@ public class ShowClassInHierarchy_Action extends BaseAction {
   public ShowClassInHierarchy_Action() {
     super("Show Class in Hierarchy", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -68,10 +68,14 @@ public class ShowClassInHierarchy_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    SNode classNode = ShowClassInHierarchy_Action.this.getContextClassifier(_params);
-    BaseLanguageHierarchyViewTool tool = ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getComponent(BaseLanguageHierarchyViewTool.class);
-    tool.showItemInHierarchy(classNode);
-    tool.openToolLater(true);
+    final BaseLanguageHierarchyViewTool tool = ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getComponent(BaseLanguageHierarchyViewTool.class);
+    ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        SNode classNode = ShowClassInHierarchy_Action.this.getContextClassifier(_params);
+        tool.showItemInHierarchy(classNode);
+        tool.openToolLater(true);
+      }
+    });
   }
   private SNode getContextClassifier(final Map<String, Object> _params) {
     SNode refNode = APICellAdapter.getSNodeWRTReference(((EditorCell) MapSequence.fromMap(_params).get("editorCell")));

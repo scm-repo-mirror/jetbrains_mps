@@ -22,7 +22,7 @@ public class GoToRule_Action extends BaseAction {
   public GoToRule_Action() {
     super("Go to Rule", "go to rule action", ICON);
     this.setIsAlwaysVisible(true);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {

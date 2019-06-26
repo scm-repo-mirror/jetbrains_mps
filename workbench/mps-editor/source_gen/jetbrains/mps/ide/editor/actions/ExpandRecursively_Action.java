@@ -19,7 +19,7 @@ public class ExpandRecursively_Action extends BaseAction {
   public ExpandRecursively_Action() {
     super("Expand Recursively", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {

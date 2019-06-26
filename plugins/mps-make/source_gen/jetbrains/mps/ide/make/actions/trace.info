@@ -989,43 +989,69 @@
   </root>
   <root nodeRef="r:cfccec82-df72-4483-9807-88776b4673ab(jetbrains.mps.ide.make.actions)/5332171957773708940">
     <file name="CheckModelsBeforeGeneration_Action.java">
-      <node id="5332171957773708940" at="16,0,17,0" concept="13" trace="ICON" />
-      <node id="5332171957773708940" at="18,47,19,95" concept="15" />
-      <node id="5332171957773708940" at="19,95,20,34" concept="4" />
-      <node id="5332171957773708940" at="20,34,21,41" concept="4" />
-      <node id="5332171957773708940" at="24,32,25,16" concept="10" />
-      <node id="5332171957773708957" at="28,89,29,125" concept="9" />
-      <node id="5332171957773708965" at="30,24,31,70" concept="4" />
-      <node id="5332171957773708975" at="32,12,33,61" concept="4" />
-      <node id="5332171957773708943" at="37,96,38,110" concept="9" />
-      <node id="5332171957773708947" at="38,110,39,89" concept="4" />
-      <node id="5332171957773708973" at="32,10,34,5" concept="1" />
-      <node id="5332171957773708940" at="23,0,27,0" concept="8" trace="isDumbAware#()Z" />
-      <node id="5332171957773708940" at="18,0,23,0" concept="2" trace="CheckModelsBeforeGeneration_Action#()V" />
-      <node id="5332171957773708963" at="29,125,34,5" concept="7" />
-      <node id="5332171957773708940" at="36,0,41,0" concept="8" trace="doExecute#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
-      <node id="5332171957773708940" at="27,0,36,0" concept="8" trace="doUpdate#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
-      <scope id="5332171957773708940" at="24,32,25,16" />
-      <scope id="5332171957773708964" at="30,24,31,70" />
-      <scope id="5332171957773708974" at="32,12,33,61" />
-      <scope id="5332171957773708940" at="37,96,39,89">
+      <node id="5332171957773708940" at="18,0,19,0" concept="13" trace="ICON" />
+      <node id="5332171957773708940" at="20,47,21,95" concept="15" />
+      <node id="5332171957773708940" at="21,95,22,34" concept="4" />
+      <node id="5332171957773708940" at="22,34,23,40" concept="4" />
+      <node id="5332171957773708940" at="26,32,27,16" concept="10" />
+      <node id="6396519110086051431" at="30,89,31,143" concept="9" />
+      <node id="6396519110086058942" at="32,21,33,39" concept="4" />
+      <node id="6396519110086060885" at="33,39,34,13" concept="10" />
+      <node id="5332171957773708957" at="35,5,36,87" concept="9" />
+      <node id="5332171957773708965" at="37,24,38,64" concept="4" />
+      <node id="5332171957773708975" at="39,12,40,64" concept="4" />
+      <node id="5332171957773708940" at="45,53,46,19" concept="10" />
+      <node id="6396519110086042697" at="48,5,49,66" concept="9" />
+      <node id="6396519110086042698" at="50,22,51,21" concept="10" />
+      <node id="5332171957773708940" at="53,5,54,16" concept="10" />
+      <node id="6396519110086066632" at="57,96,58,143" concept="9" />
+      <node id="5332171957773708943" at="58,143,59,72" concept="9" />
+      <node id="5332171957773708947" at="59,72,60,89" concept="4" />
+      <node id="5332171957773708973" at="39,10,41,5" concept="1" />
+      <node id="5332171957773708940" at="44,95,47,5" concept="7" />
+      <node id="6396519110086042698" at="49,66,52,7" concept="7" />
+      <node id="5332171957773708940" at="25,0,29,0" concept="8" trace="isDumbAware#()Z" />
+      <node id="6396519110086054745" at="31,143,35,5" concept="7" />
+      <node id="5332171957773708940" at="20,0,25,0" concept="2" trace="CheckModelsBeforeGeneration_Action#()V" />
+      <node id="5332171957773708963" at="36,87,41,5" concept="7" />
+      <node id="6396519110086042697" at="47,5,53,5" concept="1" />
+      <node id="5332171957773708940" at="56,0,62,0" concept="8" trace="doExecute#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
+      <node id="5332171957773708940" at="43,0,56,0" concept="8" trace="collectActionData#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)Z" />
+      <node id="5332171957773708940" at="29,0,43,0" concept="8" trace="doUpdate#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
+      <scope id="5332171957773708940" at="26,32,27,16" />
+      <scope id="5332171957773708964" at="37,24,38,64" />
+      <scope id="5332171957773708974" at="39,12,40,64" />
+      <scope id="5332171957773708940" at="45,53,46,19" />
+      <scope id="6396519110086042698" at="50,22,51,21" />
+      <scope id="6396519110086054747" at="32,21,34,13" />
+      <scope id="5332171957773708940" at="20,47,23,40" />
+      <scope id="5332171957773708940" at="57,96,60,89">
         <var name="settings" id="5332171957773708944" />
+        <var name="sp" id="6396519110086066633" />
       </scope>
-      <scope id="5332171957773708940" at="18,47,21,41" />
-      <scope id="5332171957773708940" at="23,0,27,0" />
-      <scope id="5332171957773708940" at="18,0,23,0" />
-      <scope id="5332171957773708940" at="36,0,41,0">
+      <scope id="5332171957773708940" at="25,0,29,0" />
+      <scope id="6396519110086042697" at="48,5,52,7">
+        <var name="p" id="6396519110086042697" />
+      </scope>
+      <scope id="5332171957773708940" at="20,0,25,0" />
+      <scope id="5332171957773708940" at="56,0,62,0">
         <var name="_params" id="5332171957773708940" />
         <var name="event" id="5332171957773708940" />
       </scope>
-      <scope id="5332171957773708956" at="28,89,34,5">
+      <scope id="5332171957773708940" at="44,95,54,16" />
+      <scope id="5332171957773708956" at="30,89,41,5">
         <var name="optionEnabled" id="5332171957773708958" />
+        <var name="sp" id="6396519110086051432" />
       </scope>
-      <scope id="5332171957773708940" at="27,0,36,0">
+      <scope id="5332171957773708940" at="43,0,56,0">
         <var name="_params" id="5332171957773708940" />
         <var name="event" id="5332171957773708940" />
       </scope>
-      <unit id="5332171957773708940" at="15,0,42,0" name="jetbrains.mps.ide.make.actions.CheckModelsBeforeGeneration_Action" />
+      <scope id="5332171957773708940" at="29,0,43,0">
+        <var name="_params" id="5332171957773708940" />
+        <var name="event" id="5332171957773708940" />
+      </scope>
+      <unit id="5332171957773708940" at="17,0,63,0" name="jetbrains.mps.ide.make.actions.CheckModelsBeforeGeneration_Action" />
     </file>
     <file name="Make_ApplicationPlugin.java">
       <node id="5332171957773708940" at="35,56,36,56" concept="4" />
