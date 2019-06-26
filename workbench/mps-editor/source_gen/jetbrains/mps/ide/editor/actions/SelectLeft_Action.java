@@ -6,11 +6,10 @@ import jetbrains.mps.workbench.action.BaseAction;
 import javax.swing.Icon;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
-import jetbrains.mps.nodeEditor.EditorComponent;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
+import jetbrains.mps.ide.editor.MPSEditorDataKeys;
 import jetbrains.mps.openapi.editor.selection.SingularSelection;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.ide.editor.MPSEditorDataKeys;
+import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 
 public class SelectLeft_Action extends BaseAction {
@@ -19,7 +18,7 @@ public class SelectLeft_Action extends BaseAction {
   public SelectLeft_Action() {
     super("Left with Selection", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -27,7 +26,7 @@ public class SelectLeft_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    return EditorActionUtils.isReadonlyActionEnabled(((EditorComponent) MapSequence.fromMap(_params).get("editorComponent"))) && ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getSelectionManager().getSelection() instanceof SingularSelection;
+    return EditorActionUtils.isReadonlyActionEnabled(event.getData(MPSEditorDataKeys.EDITOR_COMPONENT)) && event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getSelectionManager().getSelection() instanceof SingularSelection;
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -43,7 +42,6 @@ public class SelectLeft_Action extends BaseAction {
       if (editorComponent != null && editorComponent.isInvalid()) {
         editorComponent = null;
       }
-      MapSequence.fromMap(_params).put("editorComponent", editorComponent);
       if (editorComponent == null) {
         return false;
       }
@@ -52,6 +50,6 @@ public class SelectLeft_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getSelectionManager().getSelection().executeAction(CellActionType.SELECT_LEFT);
+    event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getSelectionManager().getSelection().executeAction(CellActionType.SELECT_LEFT);
   }
 }

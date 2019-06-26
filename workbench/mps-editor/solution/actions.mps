@@ -11,7 +11,6 @@
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="-1" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
     <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="-1" />
-    <use id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior" version="-1" />
     <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="-1" />
   </languages>
   <imports>
@@ -25,7 +24,6 @@
     <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
     <import index="unno" ref="r:61e3d524-8c49-4491-b5e3-f6d6e9364527(jetbrains.mps.util)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
-    <import index="u78q" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.typesystem.inference(MPS.Core/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="6lvu" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.cellMenu(MPS.Editor/)" />
     <import index="kcid" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.cellLayout(MPS.Editor/)" />
@@ -6024,7 +6022,7 @@
     <property role="TrG5h" value="SelectNext" />
     <property role="2uzpH1" value="Select Next" />
     <property role="3GE5qa" value="EditorActions" />
-    <property role="1teQrl" value="true" />
+    <property role="72QZ$" value="true" />
     <node concept="tnohg" id="3E$GKBvNxdn" role="tncku">
       <node concept="3clFbS" id="3E$GKBvNxdo" role="2VODD2">
         <node concept="3clFbF" id="5avgoB3v8EK" role="3cqZAp">
@@ -6084,7 +6082,7 @@
     <property role="TrG5h" value="SelectPrevious" />
     <property role="2uzpH1" value="Select Previous" />
     <property role="3GE5qa" value="EditorActions" />
-    <property role="1teQrl" value="true" />
+    <property role="72QZ$" value="true" />
     <node concept="1DS2jV" id="3E$GKBvO4G9" role="1NuT2Z">
       <property role="TrG5h" value="editorComponent" />
       <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_COMPONENT" resolve="EDITOR_COMPONENT" />
@@ -6422,7 +6420,7 @@
     <property role="TrG5h" value="SelectLeft" />
     <property role="2uzpH1" value="Left with Selection" />
     <property role="3GE5qa" value="EditorActions" />
-    <property role="1teQrl" value="true" />
+    <property role="72QZ$" value="true" />
     <node concept="1DS2jV" id="7aqfviVHWRi" role="1NuT2Z">
       <property role="TrG5h" value="editorComponent" />
       <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_COMPONENT" resolve="EDITOR_COMPONENT" />
@@ -6503,7 +6501,7 @@
     <property role="TrG5h" value="SelectRight" />
     <property role="2uzpH1" value="Right with Selection" />
     <property role="3GE5qa" value="EditorActions" />
-    <property role="1teQrl" value="true" />
+    <property role="72QZ$" value="true" />
     <node concept="1DS2jV" id="7aqfviVHWRk" role="1NuT2Z">
       <property role="TrG5h" value="editorComponent" />
       <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_COMPONENT" resolve="EDITOR_COMPONENT" />
