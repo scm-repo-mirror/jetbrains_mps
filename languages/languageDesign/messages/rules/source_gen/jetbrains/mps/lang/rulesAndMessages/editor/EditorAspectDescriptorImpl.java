@@ -48,6 +48,8 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase {
     SAbstractConcept cncpt = concept;
     switch (conceptIndex2.index(cncpt)) {
       case 0:
+        return Collections.<SubstituteMenu>singletonList(new InlineMessageProvider_SubstituteMenu());
+      case 1:
         return Collections.<SubstituteMenu>singletonList(new AddMyselfToMenuOfRuleBlockMember());
       default:
     }
@@ -56,5 +58,5 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase {
 
   private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce81L), MetaIdFactory.conceptId(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L)).seal();
   private static final ConceptSwitchIndex conceptIndex1 = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb51750L), MetaIdFactory.conceptId(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L)).seal();
-  private static final ConceptSwitchIndex conceptIndex2 = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb51750L)).seal();
+  private static final ConceptSwitchIndex conceptIndex2 = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce81L), MetaIdFactory.conceptId(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb51750L)).seal();
 }

@@ -25,6 +25,7 @@ public class InlineMessage_remove {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
+        // todo: ??? 
         if (!(DeletionApproverUtil.approve(editorContext, node))) {
           SNode ruleWithMsg = SNodeOperations.cast(SNodeOperations.getParent(node), MetaAdapterFactory.getConcept(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, "jetbrains.mps.lang.rulesAndMessages.structure.RuleWithMessage"));
           if (DeletionApproverUtil.approve(editorContext, SLinkOperations.getTarget(ruleWithMsg, MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, 0x46263286dc0ce86L, "messageProvider")))) {

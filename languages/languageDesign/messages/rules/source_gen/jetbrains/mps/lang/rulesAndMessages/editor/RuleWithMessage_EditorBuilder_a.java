@@ -164,7 +164,6 @@ import jetbrains.mps.lang.constraints.rules.editor.Constraints_Styles_StyleSheet
       if (editorCell.getSRole() == null) {
         editorCell.setSRole(MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, 0x46263286dc0ce86L, "messageProvider"));
       }
-      editorCell.addKeyMap(new ForMessageProviderKeyMap());
     }
     @Override
     protected EditorCell createEmptyCell() {

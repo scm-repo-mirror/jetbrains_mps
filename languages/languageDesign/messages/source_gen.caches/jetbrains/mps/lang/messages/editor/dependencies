@@ -73,6 +73,7 @@
     <classNode dependClassName="jetbrains.mps.lang.messages.editor.CombinedMessageExpression_Editor" />
     <classNode dependClassName="jetbrains.mps.lang.messages.editor.CombinedMessageExpression_SubstituteMenu" />
     <classNode dependClassName="jetbrains.mps.lang.messages.editor.LiteralMessageExpression_Editor" />
+    <classNode dependClassName="jetbrains.mps.lang.messages.editor.LiteralMessageExpression_SubstituteMenu" />
     <classNode dependClassName="jetbrains.mps.lang.messages.editor.LiteralMessageExpression_TransformationMenu" />
     <classNode dependClassName="jetbrains.mps.lang.messages.editor.MacroMessageExpression_Editor" />
     <classNode dependClassName="jetbrains.mps.lang.messages.editor.MacroMessageExpression_TransformationMenu" />
@@ -131,6 +132,31 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SProperty" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.editor.runtime.descriptor.AbstractEditorBuilder" />
+  </dependency>
+  <dependency className="jetbrains.mps.lang.messages.editor.LiteralMessageExpression_SubstituteMenu">
+    <classNode dependClassName="java.lang.Object" />
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.lang.Throwable" />
+    <classNode dependClassName="java.util.ArrayList" />
+    <classNode dependClassName="java.util.List" />
+    <classNode dependClassName="jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase" />
+    <classNode dependClassName="jetbrains.mps.lang.editor.menus.MenuPart" />
+    <classNode dependClassName="jetbrains.mps.lang.editor.menus.substitute.ConstraintsFilteringSubstituteMenuPartDecorator" />
+    <classNode dependClassName="jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem" />
+    <classNode dependClassName="jetbrains.mps.lang.editor.menus.substitute.SingleItemSubstituteMenuPart" />
+    <classNode dependClassName="jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo" />
+    <classNode dependClassName="jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuContext" />
+    <classNode dependClassName="jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuItem" />
+    <classNode dependClassName="jetbrains.mps.smodel.SModelUtil_new" />
+    <classNode dependClassName="jetbrains.mps.smodel.SNodePointer" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="org.apache.log4j.Logger" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.persistence.PersistenceFacade" />
+    <classNode extendsClassName="jetbrains.mps.nodeEditor.menus.substitute.SubstituteMenuBase" />
   </dependency>
   <dependency className="jetbrains.mps.lang.messages.editor.LiteralMessageExpression_TransformationMenu">
     <classNode dependClassName="java.lang.Iterable" />
