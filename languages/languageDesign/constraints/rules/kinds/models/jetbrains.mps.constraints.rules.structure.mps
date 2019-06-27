@@ -8,6 +8,7 @@
   <imports>
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
+    <import index="sis7" ref="r:ff619a2b-8fe7-4627-a515-9b4874d6fc53(jetbrains.mps.lang.feedback.problem.structure)" />
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
@@ -91,6 +92,9 @@
     </node>
     <node concept="PrWs8" id="6kKc3mjmAXJ" role="PzmwI">
       <ref role="PrY4T" to="tpee:hCUYCKd" resolve="IValidIdentifier" />
+    </node>
+    <node concept="PrWs8" id="5sUTrySNhWk" role="PzmwI">
+      <ref role="PrY4T" to="sis7:5sUTrySN9z$" resolve="ProblemKind" />
     </node>
     <node concept="1TJgyj" id="6kKc3mjlkau" role="1TKVEi">
       <property role="IQ2ns" value="7291380803376071326" />

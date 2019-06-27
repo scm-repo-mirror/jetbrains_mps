@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:2ac18004-8536-478a-bf05-03a0f407633f(jetbrains.mps.lang.feedback.skeleton.structure)">
+<model ref="r:bce9672d-89d3-47d7-90eb-dde7199917c2(jetbrains.mps.lang.feedback.messages.structure)">
   <persistence version="9" />
   <languages>
     <use id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure" version="7" />
     <devkit ref="78434eb8-b0e5-444b-850d-e7c4ad2da9ab(jetbrains.mps.devkit.aspect.structure)" />
   </languages>
   <imports>
-    <import index="t9po" ref="r:21b4a58c-8629-4511-bd63-7fc9a4e5fc38(jetbrains.mps.lang.messages.structure)" />
-    <import index="tpce" ref="r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
+    <import index="z0wo" ref="r:817adc19-0c97-4bd9-994c-b53f2bb0a6a7(jetbrains.mps.lang.feedback.structure)" />
+    <import index="t9po" ref="r:21b4a58c-8629-4511-bd63-7fc9a4e5fc38(jetbrains.mps.lang.messages.structure)" />
+    <import index="bm42" ref="r:83f25986-cdbc-469a-a327-db97a2ec5a39(jetbrains.mps.lang.constraints.rules.structure)" />
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
       <concept id="1169125787135" name="jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration" flags="ig" index="PkWjJ">
         <property id="6714410169261853888" name="conceptId" index="EcuMT" />
-        <property id="4628067390765907488" name="conceptShortDescription" index="R4oN_" />
         <property id="5092175715804935370" name="conceptAlias" index="34LRSv" />
         <child id="1071489727083" name="linkDeclaration" index="1TKVEi" />
       </concept>
-      <concept id="1169125989551" name="jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration" flags="ig" index="PlHQZ" />
+      <concept id="1169125989551" name="jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration" flags="ig" index="PlHQZ">
+        <child id="1169127546356" name="extends" index="PrDN$" />
+      </concept>
       <concept id="1169127622168" name="jetbrains.mps.lang.structure.structure.InterfaceConceptReference" flags="ig" index="PrWs8">
         <reference id="1169127628841" name="intfc" index="PrY4T" />
       </concept>
       <concept id="1071489090640" name="jetbrains.mps.lang.structure.structure.ConceptDeclaration" flags="ig" index="1TIwiD">
-        <property id="1096454100552" name="rootable" index="19KtqR" />
         <child id="1169129564478" name="implements" index="PzmwI" />
       </concept>
       <concept id="1071489288298" name="jetbrains.mps.lang.structure.structure.LinkDeclaration" flags="ig" index="1TJgyj">
@@ -40,36 +41,30 @@
       </concept>
     </language>
   </registry>
-  <node concept="1TIwiD" id="6kKc3mjFxo7">
-    <property role="EcuMT" value="7291380803381892615" />
-    <property role="TrG5h" value="FeedbackRoot" />
-    <property role="19KtqR" value="true" />
-    <property role="34LRSv" value="Feedback Root" />
-    <property role="R4oN_" value="here you provide feedback for different problems" />
-    <node concept="1TJgyj" id="6f2WQqsTmPt" role="1TKVEi">
-      <property role="IQ2ns" value="7188575577281228125" />
-      <property role="20lmBu" value="reference" />
-      <property role="20lbJX" value="1" />
-      <property role="20kJfa" value="concept" />
-      <ref role="20lvS9" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
+  <node concept="PlHQZ" id="4zSofKecfg2">
+    <property role="EcuMT" value="5258059200641168386" />
+    <property role="TrG5h" value="MessageProvider" />
+    <node concept="PrWs8" id="4zSofKenTNa" role="PrDN$">
+      <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
     </node>
-    <node concept="1TJgyj" id="6kKc3mjFDNM" role="1TKVEi">
-      <property role="IQ2ns" value="7291380803381927154" />
-      <property role="20lmBu" value="aggregation" />
-      <property role="20lbJX" value="0..n" />
-      <property role="20kJfa" value="feedback" />
-      <ref role="20lvS9" node="5sUTrySN6ke" resolve="FeedbackRootMember" />
-    </node>
-    <node concept="PrWs8" id="47X3GcVYaDI" role="PzmwI">
-      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
-    </node>
-    <node concept="PrWs8" id="5sUTrySN6k7" role="PzmwI">
-      <ref role="PrY4T" to="tpce:2hxg_BDjKM4" resolve="IConceptAspect" />
+    <node concept="PrWs8" id="5sUTrySNco9" role="PrDN$">
+      <ref role="PrY4T" to="z0wo:5sUTrySNcd9" resolve="Feedback" />
     </node>
   </node>
-  <node concept="PlHQZ" id="5sUTrySN6ke">
-    <property role="EcuMT" value="6285588811486094606" />
-    <property role="TrG5h" value="FeedbackRootMember" />
+  <node concept="1TIwiD" id="6kKc3mjFxph">
+    <property role="EcuMT" value="7291380803381892689" />
+    <property role="TrG5h" value="ShowMessage" />
+    <property role="34LRSv" value="message" />
+    <node concept="1TJgyj" id="4zSofKedyR8" role="1TKVEi">
+      <property role="IQ2ns" value="5258059200641510856" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="message" />
+      <property role="20lbJX" value="1" />
+      <ref role="20lvS9" to="t9po:4zSofKeg4lv" resolve="CombinedMessageExpression" />
+    </node>
+    <node concept="PrWs8" id="4zSofKecqAK" role="PzmwI">
+      <ref role="PrY4T" node="4zSofKecfg2" resolve="MessageProvider" />
+    </node>
   </node>
 </model>
 
