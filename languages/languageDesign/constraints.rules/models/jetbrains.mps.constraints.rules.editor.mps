@@ -979,7 +979,10 @@
             </node>
           </node>
           <node concept="3F0ifn" id="3ZKqOfptU9y" role="3EZMnx">
-            <property role="3F0ifm" value="ALWAYS" />
+            <property role="3F0ifm" value="always" />
+            <node concept="VechU" id="22K8sKDG6Rk" role="3F10Kt">
+              <property role="Vb096" value="gray" />
+            </node>
             <node concept="3$7jql" id="3ZKqOfptU9z" role="3F10Kt">
               <property role="3$6WeP" value="0.5" />
             </node>
