@@ -2461,7 +2461,7 @@
                   </node>
                   <node concept="2YIFZM" id="xQ1ke1Q7kT" role="33vP2m">
                     <ref role="1Pybhc" to="qpn1:~RootNodeNameIndex" resolve="RootNodeNameIndex" />
-                    <ref role="37wK5l" to="qpn1:~RootNodeNameIndex.doModelParsing(jetbrains.mps.core.platform.Platform,com.intellij.util.indexing.FileContent)" resolve="doModelParsing" />
+                    <ref role="37wK5l" to="qpn1:~RootNodeNameIndex.doModelParsing(jetbrains.mps.components.ComponentHost,com.intellij.util.indexing.FileContent)" resolve="doModelParsing" />
                     <node concept="37vLTw" id="7Sr6m6ILksw" role="37wK5m">
                       <ref role="3cqZAo" node="7Sr6m6ILa$$" resolve="myPlatform" />
                     </node>

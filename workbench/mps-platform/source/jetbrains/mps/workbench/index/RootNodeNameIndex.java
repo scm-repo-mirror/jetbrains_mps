@@ -28,7 +28,7 @@ import com.intellij.util.indexing.ID;
 import com.intellij.util.indexing.SingleEntryFileBasedIndexExtension;
 import com.intellij.util.indexing.SingleEntryIndexer;
 import com.intellij.util.io.DataExternalizer;
-import jetbrains.mps.core.platform.Platform;
+import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.extapi.model.SModelData;
 import jetbrains.mps.extapi.persistence.ModelFactoryService;
 import jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryFromURL;
@@ -71,7 +71,7 @@ public class RootNodeNameIndex extends SingleEntryFileBasedIndexExtension<ModelR
   private static final Logger LOG = LogManager.getLogger(RootNodeNameIndex.class);
   private static final Key<SModelData> PARSED_MODEL = new Key<>("parsed-model");
 
-  public static SModelData doModelParsing(Platform mpsPlatform, FileContent inputData) {
+  public static SModelData doModelParsing(ComponentHost mpsPlatform, FileContent inputData) {
     SModelData modelData = inputData.getUserData(PARSED_MODEL);
 
     if (modelData == null) {
@@ -111,7 +111,7 @@ public class RootNodeNameIndex extends SingleEntryFileBasedIndexExtension<ModelR
   }
 
   @Nullable
-  private static DataSourceFactoryFromURL getDataSourceFactory(Platform mpsPlatform, URL url) {
+  private static DataSourceFactoryFromURL getDataSourceFactory(ComponentHost mpsPlatform, URL url) {
     DataSourceFactoryRuleService service = mpsPlatform.findComponent(DataSourceFactoryRuleService.class);
     DataSourceFactoryFromURL dataSourceFactory = service.getFactory(url);
     if (dataSourceFactory == null) {
@@ -203,9 +203,9 @@ public class RootNodeNameIndex extends SingleEntryFileBasedIndexExtension<ModelR
   }
 
   private static class MyIndexer extends SingleEntryIndexer<ModelRootsData> {
-    private final Platform myPlatform;
+    private final ComponentHost myPlatform;
 
-    private MyIndexer(Platform platform) {
+    private MyIndexer(ComponentHost platform) {
       super(false);
       myPlatform = platform;
     }

@@ -39,12 +39,11 @@ import jetbrains.mps.idea.core.psi.impl.MPSPsiProvider;
 import jetbrains.mps.idea.core.refactoring.NodePtr;
 import jetbrains.mps.idea.core.usages.IdeaSearchScope;
 import jetbrains.mps.idea.java.index.ForeignIdReferenceIndex;
+import jetbrains.mps.idea.java.index.NodeAssociationsData;
 import jetbrains.mps.idea.java.psiStubs.JavaForeignIdBuilder;
 import jetbrains.mps.smodel.SNodeId.Foreign;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.smodel.StaticReference;
-import jetbrains.mps.util.Pair;
-import jetbrains.mps.workbench.goTo.index.SNodeDescriptor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -121,14 +120,12 @@ public class IdPrefixSearch extends QueryExecutorBase<PsiReference, SearchParame
             if (!changed) continue;
 
             findInModel(model, prefixToSearch, processedFilesConsumer, ref -> {
-
-              String role = ref.getRole();
               SNode source = ref.getSourceNode();
 
               PsiElement psiNode = MPSPsiProvider.getInstance(project).getPsi(source.getReference());
               assert psiNode instanceof MPSPsiNode;
 
-              consumer.process(new IdPrefixReference(mpsTarget, role, psiNode));
+              consumer.process(new IdPrefixReference(mpsTarget, ref.getLink(), psiNode));
             });
           }
 
@@ -143,15 +140,12 @@ public class IdPrefixSearch extends QueryExecutorBase<PsiReference, SearchParame
             }
           };
 
-          ValueProcessor<Collection<Pair<SNodeDescriptor, String>>> sReferenceProcessor = (file, refs) -> {
-            for (Pair<SNodeDescriptor, String> ref : refs) {
-              SNodeReference nodeRef = ref.o1.getNodeReference();
-              String role = ref.o2;
-
+          ValueProcessor<NodeAssociationsData> sReferenceProcessor = (file, refs) -> {
+            refs.forEach((nodeRef, link) -> {
               // index got out-of-date on this
               // unfortunately our indices are not always up-to-date, as we don't index yet-unsaved changes
               if (nodeRef.resolve(repository) == null) {
-                continue;
+                return;
               }
 
               PsiElement psiNode = MPSPsiProvider.getInstance(project).getPsi(nodeRef);
@@ -159,8 +153,9 @@ public class IdPrefixSearch extends QueryExecutorBase<PsiReference, SearchParame
               // original node came from MPS index, it must be converted to our PSI element
               assert psiNode instanceof MPSPsiNode;
 
-              consumer.process(new IdPrefixReference(mpsTarget, role, psiNode));
-            }
+              consumer.process(new IdPrefixReference(mpsTarget, link, psiNode));
+
+            });
             return true;
           };
 

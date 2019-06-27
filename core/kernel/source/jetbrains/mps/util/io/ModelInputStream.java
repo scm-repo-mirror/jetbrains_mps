@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ package jetbrains.mps.util.io;
 
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.smodel.SModelId.IntegerSModelId;
-import jetbrains.mps.smodel.SModelReference;
 import jetbrains.mps.smodel.SNodeId.Regular;
 import jetbrains.mps.smodel.adapter.ids.MetaIdHelper;
 import jetbrains.mps.smodel.adapter.ids.SContainmentLinkId;
@@ -30,6 +29,7 @@ import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SModelId;
+import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.module.SModuleReference;
@@ -170,7 +170,7 @@ public class ModelInputStream extends DataInputStream {
     SModelId id = readModelID();
     String modelName = readString();
     SModuleReference moduleRef = readModuleReference();
-    SModelReference ref = new SModelReference(moduleRef, id, modelName);
+    SModelReference ref = new jetbrains.mps.smodel.SModelReference(moduleRef, id, modelName);
     myModelRefs.add(ref);
     return ref;
   }
