@@ -12106,7 +12106,7 @@
       <property role="od$2w" value="false" />
       <property role="DiZV1" value="false" />
       <node concept="37vLTG" id="5s44y2LgIl_" role="3clF46">
-        <property role="TrG5h" value="eventTargetComponent" />
+        <property role="TrG5h" value="eventTargMpsTestsSuiteetComponent" />
         <node concept="3uibUv" id="5s44y2LgIlA" role="1tU5fm">
           <ref role="3uigEE" to="z60i:~Component" resolve="Component" />
         </node>
@@ -12120,7 +12120,7 @@
           </node>
           <node concept="3clFbC" id="5s44y2LgIlG" role="3clFbw">
             <node concept="37vLTw" id="5s44y2LgIlH" role="3uHU7B">
-              <ref role="3cqZAo" node="5s44y2LgIl_" resolve="eventTargetComponent" />
+              <ref role="3cqZAo" node="5s44y2LgIl_" resolve="eventTargMpsTestsSuiteetComponent" />
             </node>
             <node concept="10Nm6u" id="5s44y2LgIlI" role="3uHU7w" />
           </node>
@@ -12134,7 +12134,7 @@
             </node>
             <node concept="2OqwBi" id="5s44y2LgIlN" role="33vP2m">
               <node concept="37vLTw" id="5s44y2LgIlO" role="2Oq$k0">
-                <ref role="3cqZAo" node="5s44y2LgIl_" resolve="eventTargetComponent" />
+                <ref role="3cqZAo" node="5s44y2LgIl_" resolve="eventTargMpsTestsSuiteetComponent" />
               </node>
               <node concept="liA8E" id="5s44y2LgIlP" role="2OqNvi">
                 <ref role="37wK5l" to="wyt6:~Object.getClass()" resolve="getClass" />
@@ -12182,7 +12182,7 @@
                       <ref role="3cqZAo" node="5s44y2LgIlR" resolve="theMethod" />
                     </node>
                     <node concept="liA8E" id="5s44y2LgIm9" role="2OqNvi">
-                      <ref role="37wK5l" to="t6h5:~AccessibleObject.setAccessible(boolean)" resolve="setAccessible" />
+                      <ref role="37wK5l" to="t6h5:~Method.setAccessible(boolean)" resolve="setAccessible" />
                       <node concept="3clFbT" id="5s44y2LgIma" role="37wK5m">
                         <property role="3clFbU" value="true" />
                       </node>
@@ -12248,7 +12248,7 @@
                 </node>
                 <node concept="2OqwBi" id="5s44y2LgIm$" role="3uHU7w">
                   <node concept="37vLTw" id="5s44y2LgIm_" role="2Oq$k0">
-                    <ref role="3cqZAo" node="5s44y2LgIl_" resolve="eventTargetComponent" />
+                    <ref role="3cqZAo" node="5s44y2LgIl_" resolve="eventTargMpsTestsSuiteetComponent" />
                   </node>
                   <node concept="liA8E" id="5s44y2LgImA" role="2OqNvi">
                     <ref role="37wK5l" to="wyt6:~Object.getClass()" resolve="getClass" />
