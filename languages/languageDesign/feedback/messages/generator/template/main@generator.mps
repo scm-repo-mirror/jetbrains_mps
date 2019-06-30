@@ -7,10 +7,12 @@
   <imports>
     <import index="m19b" ref="r:bce9672d-89d3-47d7-90eb-dde7199917c2(jetbrains.mps.lang.feedback.messages.structure)" />
     <import index="o99v" ref="8e98f4e2-decf-4e97-bf80-9109e8b759ee/java:jetbrains.mps.core.aspects.constraints.rules(jetbrains.mps.lang.constraints.rules.runtime/)" />
-    <import index="16ha" ref="6e98f4e2-decf-4e97-bf80-9109e8b759ef/java:jetbrains.mps.core.aspects.reporting.api(jetbrains.mps.lang.messages.api/)" />
     <import index="mo3b" ref="r:693e7312-21d7-4b8c-bc92-c79ef99b1277(util)" />
     <import index="sis7" ref="r:ff619a2b-8fe7-4627-a515-9b4874d6fc53(jetbrains.mps.lang.feedback.problem.structure)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
+    <import index="9jwd" ref="6e98f4e2-decf-4e97-bf80-9109e8b759ef/java:jetbrains.mps.core.aspects.feedback.api(jetbrains.mps.lang.feedback.alltogether/)" />
+    <import index="j809" ref="6e98f4e2-decf-4e97-bf80-9109e8b759ef/java:jetbrains.mps.core.aspects.feedback.messages(jetbrains.mps.lang.feedback.alltogether/)" />
+    <import index="tjjq" ref="6e98f4e2-decf-4e97-bf80-9109e8b759ef/java:jetbrains.mps.core.context(jetbrains.mps.lang.feedback.alltogether/)" />
     <import index="z0wo" ref="r:817adc19-0c97-4bd9-994c-b53f2bb0a6a7(jetbrains.mps.lang.feedback.structure)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
@@ -199,8 +201,8 @@
         <node concept="YeOm9" id="7vh765Fm11z" role="2ShVmc">
           <node concept="1Y3b0j" id="7vh765Fm11A" role="YeSDq">
             <property role="2bfB8j" value="true" />
-            <ref role="1Y3XeK" to="16ha:~BaseMessageProvider" resolve="BaseMessageProvider" />
-            <ref role="37wK5l" to="16ha:~BaseMessageProvider.&lt;init&gt;(jetbrains.mps.core.aspects.constraints.rules.RuleId)" resolve="BaseMessageProvider" />
+            <ref role="1Y3XeK" to="j809:~BaseMessageProvider" resolve="BaseMessageProvider" />
+            <ref role="37wK5l" to="j809:~BaseMessageProvider.&lt;init&gt;(jetbrains.mps.core.aspects.feedback.problem.ProblemId)" resolve="BaseMessageProvider" />
             <node concept="10Nm6u" id="5sUTrySOsp9" role="37wK5m">
               <node concept="29HgVG" id="5sUTrySOsU0" role="lGtFl">
                 <node concept="3NFfHV" id="5sUTrySOsU1" role="3NFExx">
@@ -225,12 +227,12 @@
                 <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
               </node>
               <node concept="3uibUv" id="wt10QINQbV" role="3clF45">
-                <ref role="3uigEE" to="16ha:~MessageProvider$StringMsg" resolve="MessageProvider.StringMsg" />
+                <ref role="3uigEE" to="j809:~MessageProvider$StringMsg" resolve="MessageProvider.StringMsg" />
               </node>
               <node concept="37vLTG" id="7vh765Fm2kV" role="3clF46">
                 <property role="TrG5h" value="context" />
                 <node concept="3uibUv" id="5sUTrySO159" role="1tU5fm">
-                  <ref role="3uigEE" to="o99v:~RuleContext" resolve="RuleContext" />
+                  <ref role="3uigEE" to="tjjq:~Context" resolve="Context" />
                   <node concept="5jKBG" id="5sUTrySO15a" role="lGtFl">
                     <ref role="v9R2y" node="5sUTrySNzqq" resolve="reduceContextType" />
                   </node>
@@ -240,7 +242,7 @@
                 <node concept="3cpWs6" id="7vh765Fm4V1" role="3cqZAp">
                   <node concept="2ShNRf" id="wt10QINSYX" role="3cqZAk">
                     <node concept="1pGfFk" id="wt10QINV1N" role="2ShVmc">
-                      <ref role="37wK5l" to="16ha:~MessageProvider$StringMsg.&lt;init&gt;(java.lang.String)" resolve="MessageProvider.StringMsg" />
+                      <ref role="37wK5l" to="j809:~MessageProvider$StringMsg.&lt;init&gt;(java.lang.String)" resolve="MessageProvider.StringMsg" />
                       <node concept="Xl_RD" id="1ToVZma5T3$" role="37wK5m">
                         <property role="Xl_RC" value="" />
                         <node concept="1W57fq" id="2RaX98HsLsL" role="lGtFl">
@@ -287,7 +289,7 @@
               </node>
             </node>
             <node concept="3uibUv" id="5sUTrySO0wE" role="2Ghqu4">
-              <ref role="3uigEE" to="o99v:~RuleContext" resolve="RuleContext" />
+              <ref role="3uigEE" to="tjjq:~Context" resolve="Context" />
               <node concept="5jKBG" id="5sUTrySO0wF" role="lGtFl">
                 <ref role="v9R2y" node="5sUTrySNzqq" resolve="reduceContextType" />
               </node>
@@ -296,9 +298,9 @@
         </node>
       </node>
       <node concept="3uibUv" id="1ToVZma5Izr" role="1tU5fm">
-        <ref role="3uigEE" to="16ha:~MessageProvider" resolve="MessageProvider" />
+        <ref role="3uigEE" to="9jwd:~FeedbackProvider" resolve="FeedbackProvider" />
         <node concept="3uibUv" id="7vh765Fmx1l" role="11_B2D">
-          <ref role="3uigEE" to="o99v:~RuleContext" resolve="RuleContext" />
+          <ref role="3uigEE" to="tjjq:~Context" resolve="Context" />
           <node concept="5jKBG" id="5sUTrySNGF1" role="lGtFl">
             <ref role="v9R2y" node="5sUTrySNzqq" resolve="reduceContextType" />
           </node>

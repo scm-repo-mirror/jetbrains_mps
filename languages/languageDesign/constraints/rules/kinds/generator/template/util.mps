@@ -173,8 +173,8 @@
           <node concept="3clFbS" id="7phS86Nkh1u" role="3clFbx">
             <node concept="3cpWs6" id="7phS86Nkh1v" role="3cqZAp">
               <node concept="2tJFMh" id="7phS86Nkh1w" role="3cqZAk">
-                <node concept="ZC_QK" id="2o8jHTOAWgc" role="2tJFKM">
-                  <ref role="2aWVGs" to="pdwk:~CanBeChildContext" resolve="CanBeChildContext" />
+                <node concept="ZC_QK" id="4lnto0oJgdo" role="2tJFKM">
+                  <ref role="2aWVGs" to="pdwk:~ContainmentContext" resolve="ContainmentContext" />
                 </node>
               </node>
             </node>
@@ -193,8 +193,8 @@
             <node concept="3clFbS" id="7phS86Nkh1D" role="3eOfB_">
               <node concept="3cpWs6" id="7phS86Nkh1E" role="3cqZAp">
                 <node concept="2tJFMh" id="7phS86Nkh1F" role="3cqZAk">
-                  <node concept="ZC_QK" id="2o8jHTOAWiC" role="2tJFKM">
-                    <ref role="2aWVGs" to="pdwk:~CanBeParentContext" resolve="CanBeParentContext" />
+                  <node concept="ZC_QK" id="4lnto0oJgfL" role="2tJFKM">
+                    <ref role="2aWVGs" to="pdwk:~ContainmentContext" resolve="ContainmentContext" />
                   </node>
                 </node>
               </node>
@@ -275,8 +275,8 @@
           <node concept="3clFbS" id="3Y1amMrg0Ew" role="3clFbx">
             <node concept="3cpWs6" id="3Y1amMrg0Ex" role="3cqZAp">
               <node concept="2tJFMh" id="3Y1amMrg0Ey" role="3cqZAk">
-                <node concept="ZC_QK" id="2o8jHTOAWjE" role="2tJFKM">
-                  <ref role="2aWVGs" to="pdwk:~CanBeChildRuleKind" resolve="CanBeChildRuleKind" />
+                <node concept="ZC_QK" id="4lnto0oJgn_" role="2tJFKM">
+                  <ref role="2aWVGs" to="pdwk:~ContainmentContext" resolve="ContainmentContext" />
                 </node>
               </node>
             </node>
