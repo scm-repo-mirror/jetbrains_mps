@@ -52,18 +52,18 @@ public abstract class ConstraintsReportItem extends NodeReportItemBase implement
 
   @Internal
   public static class PropertyConstraintReportItem extends ConstraintsReportItem implements NodeFeatureReportItem {
-    private SProperty myProperty;
-    public PropertyConstraintReportItem(@NotNull SNode node, SProperty property, TypesystemRuleId ruleId) {
-      super(node, getMessage(property), ruleId);
+    private final SProperty myProperty;
+
+    public PropertyConstraintReportItem(@NotNull SNode node, @NotNull SProperty property, @NotNull TypesystemRuleId ruleId, @NotNull String message) {
+      super(node, message, ruleId);
       myProperty = property;
     }
-    public static String getMessage(SProperty property) {
-      return "Property constraint violation for property \"" + property.getName() + "\"";
-    }
+
     @Override
     public SProperty getConceptFeature() {
       return myProperty;
     }
+
     @Override
     public ItemKind getIssueKind() {
       return IssueKindReportItem.CONSTRAINTS.deriveItemKind("property constraint violation");

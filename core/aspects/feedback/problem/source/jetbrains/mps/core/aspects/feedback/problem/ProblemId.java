@@ -15,6 +15,14 @@
  */
 package jetbrains.mps.core.aspects.feedback.problem;
 
+/**
+ * Something to compare Problems by.
+ * Supposed to simple and light.
+ *
+ * @author apyshkin
+ */
 public interface ProblemId {
-  long getId();
+  boolean equals(Object obj);
+
+  int hashCode();
 }

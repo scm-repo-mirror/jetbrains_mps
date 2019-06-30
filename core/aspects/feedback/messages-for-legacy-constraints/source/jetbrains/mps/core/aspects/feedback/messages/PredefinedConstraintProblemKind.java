@@ -17,12 +17,31 @@ package jetbrains.mps.core.aspects.feedback.messages;
 
 import jetbrains.mps.core.aspects.feedback.problem.ProblemId;
 import jetbrains.mps.core.aspects.feedback.problem.ProblemKindAlsoProblem;
+import jetbrains.mps.core.context.Context;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
-public enum RefOutOfScopeProblemKind implements ProblemKindAlsoProblem, ProblemId {
-  INSTANCE;
+public enum PredefinedConstraintProblemKind implements ProblemKindAlsoProblem, ProblemId, LegacyProblemKind {
+  PROPERTY_CONSTRAINTS() {
+    @NotNull
+    @Override
+    public String getDefaultMessage(@NotNull Context context) {
+      if (!(context instanceof FailingPropertyConstraintContext)) {
+        throw new IllegalArgumentException("Received illegal context " + context);
+      }
+      SProperty property = ((FailingPropertyConstraintContext) context).getProperty();
+      return "Property constraint violation for property \"" + property.getName() + "\"";
+    }
+  },
+  REFERENCE_SCOPE_CONSTRAINTS() {
+    @NotNull
+    @Override
+    public String getDefaultMessage(@NotNull Context context) {
+      return null;
+    }
+  };
 
   @NotNull
   @Override

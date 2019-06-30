@@ -34,9 +34,11 @@ public class OutOfScopeReferenceReportItem extends ReferenceReportItem implement
   private final TypesystemRuleId myRuleNode;
   private final EditorQuickFix myQuickfix;
   private final EditorQuickFix myAddImportQuickfix;
+
   public OutOfScopeReferenceReportItem(@NotNull SReference ref, @Nullable SNodeReference ruleNode, @NotNull EditorQuickFix quickfix) {
     this(ref, ruleNode, quickfix, null);
   }
+
   public OutOfScopeReferenceReportItem(@NotNull SReference ref, @Nullable SNodeReference ruleNode, @NotNull EditorQuickFix quickfix, @Nullable EditorQuickFix addImportQuickfix) {
     super(MessageStatus.ERROR, ref, getMessage(ref.getTargetNode().getName(), ref.getLink()));
     myRuleNode = ruleNode == null ? null : new TypesystemRuleId(ruleNode);

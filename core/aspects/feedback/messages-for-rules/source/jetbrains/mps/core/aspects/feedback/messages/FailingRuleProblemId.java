@@ -36,11 +36,6 @@ public final class FailingRuleProblemId implements ProblemId {
   }
 
   @Override
-  public long getId() {
-    return myRuleId.getId();
-  }
-
-  @Override
   public int hashCode() {
     return myRuleId.hashCode();
   }

@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.text.MessageFormat;
 
-public enum CanBeRootKind implements RuleKind, LegacyKind<CanBeRootContext> {
+public enum CanBeRootKind implements RuleKind, LegacyRuleKind<CanBeRootContext> {
   INSTANCE();
 
   @NotNull

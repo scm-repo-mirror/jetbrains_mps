@@ -21,6 +21,7 @@ import jetbrains.mps.core.aspects.constraints.rules.RuleKind;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChildKind;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParentKind;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeRootContext;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeRootKind;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.ContainmentContext;
 import jetbrains.mps.core.context.Context;
 import jetbrains.mps.smodel.language.ConceptRegistry;
@@ -44,40 +45,39 @@ import java.util.List;
  * Here we expose API for external constraints invocation
  * See also the legacy counterpart {@link ModelConstraints}
  *
+ * fixme to be rewritten, we ned to consider the legacy + new constraints interoperability much better than this
+ *
  * @author apyshkin
  */
-public class ConstraintsFacade {
-  private ConstraintsFacade() {}
+public class ConstraintsCanBeFacade {
+  private ConstraintsCanBeFacade() {}
 
   /**
    * @return canBeRoot failing rules
    */
   @NotNull
   public static List<Rule<CanBeRootContext>> checkCanBeRoot(@NotNull CanBeRootContext context) {
-//    SAbstractConcept concept = context.getConcept();
-//    if (concept.isAbstract()) {
-//      return Collections.emptyList();
-//    }
-//
-//    if (!(concept instanceof SConcept)) {
-//      throw new IllegalArgumentException("The argument must be abstract or implement SConcept");
-//    }
-//    if (!((SConcept) concept).isRootable()) {
-//      return Collections.singletonList(new AdaptedLegacyConstraintsRule<>(concept, CanBeRootKind.INSTANCE, concept.getSourceNode()));
-//    }
-//
-//    CheckingNodeContextImpl debugInfo = new CheckingNodeContextImpl();
-//    CanBeRootKind kind = CanBeRootKind.INSTANCE;
-//    List<Rule<CanBeRootContext>> constraintsRules = checkRulesOfKind(kind, context);
-//    boolean legacyAreOk = legacyCanBeRoot(ConstraintContext_CanBeRoot.convert(context), debugInfo);
-//    if (!legacyAreOk) {
-//      constraintsRules.add(new AdaptedLegacyConstraintsRule<>(context.getConcept(), kind, debugInfo.getBreakingNode()));
-//    }
-//    return constraintsRules;
-    return Collections.emptyList();
-  }
+    SAbstractConcept concept = context.getConcept();
+    if (concept.isAbstract()) {
+      return Collections.emptyList();
+    }
 
-  /**
+    if (!(concept instanceof SConcept)) {
+      throw new IllegalArgumentException("The argument must be abstract or implement SConcept");
+    }
+    if (!((SConcept) concept).isRootable()) {
+      return Collections.singletonList(new AdaptedLegacyConstraintsRule<>(concept, CanBeRootKind.INSTANCE, concept.getSourceNode()));
+    }
+
+    CheckingNodeContextImpl debugInfo = new CheckingNodeContextImpl();
+    CanBeRootKind kind = CanBeRootKind.INSTANCE;
+    List<Rule<CanBeRootContext>> constraintsRules = checkPerConceptRulesOfKind(context.getConcept(), kind, context);
+    boolean legacyAreOk = legacyCanBeRoot(ConstraintContext_CanBeRoot.convert(context), debugInfo);
+    if (!legacyAreOk) {
+      constraintsRules.add(new AdaptedLegacyConstraintsRule<>(context.getConcept(), kind, debugInfo.getBreakingNode()));
+    }
+    return constraintsRules;
+  }
 
   /**
    * @return canBeParent failing rules

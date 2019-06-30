@@ -16,7 +16,7 @@
 package jetbrains.mps.nodeEditor.menus;
 
 import jetbrains.mps.core.aspects.constraints.rules.kinds.ContainmentContext;
-import jetbrains.mps.smodel.constraints.ConstraintsFacade;
+import jetbrains.mps.smodel.constraints.ConstraintsCanBeFacade;
 import jetbrains.mps.smodel.constraints.ModelConstraints;
 import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
@@ -61,7 +61,7 @@ public class CanBeParentPredicate implements Predicate<SAbstractConcept> {
                                                                  .childConcept(concept)
                                                                  .link(myContainmentLink)
                                                                  .build();
-    return (myContainmentLink == null || ConstraintsFacade.checkCanBeParent(context).isEmpty()) &&
+    return (myContainmentLink == null || ConstraintsCanBeFacade.checkCanBeParent(context).isEmpty()) &&
            ModelConstraints.canBeAncestor(myParentNode, concept, myContainmentLink, null);
   }
 }

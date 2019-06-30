@@ -19,7 +19,16 @@ import jetbrains.mps.core.aspects.constraints.rules.RuleKind;
 import jetbrains.mps.core.aspects.feedback.problem.ProblemId;
 import jetbrains.mps.core.aspects.feedback.problem.ProblemKindAlsoProblem;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.annotations.Immutable;
+import org.jetbrains.mps.openapi.model.SNodeReference;
 
+/**
+ * Kind adapter for failing rules
+ *
+ * @author apyshkin
+ */
+@Immutable
 public final class FailingRuleProblemKind implements ProblemKindAlsoProblem {
   private final RuleKind myKind;
 
@@ -30,38 +39,14 @@ public final class FailingRuleProblemKind implements ProblemKindAlsoProblem {
   @NotNull
   @Override
   public ProblemId getId() {
-    return new FailingRuleKindProblemId(myKind.getId());
+    return new FailingRuleKindProblemId(myKind);
   }
 
-  /**
-   * We want to have customizable defaults
-   * For now I do it by turning the problem kind into the problem.
-   * Technically I introduced id there.
-   * AP
-   */
-  static final class FailingRuleKindProblemId implements ProblemId {
-    private final long myId;
-
-    FailingRuleKindProblemId(long id) {
-      myId = id;
-    }
-
-    @Override
-    public long getId() {
-      return myId;
-    }
-
-    @Override
-    public int hashCode() {
-      return Long.hashCode(myId);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-      if (obj instanceof FailingRuleKindProblemId) {
-        return (((FailingRuleKindProblemId) obj).getId() == getId());
-      }
-      return false;
-    }
+  @Nullable
+  @Override
+  public SNodeReference getProblemSource() {
+    // fixme must return myKind.getSourceNode()
+    return null;
   }
+
 }

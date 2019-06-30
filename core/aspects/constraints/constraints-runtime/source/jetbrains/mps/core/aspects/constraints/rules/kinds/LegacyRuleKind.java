@@ -15,29 +15,17 @@
  */
 package jetbrains.mps.core.aspects.constraints.rules.kinds;
 
-import jetbrains.mps.core.aspects.constraints.rules.RuleKind;
-import jetbrains.mps.core.aspects.constraints.rules.kinds.ContainmentContext.Builder;
+import jetbrains.mps.core.context.Context;
 import org.jetbrains.annotations.NotNull;
 
-import java.text.MessageFormat;
-
-public enum CanBeParentKind implements RuleKind, LegacyRuleKind<ContainmentContext> {
-  INSTANCE();
-
-  @NotNull
-  @Override
-  public String getName() {
-    return INSTANCE.name();
-  }
-
-  @NotNull
-  public Builder getContextBuilder() {
-    return new Builder();
-  }
-
-  @NotNull
-  @Override
-  public String getDefaultMessage(@NotNull ContainmentContext context) {
-    return MessageFormat.format("Node ''{1}'' cannot be parent of node ''{0}''", context.getChildNode(), context.getParentNode());
-  }
+/**
+ * We have a number of legacy rule types (e.g canBeChild, canBeParent, etc)
+ * for them we want to define the default message in order for legacy constraints invocation to take the message up from here
+ * this we need only for transition period, while all the constraints of the specific kind are not migrated to the new constraint rules.
+ * For rules we will have the default messages define in MPS part (for instance, in lang.core.constraints), not in java api.
+ *
+ * @author apyshkin
+ */
+public interface LegacyRuleKind<C extends Context> {
+  @NotNull String getDefaultMessage(@NotNull C context);
 }

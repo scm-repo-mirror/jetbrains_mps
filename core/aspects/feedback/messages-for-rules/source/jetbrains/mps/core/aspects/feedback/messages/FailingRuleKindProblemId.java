@@ -15,24 +15,36 @@
  */
 package jetbrains.mps.core.aspects.feedback.messages;
 
+import jetbrains.mps.core.aspects.constraints.rules.RuleKind;
 import jetbrains.mps.core.aspects.feedback.problem.ProblemId;
-import jetbrains.mps.core.aspects.feedback.problem.ProblemKindAlsoProblem;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.model.SNodeReference;
+import org.jetbrains.mps.annotations.Immutable;
 
-public enum RefOutOfScopeProblemKind implements ProblemKindAlsoProblem, ProblemId {
-  INSTANCE;
+/**
+ * Adapter from rules to problems
+ * We want to have customizable defaults
+ * I do it by turning the problem kind into the problem.
+ *
+ * @author apyshkin
+ */
+@Immutable
+public final class FailingRuleKindProblemId implements ProblemId {
+  private final RuleKind myId;
 
-  @NotNull
-  @Override
-  public ProblemId getId() {
-    return this;
+  public FailingRuleKindProblemId(@NotNull RuleKind id) {
+    myId = id;
   }
 
-  @Nullable
   @Override
-  public SNodeReference getProblemSource() {
-    return null;
+  public int hashCode() {
+    return myId.hashCode();
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (obj instanceof FailingRuleKindProblemId) {
+      return (((FailingRuleKindProblemId) obj).myId == myId);
+    }
+    return false;
   }
 }

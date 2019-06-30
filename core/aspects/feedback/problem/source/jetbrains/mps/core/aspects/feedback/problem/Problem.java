@@ -16,8 +16,27 @@
 package jetbrains.mps.core.aspects.feedback.problem;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.model.SNodeReference;
 
+/**
+ * It represents MPS-related problem.
+ * It could be failing typesystem rule, failing constraints rule,
+ * even not deployed language.
+ *
+ * @author apyshkin
+ */
 public interface Problem {
+  /**
+   * @return the sort of the problem, e.g. the problem kind 'reference is out of scope'
+   */
   @NotNull ProblemKind getKind();
+
   @NotNull ProblemId getId();
+
+  /**
+   * debug info
+   * @return the origin of the problem, might be used for debug
+   */
+  @Nullable SNodeReference getProblemSource();
 }

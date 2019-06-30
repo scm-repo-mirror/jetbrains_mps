@@ -18,6 +18,8 @@ package jetbrains.mps.smodel.constraints;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChildKind;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParentKind;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeRootKind;
+import jetbrains.mps.core.aspects.feedback.messages.FailingPropertyConstraintContext;
+import jetbrains.mps.core.aspects.feedback.messages.FailingPropertyConstraintProblem;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.smodel.constraints.ReferenceDescriptor.OkReferenceDescriptor;
@@ -28,14 +30,12 @@ import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeChild;
 import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeParent;
 import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeRoot;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SDataType;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SType;
@@ -43,10 +43,12 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SReference;
 
-import static jetbrains.mps.smodel.constraints.ConstraintsFacade.checkPerConceptRulesOfKind;
-import static jetbrains.mps.smodel.constraints.ConstraintsFacade.legacyCanBeChild;
-import static jetbrains.mps.smodel.constraints.ConstraintsFacade.legacyCanBeParent;
-import static jetbrains.mps.smodel.constraints.ConstraintsFacade.legacyCanBeRoot;
+import java.util.List;
+
+import static jetbrains.mps.smodel.constraints.ConstraintsCanBeFacade.checkPerConceptRulesOfKind;
+import static jetbrains.mps.smodel.constraints.ConstraintsCanBeFacade.legacyCanBeChild;
+import static jetbrains.mps.smodel.constraints.ConstraintsCanBeFacade.legacyCanBeParent;
+import static jetbrains.mps.smodel.constraints.ConstraintsCanBeFacade.legacyCanBeRoot;
 
 /**
  * API for model constraints
@@ -210,17 +212,16 @@ public class ModelConstraints {
    * Validates both structure constraints ({@link SType#isInstanceOf(Object)})
    * and language constraints (property validation functions in constraints aspect)
    */
-  public static boolean validatePropertyValue(SNode node, SProperty property, Object propertyValue, @Nullable CheckingNodeContext checkingNodeContext) {
-    final SDataType type = property.getType();
-    if (!type.isInstanceOf(propertyValue)) {
-      return false;
+  public static boolean validatePropertyValue(SNode node,
+                                              SProperty property,
+                                              Object propertyValue,
+                                              @Nullable CheckingNodeContext checkingNodeContext) {
+    FailingPropertyConstraintContext context = new FailingPropertyConstraintContext(node, property, propertyValue);
+    List<FailingPropertyConstraintProblem> result = ConstraintsChildAndPropFacade.checkPropertyValue(context);
+    if (result.isEmpty()) {
+      return true;
     }
-    if (propertyValue == null && type.isInstanceOf("")) {
-      // existent property constraints relies to take empty string values instead of null as its argument
-      // this is inconsistent with all other smodel code that works with nullable strings
-      propertyValue = "";
-    }
-    PropertyConstraintsDescriptor pcd = ConceptRegistryUtil.getConstraintsDescriptor(node.getConcept()).getProperty(property);
-    return pcd != null && pcd.validateValue(node, propertyValue, checkingNodeContext);
+    checkingNodeContext.setBreakingNode(result.get(0).getProblemSource());
+    return false;
   }
 }

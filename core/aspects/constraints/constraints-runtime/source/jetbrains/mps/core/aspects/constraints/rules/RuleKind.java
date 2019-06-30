@@ -18,8 +18,6 @@ package jetbrains.mps.core.aspects.constraints.rules;
 import jetbrains.mps.core.context.ContextGenre;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Objects;
-
 /**
  * Rules are supposed to be of different kinds.
  * Since some rules need to be checked in certain scenarios and others do not,
@@ -36,10 +34,5 @@ public interface RuleKind {
    */
   @NotNull default ContextGenre getLinkedContextGenre() {
     throw new UnsupportedOperationException();
-  }
-
-  default long getId() {
-    // just because I can
-    return Objects.hash(getName(), getClass());
   }
 }

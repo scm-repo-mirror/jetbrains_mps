@@ -15,24 +15,35 @@
  */
 package jetbrains.mps.core.aspects.feedback.messages;
 
-import jetbrains.mps.core.aspects.feedback.problem.ProblemId;
-import jetbrains.mps.core.aspects.feedback.problem.ProblemKindAlsoProblem;
+import jetbrains.mps.core.context.Context;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.model.SNodeReference;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.model.SNode;
 
-public enum RefOutOfScopeProblemKind implements ProblemKindAlsoProblem, ProblemId {
-  INSTANCE;
+public final class FailingPropertyConstraintContext implements Context {
+  private final SProperty myProperty;
+  private final Object myValue;
+  private final SNode myNode;
+
+  public FailingPropertyConstraintContext(@NotNull SNode node, @NotNull SProperty property, Object value) {
+    myProperty = property;
+    myValue = value;
+    myNode = node;
+  }
 
   @NotNull
-  @Override
-  public ProblemId getId() {
-    return this;
+  public SProperty getProperty() {
+    return myProperty;
   }
 
   @Nullable
-  @Override
-  public SNodeReference getProblemSource() {
-    return null;
+  public Object getValue() {
+    return myValue;
+  }
+
+  @NotNull
+  public SNode getNode() {
+    return myNode;
   }
 }

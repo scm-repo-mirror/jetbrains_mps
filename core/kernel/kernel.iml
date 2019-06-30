@@ -36,5 +36,6 @@
     <orderEntry type="module" module-name="messages-api" />
     <orderEntry type="module" module-name="context" />
     <orderEntry type="module" module-name="messages-for-rules" />
+    <orderEntry type="module" module-name="messages-for-legacy-constraints" />
   </component>
 </module>

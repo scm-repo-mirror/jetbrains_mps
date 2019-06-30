@@ -34,7 +34,7 @@ public final class ParentConcept_Messages extends BaseFeedbackDescriptor {
         @NotNull
         @Override
         public Msg yieldMessage(@NotNull ContainmentContext context) {
-          return new MessageProvider.StringMsg("sdfadsf" + context.getParentNode());
+          return new MessageProvider.StringMsg("sdsf" + context.getParentNode());
         }
       };
 
