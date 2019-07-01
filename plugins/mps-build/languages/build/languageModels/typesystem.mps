@@ -179,7 +179,6 @@
       </concept>
       <concept id="1216390987552" name="jetbrains.mps.lang.typesystem.structure.QuickFixDescriptionBlock" flags="in" index="QznSV" />
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
-        <property id="1195213689297" name="overrides" index="18ip37" />
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
@@ -1272,7 +1271,6 @@
     </node>
   </node>
   <node concept="18kY7G" id="1HQQX4XUAXV">
-    <property role="18ip37" value="true" />
     <property role="TrG5h" value="check_BuildLayout_Jar" />
     <property role="3GE5qa" value="Layout.Java" />
     <node concept="3clFbS" id="1HQQX4XUAXW" role="18ibNy">

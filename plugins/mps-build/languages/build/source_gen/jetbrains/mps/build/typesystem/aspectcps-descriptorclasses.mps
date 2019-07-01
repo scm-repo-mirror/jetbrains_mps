@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model ref="00000000-0000-4000-5f02-5beb5f025beb/i:f06b3dc(checkpoints/jetbrains.mps.build.typesystem@descriptorclasses)">
   <persistence version="9" />
-  <attribute name="checkpoint" value="DescriptorClasses" />
-  <attribute name="generation-plan" value="AspectCPS" />
   <languages />
   <imports>
     <import index="4vnv" ref="r:2349e4dd-6518-4a4c-9022-c7887bed8b52(jetbrains.mps.build.typesystem)" />
@@ -285,6 +283,7 @@
       <concept id="1139621453865" name="jetbrains.mps.lang.smodel.structure.Node_IsInstanceOfOperation" flags="nn" index="1mIQ4w">
         <child id="1177027386292" name="conceptArgument" index="cj9EA" />
       </concept>
+      <concept id="1146171026731" name="jetbrains.mps.lang.smodel.structure.Property_HasValue_Enum" flags="nn" index="3t7uKx" />
       <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
       <concept id="1144101972840" name="jetbrains.mps.lang.smodel.structure.OperationParm_Concept" flags="ng" index="1xMEDy">
         <child id="1207343664468" name="conceptArgument" index="ri$Ld" />
@@ -4073,7 +4072,6 @@
       <node concept="3clFbS" id="mr" role="3clF47">
         <node concept="3cpWs6" id="mv" role="3cqZAp">
           <node concept="3clFbT" id="mx" role="3cqZAk">
-            <property role="3clFbU" value="true" />
             <node concept="cd27G" id="mz" role="lGtFl">
               <node concept="3u3nmq" id="m$" role="cd27D">
                 <property role="3u3nmv" value="1979010778009333627" />
@@ -4390,18 +4388,18 @@
                 </node>
               </node>
             </node>
-            <node concept="21noJN" id="ot" role="2OqNvi">
+            <node concept="3t7uKx" id="ot" role="2OqNvi">
+              <node concept="cd27G" id="oC" role="lGtFl">
+                <node concept="3u3nmq" id="oF" role="cd27D">
+                  <property role="3u3nmv" value="4241665505388458680" />
+                </node>
+              </node>
               <node concept="21nZrQ" id="oB" role="21noJM">
                 <ref role="21nZrZ" to="3ior:3Ftr4R6BFE2" resolve="bzip2" />
                 <node concept="cd27G" id="oD" role="lGtFl">
                   <node concept="3u3nmq" id="oE" role="cd27D">
                     <property role="3u3nmv" value="4241665505388458681" />
                   </node>
-                </node>
-              </node>
-              <node concept="cd27G" id="oC" role="lGtFl">
-                <node concept="3u3nmq" id="oF" role="cd27D">
-                  <property role="3u3nmv" value="4241665505388458680" />
                 </node>
               </node>
             </node>
@@ -4436,18 +4434,18 @@
                   </node>
                 </node>
               </node>
-              <node concept="21noJN" id="oL" role="2OqNvi">
+              <node concept="3t7uKx" id="oL" role="2OqNvi">
+                <node concept="cd27G" id="oW" role="lGtFl">
+                  <node concept="3u3nmq" id="oZ" role="cd27D">
+                    <property role="3u3nmv" value="4241665505388458682" />
+                  </node>
+                </node>
                 <node concept="21nZrQ" id="oV" role="21noJM">
                   <ref role="21nZrZ" to="3ior:3Ftr4R6BFE1" resolve="gzip" />
                   <node concept="cd27G" id="oX" role="lGtFl">
                     <node concept="3u3nmq" id="oY" role="cd27D">
                       <property role="3u3nmv" value="4241665505388458683" />
                     </node>
-                  </node>
-                </node>
-                <node concept="cd27G" id="oW" role="lGtFl">
-                  <node concept="3u3nmq" id="oZ" role="cd27D">
-                    <property role="3u3nmv" value="4241665505388458682" />
                   </node>
                 </node>
               </node>
