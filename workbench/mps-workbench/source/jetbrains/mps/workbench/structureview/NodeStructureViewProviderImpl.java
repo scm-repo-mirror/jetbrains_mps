@@ -24,6 +24,8 @@ import jetbrains.mps.plugins.projectplugins.ProjectPluginManager;
 import jetbrains.mps.plugins.relations.RelationDescriptor;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.nodefs.MPSNodeVirtualFile;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -31,9 +33,8 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import java.util.ArrayList;
 import java.util.List;
 
-import static jetbrains.mps.lang.editor.cellProviders.AbstractReferentCellProvider.LOG;
-
 public class NodeStructureViewProviderImpl implements ApplicationComponent, NodeStructureViewProvider {
+  private static final Logger LOG = LogManager.getLogger(NodeStructureViewProviderImpl.class);
   public NodeStructureViewProviderImpl() {
   }
 
