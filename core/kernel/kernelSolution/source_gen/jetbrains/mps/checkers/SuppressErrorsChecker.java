@@ -10,6 +10,7 @@ import jetbrains.mps.errors.item.RuleIdFlavouredItem;
 import jetbrains.mps.errors.item.NodeReportItem;
 import jetbrains.mps.errors.MessageStatus;
 import java.util.Collection;
+import jetbrains.mps.errors.messageTargets.MessageTarget;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
@@ -35,6 +36,10 @@ public class SuppressErrorsChecker extends AbstractNodeCheckerInEditor {
     @Override
     public Collection<RuleIdFlavouredItem.TypesystemRuleId> getRuleId() {
       return RuleIdFlavouredItem.FLAVOUR_RULE_ID.getCollection(myOrigin);
+    }
+    @Override
+    public MessageTarget getMessageTarget() {
+      return this.myOrigin.getMessageTarget();
     }
     @Override
     public IssueKindReportItem.ItemKind getIssueKind() {
