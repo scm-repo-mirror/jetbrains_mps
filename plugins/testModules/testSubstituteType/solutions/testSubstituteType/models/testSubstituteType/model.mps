@@ -2,18 +2,23 @@
 <model ref="r:0f4db6eb-148d-44cb-ac9d-a618b0bc8a92(testSubstituteType.model)">
   <persistence version="9" />
   <languages>
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="2" />
-    <use id="2f74e72e-3e3d-480e-bae1-cc709d588366" name="testAnnotatedType" version="0" />
-    <use id="9290638e-635b-4ec6-bcad-945ecb88a928" name="testWrappedType" version="0" />
-    <use id="394e3857-3256-4e8b-9601-5abe7ad354d9" name="testOverridingType" version="0" />
-    <use id="9f846aef-4e4a-4a84-828e-7e83fe2697f2" name="jetbrains.mps.build.mps.testManifest" version="0" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="-1" />
+    <use id="2f74e72e-3e3d-480e-bae1-cc709d588366" name="testAnnotatedType" version="-1" />
+    <use id="9290638e-635b-4ec6-bcad-945ecb88a928" name="testWrappedType" version="-1" />
+    <use id="394e3857-3256-4e8b-9601-5abe7ad354d9" name="testOverridingType" version="-1" />
+    <use id="9f846aef-4e4a-4a84-828e-7e83fe2697f2" name="jetbrains.mps.build.mps.testManifest" version="-1" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="-1" />
+    <use id="38be1c36-cdf6-4e3c-b9db-14f88a11fa03" name="testOverridingRule" version="-1" />
   </languages>
-  <imports />
+  <imports>
+    <import index="t3er" ref="r:05c5940c-484d-4321-945d-0e467fc18ae8(testOverridingRule.typesystem)" />
+  </imports>
   <registry>
     <language id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test">
-      <concept id="1215507671101" name="jetbrains.mps.lang.test.structure.NodeErrorCheckOperation" flags="ng" index="1TM$A" />
+      <concept id="1215507671101" name="jetbrains.mps.lang.test.structure.NodeErrorCheckOperation" flags="ng" index="1TM$A">
+        <child id="8489045168660938517" name="errorRef" index="3lydEf" />
+      </concept>
       <concept id="1215526290564" name="jetbrains.mps.lang.test.structure.NodeTypeCheckOperation" flags="ng" index="30Omv">
         <child id="1215526393912" name="type" index="31d$z" />
       </concept>
@@ -23,6 +28,10 @@
       <concept id="1215607067978" name="jetbrains.mps.lang.test.structure.CheckNodeForErrorMessagesOperation" flags="ng" index="7OXhh">
         <property id="852155438140865198" name="allowWarnings" index="G7GLP" />
       </concept>
+      <concept id="7691029917083872157" name="jetbrains.mps.lang.test.structure.IRuleReference" flags="ng" index="2u4UPC">
+        <reference id="8333855927540250453" name="declaration" index="39XzEq" />
+      </concept>
+      <concept id="4531408400484511853" name="jetbrains.mps.lang.test.structure.ReportErrorStatementReference" flags="ng" index="2PYRI3" />
       <concept id="5097124989038916362" name="jetbrains.mps.lang.test.structure.TestInfo" flags="ng" index="2XOHcx">
         <property id="5097124989038916363" name="projectPath" index="2XOHcw" />
       </concept>
@@ -138,6 +147,17 @@
       </concept>
       <concept id="6405009306797650365" name="testAnnotatedType.structure.PrimFloatType" flags="ig" index="3qnpIU" />
       <concept id="6405009306797650375" name="testAnnotatedType.structure.PresenceCondition" flags="ng" index="3qnpJ0" />
+    </language>
+    <language id="38be1c36-cdf6-4e3c-b9db-14f88a11fa03" name="testOverridingRule">
+      <concept id="8837437332634520113" name="testOverridingRule.structure.ConceptA" flags="ng" index="iO2xv">
+        <property id="8837437332634520180" name="conceptAProp" index="iO2wq" />
+      </concept>
+      <concept id="8837437332634520230" name="testOverridingRule.structure.ConceptC" flags="ng" index="iO2z8">
+        <property id="8837437332634520231" name="conceptCProp" index="iO2z9" />
+      </concept>
+      <concept id="8837437332634520228" name="testOverridingRule.structure.ConceptB" flags="ng" index="iO2za">
+        <property id="8837437332634520229" name="conceptBProp" index="iO2zb" />
+      </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="4040588429969021681" name="jetbrains.mps.lang.smodel.structure.ModuleReferenceExpression" flags="nn" index="3rM5sP">
@@ -1315,6 +1335,103 @@
     </node>
     <node concept="3rNLEe" id="vgcurbB5h7" role="3ciXlA">
       <property role="3rM5sR" value="9290638e-635b-4ec6-bcad-945ecb88a928" />
+    </node>
+  </node>
+  <node concept="1lH9Xt" id="7E$SATCteMu">
+    <property role="TrG5h" value="OverridingRule" />
+    <node concept="1qefOq" id="7E$SATCtg6X" role="1SKRRt">
+      <node concept="iO2xv" id="7E$SATCtg7e" role="1qenE9">
+        <property role="iO2wq" value="valueA" />
+        <node concept="7CXmI" id="7E$SATCw6WW" role="lGtFl">
+          <node concept="1TM$A" id="7E$SATCw6WY" role="7EUXB">
+            <node concept="2PYRI3" id="7E$SATCw6WZ" role="3lydEf">
+              <ref role="39XzEq" to="t3er:7E$SATCtcEF" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="7E$SATCtg7g" role="1SKRRt">
+      <node concept="iO2za" id="7E$SATCtg7k" role="1qenE9">
+        <property role="iO2wq" value="valueA" />
+        <property role="iO2zb" value="applicableValueB" />
+        <node concept="7CXmI" id="7E$SATCw6WN" role="lGtFl">
+          <node concept="1TM$A" id="7E$SATCw6WO" role="7EUXB">
+            <node concept="2PYRI3" id="7E$SATCw6WP" role="3lydEf">
+              <ref role="39XzEq" to="t3er:7E$SATCtcHT" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="7E$SATCw7oR" role="1SKRRt">
+      <node concept="iO2za" id="7E$SATCw7oS" role="1qenE9">
+        <property role="iO2wq" value="valueA" />
+        <property role="iO2zb" value="nonApplicableValueB" />
+        <node concept="7CXmI" id="7E$SATCw7pZ" role="lGtFl">
+          <node concept="1TM$A" id="7E$SATCw7q0" role="7EUXB">
+            <node concept="2PYRI3" id="7E$SATCw7q1" role="3lydEf">
+              <ref role="39XzEq" to="t3er:7E$SATCtcEF" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="7E$SATCtgiX" role="1SKRRt">
+      <node concept="iO2z8" id="7E$SATCtgj3" role="1qenE9">
+        <property role="iO2wq" value="valueA" />
+        <property role="iO2z9" value="applicableValueC" />
+        <property role="iO2zb" value="applicableValueB" />
+        <node concept="7CXmI" id="7E$SATCw6_2" role="lGtFl">
+          <node concept="1TM$A" id="7E$SATCw6_3" role="7EUXB">
+            <node concept="2PYRI3" id="7E$SATCw6_4" role="3lydEf">
+              <ref role="39XzEq" to="t3er:7E$SATCtcKz" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="7E$SATCw6X6" role="1SKRRt">
+      <node concept="iO2z8" id="7E$SATCw6X7" role="1qenE9">
+        <property role="iO2wq" value="valueA" />
+        <property role="iO2z9" value="nonApplicableValueC" />
+        <property role="iO2zb" value="applicableValueB" />
+        <node concept="7CXmI" id="7E$SATCw6XD" role="lGtFl">
+          <node concept="1TM$A" id="7E$SATCw6XE" role="7EUXB">
+            <node concept="2PYRI3" id="7E$SATCw6XF" role="3lydEf">
+              <ref role="39XzEq" to="t3er:7E$SATCtcHT" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="7E$SATCw7qc" role="1SKRRt">
+      <node concept="iO2z8" id="7E$SATCw7qd" role="1qenE9">
+        <property role="iO2wq" value="valueA" />
+        <property role="iO2z9" value="applicableValueC" />
+        <property role="iO2zb" value="nonApplicableValueB" />
+        <node concept="7CXmI" id="7E$SATCw7qe" role="lGtFl">
+          <node concept="1TM$A" id="7E$SATCw7qf" role="7EUXB">
+            <node concept="2PYRI3" id="7E$SATCw7qg" role="3lydEf">
+              <ref role="39XzEq" to="t3er:7E$SATCtcKz" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="7E$SATCw7rF" role="1SKRRt">
+      <node concept="iO2z8" id="7E$SATCw7rG" role="1qenE9">
+        <property role="iO2wq" value="valueA" />
+        <property role="iO2z9" value="nonApplicableValueC" />
+        <property role="iO2zb" value="nonApplicableValueB" />
+        <node concept="7CXmI" id="7E$SATCw7sM" role="lGtFl">
+          <node concept="1TM$A" id="7E$SATCw7sN" role="7EUXB">
+            <node concept="2PYRI3" id="7E$SATCw7sO" role="3lydEf">
+              <ref role="39XzEq" to="t3er:7E$SATCtcEF" />
+            </node>
+          </node>
+        </node>
+      </node>
     </node>
   </node>
 </model>

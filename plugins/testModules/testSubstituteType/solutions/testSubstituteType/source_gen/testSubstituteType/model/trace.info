@@ -433,5 +433,114 @@
       <unit id="6572489169071277734" at="21,0,124,0" name="testSubstituteType.model.OverridingInference_Test" />
     </file>
   </root>
+  <root nodeRef="r:0f4db6eb-148d-44cb-ac9d-a618b0bc8a92(testSubstituteType.model)/8837437332634528926">
+    <file name="OverridingRule_Test.java">
+      <node id="8837437332634528926" at="26,32,27,25" concept="6" />
+      <node id="8837437332635283262" at="31,85,32,96" concept="1" />
+      <node id="8837437332635283252" at="35,85,36,96" concept="1" />
+      <node id="8837437332635285120" at="39,85,40,96" concept="1" />
+      <node id="8837437332635281731" at="43,85,44,96" concept="1" />
+      <node id="8837437332635283306" at="47,85,48,96" concept="1" />
+      <node id="8837437332635285135" at="51,85,52,96" concept="1" />
+      <node id="8837437332635285299" at="55,85,56,96" concept="1" />
+      <node id="8837437332634528926" at="61,52,62,19" concept="6" />
+      <node id="8837437332635283262" at="66,87,67,65" concept="4" />
+      <node id="8837437332635283262" at="67,65,68,63" concept="4" />
+      <node id="8837437332635283262" at="68,63,69,276" concept="1" />
+      <node id="8837437332635283252" at="71,87,72,65" concept="4" />
+      <node id="8837437332635283252" at="72,65,73,63" concept="4" />
+      <node id="8837437332635283252" at="73,63,74,276" concept="1" />
+      <node id="8837437332635285120" at="76,87,77,65" concept="4" />
+      <node id="8837437332635285120" at="77,65,78,63" concept="4" />
+      <node id="8837437332635285120" at="78,63,79,276" concept="1" />
+      <node id="8837437332635281731" at="81,87,82,65" concept="4" />
+      <node id="8837437332635281731" at="82,65,83,63" concept="4" />
+      <node id="8837437332635281731" at="83,63,84,276" concept="1" />
+      <node id="8837437332635283306" at="86,87,87,65" concept="4" />
+      <node id="8837437332635283306" at="87,65,88,63" concept="4" />
+      <node id="8837437332635283306" at="88,63,89,276" concept="1" />
+      <node id="8837437332635285135" at="91,87,92,65" concept="4" />
+      <node id="8837437332635285135" at="92,65,93,63" concept="4" />
+      <node id="8837437332635285135" at="93,63,94,276" concept="1" />
+      <node id="8837437332635285299" at="96,87,97,65" concept="4" />
+      <node id="8837437332635285299" at="97,65,98,63" concept="4" />
+      <node id="8837437332635285299" at="98,63,99,276" concept="1" />
+      <node id="8837437332634528926" at="21,0,23,0" concept="5" trace="ourParamCache" />
+      <node id="8837437332634528926" at="23,0,25,0" concept="2" trace="myWithCommandRule" />
+      <node id="8837437332634528926" at="26,0,29,0" concept="0" trace="OverridingRule_Test#()V" />
+      <node id="8837437332634528926" at="61,0,64,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8837437332635283262" at="30,0,34,0" concept="3" trace="test_NodeErrorFromConceptaCheck8837437332635283262#()V" />
+      <node id="8837437332635283252" at="34,0,38,0" concept="3" trace="test_NodeErrorFromConceptbCheck8837437332635283252#()V" />
+      <node id="8837437332635285120" at="38,0,42,0" concept="3" trace="test_NodeErrorFromConceptaCheck8837437332635285120#()V" />
+      <node id="8837437332635281731" at="42,0,46,0" concept="3" trace="test_NodeErrorFromConceptcCheck8837437332635281731#()V" />
+      <node id="8837437332635283306" at="46,0,50,0" concept="3" trace="test_NodeErrorFromConceptbCheck8837437332635283306#()V" />
+      <node id="8837437332635285135" at="50,0,54,0" concept="3" trace="test_NodeErrorFromConceptcCheck8837437332635285135#()V" />
+      <node id="8837437332635285299" at="54,0,58,0" concept="3" trace="test_NodeErrorFromConceptaCheck8837437332635285299#()V" />
+      <node id="8837437332635283262" at="66,0,71,0" concept="3" trace="test_NodeErrorFromConceptaCheck8837437332635283262#()V" />
+      <node id="8837437332635283252" at="71,0,76,0" concept="3" trace="test_NodeErrorFromConceptbCheck8837437332635283252#()V" />
+      <node id="8837437332635285120" at="76,0,81,0" concept="3" trace="test_NodeErrorFromConceptaCheck8837437332635285120#()V" />
+      <node id="8837437332635281731" at="81,0,86,0" concept="3" trace="test_NodeErrorFromConceptcCheck8837437332635281731#()V" />
+      <node id="8837437332635283306" at="86,0,91,0" concept="3" trace="test_NodeErrorFromConceptbCheck8837437332635283306#()V" />
+      <node id="8837437332635285135" at="91,0,96,0" concept="3" trace="test_NodeErrorFromConceptcCheck8837437332635285135#()V" />
+      <node id="8837437332635285299" at="96,0,101,0" concept="3" trace="test_NodeErrorFromConceptaCheck8837437332635285299#()V" />
+      <scope id="8837437332634528926" at="26,32,27,25" />
+      <scope id="8837437332635283262" at="31,85,32,96" />
+      <scope id="8837437332635283252" at="35,85,36,96" />
+      <scope id="8837437332635285120" at="39,85,40,96" />
+      <scope id="8837437332635281731" at="43,85,44,96" />
+      <scope id="8837437332635283306" at="47,85,48,96" />
+      <scope id="8837437332635285135" at="51,85,52,96" />
+      <scope id="8837437332635285299" at="55,85,56,96" />
+      <scope id="8837437332634528926" at="61,52,62,19" />
+      <scope id="8837437332634528926" at="26,0,29,0" />
+      <scope id="8837437332634528926" at="61,0,64,0">
+        <var name="owner" id="8837437332634528926" />
+      </scope>
+      <scope id="8837437332635283262" at="66,87,69,276">
+        <var name="nodeToCheck" id="8837437332635283262" />
+        <var name="operation" id="8837437332635283262" />
+      </scope>
+      <scope id="8837437332635283252" at="71,87,74,276">
+        <var name="nodeToCheck" id="8837437332635283252" />
+        <var name="operation" id="8837437332635283252" />
+      </scope>
+      <scope id="8837437332635285120" at="76,87,79,276">
+        <var name="nodeToCheck" id="8837437332635285120" />
+        <var name="operation" id="8837437332635285120" />
+      </scope>
+      <scope id="8837437332635281731" at="81,87,84,276">
+        <var name="nodeToCheck" id="8837437332635281731" />
+        <var name="operation" id="8837437332635281731" />
+      </scope>
+      <scope id="8837437332635283306" at="86,87,89,276">
+        <var name="nodeToCheck" id="8837437332635283306" />
+        <var name="operation" id="8837437332635283306" />
+      </scope>
+      <scope id="8837437332635285135" at="91,87,94,276">
+        <var name="nodeToCheck" id="8837437332635285135" />
+        <var name="operation" id="8837437332635285135" />
+      </scope>
+      <scope id="8837437332635285299" at="96,87,99,276">
+        <var name="nodeToCheck" id="8837437332635285299" />
+        <var name="operation" id="8837437332635285299" />
+      </scope>
+      <scope id="8837437332635283262" at="30,0,34,0" />
+      <scope id="8837437332635283252" at="34,0,38,0" />
+      <scope id="8837437332635285120" at="38,0,42,0" />
+      <scope id="8837437332635281731" at="42,0,46,0" />
+      <scope id="8837437332635283306" at="46,0,50,0" />
+      <scope id="8837437332635285135" at="50,0,54,0" />
+      <scope id="8837437332635285299" at="54,0,58,0" />
+      <scope id="8837437332635283262" at="66,0,71,0" />
+      <scope id="8837437332635283252" at="71,0,76,0" />
+      <scope id="8837437332635285120" at="76,0,81,0" />
+      <scope id="8837437332635281731" at="81,0,86,0" />
+      <scope id="8837437332635283306" at="86,0,91,0" />
+      <scope id="8837437332635285135" at="91,0,96,0" />
+      <scope id="8837437332635285299" at="96,0,101,0" />
+      <unit id="8837437332634528926" at="59,0,103,0" name="testSubstituteType.model.OverridingRule_Test$TestBody" />
+      <unit id="8837437332634528926" at="19,0,104,0" name="testSubstituteType.model.OverridingRule_Test" />
+    </file>
+  </root>
 </debug-info>
 
