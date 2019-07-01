@@ -2,9 +2,9 @@
 <model ref="r:ac4cce94-c169-4971-be8f-807482637028(jetbrains.mps.debugger.java.api.state.proxy)">
   <persistence version="9" />
   <languages>
-    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
-    <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="0" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
+    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
+    <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="-1" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
   </languages>
   <imports>
     <import index="dcbi" ref="r:ea2e6d1f-eab5-4a08-8299-1abe57148f37(jetbrains.mps.debugger.java.api.evaluation.proxies)" />
@@ -2814,22 +2814,26 @@
       <node concept="3clFbS" id="2Y$mRnICmya" role="3clF47" />
     </node>
     <node concept="3clFb_" id="45l905tDWfp" role="jymVt">
-      <property role="1EzhhJ" value="false" />
+      <property role="1EzhhJ" value="true" />
       <property role="TrG5h" value="getName" />
       <property role="od$2w" value="false" />
-      <property role="DiZV1" value="false" />
-      <node concept="3clFbS" id="45l905tDWfs" role="3clF47">
-        <node concept="3clFbF" id="45l905tDWg4" role="3cqZAp">
-          <node concept="2OqwBi" id="45l905tDWpH" role="3clFbG">
-            <node concept="Xjq3P" id="45l905tDWg3" role="2Oq$k0" />
-            <node concept="liA8E" id="45l905tDWNk" role="2OqNvi">
-              <ref role="37wK5l" to="wyt6:~Object.toString()" resolve="toString" />
-            </node>
+      <node concept="3clFbS" id="45l905tDWfs" role="3clF47" />
+      <node concept="3Tm1VV" id="45l905tDWeR" role="1B3o_S" />
+      <node concept="17QB3L" id="45l905tDWfn" role="3clF45" />
+    </node>
+    <node concept="3clFb_" id="7E$SATCMcyo" role="jymVt">
+      <property role="TrG5h" value="toString" />
+      <node concept="3Tm1VV" id="7E$SATCMcyp" role="1B3o_S" />
+      <node concept="3uibUv" id="7E$SATCMcyr" role="3clF45">
+        <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+      </node>
+      <node concept="3clFbS" id="7E$SATCMcys" role="3clF47">
+        <node concept="3clFbF" id="7E$SATCMcGH" role="3cqZAp">
+          <node concept="1rXfSq" id="7E$SATCMcGG" role="3clFbG">
+            <ref role="37wK5l" node="45l905tDWfp" resolve="getName" />
           </node>
         </node>
       </node>
-      <node concept="3Tm1VV" id="45l905tDWeR" role="1B3o_S" />
-      <node concept="17QB3L" id="45l905tDWfn" role="3clF45" />
     </node>
   </node>
   <node concept="312cEu" id="3DGS_W7MKYf">

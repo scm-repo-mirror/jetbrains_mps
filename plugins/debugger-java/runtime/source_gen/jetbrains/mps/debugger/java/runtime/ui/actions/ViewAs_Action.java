@@ -70,6 +70,6 @@ public class ViewAs_Action extends BaseAction {
     return res.toString();
   }
   public static String factory_State(ValueWrapperFactory object) {
-    throw new RuntimeException("NOT IMPLEMENTED");
+    return object.getName();
   }
 }
