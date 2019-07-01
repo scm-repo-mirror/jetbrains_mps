@@ -15,6 +15,7 @@
     <import index="u78q" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.typesystem.inference(MPS.Core/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
+    <import index="tpeh" ref="r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)" implicit="true" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -176,6 +177,9 @@
       </concept>
     </language>
     <language id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem">
+      <concept id="2329696648445392942" name="jetbrains.mps.lang.typesystem.structure.CheckingRuleReference" flags="ng" index="dlsrG">
+        <reference id="2329696648445392943" name="declaration" index="dlsrH" />
+      </concept>
       <concept id="1185788614172" name="jetbrains.mps.lang.typesystem.structure.NormalTypeClause" flags="ng" index="mw_s8">
         <child id="1185788644032" name="normalType" index="mwGJk" />
       </concept>
@@ -208,10 +212,11 @@
       </concept>
       <concept id="1201618299781" name="jetbrains.mps.lang.typesystem.structure.ErrorInfoExpression" flags="nn" index="3622Ei" />
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
-        <property id="1195213689297" name="overrides" index="18ip37" />
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
-      <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G">
+        <child id="2329696648448631592" name="overridenRules" index="dp_RE" />
+      </concept>
       <concept id="1188811367543" name="jetbrains.mps.lang.typesystem.structure.ComparisonRule" flags="ig" index="3aFulz">
         <child id="1188820750135" name="anotherNode" index="3bfgSz" />
       </concept>
@@ -1994,7 +1999,6 @@
     </node>
   </node>
   <node concept="18kY7G" id="i2IG7rz">
-    <property role="18ip37" value="true" />
     <property role="TrG5h" value="check_NamedTupleType" />
     <property role="3GE5qa" value="checks" />
     <node concept="3clFbS" id="i2IG7r$" role="18ibNy">
@@ -2052,6 +2056,9 @@
     <node concept="1YaCAy" id="i2IG9P6" role="1YuTPh">
       <property role="TrG5h" value="ntt" />
       <ref role="1YaFvo" to="cx9y:i2pR1d_" resolve="NamedTupleType" />
+    </node>
+    <node concept="dlsrG" id="7E$SATCMFgg" role="dp_RE">
+      <ref role="dlsrH" to="tpeh:hpp1WD_" resolve="check_ClassifierType" />
     </node>
   </node>
   <node concept="18kY7G" id="773fP$ysEzB">
