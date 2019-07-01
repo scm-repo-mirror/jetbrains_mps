@@ -28,6 +28,7 @@
   <dependency className="jetbrains.mps.baseLanguage.jdk7.typesystem.check_StringSwitchStatement_NonTypesystemRule">
     <classNode dependClassName="jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.behavior.IWillBeClassifier__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.typesystem.check_switchArgument_NonTypesystemRule" />
     <classNode dependClassName="jetbrains.mps.errors.IErrorReporter" />
     <classNode dependClassName="jetbrains.mps.errors.messageTargets.MessageTarget" />
     <classNode dependClassName="jetbrains.mps.errors.messageTargets.NodeMessageTarget" />

@@ -9,6 +9,7 @@
     <import index="tpek" ref="r:00000000-0000-4000-0000-011c895902c0(jetbrains.mps.baseLanguage.behavior)" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
+    <import index="tpeh" ref="r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -79,6 +80,9 @@
       </concept>
     </language>
     <language id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem">
+      <concept id="2329696648445392942" name="jetbrains.mps.lang.typesystem.structure.CheckingRuleReference" flags="ng" index="dlsrG">
+        <reference id="2329696648445392943" name="declaration" index="dlsrH" />
+      </concept>
       <concept id="1175517767210" name="jetbrains.mps.lang.typesystem.structure.ReportErrorStatement" flags="nn" index="2MkqsV">
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
@@ -86,10 +90,11 @@
         <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
       </concept>
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
-        <property id="1195213689297" name="overrides" index="18ip37" />
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
-      <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G">
+        <child id="2329696648448631592" name="overridenRules" index="dp_RE" />
+      </concept>
       <concept id="1176544042499" name="jetbrains.mps.lang.typesystem.structure.Node_TypeOperation" flags="nn" index="3JvlWi" />
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
         <reference id="1174642800329" name="concept" index="1YaFvo" />
@@ -314,7 +319,6 @@
   </node>
   <node concept="18kY7G" id="mfnC6nPryl">
     <property role="TrG5h" value="check_StringSwitchStatement" />
-    <property role="18ip37" value="true" />
     <node concept="3clFbS" id="mfnC6nPrym" role="18ibNy">
       <node concept="3cpWs8" id="mfnC6nPryn" role="3cqZAp">
         <node concept="3cpWsn" id="mfnC6nPryo" role="3cpWs9">
@@ -468,6 +472,9 @@
     <node concept="1YaCAy" id="mfnC6nPrzM" role="1YuTPh">
       <property role="TrG5h" value="switchStatement" />
       <ref role="1YaFvo" to="rymi:mfnC6nNy4D" resolve="StringSwitchStatement" />
+    </node>
+    <node concept="dlsrG" id="7E$SATCMAzL" role="dp_RE">
+      <ref role="dlsrH" to="tpeh:2R$wlLKBmce" resolve="check_switchArgument" />
     </node>
   </node>
 </model>
