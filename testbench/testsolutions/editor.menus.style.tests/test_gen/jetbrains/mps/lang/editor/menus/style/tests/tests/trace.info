@@ -217,6 +217,78 @@
       <unit id="3806643308053010695" at="18,0,53,0" name="jetbrains.mps.lang.editor.menus.style.tests.tests.TestCompletionCustomization_ContextMatcher_CustomActionEnumWithStyling_Test" />
     </file>
   </root>
+  <root nodeRef="r:e67a2364-cd3f-43c0-b822-e9e7747803fc(jetbrains.mps.lang.editor.menus.style.tests.tests@tests)/4151313971380872174">
+    <file name="TestCompletionCustomization_ContextMatcher_ReferenceInlinePrimaryNoStyling_Test.java">
+      <node id="4151313971380872174" at="23,92,24,25" concept="11" />
+      <node id="4151313971380872174" at="28,114,29,116" concept="2" />
+      <node id="4151313971380872174" at="34,52,35,19" concept="11" />
+      <node id="4151313971380872174" at="39,51,40,72" concept="2" />
+      <node id="4151313971380872184" at="42,44,43,75" concept="2" />
+      <node id="4151313971380872186" at="43,75,44,104" concept="6" />
+      <node id="4151313971380872192" at="44,104,45,77" concept="2" />
+      <node id="4151313971380872198" at="45,77,46,86" concept="2" />
+      <node id="4151313971380872174" at="20,0,22,0" concept="9" trace="ourParamCache" />
+      <node id="4151313971380872174" at="23,0,26,0" concept="1" trace="TestCompletionCustomization_ContextMatcher_ReferenceInlinePrimaryNoStyling_Test#()V" />
+      <node id="4151313971380872174" at="34,0,37,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="4151313971380872174" at="27,0,31,0" concept="5" trace="test_TestCompletionCustomization_ContextMatcher_ReferenceInlinePrimaryNoStyling#()V" />
+      <node id="4151313971380872182" at="42,0,48,0" concept="5" trace="run#()V" />
+      <node id="4151313971380872180" at="40,72,48,16" concept="2" />
+      <node id="4151313971380872174" at="38,0,50,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="4151313971380872174" at="23,92,24,25" />
+      <scope id="4151313971380872174" at="28,114,29,116" />
+      <scope id="4151313971380872174" at="34,52,35,19" />
+      <scope id="4151313971380872174" at="23,0,26,0" />
+      <scope id="4151313971380872174" at="34,0,37,0">
+        <var name="owner" id="4151313971380872174" />
+      </scope>
+      <scope id="4151313971380872174" at="27,0,31,0" />
+      <scope id="4151313971380872183" at="42,44,46,86">
+        <var name="nodeSubstituteChooser" id="4151313971380872187" />
+      </scope>
+      <scope id="4151313971380872182" at="42,0,48,0" />
+      <scope id="4151313971380872174" at="39,51,48,16" />
+      <scope id="4151313971380872174" at="38,0,50,0" />
+      <unit id="4151313971380872182" at="41,50,48,7" name="jetbrains.mps.lang.editor.menus.style.tests.tests.TestCompletionCustomization_ContextMatcher_ReferenceInlinePrimaryNoStyling_Test$TestBody$1" />
+      <unit id="4151313971380872174" at="32,0,51,0" name="jetbrains.mps.lang.editor.menus.style.tests.tests.TestCompletionCustomization_ContextMatcher_ReferenceInlinePrimaryNoStyling_Test$TestBody" />
+      <unit id="4151313971380872174" at="18,0,52,0" name="jetbrains.mps.lang.editor.menus.style.tests.tests.TestCompletionCustomization_ContextMatcher_ReferenceInlinePrimaryNoStyling_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:e67a2364-cd3f-43c0-b822-e9e7747803fc(jetbrains.mps.lang.editor.menus.style.tests.tests@tests)/4151313971380872201">
+    <file name="TestCompletionCustomization_ContextMatcher_ReferenceInlinePrimaryWithStyling_Test.java">
+      <node id="4151313971380872201" at="23,94,24,25" concept="11" />
+      <node id="4151313971380872201" at="28,116,29,118" concept="2" />
+      <node id="4151313971380872201" at="34,52,35,19" concept="11" />
+      <node id="4151313971380872201" at="39,51,40,72" concept="2" />
+      <node id="4151313971380872211" at="42,44,43,75" concept="2" />
+      <node id="4151313971380872213" at="43,75,44,104" concept="6" />
+      <node id="4151313971380872219" at="44,104,45,77" concept="2" />
+      <node id="4151313971380872225" at="45,77,46,86" concept="2" />
+      <node id="4151313971380872201" at="20,0,22,0" concept="9" trace="ourParamCache" />
+      <node id="4151313971380872201" at="23,0,26,0" concept="1" trace="TestCompletionCustomization_ContextMatcher_ReferenceInlinePrimaryWithStyling_Test#()V" />
+      <node id="4151313971380872201" at="34,0,37,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="4151313971380872201" at="27,0,31,0" concept="5" trace="test_TestCompletionCustomization_ContextMatcher_ReferenceInlinePrimaryWithStyling#()V" />
+      <node id="4151313971380872209" at="42,0,48,0" concept="5" trace="run#()V" />
+      <node id="4151313971380872207" at="40,72,48,15" concept="2" />
+      <node id="4151313971380872201" at="38,0,50,0" concept="5" trace="testMethodImpl#()V" />
+      <scope id="4151313971380872201" at="23,94,24,25" />
+      <scope id="4151313971380872201" at="28,116,29,118" />
+      <scope id="4151313971380872201" at="34,52,35,19" />
+      <scope id="4151313971380872201" at="23,0,26,0" />
+      <scope id="4151313971380872201" at="34,0,37,0">
+        <var name="owner" id="4151313971380872201" />
+      </scope>
+      <scope id="4151313971380872201" at="27,0,31,0" />
+      <scope id="4151313971380872210" at="42,44,46,86">
+        <var name="nodeSubstituteChooser" id="4151313971380872214" />
+      </scope>
+      <scope id="4151313971380872209" at="42,0,48,0" />
+      <scope id="4151313971380872201" at="39,51,48,15" />
+      <scope id="4151313971380872201" at="38,0,50,0" />
+      <unit id="4151313971380872209" at="41,50,48,7" name="jetbrains.mps.lang.editor.menus.style.tests.tests.TestCompletionCustomization_ContextMatcher_ReferenceInlinePrimaryWithStyling_Test$TestBody$1" />
+      <unit id="4151313971380872201" at="32,0,51,0" name="jetbrains.mps.lang.editor.menus.style.tests.tests.TestCompletionCustomization_ContextMatcher_ReferenceInlinePrimaryWithStyling_Test$TestBody" />
+      <unit id="4151313971380872201" at="18,0,52,0" name="jetbrains.mps.lang.editor.menus.style.tests.tests.TestCompletionCustomization_ContextMatcher_ReferenceInlinePrimaryWithStyling_Test" />
+    </file>
+  </root>
   <root nodeRef="r:e67a2364-cd3f-43c0-b822-e9e7747803fc(jetbrains.mps.lang.editor.menus.style.tests.tests@tests)/4639084645851051480">
     <file name="TestCompletionCustomization_ContextMatcher_ReferenceNoStyling_Test.java">
       <node id="4639084645851051480" at="23,79,24,25" concept="11" />

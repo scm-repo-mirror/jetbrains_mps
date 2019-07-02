@@ -28,11 +28,12 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 
 class InequalitySystemFactory {
-  InequalitySystem getInequalitiesSystem(EditorCell contextCell, SModel typeCheckingModel) {
+  static InequalitySystem getInequalitiesSystemForChildCell(EditorCell contextCell, SModel typeCheckingModel) {
     SNodeLocation nodeLocation = null;
     while (contextCell != null) {
       EditorCellContext cellContext = contextCell.getCellContext();
@@ -74,6 +75,27 @@ class InequalitySystemFactory {
     InequalitySystem inequationsForHole = TypeChecker.getInstance().getInequalitiesForHole(hole, holeIsAType);
     inequationsForHole.replaceRefs(mapping);
     return inequationsForHole;
+  }
+
+  static InequalitySystem getInequalitiesSystem(SNode node) {
+    HashMap<SNode, SNode> mapping = new HashMap<>();
+    CopyUtil.copy(Collections.singletonList(node.getContainingRoot()), mapping);
+    SNode nodeToEquatePeer = node;
+    TypeChecker typeChecker = TypeChecker.getInstance();
+    while (nodeToEquatePeer != null && typeChecker.getTypeOf(nodeToEquatePeer) == null) {
+      nodeToEquatePeer = nodeToEquatePeer.getParent();
+    }
+    if (nodeToEquatePeer == null) {
+      return null;
+    }
+    SNode nodeToEquate = mapping.get(nodeToEquatePeer);
+    SNode parent = nodeToEquate.getParent();
+    if (parent == null) {
+      return null;
+    }
+    SNode hole = SModelUtil_new.instantiateConceptDeclaration(jetbrains.mps.smodel.SNodeUtil.concept_BaseConcept, null, null, true);
+    org.jetbrains.mps.openapi.model.SNodeUtil.replaceWithAnother(nodeToEquate, hole);
+    return TypeChecker.getInstance().getInequalitiesForHole(hole, false);
   }
 
 }

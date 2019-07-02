@@ -24,6 +24,7 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.smodel.CopyUtil;
 import jetbrains.mps.smodel.presentation.NodePresentationUtil;
 import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -33,6 +34,8 @@ import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import java.util.Arrays;
 import java.util.HashMap;
 
+@Deprecated
+@ToRemove(version = 2019.3)
 public class DefaultSReferenceSubstituteAction extends AbstractSubstituteAction {
   private final SNode myCurrentReferent;
   private final SReferenceLink myLink;

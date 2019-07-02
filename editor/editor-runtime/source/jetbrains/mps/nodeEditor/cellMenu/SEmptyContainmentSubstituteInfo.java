@@ -37,7 +37,6 @@ import java.util.List;
 public class SEmptyContainmentSubstituteInfo extends TransformationMenuSubstituteInfo implements DefaultSubstituteInfo {
 
   private TransformationMenuPointer myTransformationMenuPointer;
-  InequalitySystemFactory myInequalitySystemFactory = new InequalitySystemFactory();
 
   public SEmptyContainmentSubstituteInfo(@NotNull EditorCell cell) {
     super(cell);
@@ -78,6 +77,6 @@ public class SEmptyContainmentSubstituteInfo extends TransformationMenuSubstitut
 
   @Override
   protected InequalitySystem getInequalitiesSystem(EditorCell contextCell) {
-    return myInequalitySystemFactory.getInequalitiesSystem(getEditorCell(), getModelForTypechecking());
+    return InequalitySystemFactory.getInequalitiesSystemForChildCell(getEditorCell(), getModelForTypechecking());
   }
 }

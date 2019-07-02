@@ -33,7 +33,6 @@ import org.jetbrains.mps.openapi.model.SNode;
  * @author simon
  */
 public class SChildSubstituteInfo extends TransformationMenuSubstituteInfo implements DefaultSubstituteInfo {
-  InequalitySystemFactory myInequalitySystemFactory = new InequalitySystemFactory();
 
 
   public SChildSubstituteInfo(EditorCell editorCell) {
@@ -65,6 +64,6 @@ public class SChildSubstituteInfo extends TransformationMenuSubstituteInfo imple
 
   @Override
   protected InequalitySystem getInequalitiesSystem(EditorCell contextCell) {
-    return myInequalitySystemFactory.getInequalitiesSystem(getEditorCell(), getModelForTypechecking());
+    return InequalitySystemFactory.getInequalitiesSystemForChildCell(getEditorCell(), getModelForTypechecking());
   }
 }

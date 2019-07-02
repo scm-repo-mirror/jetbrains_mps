@@ -22,28 +22,26 @@ import jetbrains.mps.openapi.editor.cells.SubstituteAction;
 import jetbrains.mps.scope.ErrorScope;
 import jetbrains.mps.scope.ModelPlusImportedScope;
 import jetbrains.mps.scope.Scope;
-import jetbrains.mps.smodel.CopyUtil;
-import jetbrains.mps.smodel.SModelUtil_new;
 import jetbrains.mps.smodel.action.DefaultSReferenceSubstituteAction;
 import jetbrains.mps.smodel.constraints.ModelConstraints;
 import jetbrains.mps.typesystem.inference.InequalitySystem;
-import jetbrains.mps.typesystem.inference.TypeChecker;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNode;
-import org.jetbrains.mps.openapi.model.SNodeUtil;
 import org.jetbrains.mps.openapi.model.SReference;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 /**
  * Provides the substitute actions by node and reference link, independently of the editor cell like the {@link SReferenceSubstituteInfo} does
  */
+
+@Deprecated
+@ToRemove(version = 2019.3)
 public class DefaultSReferenceSubstituteInfo extends AbstractNodeSubstituteInfo implements DefaultSubstituteInfo {
   private SNode mySourceNode;
   private SReferenceLink myLink;
@@ -57,25 +55,7 @@ public class DefaultSReferenceSubstituteInfo extends AbstractNodeSubstituteInfo 
 
   @Override
   protected InequalitySystem getInequalitiesSystem(EditorCell contextCell) {
-    HashMap<SNode, SNode> mapping = new HashMap<>();
-    CopyUtil.copy(Arrays.asList(mySourceNode.getContainingRoot()), mapping).get(0);
-    SNode nodeToEquatePeer = mySourceNode;
-    TypeChecker typeChecker = TypeChecker.getInstance();
-    while (nodeToEquatePeer != null && typeChecker.getTypeOf(nodeToEquatePeer) == null) {
-      nodeToEquatePeer = nodeToEquatePeer.getParent();
-    }
-    if (nodeToEquatePeer == null) {
-      return null;
-    }
-    SNode nodeToEquate = mapping.get(nodeToEquatePeer);
-    SNode parent = nodeToEquate.getParent();
-    if (parent == null) {
-      return null;
-    }
-    SNode hole = SModelUtil_new.instantiateConceptDeclaration(jetbrains.mps.smodel.SNodeUtil.concept_BaseConcept, null, null, true);
-    SNodeUtil.replaceWithAnother(nodeToEquate, hole);
-    InequalitySystem inequalitiesForHole = TypeChecker.getInstance().getInequalitiesForHole(hole, false);
-    return inequalitiesForHole;
+    return InequalitySystemFactory.getInequalitiesSystem(contextCell.getSNode());
   }
 
   @Override

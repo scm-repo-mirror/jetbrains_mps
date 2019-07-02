@@ -20,9 +20,7 @@ import jetbrains.mps.lang.editor.menus.transformation.DefaultSubstituteMenuItemA
 import jetbrains.mps.lang.editor.menus.transformation.DefaultTransformationMenuLookup;
 import jetbrains.mps.lang.editor.menus.transformation.SubstituteActionsCollector;
 import jetbrains.mps.lang.editor.menus.transformation.SubstituteItemsCollector;
-import jetbrains.mps.nodeEditor.CellSide;
 import jetbrains.mps.nodeEditor.cellActions.SideTransformSubstituteInfo;
-import jetbrains.mps.nodeEditor.cellActions.SideTransformSubstituteInfo.Side;
 import jetbrains.mps.nodeEditor.menus.MenuUtil;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
@@ -32,9 +30,7 @@ import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuLookup;
 import jetbrains.mps.openapi.editor.menus.transformation.TransformationMenuItem;
 import jetbrains.mps.openapi.editor.menus.transformation.TransformationMenuLookup;
-import jetbrains.mps.smodel.IOperationContext;
 import jetbrains.mps.smodel.language.LanguageRegistry;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -42,7 +38,6 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNode;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -80,32 +75,13 @@ public class ModelActions {
   // referent substitute
   //-------------------
 
-  public static List<SubstituteAction> createReferentSubstituteActions(SNode referenceNode, SNode currentReferent, SReferenceLink link,
+  public static List<SubstituteAction> createReferentSubstituteActions(SNode referenceNode, SReferenceLink link,
                                                                        @NotNull IReferentPresentationProvider matchingTextProvider,
                                                                        @NotNull IReferentPresentationProvider visibleMatchingTextProvider,
-                                                                       IOperationContext context) {
-    return ReferentSubstituteActionsHelper.createActions(referenceNode, currentReferent, link, matchingTextProvider, visibleMatchingTextProvider);
+                                                                       EditorContext editorContext) {
+    return ReferentSubstituteActionsHelper.createActions(referenceNode, link, matchingTextProvider, visibleMatchingTextProvider, editorContext);
   }
 
-  //-------------------
-  // right-transform hint substitute
-  //-------------------
-
-  /**
-   * @deprecated use {@link #createSideTransformSubstituteActions(EditorCell, Side)}
-   */
-  @Deprecated
-  public static boolean canCreateSideTransformHintSubstituteActions(SNode sourceNode, CellSide side, String transformTag, IOperationContext context) {
-    return false;
-  }
-
-  /**
-   * @deprecated use {@link #createSideTransformSubstituteActions(EditorCell, Side)}
-   */
-  @Deprecated
-  public static List<SubstituteAction> createSideTransformHintSubstituteActions(SNode sourceNode, CellSide side, String transformTag, IOperationContext context) {
-    return new ArrayList<>();
-  }
 
   public static List<SubstituteAction> createSideTransformSubstituteActions(@NotNull EditorCell cell, @NotNull SideTransformSubstituteInfo.Side side) {
     final SNode sourceNode = cell.getSNode();

@@ -240,6 +240,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.property("customActionEnumProperty", 0x34d3e9eb931270eaL).type(MetaIdFactory.dataTypeId(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510b71ff4L)).origin("4241665505353454392").done();
     b.property("stringProperty", 0x406156e80eef1d16L).type(PrimitiveTypeId.STRING).origin("4639084645851274518").done();
     b.associate("reference", 0x406156e80eebb455L).target(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x406156e80eebb44eL).optional(true).origin("4639084645851051093").done();
+    b.associate("referenceInlinePrimary", 0x399c6e0ff745479fL).target(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x406156e80eebb44eL).optional(true).origin("4151313971380832159").done();
     b.associate("customActionReference", 0x34d3e9eb93127264L).target(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x406156e80eebb44eL).optional(true).origin("3806643308052247140").done();
     b.aggregate("childNoMenu", 0x49b11095109798e7L).target(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510aaf4beL).optional(true).ordered(true).multiple(true).origin("5310043668061067495").done();
     b.aggregate("childSimpleSubstituteMenu", 0x49b1109510acbc9dL).target(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510ac9aacL).optional(true).ordered(true).multiple(true).origin("5310043668062452893").done();
