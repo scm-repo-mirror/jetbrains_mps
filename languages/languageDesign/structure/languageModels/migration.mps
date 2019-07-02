@@ -38,6 +38,8 @@
     <import index="z1c3" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
     <import index="xx25" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.adapter.structure.types(MPS.Core/)" />
     <import index="e8bb" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.adapter.ids(MPS.Core/)" />
+    <import index="dush" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)" />
+    <import index="31cb" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.extapi.module(MPS.Core/)" />
     <import index="1oap" ref="r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)" implicit="true" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
   </imports>
@@ -214,12 +216,8 @@
         <child id="1163670683720" name="body" index="3Kbo56" />
       </concept>
       <concept id="1082113931046" name="jetbrains.mps.baseLanguage.structure.ContinueStatement" flags="nn" index="3N13vt" />
-      <concept id="6329021646629104957" name="jetbrains.mps.baseLanguage.structure.TextCommentPart" flags="nn" index="3SKdUq">
-        <property id="6329021646629104958" name="text" index="3SKdUp" />
-      </concept>
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
         <child id="1350122676458893092" name="text" index="3ndbpf" />
-        <child id="6329021646629175155" name="commentPart" index="3SKWNk" />
       </concept>
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
@@ -380,6 +378,9 @@
       <concept id="1144195091934" name="jetbrains.mps.lang.smodel.structure.Node_IsRoleOperation" flags="nn" index="1BlSNk">
         <reference id="1144195362400" name="conceptOfParent" index="1BmUXE" />
         <reference id="1144195396777" name="linkInParent" index="1Bn3mz" />
+      </concept>
+      <concept id="1206482823744" name="jetbrains.mps.lang.smodel.structure.Model_AddRootOperation" flags="nn" index="3BYIHo">
+        <child id="1206482823746" name="nodeArgument" index="3BYIHq" />
       </concept>
       <concept id="6407023681583036853" name="jetbrains.mps.lang.smodel.structure.NodeAttributeQualifier" flags="ng" index="3CFYIy">
         <reference id="6407023681583036854" name="attributeConcept" index="3CFYIx" />
@@ -3547,14 +3548,58 @@
             </node>
           </node>
         </node>
-        <node concept="3cpWs8" id="2UidVq779sA" role="3cqZAp">
-          <node concept="3cpWsn" id="2UidVq779sB" role="3cpWs9">
-            <property role="TrG5h" value="behaviorModel" />
-            <node concept="H_c77" id="2UidVq779sC" role="1tU5fm" />
-            <node concept="1qvjxa" id="2UidVq779sD" role="33vP2m">
-              <ref role="1quiSB" to="mg3u:2LiUEk8oQ$g" resolve="behavior" />
-              <node concept="37vLTw" id="2UidVq779sE" role="1qvjxb">
-                <ref role="3cqZAo" node="2UidVq779sl" resolve="language" />
+        <node concept="3clFbH" id="QobsgS4y38" role="3cqZAp" />
+        <node concept="3cpWs8" id="QobsgS2K1b" role="3cqZAp">
+          <node concept="3cpWsn" id="QobsgS2K1e" role="3cpWs9">
+            <property role="TrG5h" value="enumMigrationHelpersModel" />
+            <node concept="H_c77" id="QobsgS2K19" role="1tU5fm" />
+            <node concept="2OqwBi" id="QobsgS4ioA" role="33vP2m">
+              <node concept="1eOMI4" id="QobsgS4nPf" role="2Oq$k0">
+                <node concept="10QFUN" id="QobsgS4nPe" role="1eOMHV">
+                  <node concept="2OqwBi" id="QobsgS4nPb" role="10QFUP">
+                    <node concept="37vLTw" id="QobsgS4nPc" role="2Oq$k0">
+                      <ref role="3cqZAo" node="2UidVq779sl" resolve="language" />
+                    </node>
+                    <node concept="liA8E" id="QobsgS4nPd" role="2OqNvi">
+                      <ref role="37wK5l" to="31cb:~SModuleBase.getModels()" resolve="getModels" />
+                    </node>
+                  </node>
+                  <node concept="A3Dl8" id="QobsgS4o6C" role="10QFUM">
+                    <node concept="3uibUv" id="QobsgS4t0x" role="A3Ik2">
+                      <ref role="3uigEE" to="mhbf:~SModel" resolve="SModel" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="1z4cxt" id="QobsgS4rjI" role="2OqNvi">
+                <node concept="1bVj0M" id="QobsgS4rjK" role="23t8la">
+                  <node concept="3clFbS" id="QobsgS4rjL" role="1bW5cS">
+                    <node concept="3clFbF" id="QobsgS4rN0" role="3cqZAp">
+                      <node concept="17R0WA" id="QobsgS4wjF" role="3clFbG">
+                        <node concept="Xl_RD" id="QobsgS4wIV" role="3uHU7w">
+                          <property role="Xl_RC" value="enumMigration" />
+                        </node>
+                        <node concept="2OqwBi" id="QobsgS4viJ" role="3uHU7B">
+                          <node concept="2OqwBi" id="QobsgS4sga" role="2Oq$k0">
+                            <node concept="37vLTw" id="QobsgS4rMZ" role="2Oq$k0">
+                              <ref role="3cqZAo" node="QobsgS4rjM" resolve="it" />
+                            </node>
+                            <node concept="liA8E" id="QobsgS4uZA" role="2OqNvi">
+                              <ref role="37wK5l" to="mhbf:~SModel.getName()" resolve="getName" />
+                            </node>
+                          </node>
+                          <node concept="liA8E" id="QobsgS4vH0" role="2OqNvi">
+                            <ref role="37wK5l" to="mhbf:~SModelName.getSimpleName()" resolve="getSimpleName" />
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="Rh6nW" id="QobsgS4rjM" role="1bW2Oz">
+                    <property role="TrG5h" value="it" />
+                    <node concept="2jxLKc" id="QobsgS4rjN" role="1tU5fm" />
+                  </node>
+                </node>
               </node>
             </node>
           </node>
@@ -3638,14 +3683,134 @@
               </node>
             </node>
             <node concept="3clFbH" id="2UidVq789vg" role="3cqZAp" />
-            <node concept="3clFbF" id="2UidVq7cY3o" role="3cqZAp">
-              <node concept="1rXfSq" id="2UidVq7cY3m" role="3clFbG">
-                <ref role="37wK5l" node="LU8F6FUaBs" resolve="generateReplacementMethods" />
-                <node concept="37vLTw" id="2UidVq7cZuX" role="37wK5m">
-                  <ref role="3cqZAo" node="2UidVq786Y7" resolve="enumm" />
+            <node concept="3cpWs8" id="QobsgS36GG" role="3cqZAp">
+              <node concept="3cpWsn" id="QobsgS36GH" role="3cpWs9">
+                <property role="TrG5h" value="generateReplacementMethods" />
+                <node concept="3Tqbb2" id="QobsgS36E8" role="1tU5fm">
+                  <ref role="ehGHo" to="tpee:fz12cDA" resolve="ClassConcept" />
                 </node>
-                <node concept="37vLTw" id="2UidVq7cZOL" role="37wK5m">
-                  <ref role="3cqZAo" node="2UidVq779sB" resolve="behaviorModel" />
+                <node concept="1rXfSq" id="QobsgS36GI" role="33vP2m">
+                  <ref role="37wK5l" node="LU8F6FUaBs" resolve="generateReplacementMethods" />
+                  <node concept="37vLTw" id="QobsgS36GJ" role="37wK5m">
+                    <ref role="3cqZAo" node="2UidVq786Y7" resolve="enumm" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbJ" id="QobsgS38FF" role="3cqZAp">
+              <node concept="3clFbS" id="QobsgS38FH" role="3clFbx">
+                <node concept="3clFbJ" id="QobsgS39IS" role="3cqZAp">
+                  <node concept="3clFbS" id="QobsgS39IU" role="3clFbx">
+                    <node concept="3clFbF" id="QobsgS3_fe" role="3cqZAp">
+                      <node concept="37vLTI" id="QobsgS3Aao" role="3clFbG">
+                        <node concept="37vLTw" id="QobsgS3_fd" role="37vLTJ">
+                          <ref role="3cqZAo" node="QobsgS2K1e" resolve="enumMigrationHelpersModel" />
+                        </node>
+                        <node concept="2OqwBi" id="QobsgS3yhz" role="37vLTx">
+                          <node concept="2OqwBi" id="QobsgS3yh$" role="2Oq$k0">
+                            <node concept="liA8E" id="QobsgS3yh_" role="2OqNvi">
+                              <ref role="37wK5l" to="mhbf:~SModel.getModelRoot()" resolve="getModelRoot" />
+                            </node>
+                            <node concept="2JrnkZ" id="QobsgS3yhA" role="2Oq$k0">
+                              <node concept="37vLTw" id="QobsgS3yhB" role="2JrQYb">
+                                <ref role="3cqZAo" node="2UidVq779sy" resolve="strucutureModel" />
+                              </node>
+                            </node>
+                          </node>
+                          <node concept="liA8E" id="QobsgS3yhC" role="2OqNvi">
+                            <ref role="37wK5l" to="dush:~ModelRoot.createModel(java.lang.String)" resolve="createModel" />
+                            <node concept="3cpWs3" id="QobsgS3yhD" role="37wK5m">
+                              <node concept="2OqwBi" id="QobsgS3yhE" role="3uHU7B">
+                                <node concept="2OqwBi" id="QobsgS3yhF" role="2Oq$k0">
+                                  <node concept="liA8E" id="QobsgS3yhG" role="2OqNvi">
+                                    <ref role="37wK5l" to="mhbf:~SModel.getModule()" resolve="getModule" />
+                                  </node>
+                                  <node concept="2JrnkZ" id="QobsgS3yhH" role="2Oq$k0">
+                                    <node concept="37vLTw" id="QobsgS3yhI" role="2JrQYb">
+                                      <ref role="3cqZAo" node="2UidVq779sy" resolve="strucutureModel" />
+                                    </node>
+                                  </node>
+                                </node>
+                                <node concept="liA8E" id="QobsgS3yhJ" role="2OqNvi">
+                                  <ref role="37wK5l" to="lui2:~SModule.getModuleName()" resolve="getModuleName" />
+                                </node>
+                              </node>
+                              <node concept="Xl_RD" id="QobsgS3yhK" role="3uHU7w">
+                                <property role="Xl_RC" value=".enumMigration" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="3clFbH" id="QobsgS3Dhq" role="3cqZAp" />
+                    <node concept="3cpWs8" id="5znc4hxZzSF" role="3cqZAp">
+                      <node concept="3cpWsn" id="5znc4hxZzSG" role="3cpWs9">
+                        <property role="TrG5h" value="importer" />
+                        <node concept="3uibUv" id="5znc4hxZzK7" role="1tU5fm">
+                          <ref role="3uigEE" to="z1c3:~ModelImporter" resolve="ModelImporter" />
+                        </node>
+                        <node concept="2ShNRf" id="5znc4hxZzSH" role="33vP2m">
+                          <node concept="1pGfFk" id="5znc4hxZzSI" role="2ShVmc">
+                            <ref role="37wK5l" to="z1c3:~ModelImporter.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModel)" resolve="ModelImporter" />
+                            <node concept="37vLTw" id="QobsgS3DBb" role="37wK5m">
+                              <ref role="3cqZAo" node="QobsgS2K1e" resolve="enumMigrationHelpersModel" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="3clFbF" id="5znc4hxZ4Gg" role="3cqZAp">
+                      <node concept="2OqwBi" id="5znc4hxZtIZ" role="3clFbG">
+                        <node concept="37vLTw" id="5znc4hxZzSK" role="2Oq$k0">
+                          <ref role="3cqZAo" node="5znc4hxZzSG" resolve="importer" />
+                        </node>
+                        <node concept="liA8E" id="5znc4hxZE51" role="2OqNvi">
+                          <ref role="37wK5l" to="z1c3:~ModelImporter.prepare(org.jetbrains.mps.openapi.model.SModelReference)" resolve="prepare" />
+                          <node concept="2OqwBi" id="5znc4hy087e" role="37wK5m">
+                            <node concept="37vLTw" id="QobsgS3E1n" role="2Oq$k0">
+                              <ref role="3cqZAo" node="2UidVq779sy" resolve="strucutureModel" />
+                            </node>
+                            <node concept="aIX43" id="5znc4hy0cyB" role="2OqNvi" />
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="3clFbF" id="5znc4hxY224" role="3cqZAp">
+                      <node concept="2OqwBi" id="5znc4hy0u4n" role="3clFbG">
+                        <node concept="37vLTw" id="5znc4hy0oa5" role="2Oq$k0">
+                          <ref role="3cqZAo" node="5znc4hxZzSG" resolve="importer" />
+                        </node>
+                        <node concept="liA8E" id="5znc4hy0$cC" role="2OqNvi">
+                          <ref role="37wK5l" to="z1c3:~ModelImporter.execute()" resolve="execute" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="3clFbC" id="QobsgS3a9J" role="3clFbw">
+                    <node concept="10Nm6u" id="QobsgS3alc" role="3uHU7w" />
+                    <node concept="37vLTw" id="QobsgS39SV" role="3uHU7B">
+                      <ref role="3cqZAo" node="QobsgS2K1e" resolve="enumMigrationHelpersModel" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="3clFbF" id="QobsgS3ALP" role="3cqZAp">
+                  <node concept="2OqwBi" id="QobsgS3AXL" role="3clFbG">
+                    <node concept="37vLTw" id="QobsgS3ALN" role="2Oq$k0">
+                      <ref role="3cqZAo" node="QobsgS2K1e" resolve="enumMigrationHelpersModel" />
+                    </node>
+                    <node concept="3BYIHo" id="QobsgS3B54" role="2OqNvi">
+                      <node concept="37vLTw" id="QobsgS3BgI" role="3BYIHq">
+                        <ref role="3cqZAo" node="QobsgS36GH" resolve="generateReplacementMethods" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3y3z36" id="QobsgS39uP" role="3clFbw">
+                <node concept="10Nm6u" id="QobsgS39At" role="3uHU7w" />
+                <node concept="37vLTw" id="QobsgS38Zg" role="3uHU7B">
+                  <ref role="3cqZAo" node="QobsgS36GH" resolve="generateReplacementMethods" />
                 </node>
               </node>
             </node>
@@ -4136,7 +4301,9 @@
         <node concept="3clFbH" id="LU8F6FUaBA" role="3cqZAp" />
         <node concept="3clFbJ" id="LU8F6FUaBB" role="3cqZAp">
           <node concept="3clFbS" id="LU8F6FUaBC" role="3clFbx">
-            <node concept="3cpWs6" id="LU8F6FUaBD" role="3cqZAp" />
+            <node concept="3cpWs6" id="LU8F6FUaBD" role="3cqZAp">
+              <node concept="10Nm6u" id="QobsgS2UYd" role="3cqZAk" />
+            </node>
           </node>
           <node concept="1Wc70l" id="LU8F6FUaBE" role="3clFbw">
             <node concept="3fqX7Q" id="LU8F6FUaBF" role="3uHU7B">
@@ -4182,12 +4349,11 @@
             <node concept="3Tqbb2" id="LU8F6FUaBW" role="1tU5fm">
               <ref role="ehGHo" to="tpee:fz12cDA" resolve="ClassConcept" />
             </node>
-            <node concept="2OqwBi" id="LU8F6FUaBX" role="33vP2m">
-              <node concept="37vLTw" id="LU8F6FUaBY" role="2Oq$k0">
-                <ref role="3cqZAo" node="LU8F6FUaFL" resolve="behaviorModel" />
-              </node>
-              <node concept="2xF2bX" id="LU8F6FUaBZ" role="2OqNvi">
-                <ref role="I8UWU" to="tpee:fz12cDA" resolve="ClassConcept" />
+            <node concept="2ShNRf" id="QobsgS2R5n" role="33vP2m">
+              <node concept="3zrR0B" id="QobsgS2So6" role="2ShVmc">
+                <node concept="3Tqbb2" id="QobsgS2So8" role="3zrR0E">
+                  <ref role="ehGHo" to="tpee:fz12cDA" resolve="ClassConcept" />
+                </node>
               </node>
             </node>
           </node>
@@ -4218,52 +4384,6 @@
           </node>
         </node>
         <node concept="3clFbH" id="LU8F6FUaCa" role="3cqZAp" />
-        <node concept="3cpWs8" id="5znc4hxZzSF" role="3cqZAp">
-          <node concept="3cpWsn" id="5znc4hxZzSG" role="3cpWs9">
-            <property role="TrG5h" value="importer" />
-            <node concept="3uibUv" id="5znc4hxZzK7" role="1tU5fm">
-              <ref role="3uigEE" to="z1c3:~ModelImporter" resolve="ModelImporter" />
-            </node>
-            <node concept="2ShNRf" id="5znc4hxZzSH" role="33vP2m">
-              <node concept="1pGfFk" id="5znc4hxZzSI" role="2ShVmc">
-                <ref role="37wK5l" to="z1c3:~ModelImporter.&lt;init&gt;(org.jetbrains.mps.openapi.model.SModel)" resolve="ModelImporter" />
-                <node concept="37vLTw" id="5znc4hxZzSJ" role="37wK5m">
-                  <ref role="3cqZAo" node="LU8F6FUaFL" resolve="behaviorModel" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="5znc4hxZ4Gg" role="3cqZAp">
-          <node concept="2OqwBi" id="5znc4hxZtIZ" role="3clFbG">
-            <node concept="37vLTw" id="5znc4hxZzSK" role="2Oq$k0">
-              <ref role="3cqZAo" node="5znc4hxZzSG" resolve="importer" />
-            </node>
-            <node concept="liA8E" id="5znc4hxZE51" role="2OqNvi">
-              <ref role="37wK5l" to="z1c3:~ModelImporter.prepare(org.jetbrains.mps.openapi.model.SModelReference)" resolve="prepare" />
-              <node concept="2OqwBi" id="5znc4hy087e" role="37wK5m">
-                <node concept="2OqwBi" id="5znc4hy17lz" role="2Oq$k0">
-                  <node concept="37vLTw" id="5znc4hy175_" role="2Oq$k0">
-                    <ref role="3cqZAo" node="LU8F6FUaFJ" resolve="enumm" />
-                  </node>
-                  <node concept="I4A8Y" id="5znc4hy1dtE" role="2OqNvi" />
-                </node>
-                <node concept="aIX43" id="5znc4hy0cyB" role="2OqNvi" />
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="5znc4hxY224" role="3cqZAp">
-          <node concept="2OqwBi" id="5znc4hy0u4n" role="3clFbG">
-            <node concept="37vLTw" id="5znc4hy0oa5" role="2Oq$k0">
-              <ref role="3cqZAo" node="5znc4hxZzSG" resolve="importer" />
-            </node>
-            <node concept="liA8E" id="5znc4hy0$cC" role="2OqNvi">
-              <ref role="37wK5l" to="z1c3:~ModelImporter.execute()" resolve="execute" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbH" id="5znc4hy0UsU" role="3cqZAp" />
         <node concept="3clFbJ" id="LU8F6FUaCb" role="3cqZAp">
           <node concept="3clFbS" id="LU8F6FUaCc" role="3clFbx">
             <node concept="3clFbH" id="LU8F6FUaCd" role="3cqZAp" />
@@ -4759,17 +4879,21 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbH" id="QobsgS2WJz" role="3cqZAp" />
+        <node concept="3cpWs6" id="QobsgS2YUs" role="3cqZAp">
+          <node concept="37vLTw" id="QobsgS32Nh" role="3cqZAk">
+            <ref role="3cqZAo" node="LU8F6FUaBV" resolve="generatedMigrationUtils" />
+          </node>
+        </node>
       </node>
-      <node concept="3cqZAl" id="LU8F6FUaFI" role="3clF45" />
+      <node concept="3Tqbb2" id="QobsgS2L78" role="3clF45">
+        <ref role="ehGHo" to="tpee:fz12cDA" resolve="ClassConcept" />
+      </node>
       <node concept="37vLTG" id="LU8F6FUaFJ" role="3clF46">
         <property role="TrG5h" value="enumm" />
         <node concept="3Tqbb2" id="LU8F6FUaFK" role="1tU5fm">
           <ref role="ehGHo" to="tpce:2TR3acGo7Lv" resolve="EnumerationDeclartaion" />
         </node>
-      </node>
-      <node concept="37vLTG" id="LU8F6FUaFL" role="3clF46">
-        <property role="TrG5h" value="behaviorModel" />
-        <node concept="H_c77" id="LU8F6FUaFM" role="1tU5fm" />
       </node>
       <node concept="3Tm1VV" id="LU8F6FUaFH" role="1B3o_S" />
     </node>
@@ -4832,23 +4956,199 @@
         </node>
         <node concept="3clFbH" id="LU8F6FU6Oa" role="3cqZAp" />
         <node concept="3SKdUt" id="LU8F6FU6Ob" role="3cqZAp">
-          <node concept="3SKdUq" id="LU8F6FU6Oc" role="3SKWNk">
-            <property role="3SKdUp" value="attributes of old enum member (internalValue, externalValue, javaIdentifier) don't have any constraints " />
+          <node concept="1PaTwC" id="QobsgS3Euu" role="3ndbpf">
+            <node concept="3oM_SD" id="QobsgS3Euv" role="1PaTwD">
+              <property role="3oM_SC" value="attributes" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Euw" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Eux" role="1PaTwD">
+              <property role="3oM_SC" value="old" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Euy" role="1PaTwD">
+              <property role="3oM_SC" value="enum" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Euz" role="1PaTwD">
+              <property role="3oM_SC" value="member" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Eu$" role="1PaTwD">
+              <property role="3oM_SC" value="(internalValue," />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Eu_" role="1PaTwD">
+              <property role="3oM_SC" value="externalValue," />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuA" role="1PaTwD">
+              <property role="3oM_SC" value="javaIdentifier)" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuB" role="1PaTwD">
+              <property role="3oM_SC" value="don't" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuC" role="1PaTwD">
+              <property role="3oM_SC" value="have" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuD" role="1PaTwD">
+              <property role="3oM_SC" value="any" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuE" role="1PaTwD">
+              <property role="3oM_SC" value="constraints" />
+            </node>
           </node>
         </node>
         <node concept="3SKdUt" id="LU8F6FU6Od" role="3cqZAp">
-          <node concept="3SKdUq" id="LU8F6FU6Oe" role="3SKWNk">
-            <property role="3SKdUp" value="while name of new enum member has to be valid identifier. Here, we trying to choose such attribute that " />
+          <node concept="1PaTwC" id="QobsgS3EuF" role="3ndbpf">
+            <node concept="3oM_SD" id="QobsgS3EuG" role="1PaTwD">
+              <property role="3oM_SC" value="while" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuH" role="1PaTwD">
+              <property role="3oM_SC" value="name" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuI" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuJ" role="1PaTwD">
+              <property role="3oM_SC" value="new" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuK" role="1PaTwD">
+              <property role="3oM_SC" value="enum" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuL" role="1PaTwD">
+              <property role="3oM_SC" value="member" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuM" role="1PaTwD">
+              <property role="3oM_SC" value="has" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuN" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuO" role="1PaTwD">
+              <property role="3oM_SC" value="be" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuP" role="1PaTwD">
+              <property role="3oM_SC" value="valid" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuQ" role="1PaTwD">
+              <property role="3oM_SC" value="identifier." />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuR" role="1PaTwD">
+              <property role="3oM_SC" value="Here," />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuS" role="1PaTwD">
+              <property role="3oM_SC" value="we" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuT" role="1PaTwD">
+              <property role="3oM_SC" value="trying" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuU" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuV" role="1PaTwD">
+              <property role="3oM_SC" value="choose" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuW" role="1PaTwD">
+              <property role="3oM_SC" value="such" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuX" role="1PaTwD">
+              <property role="3oM_SC" value="attribute" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EuY" role="1PaTwD">
+              <property role="3oM_SC" value="that" />
+            </node>
           </node>
         </node>
         <node concept="3SKdUt" id="LU8F6FU6Of" role="3cqZAp">
-          <node concept="3SKdUq" id="LU8F6FU6Og" role="3SKWNk">
-            <property role="3SKdUp" value="satisifies name constraint for all enum member, in the precedence that reduces amount of migration changes in " />
+          <node concept="1PaTwC" id="QobsgS3EuZ" role="3ndbpf">
+            <node concept="3oM_SD" id="QobsgS3Ev0" role="1PaTwD">
+              <property role="3oM_SC" value="satisifies" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ev1" role="1PaTwD">
+              <property role="3oM_SC" value="name" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ev2" role="1PaTwD">
+              <property role="3oM_SC" value="constraint" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ev3" role="1PaTwD">
+              <property role="3oM_SC" value="for" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ev4" role="1PaTwD">
+              <property role="3oM_SC" value="all" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ev5" role="1PaTwD">
+              <property role="3oM_SC" value="enum" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ev6" role="1PaTwD">
+              <property role="3oM_SC" value="member," />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ev7" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ev8" role="1PaTwD">
+              <property role="3oM_SC" value="the" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ev9" role="1PaTwD">
+              <property role="3oM_SC" value="precedence" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Eva" role="1PaTwD">
+              <property role="3oM_SC" value="that" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evb" role="1PaTwD">
+              <property role="3oM_SC" value="reduces" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evc" role="1PaTwD">
+              <property role="3oM_SC" value="amount" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evd" role="1PaTwD">
+              <property role="3oM_SC" value="of" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Eve" role="1PaTwD">
+              <property role="3oM_SC" value="migration" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evf" role="1PaTwD">
+              <property role="3oM_SC" value="changes" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evg" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
           </node>
         </node>
         <node concept="3SKdUt" id="LU8F6FU6Oh" role="3cqZAp">
-          <node concept="3SKdUq" id="LU8F6FU6Oi" role="3SKWNk">
-            <property role="3SKdUp" value="user smodel codebase. If no attributes are sufficient, than fallback to #getConstantName()" />
+          <node concept="1PaTwC" id="QobsgS3Evh" role="3ndbpf">
+            <node concept="3oM_SD" id="QobsgS3Evi" role="1PaTwD">
+              <property role="3oM_SC" value="user" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evj" role="1PaTwD">
+              <property role="3oM_SC" value="smodel" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evk" role="1PaTwD">
+              <property role="3oM_SC" value="codebase." />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evl" role="1PaTwD">
+              <property role="3oM_SC" value="If" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evm" role="1PaTwD">
+              <property role="3oM_SC" value="no" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evn" role="1PaTwD">
+              <property role="3oM_SC" value="attributes" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evo" role="1PaTwD">
+              <property role="3oM_SC" value="are" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evp" role="1PaTwD">
+              <property role="3oM_SC" value="sufficient," />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evq" role="1PaTwD">
+              <property role="3oM_SC" value="than" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evr" role="1PaTwD">
+              <property role="3oM_SC" value="fallback" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evs" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evt" role="1PaTwD">
+              <property role="3oM_SC" value="#getConstantName()" />
+            </node>
           </node>
         </node>
         <node concept="3cpWs8" id="LU8F6FU6Oj" role="3cqZAp">
@@ -4864,29 +5164,150 @@
         </node>
         <node concept="3clFbH" id="LU8F6FU6On" role="3cqZAp" />
         <node concept="3SKdUt" id="LU8F6FU6Oo" role="3cqZAp">
-          <node concept="3SKdUq" id="LU8F6FU6Op" role="3SKWNk">
-            <property role="3SKdUp" value="smodel code operations:" />
+          <node concept="1PaTwC" id="QobsgS3Evu" role="3ndbpf">
+            <node concept="3oM_SD" id="QobsgS3Evv" role="1PaTwD">
+              <property role="3oM_SC" value="smodel" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evw" role="1PaTwD">
+              <property role="3oM_SC" value="code" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Evx" role="1PaTwD">
+              <property role="3oM_SC" value="operations:" />
+            </node>
           </node>
         </node>
         <node concept="3SKdUt" id="LU8F6FU6Oq" role="3cqZAp">
-          <node concept="3SKdUq" id="LU8F6FU6Or" role="3SKWNk">
-            <property role="3SKdUp" value="1) value attirubte -&gt; enumMember.value / enum.memberForValue / node.enumProp" />
+          <node concept="1PaTwC" id="QobsgS3Evy" role="3ndbpf">
+            <node concept="3oM_SD" id="QobsgS3Evz" role="1PaTwD">
+              <property role="3oM_SC" value="1)" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ev$" role="1PaTwD">
+              <property role="3oM_SC" value="value" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ev_" role="1PaTwD">
+              <property role="3oM_SC" value="attirubte" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvA" role="1PaTwD">
+              <property role="3oM_SC" value="-&gt;" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvB" role="1PaTwD">
+              <property role="3oM_SC" value="enumMember.value" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvC" role="1PaTwD">
+              <property role="3oM_SC" value="/" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvD" role="1PaTwD">
+              <property role="3oM_SC" value="enum.memberForValue" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvE" role="1PaTwD">
+              <property role="3oM_SC" value="/" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvF" role="1PaTwD">
+              <property role="3oM_SC" value="node.enumProp" />
+            </node>
           </node>
         </node>
         <node concept="3SKdUt" id="LU8F6FU6Os" role="3cqZAp">
-          <node concept="3SKdUq" id="LU8F6FU6Ot" role="3SKWNk">
-            <property role="3SKdUp" value="2) name attribute  -&gt; enumMember.name  / enum.memberForName" />
+          <node concept="1PaTwC" id="QobsgS3EvG" role="3ndbpf">
+            <node concept="3oM_SD" id="QobsgS3EvH" role="1PaTwD">
+              <property role="3oM_SC" value="2)" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvI" role="1PaTwD">
+              <property role="3oM_SC" value="name" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvJ" role="1PaTwD">
+              <property role="3oM_SC" value="attribute" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvK" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvL" role="1PaTwD">
+              <property role="3oM_SC" value="-&gt;" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvM" role="1PaTwD">
+              <property role="3oM_SC" value="enumMember.name" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvN" role="1PaTwD">
+              <property role="3oM_SC" value="" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvO" role="1PaTwD">
+              <property role="3oM_SC" value="/" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvP" role="1PaTwD">
+              <property role="3oM_SC" value="enum.memberForName" />
+            </node>
           </node>
         </node>
         <node concept="3clFbH" id="LU8F6FU6Ou" role="3cqZAp" />
         <node concept="3SKdUt" id="LU8F6FU6Ov" role="3cqZAp">
-          <node concept="3SKdUq" id="LU8F6FU6Ow" role="3SKWNk">
-            <property role="3SKdUp" value="As first operations have much more usages, we initially trying to migrate them in a sane way, " />
+          <node concept="1PaTwC" id="QobsgS3EvQ" role="3ndbpf">
+            <node concept="3oM_SD" id="QobsgS3EvR" role="1PaTwD">
+              <property role="3oM_SC" value="As" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvS" role="1PaTwD">
+              <property role="3oM_SC" value="first" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvT" role="1PaTwD">
+              <property role="3oM_SC" value="operations" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvU" role="1PaTwD">
+              <property role="3oM_SC" value="have" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvV" role="1PaTwD">
+              <property role="3oM_SC" value="much" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvW" role="1PaTwD">
+              <property role="3oM_SC" value="more" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvX" role="1PaTwD">
+              <property role="3oM_SC" value="usages," />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvY" role="1PaTwD">
+              <property role="3oM_SC" value="we" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3EvZ" role="1PaTwD">
+              <property role="3oM_SC" value="initially" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ew0" role="1PaTwD">
+              <property role="3oM_SC" value="trying" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ew1" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ew2" role="1PaTwD">
+              <property role="3oM_SC" value="migrate" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ew3" role="1PaTwD">
+              <property role="3oM_SC" value="them" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ew4" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ew5" role="1PaTwD">
+              <property role="3oM_SC" value="a" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ew6" role="1PaTwD">
+              <property role="3oM_SC" value="sane" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ew7" role="1PaTwD">
+              <property role="3oM_SC" value="way," />
+            </node>
           </node>
         </node>
         <node concept="3SKdUt" id="LU8F6FU6Ox" role="3cqZAp">
-          <node concept="3SKdUq" id="LU8F6FU6Oy" role="3SKWNk">
-            <property role="3SKdUp" value="then care about latter" />
+          <node concept="1PaTwC" id="QobsgS3Ew8" role="3ndbpf">
+            <node concept="3oM_SD" id="QobsgS3Ew9" role="1PaTwD">
+              <property role="3oM_SC" value="then" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ewa" role="1PaTwD">
+              <property role="3oM_SC" value="care" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ewb" role="1PaTwD">
+              <property role="3oM_SC" value="about" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ewc" role="1PaTwD">
+              <property role="3oM_SC" value="latter" />
+            </node>
           </node>
         </node>
         <node concept="3clFbH" id="LU8F6FU6Oz" role="3cqZAp" />
@@ -6684,8 +7105,25 @@
       <property role="TrG5h" value="serializeReplacementKind" />
       <node concept="3clFbS" id="LU8F6FUFPV" role="3clF47">
         <node concept="3SKdUt" id="LU8F6FUFPW" role="3cqZAp">
-          <node concept="3SKdUq" id="LU8F6FUFPX" role="3SKWNk">
-            <property role="3SKdUp" value="TODO support new enums in quotations" />
+          <node concept="1PaTwC" id="QobsgS3Ewd" role="3ndbpf">
+            <node concept="3oM_SD" id="QobsgS3Ewe" role="1PaTwD">
+              <property role="3oM_SC" value="TODO" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ewf" role="1PaTwD">
+              <property role="3oM_SC" value="support" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ewg" role="1PaTwD">
+              <property role="3oM_SC" value="new" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ewh" role="1PaTwD">
+              <property role="3oM_SC" value="enums" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ewi" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="QobsgS3Ewj" role="1PaTwD">
+              <property role="3oM_SC" value="quotations" />
+            </node>
           </node>
         </node>
         <node concept="3cpWs8" id="LU8F6FUFPY" role="3cqZAp">

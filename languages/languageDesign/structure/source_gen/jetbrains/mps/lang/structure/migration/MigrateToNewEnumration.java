@@ -8,18 +8,21 @@ import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.smodel.Language;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import java.util.Objects;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.structure.util.ConceptIdHelper;
+import jetbrains.mps.project.ModelImporter;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
 import org.jetbrains.mps.openapi.module.SearchScope;
 import jetbrains.mps.lang.smodel.query.runtime.CommandUtil;
 import jetbrains.mps.project.EditableFilteringScope;
 import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.migration.runtime.base.DeprecatedConceptNotMigratedProblem;
@@ -32,10 +35,8 @@ import jetbrains.mps.smodel.adapter.ids.MetaIdByDeclaration;
 import jetbrains.mps.lang.structure.behavior.EnumerationDataTypeDeclaration_Old__BehaviorDescriptor;
 import jetbrains.mps.lang.structure.behavior.EnumerationMemberDeclaration_Old__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
-import jetbrains.mps.project.ModelImporter;
 import java.util.List;
 import jetbrains.mps.smodel.SNodePointer;
-import java.util.Objects;
 import jetbrains.mps.smodel.adapter.structure.types.SPrimitiveTypes;
 import org.jetbrains.mps.openapi.language.SType;
 import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
@@ -66,7 +67,12 @@ public class MigrateToNewEnumration extends MigrationScriptBase {
     }
 
     SModel strucutureModel = SModuleOperations.getAspect(language, "structure");
-    SModel behaviorModel = SModuleOperations.getAspect(language, "behavior");
+
+    SModel enumMigrationHelpersModel = Sequence.fromIterable(((Iterable<SModel>) language.getModels())).findFirst(new IWhereFilter<SModel>() {
+      public boolean accept(SModel it) {
+        return Objects.equals(it.getName().getSimpleName(), "enumMigration");
+      }
+    });
 
     for (SNode dtd : ListSequence.fromList(SModelOperations.roots(strucutureModel, MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, "jetbrains.mps.lang.structure.structure.DataTypeDeclaration")))) {
       if (isEmptyString(SPropertyOperations.getString(dtd, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId")))) {
@@ -77,7 +83,17 @@ public class MigrateToNewEnumration extends MigrationScriptBase {
     for (SNode oldEnum : ListSequence.fromList(SModelOperations.roots(strucutureModel, MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, "jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration_Old")))) {
       SNode enumm = replaceWithNewEnum(oldEnum);
 
-      generateReplacementMethods(enumm, behaviorModel);
+      SNode generateReplacementMethods = generateReplacementMethods(enumm);
+      if (generateReplacementMethods != null) {
+        if (enumMigrationHelpersModel == null) {
+          enumMigrationHelpersModel = strucutureModel.getModelRoot().createModel(strucutureModel.getModule().getModuleName() + ".enumMigration");
+
+          ModelImporter importer = new ModelImporter(enumMigrationHelpersModel);
+          importer.prepare(SModelOperations.getPointer(strucutureModel));
+          importer.execute();
+        }
+        SModelOperations.addRootNode(enumMigrationHelpersModel, generateReplacementMethods);
+      }
     }
   }
   @Override
@@ -138,31 +154,27 @@ public class MigrateToNewEnumration extends MigrationScriptBase {
     return newEnum;
   }
 
-  public static void generateReplacementMethods(SNode enumm, SModel behaviorModel) {
+  public static SNode generateReplacementMethods(SNode enumm) {
     SNode enumMigration = AttributeOperations.getAttribute(enumm, new IAttributeDescriptor.NodeAttribute(MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, "jetbrains.mps.lang.structure.structure.EnumMigrationInfo")));
 
     if (!(SEnumOperations.isMember(SPropertyOperations.getEnum(enumMigration, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, 0x5a14f1035964062eL, "nameOpMigration")), 0x5a14f10359640645L)) && !(SEnumOperations.isMember(SPropertyOperations.getEnum(enumMigration, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, 0x5a14f103596433e4L, "valueOpMigration")), 0x5a14f103596433d8L))) {
-      return;
+      return null;
     }
 
-    SNode generatedMigrationUtils = SModelOperations.createNewRootNode(behaviorModel, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept"));
+    SNode generatedMigrationUtils = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept"));
     SPropertyOperations.assign(generatedMigrationUtils, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), SPropertyOperations.getString(enumm, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "_MigrationUtils");
-
-    ModelImporter importer = new ModelImporter(behaviorModel);
-    importer.prepare(SModelOperations.getPointer(SNodeOperations.getModel(enumm)));
-    importer.execute();
 
     if (SEnumOperations.isMember(SPropertyOperations.getEnum(enumMigration, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, 0x5a14f1035964062eL, "nameOpMigration")), 0x5a14f10359640645L)) {
 
       List<SNode> memberNames = ListSequence.fromList(SLinkOperations.getChildren(enumm, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, 0x2e770ca32c607cc1L, "members"))).select(new ISelector<SNode, SNode>() {
         public SNode select(SNode it) {
           String name = EnumerationMemberDeclaration_Old__BehaviorDescriptor.getName_idi2ZRO7Q.invoke(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, 0xc7a22b1ac1ed15fL, "oldMember")));
-          return ((name == null || name.length() == 0) ? createNullLiteral_3t318f_a0b0a0a0a1a11a21() : createStringLiteral_3t318f_a0b0a0a0a1a11a21(name));
+          return ((name == null || name.length() == 0) ? createNullLiteral_3t318f_a0b0a0a0a1a7a21() : createStringLiteral_3t318f_a0b0a0a0a1a7a21(name));
         }
       }).toListSequence();
 
-      ListSequence.fromList(SLinkOperations.getChildren(generatedMigrationUtils, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member"))).addElement(genereateFromEnumMethod("name", enumm, _quotation_createNode_3t318f_c0a0d0l0m(), memberNames, SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e9237b686f1e935L, "jetbrains.mps.lang.structure.structure.EnumCustomMethodReplacementKind"), 0x2e9237b686f1e93aL, "memberToName")));
-      ListSequence.fromList(SLinkOperations.getChildren(generatedMigrationUtils, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member"))).addElement(genereateToEnumMethod("fromName", "name", enumm, _quotation_createNode_3t318f_d0a0e0l0m(), memberNames, SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e9237b686f1e935L, "jetbrains.mps.lang.structure.structure.EnumCustomMethodReplacementKind"), 0x2e9237b686f1e93eL, "nameToMember")));
+      ListSequence.fromList(SLinkOperations.getChildren(generatedMigrationUtils, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member"))).addElement(genereateFromEnumMethod("name", enumm, _quotation_createNode_3t318f_c0a0d0h0m(), memberNames, SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e9237b686f1e935L, "jetbrains.mps.lang.structure.structure.EnumCustomMethodReplacementKind"), 0x2e9237b686f1e93aL, "memberToName")));
+      ListSequence.fromList(SLinkOperations.getChildren(generatedMigrationUtils, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member"))).addElement(genereateToEnumMethod("fromName", "name", enumm, _quotation_createNode_3t318f_d0a0e0h0m(), memberNames, SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e9237b686f1e935L, "jetbrains.mps.lang.structure.structure.EnumCustomMethodReplacementKind"), 0x2e9237b686f1e93eL, "nameToMember")));
     }
 
     if (SEnumOperations.isMember(SPropertyOperations.getEnum(enumMigration, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, 0x5a14f103596433e4L, "valueOpMigration")), 0x5a14f103596433d8L)) {
@@ -172,21 +184,21 @@ public class MigrateToNewEnumration extends MigrationScriptBase {
 
       if (SLinkOperations.hasPointer(SLinkOperations.getTarget(enumMigration, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, 0x5a14f1035942799cL, "oldEnum")), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0xfc3210ef05L, "memberDataType"), new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1082983041843"))) {
 
-        valueType = _quotation_createNode_3t318f_a0b0e0n0m();
+        valueType = _quotation_createNode_3t318f_a0b0e0j0m();
         memberValues = ListSequence.fromList(SLinkOperations.getChildren(enumm, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, 0x2e770ca32c607cc1L, "members"))).select(new ISelector<SNode, SNode>() {
           public SNode select(SNode it) {
             String value = SPropertyOperations.getString(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, 0xc7a22b1ac1ed15fL, "oldMember")), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, 0xfc5ee06663L, "internalValue"));
-            return ((value == null || value.length() == 0) ? createNullLiteral_3t318f_a0b0a0a0a2a4a31a21() : createStringLiteral_3t318f_a0b0a0a0a2a4a31a21(value));
+            return ((value == null || value.length() == 0) ? createNullLiteral_3t318f_a0b0a0a0a2a4a9a21() : createStringLiteral_3t318f_a0b0a0a0a2a4a9a21(value));
           }
         }).toListSequence();
 
 
       } else if (SLinkOperations.hasPointer(SLinkOperations.getTarget(enumMigration, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, 0x5a14f1035942799cL, "oldEnum")), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0xfc3210ef05L, "memberDataType"), new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1082983657062"))) {
 
-        valueType = _quotation_createNode_3t318f_a0b0a4a31a21();
+        valueType = _quotation_createNode_3t318f_a0b0a4a9a21();
         memberValues = ListSequence.fromList(SLinkOperations.getChildren(enumm, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, 0x2e770ca32c607cc1L, "members"))).select(new ISelector<SNode, SNode>() {
           public SNode select(SNode it) {
-            return createIntegerConstant_3t318f_a0a0a0a0c0a4a31a21(MigrateToNewEnumration.getEncodedIntValue(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, 0xc7a22b1ac1ed15fL, "oldMember"))));
+            return createIntegerConstant_3t318f_a0a0a0a0c0a4a9a21(MigrateToNewEnumration.getEncodedIntValue(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, 0xc7a22b1ac1ed15fL, "oldMember"))));
           }
         }).toListSequence();
 
@@ -194,6 +206,8 @@ public class MigrateToNewEnumration extends MigrationScriptBase {
       ListSequence.fromList(SLinkOperations.getChildren(generatedMigrationUtils, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member"))).addElement(genereateFromEnumMethod("value", enumm, valueType, memberValues, SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e9237b686f1e935L, "jetbrains.mps.lang.structure.structure.EnumCustomMethodReplacementKind"), 0x2e9237b686f1e936L, "memberToValue")));
       ListSequence.fromList(SLinkOperations.getChildren(generatedMigrationUtils, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member"))).addElement(genereateToEnumMethod("fromValue", "value", enumm, valueType, memberValues, SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e9237b686f1e935L, "jetbrains.mps.lang.structure.structure.EnumCustomMethodReplacementKind"), 0x2e9237b686f1e937L, "valueToMember")));
     }
+
+    return generatedMigrationUtils;
   }
 
 
@@ -207,9 +221,9 @@ public class MigrateToNewEnumration extends MigrationScriptBase {
   private static MigrateToNewEnumration.NamingStrategy chooseMigrationStrategy(SNode migrationInfo) {
     SNode oldEnum = SLinkOperations.getTarget(migrationInfo, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, 0x5a14f1035942799cL, "oldEnum"));
 
-    // attributes of old enum member (internalValue, externalValue, javaIdentifier) don't have any constraints  
-    // while name of new enum member has to be valid identifier. Here, we trying to choose such attribute that  
-    // satisifies name constraint for all enum member, in the precedence that reduces amount of migration changes in  
+    // attributes of old enum member (internalValue, externalValue, javaIdentifier) don't have any constraints 
+    // while name of new enum member has to be valid identifier. Here, we trying to choose such attribute that 
+    // satisifies name constraint for all enum member, in the precedence that reduces amount of migration changes in 
     // user smodel codebase. If no attributes are sufficient, than fallback to #getConstantName() 
     MigrateToNewEnumration.NamingStrategy namingStrategy = BY_OLD_NAME;
 
@@ -217,7 +231,7 @@ public class MigrateToNewEnumration extends MigrationScriptBase {
     // 1) value attirubte -> enumMember.value / enum.memberForValue / node.enumProp 
     // 2) name attribute  -> enumMember.name  / enum.memberForName 
 
-    // As first operations have much more usages, we initially trying to migrate them in a sane way,  
+    // As first operations have much more usages, we initially trying to migrate them in a sane way, 
     // then care about latter 
 
     SPropertyOperations.setEnum(migrationInfo, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, 0x5a14f103596433e4L, "valueOpMigration"), 0x5a14f103596433d8L, "by_custom_methods");
@@ -409,53 +423,53 @@ public class MigrateToNewEnumration extends MigrationScriptBase {
     return enumeration.toString(replacementKind);
   }
 
-  private static SNode createStringLiteral_3t318f_a0b0a0a0a1a11a21(Object p0) {
+  private static SNode createStringLiteral_3t318f_a0b0a0a0a1a7a21(Object p0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral"), null, null, false);
     n1.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), p0 + "");
     return n1;
   }
-  private static SNode createNullLiteral_3t318f_a0b0a0a0a1a11a21() {
+  private static SNode createNullLiteral_3t318f_a0b0a0a0a1a7a21() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940cd6167L, "jetbrains.mps.baseLanguage.structure.NullLiteral"), null, null, false);
     return n1;
   }
-  private static SNode _quotation_createNode_3t318f_c0a0d0l0m() {
+  private static SNode _quotation_createNode_3t318f_c0a0d0h0m() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x11d47da71ecL, "StringType"), null, null, false);
     return quotedNode_1;
   }
-  private static SNode _quotation_createNode_3t318f_d0a0e0l0m() {
+  private static SNode _quotation_createNode_3t318f_d0a0e0h0m() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x11d47da71ecL, "StringType"), null, null, false);
     return quotedNode_1;
   }
-  private static SNode _quotation_createNode_3t318f_a0b0e0n0m() {
+  private static SNode _quotation_createNode_3t318f_a0b0e0j0m() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x11d47da71ecL, "StringType"), null, null, false);
     return quotedNode_1;
   }
-  private static SNode createStringLiteral_3t318f_a0b0a0a0a2a4a31a21(Object p0) {
+  private static SNode createStringLiteral_3t318f_a0b0a0a0a2a4a9a21(Object p0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral"), null, null, false);
     n1.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), p0 + "");
     return n1;
   }
-  private static SNode createNullLiteral_3t318f_a0b0a0a0a2a4a31a21() {
+  private static SNode createNullLiteral_3t318f_a0b0a0a0a2a4a9a21() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940cd6167L, "jetbrains.mps.baseLanguage.structure.NullLiteral"), null, null, false);
     return n1;
   }
-  private static SNode _quotation_createNode_3t318f_a0b0a4a31a21() {
+  private static SNode _quotation_createNode_3t318f_a0b0a4a9a21() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf940d22479L, "IntegerType"), null, null, false);
     return quotedNode_1;
   }
-  private static SNode createIntegerConstant_3t318f_a0a0a0a0c0a4a31a21(Object p0) {
+  private static SNode createIntegerConstant_3t318f_a0a0a0a0c0a4a9a21(Object p0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, "jetbrains.mps.baseLanguage.structure.IntegerConstant"), null, null, false);
     n1.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), p0 + "");
