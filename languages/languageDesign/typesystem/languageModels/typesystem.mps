@@ -2,7 +2,7 @@
 <model ref="r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)">
   <persistence version="9" />
   <languages>
-    <use id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure" version="9" />
+    <use id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure" version="-1" />
     <devkit ref="00000000-0000-4000-0000-1de82b3a4936(jetbrains.mps.devkit.aspect.typesystem)" />
   </languages>
   <imports>
@@ -172,6 +172,9 @@
       </concept>
     </language>
     <language id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem">
+      <concept id="1207055528241" name="jetbrains.mps.lang.typesystem.structure.WarningStatement" flags="nn" index="a7r0C">
+        <child id="1207055552304" name="warningText" index="a7wSD" />
+      </concept>
       <concept id="1185788614172" name="jetbrains.mps.lang.typesystem.structure.NormalTypeClause" flags="ng" index="mw_s8">
         <child id="1185788644032" name="normalType" index="mwGJk" />
       </concept>
@@ -4447,6 +4450,108 @@
     <node concept="1YaCAy" id="6lCixFIb3ow" role="1YuTPh">
       <property role="TrG5h" value="sce" />
       <ref role="1YaFvo" to="tpd4:6lCixFI9ig3" resolve="SupersedeConceptFunction" />
+    </node>
+  </node>
+  <node concept="18kY7G" id="e2eVnzJ06Q">
+    <property role="TrG5h" value="check_NonTypesystemRule" />
+    <property role="3GE5qa" value="definition.rule" />
+    <node concept="3clFbS" id="e2eVnzJ06R" role="18ibNy">
+      <node concept="3clFbJ" id="e2eVnzJ7C8" role="3cqZAp">
+        <node concept="3clFbS" id="e2eVnzJ7Ca" role="3clFbx">
+          <node concept="a7r0C" id="e2eVnzJhVX" role="3cqZAp">
+            <node concept="Xl_RD" id="e2eVnzJhVZ" role="a7wSD">
+              <property role="Xl_RC" value="Pattern rules are deprecated" />
+            </node>
+            <node concept="2OqwBi" id="e2eVnzJhW0" role="2OEOjV">
+              <node concept="1YBJjd" id="e2eVnzJhW1" role="2Oq$k0">
+                <ref role="1YBMHb" node="e2eVnzJ06T" resolve="nonTypesystemRule" />
+              </node>
+              <node concept="3TrEf2" id="e2eVnzJhW2" role="2OqNvi">
+                <ref role="3Tt5mk" to="tpd4:h5YuTL0" resolve="applicableNode" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="2OqwBi" id="e2eVnzJ8kX" role="3clFbw">
+          <node concept="2OqwBi" id="e2eVnzJ8kY" role="2Oq$k0">
+            <node concept="1YBJjd" id="e2eVnzJ8kZ" role="2Oq$k0">
+              <ref role="1YBMHb" node="e2eVnzJ06T" resolve="nonTypesystemRule" />
+            </node>
+            <node concept="3TrEf2" id="e2eVnzJ8l0" role="2OqNvi">
+              <ref role="3Tt5mk" to="tpd4:h5YuTL0" resolve="applicableNode" />
+            </node>
+          </node>
+          <node concept="1mIQ4w" id="e2eVnzJ8l1" role="2OqNvi">
+            <node concept="chp4Y" id="e2eVnzJ8qw" role="cj9EA">
+              <ref role="cht4Q" to="tpd4:h5Yb3TC" resolve="PatternCondition" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2Gpval" id="e2eVnzJ44h" role="3cqZAp">
+        <node concept="2GrKxI" id="e2eVnzJ44i" role="2Gsz3X">
+          <property role="TrG5h" value="overriden" />
+        </node>
+        <node concept="2OqwBi" id="e2eVnzJ4jE" role="2GsD0m">
+          <node concept="1YBJjd" id="e2eVnzJ44v" role="2Oq$k0">
+            <ref role="1YBMHb" node="e2eVnzJ06T" resolve="nonTypesystemRule" />
+          </node>
+          <node concept="3Tsc0h" id="e2eVnzJ4_0" role="2OqNvi">
+            <ref role="3TtcxE" to="tpd4:21kJG8HcIcC" resolve="overridenRules" />
+          </node>
+        </node>
+        <node concept="3clFbS" id="e2eVnzJ44k" role="2LFqv$">
+          <node concept="2Mj0R9" id="e2eVnzJ78V" role="3cqZAp">
+            <node concept="Xl_RD" id="e2eVnzJ7qE" role="2MkJ7o">
+              <property role="Xl_RC" value="Overriding is not supported for pattern rules" />
+            </node>
+            <node concept="2GrUjf" id="e2eVnzJ7uu" role="2OEOjV">
+              <ref role="2Gs0qQ" node="e2eVnzJ44i" resolve="overriden" />
+            </node>
+            <node concept="1Wc70l" id="e2eVnzJqIh" role="2MkoU_">
+              <node concept="2OqwBi" id="e2eVnzJ68v" role="3uHU7w">
+                <node concept="2OqwBi" id="e2eVnzJ68w" role="2Oq$k0">
+                  <node concept="1YBJjd" id="e2eVnzJ6WC" role="2Oq$k0">
+                    <ref role="1YBMHb" node="e2eVnzJ06T" resolve="nonTypesystemRule" />
+                  </node>
+                  <node concept="3TrEf2" id="e2eVnzJ68$" role="2OqNvi">
+                    <ref role="3Tt5mk" to="tpd4:h5YuTL0" resolve="applicableNode" />
+                  </node>
+                </node>
+                <node concept="1mIQ4w" id="e2eVnzJ68_" role="2OqNvi">
+                  <node concept="chp4Y" id="e2eVnzJ68A" role="cj9EA">
+                    <ref role="cht4Q" to="tpd4:h5YaCyN" resolve="ConceptReference" />
+                  </node>
+                </node>
+              </node>
+              <node concept="2OqwBi" id="e2eVnzJ62r" role="3uHU7B">
+                <node concept="2OqwBi" id="e2eVnzJ62s" role="2Oq$k0">
+                  <node concept="2OqwBi" id="e2eVnzJ62t" role="2Oq$k0">
+                    <node concept="2GrUjf" id="e2eVnzJ62u" role="2Oq$k0">
+                      <ref role="2Gs0qQ" node="e2eVnzJ44i" resolve="overriden" />
+                    </node>
+                    <node concept="3TrEf2" id="e2eVnzJ62v" role="2OqNvi">
+                      <ref role="3Tt5mk" to="tpd4:21kJG8H0nwJ" resolve="declaration" />
+                    </node>
+                  </node>
+                  <node concept="3TrEf2" id="e2eVnzJ62w" role="2OqNvi">
+                    <ref role="3Tt5mk" to="tpd4:h5YuTL0" resolve="applicableNode" />
+                  </node>
+                </node>
+                <node concept="1mIQ4w" id="e2eVnzJ62x" role="2OqNvi">
+                  <node concept="chp4Y" id="e2eVnzJ62y" role="cj9EA">
+                    <ref role="cht4Q" to="tpd4:h5YaCyN" resolve="ConceptReference" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="e2eVnzJ06T" role="1YuTPh">
+      <property role="TrG5h" value="nonTypesystemRule" />
+      <ref role="1YaFvo" to="tpd4:hp8kY3U" resolve="NonTypesystemRule" />
     </node>
   </node>
 </model>

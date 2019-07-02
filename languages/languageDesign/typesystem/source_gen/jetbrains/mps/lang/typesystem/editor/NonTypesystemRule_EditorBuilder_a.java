@@ -376,8 +376,9 @@ import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.RightBrace
   }
   private EditorCell createConstant_6() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "all");
-    editorCell.setCellId("Constant_tg6zfx_a0b1b1a");
+    editorCell.setCellId("overrides_flag");
     Style style = new StyleImpl();
+    style.set(StyleAttributes.EDITABLE, true);
     style.set(StyleAttributes.STRIKE_OUT, true);
     style.set(StyleAttributes.FONT_STYLE, MPSFonts.PLAIN);
     editorCell.getStyle().putAll(style);
@@ -510,14 +511,14 @@ import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.RightBrace
       }
     }
     private EditorCell createConstant_7() {
-      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "<none>");
-      editorCell.setCellId("Constant_tg6zfx_a0a1b1b0");
+      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
+      editorCell.setCellId("overrides_flag");
       Style style = new StyleImpl();
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.PLAIN);
       style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.gray));
       editorCell.getStyle().putAll(style);
       editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164853e0faL, "jetbrains.mps.lang.typesystem.structure.NonTypesystemRule"), "jetbrains.mps.lang.typesystem.editor.NonTypesystemRule_backToAll"));
-      editorCell.setDefaultText("");
+      editorCell.setDefaultText("<none>");
       editorCell.setSubstituteInfo(new SChildSubstituteInfo(editorCell));
       return editorCell;
     }
