@@ -32,7 +32,7 @@ public class GoToRules_Action extends BaseAction {
   public GoToRules_Action() {
     super("Go to Typesystem Rules", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {

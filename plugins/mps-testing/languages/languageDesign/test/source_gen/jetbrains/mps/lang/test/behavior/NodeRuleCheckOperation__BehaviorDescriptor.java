@@ -36,13 +36,13 @@ public final class NodeRuleCheckOperation__BehaviorDescriptor extends BaseBHDesc
     if (Sequence.fromIterable(errorReporters).isEmpty()) {
       return false;
     }
-    SNode referencedRuleNode = IReferenceAttachable__BehaviorDescriptor.getReferencedRuleNode_id2wBFdLy8qmt.invoke(__thisNode__);
-    if ((referencedRuleNode == null)) {
+    SNode expecteRuleNode = IReferenceAttachable__BehaviorDescriptor.getReferencedRuleNode_id2wBFdLy8qmt.invoke(__thisNode__);
+    if ((expecteRuleNode == null)) {
       return true;
     }
     for (NodeReportItem errorReport : errorReporters) {
       SNode ruleNode = NodeCheckerUtil.getRuleNodeFromReporter(errorReport, contextRepo);
-      if (ruleNode == referencedRuleNode) {
+      if (ruleNode == expecteRuleNode) {
         return true;
       }
     }

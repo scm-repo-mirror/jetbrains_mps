@@ -20,7 +20,7 @@ public class CellProperties_Action extends BaseAction {
   public CellProperties_Action() {
     super("Cell Properties", "", ICON);
     this.setIsAlwaysVisible(true);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {

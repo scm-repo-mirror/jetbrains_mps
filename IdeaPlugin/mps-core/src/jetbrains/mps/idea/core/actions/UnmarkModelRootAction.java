@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,11 @@ import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.extapi.persistence.SourceRoot;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.idea.core.MPSBundle;
+import jetbrains.mps.idea.core.facet.MPSFacet;
 import jetbrains.mps.idea.core.ui.ModelOrNodeChooser;
 import jetbrains.mps.persistence.DefaultModelRoot;
 import jetbrains.mps.project.MPSProject;
+import jetbrains.mps.project.structure.modules.SolutionDescriptor;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Pair;
 
@@ -44,11 +46,21 @@ public class UnmarkModelRootAction extends AnAction {
     assert vFiles != null;
     final MPSProject mpsProject = MPSCommonDataKeys.MPS_PROJECT.getData(e.getDataContext());
     assert mpsProject != null;
+    final MPSFacet mpsFacet = ModelOrNodeChooser.getFacetIfInitialized(module);
+    assert mpsFacet != null;
 
     mpsProject.getModelAccess().runWriteAction(() -> {
+      boolean changed = false;
+      final SolutionDescriptor solutionDescriptor = mpsFacet.getSolution().getModuleDescriptor();
       for (VirtualFile vFile : vFiles) {
-        final Pair<DefaultModelRoot, SourceRoot> mr = ModelOrNodeChooser.getModelRoot(module, vFile);
+        final Pair<DefaultModelRoot, SourceRoot> mr = ModelOrNodeChooser.getModelRoot(mpsFacet, vFile);
         mr.o1.removeSourceRoot(mr.o2);
+        changed = true;
+      }
+      if (changed) {
+        // just tell MPS module has changed.
+        // see MarkModelRootAction for reasons why we don't need to bother to notify mpsFacet, MPSFacetConfiguration or MPSConfigurationBean here.
+        mpsFacet.getSolution().setModuleDescriptor(solutionDescriptor);
       }
     });
   }
@@ -64,13 +76,14 @@ public class UnmarkModelRootAction extends AnAction {
     Module module = e.getData(LangDataKeys.MODULE);
     VirtualFile[] vFiles = e.getData(PlatformDataKeys.VIRTUAL_FILE_ARRAY);
     final MPSProject mpsProject = MPSCommonDataKeys.MPS_PROJECT.getData(e.getDataContext());
-    if (mpsProject == null || module == null || vFiles == null) {
+    final MPSFacet mpsFacet = ModelOrNodeChooser.getFacetIfInitialized(module);
+    if (mpsFacet == null || mpsProject == null || module == null || vFiles == null) {
       return false;
     }
 
     return new ModelAccessHelper(mpsProject.getModelAccess()).runReadAction(() -> {
       for (VirtualFile vFile : vFiles) {
-        if (ModelOrNodeChooser.getModelRoot(module, vFile) == null) {
+        if (ModelOrNodeChooser.getModelRoot(mpsFacet, vFile) == null) {
           return false;
         }
       }

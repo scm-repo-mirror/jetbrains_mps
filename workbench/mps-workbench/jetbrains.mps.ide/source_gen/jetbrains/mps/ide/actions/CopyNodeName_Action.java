@@ -7,9 +7,11 @@ import javax.swing.Icon;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.util.SNodeOperations;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.project.MPSProject;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.smodel.ModelAccessHelper;
+import jetbrains.mps.util.Computable;
 import jetbrains.mps.ide.datatransfer.CopyPasteUtil;
 
 public class CopyNodeName_Action extends BaseAction {
@@ -18,7 +20,7 @@ public class CopyNodeName_Action extends BaseAction {
   public CopyNodeName_Action() {
     super("Copy Node FQName", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -26,7 +28,7 @@ public class CopyNodeName_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    return SNodeOperations.isRoot(((SNode) MapSequence.fromMap(_params).get("node")));
+    return SNodeOperations.isRoot(event.getData(MPSCommonDataKeys.NODE));
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -38,8 +40,13 @@ public class CopyNodeName_Action extends BaseAction {
       return false;
     }
     {
+      MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
+      if (p == null) {
+        return false;
+      }
+    }
+    {
       SNode p = event.getData(MPSCommonDataKeys.NODE);
-      MapSequence.fromMap(_params).put("node", p);
       if (p == null) {
         return false;
       }
@@ -48,6 +55,11 @@ public class CopyNodeName_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    CopyPasteUtil.copyTextToClipboard(SNodeOperations.getModelLongName(((SNode) MapSequence.fromMap(_params).get("node")).getModel()) + "." + ((SNode) MapSequence.fromMap(_params).get("node")).getName());
+    String text = new ModelAccessHelper(event.getData(MPSCommonDataKeys.MPS_PROJECT).getModelAccess()).runReadAction(new Computable<String>() {
+      public String compute() {
+        return event.getData(MPSCommonDataKeys.NODE).getModel().getName().getLongName() + '.' + event.getData(MPSCommonDataKeys.NODE).getName();
+      }
+    });
+    CopyPasteUtil.copyTextToClipboard(text);
   }
 }

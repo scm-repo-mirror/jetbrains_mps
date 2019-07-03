@@ -19,7 +19,7 @@ public class ShowNodeInInspector_Action extends BaseAction {
   public ShowNodeInInspector_Action() {
     super("Inspect Node", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -59,8 +59,12 @@ public class ShowNodeInInspector_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    InspectorEditorComponent inspectorComponent = ((InspectorEditorComponent) ((EditorComponent) MapSequence.fromMap(_params).get("editor")));
-    inspectorComponent.getUpdater().setInitialEditorHints(inspectorComponent.getEditorHintsForNode(((SNode) MapSequence.fromMap(_params).get("node"))));
-    inspectorComponent.editNode(((SNode) MapSequence.fromMap(_params).get("node")));
+    ((EditorComponent) MapSequence.fromMap(_params).get("editor")).getEditorContext().getRepository().getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        InspectorEditorComponent inspectorComponent = ((InspectorEditorComponent) ((EditorComponent) MapSequence.fromMap(_params).get("editor")));
+        inspectorComponent.getUpdater().setInitialEditorHints(inspectorComponent.getEditorHintsForNode(((SNode) MapSequence.fromMap(_params).get("node"))));
+        inspectorComponent.editNode(((SNode) MapSequence.fromMap(_params).get("node")));
+      }
+    });
   }
 }

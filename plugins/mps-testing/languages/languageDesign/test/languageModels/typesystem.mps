@@ -118,6 +118,9 @@
       <concept id="1224760201579" name="jetbrains.mps.lang.typesystem.structure.InfoStatement" flags="nn" index="Dpp1Q">
         <child id="1224760230762" name="infoText" index="Dpw9R" />
       </concept>
+      <concept id="1175517400280" name="jetbrains.mps.lang.typesystem.structure.AssertStatement" flags="nn" index="2Mj0R9">
+        <child id="1175517761460" name="condition" index="2MkoU_" />
+      </concept>
       <concept id="1175517767210" name="jetbrains.mps.lang.typesystem.structure.ReportErrorStatement" flags="nn" index="2MkqsV">
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
@@ -1105,6 +1108,60 @@
     <node concept="1YaCAy" id="5IYRzU$yPXQ" role="1YuTPh">
       <property role="TrG5h" value="isActionApplicableExpression" />
       <ref role="1YaFvo" to="tp5g:H9$uslP7vo" resolve="IsActionApplicableExpression" />
+    </node>
+  </node>
+  <node concept="18kY7G" id="7OB8Y3vLuA$">
+    <property role="TrG5h" value="check_ScopesTest" />
+    <property role="3GE5qa" value="scopes" />
+    <node concept="3clFbS" id="7OB8Y3vLuA_" role="18ibNy">
+      <node concept="3clFbJ" id="7OB8Y3vLuAF" role="3cqZAp">
+        <node concept="3fqX7Q" id="7OB8Y3vLxXy" role="3clFbw">
+          <node concept="2OqwBi" id="7OB8Y3vLxX$" role="3fr31v">
+            <node concept="2OqwBi" id="7OB8Y3vLxX_" role="2Oq$k0">
+              <node concept="1YBJjd" id="7OB8Y3vLxXA" role="2Oq$k0">
+                <ref role="1YBMHb" node="7OB8Y3vLuAB" resolve="scopesTest" />
+              </node>
+              <node concept="2yIwOk" id="7OB8Y3vLxXB" role="2OqNvi" />
+            </node>
+            <node concept="2qgKlT" id="7OB8Y3vLxXC" role="2OqNvi">
+              <ref role="37wK5l" to="tp5o:4IvydoGvpbr" resolve="isSimple" />
+              <node concept="2OqwBi" id="7OB8Y3vLxXD" role="37wK5m">
+                <node concept="1YBJjd" id="7OB8Y3vLxXE" role="2Oq$k0">
+                  <ref role="1YBMHb" node="7OB8Y3vLuAB" resolve="scopesTest" />
+                </node>
+                <node concept="2qgKlT" id="7OB8Y3vLxXF" role="2OqNvi">
+                  <ref role="37wK5l" to="tp5o:38gbJV0XvZR" resolve="getAnnotatedNode" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbS" id="7OB8Y3vLuAH" role="3clFbx">
+          <node concept="2Mj0R9" id="7OB8Y3vLxY_" role="3cqZAp">
+            <node concept="2OqwBi" id="7OB8Y3vLyE_" role="2MkoU_">
+              <node concept="2OqwBi" id="7OB8Y3vLybC" role="2Oq$k0">
+                <node concept="1YBJjd" id="7OB8Y3vLxYT" role="2Oq$k0">
+                  <ref role="1YBMHb" node="7OB8Y3vLuAB" resolve="scopesTest" />
+                </node>
+                <node concept="3TrEf2" id="7OB8Y3vLyyc" role="2OqNvi">
+                  <ref role="3Tt5mk" to="tp5g:4IvydoGulmm" resolve="checkingReference" />
+                </node>
+              </node>
+              <node concept="3x8VRR" id="7OB8Y3vLyV9" role="2OqNvi" />
+            </node>
+            <node concept="Xl_RD" id="7OB8Y3vLyWW" role="2MkJ7o">
+              <property role="Xl_RC" value="should specify reference link to check" />
+            </node>
+            <node concept="1YBJjd" id="7OB8Y3vLyZM" role="2OEOjV">
+              <ref role="1YBMHb" node="7OB8Y3vLuAB" resolve="scopesTest" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="7OB8Y3vLuAB" role="1YuTPh">
+      <property role="TrG5h" value="scopesTest" />
+      <ref role="1YaFvo" to="tp5g:so7passww9" resolve="ScopesTest" />
     </node>
   </node>
 </model>

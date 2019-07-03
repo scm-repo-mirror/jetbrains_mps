@@ -589,6 +589,10 @@
       <ref role="tU$_T" to="tprs:miYJQAr2Uj" resolve="CommonModuleActions" />
       <ref role="2f8Tey" to="tprs:miYJQAr2Uo" resolve="check" />
     </node>
+    <node concept="tT9cl" id="1Yktpp4om38" role="2f5YQi">
+      <ref role="tU$_T" to="tprs:hyf4J_e" resolve="DevkitActions" />
+      <ref role="2f8Tey" to="tprs:1Yktpp4om2p" resolve="check" />
+    </node>
   </node>
   <node concept="tC5Ba" id="1gEYwydCrTL">
     <property role="TrG5h" value="CheckModel" />

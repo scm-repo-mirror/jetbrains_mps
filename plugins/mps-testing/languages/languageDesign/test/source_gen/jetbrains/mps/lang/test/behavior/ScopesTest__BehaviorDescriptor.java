@@ -16,16 +16,15 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import org.jetbrains.mps.openapi.model.SNodeId;
-import jetbrains.mps.smodel.constraints.ModelConstraints;
+import jetbrains.mps.lang.test.runtime.CheckScopesAction;
 import jetbrains.mps.internal.collections.runtime.ISelector;
-import junit.framework.Assert;
-import jetbrains.mps.internal.collections.runtime.SetSequence;
-import java.util.HashSet;
+import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -48,18 +47,19 @@ public final class ScopesTest__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SReference getCheckingReference_id4IvydoGvimX(@NotNull SNode __thisNode__) {
+    SNode nodeToCheck = INodesTestMethod__BehaviorDescriptor.getAnnotatedNode_id38gbJV0XvZR.invoke(__thisNode__);
     if (SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, 0x4b9f88d62c795596L, "checkingReference")) == null) {
-      return ((SNode) SNodeOperations.getParent(__thisNode__)).getReferences().iterator().next();
+      return nodeToCheck.getReferences().iterator().next();
     }
-    for (SReference reference : ListSequence.fromList(SNodeOperations.getReferences(SNodeOperations.getParent(__thisNode__)))) {
-      if (SLinkOperations.getTargetNode(reference) == SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, 0x4b9f88d62c795596L, "checkingReference"))) {
-        return (jetbrains.mps.smodel.SReference) reference;
+    for (SReference reference : Sequence.fromIterable(nodeToCheck.getReferences())) {
+      if (reference.getTargetNode() == SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, 0x4b9f88d62c795596L, "checkingReference"))) {
+        return reference;
       }
     }
     return null;
   }
   /*package*/ static boolean isSimple_id4IvydoGvpbr(@NotNull SAbstractConcept __thisConcept__, SNode node) {
-    return ListSequence.fromList(SNodeOperations.getReferences(node)).count() == 1;
+    return SNodeOperations.getConcept(node).getReferenceLinks().size() == 1;
   }
   /*package*/ static boolean isApplicable_id4IvydoGviup(@NotNull SAbstractConcept __thisConcept__, SNode node) {
     return ListSequence.fromList(SNodeOperations.getReferences(node)).isNotEmpty() && (AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, "jetbrains.mps.lang.test.structure.ScopesTest"))) == null) && !(SNodeOperations.isInstanceOf(node, MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, "jetbrains.mps.lang.test.structure.ScopesTest")));
@@ -82,15 +82,12 @@ public final class ScopesTest__BehaviorDescriptor extends BaseBHDescriptor {
     return SNodeOperations.getParent(__thisNode__);
   }
   /*package*/ static void perform_id1kgh5YabdhC(@NotNull SNode __thisNode__, SNode node) {
-    Iterable<SNode> availableElements = (Iterable<SNode>) ModelConstraints.getReferenceDescriptor(ScopesTest__BehaviorDescriptor.getCheckingReference_id4IvydoGvimX.invoke(__thisNode__)).getScope().getAvailableElements(null);
-
-    Iterable<SNode> expectedElements = ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, 0x32ba5b0ec25fea03L, "nodes"))).select(new ISelector<SNode, SNode>() {
-      public SNode select(SNode it) {
-        return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x32ba5b0ec25fe9f3L, 0x383e5e55de89bc1fL, "ref"));
+    SReference checkingReference = ScopesTest__BehaviorDescriptor.getCheckingReference_id4IvydoGvimX.invoke(__thisNode__);
+    new CheckScopesAction(checkingReference.getSourceNode(), checkingReference.getLink(), ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, 0x32ba5b0ec25fea03L, "nodes"))).select(new ISelector<SNode, SNodeReference>() {
+      public SNodeReference select(SNode it) {
+        return SLinkOperations.getPointer(it, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x32ba5b0ec25fe9f3L, 0x383e5e55de89bc1fL, "ref"));
       }
-    });
-
-    Assert.assertEquals(SetSequence.fromSetWithValues(new HashSet(), expectedElements), SetSequence.fromSetWithValues(new HashSet(), availableElements));
+    }).toListSequence()).check();
   }
 
   /*package*/ ScopesTest__BehaviorDescriptor() {

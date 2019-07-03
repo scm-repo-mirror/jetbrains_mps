@@ -6,10 +6,9 @@ import jetbrains.mps.workbench.action.BaseAction;
 import javax.swing.Icon;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
-import jetbrains.mps.nodeEditor.EditorComponent;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
-import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.editor.MPSEditorDataKeys;
+import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 
 public class SelectPrevious_Action extends BaseAction {
@@ -18,7 +17,7 @@ public class SelectPrevious_Action extends BaseAction {
   public SelectPrevious_Action() {
     super("Select Previous", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -26,7 +25,7 @@ public class SelectPrevious_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    return EditorActionUtils.isReadonlyActionEnabled(((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")));
+    return EditorActionUtils.isReadonlyActionEnabled(event.getData(MPSEditorDataKeys.EDITOR_COMPONENT));
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -42,7 +41,6 @@ public class SelectPrevious_Action extends BaseAction {
       if (editorComponent != null && editorComponent.isInvalid()) {
         editorComponent = null;
       }
-      MapSequence.fromMap(_params).put("editorComponent", editorComponent);
       if (editorComponent == null) {
         return false;
       }
@@ -51,6 +49,6 @@ public class SelectPrevious_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getSelectionManager().getSelection().executeAction(CellActionType.SELECT_PREVIOUS);
+    event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getSelectionManager().getSelection().executeAction(CellActionType.SELECT_PREVIOUS);
   }
 }

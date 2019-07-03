@@ -23,6 +23,7 @@
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
       <concept id="1224240836180" name="jetbrains.mps.lang.structure.structure.DeprecatedNodeAnnotation" flags="ig" index="asaX9">
         <property id="1225118929411" name="build" index="YLPcu" />
+        <property id="1225118933224" name="comment" index="YLQ7P" />
       </concept>
       <concept id="6054523464627964745" name="jetbrains.mps.lang.structure.structure.AttributeInfo_AttributedConcept" flags="ng" index="trNpa">
         <reference id="6054523464627965081" name="concept" index="trN6q" />
@@ -87,7 +88,7 @@
   <node concept="1TIwiD" id="hBxLA2s">
     <property role="TrG5h" value="TestNodeAnnotation" />
     <property role="EcuMT" value="1210673684636" />
-    <ref role="1TJDcQ" node="hSdkHD7" resolve="INodeAnnotation" />
+    <ref role="1TJDcQ" node="hSdkHD7" resolve="AbstractTestNodeAnnotation" />
     <node concept="PrWs8" id="hBxLCIf" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
@@ -165,26 +166,6 @@
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
     </node>
   </node>
-  <node concept="1TIwiD" id="hG1TgHj">
-    <property role="TrG5h" value="NodePropertiesContainer" />
-    <property role="3GE5qa" value="nodeOperation" />
-    <property role="EcuMT" value="1215507532627" />
-    <ref role="1TJDcQ" to="tpck:2ULFgo8_XDk" resolve="NodeAttribute" />
-    <node concept="1TJgyj" id="hG1UGAv" role="1TKVEi">
-      <property role="20lmBu" value="aggregation" />
-      <property role="20kJfa" value="nodeCheckOperations" />
-      <property role="20lbJX" value="0..n" />
-      <property role="IQ2ns" value="1215507909023" />
-      <ref role="20lvS9" node="hG7unSw" resolve="NodeCheckOperation" />
-    </node>
-    <node concept="M6xJ_" id="6_gUeuqOeT6" role="lGtFl">
-      <property role="Hh88m" value="nodeChecksMark" />
-      <node concept="trNpa" id="166$sc$ZIAN" role="EQaZv">
-        <ref role="trN6q" to="tpck:gw2VY9q" resolve="BaseConcept" />
-      </node>
-    </node>
-    <node concept="asaX9" id="1pzfSdp$2J8" role="lGtFl" />
-  </node>
   <node concept="1TIwiD" id="hG1TMwX">
     <property role="R5$K7" value="false" />
     <property role="R5$K2" value="false" />
@@ -260,7 +241,7 @@
     <property role="TrG5h" value="NodeOperationsContainer" />
     <property role="3GE5qa" value="nodeOperation" />
     <property role="EcuMT" value="1215603922101" />
-    <ref role="1TJDcQ" to="tpck:2ULFgo8_XDk" resolve="NodeAttribute" />
+    <ref role="1TJDcQ" node="hSdkHD7" resolve="AbstractTestNodeAnnotation" />
     <node concept="1TJgyj" id="hG7EUTW" role="1TKVEi">
       <property role="20lmBu" value="aggregation" />
       <property role="20kJfa" value="nodeOperations" />
@@ -519,7 +500,7 @@
     </node>
   </node>
   <node concept="1TIwiD" id="hSdkHD7">
-    <property role="TrG5h" value="INodeAnnotation" />
+    <property role="TrG5h" value="AbstractTestNodeAnnotation" />
     <property role="EcuMT" value="1228584180295" />
     <ref role="1TJDcQ" to="tpck:2ULFgo8_XDk" resolve="NodeAttribute" />
     <node concept="M6xJ_" id="6_gUeuqOeSC" role="lGtFl">
@@ -630,7 +611,7 @@
     <property role="TrG5h" value="AnonymousCellAnnotation" />
     <property role="3GE5qa" value="editor" />
     <property role="EcuMT" value="1229194968594" />
-    <ref role="1TJDcQ" node="hSdkHD7" resolve="INodeAnnotation" />
+    <ref role="1TJDcQ" node="hSdkHD7" resolve="AbstractTestNodeAnnotation" />
     <node concept="1TJgyj" id="1FgNkkI7TFc" role="1TKVEi">
       <property role="20lmBu" value="reference" />
       <property role="20kJfa" value="nodeRangeSelectionStart" />
@@ -690,7 +671,7 @@
     <property role="TrG5h" value="MockAnnotation" />
     <property role="3GE5qa" value="mock" />
     <property role="EcuMT" value="1230224281548" />
-    <ref role="1TJDcQ" to="tpck:2ULFgo8_XDk" resolve="NodeAttribute" />
+    <ref role="1TJDcQ" node="hSdkHD7" resolve="AbstractTestNodeAnnotation" />
     <node concept="M6xJ_" id="6_gUeuqOeTH" role="lGtFl">
       <property role="Hh88m" value="mockAnnotation" />
       <node concept="trNpa" id="166$sc$ZIB5" role="EQaZv">
@@ -835,7 +816,7 @@
     <property role="TrG5h" value="ScopesTest" />
     <property role="3GE5qa" value="scopes" />
     <property role="EcuMT" value="511191073233700873" />
-    <ref role="1TJDcQ" to="tpck:2ULFgo8_XDk" resolve="NodeAttribute" />
+    <ref role="1TJDcQ" node="hSdkHD7" resolve="AbstractTestNodeAnnotation" />
     <node concept="1TJgyj" id="4IvydoGulmm" role="1TKVEi">
       <property role="20lmBu" value="reference" />
       <property role="20kJfa" value="checkingReference" />
@@ -925,6 +906,9 @@
     <property role="3GE5qa" value="nodeOperation" />
     <property role="TrG5h" value="ICheckForExpectedRule" />
     <property role="EcuMT" value="8578280453507219248" />
+    <node concept="asaX9" id="7OB8Y3vWmXR" role="lGtFl">
+      <property role="YLQ7P" value="to be merged with concept AbstractNodeRuleCheckOperation" />
+    </node>
   </node>
   <node concept="1TIwiD" id="7scb9XJ6VZa">
     <property role="3GE5qa" value="nodeOperation" />

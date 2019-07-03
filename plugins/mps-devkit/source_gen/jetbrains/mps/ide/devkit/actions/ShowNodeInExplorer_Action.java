@@ -8,8 +8,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.actionSystem.CommonDataKeys;
+import jetbrains.mps.project.MPSProject;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.plugins.projectplugins.ProjectPluginManager;
 
@@ -19,7 +18,7 @@ public class ShowNodeInExplorer_Action extends BaseAction {
   public ShowNodeInExplorer_Action() {
     super("Show Node in Explorer", "", ICON);
     this.setIsAlwaysVisible(true);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -37,7 +36,7 @@ public class ShowNodeInExplorer_Action extends BaseAction {
       }
     }
     {
-      Project p = event.getData(CommonDataKeys.PROJECT);
+      MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
       if (p == null) {
         return false;
       }
@@ -46,8 +45,12 @@ public class ShowNodeInExplorer_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    NodeExplorer_Tool tool = event.getData(CommonDataKeys.PROJECT).getComponent(ProjectPluginManager.class).getTool(NodeExplorer_Tool.class);
-    tool.showNode(event.getData(MPSCommonDataKeys.NODE));
+    final NodeExplorer_Tool tool = event.getData(MPSCommonDataKeys.MPS_PROJECT).getProject().getComponent(ProjectPluginManager.class).getTool(NodeExplorer_Tool.class);
+    event.getData(MPSCommonDataKeys.MPS_PROJECT).getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        tool.showNode(event.getData(MPSCommonDataKeys.NODE));
+      }
+    });
     tool.openToolLater(true);
   }
 }

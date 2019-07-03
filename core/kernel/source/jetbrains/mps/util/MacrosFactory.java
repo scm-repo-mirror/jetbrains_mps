@@ -18,9 +18,10 @@ package jetbrains.mps.util;
 import jetbrains.mps.library.ModulesMiner;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.MPSExtentions;
+import jetbrains.mps.project.PathMacros;
 import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.vfs.path.Path;
+import jetbrains.mps.vfs.util.PathAssert;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -32,8 +33,6 @@ public final class MacrosFactory implements MacroHelper.Source {
   public static final String MPS_HOME = "${" + MPS_HOME_MACRO_NAME + "}";
   public static final String PLATFORM_LIB = "${platform_lib}";
   public static final String LIB_EXT = "${lib_ext}";
-
-  static final char SEPARATOR_CHAR = Path.UNIX_SEPARATOR_CHAR;
 
   public MacrosFactory() {
   }
@@ -68,7 +67,7 @@ public final class MacrosFactory implements MacroHelper.Source {
     String name = moduleFile.getPath().toLowerCase();
     for (String ext : extensions) {
       if (name.endsWith(ext)) {
-        return new MacroHelperImpl(moduleFile, new ModuleMacros());
+        return new MacroHelperImpl(moduleFile, new ModuleMacros(PathMacros.getInstance()));
       }
     }
     return null;
@@ -95,18 +94,15 @@ public final class MacrosFactory implements MacroHelper.Source {
   }
 
   public static MacroHelper forProjectFile(IFile projectFile) {
-    return new MacroHelperImpl(projectFile, new ProjectMacros());
+    return new MacroHelperImpl(projectFile, new ProjectMacros(PathMacros.getInstance()));
   }
 
   public static MacroHelper getGlobal() {
-    return new MacroHelperImpl(null, new HomeMacros());
+    return new MacroHelperImpl(null, new HomeMacros(PathMacros.getInstance()));
   }
 
   /**
    * Checks whether {@code path} contains a macro.
-   *
-   * @param path a non-null string
-   * @return {@code true} if {@code path} starts with "${" and contains "}", {@code false} otherwise.
    * FIXME AP contains or equals? Does MacroHelpers and others replace macros in the middle of a path?
    */
   public static boolean containsMacro(@NotNull String path) {
@@ -114,17 +110,26 @@ public final class MacrosFactory implements MacroHelper.Source {
   }
 
   private static class ModuleMacros extends HomeMacros {
+    protected ModuleMacros(@NotNull PathMacros component) {
+      super(component);
+    }
+
     @Override
     protected String expand(String path, IFile anchorFile) {
+      new PathAssert(path).osIndependentPath();
+
       if (path.startsWith(MODULE)) {
-        return path.replace(MODULE, IFileUtil.getCanonicalPath(getAnchorFolder(anchorFile)));
+        String expanded = path.replace(MODULE, getAnchorFolder(anchorFile).getPath());
+        return FileUtil.resolveParentDirs(expanded);
       }
       return super.expand(path, anchorFile);
     }
 
     @Override
     protected String shrink(String absolutePath, IFile anchorFile) {
-      String prefix = IFileUtil.getCanonicalPath(getAnchorFolder(anchorFile));
+      new PathAssert(absolutePath).osIndependentPath().noDots().absolute();
+
+      String prefix = getAnchorFolder(anchorFile).getPath();
       if (pathStartsWith(absolutePath, prefix)) {
         return MODULE + shrink(absolutePath, prefix);
       }
@@ -143,19 +148,27 @@ public final class MacrosFactory implements MacroHelper.Source {
   private static class ProjectMacros extends HomeMacros {
     public static final String PROJECT = "$PROJECT_DIR$";
 
+    protected ProjectMacros(@NotNull PathMacros component) {
+      super(component);
+    }
+
     @Override
     protected String expand(String path, IFile anchorFile) {
+      new PathAssert(path).osIndependentPath();
+
       path = path.replace(PROJECT, PROJECT_LEGACY);
       if (path.contains(PROJECT_LEGACY)) {
-        IFile projectDir = getProjectDir(anchorFile);
-        return path.replace(PROJECT_LEGACY, IFileUtil.getCanonicalPath(projectDir));
+        String expanded = path.replace(PROJECT_LEGACY, getProjectDir(anchorFile).getPath());
+        return FileUtil.resolveParentDirs(expanded);
       }
       return super.expand(path, anchorFile);
     }
 
     @Override
     protected String shrink(String absolutePath, IFile anchorFile) {
-      String prefix = IFileUtil.getCanonicalPath(getProjectDir(anchorFile));
+      new PathAssert(absolutePath).osIndependentPath().noDots().absolute();
+
+      String prefix = getProjectDir(anchorFile).getPath();
       if (pathStartsWith(absolutePath, prefix)) {
         return PROJECT + shrink(absolutePath, prefix);
       }
@@ -173,48 +186,74 @@ public final class MacrosFactory implements MacroHelper.Source {
   }
 
   private static class HomeMacros extends Macros {
+    protected HomeMacros(@NotNull PathMacros component) {
+      super(component);
+    }
+
     @Override
     protected String expand(String path, @Nullable IFile anchorFile) {
+      new PathAssert(path).osIndependentPath();
+
       if (path.startsWith(LIB_EXT)) {
-        return expand(path, PathManager.getLibExtPath());
+        //[MM] PathManager now returns windows-style paths. This should be changed, but I don't do it in bugfix
+        return expand(path, libExtPath());
       }
 
       if (path.startsWith(PLATFORM_LIB)) {
-        return expand(path, PathManager.getPlatformLibPath());
+        //[MM] PathManager now returns windows-style paths. This should be changed, but I don't do it in bugfix
+        return expand(path, platformLibPath());
       }
 
       if (path.startsWith(MPS_HOME)) {
-        return expand(path, PathManager.getHomePath());
+        //[MM] PathManager now returns windows-style paths. This should be changed, but I don't do it in bugfix
+        return expand(path, homePath());
       }
 
       return super.expand(path, anchorFile);
     }
 
+    @NotNull
+    private String homePath() {
+      return FileUtil.normalize(PathManager.getHomePath());
+    }
+
+    @NotNull
+    private String platformLibPath() {
+      return FileUtil.normalize(PathManager.getPlatformLibPath());
+    }
+
+    @NotNull
+    private String libExtPath() {
+      return FileUtil.normalize(PathManager.getLibExtPath());
+    }
+
     private String expand(String pathWithMacro, String macroPath) {
       int macroEnd = pathWithMacro.indexOf('}');
       assert macroEnd > 0 : "Path does not contain a macro: " + pathWithMacro;
-      return macroPath + pathWithMacro.substring(macroEnd + 1);
+      String expanded = macroPath + pathWithMacro.substring(macroEnd + 1);
+      return FileUtil.resolveParentDirs(expanded);
     }
 
     @Override
     protected String shrink(String absolutePath, IFile anchorFile) {
-      if (pathStartsWith(absolutePath, PathManager.getLibExtPath())) {
-        String relationalPath = shrink(absolutePath, PathManager.getLibExtPath());
+      new PathAssert(absolutePath).osIndependentPath().noDots().absolute();
+
+      if (pathStartsWith(absolutePath, libExtPath())) {
+        String relationalPath = shrink(absolutePath, libExtPath());
         return LIB_EXT + relationalPath;
       }
 
-      if (pathStartsWith(absolutePath, PathManager.getPlatformLibPath())) {
-        String relationalPath = shrink(absolutePath, PathManager.getPlatformLibPath());
+      if (pathStartsWith(absolutePath, platformLibPath())) {
+        String relationalPath = shrink(absolutePath, platformLibPath());
         return PLATFORM_LIB + relationalPath;
       }
 
-      if (pathStartsWith(absolutePath, PathManager.getHomePath())) {
-        String relationalPath = shrink(absolutePath, PathManager.getHomePath());
+      if (pathStartsWith(absolutePath, homePath())) {
+        String relationalPath = shrink(absolutePath, homePath());
         return MPS_HOME + relationalPath;
       }
 
       return super.shrink(absolutePath, anchorFile);
     }
   }
-
 }

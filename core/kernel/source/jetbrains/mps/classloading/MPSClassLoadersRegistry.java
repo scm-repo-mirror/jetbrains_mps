@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.classloading;
 
-import jetbrains.mps.classloading.ClassLoadersHolder.ClassLoaderNotFoundException;
 import jetbrains.mps.classloading.ClassLoadersHolder.ClassLoadingProgress;
 import jetbrains.mps.classloading.DeployListener.ResourceTrackerCallback;
 import jetbrains.mps.module.ReloadableModule;
@@ -63,9 +62,6 @@ class MPSClassLoadersRegistry {
 
   @Nullable
   public MPSModuleClassLoader getModuleClassLoader(@NotNull ReloadableModule module) {
-    if (!myMPSClassLoaders.containsKey(module.getModuleReference())) {
-      return null;
-    }
     return doGetModuleClassLoader(module);
   }
 
@@ -77,7 +73,7 @@ class MPSClassLoadersRegistry {
    * @return null if classloader is not found
    */
   @Nullable
-  public MPSModuleClassLoader getNonReloadableClassLoader(@NotNull ReloadableModule module) {
+  public synchronized MPSModuleClassLoader getNonReloadableClassLoader(@NotNull ReloadableModule module) {
     return myIDEAClassLoaders.computeIfAbsent(module.getModuleReference(), (ref) -> createIDEADelegateClassLoader(module));
   }
 
@@ -211,7 +207,10 @@ class MPSClassLoadersRegistry {
 
     DisposeSession createSession(@NotNull Set<ReloadableModule> modulesToUnload) {
       List<ModuleClassLoader> classLoaders =
-          modulesToUnload.stream().map(myRegistry::doGetModuleClassLoader).filter(Objects::nonNull).collect(Collectors.toList());
+          modulesToUnload.stream()
+                         .map(myRegistry::doGetModuleClassLoader)
+                         .filter(Objects::nonNull)
+                         .collect(Collectors.toList());
       return new DisposeSession(modulesToUnload, classLoaders);
     }
 

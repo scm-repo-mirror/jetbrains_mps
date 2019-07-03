@@ -8,6 +8,7 @@ import jetbrains.mps.lang.test.matcher.NodesMatcher;
 import jetbrains.mps.errors.item.NodeReportItem;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.errors.item.RuleIdFlavouredItem;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 
 public class NodeCheckerUtil {
 
@@ -26,8 +27,9 @@ public class NodeCheckerUtil {
     return RuleIdFlavouredItem.FLAVOUR_RULE_ID.getCollection(reporter).iterator().next().getSourceNode().resolve(contextRepository);
   }
 
-  public static void checkNodeForErrorMessages(final SNode node, final boolean allowErrors, final boolean allowWarnings, boolean includeSelf) {
-    Runnable checkErrorsAction = new CheckErrorMessagesAction(node, allowWarnings, allowErrors).includeSelf(includeSelf);
+  public static void checkNodeForErrorMessages(final SNode node, final boolean allowErrors, final boolean allowWarnings, boolean includeSelf, CheckExpectedMessageAction... excluded) {
+    Runnable checkErrorsAction = new CheckErrorMessagesAction(node, allowWarnings, allowErrors).includeSelf(includeSelf).exclude(Sequence.fromIterable(Sequence.fromArray(excluded)).toListSequence());
     checkErrorsAction.run();
   }
+
 }

@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.library;
 
-import com.intellij.openapi.components.BaseComponent;
 import com.intellij.openapi.components.PersistentStateComponent;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.library.BaseLibraryManager.LibraryState;
@@ -23,18 +22,23 @@ import jetbrains.mps.library.contributor.LibDescriptor;
 import jetbrains.mps.library.contributor.LibraryContributor;
 import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.vfs.FileSystem;
-import org.jetbrains.annotations.NonNls;
+import jetbrains.mps.vfs.IFile;
+import jetbrains.mps.vfs.MacroProcessor;
+import jetbrains.mps.vfs.util.PathAssert;
+import jetbrains.mps.vfs.util.PathAssert.PathAssertionException;
+import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
 
-public abstract class BaseLibraryManager implements BaseComponent, PersistentStateComponent<LibraryState>, LibraryContributor {
+public abstract class BaseLibraryManager implements PersistentStateComponent<LibraryState>, LibraryContributor {
   private final LibraryInitializer myLibraryInitializer;
 
   public BaseLibraryManager(MPSCoreComponents components) {
@@ -46,13 +50,10 @@ public abstract class BaseLibraryManager implements BaseComponent, PersistentSta
     return false;
   }
 
-  @Override
   public void initComponent() {
-    final List<LibraryContributor> contributorsToLoad = Collections.singletonList(this);
-    myLibraryInitializer.load(contributorsToLoad);
+    myLibraryInitializer.load(Collections.singletonList(this));
   }
 
-  @Override
   public void disposeComponent() {
     myLibraryInitializer.unload(Collections.singletonList(this));
   }
@@ -71,23 +72,37 @@ public abstract class BaseLibraryManager implements BaseComponent, PersistentSta
   public final Set<LibDescriptor> getPaths() {
     Set<LibDescriptor> result = new HashSet<>();
     for (Library lib : getUILibraries()) {
-      result.add(new LibDescriptor(FileSystem.getInstance().getFile(lib.getPath())));
+      String path = lib.getPath();
+      if (path != null) {
+        try {
+          IFile file = FileSystem.getInstance().getFile(path);
+          result.add(new LibDescriptor(file));
+        } catch (PathAssertionException e) {
+          // fixme Michael Muhin
+          Matcher matcher = MacroProcessor.MACRO_PATTERN.matcher(e.getProblemPath());
+          if (matcher.find()) {
+            LogManager.getLogger(BaseLibraryManager.class).warn("Some paths might contain unknown macros, please define them in 'Path variables'");
+          } else {
+            throw e;
+          }
+        }
+      }
     }
     return result;
   }
 
   public Library addLibrary(@NotNull String name) {
     Library library = new Library(name);
-    myLibraries.getLibraries().put(library.getName(), library);
+    myLibraryState.getLibraries().put(library.getName(), library);
     return library;
   }
 
   public void remove(Library l) {
-    myLibraries.getLibraries().remove(l.getName());
+    myLibraryState.getLibraries().remove(l.getName());
   }
 
   public Set<Library> getUILibraries() {
-    return new HashSet<>(myLibraries.getLibraries().values());
+    return new HashSet<>(myLibraryState.getLibraries().values());
   }
 
   //-------macro stuff
@@ -122,19 +137,12 @@ public abstract class BaseLibraryManager implements BaseComponent, PersistentSta
 
   //-------component stuff
 
-  private LibraryState myLibraries = new LibraryState();
-
-  @Override
-  @NonNls
-  @NotNull
-  public String getComponentName() {
-    return "Library Manager";
-  }
+  private LibraryState myLibraryState = new LibraryState();
 
   @Override
   public LibraryState getState() {
     LibraryState result = new LibraryState();
-    for (Entry<String, Library> entry : myLibraries.getLibraries().entrySet()) {
+    for (Entry<String, Library> entry : myLibraryState.getLibraries().entrySet()) {
       result.getLibraries().put(entry.getKey(), addMacros(entry.getValue()));
     }
     return result;
@@ -142,7 +150,8 @@ public abstract class BaseLibraryManager implements BaseComponent, PersistentSta
 
   @Override
   public void loadState(@NotNull LibraryState state) {
-    myLibraries = removeMacros(state);
+    myLibraryState = removeMacros(state);
+    myLibraryInitializer.update();
   }
 
   @Override

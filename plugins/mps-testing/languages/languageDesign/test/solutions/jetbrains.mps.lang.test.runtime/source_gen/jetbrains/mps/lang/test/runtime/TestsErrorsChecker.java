@@ -24,6 +24,8 @@ import jetbrains.mps.checkers.TargetConceptChecker;
 import jetbrains.mps.project.validation.StructureChecker;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.checkers.ErrorReportUtil;
+import org.jetbrains.mps.util.Condition;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -79,7 +81,7 @@ public class TestsErrorsChecker {
   }
 
   private Iterable<NodeReportItem> getRootErrors() {
-    Set<NodeReportItem> cachedErrors = ourModelErrorsHolder.get(myRoot);
+    Set<NodeReportItem> cachedErrors = ourModelErrorsHolder.get();
     if (cachedErrors != null) {
       return SetSequence.fromSet(cachedErrors).toListSequence();
     }
@@ -104,33 +106,26 @@ public class TestsErrorsChecker {
     Set<NodeReportItem> res = SetSequence.fromSetWithValues(new HashSet<NodeReportItem>(), SetSequence.fromSet(result).where(new IWhereFilter<NodeReportItem>() {
       public boolean accept(NodeReportItem it) {
         SNodeReference node = NodeReportItem.FLAVOUR_NODE.tryToGet(it);
-        return node == null || !(ErrorReportUtil.manuallySuppressed(it, repository));
+        return node == null || ErrorReportUtil.shouldReportError(it, repository, new Condition<SNode>() {
+          @Override
+          public boolean met(SNode suppressor) {
+            return !(SNodeOperations.isInstanceOf(suppressor, MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e0d52da47L, "jetbrains.mps.lang.test.structure.AbstractTestNodeAnnotation")));
+          }
+        });
       }
     }));
-    ourModelErrorsHolder.set(myRoot, res);
+    ourModelErrorsHolder.set(res);
     return res;
   }
 
   private static class ModelErrorsHolder<T> {
     private Set<T> myCachedErrors;
-    private SNode myRoot;
-
     @Nullable
-    public Set<T> get(SNode root) {
-      if (myCachedErrors != null && sameRoot(root)) {
-        return myCachedErrors;
-      }
-      return null;
+    public Set<T> get() {
+      return myCachedErrors;
     }
-
-    private boolean sameRoot(SNode root) {
-      return root == myRoot;
-    }
-
-    public void set(SNode root, Set<T> errors) {
-      myRoot = root;
-      myCachedErrors = SetSequence.fromSet(new HashSet<T>());
-      SetSequence.fromSet(myCachedErrors).addSequence(SetSequence.fromSet(errors));
+    public void set(Set<T> errors) {
+      myCachedErrors = SetSequence.fromSetWithValues(new HashSet<T>(), errors);
     }
   }
 }

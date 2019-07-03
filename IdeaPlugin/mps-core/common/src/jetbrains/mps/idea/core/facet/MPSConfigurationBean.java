@@ -61,6 +61,8 @@ public final class MPSConfigurationBean {
 
   /*package*/ MPSConfigurationBean(SolutionDescriptor sd, MPSConfigurationBean other) {
     myDescriptor = sd;
+    // XXX contruct of the constructor is unclear, whether it's settings of other that shall take precedence or that in sd.
+    // loadFrom(other.myState) respects former, while other.toState() is for latter.
     myState = new State();
     loadFrom(other.myState);
   }
@@ -174,6 +176,8 @@ public final class MPSConfigurationBean {
     // markBeanAsChangedIfAnyoneCares
   }
 
+  // don't use this unless trully necessary. set of actual roots is available from the solution associated with the facet
+  // use this method for initialization/setup purposes only
   public Collection<ModelRootDescriptor> getModelRootDescriptors() {
     List<ModelRootDescriptor> mrd = new ArrayList<>();
     fromPersistableState(mrd);

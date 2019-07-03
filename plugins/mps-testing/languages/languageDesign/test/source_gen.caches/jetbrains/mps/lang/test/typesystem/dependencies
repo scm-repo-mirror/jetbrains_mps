@@ -7,6 +7,7 @@
     <classNode dependClassName="jetbrains.mps.lang.test.typesystem.checkTestMethodDataflow_NonTypesystemRule" />
     <classNode dependClassName="jetbrains.mps.lang.test.typesystem.check_AssertStatementInsideEditorTestCase_NonTypesystemRule" />
     <classNode dependClassName="jetbrains.mps.lang.test.typesystem.check_DragMouseStatement_NonTypesystemRule" />
+    <classNode dependClassName="jetbrains.mps.lang.test.typesystem.check_ScopesTest_NonTypesystemRule" />
     <classNode dependClassName="jetbrains.mps.lang.test.typesystem.typeof_AssertMatch_InferenceRule" />
     <classNode dependClassName="jetbrains.mps.lang.test.typesystem.typeof_EditorComponentExpression_InferenceRule" />
     <classNode dependClassName="jetbrains.mps.lang.test.typesystem.typeof_InvokeIntentionStatement_InferenceRule" />
@@ -93,6 +94,22 @@
     <classNode dependClassName="jetbrains.mps.errors.messageTargets.MessageTarget" />
     <classNode dependClassName="jetbrains.mps.errors.messageTargets.NodeMessageTarget" />
     <classNode dependClassName="jetbrains.mps.lang.test.behavior.DragMouseStatement__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="jetbrains.mps.typesystem.inference.TypeCheckingContext" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode extendsClassName="jetbrains.mps.lang.typesystem.runtime.AbstractNonTypesystemRule_Runtime" />
+    <classNode extendsClassName="jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime" />
+  </dependency>
+  <dependency className="jetbrains.mps.lang.test.typesystem.check_ScopesTest_NonTypesystemRule">
+    <classNode dependClassName="jetbrains.mps.errors.IErrorReporter" />
+    <classNode dependClassName="jetbrains.mps.errors.messageTargets.MessageTarget" />
+    <classNode dependClassName="jetbrains.mps.errors.messageTargets.NodeMessageTarget" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
+    <classNode dependClassName="jetbrains.mps.lang.test.behavior.INodesTestMethod__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.lang.test.behavior.ScopesTest__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="jetbrains.mps.typesystem.inference.TypeCheckingContext" />

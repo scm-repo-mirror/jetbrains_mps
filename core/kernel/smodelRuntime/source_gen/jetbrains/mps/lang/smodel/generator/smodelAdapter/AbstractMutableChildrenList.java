@@ -7,10 +7,10 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.util.IterableUtil;
 import java.util.Iterator;
 import java.util.Collection;
+import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import java.util.Set;
 import java.util.HashSet;
-import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import org.jetbrains.mps.openapi.model.SNodeUtil;
 import java.util.ListIterator;
@@ -60,8 +60,10 @@ public abstract class AbstractMutableChildrenList extends AbstractList<SNode> {
   @Override
   public boolean addAll(int index, Collection<? extends SNode> c) {
     if (index == 0) {
-      for (SNode node : CollectionSequence.fromCollection(c)) {
-        addFirst(node);
+      ArrayList<SNode> toAdd = new ArrayList<SNode>();
+      toAdd.addAll(c);
+      for (int i = toAdd.size() - 1; i >= 0; i--) {
+        addFirst(toAdd.get(i));
       }
       return true;
     }

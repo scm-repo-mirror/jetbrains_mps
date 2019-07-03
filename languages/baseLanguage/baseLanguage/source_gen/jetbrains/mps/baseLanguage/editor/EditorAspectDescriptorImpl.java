@@ -722,6 +722,8 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase imple
         if (true) {
           switch (Arrays.binarySearch(stringSwitchCases_xbvbvu_a0a0a0n1a7, menuId.getFqName())) {
             case 0:
+              return Arrays.asList(new TransformationMenu[]{new AddParametersToDefaultClassCreatorToCreateClassCreator()});
+            case 1:
               return Arrays.asList(new TransformationMenu[]{new newExpression_DefaultClassCreator_ext_2()});
             default:
           }
@@ -1411,7 +1413,7 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase imple
   private static String[] stringSwitchCases_xbvbvu_a0a0a0k1a7 = new String[]{"jetbrains.mps.baseLanguage.editor.ClassifierClassExpressionToArray"};
   private static String[] stringSwitchCases_xbvbvu_a0a0a0l1a7 = new String[]{"jetbrains.mps.baseLanguage.editor.ExtendedClassImplementTransform", "jetbrains.mps.baseLanguage.editor.addGenericParameter", "jetbrains.mps.baseLanguage.editor.binaryOperations", "jetbrains.mps.baseLanguage.editor.classifierTypeInLocalVarRT", "jetbrains.mps.baseLanguage.editor.csharp_rTransform"};
   private static String[] stringSwitchCases_xbvbvu_a0a0a0m1a7 = new String[]{"jetbrains.mps.baseLanguage.editor.ConstructorDeclaration_ApplySideTransforms"};
-  private static String[] stringSwitchCases_xbvbvu_a0a0a0n1a7 = new String[]{"jetbrains.mps.baseLanguage.editor.newExpression_DefaultClassCreator_ext_2"};
+  private static String[] stringSwitchCases_xbvbvu_a0a0a0n1a7 = new String[]{"jetbrains.mps.baseLanguage.editor.AddParametersToDefaultClassCreatorToCreateClassCreator", "jetbrains.mps.baseLanguage.editor.newExpression_DefaultClassCreator_ext_2"};
   private static String[] stringSwitchCases_xbvbvu_a0a0a0o1a7 = new String[]{"jetbrains.mps.baseLanguage.editor.EnumClass_ApplySideTransforms"};
   private static String[] stringSwitchCases_xbvbvu_a0a0a0p1a7 = new String[]{"jetbrains.mps.baseLanguage.editor.EnumConstantDeclaration_ApplySideTransforms", "jetbrains.mps.baseLanguage.editor.enumConstant_rt"};
   private static String[] stringSwitchCases_xbvbvu_a0a0a0q1a7 = new String[]{"jetbrains.mps.baseLanguage.editor.Expression_to_type_Cast", "jetbrains.mps.baseLanguage.editor.Expression_wrapWithPassByRef", "jetbrains.mps.baseLanguage.editor.SubstringExpression_Transform", "jetbrains.mps.baseLanguage.editor.UnaryMinusLeftTransform", "jetbrains.mps.baseLanguage.editor.addComment_Expression", "jetbrains.mps.baseLanguage.editor.arrayAccess", "jetbrains.mps.baseLanguage.editor.assert_", "jetbrains.mps.baseLanguage.editor.assignment_to_variable_declaration", "jetbrains.mps.baseLanguage.editor.assignments", "jetbrains.mps.baseLanguage.editor.binaryOperations_Expression", "jetbrains.mps.baseLanguage.editor.csharp_rTransform_Expression", "jetbrains.mps.baseLanguage.editor.dotExpression", "jetbrains.mps.baseLanguage.editor.expressionStatement", "jetbrains.mps.baseLanguage.editor.expressionToNotExpression", "jetbrains.mps.baseLanguage.editor.expressionToParenthesis", "jetbrains.mps.baseLanguage.editor.expression_to_variable_declaration", "jetbrains.mps.baseLanguage.editor.expressionstmt_to_returnstms_on_expression", "jetbrains.mps.baseLanguage.editor.expressionstmt_to_variable_declaration", "jetbrains.mps.baseLanguage.editor.instanceOf", "jetbrains.mps.baseLanguage.editor.postfix", "jetbrains.mps.baseLanguage.editor.prefix", "jetbrains.mps.baseLanguage.editor.ternaryOperator"};
