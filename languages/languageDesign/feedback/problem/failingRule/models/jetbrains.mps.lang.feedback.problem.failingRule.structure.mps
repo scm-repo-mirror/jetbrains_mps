@@ -55,6 +55,9 @@
     <node concept="PrWs8" id="5sUTrySNgNS" role="PzmwI">
       <ref role="PrY4T" to="sis7:5sUTrySMJsG" resolve="Problem" />
     </node>
+    <node concept="PrWs8" id="2zJEoOoNm_w" role="PzmwI">
+      <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
+    </node>
   </node>
 </model>
 

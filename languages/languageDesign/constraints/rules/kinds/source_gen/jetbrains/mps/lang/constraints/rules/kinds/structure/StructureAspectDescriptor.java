@@ -24,6 +24,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   @Override
   public void reportDependencies(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.Dependencies deps) {
     deps.aggregatedLanguage(0xea3159bff48e4720L, 0xbde286dba75f0d34L, "jetbrains.mps.lang.context.defs");
+    deps.aggregatedLanguage(0x3ad5badc1d9c461cL, 0xb7b1fa2fcd0a0ae7L, "jetbrains.mps.lang.context");
   }
 
   @Override
@@ -59,6 +60,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.aggregate("parameters", 0x4bf59690bc05b732L).target(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x4bf59690bc05b735L).optional(true).ordered(true).multiple(true).origin("5473446470512654130").done();
     b.aggregate("contextMembers", 0x653030359355429eL).target(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x126f1320a26d42bdL).optional(true).ordered(true).multiple(true).origin("7291380803376071326").done();
+    b.aggregate("context", 0x28efa98d18cc670aL).target(0x3ad5badc1d9c461cL, 0xb7b1fa2fcd0a0ae7L, 0x56aefe6c19b93dL).optional(false).ordered(true).multiple(false).origin("2949762704422496010").done();
     b.alias("rule kind");
     return b.create();
   }

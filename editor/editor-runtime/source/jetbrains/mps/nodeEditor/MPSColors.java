@@ -32,7 +32,7 @@ public final class MPSColors extends JBColor {
 
   public static final Color DARK_GREEN = JBColor.GREEN.darker();
 
-  public static final Color DARK_MAGENTA = JBColor.MAGENTA.darker();
+  public static final Color DARK_MAGENTA = new JBColor(JBColor.MAGENTA.darker().darker(), JBColor.MAGENTA);
 
 //  public static JBColor VIOLET = new JBColor(new Color(0x8000FF), new Color(0x9C57FF));
 }

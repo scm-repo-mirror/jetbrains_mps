@@ -18,9 +18,6 @@
         <property id="5092175715804935370" name="conceptAlias" index="34LRSv" />
         <child id="1071489727083" name="linkDeclaration" index="1TKVEi" />
       </concept>
-      <concept id="1169125989551" name="jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration" flags="ig" index="PlHQZ">
-        <child id="1169127546356" name="extends" index="PrDN$" />
-      </concept>
       <concept id="1169127622168" name="jetbrains.mps.lang.structure.structure.InterfaceConceptReference" flags="ig" index="PrWs8">
         <reference id="1169127628841" name="intfc" index="PrY4T" />
       </concept>
@@ -41,13 +38,6 @@
       </concept>
     </language>
   </registry>
-  <node concept="PlHQZ" id="4zSofKecfg2">
-    <property role="EcuMT" value="5258059200641168386" />
-    <property role="TrG5h" value="MessageProvider" />
-    <node concept="PrWs8" id="4zSofKenTNa" role="PrDN$">
-      <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
-    </node>
-  </node>
   <node concept="1TIwiD" id="6kKc3mjFxph">
     <property role="EcuMT" value="7291380803381892689" />
     <property role="TrG5h" value="ShowMessage" />
@@ -59,11 +49,11 @@
       <property role="20lbJX" value="1" />
       <ref role="20lvS9" to="t9po:4zSofKeg4lv" resolve="CombinedMessageExpression" />
     </node>
-    <node concept="PrWs8" id="4zSofKecqAK" role="PzmwI">
-      <ref role="PrY4T" node="4zSofKecfg2" resolve="MessageProvider" />
-    </node>
     <node concept="PrWs8" id="1mFJTG5Tpe" role="PzmwI">
       <ref role="PrY4T" to="z0wo:5sUTrySNcd9" resolve="Feedback" />
+    </node>
+    <node concept="PrWs8" id="2zJEoOoN1j2" role="PzmwI">
+      <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
     </node>
   </node>
 </model>

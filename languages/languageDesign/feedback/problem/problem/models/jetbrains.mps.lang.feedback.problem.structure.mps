@@ -76,6 +76,9 @@
     <node concept="PrWs8" id="6GnzfDRhs0$" role="PzmwI">
       <ref role="PrY4T" node="5sUTrySMJsG" resolve="Problem" />
     </node>
+    <node concept="PrWs8" id="2zJEoOoN2IK" role="PzmwI">
+      <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
+    </node>
   </node>
 </model>
 

@@ -78,8 +78,8 @@
       <property role="20lbJX" value="0..1" />
       <ref role="20lvS9" to="t9po:4zSofKeg4lv" resolve="CombinedMessageExpression" />
     </node>
-    <node concept="PrWs8" id="4zSofKecqAN" role="PzmwI">
-      <ref role="PrY4T" to="m19b:4zSofKecfg2" resolve="MessageProvider" />
+    <node concept="PrWs8" id="2zJEoOoMF3W" role="PzmwI">
+      <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
     </node>
   </node>
 </model>

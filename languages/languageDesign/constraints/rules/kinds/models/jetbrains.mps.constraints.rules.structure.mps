@@ -9,6 +9,7 @@
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="iwhd" ref="r:bd012d1c-91a4-4783-a33f-d2037e757f6d(jetbrains.mps.lang.context.defs.structure)" />
+    <import index="ceie" ref="r:bd6fc1e2-c440-4914-8d32-b3c46da52d44(jetbrains.mps.lang.context.structure)" />
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
@@ -59,12 +60,22 @@
     <node concept="PrWs8" id="6kKc3mjmAXJ" role="PzmwI">
       <ref role="PrY4T" to="tpee:hCUYCKd" resolve="IValidIdentifier" />
     </node>
+    <node concept="PrWs8" id="2zJEoOoNo$V" role="PzmwI">
+      <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
+    </node>
     <node concept="1TJgyj" id="6kKc3mjlkau" role="1TKVEi">
       <property role="IQ2ns" value="7291380803376071326" />
       <property role="20lmBu" value="aggregation" />
       <property role="20lbJX" value="0..n" />
       <property role="20kJfa" value="contextMembers" />
       <ref role="20lvS9" to="iwhd:19J4M2yrkaX" resolve="NativeDef" />
+    </node>
+    <node concept="1TJgyj" id="2zJEoOoN6sa" role="1TKVEi">
+      <property role="IQ2ns" value="2949762704422496010" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="context" />
+      <property role="20lbJX" value="1" />
+      <ref role="20lvS9" to="ceie:1mFJTG6r$X" resolve="Context" />
     </node>
     <node concept="t5JxF" id="1FBVWojs6yS" role="lGtFl">
       <property role="t5JxN" value="Each rule has a certain kind. The kind is usually associated with a specific context, which is passed to the rule to check smth within that context." />
