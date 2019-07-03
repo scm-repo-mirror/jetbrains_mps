@@ -3,10 +3,10 @@
   <persistence version="9" />
   <languages>
     <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="-1" />
-    <use id="d7a92d38-f7db-40d0-8431-763b0c3c9f20" name="jetbrains.mps.lang.intentions" version="-1" />
+    <use id="d7a92d38-f7db-40d0-8431-763b0c3c9f20" name="jetbrains.mps.lang.intentions" version="1" />
     <use id="d4615e3b-d671-4ba9-af01-2b78369b0ba7" name="jetbrains.mps.lang.pattern" version="2" />
     <use id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts" version="-1" />
-    <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="2" />
+    <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="3" />
     <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="13" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
@@ -309,10 +309,8 @@
       </concept>
       <concept id="1240322627579" name="jetbrains.mps.lang.intentions.structure.IntentionParameter" flags="nn" index="38Zlrr" />
       <concept id="1240395258925" name="jetbrains.mps.lang.intentions.structure.ParameterizedIntentionDeclaration" flags="ig" index="3dkpOd">
-        <child id="1240395532443" name="queryBlock" index="3dlsAV" />
+        <child id="1240395532443" name="queryFunction" index="3dlsAV" />
       </concept>
-      <concept id="1812109616120608865" name="jetbrains.mps.lang.intentions.structure.ParameterizedDescriptionBlock" flags="in" index="1jPt1T" />
-      <concept id="1812109616120795373" name="jetbrains.mps.lang.intentions.structure.ParameterizedExecuteBlock" flags="in" index="1jPJzP" />
     </language>
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
       <concept id="1196350785110" name="jetbrains.mps.lang.quotation.structure.AbstractAntiquotation" flags="ng" index="2c44t0">
@@ -17874,7 +17872,7 @@
   <node concept="3dkpOd" id="75REJnczRcE">
     <property role="TrG5h" value="AlterStatementListContainer" />
     <ref role="2ZfgGC" to="tpee:i0zv2NF" resolve="IContainsStatementList" />
-    <node concept="1jPt1T" id="75REJnczRdE" role="2ZfVej">
+    <node concept="2S6ZIM" id="75REJnczRdE" role="2ZfVej">
       <node concept="3clFbS" id="75REJnczRdF" role="2VODD2">
         <node concept="3cpWs8" id="7LqRtPB4Y$T" role="3cqZAp">
           <node concept="3cpWsn" id="7LqRtPB4Y$W" role="3cpWs9">
@@ -17995,7 +17993,7 @@
         </node>
       </node>
     </node>
-    <node concept="1jPJzP" id="75REJnczRdG" role="2ZfgGD">
+    <node concept="2Sbjvc" id="75REJnczRdG" role="2ZfgGD">
       <node concept="3clFbS" id="75REJnczRdH" role="2VODD2">
         <node concept="3cpWs8" id="75REJncHQ10" role="3cqZAp">
           <node concept="3cpWsn" id="75REJncHQ11" role="3cpWs9">
