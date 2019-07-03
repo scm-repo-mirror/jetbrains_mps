@@ -690,6 +690,7 @@
       <sourceFolder url="file://$MODULE_DIR$/../../plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/test_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/languages/testAnnotatedType/source_gen" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/languages/testOverridingRule/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/languages/testOverridingType/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/languages/testWrappedType/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/solutions/testSubstituteType/source_gen" isTestSource="false" />
@@ -701,6 +702,7 @@
       <sourceFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubtyping/solutions/testSubtypingTest/test_gen" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/../../plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/languages/testAnnotatedType/classes_gen" />
+      <excludeFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/languages/testOverridingRule/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/languages/testOverridingType/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/languages/testWrappedType/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../plugins/testModules/testSubstituteType/solutions/testSubstituteType/classes_gen" />

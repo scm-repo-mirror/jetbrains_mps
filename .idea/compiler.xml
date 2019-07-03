@@ -412,6 +412,7 @@
       <directory url="file://$PROJECT_DIR$/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/test_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/testModules/testSubstituteType/languages/testAnnotatedType/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/plugins/testModules/testSubstituteType/languages/testOverridingRule/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/testModules/testSubstituteType/languages/testOverridingType/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/testModules/testSubstituteType/languages/testWrappedType/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/testModules/testSubstituteType/solutions/testSubstituteType/source_gen" includeSubdirectories="true" />
