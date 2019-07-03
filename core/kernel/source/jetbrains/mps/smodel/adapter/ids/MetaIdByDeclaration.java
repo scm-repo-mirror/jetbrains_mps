@@ -101,7 +101,7 @@ public class MetaIdByDeclaration {
 
   private static SLanguageId getLangId(String explicitlySerializedLangId, SNode declaration) {
     if (StringUtil.isEmpty(explicitlySerializedLangId)) {
-      return getLanguageId(((Language) declaration.getModel().getModule()));
+      return ref2LangId(declaration.getModel().getModule().getModuleReference());
     } else {
       return MetaIdFactory.langId(UUID.fromString(explicitlySerializedLangId));
     }
