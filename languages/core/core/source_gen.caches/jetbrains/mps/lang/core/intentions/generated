@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="4ymwoqurn96397ou4jiufdwuelcw08o">
+<product version="3" modelHash="ew9zd5n4z5iqzmj39i3tx2zrzwpqcwm">
   <files names="IntentionsDescriptor.java:SuppressAllTypesystemError_Intention.java:SuppressAllTypesystemWarning_Intention.java:SuppressSpecificErrors_Intention.java:SuppressSpecificInspection_Intention.java:UnsuppressError_Intention.java" />
 </product>
 

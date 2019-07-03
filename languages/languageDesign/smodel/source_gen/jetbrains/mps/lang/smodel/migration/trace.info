@@ -6314,7 +6314,7 @@
   </root>
   <root nodeRef="r:18ddb7a1-bae8-47e8-a653-f672ff99522d(jetbrains.mps.lang.smodel.migration)/6733348108486823194">
     <file name="SNodeTypeCastExpression_completelyRemoved.java">
-      <node id="6733348108486823194" at="20,30,21,36" concept="9" />
+      <node id="6733348108486823194" at="20,30,21,55" concept="9" />
       <node id="6733348108486823194" at="24,33,25,16" concept="9" />
       <node id="6733348108486823194" at="27,41,28,17" concept="4" />
       <node id="6733348108486823194" at="28,17,29,16" concept="9" />
@@ -6340,7 +6340,7 @@
       <node id="6733348108486823194" at="43,45,53,5" concept="0" />
       <node id="6733348108486823194" at="31,0,42,0" concept="7" trace="doExecute#(Lorg/jetbrains/mps/openapi/module/SModule;)V" />
       <node id="6733348108486823194" at="42,0,55,0" concept="7" trace="check#(Lorg/jetbrains/mps/openapi/module/SModule;)Ljava/lang/Iterable;" />
-      <scope id="6733348108486823194" at="20,30,21,36" />
+      <scope id="6733348108486823194" at="20,30,21,55" />
       <scope id="6733348108486823194" at="24,33,25,16" />
       <scope id="6733348108486823194" at="36,52,37,36" />
       <scope id="6733348108486823194" at="48,52,49,36" />

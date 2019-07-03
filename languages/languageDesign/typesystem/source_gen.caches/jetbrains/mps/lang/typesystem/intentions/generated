@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="530ysumt7e8qx5h8z2tquw68bjn3us7">
+<product version="3" modelHash="-3e96a6tuyykbyrt460ve9wchxymdwv2">
   <files names="ConvertPatternRule_Intention.java:CreateTypesystemIntention_Intention.java:FlipInequality_Intention.java:IntentionsDescriptor.java:MakeInequalityCheckOnly_Intention.java" />
 </product>
 

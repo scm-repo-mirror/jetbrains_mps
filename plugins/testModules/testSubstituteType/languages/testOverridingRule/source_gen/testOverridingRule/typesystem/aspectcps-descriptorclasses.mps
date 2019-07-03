@@ -151,6 +151,9 @@
       <concept id="1196350785113" name="jetbrains.mps.lang.quotation.structure.Quotation" flags="nn" index="2c44tf">
         <child id="1196350785114" name="quotedNode" index="2c44tc" />
       </concept>
+      <concept id="4056363777117001481" name="jetbrains.mps.lang.quotation.structure.StringToTypedValueMigrationInfo" flags="ng" index="AAgTk">
+        <property id="2173356959483005420" name="stringValueMigrated" index="3qcH_f" />
+      </concept>
     </language>
     <language id="38be1c36-cdf6-4e3c-b9db-14f88a11fa03" name="testOverridingRule">
       <concept id="8837437332634520113" name="testOverridingRule.structure.ConceptA" flags="ng" index="iO2xv">
@@ -1298,6 +1301,7 @@
                             <property role="2qtEX9" value="conceptAProp" />
                             <property role="P4ACc" value="38be1c36-cdf6-4e3c-b9db-14f88a11fa03/8837437332634520113/8837437332634520180" />
                             <property role="2DMOqu" value="aprop" />
+                            <property role="3qcH_f" value="true" />
                             <node concept="cd27G" id="6N" role="lGtFl">
                               <node concept="3u3nmq" id="6O" role="cd27D">
                                 <property role="3u3nmv" value="8837437332635283401" />
@@ -1976,6 +1980,7 @@
                             <property role="2qtEX9" value="conceptAProp" />
                             <property role="P4ACc" value="38be1c36-cdf6-4e3c-b9db-14f88a11fa03/8837437332634520113/8837437332634520180" />
                             <property role="2DMOqu" value="aprop" />
+                            <property role="3qcH_f" value="true" />
                             <node concept="cd27G" id="b4" role="lGtFl">
                               <node concept="3u3nmq" id="b5" role="cd27D">
                                 <property role="3u3nmv" value="8837437332634599139" />
@@ -1986,6 +1991,7 @@
                             <property role="2qtEX9" value="conceptBProp" />
                             <property role="P4ACc" value="38be1c36-cdf6-4e3c-b9db-14f88a11fa03/8837437332634520228/8837437332634520229" />
                             <property role="2DMOqu" value="bprop" />
+                            <property role="3qcH_f" value="true" />
                             <node concept="cd27G" id="b6" role="lGtFl">
                               <node concept="3u3nmq" id="b7" role="cd27D">
                                 <property role="3u3nmv" value="8837437332634599161" />
