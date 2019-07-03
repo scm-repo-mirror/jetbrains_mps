@@ -216,6 +216,7 @@
       </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
+      <concept id="1966870290083281362" name="jetbrains.mps.lang.smodel.structure.EnumMember_NameOperation" flags="ng" index="24Tkf9" />
       <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
         <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
       </concept>
@@ -628,10 +629,8 @@
     <node concept="QsSxf" id="11BHxZ7C54Z" role="Qtgdg">
       <property role="TrG5h" value="NOFLOW_LAYOUT_CONSTRAINT" />
       <ref role="37wK5l" node="11BHxZ7C54V" resolve="LayoutConstraints" />
-      <node concept="2YIFZM" id="3Ftr4R8WHlU" role="37wK5m">
-        <ref role="37wK5l" to="9hsz:3Ftr4R6BF9U" resolve="value" />
-        <ref role="1Pybhc" to="9hsz:3Ftr4R6BF9F" resolve="_Layout_Constraints_Enum_MigrationUtils" />
-        <node concept="2OqwBi" id="3Ftr4R8WHlR" role="37wK5m">
+      <node concept="2OqwBi" id="3Ftr4Rc1s_P" role="37wK5m">
+        <node concept="2OqwBi" id="3Ftr4R8WHlR" role="2Oq$k0">
           <node concept="1XH99k" id="3Ftr4R8WHlS" role="2Oq$k0">
             <ref role="1XH99l" to="tpc2:3Ftr4R6BF9A" resolve="_Layout_Constraints_Enum" />
           </node>
@@ -639,22 +638,22 @@
             <ref role="2ViDtZ" to="tpc2:3Ftr4R6BF9D" resolve="noflow" />
           </node>
         </node>
+        <node concept="24Tkf9" id="3Ftr4Rc1sIB" role="2OqNvi" />
       </node>
     </node>
     <node concept="QsSxf" id="11BHxZ7C550" role="Qtgdg">
       <property role="TrG5h" value="PUNCTUATION_LAYOUT_CONSTRAINT" />
       <ref role="37wK5l" node="11BHxZ7C54V" resolve="LayoutConstraints" />
-      <node concept="2YIFZM" id="3Ftr4R8WHlY" role="37wK5m">
-        <ref role="37wK5l" to="9hsz:3Ftr4R6BF9U" resolve="value" />
-        <ref role="1Pybhc" to="9hsz:3Ftr4R6BF9F" resolve="_Layout_Constraints_Enum_MigrationUtils" />
-        <node concept="2OqwBi" id="3Ftr4R8WHlV" role="37wK5m">
-          <node concept="1XH99k" id="3Ftr4R8WHlW" role="2Oq$k0">
+      <node concept="2OqwBi" id="3Ftr4Rc1sIJ" role="37wK5m">
+        <node concept="2OqwBi" id="3Ftr4Rc1sIK" role="2Oq$k0">
+          <node concept="1XH99k" id="3Ftr4Rc1sIL" role="2Oq$k0">
             <ref role="1XH99l" to="tpc2:3Ftr4R6BF9A" resolve="_Layout_Constraints_Enum" />
           </node>
-          <node concept="2ViDtV" id="3Ftr4R8WHlX" role="2OqNvi">
+          <node concept="2ViDtV" id="3Ftr4Rc1sZZ" role="2OqNvi">
             <ref role="2ViDtZ" to="tpc2:3Ftr4R6BF9C" resolve="punctuation" />
           </node>
         </node>
+        <node concept="24Tkf9" id="3Ftr4Rc1sIN" role="2OqNvi" />
       </node>
     </node>
     <node concept="3Tm1VV" id="11BHxZ7C54U" role="1B3o_S" />
