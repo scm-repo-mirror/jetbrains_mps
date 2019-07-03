@@ -415,7 +415,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.property("overrides", 0x116484991d1L).type(PrimitiveTypeId.BOOLEAN).origin("1195213689297").done();
     b.aggregate("body", 0x1164848bdf4L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L).optional(false).ordered(true).multiple(false).origin("1195213635060").done();
-    b.aggregate("overridesFun", 0x1885777d137135fcL).target(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1885777d1370d97bL).optional(true).ordered(true).multiple(false).origin("1766949807893591548").done();
+    b.aggregate("overridesFun_old", 0x1885777d137135fcL).target(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1885777d1370d97bL).optional(true).ordered(true).multiple(false).origin("1766949807893591548").done();
     b.kind(ConceptKind.INTERFACE, StaticScope.GLOBAL);
     return b.create();
   }
@@ -839,6 +839,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.aggregate("supersedesFun", 0x65684a1aee271b08L).target(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x65684a1aee252403L).optional(true).ordered(true).multiple(false).origin("7307171874933775112").done();
     b.aggregate("applicableFun", 0x669222c8f194bfa3L).target(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x669222c8f1941d7fL).optional(true).ordered(true).multiple(false).origin("7391008184910266275").done();
+    b.aggregate("overridesFun", 0x5dbc5aa1b944adaL).target(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1885777d1370d97bL).optional(true).ordered(true).multiple(false).origin("422148324487088858").done();
     b.kind(ConceptKind.INTERFACE, StaticScope.GLOBAL);
     b.alias("Inference Rule");
     return b.create();

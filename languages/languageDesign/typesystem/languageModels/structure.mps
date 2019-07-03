@@ -30,6 +30,9 @@
       <concept id="6491077959632463275" name="jetbrains.mps.lang.structure.structure.EnumPropertyMigrationInfo" flags="ng" index="3l_iC">
         <child id="6491077959632463286" name="oldProperty" index="3l_iP" />
       </concept>
+      <concept id="1224240836180" name="jetbrains.mps.lang.structure.structure.DeprecatedNodeAnnotation" flags="ig" index="asaX9">
+        <property id="1225118933224" name="comment" index="YLQ7P" />
+      </concept>
       <concept id="6054523464627964745" name="jetbrains.mps.lang.structure.structure.AttributeInfo_AttributedConcept" flags="ng" index="trNpa">
         <reference id="6054523464627965081" name="concept" index="trN6q" />
       </concept>
@@ -160,6 +163,12 @@
       <property role="20kJfa" value="applicableFun" />
       <property role="IQ2ns" value="7391008184910266275" />
       <ref role="20lvS9" node="6qi8GzL_1PZ" resolve="IsApplicableConceptFunction" />
+    </node>
+    <node concept="1TJgyj" id="nrLqCr_4Fq" role="1TKVEi">
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="overridesFun" />
+      <property role="IQ2ns" value="422148324487088858" />
+      <ref role="20lvS9" node="1y5tROjsd_V" resolve="OverridesConceptFunction" />
     </node>
     <node concept="PrWs8" id="3SW4jvYrbIJ" role="PzmwI">
       <ref role="PrY4T" node="3SW4jvYrbtS" resolve="IRuleWithOneNode" />
@@ -898,9 +907,12 @@
     </node>
     <node concept="1TJgyj" id="1y5tROjsjnW" role="1TKVEi">
       <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="overridesFun" />
+      <property role="20kJfa" value="overridesFun_old" />
       <property role="IQ2ns" value="1766949807893591548" />
       <ref role="20lvS9" node="1y5tROjsd_V" resolve="OverridesConceptFunction" />
+      <node concept="asaX9" id="nrLqCr_4Fs" role="lGtFl">
+        <property role="YLQ7P" value="The link was moved to concept &quot;jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule&quot;" />
+      </node>
     </node>
     <node concept="PrWs8" id="4FhjFA_0uio" role="PzmwI">
       <ref role="PrY4T" to="tpck:19gBtYEAf4C" resolve="InterfacePart" />

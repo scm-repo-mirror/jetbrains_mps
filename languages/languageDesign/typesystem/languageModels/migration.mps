@@ -20,10 +20,10 @@
     <import index="6f4m" ref="528ff3b9-5fc4-40dd-931f-c6ce3650640e/r:f69c3fa1-0e30-4980-84e2-190ae44e4c3d(jetbrains.mps.lang.migration.runtime/jetbrains.mps.lang.migration.runtime.base)" />
     <import index="yf86" ref="r:33eabb60-7192-4d12-ba46-11dacf966b3e(jetbrains.mps.lang.structure.migration)" />
     <import index="slm6" ref="90746344-04fd-4286-97d5-b46ae6a81709/r:52a3d974-bd4f-4651-ba6e-a2de5e336d95(jetbrains.mps.lang.migration/jetbrains.mps.lang.migration.methods)" />
+    <import index="tpd4" ref="r:00000000-0000-4000-0000-011c895902b4(jetbrains.mps.lang.typesystem.structure)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" implicit="true" />
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
-    <import index="tpd4" ref="r:00000000-0000-4000-0000-011c895902b4(jetbrains.mps.lang.typesystem.structure)" implicit="true" />
     <import index="tpce" ref="r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)" implicit="true" />
   </imports>
   <registry>
@@ -176,6 +176,16 @@
       <concept id="4497478346159780083" name="jetbrains.mps.lang.smodel.structure.LanguageRefExpression" flags="ng" index="pHN19">
         <child id="3542851458883491298" name="languageId" index="2V$M_3" />
       </concept>
+      <concept id="6911370362349121511" name="jetbrains.mps.lang.smodel.structure.ConceptId" flags="nn" index="2x4n5u">
+        <property id="6911370362349122519" name="conceptName" index="2x4mPI" />
+        <property id="6911370362349121516" name="conceptId" index="2x4n5l" />
+        <child id="6911370362349121514" name="languageIdentity" index="2x4n5j" />
+      </concept>
+      <concept id="8415841354032330471" name="jetbrains.mps.lang.smodel.structure.ContainmentLinkId" flags="ng" index="HUanS">
+        <property id="8415841354032330474" name="linkName" index="HUanP" />
+        <property id="8415841354032330473" name="linkId" index="HUanQ" />
+        <child id="8415841354032330472" name="conceptIdentity" index="HUanR" />
+      </concept>
       <concept id="3542851458883438784" name="jetbrains.mps.lang.smodel.structure.LanguageId" flags="nn" index="2V$Bhx">
         <property id="3542851458883439831" name="namespace" index="2V$B1Q" />
         <property id="3542851458883439832" name="languageId" index="2V$B1T" />
@@ -204,6 +214,22 @@
       </concept>
     </language>
     <language id="90746344-04fd-4286-97d5-b46ae6a81709" name="jetbrains.mps.lang.migration">
+      <concept id="3116305438947623354" name="jetbrains.mps.lang.migration.structure.MoveContainmentLink" flags="ng" index="7a1rN">
+        <child id="8415841354033040054" name="targetId" index="HTpAD" />
+        <child id="8415841354033040053" name="sourceId" index="HTpAE" />
+      </concept>
+      <concept id="7431903976166007326" name="jetbrains.mps.lang.migration.structure.MoveNodeMigrationPart" flags="ng" index="Z4OXk">
+        <child id="3116305438947564633" name="specialization" index="7agGg" />
+        <child id="7431903976166276375" name="toNode" index="Z5P1t" />
+        <child id="7431903976166276373" name="fromNode" index="Z5P1v" />
+      </concept>
+      <concept id="7431903976166012785" name="jetbrains.mps.lang.migration.structure.DirectNodeReference" flags="ng" index="Z4PCV">
+        <reference id="7431903976166013456" name="target" index="Z4Ptq" />
+      </concept>
+      <concept id="7431903976166443707" name="jetbrains.mps.lang.migration.structure.PureMigrationScript" flags="ng" index="Z5qvL">
+        <property id="7431903976166443708" name="fromVersion" index="Z5qvQ" />
+        <child id="7431903976166447091" name="part" index="Z5rET" />
+      </concept>
       <concept id="4144229974054253572" name="jetbrains.mps.lang.migration.structure.ExecuteAfterDeclaration" flags="ng" index="1QxfsK">
         <child id="4144229974054377645" name="dependencies" index="1QyHIp" />
       </concept>
@@ -1032,6 +1058,44 @@
     </node>
     <node concept="3uibUv" id="e2eVnzKnNL" role="1zkMxy">
       <ref role="3uigEE" to="slm6:5TUCQr2ybBO" resolve="HasMigrationScriptReference" />
+    </node>
+  </node>
+  <node concept="Z5qvL" id="nrLqCr_4Fr">
+    <property role="Z5qvQ" value="3" />
+    <property role="TrG5h" value="InferenceRule_OverridesFun" />
+    <node concept="Z4OXk" id="nrLqCr_4FA" role="Z5rET">
+      <node concept="Z4PCV" id="nrLqCr_Ot8" role="Z5P1v">
+        <ref role="Z4Ptq" to="tpd4:1y5tROjsjnW" resolve="overridesFun_old" />
+      </node>
+      <node concept="Z4PCV" id="nrLqCr_6aF" role="Z5P1t">
+        <ref role="Z4Ptq" to="tpd4:nrLqCr_4Fq" resolve="overridesFun" />
+      </node>
+      <node concept="7a1rN" id="nrLqCr_4Fz" role="7agGg">
+        <node concept="HUanS" id="nrLqCr_4Ft" role="HTpAE">
+          <property role="HUanP" value="overridesFun_old" />
+          <property role="HUanQ" value="dfa3fjqvquws" />
+          <node concept="2x4n5u" id="nrLqCrA3Mr" role="HUanR">
+            <property role="2x4mPI" value="AbstractCheckingRule" />
+            <property role="2x4n5l" value="f92nb12h" />
+            <node concept="2V$Bhx" id="nrLqCrA3Ms" role="2x4n5j">
+              <property role="2V$B1T" value="7a5dda62-9140-4668-ab76-d5ed1746f2b2" />
+              <property role="2V$B1Q" value="jetbrains.mps.lang.typesystem" />
+            </node>
+          </node>
+        </node>
+        <node concept="HUanS" id="nrLqCr_4Fw" role="HTpAD">
+          <property role="HUanP" value="overridesFun" />
+          <property role="HUanQ" value="37gn3b04vdne" />
+          <node concept="2x4n5u" id="nrLqCrA3sW" role="HUanR">
+            <property role="2x4mPI" value="InferenceRule" />
+            <property role="2x4n5l" value="ezmg6cxm" />
+            <node concept="2V$Bhx" id="nrLqCrA3sX" role="2x4n5j">
+              <property role="2V$B1T" value="7a5dda62-9140-4668-ab76-d5ed1746f2b2" />
+              <property role="2V$B1Q" value="jetbrains.mps.lang.typesystem" />
+            </node>
+          </node>
+        </node>
+      </node>
     </node>
   </node>
 </model>

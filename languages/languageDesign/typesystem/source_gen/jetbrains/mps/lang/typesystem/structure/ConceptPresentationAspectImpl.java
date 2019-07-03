@@ -132,7 +132,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     switch (structureDescriptor.internalIndex(c)) {
       case LanguageConceptSwitch.AbstractCheckingRule:
         if (props_AbstractCheckingRule == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164847e929L);
+          cpb.deprecateAggregation(0x1885777d137135fcL, "overridesFun_old");
           props_AbstractCheckingRule = cpb.create();
         }
         return props_AbstractCheckingRule;
