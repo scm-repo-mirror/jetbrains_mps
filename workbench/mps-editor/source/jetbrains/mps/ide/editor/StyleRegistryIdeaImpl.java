@@ -23,6 +23,7 @@ import com.intellij.openapi.editor.colors.EditorColorsScheme;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.editor.markup.EffectType;
 import com.intellij.openapi.editor.markup.TextAttributes;
+import com.intellij.ui.JBColor;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.nodeEditor.MPSColors;
@@ -46,8 +47,8 @@ public class StyleRegistryIdeaImpl extends StyleRegistry implements EditorColors
   private final static int colorIterationDelta = 50;
 
   private EditorColorsManager myColorsManager;
-  protected final Map<String, String> myIDEAStylesMapping = new HashMap<>();
-  protected final Map<Pair<Color, Color>, Color> myColorsMapping = new HashMap<>();
+  private final Map<String, String> myIDEAStylesMapping = new HashMap<>();
+  private final Map<Pair<Color, Color>, Color> myColorsMapping = new HashMap<>();
 
   public StyleRegistryIdeaImpl(EditorColorsManager colorsManager) {
     myColorsManager = colorsManager;
@@ -86,13 +87,18 @@ public class StyleRegistryIdeaImpl extends StyleRegistry implements EditorColors
 
   @Override
   public Color getSimpleColor(Color color, final Color bg) {
-    if (!isDarkTheme() || color == null || bg == null)
+    if (!isDarkTheme() || color == null || bg == null) {
       return color;
+    }
+    if (isDarkTheme() && color instanceof JBColor) {
+      return color;
+    }
 
     final Color original = color;
     Pair<Color, Color> colorPair = new Pair<>(original, bg);
-    if (myColorsMapping.containsKey(colorPair))
+    if (myColorsMapping.containsKey(colorPair)) {
       return myColorsMapping.get(colorPair);
+    }
 
     if ((Math.abs(color.getRGB()) - Math.abs(Color.BLACK.getRGB()) / 2) * (Math.abs(bg.getRGB()) - Math.abs(Color.BLACK.getRGB()) / 2) < 0)
       color = new Color(255 - color.getRed(), 255 - color.getGreen(), 255 - color.getBlue());
@@ -147,8 +153,8 @@ public class StyleRegistryIdeaImpl extends StyleRegistry implements EditorColors
       style.set(StyleAttributes.TEXT_BACKGROUND_COLOR, textAttributes.getBackgroundColor());
       style.set(StyleAttributes.FONT_STYLE, textAttributes.getFontType());
       if (textAttributes.getEffectColor() != null) {
-        style.set(StyleAttributes.UNDERLINED, textAttributes.getEffectType().equals(EffectType.LINE_UNDERSCORE));
-        style.set(StyleAttributes.STRIKE_OUT, textAttributes.getEffectType().equals(EffectType.STRIKEOUT));
+        style.set(StyleAttributes.UNDERLINED, textAttributes.getEffectType() == EffectType.LINE_UNDERSCORE);
+        style.set(StyleAttributes.STRIKE_OUT, textAttributes.getEffectType() == EffectType.STRIKEOUT);
       }
 
       setStyle(key, style);

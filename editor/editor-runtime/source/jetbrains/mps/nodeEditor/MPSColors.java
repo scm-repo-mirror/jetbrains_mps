@@ -15,21 +15,25 @@
  */
 package jetbrains.mps.nodeEditor;
 
+import com.intellij.ui.JBColor;
+
 import java.awt.*;
 
-public class MPSColors extends Color {
+public final class MPSColors extends JBColor {
   private MPSColors() {
-    super(0);
+    super(JBColor.background(), JBColor.background());
   }
 
   // COLORS: Remove hardcoded colors
 
-  public static final Color LIGHT_BLUE = new Color(162, 184, 208);
+  public static final Color LIGHT_BLUE = JBColor.BLUE.brighter();
 
-  public static final Color DARK_BLUE = new Color(0, 0, 128);
+  public static final Color DARK_BLUE = JBColor.BLUE.darker();
 
-  public static final Color DARK_GREEN = new Color(0, 128, 0);
+  public static final Color DARK_GREEN = JBColor.green.darker();
 
-  public static final Color DARK_MAGENTA = new Color(102, 14, 122);
+  public static final Color DARK_MAGENTA = JBColor.magenta.darker();
+
+//  public static JBColor VIOLET = new JBColor(new Color(0x8000FF), new Color(0x9C57FF));
 }
 
