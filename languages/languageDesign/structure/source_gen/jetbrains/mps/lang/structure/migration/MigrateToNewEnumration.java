@@ -16,7 +16,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.structure.util.ConceptIdHelper;
-import jetbrains.mps.project.ModelImporter;
+import jetbrains.mps.smodel.SModelInternal;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
 import org.jetbrains.mps.openapi.module.SearchScope;
 import jetbrains.mps.lang.smodel.query.runtime.CommandUtil;
@@ -88,9 +88,11 @@ public class MigrateToNewEnumration extends MigrationScriptBase {
         if (enumMigrationHelpersModel == null) {
           enumMigrationHelpersModel = strucutureModel.getModelRoot().createModel(strucutureModel.getModule().getModuleName() + ".enumMigration");
 
-          ModelImporter importer = new ModelImporter(enumMigrationHelpersModel);
-          importer.prepare(SModelOperations.getPointer(strucutureModel));
-          importer.execute();
+          SModelInternal mi = (SModelInternal) enumMigrationHelpersModel;
+          mi.addLanguage(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"));
+          mi.addLanguage(MetaAdapterFactory.getLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel"));
+          mi.addLanguage(MetaAdapterFactory.getLanguage(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, "jetbrains.mps.lang.structure"));
+          mi.addModelImport(SModelOperations.getPointer(strucutureModel));
         }
         SModelOperations.addRootNode(enumMigrationHelpersModel, generateReplacementMethods);
       }

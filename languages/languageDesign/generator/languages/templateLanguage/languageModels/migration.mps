@@ -181,6 +181,10 @@
         <reference id="1139877738879" name="concept" index="1A0vxQ" />
       </concept>
       <concept id="1171407110247" name="jetbrains.mps.lang.smodel.structure.Node_GetAncestorOperation" flags="nn" index="2Xjw5R" />
+      <concept id="1139613262185" name="jetbrains.mps.lang.smodel.structure.Node_GetParentOperation" flags="nn" index="1mfA1w" />
+      <concept id="1139621453865" name="jetbrains.mps.lang.smodel.structure.Node_IsInstanceOfOperation" flags="nn" index="1mIQ4w">
+        <child id="1177027386292" name="conceptArgument" index="cj9EA" />
+      </concept>
       <concept id="1171999116870" name="jetbrains.mps.lang.smodel.structure.Node_IsNullOperation" flags="nn" index="3w_OXm" />
       <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
       <concept id="1144101972840" name="jetbrains.mps.lang.smodel.structure.OperationParm_Concept" flags="ng" index="1xMEDy">
@@ -1038,13 +1042,21 @@
                     <node concept="1bVj0M" id="3oudiFxRhMv" role="23t8la">
                       <node concept="3clFbS" id="3oudiFxRhMw" role="1bW5cS">
                         <node concept="3clFbF" id="3oudiFxRhTy" role="3cqZAp">
-                          <node concept="3fqX7Q" id="3oudiFxRiCR" role="3clFbG">
-                            <node concept="2OqwBi" id="3oudiFxRiCT" role="3fr31v">
-                              <node concept="37vLTw" id="3oudiFxRiCU" role="2Oq$k0">
-                                <ref role="3cqZAo" node="3oudiFxRhMx" resolve="it" />
+                          <node concept="2OqwBi" id="3Ftr4R6ttl9" role="3clFbG">
+                            <node concept="2OqwBi" id="3Ftr4R6ts9u" role="2Oq$k0">
+                              <node concept="2OqwBi" id="3oudiFxRiCT" role="2Oq$k0">
+                                <node concept="37vLTw" id="3oudiFxRiCU" role="2Oq$k0">
+                                  <ref role="3cqZAo" node="3oudiFxRhMx" resolve="it" />
+                                </node>
+                                <node concept="2qgKlT" id="3Ftr4R6tr$z" role="2OqNvi">
+                                  <ref role="37wK5l" to="tpcu:121FNPYBLc9" resolve="getPropertyDeclaration" />
+                                </node>
                               </node>
-                              <node concept="3TrcHB" id="3oudiFxRiCV" role="2OqNvi">
-                                <ref role="3TsBF5" to="tpck:121FNPYBmCJ" resolve="enumUsageMigrated" />
+                              <node concept="1mfA1w" id="3Ftr4R6tsYJ" role="2OqNvi" />
+                            </node>
+                            <node concept="1mIQ4w" id="3Ftr4R6tt_u" role="2OqNvi">
+                              <node concept="chp4Y" id="3Ftr4R6ttLp" role="cj9EA">
+                                <ref role="cht4Q" to="tpce:5CkWgdpgEmF" resolve="EnumPropertyMigrationInfo" />
                               </node>
                             </node>
                           </node>

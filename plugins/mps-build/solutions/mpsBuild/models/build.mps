@@ -13094,6 +13094,11 @@
             <ref role="3bR37D" node="7Kfy9QB6L9O" resolve="jetbrains.mps.lang.smodel" />
           </node>
         </node>
+        <node concept="1SiIV0" id="3Ftr4RdoQS7" role="3bR37C">
+          <node concept="3bR9La" id="3Ftr4RdoQS8" role="1SiIV1">
+            <ref role="3bR37D" node="5cCcm$KATVz" resolve="jetbrains.mps.lang.migration.runtime" />
+          </node>
+        </node>
       </node>
       <node concept="1E1JtD" id="1d41uYMTVPu" role="2G$12L">
         <property role="BnDLt" value="true" />
