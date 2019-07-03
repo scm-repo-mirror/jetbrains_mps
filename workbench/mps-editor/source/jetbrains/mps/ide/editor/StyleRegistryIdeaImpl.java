@@ -235,8 +235,9 @@ public class StyleRegistryIdeaImpl extends StyleRegistry implements EditorColors
   }
 
   private void addIdeaMappingsExt(String mpsKey, String ideaKey) throws StyleRegistryMappingKeyException {
-    if (myIDEAStylesMapping.containsKey(mpsKey))
+    if (myIDEAStylesMapping.containsKey(mpsKey)) {
       throw new StyleRegistryMappingKeyException(mpsKey, myIDEAStylesMapping.get(mpsKey), ideaKey);
+    }
     myIDEAStylesMapping.put(mpsKey, ideaKey);
   }
 
