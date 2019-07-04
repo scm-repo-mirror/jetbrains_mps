@@ -64,7 +64,7 @@ public final class EditorTestCase__BehaviorDescriptor extends BaseBHDescriptor {
     return result;
   }
   /*package*/ static boolean suppress_id2WmWrdnSpX7(@NotNull SNode __thisNode__, SNode child) {
-    Iterable<SNode> toSuppress = ListSequence.fromListAndArray(new ArrayList<SNode>(), SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x11e314b78e4L, "nodeToEdit")), SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x11e314bf3d3L, "result")));
+    Iterable<SNode> toSuppress = ListSequence.fromListAndArray(new ArrayList<SNode>(), SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x11e314b78e4L, "nodeToEdit")), SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x11e314bf3d3L, "result")), SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x2b9f5f5eae643562L, "testNodeBefore")), SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x2b9f5f5eae643585L, "testNodeResult")));
     return ListSequence.fromList(SNodeOperations.getNodeAncestors(child, null, true)).intersect(Sequence.fromIterable(toSuppress)).isNotEmpty();
   }
   /*package*/ static boolean isMpsStartRequired_id2RMg39tmiFh(@NotNull SNode __thisNode__) {

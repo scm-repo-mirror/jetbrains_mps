@@ -203,7 +203,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return (String) ITestMethod__BehaviorDescriptor.getTestName_idhGBohAB.invoke(_context.getNode());
   }
   public static Object propertyMacro_GetValue_8_4(final PropertyMacroContext _context) {
-    SNode nodeToEdit = SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x11e314b78e4L, "nodeToEdit"));
+    SNode nodeToEdit = (SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x11e314b78e4L, "nodeToEdit")) != null ? SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x11e314b78e4L, "nodeToEdit")) : SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x2b9f5f5eae643562L, "testNodeBefore")), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, 0x11b5a397b92L, "nodeToCheck")));
     if ((nodeToEdit == null)) {
       _context.showErrorMessage(_context.getNode(), "A node in the 'before' section must be provided");
     }
@@ -213,8 +213,9 @@ public class QueriesGenerated extends QueryProviderBase {
     return nodeToEdit.getNodeId().toString();
   }
   public static Object propertyMacro_GetValue_8_5(final PropertyMacroContext _context) {
-    if (SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x11e314bf3d3L, "result")) != null) {
-      return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x11e314bf3d3L, "result")).getNodeId().toString();
+    SNode nodeResult = (SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x11e314bf3d3L, "result")) != null ? SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x11e314bf3d3L, "result")) : SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x2b9f5f5eae643585L, "testNodeResult")), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, 0x11b5a397b92L, "nodeToCheck")));
+    if (nodeResult != null) {
+      return nodeResult.getNodeId().toString();
     } else {
       return "";
     }

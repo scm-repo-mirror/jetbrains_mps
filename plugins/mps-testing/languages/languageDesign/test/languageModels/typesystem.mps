@@ -708,7 +708,7 @@
                   <ref role="3cqZAo" node="7JT4LO$rSNE" resolve="decl" />
                 </node>
                 <node concept="3TrEf2" id="7JT4LO$rUt5" role="2OqNvi">
-                  <ref role="3Tt5mk" to="tp3j:i3dlsyr" resolve="queryBlock" />
+                  <ref role="3Tt5mk" to="tp3j:i3dlsyr" resolve="queryFunction" />
                 </node>
               </node>
               <node concept="3w_OXm" id="7JT4LO$rVtv" role="2OqNvi" />
@@ -727,7 +727,7 @@
                     <ref role="3cqZAo" node="7JT4LO$rSNE" resolve="decl" />
                   </node>
                   <node concept="3TrEf2" id="7JT4LO$rQTx" role="2OqNvi">
-                    <ref role="3Tt5mk" to="tp3j:i3dlsyr" resolve="queryBlock" />
+                    <ref role="3Tt5mk" to="tp3j:i3dlsyr" resolve="queryFunction" />
                   </node>
                 </node>
                 <node concept="3TrEf2" id="7JT4LO$rRQ6" role="2OqNvi">
@@ -998,8 +998,8 @@
             <node concept="1YBJjd" id="5aRyplrTxTT" role="2Oq$k0">
               <ref role="1YBMHb" node="5aRyplrTxTA" resolve="test" />
             </node>
-            <node concept="3TrEf2" id="5aRyplrTyui" role="2OqNvi">
-              <ref role="3Tt5mk" to="tp5g:hSLiRz$" resolve="nodeToEdit" />
+            <node concept="3TrEf2" id="2IvnPUIqdz3" role="2OqNvi">
+              <ref role="3Tt5mk" to="tp5g:2IvnPUIp3ly" resolve="testNodeBefore" />
             </node>
           </node>
           <node concept="3w_OXm" id="5aRyplrTSh3" role="2OqNvi" />
@@ -1028,24 +1028,34 @@
       <node concept="3clFbJ" id="5aRyplrT$in" role="3cqZAp">
         <node concept="1Wc70l" id="5aRyplrTWEA" role="3clFbw">
           <node concept="2OqwBi" id="5aRyplrTYd8" role="3uHU7B">
-            <node concept="2OqwBi" id="5aRyplrTXhz" role="2Oq$k0">
-              <node concept="1YBJjd" id="5aRyplrTWMr" role="2Oq$k0">
-                <ref role="1YBMHb" node="5aRyplrT$iz" resolve="test" />
+            <node concept="2OqwBi" id="2IvnPUIqcGC" role="2Oq$k0">
+              <node concept="2OqwBi" id="5aRyplrTXhz" role="2Oq$k0">
+                <node concept="1YBJjd" id="5aRyplrTWMr" role="2Oq$k0">
+                  <ref role="1YBMHb" node="5aRyplrT$iz" resolve="test" />
+                </node>
+                <node concept="3TrEf2" id="2IvnPUIqcw1" role="2OqNvi">
+                  <ref role="3Tt5mk" to="tp5g:2IvnPUIp3ly" resolve="testNodeBefore" />
+                </node>
               </node>
-              <node concept="3TrEf2" id="5aRyplrTXFi" role="2OqNvi">
-                <ref role="3Tt5mk" to="tp5g:hSLiRz$" resolve="nodeToEdit" />
+              <node concept="3TrEf2" id="2IvnPUIqcRL" role="2OqNvi">
+                <ref role="3Tt5mk" to="tp5g:hHqenIi" resolve="nodeToCheck" />
               </node>
             </node>
             <node concept="3x8VRR" id="5aRyplrTYqq" role="2OqNvi" />
           </node>
           <node concept="2OqwBi" id="5aRyplrTEDT" role="3uHU7w">
             <node concept="2OqwBi" id="5aRyplrT$iq" role="2Oq$k0">
-              <node concept="2OqwBi" id="5aRyplrTQvI" role="2Oq$k0">
-                <node concept="1YBJjd" id="5aRyplrT$ir" role="2Oq$k0">
-                  <ref role="1YBMHb" node="5aRyplrT$iz" resolve="test" />
+              <node concept="2OqwBi" id="2IvnPUIqddw" role="2Oq$k0">
+                <node concept="2OqwBi" id="5aRyplrTQvI" role="2Oq$k0">
+                  <node concept="1YBJjd" id="5aRyplrT$ir" role="2Oq$k0">
+                    <ref role="1YBMHb" node="5aRyplrT$iz" resolve="test" />
+                  </node>
+                  <node concept="3TrEf2" id="2IvnPUIqcXT" role="2OqNvi">
+                    <ref role="3Tt5mk" to="tp5g:2IvnPUIp3ly" resolve="testNodeBefore" />
+                  </node>
                 </node>
-                <node concept="3TrEf2" id="5aRyplrTRc1" role="2OqNvi">
-                  <ref role="3Tt5mk" to="tp5g:hSLiRz$" resolve="nodeToEdit" />
+                <node concept="3TrEf2" id="2IvnPUIqdsn" role="2OqNvi">
+                  <ref role="3Tt5mk" to="tp5g:hHqenIi" resolve="nodeToCheck" />
                 </node>
               </node>
               <node concept="2Rf3mk" id="5aRyplrT$EV" role="2OqNvi">
