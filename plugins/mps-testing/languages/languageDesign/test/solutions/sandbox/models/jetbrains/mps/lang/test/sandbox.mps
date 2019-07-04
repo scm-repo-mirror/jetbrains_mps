@@ -13,9 +13,6 @@
   <registry>
     <language id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test">
       <concept id="1215507671101" name="jetbrains.mps.lang.test.structure.NodeErrorCheckOperation" flags="ng" index="1TM$A" />
-      <concept id="1215511704609" name="jetbrains.mps.lang.test.structure.NodeWarningCheckOperation" flags="ng" index="29bkU">
-        <child id="8489045168660938635" name="warningRef" index="3lydCh" />
-      </concept>
       <concept id="1215526290564" name="jetbrains.mps.lang.test.structure.NodeTypeCheckOperation" flags="ng" index="30Omv">
         <child id="1215526393912" name="type" index="31d$z" />
       </concept>
@@ -25,10 +22,6 @@
       <concept id="1215603922101" name="jetbrains.mps.lang.test.structure.NodeOperationsContainer" flags="ng" index="7CXmI">
         <child id="1215604436604" name="nodeOperations" index="7EUXB" />
       </concept>
-      <concept id="7691029917083872157" name="jetbrains.mps.lang.test.structure.IRuleReference" flags="ng" index="2u4UPC">
-        <reference id="8333855927540250453" name="declaration" index="39XzEq" />
-      </concept>
-      <concept id="4531408400486526326" name="jetbrains.mps.lang.test.structure.WarningStatementReference" flags="ng" index="2PQEqo" />
       <concept id="5097124989038916362" name="jetbrains.mps.lang.test.structure.TestInfo" flags="ng" index="2XOHcx">
         <property id="5097124989038916363" name="projectPath" index="2XOHcw" />
       </concept>
@@ -126,13 +119,6 @@
   </registry>
   <node concept="1lH9Xt" id="5I3K3cUQjDy">
     <property role="TrG5h" value="Test" />
-    <node concept="7CXmI" id="1YoECRzYXUW" role="lGtFl">
-      <node concept="29bkU" id="1YoECRzYXUX" role="7EUXB">
-        <node concept="2PQEqo" id="1YoECRzYXUY" role="3lydCh">
-          <ref role="39XzEq" to="tp5l:1mwpTqNMIZm" />
-        </node>
-      </node>
-    </node>
     <node concept="1LZb2c" id="5I3K3cUQJjf" role="1SL9yI">
       <property role="TrG5h" value="testError" />
       <node concept="3cqZAl" id="5I3K3cUQJjg" role="3clF45" />

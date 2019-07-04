@@ -348,17 +348,12 @@
         <reference id="3562215692195600259" name="link" index="13MTZf" />
       </concept>
       <concept id="6677504323281689838" name="jetbrains.mps.lang.smodel.structure.SConceptType" flags="in" index="3bZ5Sz" />
-      <concept id="1154546920561" name="jetbrains.mps.lang.smodel.structure.OperationParm_ConceptList" flags="ng" index="3gmYPX">
-        <child id="1154546920563" name="concept" index="3gmYPZ" />
-      </concept>
-      <concept id="1154546950173" name="jetbrains.mps.lang.smodel.structure.ConceptReference" flags="ng" index="3gn64h">
-        <reference id="1154546997487" name="concept" index="3gnhBz" />
-      </concept>
       <concept id="1139613262185" name="jetbrains.mps.lang.smodel.structure.Node_GetParentOperation" flags="nn" index="1mfA1w" />
       <concept id="1139621453865" name="jetbrains.mps.lang.smodel.structure.Node_IsInstanceOfOperation" flags="nn" index="1mIQ4w">
         <child id="1177027386292" name="conceptArgument" index="cj9EA" />
       </concept>
       <concept id="1171999116870" name="jetbrains.mps.lang.smodel.structure.Node_IsNullOperation" flags="nn" index="3w_OXm" />
+      <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
       <concept id="1144100932627" name="jetbrains.mps.lang.smodel.structure.OperationParm_Inclusion" flags="ng" index="1xIGOp" />
       <concept id="1144101972840" name="jetbrains.mps.lang.smodel.structure.OperationParm_Concept" flags="ng" index="1xMEDy">
         <child id="1207343664468" name="conceptArgument" index="ri$Ld" />
@@ -1179,36 +1174,22 @@
       <property role="13i0iv" value="false" />
       <property role="TrG5h" value="isIntentionApplicable" />
       <node concept="3clFbS" id="hHDM9nq" role="3clF47">
-        <node concept="3cpWs8" id="hHDM9nr" role="3cqZAp">
-          <node concept="3cpWsn" id="hHDM9ns" role="3cpWs9">
-            <property role="TrG5h" value="test" />
-            <node concept="3Tqbb2" id="hHDM9nt" role="1tU5fm">
-              <ref role="ehGHo" to="tpck:gw2VY9q" resolve="BaseConcept" />
-            </node>
-            <node concept="2OqwBi" id="hHDM9nu" role="33vP2m">
+        <node concept="3clFbF" id="2IvnPUIv73x" role="3cqZAp">
+          <node concept="2OqwBi" id="2IvnPUIv7c4" role="3clFbG">
+            <node concept="2OqwBi" id="hHDM9nu" role="2Oq$k0">
               <node concept="37vLTw" id="2BHiRxghfna" role="2Oq$k0">
                 <ref role="3cqZAo" node="hHDM9nP" resolve="node" />
               </node>
               <node concept="2Xjw5R" id="hHDM9nw" role="2OqNvi">
-                <node concept="3gmYPX" id="1FgNkkI6Xhk" role="1xVPHs">
-                  <node concept="3gn64h" id="1FgNkkI6XoI" role="3gmYPZ">
-                    <ref role="3gnhBz" to="tp5g:hHqefK1" resolve="TestNode" />
-                  </node>
-                  <node concept="3gn64h" id="1FgNkkI6XoK" role="3gmYPZ">
-                    <ref role="3gnhBz" to="tp5g:hSLiM3w" resolve="EditorTestCase" />
+                <node concept="1xMEDy" id="2IvnPUIv70G" role="1xVPHs">
+                  <node concept="chp4Y" id="2IvnPUIv71r" role="ri$Ld">
+                    <ref role="cht4Q" to="tp5g:hHqefK1" resolve="TestNode" />
                   </node>
                 </node>
                 <node concept="1xIGOp" id="hHDM9nz" role="1xVPHs" />
               </node>
             </node>
-          </node>
-        </node>
-        <node concept="3cpWs6" id="hHDNXIt" role="3cqZAp">
-          <node concept="3y3z36" id="hHDNYKU" role="3cqZAk">
-            <node concept="10Nm6u" id="hHDNZ98" role="3uHU7w" />
-            <node concept="37vLTw" id="3GM_nagTxSz" role="3uHU7B">
-              <ref role="3cqZAo" node="hHDM9ns" resolve="test" />
-            </node>
+            <node concept="3x8VRR" id="2IvnPUIv7kX" role="2OqNvi" />
           </node>
         </node>
       </node>
@@ -1237,7 +1218,6 @@
       <property role="13i0iv" value="false" />
       <property role="13i0it" value="false" />
       <property role="TrG5h" value="needsWriteAction" />
-      <property role="DiZV1" value="true" />
       <node concept="3Tm1VV" id="5vTxdEzuQjV" role="1B3o_S" />
       <node concept="10P_77" id="5vTxdEzuQjW" role="3clF45" />
       <node concept="3clFbS" id="5vTxdEzuQjX" role="3clF47">

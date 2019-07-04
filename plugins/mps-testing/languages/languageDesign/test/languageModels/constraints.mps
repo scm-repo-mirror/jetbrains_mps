@@ -205,6 +205,7 @@
         <child id="1177027386292" name="conceptArgument" index="cj9EA" />
       </concept>
       <concept id="1171999116870" name="jetbrains.mps.lang.smodel.structure.Node_IsNullOperation" flags="nn" index="3w_OXm" />
+      <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
       <concept id="1144100932627" name="jetbrains.mps.lang.smodel.structure.OperationParm_Inclusion" flags="ng" index="1xIGOp" />
       <concept id="1144101972840" name="jetbrains.mps.lang.smodel.structure.OperationParm_Concept" flags="ng" index="1xMEDy">
         <child id="1207343664468" name="conceptArgument" index="ri$Ld" />
@@ -752,6 +753,28 @@
                 </node>
               </node>
             </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="1M2fIO" id="2IvnPUIuVMH">
+    <ref role="1M2myG" to="tp5g:hSdkHD7" resolve="AbstractTestNodeAnnotation" />
+    <node concept="9S07l" id="2IvnPUIuVMI" role="9Vyp8">
+      <node concept="3clFbS" id="2IvnPUIuVMJ" role="2VODD2">
+        <node concept="3clFbF" id="2IvnPUIuVQF" role="3cqZAp">
+          <node concept="2OqwBi" id="2IvnPUIuWI0" role="3clFbG">
+            <node concept="2OqwBi" id="2IvnPUIuVZj" role="2Oq$k0">
+              <node concept="nLn13" id="2IvnPUIuVQE" role="2Oq$k0" />
+              <node concept="2Xjw5R" id="2IvnPUIuWt$" role="2OqNvi">
+                <node concept="1xMEDy" id="2IvnPUIuWtA" role="1xVPHs">
+                  <node concept="chp4Y" id="2IvnPUIuWvY" role="ri$Ld">
+                    <ref role="cht4Q" to="tp5g:hHqefK1" resolve="TestNode" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3x8VRR" id="2IvnPUIuWUJ" role="2OqNvi" />
           </node>
         </node>
       </node>
