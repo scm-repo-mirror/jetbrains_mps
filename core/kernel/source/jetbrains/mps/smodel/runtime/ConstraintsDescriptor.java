@@ -26,7 +26,6 @@ import org.jetbrains.mps.openapi.model.SNode;
  * Contains the part for the constraints aspect (presumably contains basic checks for links (refs/children), properties + some others)
  * Here one can find the constraints logic, specific to the given {@link SAbstractConcept}
  *
- * ConstraintsDescriptor is specific to a single concept
  * Generated constraints roots inherit from this interface
  *
  * @author unknown, sorokin

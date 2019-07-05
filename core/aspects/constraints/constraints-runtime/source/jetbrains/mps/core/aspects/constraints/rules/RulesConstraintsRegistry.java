@@ -32,15 +32,17 @@ import java.util.Map;
 import static java.util.Objects.requireNonNull;
 
 /**
+ * Place where all the constraints rules descriptors got into initialization
  *
+ * @author apyshkin
  */
-public final class ConstraintsRegistry2 {
-  private static final Logger LOG = LogManager.getLogger(ConstraintsRegistry2.class);
+public final class RulesConstraintsRegistry {
+  private static final Logger LOG = LogManager.getLogger(RulesConstraintsRegistry.class);
 
   private final LanguageRegistry myLanguageRegistry;
   private final Map<SAbstractConcept, ConstraintsDescriptor2> myDescriptors = new HashMap<>();
 
-  public ConstraintsRegistry2(@NotNull LanguageRegistry languageRegistry) {
+  public RulesConstraintsRegistry(@NotNull LanguageRegistry languageRegistry) {
     myLanguageRegistry = languageRegistry;
   }
 
@@ -59,9 +61,10 @@ public final class ConstraintsRegistry2 {
         descriptor2 = aspect.getDescriptor(concept);
       }
       if (descriptor2 != null) {
-        synchronized (LOG) {
           // to be moved into api
-          if (descriptor2 instanceof BaseConstraintsDescriptor2) {
+        if (descriptor2 instanceof BaseConstraintsDescriptor2) {
+          //noinspection SynchronizationOnLocalVariableOrMethodParameter
+          synchronized (descriptor2) {
             if (!((BaseConstraintsDescriptor2) descriptor2).isInitialized()) {
               ((BaseConstraintsDescriptor2) descriptor2).init(this);
             }

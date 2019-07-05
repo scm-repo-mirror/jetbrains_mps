@@ -15,7 +15,7 @@
  */
 package jetbrains.mps.smodel.constraints;
 
-import jetbrains.mps.core.aspects.constraints.rules.ConstraintsRegistry2;
+import jetbrains.mps.core.aspects.constraints.rules.RulesConstraintsRegistry;
 import jetbrains.mps.core.aspects.constraints.rules.Rule;
 import jetbrains.mps.core.aspects.constraints.rules.RuleKind;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChildKind;
@@ -118,7 +118,7 @@ public class ConstraintsCanBeFacade {
    */
   @NotNull
   static <C extends Context> List<Rule<C>> checkPerConceptRulesOfKind(@NotNull SAbstractConcept concept, @NotNull RuleKind kind, @NotNull C context) {
-    ConstraintsRegistry2 constraintsRegistry = ConceptRegistry.getInstance().getConstraintsRegistry().getNewRegistry();
+    RulesConstraintsRegistry constraintsRegistry = ConceptRegistry.getInstance().getConstraintsRegistry().getNewRegistry();
     return constraintsRegistry.getPerConceptFailingRulesFor(concept, kind, context);
   }
 

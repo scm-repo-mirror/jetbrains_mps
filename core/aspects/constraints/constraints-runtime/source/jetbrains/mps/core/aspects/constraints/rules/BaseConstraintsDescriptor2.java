@@ -49,7 +49,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * @author apyshkin
  */
 public abstract class BaseConstraintsDescriptor2 implements ConstraintsDescriptor2 {
-  private final AtomicReference<ConstraintsRegistry2> myRegistry = new AtomicReference<>();
+  private final AtomicReference<RulesConstraintsRegistry> myRegistry = new AtomicReference<>();
   private final AtomicReference<List<Rule<?>>> myCachedRules = new AtomicReference<>();
   private final SAbstractConcept myConcept;
 
@@ -57,7 +57,7 @@ public abstract class BaseConstraintsDescriptor2 implements ConstraintsDescripto
     myConcept = concept;
   }
 
-  public final void init(@NotNull ConstraintsRegistry2 registry) {
+  public final void init(@NotNull RulesConstraintsRegistry registry) {
     boolean success = myRegistry.compareAndSet(null, registry);
     if (!success) {
       throw new IllegalStateException("Double initialization is not allowed");
