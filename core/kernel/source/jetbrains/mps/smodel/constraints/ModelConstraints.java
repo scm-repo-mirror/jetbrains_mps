@@ -127,7 +127,7 @@ public class ModelConstraints {
   public static boolean canBeRoot(@NotNull SAbstractConcept concept, @NotNull SModel model, CheckingNodeContext checkingNodeContext) {
     ConstraintContext_CanBeRoot context = new ConstraintContext_CanBeRoot(concept, model);
     boolean legacyResult = legacyCanBeRoot(context, checkingNodeContext);
-    return legacyResult && checkPerConceptRulesOfKind(concept, CanBeRootKind.INSTANCE, context.adapt()).isEmpty();
+    return legacyResult && !checkPerConceptRulesOfKind(concept, CanBeRootKind.INSTANCE, context.adapt()).findAny().isPresent();
   }
 
   // private canBe* section
@@ -156,12 +156,12 @@ public class ModelConstraints {
 
   private static boolean canBeParent0(@NotNull ConstraintContext_CanBeParent context, @Nullable CheckingNodeContext checkingNodeContext) {
     boolean legacyResult = legacyCanBeParent(context, checkingNodeContext);
-    return legacyResult && checkPerConceptRulesOfKind(context.getConcept(), CanBeParentKind.INSTANCE, context.adapt()).isEmpty();
+    return legacyResult && !checkPerConceptRulesOfKind(context.getConcept(), CanBeParentKind.INSTANCE, context.adapt()).findAny().isPresent();
   }
 
   private static boolean canBeChild0(@NotNull ConstraintContext_CanBeChild context, @Nullable CheckingNodeContext checkingNodeContext) {
     boolean legacyResult = legacyCanBeChild(context, checkingNodeContext);
-    return legacyResult && checkPerConceptRulesOfKind(context.getConcept(), CanBeChildKind.INSTANCE, context.adapt()).isEmpty();
+    return legacyResult && !checkPerConceptRulesOfKind(context.getConcept(), CanBeChildKind.INSTANCE, context.adapt()).findAny().isPresent();
   }
 
   // scopes part

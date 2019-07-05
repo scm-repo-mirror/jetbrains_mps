@@ -40,6 +40,8 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Here we expose API for external constraints invocation
@@ -71,7 +73,7 @@ public class ConstraintsCanBeFacade {
 
     CheckingNodeContextImpl debugInfo = new CheckingNodeContextImpl();
     CanBeRootKind kind = CanBeRootKind.INSTANCE;
-    List<Rule<CanBeRootContext>> constraintsRules = checkPerConceptRulesOfKind(context.getConcept(), kind, context);
+    List<Rule<CanBeRootContext>> constraintsRules = checkPerConceptRulesOfKind(context.getConcept(), kind, context).collect(Collectors.toList());
     boolean legacyAreOk = legacyCanBeRoot(ConstraintContext_CanBeRoot.convert(context), debugInfo);
     if (!legacyAreOk) {
       constraintsRules.add(new AdaptedLegacyConstraintsRule<>(context.getConcept(), kind, debugInfo.getBreakingNode()));
@@ -90,7 +92,7 @@ public class ConstraintsCanBeFacade {
     }
     CheckingNodeContextImpl debugInfo = new CheckingNodeContextImpl();
     CanBeParentKind kind = CanBeParentKind.INSTANCE;
-    List<Rule<ContainmentContext>> constraintsRules = checkPerConceptRulesOfKind(context.getParentConcept(), kind, context);
+    List<Rule<ContainmentContext>> constraintsRules = checkPerConceptRulesOfKind(context.getParentConcept(), kind, context).collect(Collectors.toList());
     boolean legacyAreOk = legacyCanBeParent(ConstraintContext_CanBeParent.convert(context), debugInfo);
     if (!legacyAreOk) {
       constraintsRules.add(new AdaptedLegacyConstraintsRule<>(context.getParentConcept(), kind, debugInfo.getBreakingNode()));
@@ -105,7 +107,7 @@ public class ConstraintsCanBeFacade {
   public static List<Rule<ContainmentContext>> checkCanBeChild(@NotNull ContainmentContext context) {
     CheckingNodeContextImpl debugInfo = new CheckingNodeContextImpl();
     CanBeChildKind kind = CanBeChildKind.INSTANCE;
-    List<Rule<ContainmentContext>> constraintsRules = checkPerConceptRulesOfKind(context.getChildConcept(), kind, context);
+    List<Rule<ContainmentContext>> constraintsRules = checkPerConceptRulesOfKind(context.getChildConcept(), kind, context).collect(Collectors.toList());
     boolean legacyAreOk = legacyCanBeChild(ConstraintContext_CanBeChild.convert(context), debugInfo);
     if (!legacyAreOk) {
       constraintsRules.add(new AdaptedLegacyConstraintsRule<>(context.getChildConcept(), kind, debugInfo.getBreakingNode()));
@@ -117,7 +119,7 @@ public class ConstraintsCanBeFacade {
    * @return the list of failed rules for the kind
    */
   @NotNull
-  static <C extends Context> List<Rule<C>> checkPerConceptRulesOfKind(@NotNull SAbstractConcept concept, @NotNull RuleKind kind, @NotNull C context) {
+  static <C extends Context> Stream<Rule<C>> checkPerConceptRulesOfKind(@NotNull SAbstractConcept concept, @NotNull RuleKind kind, @NotNull C context) {
     RulesConstraintsRegistry constraintsRegistry = ConceptRegistry.getInstance().getConstraintsRegistry().getNewRegistry();
     return constraintsRegistry.getPerConceptFailingRulesFor(concept, kind, context);
   }

@@ -27,7 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public interface ConstraintsAspectDescriptor2 extends ILanguageAspect {
-  List<RuleKind> CORE_KINDS = Arrays.<RuleKind>asList(CanBeChildKind.INSTANCE, CanBeParentKind.INSTANCE, CanBeRootKind.INSTANCE);
+  List<RuleKind> CORE_KINDS = Arrays.asList(CanBeChildKind.INSTANCE, CanBeParentKind.INSTANCE, CanBeRootKind.INSTANCE);
 
   @Nullable
   RulesConstraintsDescriptor getDescriptor(@NotNull SAbstractConcept concept);

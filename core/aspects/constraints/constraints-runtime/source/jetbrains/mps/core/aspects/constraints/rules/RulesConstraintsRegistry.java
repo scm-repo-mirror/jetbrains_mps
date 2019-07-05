@@ -28,6 +28,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 
@@ -81,20 +82,14 @@ public final class RulesConstraintsRegistry {
   }
 
   @NotNull
-  private <C extends Context> List<Rule<C>> getApplicableRules(@NotNull SAbstractConcept concept, @NotNull RuleKind kind, @NotNull C context) {
+  private <C extends Context> Stream<Rule<C>> getApplicableRules(@NotNull SAbstractConcept concept, @NotNull RuleKind kind, @NotNull C context) {
     @NotNull RulesConstraintsDescriptor descriptor = requireNonNull(getConstraintsDescriptor2(concept));
     return descriptor.getApplicableRules(kind, context);
   }
 
   @NotNull
-  public <C extends Context> List<Rule<C>> getPerConceptFailingRulesFor(@NotNull SAbstractConcept concept, @NotNull RuleKind kind, @NotNull C context) {
-    List<Rule<C>> rules = new ArrayList<>();
-    for (Rule<C> rule : getApplicableRules(concept, kind, context)) {
-      if (!rule.check(context)) {
-        rules.add(rule);
-      }
-    }
-    return rules;
+  public <C extends Context> Stream<Rule<C>> getPerConceptFailingRulesFor(@NotNull SAbstractConcept concept, @NotNull RuleKind kind, @NotNull C context) {
+    return getApplicableRules(concept, kind, context).filter(it -> !it.check(context));
   }
 
   public void clear() {

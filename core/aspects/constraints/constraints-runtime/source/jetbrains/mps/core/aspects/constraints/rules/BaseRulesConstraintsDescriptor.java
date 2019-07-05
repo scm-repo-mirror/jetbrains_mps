@@ -88,7 +88,8 @@ public abstract class BaseRulesConstraintsDescriptor implements RulesConstraints
   @Override
   public Stream<Rule<?>> getRules() {
     checkDescriptorIsInitialized();
-    Stream<SAbstractConcept> stream = StreamSupport.stream(new UniqueIterator<>(new DepthFirstConceptIterator(myConcept)).spliterator(), false);
+    UniqueIterator<SAbstractConcept> conceptHierarchyTraversal = new UniqueIterator<>(new DepthFirstConceptIterator(myConcept));
+    Stream<SAbstractConcept> stream = StreamSupport.stream(conceptHierarchyTraversal.spliterator(), false);
     return stream.map(this::getDescriptor)
                  .map(RulesConstraintsDescriptor::getDeclaredRules)
                  .flatMap(Collection::stream);
@@ -96,7 +97,7 @@ public abstract class BaseRulesConstraintsDescriptor implements RulesConstraints
 
   @Override
   public String toString() {
-    return myConcept + " ConstraintsDescriptor2";
+    return myConcept + " RulesConstraintsDescriptor";
   }
 
   @NotNull
