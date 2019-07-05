@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.smodel.runtime;
 
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeAncestorContext;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -58,6 +59,11 @@ public final class ConstraintContext_CanBeAncestor {
     myNode = node;
     myChildConcept = childConcept;
     myLink = link;
+  }
+
+  @NotNull
+  public static ConstraintContext_CanBeAncestor convert(@NotNull CanBeAncestorContext context) {
+    return new ConstraintContext_CanBeAncestor(null, null);
   }
 
   @Nullable

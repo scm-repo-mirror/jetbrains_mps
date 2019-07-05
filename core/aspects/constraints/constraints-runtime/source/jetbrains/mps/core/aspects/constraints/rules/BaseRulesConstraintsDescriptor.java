@@ -20,11 +20,8 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.util.DepthFirstConceptIterator;
 import org.jetbrains.mps.util.UniqueIterator;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
-import java.util.Spliterators;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -60,6 +57,7 @@ public abstract class BaseRulesConstraintsDescriptor implements RulesConstraints
     myConcept = concept;
   }
 
+  @Override
   public final void init(@NotNull RulesConstraintsRegistry registry) {
     boolean success = myRegistry.compareAndSet(null, registry);
     if (!success) {
@@ -73,8 +71,18 @@ public abstract class BaseRulesConstraintsDescriptor implements RulesConstraints
 
   private void checkDescriptorIsInitialized() {
     if (!isInitialized()) {
-      throw new ConstraintsDescriptor2IsNotInitialized(myConcept);
+      throw new DescriptorIsNotInitialized(myConcept);
     }
+  }
+
+  @NotNull
+  @Override
+  public RulesConstraintsRegistry getRegistry() throws DescriptorIsNotInitialized {
+    RulesConstraintsRegistry registry = myRegistry.get();
+    if (registry == null) {
+      throw new DescriptorIsNotInitialized(myConcept);
+    }
+    return registry;
   }
 
   /**
@@ -88,7 +96,7 @@ public abstract class BaseRulesConstraintsDescriptor implements RulesConstraints
   @Override
   public Stream<Rule<?>> getRules() {
     checkDescriptorIsInitialized();
-    UniqueIterator<SAbstractConcept> conceptHierarchyTraversal = new UniqueIterator<>(new DepthFirstConceptIterator(myConcept));
+    Iterable<SAbstractConcept> conceptHierarchyTraversal = new UniqueIterator<>(new DepthFirstConceptIterator(myConcept));
     Stream<SAbstractConcept> stream = StreamSupport.stream(conceptHierarchyTraversal.spliterator(), false);
     return stream.map(this::getDescriptor)
                  .map(RulesConstraintsDescriptor::getDeclaredRules)
@@ -105,18 +113,12 @@ public abstract class BaseRulesConstraintsDescriptor implements RulesConstraints
     if (concept.equals(myConcept)) {
       return this;
     }
-    return myRegistry.get().getConstraintsDescriptor2(concept);
+    return myRegistry.get().getRulesDescriptor(concept);
   }
 
   @NotNull
   @Override
   public final SAbstractConcept getConcept() {
     return myConcept;
-  }
-
-  private class ConstraintsDescriptor2IsNotInitialized extends RuntimeException {
-    public ConstraintsDescriptor2IsNotInitialized(@NotNull SAbstractConcept concept) {
-      super("Constraints2 descriptor has not been initialized; concept :  " + concept);
-    }
   }
 }

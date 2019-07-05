@@ -40,19 +40,19 @@ public interface ConstraintsDescriptor {
 
   boolean canBeAncestor(@NotNull ConstraintContext_CanBeAncestor context, @Nullable CheckingNodeContext checkingNodeContext);
 
-  default boolean canBeChildIsDeclared() {
+  default boolean canBeChildIsDefined() {
     return true;
   }
 
-  default boolean canBeParentIsDeclared() {
+  default boolean canBeParentIsDefined() {
     return true;
   }
 
-  default boolean canBeRootIsDeclared() {
+  default boolean canBeRootIsDefined() {
     return true;
   }
 
-  default boolean canBeAncestorIsDeclared() {
+  default boolean canBeAncestorIsDefined() {
     return true;
   }
 

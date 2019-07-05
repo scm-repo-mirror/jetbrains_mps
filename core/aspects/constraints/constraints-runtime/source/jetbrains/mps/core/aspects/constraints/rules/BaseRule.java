@@ -26,17 +26,17 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
  */
 public abstract class BaseRule<C extends Context> implements Rule<C> {
   private final SAbstractConcept myConcept;
-  private final RuleKind myCheckKind;
+  private final RuleKind myKind;
   private final RuleId myRuleId;
   @Nullable private final SNodeReference myDebugInfo;
 //  private final Predicate<Context> myCheckPredicate; // AP cannot use the method refs from java 8......
 
   protected BaseRule(@NotNull SAbstractConcept concept,
-                     @NotNull RuleKind checkKind,
+                     @NotNull RuleKind kind,
                      @NotNull RuleId ruleId,
                      @Nullable SNodeReference debugInfo) {
     myConcept = concept;
-    myCheckKind = checkKind;
+    myKind = kind;
     myRuleId = ruleId;
     myDebugInfo = debugInfo;
 //    myCheckPredicate = checkPredicate;
@@ -57,7 +57,7 @@ public abstract class BaseRule<C extends Context> implements Rule<C> {
   @NotNull
   @Override
   public RuleKind getKind() {
-    return myCheckKind;
+    return myKind;
   }
 
   @Override

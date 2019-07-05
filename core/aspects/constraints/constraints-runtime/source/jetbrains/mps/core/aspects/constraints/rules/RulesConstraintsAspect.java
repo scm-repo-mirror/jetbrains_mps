@@ -15,25 +15,18 @@
  */
 package jetbrains.mps.core.aspects.constraints.rules;
 
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChildKind;
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParentKind;
-import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeRootKind;
 import jetbrains.mps.smodel.runtime.ILanguageAspect;
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
-import java.util.Arrays;
-import java.util.List;
+public interface RulesConstraintsAspect extends ILanguageAspect {
+//  List<RuleKind> CORE_KINDS = Arrays.asList(CanBeChildKind.INSTANCE, CanBeParentKind.INSTANCE, CanBeRootKind.INSTANCE);
 
-public interface ConstraintsAspectDescriptor2 extends ILanguageAspect {
-  List<RuleKind> CORE_KINDS = Arrays.asList(CanBeChildKind.INSTANCE, CanBeParentKind.INSTANCE, CanBeRootKind.INSTANCE);
+  @Nullable RulesConstraintsDescriptor getDescriptor(@NotNull SAbstractConcept concept);
 
-  @Nullable
-  RulesConstraintsDescriptor getDescriptor(@NotNull SAbstractConcept concept);
-
-  @NotNull
-  default List<RuleKind> getRegisteredRuleKinds() {
-    return CORE_KINDS;
-  }
+//  @NotNull
+//  default List<RuleKind> getRegisteredRuleKinds() {
+//    return CORE_KINDS;
+//  }
 }

@@ -21,7 +21,6 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -36,15 +35,27 @@ import java.util.stream.Stream;
 public interface RulesConstraintsDescriptor {
 
   /**
-   * @return the rules which are <it>written</it> for this concept specifically (in the language of the concept)
+   * #init is needed since the protected constructor is invoked via generation code and there we could not
+   * pass any parameters (as for 192) because of LanguageRuntime#createAspect() comes with no additional parameters
    */
-  @NotNull List<Rule<?>> getDeclaredRules();
+  void init(@NotNull RulesConstraintsRegistry registry);
+
+  boolean isInitialized();
+
+  @NotNull RulesConstraintsRegistry getRegistry() throws DescriptorIsNotInitialized;
+
+  /**
+   * @return the rules which are <it>written</it> for this concept specifically (in the language of the concept)
+   * @throws DescriptorIsNotInitialized if you invoke it before the descriptor got initialized
+   */
+  @NotNull List<Rule<?>> getDeclaredRules() throws DescriptorIsNotInitialized;
 
   /**
    * @return the rules which are <it>applicable</it> to this concept, meaning
    * that we include all the declared rules from ancestors of the concept
+   * @throws DescriptorIsNotInitialized if you invoke it before the descriptor got initialized
    */
-  @NotNull Stream<Rule<?>> getRules();
+  @NotNull Stream<Rule<?>> getRules() throws DescriptorIsNotInitialized;
 
   @Nullable default Rule<?> getDeclaredRule(@NotNull RuleId ruleId) {
     return getDeclaredRules().stream()
@@ -76,4 +87,10 @@ public interface RulesConstraintsDescriptor {
    * @return that concept
    */
   @NotNull SAbstractConcept getConcept();
+
+  final class DescriptorIsNotInitialized extends RuntimeException {
+    public DescriptorIsNotInitialized(@NotNull SAbstractConcept concept) {
+      super("Constraints2 descriptor has not been initialized; concept :  " + concept);
+    }
+  }
 }
