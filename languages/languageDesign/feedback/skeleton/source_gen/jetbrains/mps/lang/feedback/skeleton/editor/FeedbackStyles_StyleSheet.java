@@ -7,7 +7,9 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.editor.runtime.style.AbstractStyleClass;
-import jetbrains.mps.baseLanguage.editor.BaseLanguageKeyPack_KeyPack.KEYWORD_StyleKey;
+import jetbrains.mps.editor.runtime.style.StyleAttributes;
+import jetbrains.mps.openapi.editor.style.StyleRegistry;
+import jetbrains.mps.nodeEditor.MPSColors;
 
 public class FeedbackStyles_StyleSheet {
   /**
@@ -28,7 +30,7 @@ public class FeedbackStyles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new KEYWORD_StyleKey().apply(style);
+      style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.LIGHT_BLUE));
     }
 
   }

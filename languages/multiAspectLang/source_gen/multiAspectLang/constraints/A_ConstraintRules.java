@@ -17,16 +17,17 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.core.aspects.constraints.rules.RuleId;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChildKind;
 
-public final class A_Constraints2 extends BaseConstraintsDescriptor2 {
+public final class A_ConstraintRules extends BaseConstraintsDescriptor2 {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "multiAspectLang.structure.A");
 
-  /*package*/ A_Constraints2() {
+  /*package*/ A_ConstraintRules() {
     super(CONCEPT);
   }
-  public static final Rule<ContainmentContext> gagag_id24399255755528544 = new A_Constraints2.Rule_gagag();
-  public static final Rule<ContainmentContext> gagag2_id7716791493893590340 = new A_Constraints2.Rule_gagag2();
+  public static final Rule<ContainmentContext> check_id24399255755528544 = new A_ConstraintRules.Rule_gagag();
+  public static final Rule<ContainmentContext> check_id8804574841118204455 = new A_ConstraintRules.Rule_check8804574841118204455_b0();
+  public static final Rule<ContainmentContext> check_id7716791493893590340 = new A_ConstraintRules.Rule_gagag2();
 
-  private static final List<Rule<?>> RULES = Collections.unmodifiableList(Arrays.<Rule<?>>asList(gagag_id24399255755528544, gagag2_id7716791493893590340));
+  private static final List<Rule<?>> RULES = Collections.unmodifiableList(Arrays.<Rule<?>>asList(check_id24399255755528544, check_id8804574841118204455, check_id7716791493893590340));
 
   @NotNull
   @Override
@@ -44,6 +45,18 @@ public final class A_Constraints2 extends BaseConstraintsDescriptor2 {
     @Override
     public boolean check(@NotNull ContainmentContext context) {
       return true;
+    }
+  }
+  public static final class Rule_check8804574841118204455_b0 extends BaseRule<ContainmentContext> {
+    private static final SNodeReference SOURCE_NODE_REF = PersistenceFacade.getInstance().createNodeReference("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(multiAspectLang.constraints)/8804574841118204455");
+    public static final RuleId ID_check8804574841118204455_b0 = new RuleId(8804574841118204455L, SOURCE_NODE_REF);
+
+    public Rule_check8804574841118204455_b0() {
+      super(CONCEPT, CanBeChildKind.INSTANCE, ID_check8804574841118204455_b0, SOURCE_NODE_REF);
+    }
+    @Override
+    public boolean check(@NotNull ContainmentContext context) {
+      return (context.getChildNode() != null);
     }
   }
   public static final class Rule_gagag2 extends BaseRule<ContainmentContext> {

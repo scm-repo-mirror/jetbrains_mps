@@ -4,11 +4,6 @@ package jetbrains.mps.lang.feedback.skeleton.constraints;
 
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.smodel.runtime.ConstraintFunction;
-import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeRoot;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -24,6 +19,7 @@ import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
+import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -35,7 +31,6 @@ import jetbrains.mps.smodel.Language;
 import jetbrains.mps.scope.EmptyScope;
 import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
-import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.smodel.SNodePointer;
 
 public class FeedbackPerConceptRoot_Constraints extends BaseConstraintsDescriptor {
@@ -43,21 +38,6 @@ public class FeedbackPerConceptRoot_Constraints extends BaseConstraintsDescripto
     super(MetaAdapterFactory.getConcept(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x6530303593ae1607L, "jetbrains.mps.lang.feedback.skeleton.structure.FeedbackPerConceptRoot"));
   }
 
-  @Override
-  public ConstraintFunction<ConstraintContext_CanBeRoot, Boolean> calculateCanBeRootConstraint() {
-    return new ConstraintFunction<ConstraintContext_CanBeRoot, Boolean>() {
-      @NotNull
-      public Boolean invoke(@NotNull ConstraintContext_CanBeRoot context, @Nullable CheckingNodeContext checkingNodeContext) {
-        boolean result = staticCanBeARoot(context.getModel());
-
-        if (!(result) && checkingNodeContext != null) {
-          checkingNodeContext.setBreakingNode(canBeRootBreakingPoint);
-        }
-
-        return result;
-      }
-    };
-  }
   public static class Name_Property extends BasePropertyConstraintsDescriptor {
     public Name_Property(ConstraintsDescriptor container) {
       super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), container);
@@ -100,11 +80,11 @@ public class FeedbackPerConceptRoot_Constraints extends BaseConstraintsDescripto
         return new BaseScopeProvider() {
           @Override
           public SNodeReference getSearchScopeValidatorNode() {
-            return breakingNode_pwu0qc_a0a0a0a0a1a0a0a0f;
+            return breakingNode_pwu0qc_a0a0a0a0a1a0a0a0e;
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SModel structure = check_pwu0qc_a0a0b0a0a0b0a0a0a5(Language.getLanguageForLanguageAspect(SNodeOperations.getModel(_context.getContextNode())));
+            SModel structure = check_pwu0qc_a0a0b0a0a0b0a0a0a4(Language.getLanguageForLanguageAspect(SNodeOperations.getModel(_context.getContextNode())));
             if (structure == null) {
               return new EmptyScope();
             }
@@ -118,15 +98,11 @@ public class FeedbackPerConceptRoot_Constraints extends BaseConstraintsDescripto
     references.put(d0.getReference(), d0);
     return references;
   }
-  private static boolean staticCanBeARoot(SModel model) {
-    return SModuleOperations.isAspect(model, "feedback") || SModelStereotype.isGeneratorModel(model);
-  }
-  private static SModel check_pwu0qc_a0a0b0a0a0b0a0a0a5(Language checkedDotOperand) {
+  private static SModel check_pwu0qc_a0a0b0a0a0b0a0a0a4(Language checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getStructureModelDescriptor();
     }
     return null;
   }
-  private static SNodePointer canBeRootBreakingPoint = new SNodePointer("r:99749b65-b7fc-4566-b6a7-ca55328bd881(jetbrains.mps.lang.feedback.skeleton.constraints)", "6341931782024049661");
-  private static SNodePointer breakingNode_pwu0qc_a0a0a0a0a1a0a0a0f = new SNodePointer("r:99749b65-b7fc-4566-b6a7-ca55328bd881(jetbrains.mps.lang.feedback.skeleton.constraints)", "6836281137582781546");
+  private static SNodePointer breakingNode_pwu0qc_a0a0a0a0a1a0a0a0e = new SNodePointer("r:99749b65-b7fc-4566-b6a7-ca55328bd881(jetbrains.mps.lang.feedback.skeleton.constraints)", "6836281137582781546");
 }

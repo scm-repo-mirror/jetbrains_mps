@@ -123,6 +123,7 @@
         <child id="1217960314448" name="messageText" index="2k5Stb" />
         <child id="1217960407512" name="referenceNode" index="2k6f33" />
       </concept>
+      <concept id="1217970068025" name="jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_ShowInfoMessage" flags="nn" index="2kF5Gy" />
       <concept id="1216860049633" name="jetbrains.mps.lang.generator.generationContext.structure.GenerationContextType" flags="in" index="1iwH7U" />
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
@@ -244,11 +245,11 @@
                 <node concept="37vLTw" id="2o8jHTODm6q" role="2Oq$k0">
                   <ref role="3cqZAo" node="2o8jHTODkGH" resolve="myGenContext" />
                 </node>
-                <node concept="2k5nB$" id="2o8jHTODmk2" role="2OqNvi">
-                  <node concept="Xl_RD" id="2o8jHTODmkE" role="2k5Stb">
-                    <property role="Xl_RC" value="Name of the rule cannot be null" />
+                <node concept="2kF5Gy" id="3QbvyRDidkm" role="2OqNvi">
+                  <node concept="Xl_RD" id="3QbvyRDidko" role="2k5Stb">
+                    <property role="Xl_RC" value="Name of the rule is null, creating a unique name" />
                   </node>
-                  <node concept="37vLTw" id="2o8jHTODmpD" role="2k6f33">
+                  <node concept="37vLTw" id="3QbvyRDidkp" role="2k6f33">
                     <ref role="3cqZAo" node="3F9xXv_6vx" resolve="myRuleDecl" />
                   </node>
                 </node>
@@ -268,13 +269,8 @@
           </node>
         </node>
         <node concept="3cpWs6" id="1lvLhh1KWlK" role="3cqZAp">
-          <node concept="2OqwBi" id="1lvLhh1KWlL" role="3cqZAk">
-            <node concept="37vLTw" id="$V5NfaGpS2" role="2Oq$k0">
-              <ref role="3cqZAo" node="3F9xXv_6vx" resolve="myRuleDecl" />
-            </node>
-            <node concept="3TrcHB" id="1lvLhh1KWlN" role="2OqNvi">
-              <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
-            </node>
+          <node concept="Xl_RD" id="3QbvyRDidr8" role="3cqZAk">
+            <property role="Xl_RC" value="check" />
           </node>
         </node>
       </node>

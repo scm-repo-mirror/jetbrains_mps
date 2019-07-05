@@ -1011,7 +1011,7 @@
                         <node concept="liA8E" id="5j" role="2OqNvi">
                           <ref role="37wK5l" to="bzg8:~ConceptDescriptorBuilder2.aggregate(java.lang.String,long)" resolve="aggregate" />
                           <node concept="Xl_RD" id="5k" role="37wK5m">
-                            <property role="Xl_RC" value="message" />
+                            <property role="Xl_RC" value="messagesExpr" />
                           </node>
                           <node concept="1adDum" id="5l" role="37wK5m">
                             <property role="1adDun" value="0x48f860fc0e362dc8L" />

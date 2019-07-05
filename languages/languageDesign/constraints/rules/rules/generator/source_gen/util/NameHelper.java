@@ -26,9 +26,9 @@ public final class NameHelper {
   @NotNull
   public String getGeneratedName() {
     if (SPropertyOperations.getString(myRuleDecl, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) == null) {
-      myGenContext.showErrorMessage(myRuleDecl, "Name of the rule cannot be null");
+      myGenContext.showInformationMessage(myRuleDecl, "Name of the rule is null, creating a unique name");
     }
-    return SPropertyOperations.getString(myRuleDecl, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return "check";
   }
 
   @NotNull

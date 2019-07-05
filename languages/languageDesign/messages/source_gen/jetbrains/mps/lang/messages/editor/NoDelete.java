@@ -25,7 +25,7 @@ public class NoDelete {
         return this.canExecute_internal(editorContext, node);
       }
       public boolean canExecute_internal(EditorContext editorContext, SNode node) {
-        return false;
+        return true;
       }
 
     };
@@ -42,7 +42,7 @@ public class NoDelete {
         return this.canExecute_internal(editorContext, node);
       }
       public boolean canExecute_internal(EditorContext editorContext, SNode node) {
-        return false;
+        return true;
       }
 
     };

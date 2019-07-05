@@ -71,7 +71,7 @@
     <node concept="1TJgyj" id="4zSofKedyR8" role="1TKVEi">
       <property role="IQ2ns" value="5258059200641510856" />
       <property role="20lmBu" value="aggregation" />
-      <property role="20kJfa" value="message" />
+      <property role="20kJfa" value="messagesExpr" />
       <property role="20lbJX" value="0..1" />
       <ref role="20lvS9" to="t9po:4zSofKeg4lv" resolve="CombinedMessageExpression" />
     </node>

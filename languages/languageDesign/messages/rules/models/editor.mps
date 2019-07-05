@@ -214,19 +214,18 @@
       <node concept="3F0ifn" id="6Q2nboo7HCB" role="3EZMnx">
         <property role="3F0ifm" value=" -&gt; when fails show" />
         <ref role="1k5W1q" to="bgop:5GbbOB11OBg" resolve="WhenHint" />
-        <ref role="1ERwB7" node="4zSofKean5_" resolve="InlineMessage_remove" />
+        <ref role="1ERwB7" node="4zSofKean5_" resolve="InlineMessageProvider_actions" />
       </node>
       <node concept="l2Vlx" id="3LOLRuvo2vg" role="2iSdaV" />
       <node concept="3F1sOY" id="5VED60U2Jx8" role="3EZMnx">
         <property role="39s7Ar" value="true" />
         <property role="1$x2rV" value="&lt;default message&gt;" />
-        <ref role="1ERwB7" node="4zSofKean5_" resolve="InlineMessage_remove" />
-        <ref role="1NtTu8" to="t16r:4zSofKedyR8" resolve="message" />
+        <ref role="1NtTu8" to="t16r:4zSofKedyR8" resolve="messagesExpr" />
       </node>
     </node>
   </node>
   <node concept="1h_SRR" id="4zSofKean5_">
-    <property role="TrG5h" value="InlineMessage_remove" />
+    <property role="TrG5h" value="InlineMessageProvider_actions" />
     <ref role="1h_SK9" to="t16r:hyoMxHKcU1" resolve="InlineMessageProvider" />
     <node concept="1hA7zw" id="4zSofKean5A" role="1h_SK8">
       <property role="1hAc7j" value="delete_action_id" />

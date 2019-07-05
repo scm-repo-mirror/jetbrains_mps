@@ -128,7 +128,7 @@ public class LiteralMessageExpression_TransformationMenu extends TransformationM
         @Nullable
         @Override
         public String getLabelText(String pattern) {
-          return pattern + "%" + SPropertyOperations.getString(myParameterObject, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "%";
+          return pattern + " %" + SPropertyOperations.getString(myParameterObject, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "%";
         }
 
         @Override
@@ -139,7 +139,7 @@ public class LiteralMessageExpression_TransformationMenu extends TransformationM
 
         @Override
         public String getShortDescriptionText(@NotNull String pattern) {
-          return "include context parameter";
+          return "reference a context parameter";
         }
 
 

@@ -16,20 +16,20 @@ import java.util.Collections;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public final class A_FeedbackRoot extends BaseFeedbackDescriptor {
+public final class A_FeedbackFeedback extends BaseFeedbackDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "multiAspectLang.structure.A");
 
   private static final FeedbackProvider<MissingPropertyContext> MSGPROVIDER_WhenPropertyDoesNotBelongToTheConcept_a = new BaseMessageProvider<MissingPropertyContext>(new MissingPropertyInConceptProblemId(MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "multiAspectLang.structure.A"))) {
     @NotNull
     @Override
     public MessageProvider.StringMsg yieldMessage(MissingPropertyContext context) {
-      return new MessageProvider.StringMsg("The property does not belong to the concept GAGAGA");
+      return new MessageProvider.StringMsg("The property does not belong to the concept " + String.valueOf(context.getNode()));
     }
   };
 
   private static final List<FeedbackProvider> PROVIDERS = Collections.unmodifiableList(Arrays.<FeedbackProvider>asList(MSGPROVIDER_WhenPropertyDoesNotBelongToTheConcept_a));
 
-  public A_FeedbackRoot() {
+  public A_FeedbackFeedback() {
     super(CONCEPT);
   }
 

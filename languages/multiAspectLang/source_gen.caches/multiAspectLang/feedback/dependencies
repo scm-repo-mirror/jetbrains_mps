@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dependenciesRoot>
-  <dependency className="multiAspectLang.feedback.A_FeedbackRoot">
+  <dependency className="multiAspectLang.feedback.A_FeedbackFeedback">
     <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.Arrays" />
     <classNode dependClassName="java.util.Collections" />
     <classNode dependClassName="java.util.List" />
@@ -20,7 +21,7 @@
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.stream.Stream" />
     <classNode dependClassName="jetbrains.mps.core.aspects.feedback.api.FeedbackPerConceptDescriptor" />
-    <classNode dependClassName="multiAspectLang.feedback.A_FeedbackRoot" />
+    <classNode dependClassName="multiAspectLang.feedback.A_FeedbackFeedback" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.feedback.api.FeedbackAspect" />
   </dependency>

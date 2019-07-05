@@ -31,7 +31,14 @@ public class QueriesGenerated extends QueryProviderBase {
   public static boolean rule_Condition_2_0(final BaseMappingRuleContext _context) {
     if (SNodeOperations.isInstanceOf(_context.getNode(), MetaAdapterFactory.getConcept(0xdb2a46c2ebec4b6cL, 0xb6c2f9b55b9b6f8aL, 0x573ae5b8b8cd0cf7L, "jetbrains.mps.lang.feedback.problem.failingRule.structure.FailingRuleProblem"))) {
       SNodeReference pointer = SNodeOperations.getPointer(RuleBlockMember__BehaviorDescriptor.getRuleKind_id1BFxp3HHhyj.invoke(SLinkOperations.getTarget(SNodeOperations.cast(_context.getNode(), MetaAdapterFactory.getConcept(0xdb2a46c2ebec4b6cL, 0xb6c2f9b55b9b6f8aL, 0x573ae5b8b8cd0cf7L, "jetbrains.mps.lang.feedback.problem.failingRule.structure.FailingRuleProblem")), MetaAdapterFactory.getReferenceLink(0xdb2a46c2ebec4b6cL, 0xb6c2f9b55b9b6f8aL, 0x573ae5b8b8cd0cf7L, 0x573ae5b8b8cd1498L, "rule"))));
-      return Objects.equals(pointer, new SNodePointer("r:52ea8481-08b2-4cbd-ad9d-1b42825f7d09(jetbrains.mps.lang.constraints.rules.kinds.constraints)", "1400749580825232668")) || Objects.equals(pointer, new SNodePointer("r:52ea8481-08b2-4cbd-ad9d-1b42825f7d09(jetbrains.mps.lang.constraints.rules.kinds.constraints)", "1400749580825232694"));
+      return Objects.equals(pointer, new SNodePointer("r:52ea8481-08b2-4cbd-ad9d-1b42825f7d09(jetbrains.mps.lang.constraints.rules.kinds.constraints)", "8018723092206382583")) || Objects.equals(pointer, new SNodePointer("r:52ea8481-08b2-4cbd-ad9d-1b42825f7d09(jetbrains.mps.lang.constraints.rules.kinds.constraints)", "8018723092206382590"));
+    }
+    return false;
+  }
+  public static boolean rule_Condition_2_1(final BaseMappingRuleContext _context) {
+    if (SNodeOperations.isInstanceOf(_context.getNode(), MetaAdapterFactory.getConcept(0xdb2a46c2ebec4b6cL, 0xb6c2f9b55b9b6f8aL, 0x573ae5b8b8cd0cf7L, "jetbrains.mps.lang.feedback.problem.failingRule.structure.FailingRuleProblem"))) {
+      SNodeReference pointer = SNodeOperations.getPointer(RuleBlockMember__BehaviorDescriptor.getRuleKind_id1BFxp3HHhyj.invoke(SLinkOperations.getTarget(SNodeOperations.cast(_context.getNode(), MetaAdapterFactory.getConcept(0xdb2a46c2ebec4b6cL, 0xb6c2f9b55b9b6f8aL, 0x573ae5b8b8cd0cf7L, "jetbrains.mps.lang.feedback.problem.failingRule.structure.FailingRuleProblem")), MetaAdapterFactory.getReferenceLink(0xdb2a46c2ebec4b6cL, 0xb6c2f9b55b9b6f8aL, 0x573ae5b8b8cd0cf7L, 0x573ae5b8b8cd1498L, "rule"))));
+      return Objects.equals(pointer, new SNodePointer("r:52ea8481-08b2-4cbd-ad9d-1b42825f7d09(jetbrains.mps.lang.constraints.rules.kinds.constraints)", "8018723092206373487"));
     }
     return false;
   }
@@ -51,6 +58,7 @@ public class QueriesGenerated extends QueryProviderBase {
   {
     int i = 0;
     rrcMethods.put("24399255755808131", new QueriesGenerated.RRC(i++));
+    rrcMethods.put("8018723092206401028", new QueriesGenerated.RRC(i++));
   }
   @Override
   @NotNull
@@ -71,6 +79,8 @@ public class QueriesGenerated extends QueryProviderBase {
       switch (methodKey) {
         case 0:
           return QueriesGenerated.rule_Condition_2_0(ctx);
+        case 1:
+          return QueriesGenerated.rule_Condition_2_1(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no condition method for rule %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
