@@ -21,9 +21,13 @@ import org.jetbrains.mps.util.DepthFirstConceptIterator;
 import org.jetbrains.mps.util.UniqueIterator;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Spliterators;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 /*
  * Copyright 2003-2019 JetBrains s.r.o.
@@ -50,7 +54,6 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public abstract class BaseRulesConstraintsDescriptor implements RulesConstraintsDescriptor {
   private final AtomicReference<RulesConstraintsRegistry> myRegistry = new AtomicReference<>();
-  private final AtomicReference<List<Rule<?>>> myCachedRules = new AtomicReference<>();
   private final SAbstractConcept myConcept;
 
   protected BaseRulesConstraintsDescriptor(@NotNull SAbstractConcept concept) {
@@ -83,23 +86,12 @@ public abstract class BaseRulesConstraintsDescriptor implements RulesConstraints
 
   @NotNull
   @Override
-  public List<Rule<?>> getRules() {
+  public Stream<Rule<?>> getRules() {
     checkDescriptorIsInitialized();
-    List<Rule<?>> currentRules = myCachedRules.get();
-    if (currentRules == null) {
-      List<Rule<?>> result = new ArrayList<>();
-      for (SAbstractConcept concept : new UniqueIterator<>(new DepthFirstConceptIterator(myConcept))) {
-        RulesConstraintsDescriptor descriptor = getDescriptor(concept);
-        result.addAll(descriptor.getDeclaredRules());
-      }
-      currentRules = Collections.unmodifiableList(result);
-      if (myCachedRules.compareAndSet(null, currentRules)) {
-        return currentRules;
-      } else {
-        return myCachedRules.get();
-      }
-    }
-    return currentRules;
+    Stream<SAbstractConcept> stream = StreamSupport.stream(new UniqueIterator<>(new DepthFirstConceptIterator(myConcept)).spliterator(), false);
+    return stream.map(this::getDescriptor)
+                 .map(RulesConstraintsDescriptor::getDeclaredRules)
+                 .flatMap(Collection::stream);
   }
 
   @Override

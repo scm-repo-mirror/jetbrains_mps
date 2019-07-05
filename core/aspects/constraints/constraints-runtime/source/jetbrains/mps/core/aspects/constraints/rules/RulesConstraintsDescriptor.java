@@ -44,7 +44,7 @@ public interface RulesConstraintsDescriptor {
    * @return the rules which are <it>applicable</it> to this concept, meaning
    * that we include all the declared rules from ancestors of the concept
    */
-  @NotNull List<Rule<?>> getRules();
+  @NotNull Stream<Rule<?>> getRules();
 
   @Nullable default Rule<?> getDeclaredRule(@NotNull RuleId ruleId) {
     return getDeclaredRules().stream()
@@ -54,27 +54,21 @@ public interface RulesConstraintsDescriptor {
   }
 
   @Nullable default Rule<?> getRule(@NotNull RuleId ruleId) {
-    return getRules().stream()
-                     .filter(rule -> rule.getId().equals(ruleId))
+    return getRules().filter(rule -> rule.getId().equals(ruleId))
                      .findFirst()
                      .orElse(null);
   }
 
   @NotNull
-  default <C extends Context> List<Rule<C>> getRules(@NotNull RuleKind kind) {
-    List<Rule<?>> rules = getRules();
-    return rules.stream()
-                .filter(it1 -> it1.getKind().equals(kind))
-                .map(it -> (Rule<C>) it)
-                .collect(Collectors.toList());
+  default <C extends Context> Stream<Rule<C>> getRules(@NotNull RuleKind kind) {
+    return getRules().filter(it1 -> it1.getKind().equals(kind))
+                     .map(it -> (Rule<C>) it);
   }
 
   @NotNull
-  default <C extends Context> List<Rule<C>> getApplicableRules(@NotNull RuleKind kind, @NotNull C context) {
-    Stream<Rule<Context>> ruleStream = getRules(kind).stream().filter(rule -> rule.appliesTo(context));
-
-    return ruleStream.map(r -> (Rule<C>) r)
-                     .collect(Collectors.toList());
+  default <C extends Context> Stream<Rule<C>> getApplicableRules(@NotNull RuleKind kind, @NotNull C context) {
+    return getRules(kind).filter(rule -> rule.appliesTo(context))
+                         .map(r -> (Rule<C>) r);
   }
 
   /**
