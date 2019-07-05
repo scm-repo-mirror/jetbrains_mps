@@ -40,18 +40,18 @@ public final class RulesConstraintsRegistry {
   private static final Logger LOG = LogManager.getLogger(RulesConstraintsRegistry.class);
 
   private final LanguageRegistry myLanguageRegistry;
-  private final Map<SAbstractConcept, ConstraintsDescriptor2> myDescriptors = new HashMap<>();
+  private final Map<SAbstractConcept, RulesConstraintsDescriptor> myDescriptors = new HashMap<>();
 
   public RulesConstraintsRegistry(@NotNull LanguageRegistry languageRegistry) {
     myLanguageRegistry = languageRegistry;
   }
 
   @NotNull
-  public ConstraintsDescriptor2 getConstraintsDescriptor2(@NotNull SAbstractConcept concept) throws IllegalArgumentException {
+  public RulesConstraintsDescriptor getConstraintsDescriptor2(@NotNull SAbstractConcept concept) throws IllegalArgumentException {
     if (myDescriptors.containsKey(concept)) {
       return myDescriptors.get(concept);
     }
-    ConstraintsDescriptor2 descriptor2 = null;
+    RulesConstraintsDescriptor descriptor2 = null;
     LanguageRuntime conceptLang = myLanguageRegistry.getLanguage(concept.getLanguage());
     if (conceptLang == null) {
       LOG.warn("No language for: " + concept + ", while looking for constraints descriptor.");
@@ -62,11 +62,11 @@ public final class RulesConstraintsRegistry {
       }
       if (descriptor2 != null) {
           // to be moved into api
-        if (descriptor2 instanceof BaseConstraintsDescriptor2) {
+        if (descriptor2 instanceof BaseRulesConstraintsDescriptor) {
           //noinspection SynchronizationOnLocalVariableOrMethodParameter
           synchronized (descriptor2) {
-            if (!((BaseConstraintsDescriptor2) descriptor2).isInitialized()) {
-              ((BaseConstraintsDescriptor2) descriptor2).init(this);
+            if (!((BaseRulesConstraintsDescriptor) descriptor2).isInitialized()) {
+              ((BaseRulesConstraintsDescriptor) descriptor2).init(this);
             }
           }
         }
@@ -82,7 +82,7 @@ public final class RulesConstraintsRegistry {
 
   @NotNull
   private <C extends Context> List<Rule<C>> getApplicableRules(@NotNull SAbstractConcept concept, @NotNull RuleKind kind, @NotNull C context) {
-    @NotNull ConstraintsDescriptor2 descriptor = requireNonNull(getConstraintsDescriptor2(concept));
+    @NotNull RulesConstraintsDescriptor descriptor = requireNonNull(getConstraintsDescriptor2(concept));
     return descriptor.getApplicableRules(kind, context);
   }
 
@@ -101,7 +101,7 @@ public final class RulesConstraintsRegistry {
     myDescriptors.clear();
   }
 
-  private static class EmptyConstraintsDescriptor2 extends BaseConstraintsDescriptor2 {
+  private static class EmptyConstraintsDescriptor2 extends BaseRulesConstraintsDescriptor {
     private EmptyConstraintsDescriptor2(@NotNull SAbstractConcept concept) {
       super(concept);
     }

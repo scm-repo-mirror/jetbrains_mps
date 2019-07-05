@@ -4,7 +4,7 @@ package jetbrains.mps.lang.messages.constraints;
 
 import jetbrains.mps.core.aspects.constraints.rules.ConstraintsAspectDescriptor2;
 import org.jetbrains.annotations.Nullable;
-import jetbrains.mps.core.aspects.constraints.rules.ConstraintsDescriptor2;
+import jetbrains.mps.core.aspects.constraints.rules.RulesConstraintsDescriptor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.List;
@@ -17,7 +17,7 @@ import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeRootKind;
 public final class GeneratedConstraintsAspectDescriptor2 implements ConstraintsAspectDescriptor2 {
   @Nullable
   @Override
-  public ConstraintsDescriptor2 getDescriptor(@NotNull SAbstractConcept concept) {
+  public RulesConstraintsDescriptor getDescriptor(@NotNull SAbstractConcept concept) {
     SAbstractConcept cncpt = concept;
     return null;
   }

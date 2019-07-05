@@ -33,7 +33,7 @@ import java.util.stream.Stream;
  *
  * @author apyshkin, mburyakov
  */
-public interface ConstraintsDescriptor2 {
+public interface RulesConstraintsDescriptor {
 
   /**
    * @return the rules which are <it>written</it> for this concept specifically (in the language of the concept)

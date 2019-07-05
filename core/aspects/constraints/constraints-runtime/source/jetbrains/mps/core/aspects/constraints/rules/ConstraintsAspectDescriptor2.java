@@ -15,16 +15,25 @@
  */
 package jetbrains.mps.core.aspects.constraints.rules;
 
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeChildKind;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeParentKind;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeRootKind;
 import jetbrains.mps.smodel.runtime.ILanguageAspect;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+
+import java.util.Arrays;
 import java.util.List;
 
 public interface ConstraintsAspectDescriptor2 extends ILanguageAspect {
+  List<RuleKind> CORE_KINDS = Arrays.<RuleKind>asList(CanBeChildKind.INSTANCE, CanBeParentKind.INSTANCE, CanBeRootKind.INSTANCE);
+
   @Nullable
-  ConstraintsDescriptor2 getDescriptor(@NotNull SAbstractConcept concept);
+  RulesConstraintsDescriptor getDescriptor(@NotNull SAbstractConcept concept);
 
   @NotNull
-  List<RuleKind> getRegisteredRuleKinds();
+  default List<RuleKind> getRegisteredRuleKinds() {
+    return CORE_KINDS;
+  }
 }

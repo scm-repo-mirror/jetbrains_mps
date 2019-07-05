@@ -48,12 +48,12 @@ import java.util.concurrent.atomic.AtomicReference;
  * @since 192
  * @author apyshkin
  */
-public abstract class BaseConstraintsDescriptor2 implements ConstraintsDescriptor2 {
+public abstract class BaseRulesConstraintsDescriptor implements RulesConstraintsDescriptor {
   private final AtomicReference<RulesConstraintsRegistry> myRegistry = new AtomicReference<>();
   private final AtomicReference<List<Rule<?>>> myCachedRules = new AtomicReference<>();
   private final SAbstractConcept myConcept;
 
-  protected BaseConstraintsDescriptor2(@NotNull SAbstractConcept concept) {
+  protected BaseRulesConstraintsDescriptor(@NotNull SAbstractConcept concept) {
     myConcept = concept;
   }
 
@@ -89,7 +89,7 @@ public abstract class BaseConstraintsDescriptor2 implements ConstraintsDescripto
     if (currentRules == null) {
       List<Rule<?>> result = new ArrayList<>();
       for (SAbstractConcept concept : new UniqueIterator<>(new DepthFirstConceptIterator(myConcept))) {
-        ConstraintsDescriptor2 descriptor = getDescriptor(concept);
+        RulesConstraintsDescriptor descriptor = getDescriptor(concept);
         result.addAll(descriptor.getDeclaredRules());
       }
       currentRules = Collections.unmodifiableList(result);
@@ -108,7 +108,7 @@ public abstract class BaseConstraintsDescriptor2 implements ConstraintsDescripto
   }
 
   @NotNull
-  private ConstraintsDescriptor2 getDescriptor(@NotNull SAbstractConcept concept) {
+  private RulesConstraintsDescriptor getDescriptor(@NotNull SAbstractConcept concept) {
     if (concept.equals(myConcept)) {
       return this;
     }

@@ -47,10 +47,6 @@
         <child id="1197027771414" name="operand" index="2Oq$k0" />
         <child id="1197027833540" name="operation" index="2OqNvi" />
       </concept>
-      <concept id="1083260308424" name="jetbrains.mps.baseLanguage.structure.EnumConstantReference" flags="nn" index="Rm8GO">
-        <reference id="1083260308426" name="enumConstantDeclaration" index="Rm8GQ" />
-        <reference id="1144432896254" name="enumClass" index="1Px2BO" />
-      </concept>
       <concept id="1145552977093" name="jetbrains.mps.baseLanguage.structure.GenericNewExpression" flags="nn" index="2ShNRf">
         <child id="1145553007750" name="creator" index="2ShVmc" />
       </concept>
@@ -64,9 +60,6 @@
       <concept id="1070475587102" name="jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" flags="nn" index="XkiVB" />
       <concept id="1070475926800" name="jetbrains.mps.baseLanguage.structure.StringLiteral" flags="nn" index="Xl_RD">
         <property id="1070475926801" name="value" index="Xl_RC" />
-      </concept>
-      <concept id="1081236700937" name="jetbrains.mps.baseLanguage.structure.StaticMethodCall" flags="nn" index="2YIFZM">
-        <reference id="1144433194310" name="classConcept" index="1Pybhc" />
       </concept>
       <concept id="1070534058343" name="jetbrains.mps.baseLanguage.structure.NullLiteral" flags="nn" index="10Nm6u" />
       <concept id="1070534934090" name="jetbrains.mps.baseLanguage.structure.CastExpression" flags="nn" index="10QFUN">
@@ -137,7 +130,6 @@
       <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
-        <child id="4972241301747169160" name="typeArgument" index="3PaCim" />
       </concept>
       <concept id="1107461130800" name="jetbrains.mps.baseLanguage.structure.Classifier" flags="ng" index="3pOWGL">
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
@@ -519,46 +511,6 @@
         <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
       </node>
       <node concept="2AHcQZ" id="6kKc3mj$H8O" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-    </node>
-    <node concept="2tJIrI" id="6f2WQqsRnN1" role="jymVt" />
-    <node concept="3clFb_" id="6kKc3mjCq5x" role="jymVt">
-      <property role="TrG5h" value="getRegisteredRuleKinds" />
-      <node concept="3uibUv" id="6kKc3mjCq5y" role="3clF45">
-        <ref role="3uigEE" to="33ny:~List" resolve="List" />
-        <node concept="3uibUv" id="4cGwgqnYgiI" role="11_B2D">
-          <ref role="3uigEE" to="o99v:~RuleKind" resolve="RuleKind" />
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="6kKc3mjCq5_" role="1B3o_S" />
-      <node concept="3clFbS" id="6kKc3mjCq5B" role="3clF47">
-        <node concept="3cpWs6" id="6f2WQqsSEDo" role="3cqZAp">
-          <node concept="2YIFZM" id="6f2WQqsSEQV" role="3cqZAk">
-            <ref role="37wK5l" to="33ny:~Arrays.asList(java.lang.Object...)" resolve="asList" />
-            <ref role="1Pybhc" to="33ny:~Arrays" resolve="Arrays" />
-            <node concept="Rm8GO" id="7w_sh_iEUc9" role="37wK5m">
-              <ref role="1Px2BO" to="pdwk:~CanBeChildKind" resolve="CanBeChildKind" />
-              <ref role="Rm8GQ" to="pdwk:~CanBeChildKind.INSTANCE" resolve="INSTANCE" />
-            </node>
-            <node concept="3uibUv" id="4cGwgqnYgla" role="3PaCim">
-              <ref role="3uigEE" to="o99v:~RuleKind" resolve="RuleKind" />
-            </node>
-            <node concept="Rm8GO" id="2o8jHTOC2QB" role="37wK5m">
-              <ref role="1Px2BO" to="pdwk:~CanBeParentKind" resolve="CanBeParentKind" />
-              <ref role="Rm8GQ" to="pdwk:~CanBeParentKind.INSTANCE" resolve="INSTANCE" />
-            </node>
-            <node concept="Rm8GO" id="2o8jHTOC38H" role="37wK5m">
-              <ref role="1Px2BO" to="pdwk:~CanBeRootKind" resolve="CanBeRootKind" />
-              <ref role="Rm8GQ" to="pdwk:~CanBeRootKind.INSTANCE" resolve="INSTANCE" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="6f2WQqsRrCb" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
-      <node concept="2AHcQZ" id="6kKc3mjCq5C" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
