@@ -2,7 +2,7 @@
 <model ref="r:caf87d17-e391-4582-af72-db1d65ef74c6(jetbrains.mps.samples.CustomTestCases.sandbox.quality@tests)">
   <persistence version="9" />
   <languages>
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="2" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
     <use id="41a74638-991d-41c3-b85c-39ba842bab0d" name="jetbrains.mps.samples.CustomTestCases" version="-1" />
   </languages>

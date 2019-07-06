@@ -2,7 +2,7 @@
 <model ref="r:809bd876-c877-4bf5-8f9e-fbd73017df4f(jetbrains.mps.lang.pattern.editorTest@tests)">
   <persistence version="9" />
   <languages>
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="2" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
     <use id="d4615e3b-d671-4ba9-af01-2b78369b0ba7" name="jetbrains.mps.lang.pattern" version="2" />
     <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="2" />
@@ -17,8 +17,8 @@
         <reference id="592868908271422362" name="intention" index="2bRw2V" />
       </concept>
       <concept id="1229187653856" name="jetbrains.mps.lang.test.structure.EditorTestCase" flags="lg" index="LiM7Y">
-        <child id="1229187676388" name="nodeToEdit" index="LiRBU" />
-        <child id="1229187707859" name="result" index="LiZbd" />
+        <child id="3143335925185262946" name="testNodeBefore" index="25YQCW" />
+        <child id="3143335925185262981" name="testNodeResult" index="25YQFr" />
         <child id="1229187755283" name="code" index="LjaKd" />
       </concept>
       <concept id="1229194968594" name="jetbrains.mps.lang.test.structure.AnonymousCellAnnotation" flags="ng" index="LIFWc">
@@ -31,6 +31,9 @@
       </concept>
       <concept id="5097124989038916362" name="jetbrains.mps.lang.test.structure.TestInfo" flags="ng" index="2XOHcx">
         <property id="5097124989038916363" name="projectPath" index="2XOHcw" />
+      </concept>
+      <concept id="1216989428737" name="jetbrains.mps.lang.test.structure.TestNode" flags="ng" index="1qefOq">
+        <child id="1216989461394" name="nodeToCheck" index="1qenE9" />
       </concept>
       <concept id="1225989773458" name="jetbrains.mps.lang.test.structure.InvokeIntentionStatement" flags="nn" index="1MFPAf">
         <reference id="1225989811227" name="intention" index="1MFYO6" />
@@ -99,20 +102,22 @@
         <ref role="1MFYO6" to="tp3s:336$5uCs1AA" resolve="CreatePropertyPatternVariable" />
       </node>
     </node>
-    <node concept="9aQIb" id="6hx2iFnpjn_" role="LiRBU">
-      <node concept="3clFbS" id="6hx2iFnpjqy" role="9aQI4">
-        <node concept="3clFbF" id="6hx2iFnpjq$" role="3cqZAp">
-          <node concept="2DMOqp" id="6hx2iFnokmb" role="3clFbG">
-            <node concept="2c44tf" id="6hx2iFnolRx" role="HM535">
-              <node concept="3cpWsn" id="6hx2iFnolRJ" role="2c44tc">
-                <property role="TrG5h" value="a" />
-                <node concept="10Oyi0" id="6hx2iFnolRW" role="1tU5fm" />
-                <node concept="LIFWc" id="6hx2iFnolTL" role="lGtFl">
-                  <property role="LIFWa" value="0" />
-                  <property role="OXtK3" value="true" />
-                  <property role="p6zMq" value="0" />
-                  <property role="p6zMs" value="0" />
-                  <property role="LIFWd" value="VDNCC_property_name" />
+    <node concept="1qefOq" id="2aQPn0PnnzN" role="25YQCW">
+      <node concept="9aQIb" id="6hx2iFnpjn_" role="1qenE9">
+        <node concept="3clFbS" id="6hx2iFnpjqy" role="9aQI4">
+          <node concept="3clFbF" id="6hx2iFnpjq$" role="3cqZAp">
+            <node concept="2DMOqp" id="6hx2iFnokmb" role="3clFbG">
+              <node concept="2c44tf" id="6hx2iFnolRx" role="HM535">
+                <node concept="3cpWsn" id="6hx2iFnolRJ" role="2c44tc">
+                  <property role="TrG5h" value="a" />
+                  <node concept="10Oyi0" id="6hx2iFnolRW" role="1tU5fm" />
+                  <node concept="LIFWc" id="6hx2iFnolTL" role="lGtFl">
+                    <property role="LIFWa" value="0" />
+                    <property role="OXtK3" value="true" />
+                    <property role="p6zMq" value="0" />
+                    <property role="p6zMs" value="0" />
+                    <property role="LIFWd" value="VDNCC_property_name" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -120,24 +125,26 @@
         </node>
       </node>
     </node>
-    <node concept="9aQIb" id="6hx2iFnpjqS" role="LiZbd">
-      <node concept="3clFbS" id="6hx2iFnpjtP" role="9aQI4">
-        <node concept="3clFbF" id="6hx2iFnpjtR" role="3cqZAp">
-          <node concept="2DMOqp" id="6hx2iFnolTZ" role="3clFbG">
-            <node concept="2c44tf" id="6hx2iFnolU0" role="HM535">
-              <node concept="3cpWsn" id="6hx2iFnolU1" role="2c44tc">
-                <property role="TrG5h" value="a" />
-                <node concept="10Oyi0" id="6hx2iFnolU2" role="1tU5fm" />
-                <node concept="2DMOqt" id="6hx2iFnolUK" role="lGtFl">
-                  <property role="P4ACc" value="ceab5195-25ea-4f22-9b92-103b95ca8c0c/1169194658468/1169194664001" />
-                  <property role="2qtEX9" value="name" />
-                  <property role="3qcH_f" value="true" />
-                  <node concept="LIFWc" id="6hx2iFnplGa" role="lGtFl">
-                    <property role="ZRATv" value="true" />
-                    <property role="OXtK3" value="true" />
-                    <property role="p6zMq" value="0" />
-                    <property role="p6zMs" value="0" />
-                    <property role="LIFWd" value="property_varName" />
+    <node concept="1qefOq" id="2aQPn0PnnzO" role="25YQFr">
+      <node concept="9aQIb" id="6hx2iFnpjqS" role="1qenE9">
+        <node concept="3clFbS" id="6hx2iFnpjtP" role="9aQI4">
+          <node concept="3clFbF" id="6hx2iFnpjtR" role="3cqZAp">
+            <node concept="2DMOqp" id="6hx2iFnolTZ" role="3clFbG">
+              <node concept="2c44tf" id="6hx2iFnolU0" role="HM535">
+                <node concept="3cpWsn" id="6hx2iFnolU1" role="2c44tc">
+                  <property role="TrG5h" value="a" />
+                  <node concept="10Oyi0" id="6hx2iFnolU2" role="1tU5fm" />
+                  <node concept="2DMOqt" id="6hx2iFnolUK" role="lGtFl">
+                    <property role="P4ACc" value="ceab5195-25ea-4f22-9b92-103b95ca8c0c/1169194658468/1169194664001" />
+                    <property role="2qtEX9" value="name" />
+                    <property role="3qcH_f" value="true" />
+                    <node concept="LIFWc" id="6hx2iFnplGa" role="lGtFl">
+                      <property role="ZRATv" value="true" />
+                      <property role="OXtK3" value="true" />
+                      <property role="p6zMq" value="0" />
+                      <property role="p6zMs" value="0" />
+                      <property role="LIFWd" value="property_varName" />
+                    </node>
                   </node>
                 </node>
               </node>

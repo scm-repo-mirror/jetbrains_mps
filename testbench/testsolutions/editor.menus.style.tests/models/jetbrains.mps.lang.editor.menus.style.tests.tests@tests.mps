@@ -2,7 +2,7 @@
 <model ref="r:e67a2364-cd3f-43c0-b822-e9e7747803fc(jetbrains.mps.lang.editor.menus.style.tests.tests@tests)">
   <persistence version="9" />
   <languages>
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="-1" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="-1" />
     <use id="b4a430be-1696-48bf-bb72-4333242e590c" name="jetbrains.mps.lang.editor.menus.style.testLanguage" version="-1" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
@@ -39,8 +39,8 @@
       </concept>
       <concept id="1229187653856" name="jetbrains.mps.lang.test.structure.EditorTestCase" flags="lg" index="LiM7Y">
         <property id="1883175908513350760" name="description" index="3YCmrE" />
-        <child id="1229187676388" name="nodeToEdit" index="LiRBU" />
-        <child id="1229187707859" name="result" index="LiZbd" />
+        <child id="3143335925185262946" name="testNodeBefore" index="25YQCW" />
+        <child id="3143335925185262981" name="testNodeResult" index="25YQFr" />
         <child id="1229187755283" name="code" index="LjaKd" />
       </concept>
       <concept id="1229194968594" name="jetbrains.mps.lang.test.structure.AnonymousCellAnnotation" flags="ng" index="LIFWc">
@@ -57,6 +57,9 @@
       <concept id="5773579205429866751" name="jetbrains.mps.lang.test.structure.EditorComponentExpression" flags="nn" index="369mXd" />
       <concept id="4239542196496927193" name="jetbrains.mps.lang.test.structure.MPSActionReference" flags="ng" index="1iFQzN">
         <reference id="4239542196496929559" name="action" index="1iFR8X" />
+      </concept>
+      <concept id="1216989428737" name="jetbrains.mps.lang.test.structure.TestNode" flags="ng" index="1qefOq">
+        <child id="1216989461394" name="nodeToCheck" index="1qenE9" />
       </concept>
     </language>
     <language id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin">
@@ -342,27 +345,6 @@
   <node concept="LiM7Y" id="4AL49kgDZhL">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_SimpleSubstituteMenu" />
     <property role="3YCmrE" value="if we don't use styling, child with no priority comes first lexicographically, else child with priority comes first" />
-    <node concept="1p9Cxi" id="4AL49kgDZhM" role="LiRBU">
-      <node concept="LIFWc" id="4AL49kgHn7e" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_childSimpleSubstituteMenu" />
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="4AL49kgDZhO" role="LiZbd">
-      <node concept="1p9C$7" id="4AL49kgEJUA" role="1p7qK8" />
-      <node concept="1p9C$6" id="4AL49kgEJUV" role="1p7qK8">
-        <node concept="LIFWc" id="4AL49kgEJZ1" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="13" />
-          <property role="p6zMs" value="13" />
-          <property role="LIFWd" value="ALIAS_EDITOR_COMPONENT" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="4AL49kgDZhR" role="LjaKd">
       <node concept="3clFbF" id="4AL49kgDZhS" role="3cqZAp">
         <node concept="2YIFZM" id="4AL49kgDZhT" role="3clFbG">
@@ -472,6 +454,31 @@
         </node>
       </node>
     </node>
+    <node concept="1qefOq" id="2aQPn0Pnj__" role="25YQCW">
+      <node concept="1p9Cxi" id="4AL49kgDZhM" role="1qenE9">
+        <node concept="LIFWc" id="4AL49kgHn7e" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_childSimpleSubstituteMenu" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_Y" role="25YQFr">
+      <node concept="1p9Cxi" id="4AL49kgDZhO" role="1qenE9">
+        <node concept="1p9C$7" id="4AL49kgEJUA" role="1p7qK8" />
+        <node concept="1p9C$6" id="4AL49kgEJUV" role="1p7qK8">
+          <node concept="LIFWc" id="4AL49kgEJZ1" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="13" />
+            <property role="p6zMs" value="13" />
+            <property role="LIFWd" value="ALIAS_EDITOR_COMPONENT" />
+          </node>
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="2XOHcx" id="4AL49kgEqQX">
     <property role="2XOHcw" value="${mps_home}" />
@@ -479,27 +486,6 @@
   <node concept="LiM7Y" id="4AL49kgF9_Y">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_DefaultSubstituteMenu" />
     <property role="3YCmrE" value="if we don't use styling, child with no priority comes first lexicographically, else child with priority comes first" />
-    <node concept="1p9Cxi" id="4AL49kgF9_Z" role="LiRBU">
-      <node concept="LIFWc" id="4AL49kgF9A0" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_childNoMenu" />
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="4AL49kgF9A1" role="LiZbd">
-      <node concept="1p9C$7" id="4AL49kgF9A2" role="1p9CxM" />
-      <node concept="1p9C$6" id="4AL49kgF9A3" role="1p9CxM">
-        <node concept="LIFWc" id="4AL49kgF9A4" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="13" />
-          <property role="p6zMs" value="13" />
-          <property role="LIFWd" value="ALIAS_EDITOR_COMPONENT" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="4AL49kgF9A5" role="LjaKd">
       <node concept="3clFbF" id="4AL49kgF9A6" role="3cqZAp">
         <node concept="2YIFZM" id="4AL49kgF9A7" role="3clFbG">
@@ -609,31 +595,35 @@
         </node>
       </node>
     </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_A" role="25YQCW">
+      <node concept="1p9Cxi" id="4AL49kgF9_Z" role="1qenE9">
+        <node concept="LIFWc" id="4AL49kgF9A0" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_childNoMenu" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_Z" role="25YQFr">
+      <node concept="1p9Cxi" id="4AL49kgF9A1" role="1qenE9">
+        <node concept="1p9C$7" id="4AL49kgF9A2" role="1p9CxM" />
+        <node concept="1p9C$6" id="4AL49kgF9A3" role="1p9CxM">
+          <node concept="LIFWc" id="4AL49kgF9A4" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="13" />
+            <property role="p6zMs" value="13" />
+            <property role="LIFWd" value="ALIAS_EDITOR_COMPONENT" />
+          </node>
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="LiM7Y" id="4AL49kgHmUE">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_ParameterizedSubstituteMenu" />
     <property role="3YCmrE" value="if we don't use styling, child with no priority comes first lexicographically, else child with priority comes first" />
-    <node concept="1p9Cxi" id="4AL49kgHmUF" role="LiRBU">
-      <node concept="LIFWc" id="4AL49kgIJww" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_childParameterizedSubstituteMenu" />
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="4AL49kgHmUH" role="LiZbd">
-      <node concept="1p9C$7" id="4AL49kgHnRg" role="1p14X$" />
-      <node concept="1p9C$6" id="4AL49kgHnRh" role="1p14X$">
-        <node concept="LIFWc" id="4AL49kgHnRi" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="13" />
-          <property role="p6zMs" value="13" />
-          <property role="LIFWd" value="ALIAS_EDITOR_COMPONENT" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="4AL49kgHmUL" role="LjaKd">
       <node concept="3clFbF" id="4AL49kgHmUM" role="3cqZAp">
         <node concept="2YIFZM" id="4AL49kgHmUN" role="3clFbG">
@@ -743,26 +733,22 @@
         </node>
       </node>
     </node>
-  </node>
-  <node concept="LiM7Y" id="4AL49kgHAnq">
-    <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_WrapSubstituteMenu" />
-    <property role="3YCmrE" value="if we don't use styling, child with no priority comes first lexicographically, else child with priority comes first" />
-    <node concept="1p9Cxi" id="4AL49kgHAnr" role="LiRBU">
-      <node concept="LIFWc" id="4AL49kgHCMx" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_childWrapSubstituteMenu" />
+    <node concept="1qefOq" id="2aQPn0Pnj_B" role="25YQCW">
+      <node concept="1p9Cxi" id="4AL49kgHmUF" role="1qenE9">
+        <node concept="LIFWc" id="4AL49kgIJww" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_childParameterizedSubstituteMenu" />
+        </node>
       </node>
     </node>
-    <node concept="1p9Cxi" id="4AL49kgHAnt" role="LiZbd">
-      <node concept="1p1fP9" id="4AL49kgHFro" role="1p1Rwl">
-        <node concept="1p1dxb" id="4AL49kgHFrm" role="1p1dxa" />
-      </node>
-      <node concept="1p1fP9" id="4AL49kgHFmZ" role="1p1Rwl">
-        <node concept="1p1dx8" id="4AL49kgHFmY" role="1p1dxa">
-          <node concept="LIFWc" id="4AL49kgIXhm" role="lGtFl">
+    <node concept="1qefOq" id="2aQPn0PnjA0" role="25YQFr">
+      <node concept="1p9Cxi" id="4AL49kgHmUH" role="1qenE9">
+        <node concept="1p9C$7" id="4AL49kgHnRg" role="1p14X$" />
+        <node concept="1p9C$6" id="4AL49kgHnRh" role="1p14X$">
+          <node concept="LIFWc" id="4AL49kgHnRi" role="lGtFl">
             <property role="ZRATv" value="true" />
             <property role="OXtK3" value="true" />
             <property role="p6zMq" value="13" />
@@ -772,6 +758,10 @@
         </node>
       </node>
     </node>
+  </node>
+  <node concept="LiM7Y" id="4AL49kgHAnq">
+    <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_WrapSubstituteMenu" />
+    <property role="3YCmrE" value="if we don't use styling, child with no priority comes first lexicographically, else child with priority comes first" />
     <node concept="3clFbS" id="4AL49kgHAnx" role="LjaKd">
       <node concept="3clFbF" id="4AL49kgHAny" role="3cqZAp">
         <node concept="2YIFZM" id="4AL49kgHAnz" role="3clFbG">
@@ -881,29 +871,39 @@
         </node>
       </node>
     </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_C" role="25YQCW">
+      <node concept="1p9Cxi" id="4AL49kgHAnr" role="1qenE9">
+        <node concept="LIFWc" id="4AL49kgHCMx" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_childWrapSubstituteMenu" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjA1" role="25YQFr">
+      <node concept="1p9Cxi" id="4AL49kgHAnt" role="1qenE9">
+        <node concept="1p1fP9" id="4AL49kgHFro" role="1p1Rwl">
+          <node concept="1p1dxb" id="4AL49kgHFrm" role="1p1dxa" />
+        </node>
+        <node concept="1p1fP9" id="4AL49kgHFmZ" role="1p1Rwl">
+          <node concept="1p1dx8" id="4AL49kgHFmY" role="1p1dxa">
+            <node concept="LIFWc" id="4AL49kgIXhm" role="lGtFl">
+              <property role="ZRATv" value="true" />
+              <property role="OXtK3" value="true" />
+              <property role="p6zMq" value="13" />
+              <property role="p6zMs" value="13" />
+              <property role="LIFWd" value="ALIAS_EDITOR_COMPONENT" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="LiM7Y" id="4AL49kgHPcE">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_BooleanPropertyWithStyling" />
     <property role="3YCmrE" value="if we use styling &quot;true&quot; is with priority and comes first" />
-    <node concept="1p9Cxi" id="4AL49kgHPcF" role="LiRBU">
-      <node concept="LIFWc" id="4AL49kgI4DS" role="lGtFl">
-        <property role="LIFWa" value="0" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="property_booleanProperty" />
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="4AL49kgHPcH" role="LiZbd">
-      <property role="1p1wRX" value="true" />
-      <node concept="LIFWc" id="4AL49kgHUw9" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="4" />
-        <property role="p6zMs" value="4" />
-        <property role="LIFWd" value="property_booleanProperty" />
-      </node>
-    </node>
     <node concept="3clFbS" id="4AL49kgHPcL" role="LjaKd">
       <node concept="3clFbF" id="4AL49kgHPd9" role="3cqZAp">
         <node concept="2YIFZM" id="4AL49kgHPda" role="3clFbG">
@@ -958,29 +958,33 @@
         </node>
       </node>
     </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_D" role="25YQCW">
+      <node concept="1p9Cxi" id="4AL49kgHPcF" role="1qenE9">
+        <node concept="LIFWc" id="4AL49kgI4DS" role="lGtFl">
+          <property role="LIFWa" value="0" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="property_booleanProperty" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjA2" role="25YQFr">
+      <node concept="1p9Cxi" id="4AL49kgHPcH" role="1qenE9">
+        <property role="1p1wRX" value="true" />
+        <node concept="LIFWc" id="4AL49kgHUw9" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="4" />
+          <property role="p6zMs" value="4" />
+          <property role="LIFWd" value="property_booleanProperty" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="LiM7Y" id="4AL49kgHUwt">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_BooleanPropertyNoStyling" />
     <property role="3YCmrE" value="if we don't use styling, &quot;false&quot; comes first lexicographically" />
-    <node concept="1p9Cxi" id="4AL49kgHUwu" role="LiRBU">
-      <property role="1p1wRX" value="true" />
-      <node concept="LIFWc" id="4AL49kgI4AW" role="lGtFl">
-        <property role="LIFWa" value="0" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="property_booleanProperty" />
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="4AL49kgHUww" role="LiZbd">
-      <node concept="LIFWc" id="4AL49kgHUPu" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="5" />
-        <property role="p6zMs" value="5" />
-        <property role="LIFWd" value="property_booleanProperty" />
-      </node>
-    </node>
     <node concept="3clFbS" id="4AL49kgHUwy" role="LjaKd">
       <node concept="3clFbF" id="4AL49kgHUwz" role="3cqZAp">
         <node concept="2YIFZM" id="4AL49kgHUw$" role="3clFbG">
@@ -1033,29 +1037,33 @@
         </node>
       </node>
     </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_E" role="25YQCW">
+      <node concept="1p9Cxi" id="4AL49kgHUwu" role="1qenE9">
+        <property role="1p1wRX" value="true" />
+        <node concept="LIFWc" id="4AL49kgI4AW" role="lGtFl">
+          <property role="LIFWa" value="0" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="property_booleanProperty" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjA3" role="25YQFr">
+      <node concept="1p9Cxi" id="4AL49kgHUww" role="1qenE9">
+        <node concept="LIFWc" id="4AL49kgHUPu" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="5" />
+          <property role="p6zMs" value="5" />
+          <property role="LIFWd" value="property_booleanProperty" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="LiM7Y" id="4AL49kgHV13">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_EnumPropertyNoStyling" />
     <property role="3YCmrE" value="if we don't use styling, &quot;no priority&quot; comes first lexicographically" />
-    <node concept="1p9Cxi" id="4AL49kgHV14" role="LiRBU">
-      <node concept="LIFWc" id="4AL49kgI_2O" role="lGtFl">
-        <property role="LIFWa" value="0" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="property_enumProperty" />
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="4AL49kgHV16" role="LiZbd">
-      <property role="1p1wX$" value="4AL49kgHLZQ/no priority" />
-      <node concept="LIFWc" id="4AL49kgI_4Z" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="11" />
-        <property role="p6zMs" value="11" />
-        <property role="LIFWd" value="property_enumProperty" />
-      </node>
-    </node>
     <node concept="3clFbS" id="4AL49kgHV18" role="LjaKd">
       <node concept="3clFbF" id="4AL49kgHV19" role="3cqZAp">
         <node concept="2YIFZM" id="4AL49kgHV1a" role="3clFbG">
@@ -1108,29 +1116,33 @@
         </node>
       </node>
     </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_F" role="25YQCW">
+      <node concept="1p9Cxi" id="4AL49kgHV14" role="1qenE9">
+        <node concept="LIFWc" id="4AL49kgI_2O" role="lGtFl">
+          <property role="LIFWa" value="0" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="property_enumProperty" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjA4" role="25YQFr">
+      <node concept="1p9Cxi" id="4AL49kgHV16" role="1qenE9">
+        <property role="1p1wX$" value="4AL49kgHLZQ/no priority" />
+        <node concept="LIFWc" id="4AL49kgI_4Z" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="11" />
+          <property role="p6zMs" value="11" />
+          <property role="LIFWd" value="property_enumProperty" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="LiM7Y" id="4AL49kgHV1u">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_EnumPropertyWithStyling" />
     <property role="3YCmrE" value="if we use styling &quot;with priority&quot; is with priority and comes first" />
-    <node concept="1p9Cxi" id="4AL49kgHV1v" role="LiRBU">
-      <property role="1p1wX$" value="4AL49kgHLZQ/no priority" />
-      <node concept="LIFWc" id="4AL49kgIe18" role="lGtFl">
-        <property role="LIFWa" value="0" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="property_enumProperty" />
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="4AL49kgHV1x" role="LiZbd">
-      <node concept="LIFWc" id="4AL49kgIrUE" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="13" />
-        <property role="p6zMs" value="13" />
-        <property role="LIFWd" value="property_enumProperty" />
-      </node>
-    </node>
     <node concept="3clFbS" id="4AL49kgHV1z" role="LjaKd">
       <node concept="3clFbF" id="4AL49kgHV1$" role="3cqZAp">
         <node concept="2YIFZM" id="4AL49kgHV1_" role="3clFbG">
@@ -1185,29 +1197,33 @@
         </node>
       </node>
     </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_G" role="25YQCW">
+      <node concept="1p9Cxi" id="4AL49kgHV1v" role="1qenE9">
+        <property role="1p1wX$" value="4AL49kgHLZQ/no priority" />
+        <node concept="LIFWc" id="4AL49kgIe18" role="lGtFl">
+          <property role="LIFWa" value="0" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="property_enumProperty" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjA5" role="25YQFr">
+      <node concept="1p9Cxi" id="4AL49kgHV1x" role="1qenE9">
+        <node concept="LIFWc" id="4AL49kgIrUE" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="13" />
+          <property role="p6zMs" value="13" />
+          <property role="LIFWd" value="property_enumProperty" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="LiM7Y" id="41xlIweUVno">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_ReferenceNoStyling" />
     <property role="3YCmrE" value="if we don't use styling, &quot;a&quot; comes first lexicographically" />
-    <node concept="1p9Cxi" id="41xlIweUVnp" role="LiRBU">
-      <node concept="LIFWc" id="41xlIweVkyC" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_reference" />
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="41xlIweUVnr" role="LiZbd">
-      <ref role="1eyIaX" node="41xlIweV9gG" resolve="a" />
-      <node concept="LIFWc" id="41xlIweV9qw" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="1" />
-        <property role="p6zMs" value="1" />
-        <property role="LIFWd" value="property_name" />
-      </node>
-    </node>
     <node concept="3clFbS" id="41xlIweUVnt" role="LjaKd">
       <node concept="3clFbF" id="41xlIweUVnu" role="3cqZAp">
         <node concept="2YIFZM" id="41xlIweUVnv" role="3clFbG">
@@ -1260,29 +1276,33 @@
         </node>
       </node>
     </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_H" role="25YQCW">
+      <node concept="1p9Cxi" id="41xlIweUVnp" role="1qenE9">
+        <node concept="LIFWc" id="41xlIweVkyC" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_reference" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjA6" role="25YQFr">
+      <node concept="1p9Cxi" id="41xlIweUVnr" role="1qenE9">
+        <ref role="1eyIaX" node="41xlIweV9gG" resolve="a" />
+        <node concept="LIFWc" id="41xlIweV9qw" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="1" />
+          <property role="p6zMs" value="1" />
+          <property role="LIFWd" value="property_name" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="LiM7Y" id="41xlIweUVuq">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_ReferenceWithStyling" />
     <property role="3YCmrE" value="if we use styling, &quot;b&quot; comes first lexicographically" />
-    <node concept="1p9Cxi" id="41xlIweUVur" role="LiRBU">
-      <node concept="LIFWc" id="41xlIweVk_y" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_reference" />
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="41xlIweUVut" role="LiZbd">
-      <ref role="1eyIaX" node="41xlIweV9gI" resolve="b" />
-      <node concept="LIFWc" id="41xlIweV9uW" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="1" />
-        <property role="p6zMs" value="1" />
-        <property role="LIFWd" value="property_name" />
-      </node>
-    </node>
     <node concept="3clFbS" id="41xlIweUVuv" role="LjaKd">
       <node concept="3clFbF" id="41xlIweUVuw" role="3cqZAp">
         <node concept="2YIFZM" id="41xlIweUVux" role="3clFbG">
@@ -1337,6 +1357,29 @@
         </node>
       </node>
     </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_I" role="25YQCW">
+      <node concept="1p9Cxi" id="41xlIweUVur" role="1qenE9">
+        <node concept="LIFWc" id="41xlIweVk_y" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_reference" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjA7" role="25YQFr">
+      <node concept="1p9Cxi" id="41xlIweUVut" role="1qenE9">
+        <ref role="1eyIaX" node="41xlIweV9gI" resolve="b" />
+        <node concept="LIFWc" id="41xlIweV9uW" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="1" />
+          <property role="p6zMs" value="1" />
+          <property role="LIFWd" value="property_name" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="1eyIa_" id="41xlIweV9gF">
     <property role="TrG5h" value="root" />
@@ -1350,27 +1393,6 @@
   <node concept="LiM7Y" id="41xlIweV_jK">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_ChildInLink" />
     <property role="3YCmrE" value="if we don't use styling, child with no priority comes first lexicographically, else child with priority comes first" />
-    <node concept="1p9Cxi" id="41xlIweV_jL" role="LiRBU">
-      <node concept="LIFWc" id="41xlIweV_$O" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_childInMatchingLink" />
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="41xlIweV_jN" role="LiZbd">
-      <node concept="1ezaeV" id="41xlIweV_A8" role="1ezaeJ" />
-      <node concept="1ezaeW" id="41xlIweV_At" role="1ezaeJ">
-        <node concept="LIFWc" id="41xlIweV_Ez" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="13" />
-          <property role="p6zMs" value="13" />
-          <property role="LIFWd" value="ALIAS_EDITOR_COMPONENT" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="41xlIweV_jT" role="LjaKd">
       <node concept="3clFbF" id="41xlIweV_jU" role="3cqZAp">
         <node concept="2YIFZM" id="41xlIweV_jV" role="3clFbG">
@@ -1480,29 +1502,35 @@
         </node>
       </node>
     </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_J" role="25YQCW">
+      <node concept="1p9Cxi" id="41xlIweV_jL" role="1qenE9">
+        <node concept="LIFWc" id="41xlIweV_$O" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_childInMatchingLink" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjA8" role="25YQFr">
+      <node concept="1p9Cxi" id="41xlIweV_jN" role="1qenE9">
+        <node concept="1ezaeV" id="41xlIweV_A8" role="1ezaeJ" />
+        <node concept="1ezaeW" id="41xlIweV_At" role="1ezaeJ">
+          <node concept="LIFWc" id="41xlIweV_Ez" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="13" />
+            <property role="p6zMs" value="13" />
+            <property role="LIFWd" value="ALIAS_EDITOR_COMPONENT" />
+          </node>
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="LiM7Y" id="41xlIweVNMD">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_NoFeatureNoStyling" />
     <property role="3YCmrE" value="if we don't use styling, &quot;no priority&quot; comes first lexicographically" />
-    <node concept="1p9Cxi" id="41xlIweVNME" role="LiRBU">
-      <node concept="LIFWc" id="41xlIwf2IHR" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="Constant_oe0rtl_h2a" />
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="41xlIweVNMG" role="LiZbd">
-      <property role="1ez$JY" value="no priority" />
-      <node concept="LIFWc" id="41xlIwf2IKa" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="Constant_oe0rtl_h2a" />
-      </node>
-    </node>
     <node concept="3clFbS" id="41xlIweVNMI" role="LjaKd">
       <node concept="3clFbF" id="41xlIweVNMJ" role="3cqZAp">
         <node concept="2YIFZM" id="41xlIweVNMK" role="3clFbG">
@@ -1555,30 +1583,33 @@
         </node>
       </node>
     </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_K" role="25YQCW">
+      <node concept="1p9Cxi" id="41xlIweVNME" role="1qenE9">
+        <node concept="LIFWc" id="41xlIwf2IHR" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="Constant_oe0rtl_h2a" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjA9" role="25YQFr">
+      <node concept="1p9Cxi" id="41xlIweVNMG" role="1qenE9">
+        <property role="1ez$JY" value="no priority" />
+        <node concept="LIFWc" id="41xlIwf2IKa" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="Constant_oe0rtl_h2a" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="LiM7Y" id="41xlIweVNN4">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_NoFeatureWithStyling" />
     <property role="3YCmrE" value="if we use styling &quot;with priority&quot; is with priority and comes first" />
-    <node concept="1p9Cxi" id="41xlIweVNN5" role="LiRBU">
-      <property role="1ez$JY" value="f" />
-      <node concept="LIFWc" id="41xlIwf2IOu" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="Constant_oe0rtl_h2a" />
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="41xlIweVNN7" role="LiZbd">
-      <property role="1ez$JY" value="with priority" />
-      <node concept="LIFWc" id="41xlIwf2IOC" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="Constant_oe0rtl_h2a" />
-      </node>
-    </node>
     <node concept="3clFbS" id="41xlIweVNN9" role="LjaKd">
       <node concept="3clFbF" id="41xlIweVNNa" role="3cqZAp">
         <node concept="2YIFZM" id="41xlIweVNNb" role="3clFbG">
@@ -1633,33 +1664,34 @@
         </node>
       </node>
     </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_L" role="25YQCW">
+      <node concept="1p9Cxi" id="41xlIweVNN5" role="1qenE9">
+        <property role="1ez$JY" value="f" />
+        <node concept="LIFWc" id="41xlIwf2IOu" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="Constant_oe0rtl_h2a" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjAa" role="25YQFr">
+      <node concept="1p9Cxi" id="41xlIweVNN7" role="1qenE9">
+        <property role="1ez$JY" value="with priority" />
+        <node concept="LIFWc" id="41xlIwf2IOC" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="Constant_oe0rtl_h2a" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="LiM7Y" id="41xlIwf3aYy">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_ChildToSubstitute" />
     <property role="3YCmrE" value="if we don't use styling, child with no priority comes first lexicographically, else child with priority comes first" />
-    <node concept="1p9Cxi" id="41xlIwf3aYz" role="LiRBU">
-      <node concept="1fqDVX" id="41xlIwf3iPj" role="1frh2r">
-        <node concept="LIFWc" id="41xlIwf3iTF" role="lGtFl">
-          <property role="LIFWa" value="0" />
-          <property role="LIFWd" value="collection_0" />
-        </node>
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="41xlIwf3aY_" role="LiZbd">
-      <node concept="1fqDVX" id="41xlIwf3b3G" role="1frh2r">
-        <property role="TrG5h" value="no priority" />
-      </node>
-      <node concept="1fqDVX" id="41xlIwf3iU0" role="1frh2r">
-        <property role="TrG5h" value="with priority" />
-        <node concept="LIFWc" id="41xlIwf3iY5" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="13" />
-          <property role="p6zMs" value="13" />
-          <property role="LIFWd" value="property_name" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="41xlIwf3aYF" role="LjaKd">
       <node concept="3clFbF" id="41xlIwf3aYG" role="3cqZAp">
         <node concept="2YIFZM" id="41xlIwf3aYH" role="3clFbG">
@@ -1770,6 +1802,33 @@
           </node>
           <node concept="3clFbT" id="41xlIwf3aZn" role="37wK5m">
             <property role="3clFbU" value="true" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_M" role="25YQCW">
+      <node concept="1p9Cxi" id="41xlIwf3aYz" role="1qenE9">
+        <node concept="1fqDVX" id="41xlIwf3iPj" role="1frh2r">
+          <node concept="LIFWc" id="41xlIwf3iTF" role="lGtFl">
+            <property role="LIFWa" value="0" />
+            <property role="LIFWd" value="collection_0" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjAb" role="25YQFr">
+      <node concept="1p9Cxi" id="41xlIwf3aY_" role="1qenE9">
+        <node concept="1fqDVX" id="41xlIwf3b3G" role="1frh2r">
+          <property role="TrG5h" value="no priority" />
+        </node>
+        <node concept="1fqDVX" id="41xlIwf3iU0" role="1frh2r">
+          <property role="TrG5h" value="with priority" />
+          <node concept="LIFWc" id="41xlIwf3iY5" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="13" />
+            <property role="p6zMs" value="13" />
+            <property role="LIFWd" value="property_name" />
           </node>
         </node>
       </node>
@@ -1967,40 +2026,21 @@
         </node>
       </node>
     </node>
-    <node concept="t4D_B" id="77bAwtGQI$h" role="LiRBU">
-      <node concept="LIFWc" id="77bAwtGQIF9" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="Constant_h0s4wo_b0" />
+    <node concept="1qefOq" id="2aQPn0Pnj_N" role="25YQCW">
+      <node concept="t4D_B" id="77bAwtGQI$h" role="1qenE9">
+        <node concept="LIFWc" id="77bAwtGQIF9" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="Constant_h0s4wo_b0" />
+        </node>
       </node>
     </node>
   </node>
   <node concept="LiM7Y" id="77bAwtGS8cl">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_ChildInLinkInlineMenu" />
     <property role="3YCmrE" value="if we don't use styling, child with no priority comes first lexicographically, else child with priority comes first" />
-    <node concept="1p9Cxi" id="77bAwtGS8cm" role="LiRBU">
-      <node concept="LIFWc" id="77bAwtGSgeS" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_childInMatchingLinkInlineMenu" />
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="77bAwtGS8co" role="LiZbd">
-      <node concept="1ezaeV" id="77bAwtGSgj6" role="taTWN" />
-      <node concept="1ezaeW" id="77bAwtGSgjr" role="taTWN">
-        <node concept="LIFWc" id="77bAwtGSgnx" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="13" />
-          <property role="p6zMs" value="13" />
-          <property role="LIFWd" value="ALIAS_EDITOR_COMPONENT" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="77bAwtGS8cs" role="LjaKd">
       <node concept="3clFbF" id="77bAwtGS8ct" role="3cqZAp">
         <node concept="2YIFZM" id="77bAwtGS8cu" role="3clFbG">
@@ -2110,18 +2150,34 @@
         </node>
       </node>
     </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_O" role="25YQCW">
+      <node concept="1p9Cxi" id="77bAwtGS8cm" role="1qenE9">
+        <node concept="LIFWc" id="77bAwtGSgeS" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_childInMatchingLinkInlineMenu" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjAc" role="25YQFr">
+      <node concept="1p9Cxi" id="77bAwtGS8co" role="1qenE9">
+        <node concept="1ezaeV" id="77bAwtGSgj6" role="taTWN" />
+        <node concept="1ezaeW" id="77bAwtGSgjr" role="taTWN">
+          <node concept="LIFWc" id="77bAwtGSgnx" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="13" />
+            <property role="p6zMs" value="13" />
+            <property role="LIFWd" value="ALIAS_EDITOR_COMPONENT" />
+          </node>
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="LiM7Y" id="7gO1DU9TxGy">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_CustomActionNoFeatureNoStyling" />
-    <node concept="1p9Cxi" id="7gO1DU9TxGz" role="LiRBU">
-      <node concept="LIFWc" id="3AsrwZRix4F" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="Constant_oe0rtl_mb2a" />
-      </node>
-    </node>
     <node concept="3clFbS" id="7gO1DU9TxGB" role="LjaKd">
       <node concept="3clFbF" id="7gO1DU9TKWE" role="3cqZAp">
         <node concept="2OqwBi" id="7gO1DU9TMPY" role="3clFbG">
@@ -2198,14 +2254,27 @@
         </node>
       </node>
     </node>
-    <node concept="1p9Cxi" id="7gO1DU9V2H$" role="LiZbd">
-      <property role="1ez$JY" value="no priority" />
-      <node concept="LIFWc" id="3AsrwZRiyub" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="Constant_oe0rtl_mb2a" />
+    <node concept="1qefOq" id="2aQPn0Pnj_P" role="25YQCW">
+      <node concept="1p9Cxi" id="7gO1DU9TxGz" role="1qenE9">
+        <node concept="LIFWc" id="3AsrwZRix4F" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="Constant_oe0rtl_mb2a" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjAd" role="25YQFr">
+      <node concept="1p9Cxi" id="7gO1DU9V2H$" role="1qenE9">
+        <property role="1ez$JY" value="no priority" />
+        <node concept="LIFWc" id="3AsrwZRiyub" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="Constant_oe0rtl_mb2a" />
+        </node>
       </node>
     </node>
   </node>
@@ -3495,15 +3564,6 @@
   </node>
   <node concept="LiM7Y" id="7gO1DU9Yabh">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_CustomActionNoFeatureWithStyling" />
-    <node concept="1p9Cxi" id="7gO1DU9Yabi" role="LiRBU">
-      <node concept="LIFWc" id="3AsrwZRiZg4" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="Constant_oe0rtl_mb2a" />
-      </node>
-    </node>
     <node concept="3clFbS" id="7gO1DU9Yabk" role="LjaKd">
       <node concept="3clFbF" id="7gO1DU9Yabl" role="3cqZAp">
         <node concept="2OqwBi" id="7gO1DU9Yabm" role="3clFbG">
@@ -3582,28 +3642,32 @@
         </node>
       </node>
     </node>
-    <node concept="1p9Cxi" id="7gO1DU9YabO" role="LiZbd">
-      <property role="1ez$JY" value="with priority" />
-      <node concept="LIFWc" id="3AsrwZRiZfU" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="Constant_oe0rtl_mb2a" />
+    <node concept="1qefOq" id="2aQPn0Pnj_Q" role="25YQCW">
+      <node concept="1p9Cxi" id="7gO1DU9Yabi" role="1qenE9">
+        <node concept="LIFWc" id="3AsrwZRiZg4" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="Constant_oe0rtl_mb2a" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjAe" role="25YQFr">
+      <node concept="1p9Cxi" id="7gO1DU9YabO" role="1qenE9">
+        <property role="1ez$JY" value="with priority" />
+        <node concept="LIFWc" id="3AsrwZRiZfU" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="Constant_oe0rtl_mb2a" />
+        </node>
       </node>
     </node>
   </node>
   <node concept="LiM7Y" id="3jjUuIj5yZG">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_CustomActionEnumNoStyling" />
-    <node concept="1p9Cxi" id="3jjUuIj5yZH" role="LiRBU">
-      <node concept="LIFWc" id="3jjUuIj6spE" role="lGtFl">
-        <property role="LIFWa" value="0" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="property_customActionEnumProperty" />
-      </node>
-    </node>
     <node concept="3clFbS" id="3jjUuIj5yZJ" role="LjaKd">
       <node concept="3clFbF" id="3jjUuIj5yZK" role="3cqZAp">
         <node concept="2OqwBi" id="3jjUuIj5yZL" role="3clFbG">
@@ -3674,30 +3738,32 @@
         </node>
       </node>
     </node>
-    <node concept="1p9Cxi" id="3jjUuIj5z0f" role="LiZbd">
-      <property role="2BKp$1" value="4AL49kgHLZQ/no priority" />
-      <node concept="LIFWc" id="3jjUuIj7diU" role="lGtFl">
-        <property role="LIFWa" value="0" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="property_customActionEnumProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnj_R" role="25YQCW">
+      <node concept="1p9Cxi" id="3jjUuIj5yZH" role="1qenE9">
+        <node concept="LIFWc" id="3jjUuIj6spE" role="lGtFl">
+          <property role="LIFWa" value="0" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="property_customActionEnumProperty" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjAf" role="25YQFr">
+      <node concept="1p9Cxi" id="3jjUuIj5z0f" role="1qenE9">
+        <property role="2BKp$1" value="4AL49kgHLZQ/no priority" />
+        <node concept="LIFWc" id="3jjUuIj7diU" role="lGtFl">
+          <property role="LIFWa" value="0" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="property_customActionEnumProperty" />
+        </node>
       </node>
     </node>
   </node>
   <node concept="LiM7Y" id="3jjUuIj7x$7">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_CustomActionEnumWithStyling" />
-    <node concept="1p9Cxi" id="3jjUuIj7x$8" role="LiRBU">
-      <property role="2BKp$1" value="4AL49kgHLZQ/no priority" />
-      <property role="1p1wX$" value="4AL49kgHLZQ/no priority" />
-      <node concept="LIFWc" id="3jjUuIj828b" role="lGtFl">
-        <property role="LIFWa" value="0" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="property_customActionEnumProperty" />
-      </node>
-    </node>
     <node concept="3clFbS" id="3jjUuIj7x$a" role="LjaKd">
       <node concept="3clFbF" id="3jjUuIj7x$b" role="3cqZAp">
         <node concept="2OqwBi" id="3jjUuIj7x$c" role="3clFbG">
@@ -3770,28 +3836,34 @@
         </node>
       </node>
     </node>
-    <node concept="1p9Cxi" id="3jjUuIj7x$C" role="LiZbd">
-      <property role="1p1wX$" value="4AL49kgHLZQ/no priority" />
-      <node concept="LIFWc" id="3jjUuIj7zCG" role="lGtFl">
-        <property role="LIFWa" value="0" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="property_customActionEnumProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnj_S" role="25YQCW">
+      <node concept="1p9Cxi" id="3jjUuIj7x$8" role="1qenE9">
+        <property role="2BKp$1" value="4AL49kgHLZQ/no priority" />
+        <property role="1p1wX$" value="4AL49kgHLZQ/no priority" />
+        <node concept="LIFWc" id="3jjUuIj828b" role="lGtFl">
+          <property role="LIFWa" value="0" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="property_customActionEnumProperty" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjAg" role="25YQFr">
+      <node concept="1p9Cxi" id="3jjUuIj7x$C" role="1qenE9">
+        <property role="1p1wX$" value="4AL49kgHLZQ/no priority" />
+        <node concept="LIFWc" id="3jjUuIj7zCG" role="lGtFl">
+          <property role="LIFWa" value="0" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="property_customActionEnumProperty" />
+        </node>
       </node>
     </node>
   </node>
   <node concept="LiM7Y" id="2o3hTqKRmwv">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_CustomActionRererenceNoStyling" />
-    <node concept="1p9Cxi" id="2o3hTqKRmww" role="LiRBU">
-      <node concept="LIFWc" id="3AsrwZRi5gr" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_customActionReference" />
-      </node>
-    </node>
     <node concept="3clFbS" id="2o3hTqKRmwy" role="LjaKd">
       <node concept="3clFbF" id="2o3hTqKRmwz" role="3cqZAp">
         <node concept="2OqwBi" id="2o3hTqKRmw$" role="3clFbG">
@@ -3868,28 +3940,32 @@
         </node>
       </node>
     </node>
-    <node concept="1p9Cxi" id="2o3hTqKRmx0" role="LiZbd">
-      <ref role="2BKpIf" node="41xlIweV9gG" resolve="a" />
-      <node concept="LIFWc" id="3AsrwZRi5g_" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="1" />
-        <property role="p6zMs" value="1" />
-        <property role="LIFWd" value="property_name2" />
+    <node concept="1qefOq" id="2aQPn0Pnj_T" role="25YQCW">
+      <node concept="1p9Cxi" id="2o3hTqKRmww" role="1qenE9">
+        <node concept="LIFWc" id="3AsrwZRi5gr" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_customActionReference" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjAh" role="25YQFr">
+      <node concept="1p9Cxi" id="2o3hTqKRmx0" role="1qenE9">
+        <ref role="2BKpIf" node="41xlIweV9gG" resolve="a" />
+        <node concept="LIFWc" id="3AsrwZRi5g_" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="1" />
+          <property role="p6zMs" value="1" />
+          <property role="LIFWd" value="property_name2" />
+        </node>
       </node>
     </node>
   </node>
   <node concept="LiM7Y" id="2o3hTqKY2Ba">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_CustomActionRererenceWithStyling" />
-    <node concept="1p9Cxi" id="2o3hTqKY2Bb" role="LiRBU">
-      <node concept="LIFWc" id="3AsrwZRi5OI" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_customActionReference" />
-      </node>
-    </node>
     <node concept="3clFbS" id="2o3hTqKY2Bd" role="LjaKd">
       <node concept="3clFbF" id="2o3hTqKY2Be" role="3cqZAp">
         <node concept="2OqwBi" id="2o3hTqKY2Bf" role="3clFbG">
@@ -3968,28 +4044,32 @@
         </node>
       </node>
     </node>
-    <node concept="1p9Cxi" id="2o3hTqKY2BF" role="LiZbd">
-      <ref role="2BKpIf" node="41xlIweV9gI" resolve="b" />
-      <node concept="LIFWc" id="3AsrwZRi5O$" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="1" />
-        <property role="p6zMs" value="1" />
-        <property role="LIFWd" value="property_name2" />
+    <node concept="1qefOq" id="2aQPn0Pnj_U" role="25YQCW">
+      <node concept="1p9Cxi" id="2o3hTqKY2Bb" role="1qenE9">
+        <node concept="LIFWc" id="3AsrwZRi5OI" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_customActionReference" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjAi" role="25YQFr">
+      <node concept="1p9Cxi" id="2o3hTqKY2BF" role="1qenE9">
+        <ref role="2BKpIf" node="41xlIweV9gI" resolve="b" />
+        <node concept="LIFWc" id="3AsrwZRi5O$" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="1" />
+          <property role="p6zMs" value="1" />
+          <property role="LIFWd" value="property_name2" />
+        </node>
       </node>
     </node>
   </node>
   <node concept="LiM7Y" id="2o3hTqL2Hmk">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_CustomActionChildLink" />
-    <node concept="1p9Cxi" id="2o3hTqL2Hml" role="LiRBU">
-      <node concept="LIFWc" id="2o3hTqL7avn" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_customActionChildInMatchingLink" />
-      </node>
-    </node>
     <node concept="3clFbS" id="2o3hTqL2Hmn" role="LjaKd">
       <node concept="3cpWs8" id="2o3hTqLcLcS" role="3cqZAp">
         <node concept="3cpWsn" id="2o3hTqLcLcT" role="3cpWs9">
@@ -4178,15 +4258,28 @@
         </node>
       </node>
     </node>
-    <node concept="1p9Cxi" id="2o3hTqL2HmS" role="LiZbd">
-      <node concept="1ezaeV" id="2o3hTqL57N$" role="2BKpHr" />
-      <node concept="1ezaeW" id="2o3hTqL57NT" role="2BKpHr">
-        <node concept="LIFWc" id="1HK4esQi$S5" role="lGtFl">
+    <node concept="1qefOq" id="2aQPn0Pnj_V" role="25YQCW">
+      <node concept="1p9Cxi" id="2o3hTqL2Hml" role="1qenE9">
+        <node concept="LIFWc" id="2o3hTqL7avn" role="lGtFl">
           <property role="ZRATv" value="true" />
           <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="13" />
-          <property role="p6zMs" value="13" />
-          <property role="LIFWd" value="ALIAS_EDITOR_COMPONENT" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_customActionChildInMatchingLink" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjAj" role="25YQFr">
+      <node concept="1p9Cxi" id="2o3hTqL2HmS" role="1qenE9">
+        <node concept="1ezaeV" id="2o3hTqL57N$" role="2BKpHr" />
+        <node concept="1ezaeW" id="2o3hTqL57NT" role="2BKpHr">
+          <node concept="LIFWc" id="1HK4esQi$S5" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="13" />
+            <property role="p6zMs" value="13" />
+            <property role="LIFWd" value="ALIAS_EDITOR_COMPONENT" />
+          </node>
         </node>
       </node>
     </node>
@@ -4194,25 +4287,6 @@
   <node concept="LiM7Y" id="3AsrwZRhug9">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_ReferenceInlinePrimaryWithStyling" />
     <property role="3YCmrE" value="if we use styling, &quot;b&quot; comes first lexicographically" />
-    <node concept="1p9Cxi" id="3AsrwZRhuga" role="LiRBU">
-      <node concept="LIFWc" id="6U_NxZxSC3Q" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_referenceInlinePrimary" />
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="3AsrwZRhugc" role="LiZbd">
-      <ref role="3eQiAg" node="41xlIweV9gI" resolve="b" />
-      <node concept="LIFWc" id="3AsrwZRh_mm" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="1" />
-        <property role="p6zMs" value="1" />
-        <property role="LIFWd" value="property_name1" />
-      </node>
-    </node>
     <node concept="3clFbS" id="3AsrwZRhuge" role="LjaKd">
       <node concept="3clFbF" id="3AsrwZRhugf" role="3cqZAp">
         <node concept="2YIFZM" id="3AsrwZRhugg" role="3clFbG">
@@ -4267,29 +4341,33 @@
         </node>
       </node>
     </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_W" role="25YQCW">
+      <node concept="1p9Cxi" id="3AsrwZRhuga" role="1qenE9">
+        <node concept="LIFWc" id="6U_NxZxSC3Q" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_referenceInlinePrimary" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjAk" role="25YQFr">
+      <node concept="1p9Cxi" id="3AsrwZRhugc" role="1qenE9">
+        <ref role="3eQiAg" node="41xlIweV9gI" resolve="b" />
+        <node concept="LIFWc" id="3AsrwZRh_mm" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="1" />
+          <property role="p6zMs" value="1" />
+          <property role="LIFWd" value="property_name1" />
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="LiM7Y" id="3AsrwZRhufI">
     <property role="TrG5h" value="TestCompletionCustomization_ContextMatcher_ReferenceInlinePrimaryNoStyling" />
     <property role="3YCmrE" value="if we don't use styling, &quot;a&quot; comes first lexicographically" />
-    <node concept="1p9Cxi" id="3AsrwZRhufJ" role="LiRBU">
-      <node concept="LIFWc" id="3AsrwZRhwSm" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_referenceInlinePrimary" />
-      </node>
-    </node>
-    <node concept="1p9Cxi" id="3AsrwZRhufL" role="LiZbd">
-      <ref role="3eQiAg" node="41xlIweV9gG" resolve="a" />
-      <node concept="LIFWc" id="3AsrwZRhxNa" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="1" />
-        <property role="p6zMs" value="1" />
-        <property role="LIFWd" value="property_name1" />
-      </node>
-    </node>
     <node concept="3clFbS" id="3AsrwZRhufN" role="LjaKd">
       <node concept="3clFbF" id="3AsrwZRhufO" role="3cqZAp">
         <node concept="2YIFZM" id="3AsrwZRhufP" role="3clFbG">
@@ -4339,6 +4417,29 @@
             </node>
           </node>
           <node concept="3clFbT" id="3AsrwZRhug8" role="37wK5m" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnj_X" role="25YQCW">
+      <node concept="1p9Cxi" id="3AsrwZRhufJ" role="1qenE9">
+        <node concept="LIFWc" id="3AsrwZRhwSm" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_referenceInlinePrimary" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0PnjAl" role="25YQFr">
+      <node concept="1p9Cxi" id="3AsrwZRhufL" role="1qenE9">
+        <ref role="3eQiAg" node="41xlIweV9gG" resolve="a" />
+        <node concept="LIFWc" id="3AsrwZRhxNa" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="1" />
+          <property role="p6zMs" value="1" />
+          <property role="LIFWd" value="property_name1" />
         </node>
       </node>
     </node>

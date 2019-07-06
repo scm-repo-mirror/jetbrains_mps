@@ -2,7 +2,7 @@
 <model ref="r:a5382851-1d9f-41aa-80d5-23778a1655eb(jetbrains.mps.lang.plugin.tests.editorTest@tests)">
   <persistence version="9" />
   <languages>
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="2" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
     <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
     <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="4" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
@@ -14,8 +14,8 @@
   <registry>
     <language id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test">
       <concept id="1229187653856" name="jetbrains.mps.lang.test.structure.EditorTestCase" flags="lg" index="LiM7Y">
-        <child id="1229187676388" name="nodeToEdit" index="LiRBU" />
-        <child id="1229187707859" name="result" index="LiZbd" />
+        <child id="3143335925185262946" name="testNodeBefore" index="25YQCW" />
+        <child id="3143335925185262981" name="testNodeResult" index="25YQFr" />
         <child id="1229187755283" name="code" index="LjaKd" />
       </concept>
       <concept id="1229194968594" name="jetbrains.mps.lang.test.structure.AnonymousCellAnnotation" flags="ng" index="LIFWc">
@@ -30,6 +30,9 @@
       </concept>
       <concept id="5097124989038916362" name="jetbrains.mps.lang.test.structure.TestInfo" flags="ng" index="2XOHcx">
         <property id="5097124989038916363" name="projectPath" index="2XOHcw" />
+      </concept>
+      <concept id="1216989428737" name="jetbrains.mps.lang.test.structure.TestNode" flags="ng" index="1qefOq">
+        <child id="1216989461394" name="nodeToCheck" index="1qenE9" />
       </concept>
     </language>
     <language id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin">
@@ -98,109 +101,58 @@
   </registry>
   <node concept="LiM7Y" id="2qIbb0IsK1T">
     <property role="TrG5h" value="Test_CompleteActionParameterDeclaration" />
-    <node concept="sE7Ow" id="2qIbb0IsK1V" role="LiRBU">
-      <property role="TrG5h" value="TestAction_Parameter" />
-      <property role="2uzpH1" value="TestAction" />
-      <node concept="2S4$dB" id="2qIbb0IsK4d" role="1NuT2Z">
-        <property role="TrG5h" value="myModel" />
-        <node concept="3Tm6S6" id="2qIbb0IsK4e" role="1B3o_S" />
-        <node concept="1oajcY" id="2qIbb0IsK4f" role="1oa70y" />
-        <node concept="H_c77" id="2qIbb0IsK2f" role="1tU5fm" />
-      </node>
-      <node concept="tnohg" id="2qIbb0IsK1X" role="tncku">
-        <node concept="3clFbS" id="2qIbb0IsK1Y" role="2VODD2">
-          <node concept="LIFWc" id="2qIbb0IsK_h" role="lGtFl">
-            <property role="ZRATv" value="true" />
-            <property role="OXtK3" value="true" />
-            <property role="p6zMq" value="0" />
-            <property role="p6zMs" value="0" />
-            <property role="LIFWd" value="Constant_u338ov_a0a" />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="sE7Ow" id="2qIbb0IsK5g" role="LiZbd">
-      <property role="TrG5h" value="TestAction_Parameter" />
-      <property role="2uzpH1" value="TestAction" />
-      <node concept="2S4$dB" id="2qIbb0IsK5h" role="1NuT2Z">
-        <property role="TrG5h" value="myModel" />
-        <node concept="3Tm6S6" id="2qIbb0IsK5i" role="1B3o_S" />
-        <node concept="1oajcY" id="2qIbb0IsK5j" role="1oa70y" />
-        <node concept="H_c77" id="2qIbb0IsK5k" role="1tU5fm" />
-      </node>
-      <node concept="tnohg" id="2qIbb0IsK5l" role="tncku">
-        <node concept="3clFbS" id="2qIbb0IsK5m" role="2VODD2">
-          <node concept="3clFbF" id="2qIbb0IsKxU" role="3cqZAp">
-            <node concept="2OqwBi" id="2qIbb0IsKxO" role="3clFbG">
-              <node concept="2WthIp" id="2qIbb0IsKxR" role="2Oq$k0" />
-              <node concept="3gHZIF" id="2qIbb0IsKxT" role="2OqNvi">
-                <ref role="2WH_rO" node="2qIbb0IsK5h" resolve="myModel" />
-                <node concept="LIFWc" id="2qIbb0IsK$k" role="lGtFl">
-                  <property role="ZRATv" value="true" />
-                  <property role="OXtK3" value="true" />
-                  <property role="p6zMq" value="7" />
-                  <property role="p6zMs" value="7" />
-                  <property role="LIFWd" value="property_name" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="2qIbb0IsKCm" role="LjaKd">
       <node concept="2TK7Tu" id="2qIbb0IsKCl" role="3cqZAp">
         <property role="2TTd_B" value="myModel" />
       </node>
     </node>
-  </node>
-  <node concept="LiM7Y" id="2qIbb0IsKCt">
-    <property role="TrG5h" value="Test_CompleteActionConstructorParameterDeclaration" />
-    <node concept="sE7Ow" id="2qIbb0IsKCu" role="LiRBU">
-      <property role="TrG5h" value="TestAction_ConstructorParameter" />
-      <property role="2uzpH1" value="TestAction" />
-      <node concept="2JriF1" id="2qIbb0IsKDB" role="2JrayB">
-        <property role="TrG5h" value="myObject" />
-        <node concept="3Tm6S6" id="2qIbb0IsKDC" role="1B3o_S" />
-        <node concept="3uibUv" id="2qIbb0IsKGE" role="1tU5fm">
-          <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+    <node concept="1qefOq" id="2aQPn0Pnn$p" role="25YQCW">
+      <node concept="sE7Ow" id="2qIbb0IsK1V" role="1qenE9">
+        <property role="TrG5h" value="TestAction_Parameter" />
+        <property role="2uzpH1" value="TestAction" />
+        <node concept="2S4$dB" id="2qIbb0IsK4d" role="1NuT2Z">
+          <property role="TrG5h" value="myModel" />
+          <node concept="3Tm6S6" id="2qIbb0IsK4e" role="1B3o_S" />
+          <node concept="1oajcY" id="2qIbb0IsK4f" role="1oa70y" />
+          <node concept="H_c77" id="2qIbb0IsK2f" role="1tU5fm" />
         </node>
-      </node>
-      <node concept="tnohg" id="2qIbb0IsKCz" role="tncku">
-        <node concept="3clFbS" id="2qIbb0IsKC$" role="2VODD2">
-          <node concept="LIFWc" id="2qIbb0IsKC_" role="lGtFl">
-            <property role="ZRATv" value="true" />
-            <property role="OXtK3" value="true" />
-            <property role="p6zMq" value="0" />
-            <property role="p6zMs" value="0" />
-            <property role="LIFWd" value="Constant_u338ov_a0a" />
+        <node concept="tnohg" id="2qIbb0IsK1X" role="tncku">
+          <node concept="3clFbS" id="2qIbb0IsK1Y" role="2VODD2">
+            <node concept="LIFWc" id="2qIbb0IsK_h" role="lGtFl">
+              <property role="ZRATv" value="true" />
+              <property role="OXtK3" value="true" />
+              <property role="p6zMq" value="0" />
+              <property role="p6zMs" value="0" />
+              <property role="LIFWd" value="Constant_u338ov_a0a" />
+            </node>
           </node>
         </node>
       </node>
     </node>
-    <node concept="sE7Ow" id="2qIbb0IsKCA" role="LiZbd">
-      <property role="TrG5h" value="TestAction_ConstructorParameter" />
-      <property role="2uzpH1" value="TestAction" />
-      <node concept="2JriF1" id="2qIbb0IsKQ4" role="2JrayB">
-        <property role="TrG5h" value="myObject" />
-        <node concept="3Tm6S6" id="2qIbb0IsKQ5" role="1B3o_S" />
-        <node concept="3uibUv" id="2qIbb0IsKQ6" role="1tU5fm">
-          <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+    <node concept="1qefOq" id="2aQPn0Pnn$s" role="25YQFr">
+      <node concept="sE7Ow" id="2qIbb0IsK5g" role="1qenE9">
+        <property role="TrG5h" value="TestAction_Parameter" />
+        <property role="2uzpH1" value="TestAction" />
+        <node concept="2S4$dB" id="2qIbb0IsK5h" role="1NuT2Z">
+          <property role="TrG5h" value="myModel" />
+          <node concept="3Tm6S6" id="2qIbb0IsK5i" role="1B3o_S" />
+          <node concept="1oajcY" id="2qIbb0IsK5j" role="1oa70y" />
+          <node concept="H_c77" id="2qIbb0IsK5k" role="1tU5fm" />
         </node>
-      </node>
-      <node concept="tnohg" id="2qIbb0IsKCF" role="tncku">
-        <node concept="3clFbS" id="2qIbb0IsKCG" role="2VODD2">
-          <node concept="3clFbF" id="2qIbb0IsKTl" role="3cqZAp">
-            <node concept="2OqwBi" id="2qIbb0IsKTf" role="3clFbG">
-              <node concept="2WthIp" id="2qIbb0IsKTi" role="2Oq$k0" />
-              <node concept="2BZ7hE" id="2qIbb0IsKTk" role="2OqNvi">
-                <ref role="2WH_rO" node="2qIbb0IsKQ4" resolve="myObject" />
-                <node concept="LIFWc" id="2qIbb0IsLdo" role="lGtFl">
-                  <property role="ZRATv" value="true" />
-                  <property role="OXtK3" value="true" />
-                  <property role="p6zMq" value="8" />
-                  <property role="p6zMs" value="8" />
-                  <property role="LIFWd" value="property_name" />
+        <node concept="tnohg" id="2qIbb0IsK5l" role="tncku">
+          <node concept="3clFbS" id="2qIbb0IsK5m" role="2VODD2">
+            <node concept="3clFbF" id="2qIbb0IsKxU" role="3cqZAp">
+              <node concept="2OqwBi" id="2qIbb0IsKxO" role="3clFbG">
+                <node concept="2WthIp" id="2qIbb0IsKxR" role="2Oq$k0" />
+                <node concept="3gHZIF" id="2qIbb0IsKxT" role="2OqNvi">
+                  <ref role="2WH_rO" node="2qIbb0IsK5h" resolve="myModel" />
+                  <node concept="LIFWc" id="2qIbb0IsK$k" role="lGtFl">
+                    <property role="ZRATv" value="true" />
+                    <property role="OXtK3" value="true" />
+                    <property role="p6zMq" value="7" />
+                    <property role="p6zMs" value="7" />
+                    <property role="LIFWd" value="property_name" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -208,55 +160,63 @@
         </node>
       </node>
     </node>
+  </node>
+  <node concept="LiM7Y" id="2qIbb0IsKCt">
+    <property role="TrG5h" value="Test_CompleteActionConstructorParameterDeclaration" />
     <node concept="3clFbS" id="2qIbb0IsKCM" role="LjaKd">
       <node concept="2TK7Tu" id="2qIbb0IsKCN" role="3cqZAp">
         <property role="2TTd_B" value="myObject" />
       </node>
     </node>
-  </node>
-  <node concept="LiM7Y" id="2qIbb0It_oZ">
-    <property role="TrG5h" value="Test_CompleteActionDataParameterDeclaration" />
-    <node concept="sE7Ow" id="2qIbb0It_p0" role="LiRBU">
-      <property role="TrG5h" value="TestAction_DataParameter" />
-      <property role="2uzpH1" value="TestAction" />
-      <node concept="tnohg" id="2qIbb0It_p5" role="tncku">
-        <node concept="3clFbS" id="2qIbb0It_p6" role="2VODD2">
-          <node concept="LIFWc" id="2qIbb0It_p7" role="lGtFl">
-            <property role="ZRATv" value="true" />
-            <property role="OXtK3" value="true" />
-            <property role="p6zMq" value="0" />
-            <property role="p6zMs" value="0" />
-            <property role="LIFWd" value="Constant_u338ov_a0a" />
+    <node concept="1qefOq" id="2aQPn0Pnn$q" role="25YQCW">
+      <node concept="sE7Ow" id="2qIbb0IsKCu" role="1qenE9">
+        <property role="TrG5h" value="TestAction_ConstructorParameter" />
+        <property role="2uzpH1" value="TestAction" />
+        <node concept="2JriF1" id="2qIbb0IsKDB" role="2JrayB">
+          <property role="TrG5h" value="myObject" />
+          <node concept="3Tm6S6" id="2qIbb0IsKDC" role="1B3o_S" />
+          <node concept="3uibUv" id="2qIbb0IsKGE" role="1tU5fm">
+            <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+          </node>
+        </node>
+        <node concept="tnohg" id="2qIbb0IsKCz" role="tncku">
+          <node concept="3clFbS" id="2qIbb0IsKC$" role="2VODD2">
+            <node concept="LIFWc" id="2qIbb0IsKC_" role="lGtFl">
+              <property role="ZRATv" value="true" />
+              <property role="OXtK3" value="true" />
+              <property role="p6zMq" value="0" />
+              <property role="p6zMs" value="0" />
+              <property role="LIFWd" value="Constant_u338ov_a0a" />
+            </node>
           </node>
         </node>
       </node>
-      <node concept="1DS2jV" id="2qIbb0ItSUM" role="1NuT2Z">
-        <property role="TrG5h" value="myModule" />
-        <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MODULE" resolve="MODULE" />
-        <node concept="1oajcY" id="2qIbb0ItSUN" role="1oa70y" />
-      </node>
     </node>
-    <node concept="sE7Ow" id="2qIbb0It_p8" role="LiZbd">
-      <property role="TrG5h" value="TestAction_DataParameter" />
-      <property role="2uzpH1" value="TestAction" />
-      <node concept="1DS2jV" id="2qIbb0ItSWo" role="1NuT2Z">
-        <property role="TrG5h" value="myModule" />
-        <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MODULE" resolve="MODULE" />
-        <node concept="1oajcY" id="2qIbb0ItSWp" role="1oa70y" />
-      </node>
-      <node concept="tnohg" id="2qIbb0It_pd" role="tncku">
-        <node concept="3clFbS" id="2qIbb0It_pe" role="2VODD2">
-          <node concept="3clFbF" id="2qIbb0It_pf" role="3cqZAp">
-            <node concept="2OqwBi" id="2qIbb0It_pg" role="3clFbG">
-              <node concept="2WthIp" id="2qIbb0It_ph" role="2Oq$k0" />
-              <node concept="1DTwFV" id="2qIbb0ItTdw" role="2OqNvi">
-                <ref role="2WH_rO" node="2qIbb0ItSWo" resolve="myModule" />
-                <node concept="LIFWc" id="2qIbb0ItTfS" role="lGtFl">
-                  <property role="ZRATv" value="true" />
-                  <property role="OXtK3" value="true" />
-                  <property role="p6zMq" value="8" />
-                  <property role="p6zMs" value="8" />
-                  <property role="LIFWd" value="property_name" />
+    <node concept="1qefOq" id="2aQPn0Pnn$t" role="25YQFr">
+      <node concept="sE7Ow" id="2qIbb0IsKCA" role="1qenE9">
+        <property role="TrG5h" value="TestAction_ConstructorParameter" />
+        <property role="2uzpH1" value="TestAction" />
+        <node concept="2JriF1" id="2qIbb0IsKQ4" role="2JrayB">
+          <property role="TrG5h" value="myObject" />
+          <node concept="3Tm6S6" id="2qIbb0IsKQ5" role="1B3o_S" />
+          <node concept="3uibUv" id="2qIbb0IsKQ6" role="1tU5fm">
+            <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+          </node>
+        </node>
+        <node concept="tnohg" id="2qIbb0IsKCF" role="tncku">
+          <node concept="3clFbS" id="2qIbb0IsKCG" role="2VODD2">
+            <node concept="3clFbF" id="2qIbb0IsKTl" role="3cqZAp">
+              <node concept="2OqwBi" id="2qIbb0IsKTf" role="3clFbG">
+                <node concept="2WthIp" id="2qIbb0IsKTi" role="2Oq$k0" />
+                <node concept="2BZ7hE" id="2qIbb0IsKTk" role="2OqNvi">
+                  <ref role="2WH_rO" node="2qIbb0IsKQ4" resolve="myObject" />
+                  <node concept="LIFWc" id="2qIbb0IsLdo" role="lGtFl">
+                    <property role="ZRATv" value="true" />
+                    <property role="OXtK3" value="true" />
+                    <property role="p6zMq" value="8" />
+                    <property role="p6zMs" value="8" />
+                    <property role="LIFWd" value="property_name" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -264,9 +224,64 @@
         </node>
       </node>
     </node>
+  </node>
+  <node concept="LiM7Y" id="2qIbb0It_oZ">
+    <property role="TrG5h" value="Test_CompleteActionDataParameterDeclaration" />
     <node concept="3clFbS" id="2qIbb0It_pk" role="LjaKd">
       <node concept="2TK7Tu" id="2qIbb0It_pl" role="3cqZAp">
         <property role="2TTd_B" value="myModule" />
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnn$r" role="25YQCW">
+      <node concept="sE7Ow" id="2qIbb0It_p0" role="1qenE9">
+        <property role="TrG5h" value="TestAction_DataParameter" />
+        <property role="2uzpH1" value="TestAction" />
+        <node concept="tnohg" id="2qIbb0It_p5" role="tncku">
+          <node concept="3clFbS" id="2qIbb0It_p6" role="2VODD2">
+            <node concept="LIFWc" id="2qIbb0It_p7" role="lGtFl">
+              <property role="ZRATv" value="true" />
+              <property role="OXtK3" value="true" />
+              <property role="p6zMq" value="0" />
+              <property role="p6zMs" value="0" />
+              <property role="LIFWd" value="Constant_u338ov_a0a" />
+            </node>
+          </node>
+        </node>
+        <node concept="1DS2jV" id="2qIbb0ItSUM" role="1NuT2Z">
+          <property role="TrG5h" value="myModule" />
+          <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MODULE" resolve="MODULE" />
+          <node concept="1oajcY" id="2qIbb0ItSUN" role="1oa70y" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnn$u" role="25YQFr">
+      <node concept="sE7Ow" id="2qIbb0It_p8" role="1qenE9">
+        <property role="TrG5h" value="TestAction_DataParameter" />
+        <property role="2uzpH1" value="TestAction" />
+        <node concept="1DS2jV" id="2qIbb0ItSWo" role="1NuT2Z">
+          <property role="TrG5h" value="myModule" />
+          <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MODULE" resolve="MODULE" />
+          <node concept="1oajcY" id="2qIbb0ItSWp" role="1oa70y" />
+        </node>
+        <node concept="tnohg" id="2qIbb0It_pd" role="tncku">
+          <node concept="3clFbS" id="2qIbb0It_pe" role="2VODD2">
+            <node concept="3clFbF" id="2qIbb0It_pf" role="3cqZAp">
+              <node concept="2OqwBi" id="2qIbb0It_pg" role="3clFbG">
+                <node concept="2WthIp" id="2qIbb0It_ph" role="2Oq$k0" />
+                <node concept="1DTwFV" id="2qIbb0ItTdw" role="2OqNvi">
+                  <ref role="2WH_rO" node="2qIbb0ItSWo" resolve="myModule" />
+                  <node concept="LIFWc" id="2qIbb0ItTfS" role="lGtFl">
+                    <property role="ZRATv" value="true" />
+                    <property role="OXtK3" value="true" />
+                    <property role="p6zMq" value="8" />
+                    <property role="p6zMs" value="8" />
+                    <property role="LIFWd" value="property_name" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
       </node>
     </node>
   </node>
