@@ -12,7 +12,9 @@ import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.smodel.SModelInternal;
 import jetbrains.mps.smodel.SNodePointer;
 
 public class AbstractTestNodeAnnotation_Constraints extends BaseConstraintsDescriptor {
@@ -36,6 +38,10 @@ public class AbstractTestNodeAnnotation_Constraints extends BaseConstraintsDescr
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
+    SModel model = SNodeOperations.getModel(parentNode);
+    if (model instanceof SModelInternal && ((SModelInternal) model).getLanguageImportVersion(MetaAdapterFactory.getLanguage(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, "jetbrains.mps.lang.test")) <= 4) {
+      return true;
+    }
     return (SNodeOperations.getNodeAncestor(parentNode, MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode"), false, false) != null);
   }
   private static SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590382(jetbrains.mps.lang.test.constraints)", "3143335925186804910");
