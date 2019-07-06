@@ -8,10 +8,10 @@ import jetbrains.mps.errors.MessageStatus;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.errors.item.NodeReportItem;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import junit.framework.Assert;
 import org.jetbrains.mps.openapi.model.SNodeReference;
-import java.util.Objects;
 import jetbrains.mps.lang.test.behavior.NodeRuleReference;
 import jetbrains.mps.lang.test.behavior.RuleType;
 
@@ -37,11 +37,13 @@ public abstract class CheckExpectedMessageAction implements Runnable {
     }
     return false;
   }
-  public abstract boolean isMessageExpected(NodeReportItem errorReport);
+  public boolean isMessageExpected(NodeReportItem errorReport) {
+    return Objects.equals(errorReport.getSeverity(), this.myExpectedMessageStatus);
+  }
 
   @Override
   public void run() {
-    final Iterable<NodeReportItem> errorReporters = new TestsErrorsChecker(SNodeOperations.getContainingRoot(myNodeToCheck)).getErrorsSpecificType(myNodeToCheck, myExpectedMessageStatus);
+    final Iterable<NodeReportItem> errorReporters = new TestsErrorsChecker(SNodeOperations.getContainingRoot(myNodeToCheck)).getErrors(myNodeToCheck);
     Assert.assertTrue(getErrorString(), hasExpectedRuleMessage(errorReporters));
   }
 
@@ -60,7 +62,7 @@ public abstract class CheckExpectedMessageAction implements Runnable {
     @Override
     public boolean isMessageExpected(NodeReportItem errorReport) {
       SNode ruleNode = NodeCheckerUtil.getRuleNodeFromReporter(errorReport, myRuleRepository);
-      return Objects.equals(errorReport.getNode(), SNodeOperations.getPointer(myNodeToCheck)) && Objects.equals(SNodeOperations.getPointer(ruleNode), myExpectedRule);
+      return super.isMessageExpected(errorReport) && Objects.equals(errorReport.getNode(), SNodeOperations.getPointer(myNodeToCheck)) && Objects.equals(SNodeOperations.getPointer(ruleNode), myExpectedRule);
     }
   }
 
@@ -70,7 +72,7 @@ public abstract class CheckExpectedMessageAction implements Runnable {
     }
     @Override
     public boolean isMessageExpected(NodeReportItem errorReport) {
-      return true;
+      return super.isMessageExpected(errorReport) && Objects.equals(errorReport.getNode(), SNodeOperations.getPointer(myNodeToCheck));
     }
   }
 
@@ -81,7 +83,7 @@ public abstract class CheckExpectedMessageAction implements Runnable {
     @Override
     public boolean isMessageExpected(NodeReportItem errorReport) {
       SNode ruleNode = NodeCheckerUtil.getRuleNodeFromReporter(errorReport, myRuleRepository);
-      return Objects.equals(errorReport.getNode(), SNodeOperations.getPointer(myNodeToCheck)) && new NodeRuleReference(ruleNode).getType() == RuleType.TYPESYSTEM;
+      return super.isMessageExpected(errorReport) && Objects.equals(errorReport.getNode(), SNodeOperations.getPointer(myNodeToCheck)) && new NodeRuleReference(ruleNode).getType() == RuleType.TYPESYSTEM;
     }
   }
 

@@ -12,13 +12,12 @@ import jetbrains.mps.core.aspects.behaviour.SModifiersImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import jetbrains.mps.errors.item.NodeReportItem;
 import org.jetbrains.mps.openapi.module.SRepository;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.mps.openapi.model.SNode;
-import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -27,14 +26,19 @@ public final class AbstractNodeRuleCheckOperation__BehaviorDescriptor extends Ba
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x6cbc57bb7a42d28aL, "jetbrains.mps.lang.test.structure.AbstractNodeRuleCheckOperation");
 
   public static final SMethod<Boolean> expectsErrorsInside_id77$odk0vlBj = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("expectsErrorsInside").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("77$odk0vlBj").build(SMethodBuilder.createJavaParameter(NodeReportItem.class, ""), SMethodBuilder.createJavaParameter(SRepository.class, ""));
+  public static final SMethod<Void> perform_id1kgh5YabdhC = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("perform").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1kgh5YabdhC").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<CheckExpectedMessageAction> checkAction_id7jfLc8W17Cr = new SMethodBuilder<CheckExpectedMessageAction>(new SJavaCompoundTypeImpl(CheckExpectedMessageAction.class)).name("checkAction").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7jfLc8W17Cr").build(SMethodBuilder.createJavaParameter(SRepository.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(expectsErrorsInside_id77$odk0vlBj);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(expectsErrorsInside_id77$odk0vlBj, perform_id1kgh5YabdhC, checkAction_id7jfLc8W17Cr);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static boolean expectsErrorsInside_id77$odk0vlBj(@NotNull SNode __thisNode__, NodeReportItem reportItem, SRepository repository) {
-    return Objects.equals(reportItem.getNode(), SNodeOperations.getPointer(INodesTestMethod__BehaviorDescriptor.getAnnotatedNode_id38gbJV0XvZR.invoke(__thisNode__))) && ((boolean) ICheckForExpectedRule__BehaviorDescriptor.hasExpectedRuleMessage_id4CT6QR8SJl8.invoke(__thisNode__, Sequence.<NodeReportItem>singleton(reportItem), repository));
+    return AbstractNodeRuleCheckOperation__BehaviorDescriptor.checkAction_id7jfLc8W17Cr.invoke(__thisNode__, repository).isMessageExpected(reportItem);
+  }
+  /*package*/ static void perform_id1kgh5YabdhC(@NotNull SNode __thisNode__, SNode node) {
+    AbstractNodeRuleCheckOperation__BehaviorDescriptor.checkAction_id7jfLc8W17Cr.invoke(__thisNode__, SNodeOperations.getModel(node).getRepository()).run();
   }
 
   /*package*/ AbstractNodeRuleCheckOperation__BehaviorDescriptor() {
@@ -54,6 +58,9 @@ public final class AbstractNodeRuleCheckOperation__BehaviorDescriptor extends Ba
     switch (methodIndex) {
       case 0:
         return (T) ((Boolean) expectsErrorsInside_id77$odk0vlBj(node, (NodeReportItem) parameters[0], (SRepository) parameters[1]));
+      case 1:
+        perform_id1kgh5YabdhC(node, (SNode) parameters[0]);
+        return null;
       default:
         throw new BHMethodNotFoundException(this, method);
     }

@@ -2,16 +2,16 @@
 <model ref="r:00000000-0000-4000-0000-011c89590389(jetbrains.mps.lang.test.generator.template.main@generator)">
   <persistence version="9" />
   <languages>
-    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
-    <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
-    <use id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal" version="0" />
-    <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="3" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
-    <use id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts" version="0" />
-    <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="2" />
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="2" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
+    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
+    <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="-1" />
+    <use id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal" version="-1" />
+    <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="-1" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="-1" />
+    <use id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts" version="-1" />
+    <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="-1" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="-1" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="-1" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -786,7 +786,7 @@
                 </node>
               </node>
               <node concept="1sPUBX" id="7OB8Y3vWXpR" role="lGtFl">
-                <ref role="v9R2y" node="7OB8Y3vUqKP" resolve="ICheckForExpectedRule_hasExpectedMessage" />
+                <ref role="v9R2y" node="7OB8Y3vUqKP" resolve="AbstractNodeRuleCheckOperation_hasExpectedMessage" />
                 <node concept="3NFfHV" id="7OB8Y3vWXEs" role="1sPUBK">
                   <node concept="3clFbS" id="7OB8Y3vWXEt" role="2VODD2">
                     <node concept="3clFbF" id="7OB8Y3vX0y6" role="3cqZAp">
@@ -5110,7 +5110,7 @@
     </node>
     <node concept="3aamgX" id="62XJ9UeIjui" role="3aUrZf">
       <property role="36QftV" value="true" />
-      <ref role="30HIoZ" to="tp5g:7scb9XIYnWK" resolve="ICheckForExpectedRule" />
+      <ref role="30HIoZ" to="tp5g:6MWlVHUgHaa" resolve="AbstractNodeRuleCheckOperation" />
       <node concept="1Koe21" id="62XJ9UeIjRK" role="1lVwrX">
         <node concept="312cEu" id="62XJ9UeLHdy" role="1Koe22">
           <property role="TrG5h" value="TestBody" />
@@ -5151,7 +5151,7 @@
                       <node concept="10Nm6u" id="7OB8Y3vVw4l" role="37wK5m" />
                     </node>
                     <node concept="1sPUBX" id="7OB8Y3vVhbE" role="lGtFl">
-                      <ref role="v9R2y" node="7OB8Y3vUqKP" resolve="ICheckForExpectedRule_hasExpectedMessage" />
+                      <ref role="v9R2y" node="7OB8Y3vUqKP" resolve="AbstractNodeRuleCheckOperation_hasExpectedMessage" />
                       <node concept="v3LJS" id="7OB8Y3w8oiO" role="v9R3O">
                         <ref role="v3LJV" node="7OB8Y3vZHl5" resolve="nodeToCheckExpr" />
                       </node>
@@ -5443,7 +5443,7 @@
                               </node>
                             </node>
                             <node concept="1sPUBX" id="7OB8Y3vXwE_" role="lGtFl">
-                              <ref role="v9R2y" node="7OB8Y3vUqKP" resolve="ICheckForExpectedRule_hasExpectedMessage" />
+                              <ref role="v9R2y" node="7OB8Y3vUqKP" resolve="AbstractNodeRuleCheckOperation_hasExpectedMessage" />
                               <node concept="1mL9RQ" id="7OB8Y3w905c" role="v9R3O">
                                 <ref role="1mL9RD" node="7OB8Y3w46QH" resolve="nodeToCheckDescendantExpression" />
                               </node>
@@ -6176,7 +6176,7 @@
     </node>
   </node>
   <node concept="jVnub" id="7OB8Y3vUqKP">
-    <property role="TrG5h" value="ICheckForExpectedRule_hasExpectedMessage" />
+    <property role="TrG5h" value="AbstractNodeRuleCheckOperation_hasExpectedMessage" />
     <node concept="1N15co" id="7OB8Y3vZwZf" role="1s_3oS">
       <property role="TrG5h" value="nodeToCheckExpr" />
       <node concept="3Tqbb2" id="7OB8Y3w0IGg" role="1N15GL">
