@@ -444,7 +444,6 @@
   <dependency className="jetbrains.mps.lang.test.runtime.TestsErrorsChecker">
     <classNode dependClassName="java.lang.Deprecated" />
     <classNode dependClassName="java.lang.Iterable" />
-    <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.HashSet" />
     <classNode dependClassName="java.util.Set" />
     <classNode dependClassName="jetbrains.mps.checkers.ConstraintsChecker" />
@@ -469,7 +468,6 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeReference" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SRepository" />
     <classNode dependClassName="org.jetbrains.mps.openapi.util.Consumer" />
-    <classNode dependClassName="org.jetbrains.mps.util.Condition" />
   </dependency>
   <dependency className="jetbrains.mps.lang.test.runtime.TransformationTest">
     <classNode dependClassName="jetbrains.mps.project.Project" />

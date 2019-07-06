@@ -24,7 +24,6 @@ import jetbrains.mps.checkers.TargetConceptChecker;
 import jetbrains.mps.project.validation.StructureChecker;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.checkers.ErrorReportUtil;
-import org.jetbrains.mps.util.Condition;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 
@@ -106,12 +105,11 @@ public class TestsErrorsChecker {
     Set<NodeReportItem> res = SetSequence.fromSetWithValues(new HashSet<NodeReportItem>(), SetSequence.fromSet(result).where(new IWhereFilter<NodeReportItem>() {
       public boolean accept(NodeReportItem it) {
         SNodeReference node = NodeReportItem.FLAVOUR_NODE.tryToGet(it);
-        return node == null || ErrorReportUtil.shouldReportError(it, repository, new Condition<SNode>() {
-          @Override
-          public boolean met(SNode suppressor) {
+        return node == null || Sequence.fromIterable(ErrorReportUtil.getActiveSuppressors(node.resolve(repository), it)).where(new IWhereFilter<SNode>() {
+          public boolean accept(SNode suppressor) {
             return !(SNodeOperations.isInstanceOf(suppressor, MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e0d52da47L, "jetbrains.mps.lang.test.structure.AbstractTestNodeAnnotation")));
           }
-        });
+        }).isEmpty();
       }
     }));
     ourModelErrorsHolder.set(res);

@@ -4,7 +4,10 @@
     <classNode dependClassName="java.lang.Exception" />
     <classNode dependClassName="java.lang.Throwable" />
     <classNode dependClassName="jetbrains.mps.MPSLaunch" />
+    <classNode dependClassName="jetbrains.mps.checkers.SuppressErrorsChecker" />
+    <classNode dependClassName="jetbrains.mps.errors.item.NodeReportItem" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.CollectionSequence" />
+    <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IWhereFilter" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.test.runtime.BaseTestBody" />
     <classNode dependClassName="jetbrains.mps.lang.test.runtime.NodeCheckerUtil" />

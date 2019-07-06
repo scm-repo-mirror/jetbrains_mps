@@ -15,6 +15,9 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.lang.test.runtime.NodeCheckerUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.errors.item.NodeReportItem;
+import jetbrains.mps.checkers.SuppressErrorsChecker;
 
 @MPSLaunch
 public class TypeCheckingErrors_Test extends BaseTransformationTest {
@@ -65,7 +68,11 @@ public class TypeCheckingErrors_Test extends BaseTransformationTest {
       addNodeById("1089557578627272135");
       addNodeById("360223900466871399");
       addNodeById("5532302989585163343");
-      assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(SNodeOperations.cast(getNodeById("1089557578627275112"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b21dL, "InstanceMethodDeclaration"))))).isEmpty();
+      assert CollectionSequence.fromCollection(NodeCheckerUtil.checkForNodeMessages(SNodeOperations.cast(getNodeById("1089557578627275112"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b21dL, "InstanceMethodDeclaration"))))).all(new IWhereFilter<NodeReportItem>() {
+        public boolean accept(NodeReportItem it) {
+          return SuppressErrorsChecker.FLAVOUR_ACTIVE_SUPPRESSOR.canGet(it);
+        }
+      });
     }
     public void test_lbt_subtypeof_param() throws Exception {
       addNodeById("1301553664999174765");

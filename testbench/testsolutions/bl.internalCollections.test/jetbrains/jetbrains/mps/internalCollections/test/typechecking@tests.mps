@@ -59,6 +59,9 @@
       <concept id="1081236700937" name="jetbrains.mps.baseLanguage.structure.StaticMethodCall" flags="nn" index="2YIFZM">
         <reference id="1144433194310" name="classConcept" index="1Pybhc" />
       </concept>
+      <concept id="1070533707846" name="jetbrains.mps.baseLanguage.structure.StaticFieldReference" flags="nn" index="10M0yZ">
+        <reference id="1144433057691" name="classifier" index="1PxDUh" />
+      </concept>
       <concept id="1070534058343" name="jetbrains.mps.baseLanguage.structure.NullLiteral" flags="nn" index="10Nm6u" />
       <concept id="1068390468198" name="jetbrains.mps.baseLanguage.structure.ClassConcept" flags="ig" index="312cEu" />
       <concept id="1068431474542" name="jetbrains.mps.baseLanguage.structure.VariableDeclaration" flags="ng" index="33uBYm">
@@ -165,6 +168,7 @@
       <concept id="1151689724996" name="jetbrains.mps.baseLanguage.collections.structure.SequenceType" flags="in" index="A3Dl8">
         <child id="1151689745422" name="elementType" index="A3Ik2" />
       </concept>
+      <concept id="1235566831861" name="jetbrains.mps.baseLanguage.collections.structure.AllOperation" flags="nn" index="2HxqBE" />
       <concept id="1237721394592" name="jetbrains.mps.baseLanguage.collections.structure.AbstractContainerCreator" flags="nn" index="HWqM0">
         <child id="1237721435807" name="elementType" index="HW$YZ" />
       </concept>
@@ -227,7 +231,30 @@
                 <ref role="3xOPvv" node="WuSHxk$Sd8" resolve="varar_raw" />
               </node>
             </node>
-            <node concept="1v1jN8" id="2IvnPUInmyI" role="2OqNvi" />
+            <node concept="2HxqBE" id="2aQPn0Pu6KB" role="2OqNvi">
+              <node concept="1bVj0M" id="2aQPn0Pu6KD" role="23t8la">
+                <node concept="3clFbS" id="2aQPn0Pu6KE" role="1bW5cS">
+                  <node concept="3clFbF" id="2aQPn0Pudir" role="3cqZAp">
+                    <node concept="2OqwBi" id="2aQPn0PwAMt" role="3clFbG">
+                      <node concept="10M0yZ" id="2aQPn0PwAro" role="2Oq$k0">
+                        <ref role="3cqZAo" to="wsw7:2aQPn0PuhRG" resolve="FLAVOUR_ACTIVE_SUPPRESSOR" />
+                        <ref role="1PxDUh" to="wsw7:4c7y4qc4V7B" resolve="SuppressErrorsChecker" />
+                      </node>
+                      <node concept="liA8E" id="2aQPn0PwB0y" role="2OqNvi">
+                        <ref role="37wK5l" to="d6hs:~FlavouredItem$ReportItemFlavour.canGet(jetbrains.mps.errors.item.FlavouredItem)" resolve="canGet" />
+                        <node concept="37vLTw" id="2aQPn0PwB4O" role="37wK5m">
+                          <ref role="3cqZAo" node="2aQPn0Pu6KF" resolve="it" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="Rh6nW" id="2aQPn0Pu6KF" role="1bW2Oz">
+                  <property role="TrG5h" value="it" />
+                  <node concept="2jxLKc" id="2aQPn0Pu6KG" role="1tU5fm" />
+                </node>
+              </node>
+            </node>
           </node>
         </node>
       </node>
