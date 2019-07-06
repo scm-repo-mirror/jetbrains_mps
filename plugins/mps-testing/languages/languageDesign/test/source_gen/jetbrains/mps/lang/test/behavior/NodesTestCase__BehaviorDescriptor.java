@@ -56,7 +56,7 @@ public final class NodesTestCase__BehaviorDescriptor extends BaseBHDescriptor {
     return ITestCase__BehaviorDescriptor.getTestSet_idhGB2z8L.invoke(__thisNode__);
   }
   /*package*/ static boolean isIntentionApplicable_idhHDM9no(@NotNull SAbstractConcept __thisConcept__, SNode node) {
-    return (SNodeOperations.getNodeAncestor(node, MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode"), true, false) != null);
+    return (SNodeOperations.getNodeAncestor(node, MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode"), false, false) != null);
   }
   /*package*/ static String getTestBodyName_idhOw0ICJ(@NotNull SAbstractConcept __thisConcept__) {
     return "TestBody";

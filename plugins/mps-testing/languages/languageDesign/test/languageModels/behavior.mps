@@ -1098,7 +1098,6 @@
                     <ref role="cht4Q" to="tp5g:hHqefK1" resolve="TestNode" />
                   </node>
                 </node>
-                <node concept="1xIGOp" id="hHDM9nz" role="1xVPHs" />
               </node>
             </node>
             <node concept="3x8VRR" id="2IvnPUIv7kX" role="2OqNvi" />

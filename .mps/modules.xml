@@ -530,7 +530,6 @@
       <modulePath path="${mps_home}/testbench/testsolutions/jetbrains.mps.build.stripping.tests/jetbrains.mps.build.stripping.tests.msd" folder="platform.build" />
       <modulePath path="${mps_home}/testbench/testsolutions/jetbrains.mps.lang.editor.imageGen.tests/jetbrains.mps.lang.editor.imageGen.tests.msd" folder="core.aspects.editor" />
       <modulePath path="${mps_home}/testbench/testsolutions/jetbrains.mps.tests.sraMigration/jetbrains.mps.tests.sraMigration.msd" folder="tests.testSmartRefAttrMigration" />
-      <modulePath path="${mps_home}/testbench/testsolutions/kernel.test/jetbrains.mps.kernel.tests.msd" folder="core.kernel" />
       <modulePath path="${mps_home}/testbench/testsolutions/lang.smodel.query.test/jetbrains.mps.lang.smodel.query.test.msd" folder="core.languages.smodel.query" />
       <modulePath path="${mps_home}/testbench/testsolutions/make.test/jetbrains.mps.make.tests.msd" folder="core.make" />
       <modulePath path="${mps_home}/testbench/testsolutions/pattern.test/jetbrains.mps.lang.pattern.test.msd" folder="core.languages.pattern" />
