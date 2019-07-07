@@ -137,38 +137,37 @@ public class ModelConstraints {
   @Deprecated
   public static boolean canBeRoot(@NotNull SAbstractConcept concept, @NotNull SModel model, @Nullable CheckingNodeContext debugInfo) {
     CanBeRootContext context = new CanBeRootContext(concept, model);
-    Optional<Rule<CanBeRootContext>> first = checkPerConceptRulesOfKind(concept, PredefinedRuleKinds.CAN_BE_ROOT, context).findFirst();
-    if (first.isPresent() && debugInfo != null) {
-      debugInfo.setBreakingNode(first.get().getRuleSourceNode());
+    List<Rule<CanBeRootContext>> rules = ConstraintsCanBeFacade.checkCanBeRoot(context);
+    if (!rules.isEmpty() && debugInfo != null) {
+      debugInfo.setBreakingNode(rules.get(0).getRuleSourceNode());
     }
-    return !first.isPresent();
+    return rules.isEmpty();
   }
 
   // private canBe* section
 
   private static boolean canBeAncestor0(@NotNull ConstraintContext_CanBeAncestor context, @Nullable CheckingNodeContext debugInfo) {
-    Optional<Rule<CanBeAncestorContext>> first =
-        checkPerConceptRulesOfKind(context.getNode().getConcept(), PredefinedRuleKinds.CAN_BE_ANCESTOR, context.adapt()).findFirst();
-    if (first.isPresent() && debugInfo != null) {
-      debugInfo.setBreakingNode(first.get().getRuleSourceNode());
+    List<Rule<CanBeAncestorContext>> rules = ConstraintsCanBeFacade.checkCanBeAncestor(context.adapt());
+    if (!rules.isEmpty() && debugInfo != null) {
+      debugInfo.setBreakingNode(rules.get(0).getRuleSourceNode());
     }
-    return !first.isPresent();
+    return rules.isEmpty();
   }
 
   private static boolean canBeParent0(@NotNull ConstraintContext_CanBeParent context, @Nullable CheckingNodeContext debugInfo) {
-    Optional<Rule<ContainmentContext>> first = checkPerConceptRulesOfKind(context.getConcept(), PredefinedRuleKinds.CAN_BE_PARENT, context.adapt()).findFirst();
-    if (first.isPresent() && debugInfo != null) {
-      debugInfo.setBreakingNode(first.get().getRuleSourceNode());
+    List<Rule<ContainmentContext>> rules = ConstraintsCanBeFacade.checkCanBeParent(context.adapt());
+    if (!rules.isEmpty() && debugInfo != null) {
+      debugInfo.setBreakingNode(rules.get(0).getRuleSourceNode());
     }
-    return !first.isPresent();
+    return rules.isEmpty();
   }
 
   private static boolean canBeChild0(@NotNull ConstraintContext_CanBeChild context, @Nullable CheckingNodeContext debugInfo) {
-    Optional<Rule<ContainmentContext>> first = checkPerConceptRulesOfKind(context.getConcept(), PredefinedRuleKinds.CAN_BE_CHILD, context.adapt()).findFirst();
-    if (first.isPresent() && debugInfo != null) {
-      debugInfo.setBreakingNode(first.get().getRuleSourceNode());
+    List<Rule<ContainmentContext>> rules = ConstraintsCanBeFacade.checkCanBeChild(context.adapt());
+    if (!rules.isEmpty() && debugInfo != null) {
+      debugInfo.setBreakingNode(rules.get(0).getRuleSourceNode());
     }
-    return !first.isPresent();
+    return rules.isEmpty();
   }
 
   // scopes part

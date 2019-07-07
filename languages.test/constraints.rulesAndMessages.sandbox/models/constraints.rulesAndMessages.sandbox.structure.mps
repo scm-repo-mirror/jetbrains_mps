@@ -44,13 +44,9 @@
   <node concept="1TIwiD" id="7w_sh_iHHi0">
     <property role="EcuMT" value="8657450212265481344" />
     <property role="TrG5h" value="ChildConcept" />
+    <ref role="1TJDcQ" node="7iO_FEKkt_x" resolve="ChildConceptBase" />
     <node concept="PrWs8" id="2o8jHTOBTez" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
-    </node>
-    <node concept="1TJgyi" id="3Ji_e5k59xt" role="1TKVEl">
-      <property role="IQ2nx" value="4310671488846174301" />
-      <property role="TrG5h" value="tolerance" />
-      <ref role="AX2Wp" to="tpck:fKAQMTA" resolve="integer" />
     </node>
   </node>
   <node concept="1TIwiD" id="7FO6JFyzxCl">
@@ -72,6 +68,16 @@
     </node>
     <node concept="PrWs8" id="2o8jHTOBTex" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="7iO_FEKkt_x">
+    <property role="EcuMT" value="8409512132773796193" />
+    <property role="TrG5h" value="ChildConceptBase" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyi" id="7iO_FEKku0I" role="1TKVEl">
+      <property role="IQ2nx" value="8409512132773797934" />
+      <property role="TrG5h" value="tolerance" />
+      <ref role="AX2Wp" to="tpck:fKAQMTA" resolve="integer" />
     </node>
   </node>
 </model>

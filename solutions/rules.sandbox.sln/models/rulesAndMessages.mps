@@ -11,8 +11,9 @@
         <property id="7247338141359681466" name="canHaveChildren" index="1uspwu" />
         <child id="8859736031789718038" name="children" index="2ouw3G" />
       </concept>
-      <concept id="8657450212265481344" name="constraints.rulesAndMessages.sandbox.structure.ChildConcept" flags="ng" index="E$Ump">
-        <property id="4310671488846174301" name="tolerance" index="1JLwMW" />
+      <concept id="8657450212265481344" name="constraints.rulesAndMessages.sandbox.structure.ChildConcept" flags="ng" index="E$Ump" />
+      <concept id="8409512132773796193" name="constraints.rulesAndMessages.sandbox.structure.ChildConceptBase" flags="ng" index="34TkZr">
+        <property id="8409512132773797934" name="tolerance" index="34Tnqk" />
       </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
@@ -21,27 +22,31 @@
       </concept>
     </language>
   </registry>
-  <node concept="2ouw3J" id="3Ji_e5k7jb6">
+  <node concept="2ouw3J" id="5XPa2npNADl">
     <property role="TrG5h" value="p1" />
-    <node concept="E$Ump" id="3Ji_e5k7jb7" role="2ouw3G">
-      <property role="TrG5h" value="a" />
-      <property role="1JLwMW" value="15" />
+    <node concept="E$Ump" id="5XPa2npNADm" role="2ouw3G">
+      <property role="TrG5h" value="c1" />
+      <property role="34Tnqk" value="57" />
     </node>
   </node>
-  <node concept="2ouw3J" id="3Ji_e5k7jb9">
+  <node concept="2ouw3J" id="5XPa2npNADo">
     <property role="TrG5h" value="p2" />
     <property role="1uspwu" value="true" />
-    <node concept="E$Ump" id="3Ji_e5k7jba" role="2ouw3G">
-      <property role="TrG5h" value="aaaaaa" />
-      <property role="1JLwMW" value="15" />
+    <node concept="E$Ump" id="5XPa2npNADp" role="2ouw3G">
+      <property role="TrG5h" value="c1" />
+      <property role="34Tnqk" value="0" />
     </node>
-  </node>
-  <node concept="2ouw3J" id="3Ji_e5k7jbb">
-    <property role="TrG5h" value="p3" />
-    <property role="1uspwu" value="true" />
-    <node concept="E$Ump" id="3Ji_e5k7jbc" role="2ouw3G">
-      <property role="TrG5h" value="aaaa" />
-      <property role="1JLwMW" value="101" />
+    <node concept="E$Ump" id="5XPa2npNADq" role="2ouw3G">
+      <property role="TrG5h" value="c2" />
+      <property role="34Tnqk" value="55" />
+    </node>
+    <node concept="E$Ump" id="5XPa2npNADx" role="2ouw3G">
+      <property role="TrG5h" value="c3" />
+      <property role="34Tnqk" value="105" />
+    </node>
+    <node concept="E$Ump" id="5XPa2npNADt" role="2ouw3G">
+      <property role="TrG5h" value="c4" />
+      <property role="34Tnqk" value="45" />
     </node>
   </node>
 </model>

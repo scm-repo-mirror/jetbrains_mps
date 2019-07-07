@@ -49,7 +49,7 @@
         <child id="315923949160550022" name="messageProvider" index="1DCEQI" />
       </concept>
       <concept id="315923949160550017" name="jetbrains.mps.lang.rulesAndMessages.structure.InlineMessageProvider" flags="ng" index="1DCEQD">
-        <child id="5258059200641510856" name="message" index="16N$OO" />
+        <child id="5258059200641510856" name="messagesExpr" index="16N$OO" />
       </concept>
     </language>
     <language id="134c38d4-e3af-4d9e-b069-1c7df0a4005d" name="jetbrains.mps.lang.constraints.rules.skeleton">
@@ -106,23 +106,6 @@
   </registry>
   <node concept="1M2fIO" id="1uv0FAtCoKz">
     <ref role="1M2myG" to="npmf:7w_sh_iHHi0" resolve="ChildConcept" />
-    <node concept="9S07l" id="1uv0FAtCoK$" role="9Vyp8">
-      <node concept="3clFbS" id="1uv0FAtCoK_" role="2VODD2">
-        <node concept="3clFbF" id="1uv0FAtCoOs" role="3cqZAp">
-          <node concept="3y3z36" id="1uv0FAtCqFT" role="3clFbG">
-            <node concept="3cmrfG" id="1uv0FAtCqM1" role="3uHU7w">
-              <property role="3cmrfH" value="55" />
-            </node>
-            <node concept="2OqwBi" id="7GQ_VdxaGMv" role="3uHU7B">
-              <node concept="EsrRn" id="7GQ_VdxaGIn" role="2Oq$k0" />
-              <node concept="3TrcHB" id="7GQ_VdxaGUQ" role="2OqNvi">
-                <ref role="3TsBF5" to="npmf:3Ji_e5k59xt" resolve="tolerance" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
   </node>
   <node concept="3Oh7Pa" id="1TfWqDAKmRD">
     <ref role="3Oh7Pe" to="npmf:7w_sh_iHHi0" resolve="ChildConcept" />
@@ -139,10 +122,10 @@
               </node>
               <node concept="2OqwBi" id="7GQ_VdxayOY" role="3uHU7B">
                 <node concept="3QpRc$" id="6X8eyFnbJqI" role="2Oq$k0">
-                  <ref role="3QpVTF" to="prp3:6X8eyFnbIRT" resolve="childNode" />
+                  <ref role="3QpVTF" to="prp3:6X8eyFnbL3m" resolve="childNode" />
                 </node>
                 <node concept="3TrcHB" id="7GQ_VdxayWN" role="2OqNvi">
-                  <ref role="3TsBF5" to="npmf:3Ji_e5k59xt" resolve="tolerance" />
+                  <ref role="3TsBF5" to="npmf:7iO_FEKku0I" resolve="tolerance" />
                 </node>
               </node>
             </node>
@@ -167,10 +150,10 @@
               </node>
               <node concept="2OqwBi" id="7GQ_Vdxa$kx" role="3uHU7B">
                 <node concept="3QpRc$" id="7GQ_Vdxa$ky" role="2Oq$k0">
-                  <ref role="3QpVTF" to="prp3:6X8eyFnbIRT" resolve="childNode" />
+                  <ref role="3QpVTF" to="prp3:6X8eyFnbL3m" resolve="childNode" />
                 </node>
                 <node concept="3TrcHB" id="7GQ_Vdxa$kz" role="2OqNvi">
-                  <ref role="3TsBF5" to="npmf:3Ji_e5k59xt" resolve="tolerance" />
+                  <ref role="3TsBF5" to="npmf:7iO_FEKku0I" resolve="tolerance" />
                 </node>
               </node>
             </node>
@@ -233,7 +216,27 @@
               <ref role="16E0hz" to="prp3:6X8eyFnbLf8" resolve="parentNode" />
             </node>
             <node concept="16N$OT" id="7GQ_VdxayBk" role="16I2mt">
-              <property role="16N$OU" value=" must be set to true" />
+              <property role="16N$OU" value=" must be set to 'true'" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="1M2fIO" id="7iO_FEKkt_W">
+    <ref role="1M2myG" to="npmf:7iO_FEKkt_x" resolve="ChildConceptBase" />
+    <node concept="9S07l" id="7iO_FEKktN3" role="9Vyp8">
+      <node concept="3clFbS" id="7iO_FEKktN4" role="2VODD2">
+        <node concept="3clFbF" id="1uv0FAtCoOs" role="3cqZAp">
+          <node concept="3y3z36" id="1uv0FAtCqFT" role="3clFbG">
+            <node concept="3cmrfG" id="1uv0FAtCqM1" role="3uHU7w">
+              <property role="3cmrfH" value="55" />
+            </node>
+            <node concept="2OqwBi" id="7GQ_VdxaGMv" role="3uHU7B">
+              <node concept="EsrRn" id="7GQ_VdxaGIn" role="2Oq$k0" />
+              <node concept="3TrcHB" id="7GQ_VdxaGUQ" role="2OqNvi">
+                <ref role="3TsBF5" to="npmf:7iO_FEKku0I" resolve="tolerance" />
+              </node>
             </node>
           </node>
         </node>

@@ -16,17 +16,17 @@ import java.util.Collections;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public final class ChildConcept_FeedbackRoot extends BaseFeedbackDescriptor {
+public final class ChildConcept_ConstraintsFeedback extends BaseFeedbackDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept");
 
-  private static final FeedbackProvider<ContainmentContext> MSGPROVIDER_WhenConstraintRuleFails_a = new BaseMessageProvider<ContainmentContext>(new FailingRuleProblemId(ChildConcept_Constraints2.Rule_toleranceNotTooHigh.ID_toleranceNotTooHigh)) {
+  private static final FeedbackProvider<ContainmentContext> MSGPROVIDER_WhenConstraintRuleFails_a = new BaseMessageProvider<ContainmentContext>(new FailingRuleProblemId(ChildConcept_ConstraintRules.Rule_toleranceNotTooHigh.ID_toleranceNotTooHigh)) {
     @NotNull
     @Override
     public MessageProvider.StringMsg yieldMessage(ContainmentContext context) {
       return new MessageProvider.StringMsg("The tolerance is too high");
     }
   };
-  private static final FeedbackProvider<ContainmentContext> MSGPROVIDER_WhenConstraintRuleFails_b = new BaseMessageProvider<ContainmentContext>(new FailingRuleProblemId(ChildConcept_Constraints2.Rule_toleranceNotTooLow.ID_toleranceNotTooLow)) {
+  private static final FeedbackProvider<ContainmentContext> MSGPROVIDER_WhenConstraintRuleFails_b = new BaseMessageProvider<ContainmentContext>(new FailingRuleProblemId(ChildConcept_ConstraintRules.Rule_toleranceNotTooLow.ID_toleranceNotTooLow)) {
     @NotNull
     @Override
     public MessageProvider.StringMsg yieldMessage(ContainmentContext context) {
@@ -36,7 +36,7 @@ public final class ChildConcept_FeedbackRoot extends BaseFeedbackDescriptor {
 
   private static final List<FeedbackProvider> PROVIDERS = Collections.unmodifiableList(Arrays.<FeedbackProvider>asList(MSGPROVIDER_WhenConstraintRuleFails_a, MSGPROVIDER_WhenConstraintRuleFails_b));
 
-  public ChildConcept_FeedbackRoot() {
+  public ChildConcept_ConstraintsFeedback() {
     super(CONCEPT);
   }
 

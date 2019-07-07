@@ -15,20 +15,21 @@ import jetbrains.mps.core.aspects.constraints.rules.BaseRule;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.core.aspects.constraints.rules.RuleId;
+import jetbrains.mps.core.aspects.constraints.rules.kinds.PredefinedRuleKinds;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 
-public final class ParentConcept_Constraints2 extends BaseRulesConstraintsDescriptor {
+public final class ParentConcept_ConstraintRules extends BaseRulesConstraintsDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7af41afae28e1a15L, "constraints.rulesAndMessages.sandbox.structure.ParentConcept");
 
-  /*package*/ ParentConcept_Constraints2() {
+  /*package*/ ParentConcept_ConstraintRules() {
     super(CONCEPT);
   }
-  public static final Rule<ContainmentContext> childConcept_id8878450512092601214 = new ParentConcept_Constraints2.Rule_childConcept();
-  public static final Rule<ContainmentContext> propIsTrue_id8878450512092603199 = new ParentConcept_Constraints2.Rule_propIsTrue();
+  public static final Rule<ContainmentContext> check_id8878450512092601214 = new ParentConcept_ConstraintRules.Rule_childConcept();
+  public static final Rule<ContainmentContext> check_id8878450512092603199 = new ParentConcept_ConstraintRules.Rule_propIsTrue();
 
-  private static final List<Rule<?>> RULES = Collections.unmodifiableList(Arrays.<Rule<?>>asList(childConcept_id8878450512092601214, propIsTrue_id8878450512092603199));
+  private static final List<Rule<?>> RULES = Collections.unmodifiableList(Arrays.<Rule<?>>asList(check_id8878450512092601214, check_id8878450512092603199));
 
   @NotNull
   @Override
@@ -43,6 +44,7 @@ public final class ParentConcept_Constraints2 extends BaseRulesConstraintsDescri
     public Rule_childConcept() {
       super(CONCEPT, PredefinedRuleKinds.CAN_BE_PARENT, ID_childConcept, SOURCE_NODE_REF);
     }
+
     @Override
     public boolean check(@NotNull ContainmentContext context) {
       return SConceptOperations.isExactly(SNodeOperations.asSConcept(context.getChildConcept()), MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept"));
@@ -55,6 +57,7 @@ public final class ParentConcept_Constraints2 extends BaseRulesConstraintsDescri
     public Rule_propIsTrue() {
       super(CONCEPT, PredefinedRuleKinds.CAN_BE_PARENT, ID_propIsTrue, SOURCE_NODE_REF);
     }
+
     @Override
     public boolean check(@NotNull ContainmentContext context) {
       return SPropertyOperations.getBoolean(context.getParentNode(), MetaAdapterFactory.getProperty(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7af41afae28e1a15L, 0x6493b7a43ae22fbaL, "canHaveChildren"));

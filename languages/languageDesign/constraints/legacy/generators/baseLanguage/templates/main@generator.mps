@@ -2539,7 +2539,7 @@
               <property role="TrG5h" value="result" />
               <node concept="10P_77" id="5KWsMXTJ53Y" role="1tU5fm" />
               <node concept="1rXfSq" id="5KWsMXTJ53Z" role="33vP2m">
-                <ref role="37wK5l" node="5KWsMXTIPXd" />
+                <ref role="37wK5l" node="5KWsMXTIPXd" resolve="staticValidateProperty" />
                 <node concept="37vLTw" id="5KWsMXTJ7QI" role="37wK5m">
                   <ref role="3cqZAo" node="3g99cIN5jlx" resolve="node" />
                 </node>
@@ -2554,12 +2554,12 @@
               <node concept="3clFbF" id="5KWsMXTILjo" role="3cqZAp">
                 <node concept="2OqwBi" id="5KWsMXTILjp" role="3clFbG">
                   <node concept="37vLTw" id="5KWsMXTJcBL" role="2Oq$k0">
-                    <ref role="3cqZAo" node="5KWsMXTIGFf" />
+                    <ref role="3cqZAo" node="5KWsMXTIGFf" resolve="checkingNodeContext" />
                   </node>
                   <node concept="liA8E" id="5KWsMXTILjr" role="2OqNvi">
                     <ref role="37wK5l" to="ze1i:~CheckingNodeContext.setBreakingNode(org.jetbrains.mps.openapi.model.SNodeReference)" resolve="setBreakingNode" />
                     <node concept="37vLTw" id="5KWsMXTMq$$" role="37wK5m">
-                      <ref role="3cqZAo" node="5KWsMXTMlXX" />
+                      <ref role="3cqZAo" node="5KWsMXTMlXX" resolve="validatePropertyBreakingPoint" />
                     </node>
                   </node>
                 </node>
@@ -2569,19 +2569,19 @@
               <node concept="3y3z36" id="5KWsMXTILjU" role="3uHU7w">
                 <node concept="10Nm6u" id="5KWsMXTILjV" role="3uHU7w" />
                 <node concept="37vLTw" id="5KWsMXTJ3Vt" role="3uHU7B">
-                  <ref role="3cqZAo" node="5KWsMXTIGFf" />
+                  <ref role="3cqZAo" node="5KWsMXTIGFf" resolve="checkingNodeContext" />
                 </node>
               </node>
               <node concept="3fqX7Q" id="5KWsMXTILjX" role="3uHU7B">
                 <node concept="37vLTw" id="5KWsMXTJbKE" role="3fr31v">
-                  <ref role="3cqZAo" node="5KWsMXTJ53X" />
+                  <ref role="3cqZAo" node="5KWsMXTJ53X" resolve="result" />
                 </node>
               </node>
             </node>
           </node>
           <node concept="3clFbF" id="5KWsMXTJccz" role="3cqZAp">
             <node concept="37vLTw" id="5KWsMXTJccx" role="3clFbG">
-              <ref role="3cqZAo" node="5KWsMXTJ53X" />
+              <ref role="3cqZAo" node="5KWsMXTJ53X" resolve="result" />
             </node>
           </node>
         </node>
@@ -3246,7 +3246,7 @@
                           <node concept="1pGfFk" id="1_9Uczm0P12" role="2ShVmc">
                             <ref role="37wK5l" to="79pl:~BaseScopeProvider.&lt;init&gt;()" resolve="BaseScopeProvider" />
                             <node concept="5jKBG" id="1_9Uczm0P1m" role="lGtFl">
-                              <ref role="v9R2y" node="59r$iG97Ntk" />
+                              <ref role="v9R2y" node="59r$iG97Ntk" resolve="BaseScopeProvider" />
                               <node concept="2OqwBi" id="1_9Uczm0P1r" role="v9R3O">
                                 <node concept="30H73N" id="1_9Uczm0P1s" role="2Oq$k0" />
                                 <node concept="3TrEf2" id="1_9Uczm0P1t" role="2OqNvi">

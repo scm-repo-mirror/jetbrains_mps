@@ -180,7 +180,7 @@ public class ConstraintsChecker extends AbstractNodeCheckerInEditor implements I
       FailingConstraintsMessagesFacade facade = getMessageFacade();
       List<String> messages = facade.findTextMessagesForRule(context.getParentConcept(), rule, context);
       for (String message : messages) {
-        errorsCollector.addError(new CanBeParentFailedReportItem(childNode, message, ruleId));
+        errorsCollector.addError(new CanBeParentFailedReportItem(context.getParentNode(), message, ruleId));
       }
     }
   }

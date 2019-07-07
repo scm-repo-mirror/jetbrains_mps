@@ -15,6 +15,7 @@ import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptChildConcept = createDescriptorForChildConcept();
+  /*package*/ final ConceptDescriptor myConceptChildConceptBase = createDescriptorForChildConceptBase();
   /*package*/ final ConceptDescriptor myConceptParentConcept = createDescriptorForParentConcept();
   private final LanguageConceptSwitch myIndexSwitch;
 
@@ -30,7 +31,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptChildConcept, myConceptParentConcept);
+    return Arrays.asList(myConceptChildConcept, myConceptChildConceptBase, myConceptParentConcept);
   }
 
   @Override
@@ -39,6 +40,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     switch (myIndexSwitch.index(id)) {
       case LanguageConceptSwitch.ChildConcept:
         return myConceptChildConcept;
+      case LanguageConceptSwitch.ChildConceptBase:
+        return myConceptChildConceptBase;
       case LanguageConceptSwitch.ParentConcept:
         return myConceptParentConcept;
       default:
@@ -58,10 +61,18 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForChildConcept() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("constraints.rulesAndMessages.sandbox", "ChildConcept", 0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L);
     b.class_(false, false, false);
+    b.super_("constraints.rulesAndMessages.sandbox.structure.ChildConceptBase", 0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x74b496bab051d961L);
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.origin("r:3fd4e667-8fcb-4728-850d-184116dcdf79(constraints.rulesAndMessages.sandbox.structure)/8657450212265481344");
     b.version(2);
-    b.property("tolerance", 0x3bd294e15414985dL).type(PrimitiveTypeId.INTEGER).origin("4310671488846174301").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForChildConceptBase() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("constraints.rulesAndMessages.sandbox", "ChildConceptBase", 0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x74b496bab051d961L);
+    b.class_(false, false, false);
+    b.origin("r:3fd4e667-8fcb-4728-850d-184116dcdf79(constraints.rulesAndMessages.sandbox.structure)/8409512132773796193");
+    b.version(2);
+    b.property("tolerance", 0x74b496bab051e02eL).type(PrimitiveTypeId.INTEGER).origin("8409512132773797934").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForParentConcept() {

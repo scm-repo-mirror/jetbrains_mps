@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:705b593e-be98-40e2-80b6-b0a4b99a6ab8(abc)">
+<model ref="r:705b593e-be98-40e2-80b6-b0a4b99a6ab8(abc)" doNotGenerate="true">
   <persistence version="9" />
   <languages>
     <use id="7cf7c95b-c81e-4da9-a056-45e480a7abd3" name="multiAspectLang" version="0" />

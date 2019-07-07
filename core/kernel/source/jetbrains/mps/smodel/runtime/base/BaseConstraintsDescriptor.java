@@ -57,8 +57,12 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
 
   private final ConcurrentHashMap<SProperty, PropertyConstraintsDescriptor> propertiesConstraints = new ConcurrentHashMap<>();
   private final ConcurrentHashMap<SReferenceLink, ReferenceConstraintsDescriptor> referencesConstraints = new ConcurrentHashMap<>();
+  private boolean myCanBeChildIsDefined = true;
+  private boolean myCanBeRootIsDefined = true;
+  private boolean myCanBeAncestorIsDefined = true;
+  private boolean myCanBeParentIsDefined = true;
 
-  public BaseConstraintsDescriptor(SAbstractConcept concept) {
+  public BaseConstraintsDescriptor(@NotNull SAbstractConcept concept) {
     myConcept = concept;
 
     propertiesConstraints.putAll(getSpecifiedProperties());
@@ -69,6 +73,26 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
     myCanBeParentConstraint = calculateCanBeParentConstraint();
     myCanBeAncestorConstraint = calculateCanBeAncestorConstraint();
     myDefaultScopeConstraint = calculateDefaultScopeConstraint();
+  }
+
+  @Override
+  public boolean canBeChildIsDefined() {
+    return myCanBeChildIsDefined;
+  }
+
+  @Override
+  public boolean canBeParentIsDefined() {
+    return myCanBeParentIsDefined;
+  }
+
+  @Override
+  public boolean canBeRootIsDefined() {
+    return myCanBeRootIsDefined;
+  }
+
+  @Override
+  public boolean canBeAncestorIsDefined() {
+    return myCanBeAncestorIsDefined;
   }
 
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
@@ -82,18 +106,22 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
   }
 
   protected ConstraintFunction<ConstraintContext_CanBeChild, Boolean> calculateCanBeChildConstraint() {
+    myCanBeChildIsDefined = false;
     return ConstraintFunctions.createBooleanComposition(collectParents(ConstraintFunctions::getCanBeChildConstraintFunction));
   }
 
   protected ConstraintFunction<ConstraintContext_CanBeRoot, Boolean> calculateCanBeRootConstraint() {
+    myCanBeRootIsDefined = false;
     return ConstraintFunctions.createBooleanComposition(collectParents(ConstraintFunctions::getCanBeRootConstraintFunction));
   }
 
   protected ConstraintFunction<ConstraintContext_CanBeParent, Boolean> calculateCanBeParentConstraint() {
+    myCanBeParentIsDefined = false;
     return ConstraintFunctions.createBooleanComposition(collectParents(ConstraintFunctions::getCanBeParentConstraintFunction));
   }
 
   protected ConstraintFunction<ConstraintContext_CanBeAncestor, Boolean> calculateCanBeAncestorConstraint() {
+    myCanBeAncestorIsDefined = false;
     return ConstraintFunctions.createBooleanComposition(collectParents(ConstraintFunctions::getCanBeAncestorConstraintFunction));
   }
 
