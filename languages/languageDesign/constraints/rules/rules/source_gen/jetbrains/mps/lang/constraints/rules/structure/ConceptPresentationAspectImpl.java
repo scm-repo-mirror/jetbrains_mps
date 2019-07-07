@@ -31,6 +31,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.DefForRule:
         if (props_DefForRule == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("auxiliary definition");
           cpb.presentationByName();
           props_DefForRule = cpb.create();
         }

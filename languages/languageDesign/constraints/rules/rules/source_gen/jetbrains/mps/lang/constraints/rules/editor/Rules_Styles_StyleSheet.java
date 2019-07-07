@@ -13,8 +13,9 @@ import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import java.awt.Color;
 import com.intellij.ui.JBColor;
 import jetbrains.mps.nodeEditor.MPSColors;
+import jetbrains.mps.nodeEditor.EditorSettings;
 
-public class Constraints_Styles_StyleSheet {
+public class Rules_Styles_StyleSheet {
   /**
    * 
    * @deprecated Since MPS 3.5 use generated StyleClass
@@ -23,7 +24,7 @@ public class Constraints_Styles_StyleSheet {
   public static void apply_ContextReference(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Constraints_Styles_StyleSheet.ContextReferenceStyleClass(editorContext, node).apply(style, editorCell);
+    new Rules_Styles_StyleSheet.ContextReferenceStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -33,7 +34,7 @@ public class Constraints_Styles_StyleSheet {
   public static void apply_RuleStyle(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Constraints_Styles_StyleSheet.RuleStyleStyleClass(editorContext, node).apply(style, editorCell);
+    new Rules_Styles_StyleSheet.RuleStyleStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -43,7 +44,7 @@ public class Constraints_Styles_StyleSheet {
   public static void apply_DefStyle(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Constraints_Styles_StyleSheet.DefStyleStyleClass(editorContext, node).apply(style, editorCell);
+    new Rules_Styles_StyleSheet.DefStyleStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -53,7 +54,7 @@ public class Constraints_Styles_StyleSheet {
   public static void apply_TypeOfDefStyle(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Constraints_Styles_StyleSheet.TypeOfDefStyleStyleClass(editorContext, node).apply(style, editorCell);
+    new Rules_Styles_StyleSheet.TypeOfDefStyleStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -63,7 +64,27 @@ public class Constraints_Styles_StyleSheet {
   public static void apply_WhenHint(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Constraints_Styles_StyleSheet.WhenHintStyleClass(editorContext, node).apply(style, editorCell);
+    new Rules_Styles_StyleSheet.WhenHintStyleClass(editorContext, node).apply(style, editorCell);
+  }
+  /**
+   * 
+   * @deprecated Since MPS 3.5 use generated StyleClass
+   */
+  @Deprecated
+  public static void apply_AndDefsAreDefinedHint(Style style, EditorCell editorCell) {
+    SNode node = (editorCell == null ? null : editorCell.getSNode());
+    EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
+    new Rules_Styles_StyleSheet.AndDefsAreDefinedHintStyleClass(editorContext, node).apply(style, editorCell);
+  }
+  /**
+   * 
+   * @deprecated Since MPS 3.5 use generated StyleClass
+   */
+  @Deprecated
+  public static void apply_Hint(Style style, EditorCell editorCell) {
+    SNode node = (editorCell == null ? null : editorCell.getSNode());
+    EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
+    new Rules_Styles_StyleSheet.HintStyleClass(editorContext, node).apply(style, editorCell);
   }
 
   public static class ContextReferenceStyleClass extends AbstractStyleClass {
@@ -74,10 +95,10 @@ public class Constraints_Styles_StyleSheet {
     @Override
     public void apply(Style style, EditorCell editorCell) {
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.BOLD);
-      style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(_StyleParameter_QueryFunction_9wr25h_a1a()));
+      style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(_StyleParameter_QueryFunction_xgtt4l_a1a()));
     }
 
-    private Color _StyleParameter_QueryFunction_9wr25h_a1a() {
+    private Color _StyleParameter_QueryFunction_xgtt4l_a1a() {
       return JBColor.YELLOW.darker();
     }
   }
@@ -124,6 +145,32 @@ public class Constraints_Styles_StyleSheet {
     @Override
     public void apply(Style style, EditorCell editorCell) {
       style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.darkGray));
+    }
+
+  }
+  public static class AndDefsAreDefinedHintStyleClass extends AbstractStyleClass {
+    public AndDefsAreDefinedHintStyleClass(EditorContext editorContext, SNode node) {
+      super(editorContext, node);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.gray));
+      style.set(StyleAttributes.FONT_SIZE, _StyleParameter_QueryFunction_xgtt4l_a1f());
+    }
+
+    private int _StyleParameter_QueryFunction_xgtt4l_a1f() {
+      return (EditorSettings.getInstance().getFontSize() * 4) / 5;
+    }
+  }
+  public static class HintStyleClass extends AbstractStyleClass {
+    public HintStyleClass(EditorContext editorContext, SNode node) {
+      super(editorContext, node);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.gray));
     }
 
   }

@@ -98,6 +98,7 @@
     <property role="EcuMT" value="7291380803377228245" />
     <property role="TrG5h" value="DefForRule" />
     <property role="34LRSv" value="def" />
+    <property role="R4oN_" value="auxiliary definition" />
     <node concept="1TJgyj" id="4JP_D2W0fqJ" role="1TKVEi">
       <property role="IQ2ns" value="5473446470512342703" />
       <property role="20lmBu" value="aggregation" />

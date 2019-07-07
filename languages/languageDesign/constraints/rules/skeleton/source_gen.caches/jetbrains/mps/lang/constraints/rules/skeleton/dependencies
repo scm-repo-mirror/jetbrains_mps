@@ -7,12 +7,14 @@
     <classNode dependClassName="java.util.Collection" />
     <classNode dependClassName="jetbrains.mps.core.aspects.constraints.rules.RulesConstraintsAspect" />
     <classNode dependClassName="jetbrains.mps.core.aspects.feedback.api.FeedbackAspect" />
+    <classNode dependClassName="jetbrains.mps.lang.constraints.rules.skeleton.actions.ActionAspectDescriptorImpl" />
     <classNode dependClassName="jetbrains.mps.lang.constraints.rules.skeleton.behavior.BehaviorAspectDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.constraints.rules.skeleton.constraints.ConstraintsAspectDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.constraints.rules.skeleton.constraints.GeneratedRulesConstraintsAspect" />
     <classNode dependClassName="jetbrains.mps.lang.constraints.rules.skeleton.editor.EditorAspectDescriptorImpl" />
     <classNode dependClassName="jetbrains.mps.lang.constraints.rules.skeleton.structure.ConceptPresentationAspectImpl" />
     <classNode dependClassName="jetbrains.mps.lang.constraints.rules.skeleton.structure.StructureAspectDescriptor" />
+    <classNode dependClassName="jetbrains.mps.openapi.actions.descriptor.ActionAspectDescriptor" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.descriptor.EditorAspectDescriptor" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.ids.SLanguageId" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />

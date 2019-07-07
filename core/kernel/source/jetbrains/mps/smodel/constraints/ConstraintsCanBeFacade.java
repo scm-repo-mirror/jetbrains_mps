@@ -52,7 +52,7 @@ public class ConstraintsCanBeFacade {
     SAbstractConcept concept = context.getConcept();
     // this is the legacy block I do not remove for now
     if (concept.isAbstract()) {
-      return Collections.emptyList();
+      return Collections.singletonList(new AdaptedLegacyConstraintsRule<>(concept, PredefinedRuleKinds.CAN_BE_ROOT, concept.getSourceNode()));
     }
 
     if (!(concept instanceof SConcept)) {

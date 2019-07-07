@@ -17,7 +17,7 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 
-public class InsertMemberAfterRule {
+public class InsertMemberAfterMember {
 
   /*package*/ static AbstractCellAction createAction_INSERT(final SNode node) {
     return new AbstractCellAction() {
