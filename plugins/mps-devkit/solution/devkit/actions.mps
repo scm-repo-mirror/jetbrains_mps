@@ -137,7 +137,8 @@
     <import index="yha4" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.workbench.choose(MPS.Platform/)" />
     <import index="6f4m" ref="528ff3b9-5fc4-40dd-931f-c6ce3650640e/r:f69c3fa1-0e30-4980-84e2-190ae44e4c3d(jetbrains.mps.lang.migration.runtime/jetbrains.mps.lang.migration.runtime.base)" />
     <import index="mqj2" ref="r:1d4f6f82-1219-47a2-a4fa-ac3ba14c9fd5(jetbrains.mps.lang.constraints.rules.skeleton.structure)" />
-    <import index="10hr" ref="r:d674956e-add1-4c62-993b-3cd157f5ca62(jetbrains.mps.lang.constraints.rules.skeleton.plugin)" />
+    <import index="m5dg" ref="r:cc9efe31-86c5-4ceb-80d1-8a8efeb255e0(jetbrains.mps.lang.feedback.skeleton.plugin)" />
+    <import index="wff5" ref="r:2ac18004-8536-478a-bf05-03a0f407633f(jetbrains.mps.lang.feedback.skeleton.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
@@ -15370,7 +15371,7 @@
     </node>
   </node>
   <node concept="2E2WTH" id="4JP_D2W1KOB">
-    <property role="TrG5h" value="Constraints2" />
+    <property role="TrG5h" value="Feedback" />
     <property role="3GE5qa" value="EditorTabs" />
     <ref role="2E2WTM" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
     <node concept="2E2Kfa" id="4JP_D2W1KOC" role="2E2WTK">
@@ -15446,7 +15447,7 @@
           <node concept="3cpWsn" id="4JP_D2W1KPc" role="3cpWs9">
             <property role="TrG5h" value="aspectModel" />
             <node concept="1qvjxa" id="4JP_D2W1KPd" role="33vP2m">
-              <ref role="1quiSB" to="10hr:6kKc3mjuEw_" resolve="constraints2" />
+              <ref role="1quiSB" to="m5dg:5sUTrySNtVx" resolve="feedback" />
               <node concept="37vLTw" id="4JP_D2W1KPe" role="1qvjxb">
                 <ref role="3cqZAo" node="4JP_D2W1KOT" resolve="module" />
               </node>
@@ -15497,7 +15498,7 @@
         <ref role="2vPdvl" node="2erTeUVFa2t" resolve="Constraints" />
       </node>
       <node concept="2vPdvi" id="4JP_D2W1KPy" role="2vPdvg">
-        <ref role="2vPdvl" node="4JP_D2W1KOB" resolve="Constraints2" />
+        <ref role="2vPdvl" node="4JP_D2W1KOB" resolve="Feedback" />
       </node>
     </node>
     <node concept="1D6cnc" id="4JP_D2W1KPz" role="1D6cnr">
@@ -15508,27 +15509,13 @@
             <node concept="2ShNRf" id="4JP_D2W1KPB" role="3clFbG">
               <node concept="Tc6Ow" id="4JP_D2W1KPC" role="2ShVmc">
                 <node concept="35c_gC" id="4JP_D2W1KPD" role="HW$Y0">
-                  <ref role="35c_gD" to="mqj2:1BFxp3HFZzq" resolve="ConstraintsRoot2" />
+                  <ref role="35c_gD" to="wff5:6kKc3mjFxo7" resolve="FeedbackPerConceptRoot" />
                 </node>
                 <node concept="3uibUv" id="4JP_D2W1KPE" role="HW$YZ">
                   <ref role="3uigEE" to="c17a:~SConcept" resolve="SConcept" />
                 </node>
               </node>
             </node>
-          </node>
-        </node>
-      </node>
-      <node concept="1YUSOF" id="4JP_D2W1KPF" role="1YUSOD">
-        <node concept="3clFbS" id="4JP_D2W1KPG" role="2VODD2">
-          <node concept="3SKdUt" id="4JP_D2W2e$t" role="3cqZAp">
-            <node concept="1PaTwC" id="4JP_D2W2e_L" role="3ndbpf">
-              <node concept="3oM_SD" id="4JP_D2W2eBF" role="1PaTwD">
-                <property role="3oM_SC" value="todo" />
-              </node>
-            </node>
-          </node>
-          <node concept="3cpWs6" id="4JP_D2W2eHK" role="3cqZAp">
-            <node concept="10Nm6u" id="4JP_D2W2eJS" role="3cqZAk" />
           </node>
         </node>
       </node>

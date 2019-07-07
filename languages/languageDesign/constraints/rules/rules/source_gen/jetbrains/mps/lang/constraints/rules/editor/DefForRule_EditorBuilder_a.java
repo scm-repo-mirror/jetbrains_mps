@@ -41,6 +41,9 @@ import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.nodeEditor.cellProviders.CellProviderWithRole;
 import jetbrains.mps.lang.editor.cellProviders.RefCellCellProvider;
+import jetbrains.mps.editor.runtime.style.StyleAttributes;
+import jetbrains.mps.editor.runtime.style.Padding;
+import jetbrains.mps.editor.runtime.style.Measure;
 
 /*package*/ class DefForRule_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -72,7 +75,9 @@ import jetbrains.mps.lang.editor.cellProviders.RefCellCellProvider;
     editorCell.addEditorCell(createRefNode_0());
     editorCell.addEditorCell(createConstant_2());
     editorCell.addEditorCell(createRefCell_0());
+    editorCell.addEditorCell(createConstant_3());
     editorCell.addEditorCell(createComponent_0());
+    editorCell.addEditorCell(createConstant_4());
     return editorCell;
   }
   private EditorCell createConstant_0() {
@@ -295,8 +300,33 @@ import jetbrains.mps.lang.editor.cellProviders.RefCellCellProvider;
       }
     }
   }
+  private EditorCell createConstant_3() {
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "is defined");
+    editorCell.setCellId("Constant_sv5oqe_g0");
+    Style style = new StyleImpl();
+    new DefStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    style.set(StyleAttributes.PADDING_LEFT, new Padding(1.5, Measure.SPACES));
+    style.set(StyleAttributes.INDENT_LAYOUT_ON_NEW_LINE, true);
+    style.set(StyleAttributes.INDENT_LAYOUT_INDENT, true);
+    editorCell.getStyle().putAll(style);
+    editorCell.setDefaultText("");
+    return editorCell;
+  }
   private EditorCell createComponent_0() {
-    EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.lang.constraints.rules.editor.ApplicabilityComponentForDef");
+    EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.lang.constraints.rules.editor.IsApplicable");
+    Style style = new StyleImpl();
+    new DefStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    editorCell.getStyle().putAll(style);
+    return editorCell;
+  }
+  private EditorCell createConstant_4() {
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
+    editorCell.setCellId("Constant_sv5oqe_i0");
+    Style style = new StyleImpl();
+    style.set(StyleAttributes.INDENT_LAYOUT_ON_NEW_LINE, true);
+    style.set(StyleAttributes.SELECTABLE, false);
+    editorCell.getStyle().putAll(style);
+    editorCell.setDefaultText("");
     return editorCell;
   }
 }

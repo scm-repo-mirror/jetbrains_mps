@@ -33,7 +33,6 @@
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
     <classNode dependClassName="jetbrains.mps.lang.constraints.rules.behavior.RuleIdHolder__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.constraints.rules.skeleton.behavior.RuleBlockMember__BehaviorDescriptor" />
-    <classNode dependClassName="jetbrains.mps.lang.context.defs.behavior.TypedDef__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations" />

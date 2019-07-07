@@ -34,7 +34,7 @@ public final class AddCondition_Intention extends AbstractIntentionDescriptor im
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593586de2L, 0x126f1320a26dc7bdL, "condition")) == null;
+    return SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3bd18bf4b10c3c4aL, 0x6e175e60d98b9c4cL, "condition")) == null;
   }
   @Override
   public boolean isSurroundWith() {
@@ -55,9 +55,9 @@ public final class AddCondition_Intention extends AbstractIntentionDescriptor im
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593586de2L, 0x126f1320a26dc7bdL, "condition"), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3172094ab484cd2cL, "jetbrains.mps.lang.constraints.rules.structure.ApplicableCondition")));
-      SLinkOperations.setTarget(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593586de2L, 0x126f1320a26dc7bdL, "condition")), MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3172094ab484cd2cL, 0x126f1320a26d8256L, "expr"), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x126f1320a26cf7f1L, "jetbrains.mps.lang.constraints.rules.structure.ExpressionWrapper")));
-      editorContext.selectWRTFocusPolicy(SLinkOperations.getTarget(SLinkOperations.getTarget(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593586de2L, 0x126f1320a26dc7bdL, "condition")), MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3172094ab484cd2cL, 0x126f1320a26d8256L, "expr")), MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x126f1320a26cf7f1L, 0x126f1320a26d350dL, "expression")));
+      SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3bd18bf4b10c3c4aL, 0x6e175e60d98b9c4cL, "condition"), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3172094ab484cd2cL, "jetbrains.mps.lang.constraints.rules.structure.ApplicableCondition")));
+      SLinkOperations.setTarget(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3bd18bf4b10c3c4aL, 0x6e175e60d98b9c4cL, "condition")), MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3172094ab484cd2cL, 0x126f1320a26d8256L, "expr"), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x126f1320a26cf7f1L, "jetbrains.mps.lang.constraints.rules.structure.ExpressionWrapper")));
+      editorContext.selectWRTFocusPolicy(SLinkOperations.getTarget(SLinkOperations.getTarget(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3bd18bf4b10c3c4aL, 0x6e175e60d98b9c4cL, "condition")), MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3172094ab484cd2cL, 0x126f1320a26d8256L, "expr")), MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x126f1320a26cf7f1L, 0x126f1320a26d350dL, "expression")));
     }
     @Override
     public IntentionDescriptor getDescriptor() {

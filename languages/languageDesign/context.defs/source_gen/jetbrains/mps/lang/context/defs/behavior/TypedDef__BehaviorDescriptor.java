@@ -22,9 +22,8 @@ public final class TypedDef__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x653030359368062cL, "jetbrains.mps.lang.context.defs.structure.TypedDef");
 
   public static final SMethod<SNode> getErasedType_id4JP_D2W1aPH = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getErasedType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4JP_D2W1aPH").build();
-  public static final SMethod<Boolean> hasApplicableCondition_id35M2kEOydzo = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasApplicableCondition").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("35M2kEOydzo").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getErasedType_id4JP_D2W1aPH, hasApplicableCondition_id35M2kEOydzo);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getErasedType_id4JP_D2W1aPH);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -32,9 +31,6 @@ public final class TypedDef__BehaviorDescriptor extends BaseBHDescriptor {
   @Nullable
   /*package*/ static SNode getErasedType_id4JP_D2W1aPH(@NotNull SNode __thisNode__) {
     return null;
-  }
-  /*package*/ static boolean hasApplicableCondition_id35M2kEOydzo(@NotNull SNode __thisNode__) {
-    return false;
   }
 
   /*package*/ TypedDef__BehaviorDescriptor() {
@@ -54,8 +50,6 @@ public final class TypedDef__BehaviorDescriptor extends BaseBHDescriptor {
     switch (methodIndex) {
       case 0:
         return (T) ((SNode) getErasedType_id4JP_D2W1aPH(node));
-      case 1:
-        return (T) ((Boolean) hasApplicableCondition_id35M2kEOydzo(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

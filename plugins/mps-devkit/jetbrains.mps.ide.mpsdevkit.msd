@@ -44,6 +44,7 @@
     <dependency reexport="false">aee9cad2-acd4-4608-aef2-0004f6a1cdbd(jetbrains.mps.lang.actions)</dependency>
     <dependency reexport="false">bfbdd672-7ff5-403f-af4f-16da5226f34c(jetbrains.mps.findUsages.runtime)</dependency>
     <dependency reexport="false">47257bf3-78d3-470b-89d9-8c3261a61d15(jetbrains.mps.lang.constraints.rules)</dependency>
+    <dependency reexport="false">517077fd-e44f-4338-a475-1d29781dfdb8(jetbrains.mps.lang.feedback.skeleton)</dependency>
   </dependencies>
   <languageVersions>
     <language slang="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" version="9" />

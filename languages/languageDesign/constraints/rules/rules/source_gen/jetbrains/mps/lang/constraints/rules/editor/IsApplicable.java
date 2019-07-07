@@ -10,12 +10,12 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.EditorContext;
 import org.jetbrains.mps.openapi.model.SNode;
 
-public class ApplicabilityComponentForDef implements ConceptEditorComponent {
+public class IsApplicable implements ConceptEditorComponent {
   @NotNull
   public Collection<String> getContextHints() {
     return Collections.emptyList();
   }
   public EditorCell createEditorCell(EditorContext editorContext, SNode node) {
-    return new ApplicabilityComponentForDef_ComponentBuilder_a(editorContext, node).createCell();
+    return new IsApplicable_ComponentBuilder_a(editorContext, node).createCell();
   }
 }

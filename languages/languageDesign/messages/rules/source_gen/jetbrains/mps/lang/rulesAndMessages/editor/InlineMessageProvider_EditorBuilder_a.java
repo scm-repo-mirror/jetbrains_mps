@@ -105,6 +105,7 @@ import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
       if (editorCell.getSRole() == null) {
         editorCell.setSRole(MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce81L, 0x48f860fc0e362dc8L, "messagesExpr"));
       }
+      editorCell.addKeyMap(new NoMessageKeymap());
     }
     @Override
     protected EditorCell createEmptyCell() {

@@ -52,7 +52,7 @@ public final class LiteralMessageSplitHelper {
         if (messageExpression != null) {
           ListSequence.fromList(messages).addElement(messageExpression);
         }
-        if (splitPosition < messageToSplit.length()) {
+        if (messageToSplit != null && splitPosition < messageToSplit.length()) {
           ListSequence.fromList(messages).addElement(createLiteralMessageExpression_fsei94_a0a0a5a1a1a7(messageToSplit.substring(splitPosition)));
         }
         if (SNodeOperations.hasRole(myMessage, MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, 0x48f860fc0e404561L, "part"))) {

@@ -80,18 +80,15 @@
     <node concept="PrWs8" id="7CK8yHrbaVz" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
+    <node concept="PrWs8" id="3JhyZiL33N2" role="PzmwI">
+      <ref role="PrY4T" node="3JhyZiL33La" resolve="IsApplicable" />
+    </node>
     <node concept="1TJgyj" id="19J4M2yrqiS" role="1TKVEi">
       <property role="IQ2ns" value="1328301445982561464" />
       <property role="20lmBu" value="aggregation" />
       <property role="20kJfa" value="expr" />
       <property role="20lbJX" value="1" />
       <ref role="20lvS9" node="19J4M2yrfvL" resolve="ExpressionWrapper" />
-    </node>
-    <node concept="1TJgyj" id="19J4M2yrsuX" role="1TKVEi">
-      <property role="IQ2ns" value="1328301445982570429" />
-      <property role="20lmBu" value="aggregation" />
-      <property role="20kJfa" value="condition" />
-      <ref role="20lvS9" node="35M2kEOxcOG" resolve="ApplicableCondition" />
     </node>
   </node>
   <node concept="1TIwiD" id="6kKc3mjpIBl">
@@ -113,12 +110,6 @@
       <property role="20lbJX" value="1" />
       <ref role="20lvS9" node="19J4M2yrfvL" resolve="ExpressionWrapper" />
     </node>
-    <node concept="1TJgyj" id="35M2kEOxcPB" role="1TKVEi">
-      <property role="IQ2ns" value="3562920471664315751" />
-      <property role="20lmBu" value="aggregation" />
-      <property role="20kJfa" value="condition" />
-      <ref role="20lvS9" node="35M2kEOxcOG" resolve="ApplicableCondition" />
-    </node>
     <node concept="PrWs8" id="19J4M2yrltx" role="PzmwI">
       <ref role="PrY4T" to="mqj2:1BFxp3HHhtg" resolve="RuleBlockMember" />
     </node>
@@ -127,6 +118,9 @@
     </node>
     <node concept="PrWs8" id="6fJcw0tqQ_q" role="PzmwI">
       <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
+    </node>
+    <node concept="PrWs8" id="3JhyZiL33MR" role="PzmwI">
+      <ref role="PrY4T" node="3JhyZiL33La" resolve="IsApplicable" />
     </node>
     <node concept="t5JxF" id="19J4M2yrl9S" role="lGtFl">
       <property role="t5JxN" value="definition inside the rule block" />
@@ -174,6 +168,28 @@
       <property role="20kJfa" value="expression" />
       <property role="20lbJX" value="1" />
       <ref role="20lvS9" to="tpee:fz3vP1J" resolve="Expression" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="3JhyZiL33La">
+    <property role="EcuMT" value="4310380201428925514" />
+    <property role="TrG5h" value="IsApplicable" />
+    <node concept="1TJgyj" id="6SnnA3pyTLc" role="1TKVEi">
+      <property role="IQ2ns" value="7932913038696094796" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="condition" />
+      <ref role="20lvS9" node="35M2kEOxcOG" resolve="ApplicableCondition" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="62gW3lfTxOG">
+    <property role="EcuMT" value="6958325536051830060" />
+    <property role="TrG5h" value="EditorListOfDefs" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="62gW3lfTxOK" role="1TKVEi">
+      <property role="IQ2ns" value="6958325536051830064" />
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="defs" />
+      <property role="20lbJX" value="1..n" />
+      <ref role="20lvS9" node="6kKc3mjlOch" resolve="TypedDefReference" />
     </node>
   </node>
 </model>

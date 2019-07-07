@@ -42,7 +42,6 @@
         <child id="1137022507850" name="body" index="2VODD2" />
       </concept>
       <concept id="1070534058343" name="jetbrains.mps.baseLanguage.structure.NullLiteral" flags="nn" index="10Nm6u" />
-      <concept id="1070534644030" name="jetbrains.mps.baseLanguage.structure.BooleanType" flags="in" index="10P_77" />
       <concept id="1068580123132" name="jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration" flags="ng" index="3clF44">
         <child id="1068580123133" name="returnType" index="3clF45" />
         <child id="1068580123135" name="body" index="3clF47" />
@@ -53,7 +52,6 @@
       <concept id="1068580123136" name="jetbrains.mps.baseLanguage.structure.StatementList" flags="sn" stub="5293379017992965193" index="3clFbS">
         <child id="1068581517665" name="statement" index="3cqZAp" />
       </concept>
-      <concept id="1068580123137" name="jetbrains.mps.baseLanguage.structure.BooleanConstant" flags="nn" index="3clFbT" />
       <concept id="1068581242878" name="jetbrains.mps.baseLanguage.structure.ReturnStatement" flags="nn" index="3cpWs6">
         <child id="1068581517676" name="expression" index="3cqZAk" />
       </concept>
@@ -140,17 +138,6 @@
       </node>
       <node concept="2AHcQZ" id="1BFxp3HGYB0" role="2AJF6D">
         <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
-    </node>
-    <node concept="13i0hz" id="35M2kEOydzo" role="13h7CS">
-      <property role="13i0it" value="true" />
-      <property role="TrG5h" value="hasApplicableCondition" />
-      <node concept="3Tm1VV" id="35M2kEOydzp" role="1B3o_S" />
-      <node concept="10P_77" id="35M2kEOydzO" role="3clF45" />
-      <node concept="3clFbS" id="35M2kEOydzr" role="3clF47">
-        <node concept="3clFbF" id="35M2kEOydHA" role="3cqZAp">
-          <node concept="3clFbT" id="35M2kEOydH_" role="3clFbG" />
-        </node>
       </node>
     </node>
     <node concept="13hLZK" id="4JP_D2W1aNn" role="13h7CW">

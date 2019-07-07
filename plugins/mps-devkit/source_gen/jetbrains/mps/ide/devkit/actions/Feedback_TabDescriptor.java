@@ -19,16 +19,16 @@ import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import org.jetbrains.mps.openapi.language.SConcept;
 
-public class Constraints2_TabDescriptor extends RelationDescriptor {
+public class Feedback_TabDescriptor extends RelationDescriptor {
   private static final Icon ICON = null;
 
-  public Constraints2_TabDescriptor() {
+  public Feedback_TabDescriptor() {
   }
   public String getTitle() {
-    return "Constraints2";
+    return "Feedback";
   }
   public int compareTo(RelationDescriptor descriptor) {
-    return new Constraints2_Order().compare(this, descriptor);
+    return new Feedback_Order().compare(this, descriptor);
   }
   public void startListening() {
   }
@@ -56,7 +56,7 @@ public class Constraints2_TabDescriptor extends RelationDescriptor {
       return null;
     }
 
-    SModel aspectModel = SModuleOperations.getAspect(module, "constraints2");
+    SModel aspectModel = SModuleOperations.getAspect(module, "feedback");
     if (aspectModel == null) {
       return null;
     }
@@ -64,10 +64,6 @@ public class Constraints2_TabDescriptor extends RelationDescriptor {
     return Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(node, MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration"), SMethodTrimmedId.create("findConceptAspects", MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration"), "4G9PD8$NvPM"), aspectModel))).first();
   }
   public Iterable<SConcept> getAspectConcepts(final SNode node) {
-    return ListSequence.fromListAndArray(new ArrayList<SConcept>(), MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.ConstraintsRoot2"));
-  }
-  public SNode createAspect(final SNode node, final SConcept concept) {
-    // todo 
-    return null;
+    return ListSequence.fromListAndArray(new ArrayList<SConcept>(), MetaAdapterFactory.getConcept(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x6530303593ae1607L, "jetbrains.mps.lang.feedback.skeleton.structure.FeedbackPerConceptRoot"));
   }
 }

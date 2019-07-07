@@ -29,9 +29,8 @@ public final class DefForRule__BehaviorDescriptor extends BaseBHDescriptor {
 
   public static final SMethod<SNode> getErasedType_id4JP_D2W1aPH = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getErasedType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4JP_D2W1aPH").build();
   public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("52_Geb4QDV$").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
-  public static final SMethod<Boolean> hasApplicableCondition_id35M2kEOydzo = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasApplicableCondition").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("35M2kEOydzo").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getErasedType_id4JP_D2W1aPH, getScope_id52_Geb4QDV$, hasApplicableCondition_id35M2kEOydzo);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getErasedType_id4JP_D2W1aPH, getScope_id52_Geb4QDV$);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -50,9 +49,6 @@ public final class DefForRule__BehaviorDescriptor extends BaseBHDescriptor {
     } else {
       return null;
     }
-  }
-  /*package*/ static boolean hasApplicableCondition_id35M2kEOydzo(@NotNull SNode __thisNode__) {
-    return (SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x653030359366e9d5L, 0x3172094ab484cd67L, "condition")) != null);
   }
 
   /*package*/ DefForRule__BehaviorDescriptor() {
@@ -74,8 +70,6 @@ public final class DefForRule__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((SNode) getErasedType_id4JP_D2W1aPH(node));
       case 1:
         return (T) ((Scope) getScope_id52_Geb4QDV$(node, (SAbstractConcept) parameters[0], (SNode) parameters[1]));
-      case 2:
-        return (T) ((Boolean) hasApplicableCondition_id35M2kEOydzo(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

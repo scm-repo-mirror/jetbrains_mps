@@ -11,7 +11,9 @@ import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_ApplicableCondition;
   private ConceptPresentation props_DefForRule;
+  private ConceptPresentation props_EditorListOfDefs;
   private ConceptPresentation props_ExpressionWrapper;
+  private ConceptPresentation props_IsApplicable;
   private ConceptPresentation props_Rule;
   private ConceptPresentation props_RuleIdHolder;
   private ConceptPresentation props_TypedDefReference;
@@ -36,6 +38,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_DefForRule = cpb.create();
         }
         return props_DefForRule;
+      case LanguageConceptSwitch.EditorListOfDefs:
+        if (props_EditorListOfDefs == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("EditorListOfDefs");
+          props_EditorListOfDefs = cpb.create();
+        }
+        return props_EditorListOfDefs;
       case LanguageConceptSwitch.ExpressionWrapper:
         if (props_ExpressionWrapper == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -43,6 +52,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ExpressionWrapper = cpb.create();
         }
         return props_ExpressionWrapper;
+      case LanguageConceptSwitch.IsApplicable:
+        if (props_IsApplicable == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IsApplicable = cpb.create();
+        }
+        return props_IsApplicable;
       case LanguageConceptSwitch.Rule:
         if (props_Rule == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

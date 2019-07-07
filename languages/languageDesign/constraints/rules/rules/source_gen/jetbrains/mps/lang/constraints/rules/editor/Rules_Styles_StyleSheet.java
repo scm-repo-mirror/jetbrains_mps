@@ -110,7 +110,7 @@ public class Rules_Styles_StyleSheet {
     @Override
     public void apply(Style style, EditorCell editorCell) {
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.BOLD);
-      style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.DARK_BLUE));
+      style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.blue));
     }
 
   }
@@ -122,7 +122,7 @@ public class Rules_Styles_StyleSheet {
     @Override
     public void apply(Style style, EditorCell editorCell) {
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.BOLD);
-      style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.LIGHT_BLUE));
+      style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.DARK_BLUE));
     }
 
   }
@@ -156,11 +156,12 @@ public class Rules_Styles_StyleSheet {
     @Override
     public void apply(Style style, EditorCell editorCell) {
       style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.gray));
-      style.set(StyleAttributes.FONT_SIZE, _StyleParameter_QueryFunction_xgtt4l_a1f());
+      style.set(StyleAttributes.FONT_STYLE, MPSFonts.PLAIN);
+      style.set(StyleAttributes.FONT_SIZE, _StyleParameter_QueryFunction_xgtt4l_a2f());
     }
 
-    private int _StyleParameter_QueryFunction_xgtt4l_a1f() {
-      return (EditorSettings.getInstance().getFontSize() * 4) / 5;
+    private int _StyleParameter_QueryFunction_xgtt4l_a2f() {
+      return (EditorSettings.getInstance().getFontSize() * 6) / 7;
     }
   }
   public static class HintStyleClass extends AbstractStyleClass {
