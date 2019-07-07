@@ -47,7 +47,7 @@ public class MacroMessageExpression_TransformationMenu extends TransformationMen
   @Override
   public List<TransformationMenuItem> createMenuItems(@NotNull TransformationMenuContext context) {
     context.getEditorMenuTrace().pushTraceInfo();
-    context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("default transformation menu for " + "MacroMessageExpression", new SNodePointer("r:46037634-9be0-4da8-8dd8-3cb367171177(jetbrains.mps.lang.messages.editor)", "5258059200643802589")));
+    context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("default transformation menu for " + "MacroMessageExpression", new SNodePointer("r:46037634-9be0-4da8-8dd8-3cb367171177(jetbrains.mps.lang.messages.editor)", "6878448148911830664")));
     try {
       return super.createMenuItems(context);
     } finally {
@@ -70,7 +70,7 @@ public class MacroMessageExpression_TransformationMenu extends TransformationMen
     @Override
     public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
       context.getEditorMenuTrace().pushTraceInfo();
-      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("wrap substitute menu " + "default substitute menu for " + "MessageExpression", new SNodePointer("r:46037634-9be0-4da8-8dd8-3cb367171177(jetbrains.mps.lang.messages.editor)", "5258059200643802604")));
+      context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("wrap substitute menu " + "default substitute menu for " + "MessageExpression", new SNodePointer("r:46037634-9be0-4da8-8dd8-3cb367171177(jetbrains.mps.lang.messages.editor)", "6878448148911830669")));
       try {
         return super.createItems(context);
       } finally {

@@ -41,6 +41,7 @@ public final class A_ConstraintRules extends BaseRulesConstraintsDescriptor {
     public Rule_check8804574841118204455_a0() {
       super(CONCEPT, PredefinedRuleKinds.CAN_BE_CHILD, ID_check8804574841118204455_a0, SOURCE_NODE_REF);
     }
+
     @Override
     public boolean check(@NotNull ContainmentContext context) {
       return (context.getChildNode() != null);
@@ -53,6 +54,7 @@ public final class A_ConstraintRules extends BaseRulesConstraintsDescriptor {
     public Rule_gagag2() {
       super(CONCEPT, PredefinedRuleKinds.CAN_BE_CHILD, ID_gagag2, SOURCE_NODE_REF);
     }
+
     @Override
     public boolean check(@NotNull ContainmentContext context) {
       return true;

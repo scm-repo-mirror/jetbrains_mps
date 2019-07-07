@@ -31,7 +31,7 @@ public final class ShowMessage__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
-    return Scope.getScope(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xcd17a113ca4e472fL, 0xa8dec49008f9eea8L, 0x573ae5b8b8ccc349L, 0x573ae5b8b8ccc34cL, "problem")), null, kind);
+    return Scope.getScope(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xcd17a113ca4e472fL, 0xa8dec49008f9eea8L, 0x573ae5b8b8ccc349L, 0x573ae5b8b8ccc34cL, "problem")), child, kind);
   }
 
   /*package*/ ShowMessage__BehaviorDescriptor() {

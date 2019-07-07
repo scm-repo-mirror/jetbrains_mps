@@ -172,7 +172,7 @@
     <node concept="3QByp$" id="6GnzfDRinZ2" role="3QBEN7">
       <node concept="16I2mz" id="6GnzfDRinZ4" role="16N$OP">
         <node concept="16N$OT" id="63vaCZf7_6e" role="16I2mt">
-          <property role="16N$OU" value="Property constraints are broken for the property " />
+          <property role="16N$OU" value="Property constraints are broken for the property" />
         </node>
         <node concept="16Iohu" id="7ghwUcl80JQ" role="16I2mt">
           <ref role="16E0hz" to="2u14:1mFJTG7MCZ" resolve="property" />

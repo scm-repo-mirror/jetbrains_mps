@@ -37,7 +37,6 @@
       <concept id="1081236700937" name="jetbrains.mps.baseLanguage.structure.StaticMethodCall" flags="nn" index="2YIFZM">
         <reference id="1144433194310" name="classConcept" index="1Pybhc" />
       </concept>
-      <concept id="1070534058343" name="jetbrains.mps.baseLanguage.structure.NullLiteral" flags="nn" index="10Nm6u" />
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
       </concept>
@@ -101,7 +100,9 @@
                 <ref role="3Tt5mk" to="z0wo:5sUTrySNcdc" resolve="problem" />
               </node>
             </node>
-            <node concept="10Nm6u" id="2zJEoOoN2b0" role="37wK5m" />
+            <node concept="37vLTw" id="5XPa2npRaPr" role="37wK5m">
+              <ref role="3cqZAo" node="2zJEoOoN1jr" resolve="child" />
+            </node>
             <node concept="37vLTw" id="2zJEoOoN2eZ" role="37wK5m">
               <ref role="3cqZAo" node="2zJEoOoN1jp" resolve="kind" />
             </node>

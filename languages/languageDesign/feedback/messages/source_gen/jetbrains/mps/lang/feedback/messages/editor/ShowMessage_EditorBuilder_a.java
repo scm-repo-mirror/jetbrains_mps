@@ -126,7 +126,7 @@ import jetbrains.mps.editor.runtime.style.Measure;
     editorCell.setCellId("Constant_r9q5r5_c0");
     Style style = new StyleImpl();
     style.set(StyleAttributes.PADDING_LEFT, new Padding(0.8, Measure.SPACES));
-    style.set(StyleAttributes.PADDING_RIGHT, new Padding(0.4, Measure.SPACES));
+    style.set(StyleAttributes.PADDING_RIGHT, new Padding(0.9, Measure.SPACES));
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;

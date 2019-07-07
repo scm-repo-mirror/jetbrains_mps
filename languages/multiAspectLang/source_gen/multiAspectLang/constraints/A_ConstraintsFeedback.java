@@ -25,7 +25,7 @@ public final class A_ConstraintsFeedback extends BaseFeedbackDescriptor {
     @NotNull
     @Override
     public MessageProvider.StringMsg yieldMessage(FailingPropertyConstraintContext context) {
-      return new MessageProvider.StringMsg("Property constraints are broken for the property " + String.valueOf(context.getProperty()));
+      return new MessageProvider.StringMsg("Property constraints are broken for the property" + String.valueOf(context.getProperty()));
     }
   };
   private static final FeedbackProvider<ContainmentContext> MSGPROVIDER_WhenConstraintRuleFails_b = new BaseMessageProvider<ContainmentContext>(new FailingRuleProblemId(A_ConstraintRules.Rule_check8804574841118204455_a0.ID_check8804574841118204455_a0)) {

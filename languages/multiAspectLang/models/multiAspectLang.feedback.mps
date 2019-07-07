@@ -52,24 +52,73 @@
   </registry>
   <node concept="3QByoM" id="5ca4zTvKOON">
     <ref role="3Z9TSV" to="pljn:5ca4zTvKOOO" resolve="A" />
-    <node concept="3QByp$" id="5jNIJxKTq8h" role="3QBEN7">
-      <node concept="16I2mz" id="5jNIJxKTq8i" role="16N$OO">
-        <node concept="16N$OT" id="63vaCZf7_7Q" role="16I2mt">
-          <property role="16N$OU" value="The property " />
+    <node concept="3QByp$" id="5XPa2npPrtQ" role="3QBEN7">
+      <node concept="ft9Ny" id="5XPa2npPDZ_" role="3JXyrO">
+        <ref role="sa$J1" to="1wpt:4XK1Xd019ID" resolve="MissingProperty" />
+        <ref role="29jPbC" to="pljn:5ca4zTvKOOO" resolve="A" />
+      </node>
+      <node concept="16I2mz" id="5XPa2npPDZc" role="16N$OO">
+        <node concept="16N$OT" id="5XPa2npPDZg" role="16I2mt">
+          <property role="16N$OU" value="asdfas asdfasdf" />
         </node>
-        <node concept="16Iohu" id="63vaCZf7_7h" role="16I2mt">
+        <node concept="16N$OT" id="5XPa2npPDZk" role="16I2mt">
+          <property role="16N$OU" value="asdfasdfa" />
+        </node>
+        <node concept="16N$OT" id="5XPa2npPDZp" role="16I2mt">
+          <property role="16N$OU" value="sadf" />
+        </node>
+        <node concept="16N$OT" id="5XPa2npPDZv" role="16I2mt">
+          <property role="16N$OU" value="sadfsdfa " />
+        </node>
+        <node concept="16Iohu" id="5XPa2npPDZu" role="16I2mt">
           <ref role="16E0hz" to="1wpt:1mFJTG7MCZ" resolve="property" />
         </node>
-        <node concept="16N$OT" id="63vaCZf7_7P" role="16I2mt">
-          <property role="16N$OU" value=" does not belong to the node " />
-        </node>
-        <node concept="16Iohu" id="6X8eyFn9r1r" role="16I2mt">
-          <ref role="16E0hz" to="1wpt:1dKt_a0nok$" resolve="node" />
+        <node concept="16N$OT" id="5XPa2npPDZO" role="16I2mt">
+          <property role="16N$OU" value=" asdf" />
         </node>
       </node>
+    </node>
+    <node concept="3QByp$" id="5XPa2npPq65" role="3QBEN7">
+      <node concept="16I2mz" id="5XPa2npPq67" role="16N$OO">
+        <node concept="16N$OT" id="5XPa2npPq69" role="16I2mt">
+          <property role="16N$OU" value="The" />
+        </node>
+      </node>
+      <node concept="ft9Ny" id="5XPa2npPq6n" role="3JXyrO">
+        <ref role="sa$J1" to="1wpt:4XK1Xd019ID" resolve="MissingProperty" />
+        <ref role="29jPbC" to="pljn:5ca4zTvKOOO" resolve="A" />
+      </node>
+    </node>
+    <node concept="3QByp$" id="5jNIJxKTq8h" role="3QBEN7">
       <node concept="ft9Ny" id="5jNIJxKTq8p" role="3JXyrO">
         <ref role="sa$J1" to="1wpt:4XK1Xd019ID" resolve="MissingProperty" />
         <ref role="29jPbC" to="pljn:5ca4zTvKOOO" resolve="A" />
+      </node>
+      <node concept="16I2mz" id="5XPa2npQ4GA" role="16N$OO">
+        <node concept="16N$OT" id="5XPa2npQdP5" role="16I2mt">
+          <property role="16N$OU" value="12" />
+        </node>
+        <node concept="16N$OT" id="5XPa2npQdPU" role="16I2mt">
+          <property role="16N$OU" value="34" />
+        </node>
+        <node concept="16N$OT" id="5XPa2npQdQ2" role="16I2mt">
+          <property role="16N$OU" value="56" />
+        </node>
+        <node concept="16N$OT" id="5XPa2npQdQb" role="16I2mt">
+          <property role="16N$OU" value="78" />
+        </node>
+        <node concept="16N$OT" id="5XPa2npQdQa" role="16I2mt">
+          <property role="16N$OU" value="90" />
+        </node>
+        <node concept="16N$OT" id="5XPa2npQdP6" role="16I2mt">
+          <property role="16N$OU" value=" " />
+        </node>
+        <node concept="16Iohu" id="5XPa2npQ4Hg" role="16I2mt">
+          <ref role="16E0hz" to="1wpt:1mFJTG7MCZ" resolve="property" />
+        </node>
+        <node concept="16N$OT" id="5XPa2npQ4Hq" role="16I2mt">
+          <property role="16N$OU" value="asdfsadfa" />
+        </node>
       </node>
     </node>
   </node>

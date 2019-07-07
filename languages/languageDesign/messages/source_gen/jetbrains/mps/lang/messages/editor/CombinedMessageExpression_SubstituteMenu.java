@@ -10,6 +10,7 @@ import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuContext;
 import java.util.ArrayList;
 import jetbrains.mps.lang.editor.menus.substitute.ConstraintsFilteringSubstituteMenuPartDecorator;
+import jetbrains.mps.lang.editor.menus.substitute.SimpleConceptSubstituteMenuPart;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
@@ -40,7 +41,21 @@ public class CombinedMessageExpression_SubstituteMenu extends SubstituteMenuBase
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new CombinedMessageExpression_SubstituteMenu.SMP_Wrap_6s2f6n_a(), MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, "jetbrains.mps.lang.messages.structure.CombinedMessageExpression")));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression")) {
+
+      @NotNull
+      @Override
+      public List<SubstituteMenuItem> createItems(SubstituteMenuContext context) {
+        context.getEditorMenuTrace().pushTraceInfo();
+        context.getEditorMenuTrace().setDescriptor(new EditorMenuDescriptorBase("simple substitute menu part for concept: " + "LiteralMessageExpression", new SNodePointer("r:46037634-9be0-4da8-8dd8-3cb367171177(jetbrains.mps.lang.messages.editor)", "6878448148911865350")));
+        try {
+          return super.createItems(context);
+        } finally {
+          context.getEditorMenuTrace().popTraceInfo();
+        }
+      }
+    }, MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression")));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new CombinedMessageExpression_SubstituteMenu.SMP_Wrap_6s2f6n_b(), MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, "jetbrains.mps.lang.messages.structure.CombinedMessageExpression")));
     return result;
   }
 
@@ -57,7 +72,7 @@ public class CombinedMessageExpression_SubstituteMenu extends SubstituteMenuBase
   }
 
 
-  private class SMP_Wrap_6s2f6n_a extends WrapperSubstituteMenuPart {
+  private class SMP_Wrap_6s2f6n_b extends WrapperSubstituteMenuPart {
     @NotNull
     @Override
     public List<SubstituteMenuItem> createItems(SubstituteMenuContext context) {
@@ -87,7 +102,7 @@ public class CombinedMessageExpression_SubstituteMenu extends SubstituteMenuBase
         public SNode createNode(@NotNull String pattern) {
           SNode nodeToWrap = super.createNode(pattern);
           myCreatedNode = nodeToWrap;
-          return createCombinedMessageExpression_6s2f6n_a0a0a(nodeToWrap);
+          return createCombinedMessageExpression_6s2f6n_a0a0b(nodeToWrap);
         }
         @Override
         public void select(@NotNull SNode createdNode, @NotNull String pattern) {
@@ -116,7 +131,7 @@ public class CombinedMessageExpression_SubstituteMenu extends SubstituteMenuBase
       return MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc4L, "jetbrains.mps.lang.messages.structure.MessageExpression");
     }
   }
-  private static SNode createCombinedMessageExpression_6s2f6n_a0a0a(SNode node0) {
+  private static SNode createCombinedMessageExpression_6s2f6n_a0a0b(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, "jetbrains.mps.lang.messages.structure.CombinedMessageExpression"), null, null, false);
     if (node0 != null) {

@@ -20,7 +20,7 @@ import java.util.Objects;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 
-public class MacroMessageExpression_delete {
+public class MacroMessageExpression_actions {
 
   /*package*/ static AbstractCellAction createAction_DELETE(final SNode node) {
     return new AbstractCellAction() {
@@ -34,7 +34,7 @@ public class MacroMessageExpression_delete {
         if (SNodeOperations.isInstanceOf(SNodeOperations.getPrevSibling(node), MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression")) && SNodeOperations.isInstanceOf(SNodeOperations.getNextSibling(node), MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression"))) {
           String prevMessage = SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getPrevSibling(node), MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression")), MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"));
           String nextMessage = SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getNextSibling(node), MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression")), MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"));
-          SNode replacement = SNodeOperations.replaceWithAnother(node, createLiteralMessageExpression_g8smaj_a0a0c0b0a0(prevMessage + nextMessage));
+          SNode replacement = SNodeOperations.replaceWithAnother(node, createLiteralMessageExpression_jg075k_a0a0c0b0a0(prevMessage + nextMessage));
           SNodeOperations.deleteNode(SNodeOperations.getPrevSibling(replacement));
           SNodeOperations.deleteNode(SNodeOperations.getNextSibling(replacement));
           SelectionUtil.selectLabelCellAnSetCaret(editorContext, replacement, "*" + CellIdManager.createPropertyId("message"), prevMessage.length());
@@ -43,6 +43,28 @@ public class MacroMessageExpression_delete {
         } else {
           SNodeOperations.deleteNode(node);
         }
+      }
+
+    };
+  }
+  /*package*/ static AbstractCellAction createAction_INSERT(final SNode node) {
+    return new AbstractCellAction() {
+      public void execute(EditorContext editorContext) {
+        this.execute_internal(editorContext, node);
+      }
+      public void execute_internal(EditorContext editorContext, SNode node) {
+        SNodeOperations.insertNextSiblingChild(node, createLiteralMessageExpression_jg075k_a0a0a0b());
+      }
+
+    };
+  }
+  /*package*/ static AbstractCellAction createAction_INSERT_BEFORE(final SNode node) {
+    return new AbstractCellAction() {
+      public void execute(EditorContext editorContext) {
+        this.execute_internal(editorContext, node);
+      }
+      public void execute_internal(EditorContext editorContext, SNode node) {
+        SNodeOperations.insertPrevSiblingChild(node, createLiteralMessageExpression_jg075k_a0a0a0c());
       }
 
     };
@@ -70,6 +92,8 @@ public class MacroMessageExpression_delete {
 
     // set cell actions defined directly in this action map 
     editorCell.setAction(CellActionType.DELETE, createAction_DELETE(node));
+    editorCell.setAction(CellActionType.INSERT, createAction_INSERT(node));
+    editorCell.setAction(CellActionType.INSERT_BEFORE, createAction_INSERT_BEFORE(node));
 
   }
 
@@ -81,11 +105,29 @@ public class MacroMessageExpression_delete {
     if (Objects.equals(actionType, CellActionType.DELETE)) {
       editorCell.setAction(actionType, createAction_DELETE(node));
     }
+    if (Objects.equals(actionType, CellActionType.INSERT)) {
+      editorCell.setAction(actionType, createAction_INSERT(node));
+    }
+    if (Objects.equals(actionType, CellActionType.INSERT_BEFORE)) {
+      editorCell.setAction(actionType, createAction_INSERT_BEFORE(node));
+    }
   }
-  private static SNode createLiteralMessageExpression_g8smaj_a0a0c0b0a0(Object p0) {
+  private static SNode createLiteralMessageExpression_jg075k_a0a0c0b0a0(Object p0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression"), null, null, false);
     n1.setProperty(MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), p0 + "");
+    return n1;
+  }
+  private static SNode createLiteralMessageExpression_jg075k_a0a0a0b() {
+    PersistenceFacade facade = PersistenceFacade.getInstance();
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression"), null, null, false);
+    n1.setProperty(MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), "");
+    return n1;
+  }
+  private static SNode createLiteralMessageExpression_jg075k_a0a0a0c() {
+    PersistenceFacade facade = PersistenceFacade.getInstance();
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression"), null, null, false);
+    n1.setProperty(MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), "");
     return n1;
   }
 }

@@ -69,24 +69,26 @@ public class MessageExpression_Actions {
             SNodeOperations.deleteNode(node);
           } else if (SNodeOperations.isInstanceOf(node, MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression"))) {
             SNode lit = SNodeOperations.cast(node, MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression"));
+            SNode nextSibling = SNodeOperations.getNextSibling(lit);
+            SNode nextLit = SNodeOperations.as(nextSibling, MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression"));
             if (isEmptyString(SPropertyOperations.getString(lit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")))) {
-              SNode nextLit = SNodeOperations.as(SNodeOperations.getNextSibling(lit), MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression"));
               SNodeOperations.deleteNode(lit);
               if (nextLit != null) {
                 SelectionUtil.selectLabelCellAnSetCaret(editorContext, nextLit, SelectionManager.FIRST_CELL, 0);
               }
             } else {
-              SNode nextLit = SNodeOperations.as(SNodeOperations.getNextSibling(lit), MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression"));
               if (nextLit != null) {
                 if (isNotEmptyString(SPropertyOperations.getString(nextLit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")))) {
-                  SPropertyOperations.plusAssignStringProp(lit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), SPropertyOperations.getString(nextLit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")).substring(1));
+                  SPropertyOperations.plusAssignStringProp(lit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), SPropertyOperations.getString(nextLit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")));
                 }
                 SNodeOperations.deleteNode(nextLit);
               } else {
-                if (DeletionApproverUtil.approve(editorContext, SNodeOperations.getParent(node))) {
-                  return;
+                if (SNodeOperations.isInstanceOf(nextSibling, MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e41e4a2L, "jetbrains.mps.lang.messages.structure.MacroMessageExpression"))) {
+                  if (DeletionApproverUtil.approve(editorContext, nextSibling)) {
+                    return;
+                  }
+                  SNodeOperations.deleteNode(nextSibling);
                 }
-                SNodeOperations.deleteNode(SNodeOperations.getParent(node));
               }
             }
           }
@@ -121,14 +123,12 @@ public class MessageExpression_Actions {
               SNode prevLit = SNodeOperations.as(SNodeOperations.getPrevSibling(lit), MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression"));
               if (prevLit != null) {
                 if (isNotEmptyString(SPropertyOperations.getString(prevLit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")))) {
-                  SPropertyOperations.assign(lit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), SPropertyOperations.getString(prevLit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")).substring(0, SPropertyOperations.getString(prevLit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")).length() - 1) + SPropertyOperations.getString(lit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")));
+                  int ind = SPropertyOperations.getString(prevLit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")).length();
+                  SPropertyOperations.assign(lit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), SPropertyOperations.getString(prevLit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")) + SPropertyOperations.getString(lit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")));
+                  SelectionUtil.selectLabelCellAnSetCaret(editorContext, lit, "MSG_PROP", ind);
                 }
                 SNodeOperations.deleteNode(prevLit);
               } else {
-                if (DeletionApproverUtil.approve(editorContext, SNodeOperations.getParent(node))) {
-                  return;
-                }
-                SNodeOperations.deleteNode(SNodeOperations.getParent(node));
               }
             }
           }

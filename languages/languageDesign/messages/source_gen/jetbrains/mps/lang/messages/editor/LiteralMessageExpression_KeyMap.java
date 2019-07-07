@@ -11,19 +11,21 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.List;
+import jetbrains.mps.openapi.editor.selection.Selection;
+import jetbrains.mps.openapi.editor.selection.SingularSelection;
 import jetbrains.mps.openapi.editor.cells.EditorCell_Label;
-import jetbrains.mps.editor.runtime.selection.SelectionUtil;
-import jetbrains.mps.openapi.editor.selection.SelectionManager;
+import java.util.Objects;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 
-public class MacroMessageExpression_complete extends KeyMapImpl {
-  public MacroMessageExpression_complete() {
+public class LiteralMessageExpression_KeyMap extends KeyMapImpl {
+  public LiteralMessageExpression_KeyMap() {
     this.setApplicableToEveryModel(false);
     KeyMapAction action;
-    action = new MacroMessageExpression_complete.MacroMessageExpression_complete_Action0();
+    action = new LiteralMessageExpression_KeyMap.LiteralMessageExpression_KeyMap_Action0();
     this.putAction("any", "%", action);
   }
-  public static class MacroMessageExpression_complete_Action0 extends KeyMapActionImpl {
-    public MacroMessageExpression_complete_Action0() {
+  public static class LiteralMessageExpression_KeyMap_Action0 extends KeyMapActionImpl {
+    public LiteralMessageExpression_KeyMap_Action0() {
       this.setShownInPopupMenu(false);
     }
     public boolean isMenuAlwaysShown() {
@@ -38,7 +40,7 @@ public class MacroMessageExpression_complete extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e41e4a2L, "jetbrains.mps.lang.messages.structure.MacroMessageExpression")))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression")))) {
         return false;
       }
       return this.canExecute_internal(editorContext, contextNode, this.getSelectedNodes(editorContext));
@@ -48,21 +50,25 @@ public class MacroMessageExpression_complete extends KeyMapImpl {
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
     }
     private boolean canExecute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      EditorCell_Label label = as_7racde_a0a0a4b(editorContext.getSelectedCell(), EditorCell_Label.class);
-      return label.getCaretPosition() == label.getText().length();
+      Selection selection = editorContext.getSelectionManager().getSelection();
+      if (!(selection instanceof SingularSelection)) {
+        return false;
+      }
+      EditorCell selectedCell = ((SingularSelection) selection).getEditorCell();
+      if (!(selectedCell instanceof EditorCell_Label)) {
+        return false;
+      }
+      int splitPosition = ((EditorCell_Label) selectedCell).getCaretPosition();
+      if (splitPosition == 0) {
+        return true;
+      }
+      return !(Objects.equals(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")).charAt(splitPosition - 1), '\\'));
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      if ((SNodeOperations.getNextSibling(node) != null)) {
-        SelectionUtil.selectLabelCellAnSetCaret(editorContext, SNodeOperations.getNextSibling(node), SelectionManager.FIRST_EDITABLE_CELL, 0);
-      } else {
-        SelectionUtil.selectLabelCellAnSetCaret(editorContext, node, SelectionManager.LAST_CELL, -1);
-      }
+      new LiteralMessageSplitHelper(editorContext, node).insertMacro(null);
     }
     public String getKeyStroke() {
-      return "any %";
-    }
-    private static <T> T as_7racde_a0a0a4b(Object o, Class<T> type) {
-      return (type.isInstance(o) ? (T) o : null);
+      return " %";
     }
   }
 }
