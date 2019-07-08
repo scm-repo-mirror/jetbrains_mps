@@ -13,32 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package messages;
+package jetbrains.mps.core.aspects.feedback.messages;
 
 import jetbrains.mps.core.aspects.feedback.problem.ProblemId;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.annotations.Immutable;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 import java.util.Objects;
 
 @Immutable
-public final class MissingPropertyInConceptProblemId implements ProblemId {
-  private final SAbstractConcept myConcept;
+public final class RefOutOfScopeProblemId implements ProblemId {
+  private final SReferenceLink myReferenceLink;
 
-  public MissingPropertyInConceptProblemId(@NotNull SAbstractConcept concept) {
-    myConcept = concept;
+  public RefOutOfScopeProblemId(@NotNull SReferenceLink link) {
+    myReferenceLink = link;
   }
 
   @Override
   public int hashCode() {
-    return myConcept.hashCode();
+    return myReferenceLink.hashCode();
   }
 
   @Override
   public boolean equals(Object obj) {
-    if (obj instanceof MissingPropertyInConceptProblemId) {
-      return Objects.equals(((MissingPropertyInConceptProblemId) obj).myConcept, myConcept);
+    if (obj instanceof RefOutOfScopeProblemId) {
+      return Objects.equals(((RefOutOfScopeProblemId) obj).myReferenceLink, myReferenceLink);
     }
     return false;
   }

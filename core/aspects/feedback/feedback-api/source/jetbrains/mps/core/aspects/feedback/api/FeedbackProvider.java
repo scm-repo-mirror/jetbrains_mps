@@ -20,6 +20,10 @@ import jetbrains.mps.core.context.Context;
 import org.jetbrains.annotations.NotNull;
 
 /**
+ * Feedback could be of different sorts: showing messages or underlining smth in the editor or showing the balloons.
+ * This interface represents such action (or better, reaction)
+ * Such reaction is connected with the triggering ProblemId.
+ *
  * @author apyshkin
  */
 public interface FeedbackProvider<C extends Context> {

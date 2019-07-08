@@ -57,16 +57,19 @@ public class LanguageErrorItem extends ReportItemBase implements IssueKindReport
   public static class ReferenceItem extends LanguageErrorItem implements NodeReportItem, NodeFeatureReportItem, IssueKindReportItem {
     private final SNodeReference myNode;
     private final SReferenceLink myReferenceLink;
+
     public ReferenceItem(@NotNull ErrorScope errorScope, SReference reference) {
       super(errorScope.getMessage(), errorScope.getException());
       myNode = reference.getSourceNode().getReference();
       myReferenceLink = reference.getLink();
     }
+
     @NotNull
     @Override
     public SNodeReference getNode() {
       return myNode;
     }
+
     @Override
     public SConceptFeature getConceptFeature() {
       return myReferenceLink;

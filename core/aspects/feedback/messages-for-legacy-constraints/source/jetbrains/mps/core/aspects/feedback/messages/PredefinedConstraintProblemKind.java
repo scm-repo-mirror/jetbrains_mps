@@ -22,6 +22,7 @@ import jetbrains.mps.core.context.Context;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
 public enum PredefinedConstraintProblemKind implements ProblemKindAlsoProblem, ProblemId, LegacyProblemKind {
@@ -36,11 +37,16 @@ public enum PredefinedConstraintProblemKind implements ProblemKindAlsoProblem, P
       return "Property constraint violation for the property \"" + property.getName() + "\"";
     }
   },
-  REFERENCE_SCOPE_CONSTRAINTS() {
+  REF_OUT_OF_SCOPE() {
     @NotNull
     @Override
     public String getDefaultMessage(@NotNull Context context) {
-      return null;
+      if (!(context instanceof RefOutOfScopeContext)) {
+        throw new IllegalArgumentException("Received illegal context " + context);
+      }
+      String targetName = ;
+      SReferenceLink referenceLink;
+      return "reference" + (targetName == null ? "" : " " + targetName) + " (" + referenceLink.getName() + ") is out of search scope";
     }
   };
 

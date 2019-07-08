@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package messages;
+package jetbrains.mps.core.aspects.feedback.messages;
 
 import jetbrains.mps.core.aspects.feedback.problem.LegacyProblemKind;
 import jetbrains.mps.core.aspects.feedback.problem.ProblemId;
@@ -21,6 +21,7 @@ import jetbrains.mps.core.aspects.feedback.problem.ProblemKindAlsoProblem;
 import jetbrains.mps.core.context.Context;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
@@ -37,6 +38,21 @@ public enum PredefinedStructureProblemKind implements ProblemKindAlsoProblem, Pr
       return String.format("Property %s.%s does not belong to the concept %s",
                            p.getOwner().getName(),
                            p.getName(),
+                           conceptName);
+    }
+  },
+  MISSING_CHILD() {
+    @NotNull
+    @Override
+    public String getDefaultMessage(@NotNull Context context) {
+      if (!(context instanceof MissingChildContext)) {
+        throw new IllegalArgumentException("Received illegal context " + context);
+      }
+      SContainmentLink link = ((MissingChildContext) context).getLink();
+      String conceptName = ((MissingChildContext) context).getNode().getConcept().getName();
+      return String.format("Child in the role %s.%s does not belong to the concept %s",
+                           link.getOwner().getName(),
+                           link.getName(),
                            conceptName);
     }
   };

@@ -16,10 +16,9 @@
 package jetbrains.mps.errors;
 
 import jetbrains.mps.checkers.AbstractNodeCheckerInEditor;
-import jetbrains.mps.checkers.ConstraintsChecker;
 import jetbrains.mps.checkers.IChecker;
-import jetbrains.mps.checkers.SuppressErrorsChecker;
 import jetbrains.mps.checkers.RefScopeChecker;
+import jetbrains.mps.checkers.SuppressErrorsChecker;
 import jetbrains.mps.checkers.TargetConceptChecker;
 import jetbrains.mps.checkers.UsedLanguagesChecker;
 import jetbrains.mps.components.CoreComponent;

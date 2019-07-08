@@ -35,7 +35,7 @@ public class EditorCheckerComponent implements ApplicationComponent {
   public void initComponent() {
     final CheckerRegistry registry = myCoreComponents.getPlatform().findComponent(CheckerRegistry.class);
     if (registry != null) {
-      myRefScopeCheckerInEditor = new RefScopeCheckerInEditor();
+      myRefScopeCheckerInEditor = new RefScopeCheckerInEditor(myCoreComponents.getPlatform());
       myTypesystemChecker = new TypesystemChecker();
       registry.registerChecker(myTypesystemChecker);
       registry.registerEditorChecker(myRefScopeCheckerInEditor);

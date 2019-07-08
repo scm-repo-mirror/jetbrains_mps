@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package messages;
+package jetbrains.mps.core.aspects.feedback.messages;
 
 import jetbrains.mps.core.aspects.feedback.problem.Problem;
 import jetbrains.mps.core.aspects.feedback.problem.ProblemId;
@@ -21,24 +21,25 @@ import jetbrains.mps.core.aspects.feedback.problem.ProblemKind;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Immutable;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNodeReference;
+import org.jetbrains.mps.openapi.model.SReference;
 
 @Immutable
-public final class MissingPropertyInConceptProblem implements Problem {
+public final class RefOutOfScopeProblem implements Problem {
   private final ProblemId myId;
-  private final SNodeReference mySourceNode;
+  @NotNull private final SNodeReference mySourceNode;
 
-  public MissingPropertyInConceptProblem(@NotNull SAbstractConcept concept, @NotNull SProperty foreignProperty, @Nullable SNodeReference sourceNode) {
+  public RefOutOfScopeProblem(@NotNull SReferenceLink referenceLink, @Nullable SNodeReference sourceNode) {
     mySourceNode = sourceNode;
-    myId = new MissingPropertyInConceptProblemId(concept);
+    myId = new RefOutOfScopeProblemId(referenceLink);
   }
 
   @NotNull
   @Override
   public ProblemKind getKind() {
-    return PredefinedStructureProblemKind.MISSING_PROPERTY;
+    return PredefinedConstraintProblemKind.REF_OUT_OF_SCOPE;
   }
 
   @NotNull

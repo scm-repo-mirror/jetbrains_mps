@@ -13,28 +13,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package messages;
+package jetbrains.mps.core.aspects.feedback.messages;
 
 import jetbrains.mps.core.context.Context;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Immutable;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNode;
 
 @Immutable
-public final class MissingPropertyContext implements Context {
+public final class RefOutOfScopeContext implements Context {
   private final SNode myNode;
-  private final SProperty myProperty;
+  private final SAbstractConcept myConcept;
+  private final SReferenceLink myProperty;
+  private final String myTargetName;
+  private final SNode myNode;
 
-  public MissingPropertyContext(@NotNull SNode node, @NotNull SProperty property) {
+  public RefOutOfScopeContext(@NotNull SNode node, @NotNull SProperty property, Object value) {
     myProperty = property;
+    myValue = value;
     myNode = node;
   }
 
   @NotNull
   public SProperty getProperty() {
     return myProperty;
+  }
+
+  @Nullable
+  public Object getValue() {
+    return myValue;
   }
 
   @NotNull
