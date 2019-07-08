@@ -35,10 +35,7 @@ public class ValidationSettings implements CoreComponent {
 
   private IModelValidationSettings myModelValidationSettings;
 
-  private final CheckerRegistry myCheckerRegistry;
-
-  public ValidationSettings(CheckerRegistry checkerRegistry) {
-    myCheckerRegistry = checkerRegistry;
+  public ValidationSettings() {
   }
 
   @Override
@@ -57,17 +54,6 @@ public class ValidationSettings implements CoreComponent {
 
   public IModelValidationSettings getModelValidationSettings() {
     return myModelValidationSettings;
-  }
-
-  /**
-   * @deprecated {@link CheckerRegistry} is {@link CoreComponent}, use {@link jetbrains.mps.components.ComponentHost#findComponent(Class)} to obtain its instance
-   *
-   * To my best knowledge, there are no uses of this method in mbeddr.
-   */
-  @Deprecated
-  @ToRemove(version = 2019.1)
-  public CheckerRegistry getCheckerRegistry() {
-    return myCheckerRegistry;
   }
 
   public void setModelValidationSettings(@Nullable IModelValidationSettings settings) {

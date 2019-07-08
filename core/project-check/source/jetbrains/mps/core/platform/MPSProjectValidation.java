@@ -21,9 +21,11 @@ import jetbrains.mps.checkers.ModelPropertiesChecker;
 import jetbrains.mps.checkers.ModuleChecker;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.components.ComponentPlugin;
+import jetbrains.mps.components.CoreComponent;
 import jetbrains.mps.errors.CheckerRegistry;
 import jetbrains.mps.project.validation.StructureChecker;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,39 +36,43 @@ import java.util.List;
  * everything into mps-core.jar and try smaller pieces(jars) instead. After all, some RCP configurations might not need project checking code at all.
  * This approach doesn't require MPSCore to move outside of [kernel] (though one day it likely get back to its own `umbrella` module anyway)
  *
- * <p>Deliberately not ComponentHost as it doesn't host any CoreComponent at the moment</p>
- *
  * @author Artem Tikhomirov
  * @since 2019.1
  */
-public class MPSProjectValidation extends ComponentPlugin {
+public class MPSProjectValidation extends ComponentPlugin implements ComponentHost {
   private final ComponentHost myHost;
   private final List<IChecker<?, ?>> myCheckers = new ArrayList<>();
+  private final CheckerRegistry myRegistry;
 
   MPSProjectValidation(@NotNull ComponentHost host) {
     myHost = host;
+    myRegistry = new CheckerRegistry(host);
   }
 
   @Override
   public void init() {
-    CheckerRegistry registry = myHost.findComponent(CheckerRegistry.class);
-    if (registry == null) {
-      return;
-    }
+    myRegistry.init();
     myCheckers.add(new StructureChecker(myHost).withoutBrokenReferences());
     myCheckers.add(new ModelPropertiesChecker());
     myCheckers.add(new ModuleChecker());
     myCheckers.add(new ConstraintsChecker(myHost));
-    myCheckers.forEach(registry::registerChecker);
+    myCheckers.forEach(myRegistry::registerChecker);
   }
 
   @Override
   public void dispose() {
-    CheckerRegistry registry = myHost.findComponent(CheckerRegistry.class);
-    if (registry != null) {
-      myCheckers.forEach(registry::unregisterChecker);
-      myCheckers.clear();
-    }
+    myCheckers.forEach(myRegistry::unregisterChecker);
+    myCheckers.clear();
+    myRegistry.dispose();
     super.dispose();
+  }
+
+  @Nullable
+  @Override
+  public <T extends CoreComponent> T findComponent(@NotNull Class<T> componentClass) {
+    if (componentClass.isAssignableFrom(CheckerRegistry.class)) {
+      return componentClass.cast(myRegistry);
+    }
+    return null;
   }
 }
