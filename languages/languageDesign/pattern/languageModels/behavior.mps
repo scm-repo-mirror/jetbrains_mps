@@ -6,7 +6,7 @@
     <use id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior" version="2" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
-    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="2" />
+    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="3" />
   </languages>
   <imports>
     <import index="tp3t" ref="r:00000000-0000-4000-0000-011c89590345(jetbrains.mps.lang.pattern.structure)" />
@@ -144,9 +144,7 @@
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -903,7 +901,7 @@
                   <ref role="2pJxaS" to="tpee:g7uibYu" resolve="ClassifierType" />
                   <node concept="2pIpSj" id="3EEhNT1$8uf" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:g7uigIF" resolve="classifier" />
-                    <node concept="36bGnv" id="3EEhNT1$8B0" role="2pJxcZ">
+                    <node concept="36bGnv" id="3EEhNT1$8B0" role="28nt2d">
                       <ref role="36bGnp" to="33ny:~List" resolve="List" />
                     </node>
                   </node>
@@ -920,7 +918,7 @@
                   <ref role="2pJxaS" to="tpee:g7uibYu" resolve="ClassifierType" />
                   <node concept="2pIpSj" id="3EEhNT1$8Bg" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:g7uigIF" resolve="classifier" />
-                    <node concept="36bGnv" id="3EEhNT1$8K3" role="2pJxcZ">
+                    <node concept="36bGnv" id="3EEhNT1$8K3" role="28nt2d">
                       <ref role="36bGnp" to="mhbf:~SNode" resolve="SNode" />
                     </node>
                   </node>
@@ -947,7 +945,7 @@
                   <ref role="2pJxaS" to="tpee:g7uibYu" resolve="ClassifierType" />
                   <node concept="2pIpSj" id="3EEhNT1$8Kj" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:g7uigIF" resolve="classifier" />
-                    <node concept="36bGnv" id="3EEhNT1$8Kk" role="2pJxcZ">
+                    <node concept="36bGnv" id="3EEhNT1$8Kk" role="28nt2d">
                       <ref role="36bGnp" to="mhbf:~SNode" resolve="SNode" />
                     </node>
                   </node>
@@ -1036,7 +1034,7 @@
                   <ref role="2pJxaS" to="tpee:g7uibYu" resolve="ClassifierType" />
                   <node concept="2pIpSj" id="3EEhNT1$8Pd" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:g7uigIF" resolve="classifier" />
-                    <node concept="36bGnv" id="3EEhNT1$8Q9" role="2pJxcZ">
+                    <node concept="36bGnv" id="3EEhNT1$8Q9" role="28nt2d">
                       <ref role="36bGnp" to="wyt6:~String" resolve="String" />
                     </node>
                   </node>

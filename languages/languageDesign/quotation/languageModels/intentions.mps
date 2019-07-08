@@ -216,9 +216,7 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -3068,7 +3066,7 @@
                       <ref role="2pJxaS" to="tp3r:4IP40Bi38Sq" resolve="NodeBuilderInitLink" />
                       <node concept="2pIpSj" id="3v7fNhWmpZD" role="2pJxcM">
                         <ref role="2pIpSl" to="tp3r:4IP40Bi38Ss" resolve="link" />
-                        <node concept="36biLy" id="3v7fNhWmpZE" role="2pJxcZ">
+                        <node concept="36biLy" id="3v7fNhWmpZE" role="28nt2d">
                           <node concept="37vLTw" id="3v7fNhWmpZF" role="36biLW">
                             <ref role="3cqZAo" node="3v7fNhWkWpT" resolve="linkDeclaration" />
                           </node>
@@ -3076,11 +3074,11 @@
                       </node>
                       <node concept="2pIpSj" id="3v7fNhWmpZG" role="2pJxcM">
                         <ref role="2pIpSl" to="tp3r:4IP40Bi2KcQ" resolve="expression" />
-                        <node concept="2pJPED" id="3v7fNhWkND2" role="2pJxcZ">
+                        <node concept="2pJPED" id="3v7fNhWkND2" role="28nt2d">
                           <ref role="2pJxaS" to="tp3r:76efOMRCHWM" resolve="NodeBuilderList" />
                           <node concept="2pIpSj" id="3v7fNhWkNK8" role="2pJxcM">
                             <ref role="2pIpSl" to="tp3r:76efOMRCHWN" resolve="nodes" />
-                            <node concept="36biLy" id="3v7fNhWkNOD" role="2pJxcZ">
+                            <node concept="36biLy" id="3v7fNhWkNOD" role="28nt2d">
                               <node concept="37vLTw" id="3v7fNhWs6wQ" role="36biLW">
                                 <ref role="3cqZAo" node="3v7fNhWq8Hd" resolve="childBuilders" />
                               </node>
@@ -3131,7 +3129,7 @@
                       <ref role="2pJxaS" to="tp3r:4IP40Bi38Sq" resolve="NodeBuilderInitLink" />
                       <node concept="2pIpSj" id="3v7fNhWv22D" role="2pJxcM">
                         <ref role="2pIpSl" to="tp3r:4IP40Bi38Ss" resolve="link" />
-                        <node concept="36biLy" id="3v7fNhWv22E" role="2pJxcZ">
+                        <node concept="36biLy" id="3v7fNhWv22E" role="28nt2d">
                           <node concept="37vLTw" id="3v7fNhWv22F" role="36biLW">
                             <ref role="3cqZAo" node="3v7fNhWkWpT" resolve="linkDeclaration" />
                           </node>
@@ -3139,7 +3137,7 @@
                       </node>
                       <node concept="2pIpSj" id="3v7fNhWv22G" role="2pJxcM">
                         <ref role="2pIpSl" to="tp3r:4IP40Bi2KcQ" resolve="expression" />
-                        <node concept="36biLy" id="3v7fNhWvs5Q" role="2pJxcZ">
+                        <node concept="36biLy" id="3v7fNhWvs5Q" role="28nt2d">
                           <node concept="2OqwBi" id="3v7fNhWvtHi" role="36biLW">
                             <node concept="37vLTw" id="3v7fNhWvs7s" role="2Oq$k0">
                               <ref role="3cqZAo" node="3v7fNhWq8Hd" resolve="childBuilders" />
@@ -3303,7 +3301,7 @@
                       <ref role="2pJxaS" to="tp3r:4IP40Bi38Sq" resolve="NodeBuilderInitLink" />
                       <node concept="2pIpSj" id="3v7fNhWxfQo" role="2pJxcM">
                         <ref role="2pIpSl" to="tp3r:4IP40Bi38Ss" resolve="link" />
-                        <node concept="36biLy" id="3v7fNhWxfQp" role="2pJxcZ">
+                        <node concept="36biLy" id="3v7fNhWxfQp" role="28nt2d">
                           <node concept="37vLTw" id="3v7fNhWxfQq" role="36biLW">
                             <ref role="3cqZAo" node="3v7fNhWkWpT" resolve="linkDeclaration" />
                           </node>
@@ -3311,11 +3309,11 @@
                       </node>
                       <node concept="2pIpSj" id="3v7fNhWxfQr" role="2pJxcM">
                         <ref role="2pIpSl" to="tp3r:4IP40Bi2KcQ" resolve="expression" />
-                        <node concept="2pJPED" id="3v7fNhWxzFB" role="2pJxcZ">
+                        <node concept="2pJPED" id="3v7fNhWxzFB" role="28nt2d">
                           <ref role="2pJxaS" to="tp3r:76efOMRCLcI" resolve="NodeBuilderExpression" />
                           <node concept="2pIpSj" id="3v7fNhWxzG8" role="2pJxcM">
                             <ref role="2pIpSl" to="tp3r:76efOMRCLcK" resolve="expression" />
-                            <node concept="36biLy" id="3v7fNhWxzH4" role="2pJxcZ">
+                            <node concept="36biLy" id="3v7fNhWxzH4" role="28nt2d">
                               <node concept="37vLTw" id="3v7fNhWx$7z" role="36biLW">
                                 <ref role="3cqZAo" node="3v7fNhWxq2R" resolve="childrenBuilderExpression" />
                               </node>
@@ -3377,7 +3375,7 @@
                                 <ref role="2pJxaS" to="tp3r:4IP40Bi38Sq" resolve="NodeBuilderInitLink" />
                                 <node concept="2pIpSj" id="3v7fNhWlQvR" role="2pJxcM">
                                   <ref role="2pIpSl" to="tp3r:4IP40Bi38Ss" resolve="link" />
-                                  <node concept="36biLy" id="3v7fNhWlQvS" role="2pJxcZ">
+                                  <node concept="36biLy" id="3v7fNhWlQvS" role="28nt2d">
                                     <node concept="37vLTw" id="3v7fNhWlQvT" role="36biLW">
                                       <ref role="3cqZAo" node="3v7fNhWkWpT" resolve="linkDeclaration" />
                                     </node>
@@ -3385,7 +3383,7 @@
                                 </node>
                                 <node concept="2pIpSj" id="3v7fNhWlQvU" role="2pJxcM">
                                   <ref role="2pIpSl" to="tp3r:4IP40Bi2KcQ" resolve="expression" />
-                                  <node concept="36biLy" id="3v7fNhWlQvV" role="2pJxcZ">
+                                  <node concept="36biLy" id="3v7fNhWlQvV" role="28nt2d">
                                     <node concept="37vLTw" id="3v7fNhWlQvW" role="36biLW">
                                       <ref role="3cqZAo" node="3v7fNhWlQvX" resolve="childBuilder" />
                                     </node>

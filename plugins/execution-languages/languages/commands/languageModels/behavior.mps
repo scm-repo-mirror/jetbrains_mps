@@ -141,9 +141,7 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -454,7 +452,7 @@
               <ref role="2pJxaS" to="rzqf:JzCdmU6yJm" resolve="CommandType" />
               <node concept="2pIpSj" id="2F8bNQrKC_" role="2pJxcM">
                 <ref role="2pIpSl" to="rzqf:JzCdmU6yJn" resolve="command" />
-                <node concept="36biLy" id="2F8bNQrKCA" role="2pJxcZ">
+                <node concept="36biLy" id="2F8bNQrKCA" role="28nt2d">
                   <node concept="13iPFW" id="JzCdmU6yPi" role="36biLW" />
                 </node>
               </node>
@@ -1594,7 +1592,7 @@
               <ref role="2pJxaS" to="tpd4:hausRW2" resolve="JoinType" />
               <node concept="2pIpSj" id="2F8bNQrNgh" role="2pJxcM">
                 <ref role="2pIpSl" to="tpd4:hausUtE" resolve="argument" />
-                <node concept="36be1Y" id="2F8bNQrNgi" role="2pJxcZ">
+                <node concept="36be1Y" id="2F8bNQrNgi" role="28nt2d">
                   <node concept="2pJPED" id="2F8bNQrNgg" role="36be1Z">
                     <ref role="2pJxaS" to="rzqf:JzCdmU6yKi" resolve="ProcessType" />
                   </node>
@@ -1602,7 +1600,7 @@
                     <ref role="2pJxaS" to="tpee:g7uibYu" resolve="ClassifierType" />
                     <node concept="2pIpSj" id="2F8bNQrNgk" role="2pJxcM">
                       <ref role="2pIpSl" to="tpee:g7uigIF" resolve="classifier" />
-                      <node concept="36bGnv" id="2F8bNQrNgl" role="2pJxcZ">
+                      <node concept="36bGnv" id="2F8bNQrNgl" role="28nt2d">
                         <ref role="36bGnp" to="uu3z:~ProcessHandler" resolve="ProcessHandler" />
                       </node>
                     </node>

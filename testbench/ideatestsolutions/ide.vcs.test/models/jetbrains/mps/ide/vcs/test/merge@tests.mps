@@ -8,7 +8,7 @@
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
     <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="0" />
     <use id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples" version="0" />
-    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="2" />
+    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="3" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
@@ -412,12 +412,11 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
         <reference id="5455284157993911078" name="property" index="2pJxcJ" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -3283,19 +3282,19 @@
                         <ref role="2pJxaS" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
                         <node concept="2pJxcG" id="4CruXksy55A" role="2pJxcM">
                           <ref role="2pJxcJ" to="tpck:h0TrG11" resolve="name" />
-                          <node concept="Xl_RD" id="4CruXksy55B" role="2pJxcZ">
+                          <node concept="Xl_RD" id="4CruXksy55B" role="28ntcv">
                             <property role="Xl_RC" value="newMethod" />
                           </node>
                         </node>
                         <node concept="2pIpSj" id="4CruXksy55C" role="2pJxcM">
                           <ref role="2pIpSl" to="tpee:fzclF7Z" resolve="body" />
-                          <node concept="2pJPED" id="4CruXksy55D" role="2pJxcZ">
+                          <node concept="2pJPED" id="4CruXksy55D" role="28nt2d">
                             <ref role="2pJxaS" to="tpee:fzclF80" resolve="StatementList" />
                           </node>
                         </node>
                         <node concept="2pIpSj" id="4CruXksy55E" role="2pJxcM">
                           <ref role="2pIpSl" to="tpee:fzclF7X" resolve="returnType" />
-                          <node concept="2pJPED" id="4CruXksy55F" role="2pJxcZ">
+                          <node concept="2pJPED" id="4CruXksy55F" role="28nt2d">
                             <ref role="2pJxaS" to="tpee:fzcqZ_H" resolve="VoidType" />
                           </node>
                         </node>
@@ -4559,19 +4558,19 @@
                               <ref role="2pJxaS" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
                               <node concept="2pJxcG" id="7HgS$VkfEqy" role="2pJxcM">
                                 <ref role="2pJxcJ" to="tpck:h0TrG11" resolve="name" />
-                                <node concept="Xl_RD" id="7HgS$VkfEqz" role="2pJxcZ">
+                                <node concept="Xl_RD" id="7HgS$VkfEqz" role="28ntcv">
                                   <property role="Xl_RC" value="newMethod" />
                                 </node>
                               </node>
                               <node concept="2pIpSj" id="4CruXksxMYJ" role="2pJxcM">
                                 <ref role="2pIpSl" to="tpee:fzclF7Z" resolve="body" />
-                                <node concept="2pJPED" id="4CruXksxNkn" role="2pJxcZ">
+                                <node concept="2pJPED" id="4CruXksxNkn" role="28nt2d">
                                   <ref role="2pJxaS" to="tpee:fzclF80" resolve="StatementList" />
                                 </node>
                               </node>
                               <node concept="2pIpSj" id="4CruXksxNMj" role="2pJxcM">
                                 <ref role="2pIpSl" to="tpee:fzclF7X" resolve="returnType" />
-                                <node concept="2pJPED" id="4CruXksxO7V" role="2pJxcZ">
+                                <node concept="2pJPED" id="4CruXksxO7V" role="28nt2d">
                                   <ref role="2pJxaS" to="tpee:fzcqZ_H" resolve="VoidType" />
                                 </node>
                               </node>
@@ -8946,7 +8945,7 @@
                         <ref role="2pJxaS" to="tpee:fz12cDA" resolve="ClassConcept" />
                         <node concept="2pJxcG" id="4CruXkswDH0" role="2pJxcM">
                           <ref role="2pJxcJ" to="tpck:h0TrG11" resolve="name" />
-                          <node concept="Xl_RD" id="4CruXkswDH1" role="2pJxcZ">
+                          <node concept="Xl_RD" id="4CruXkswDH1" role="28ntcv">
                             <property role="Xl_RC" value="NewRoot" />
                           </node>
                         </node>
@@ -10693,7 +10692,7 @@
                           <ref role="2pJxaS" to="tpee:fz12cDA" resolve="ClassConcept" />
                           <node concept="2pJxcG" id="7HgS$VjRdMK" role="2pJxcM">
                             <ref role="2pJxcJ" to="tpck:h0TrG11" resolve="name" />
-                            <node concept="Xl_RD" id="7HgS$VjRedg" role="2pJxcZ">
+                            <node concept="Xl_RD" id="7HgS$VjRedg" role="28ntcv">
                               <property role="Xl_RC" value="NewRoot" />
                             </node>
                           </node>
@@ -12960,7 +12959,7 @@
                   <ref role="2pJxaS" to="tpee:fz12cDA" resolve="ClassConcept" />
                   <node concept="2pJxcG" id="7HgS$VkfQ4h" role="2pJxcM">
                     <ref role="2pJxcJ" to="tpck:h0TrG11" resolve="name" />
-                    <node concept="Xl_RD" id="7HgS$VkfQ5G" role="2pJxcZ">
+                    <node concept="Xl_RD" id="7HgS$VkfQ5G" role="28ntcv">
                       <property role="Xl_RC" value="NewRoot" />
                     </node>
                   </node>
@@ -13278,7 +13277,7 @@
                           <ref role="2pJxaS" to="tpee:fz12cDA" resolve="ClassConcept" />
                           <node concept="2pJxcG" id="7HgS$Vk7wEV" role="2pJxcM">
                             <ref role="2pJxcJ" to="tpck:h0TrG11" resolve="name" />
-                            <node concept="Xl_RD" id="7HgS$Vk7wEW" role="2pJxcZ">
+                            <node concept="Xl_RD" id="7HgS$Vk7wEW" role="28ntcv">
                               <property role="Xl_RC" value="NewRoot" />
                             </node>
                           </node>
@@ -14456,19 +14455,19 @@
                   <ref role="2pJxaS" to="tpee:fzclF8t" resolve="InstanceMethodDeclaration" />
                   <node concept="2pJxcG" id="7HgS$Vk554z" role="2pJxcM">
                     <ref role="2pJxcJ" to="tpck:h0TrG11" resolve="name" />
-                    <node concept="Xl_RD" id="7HgS$Vk55nP" role="2pJxcZ">
+                    <node concept="Xl_RD" id="7HgS$Vk55nP" role="28ntcv">
                       <property role="Xl_RC" value="m1" />
                     </node>
                   </node>
                   <node concept="2pIpSj" id="7HgS$Vk56je" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:fzclF7Z" resolve="body" />
-                    <node concept="2pJPED" id="7HgS$Vk56xY" role="2pJxcZ">
+                    <node concept="2pJPED" id="7HgS$Vk56xY" role="28nt2d">
                       <ref role="2pJxaS" to="tpee:fzclF80" resolve="StatementList" />
                     </node>
                   </node>
                   <node concept="2pIpSj" id="7HgS$Vk56LF" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:fzclF7X" resolve="returnType" />
-                    <node concept="2pJPED" id="7HgS$Vk570B" role="2pJxcZ">
+                    <node concept="2pJPED" id="7HgS$Vk570B" role="28nt2d">
                       <ref role="2pJxaS" to="tpee:fzcqZ_H" resolve="VoidType" />
                     </node>
                   </node>

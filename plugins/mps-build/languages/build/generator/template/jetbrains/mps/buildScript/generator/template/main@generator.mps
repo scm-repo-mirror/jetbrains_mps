@@ -455,12 +455,11 @@
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
         <reference id="5455284157993911078" name="property" index="2pJxcJ" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -11854,7 +11853,7 @@
                                 <ref role="2pJxaS" to="3ior:5wKGSSmC1pc" resolve="GeneratorInternal_ProjectDependency" />
                                 <node concept="2pJxcG" id="5wKGSSmTIlK" role="2pJxcM">
                                   <ref role="2pJxcJ" to="3ior:5wKGSSmC1uX" resolve="path" />
-                                  <node concept="1LFfDK" id="5wKGSSmU6Nd" role="2pJxcZ">
+                                  <node concept="1LFfDK" id="5wKGSSmU6Nd" role="28ntcv">
                                     <node concept="3cmrfG" id="5wKGSSmU6Nk" role="1LF_Uc">
                                       <property role="3cmrfH" value="1" />
                                     </node>
@@ -11865,7 +11864,7 @@
                                 </node>
                                 <node concept="2pIpSj" id="5wKGSSmUn1B" role="2pJxcM">
                                   <ref role="2pIpSl" to="3ior:5wKGSSmQ2fj" resolve="project" />
-                                  <node concept="36biLy" id="5wKGSSmUR_M" role="2pJxcZ">
+                                  <node concept="36biLy" id="5wKGSSmUR_M" role="28nt2d">
                                     <node concept="1LFfDK" id="5wKGSSmV6zy" role="36biLW">
                                       <node concept="3cmrfG" id="5wKGSSmVflj" role="1LF_Uc">
                                         <property role="3cmrfH" value="0" />

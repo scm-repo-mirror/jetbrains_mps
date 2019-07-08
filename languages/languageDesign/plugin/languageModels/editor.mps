@@ -7,7 +7,7 @@
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
-    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="2" />
+    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="3" />
     <use id="daafa647-f1f7-4b0b-b096-69cd7c8408c0" name="jetbrains.mps.baseLanguage.regexp" version="0" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
@@ -401,12 +401,11 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
         <reference id="5455284157993911078" name="property" index="2pJxcJ" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -6566,7 +6565,7 @@
                   <ref role="2pJxaS" to="tp4k:qbzkx3HQmK" resolve="ToolKeystroke" />
                   <node concept="2pJxcG" id="qbzkx3QggV" role="2pJxcM">
                     <ref role="2pJxcJ" to="tp4k:3Ftr4R6BH7t" resolve="keymap" />
-                    <node concept="2YIFZM" id="3Ftr4RabC_B" role="2pJxcZ">
+                    <node concept="2YIFZM" id="3Ftr4RabC_B" role="28ntcv">
                       <ref role="37wK5l" to="y8j6:3Ftr4R6BFpW" resolve="fromValue" />
                       <ref role="1Pybhc" to="y8j6:3Ftr4R6BFpo" resolve="Keymap_MigrationUtils" />
                       <node concept="2OqwBi" id="qbzkx3Qhao" role="37wK5m">
@@ -6579,11 +6578,11 @@
                   </node>
                   <node concept="2pIpSj" id="qbzkx3Qg_0" role="2pJxcM">
                     <ref role="2pIpSl" to="tp4k:qbzkx3HQ4A" resolve="keystroke" />
-                    <node concept="2pJPED" id="qbzkx3SqKk" role="2pJxcZ">
+                    <node concept="2pJPED" id="qbzkx3SqKk" role="28nt2d">
                       <ref role="2pJxaS" to="tp4k:h$pLAnk" resolve="KeyMapKeystroke" />
                       <node concept="2pJxcG" id="qbzkx3SqXS" role="2pJxcM">
                         <ref role="2pJxcJ" to="tp4k:h$pLAnl" resolve="modifiers" />
-                        <node concept="37vLTw" id="qbzkx3WjqA" role="2pJxcZ">
+                        <node concept="37vLTw" id="qbzkx3WjqA" role="28ntcv">
                           <ref role="3cqZAo" node="qbzkx3Wjq$" resolve="defaultModifier" />
                         </node>
                       </node>
@@ -6949,7 +6948,7 @@
                 <ref role="2pJxaS" to="tp4k:qbzkx3HQ47" resolve="NumberToolShortcut" />
                 <node concept="2pJxcG" id="qbzkx40JOc" role="2pJxcM">
                   <ref role="2pJxcJ" to="tp4k:qbzkx3HQ4z" resolve="number" />
-                  <node concept="ub8z3" id="qbzkx40JU6" role="2pJxcZ" />
+                  <node concept="ub8z3" id="qbzkx40JU6" role="28ntcv" />
                 </node>
               </node>
             </node>
@@ -6997,7 +6996,7 @@
                 <ref role="2pJxaS" to="tp4k:qbzkx3HQ4_" resolve="CustomToolShortcut" />
                 <node concept="2pIpSj" id="qbzkx3Vao2" role="2pJxcM">
                   <ref role="2pIpSl" to="tp4k:qbzkx3HQmS" resolve="changes" />
-                  <node concept="36be1Y" id="qbzkx3VaMY" role="2pJxcZ">
+                  <node concept="36be1Y" id="qbzkx3VaMY" role="28nt2d">
                     <node concept="36biLy" id="qbzkx3VaT5" role="36be1Z">
                       <node concept="3N4pyC" id="qbzkx3VaZl" role="36biLW" />
                     </node>

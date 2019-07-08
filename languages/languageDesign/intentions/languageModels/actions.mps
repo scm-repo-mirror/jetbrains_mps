@@ -63,12 +63,11 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
         <reference id="5455284157993911078" name="property" index="2pJxcJ" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -148,13 +147,13 @@
                     <ref role="2pJxaS" to="tp3j:4jgyS0Z9lVZ" resolve="ForConceptMethodParameter" />
                     <node concept="2pJxcG" id="4jgyS0Z9n6Z" role="2pJxcM">
                       <ref role="2pJxcJ" to="tpck:h0TrG11" resolve="name" />
-                      <node concept="Xl_RD" id="4jgyS0Z9nkZ" role="2pJxcZ">
+                      <node concept="Xl_RD" id="4jgyS0Z9nkZ" role="28ntcv">
                         <property role="Xl_RC" value="node" />
                       </node>
                     </node>
                     <node concept="2pIpSj" id="4jgyS0Z9QEl" role="2pJxcM">
                       <ref role="2pIpSl" to="tpee:4VkOLwjf83e" resolve="type" />
-                      <node concept="2pJPED" id="4y11RyiWd_D" role="2pJxcZ">
+                      <node concept="2pJPED" id="4y11RyiWd_D" role="28nt2d">
                         <ref role="2pJxaS" to="tp25:gzTqbfa" resolve="SNodeType" />
                       </node>
                     </node>

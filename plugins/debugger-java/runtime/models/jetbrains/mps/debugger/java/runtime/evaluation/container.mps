@@ -5,7 +5,7 @@
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
     <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="4" />
-    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="2" />
+    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="3" />
     <use id="696c1165-4a59-463b-bc5d-902caab85dd0" name="jetbrains.mps.make.facet" version="0" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
@@ -338,12 +338,11 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
         <reference id="5455284157993911078" name="property" index="2pJxcJ" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -1894,7 +1893,7 @@
                 <ref role="2pJxaS" to="tp68:h7VmV7M" resolve="InternalVariableReference" />
                 <node concept="2pJxcG" id="IYmOvo4Lgs" role="2pJxcM">
                   <ref role="2pJxcJ" to="tp68:h7VnrL9" resolve="name" />
-                  <node concept="2OqwBi" id="IYmOvo4LmY" role="2pJxcZ">
+                  <node concept="2OqwBi" id="IYmOvo4LmY" role="28ntcv">
                     <node concept="liA8E" id="IYmOvo4NlO" role="2OqNvi">
                       <ref role="37wK5l" to="mhbf:~SNode.getName()" resolve="getName" />
                     </node>
@@ -1907,11 +1906,11 @@
                 </node>
                 <node concept="2pIpSj" id="IYmOvo4Pvt" role="2pJxcM">
                   <ref role="2pIpSl" to="tp68:h7Vn4Xc" resolve="type" />
-                  <node concept="2pJPED" id="IYmOvo4PD_" role="2pJxcZ">
+                  <node concept="2pJPED" id="IYmOvo4PD_" role="28nt2d">
                     <ref role="2pJxaS" to="tpee:g7uibYu" resolve="ClassifierType" />
                     <node concept="2pIpSj" id="IYmOvo4PDJ" role="2pJxcM">
                       <ref role="2pIpSl" to="tpee:g7uigIF" resolve="classifier" />
-                      <node concept="36bGnv" id="IYmOvo4PEP" role="2pJxcZ">
+                      <node concept="36bGnv" id="IYmOvo4PEP" role="28nt2d">
                         <ref role="36bGnp" to="wyt6:~Object" resolve="Object" />
                       </node>
                     </node>

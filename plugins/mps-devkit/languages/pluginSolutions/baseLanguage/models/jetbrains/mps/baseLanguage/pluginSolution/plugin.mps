@@ -11,7 +11,7 @@
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
     <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="4" />
-    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="2" />
+    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="3" />
     <use id="c7d5b9dd-a05f-4be2-bc73-f2e16994cc67" name="jetbrains.mps.baseLanguage.lightweightdsl" version="-1" />
     <use id="c0080a47-7e37-4558-bee9-9ae18e690549" name="jetbrains.mps.lang.extension" version="-1" />
     <use id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples" version="-1" />
@@ -306,9 +306,7 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -1984,7 +1982,7 @@
               <ref role="2pJxaS" to="53vh:7Sw_42Ums7B" resolve="ClassifierMemberData" />
               <node concept="2pIpSj" id="7Sw_42UCHp_" role="2pJxcM">
                 <ref role="2pIpSl" to="53vh:7Sw_42Ums7C" resolve="nodeData" />
-                <node concept="36biLy" id="7Sw_42UCHpA" role="2pJxcZ">
+                <node concept="36biLy" id="7Sw_42UCHpA" role="28nt2d">
                   <node concept="2YIFZM" id="7Sw_42UCHpB" role="36biLW">
                     <ref role="1Pybhc" to="5jto:2GZlO$G5IXQ" resolve="NodeReferenceUtil" />
                     <ref role="37wK5l" to="5jto:2SJclOrQjKm" resolve="makeReflection" />
@@ -2019,7 +2017,7 @@
               </node>
               <node concept="2pIpSj" id="7Sw_42UCHpM" role="2pJxcM">
                 <ref role="2pIpSl" to="53vh:7Sw_42Ums7E" resolve="classifierData" />
-                <node concept="36biLy" id="7Sw_42UCHpN" role="2pJxcZ">
+                <node concept="36biLy" id="7Sw_42UCHpN" role="28nt2d">
                   <node concept="2YIFZM" id="7Sw_42UCHpO" role="36biLW">
                     <ref role="1Pybhc" to="5jto:2GZlO$G5IXQ" resolve="NodeReferenceUtil" />
                     <ref role="37wK5l" to="5jto:2SJclOrQjKm" resolve="makeReflection" />
@@ -2077,7 +2075,7 @@
               <ref role="2pJxaS" to="53vh:7Sw_42Ums7B" resolve="ClassifierMemberData" />
               <node concept="2pIpSj" id="7Sw_42UCHq8" role="2pJxcM">
                 <ref role="2pIpSl" to="53vh:7Sw_42Ums7C" resolve="nodeData" />
-                <node concept="36biLy" id="7Sw_42UCHq9" role="2pJxcZ">
+                <node concept="36biLy" id="7Sw_42UCHq9" role="28nt2d">
                   <node concept="2YIFZM" id="7Sw_42UCHqa" role="36biLW">
                     <ref role="37wK5l" to="5jto:2SJclOrQjKm" resolve="makeReflection" />
                     <ref role="1Pybhc" to="5jto:2GZlO$G5IXQ" resolve="NodeReferenceUtil" />
@@ -2112,7 +2110,7 @@
               </node>
               <node concept="2pIpSj" id="7Sw_42UCHql" role="2pJxcM">
                 <ref role="2pIpSl" to="53vh:7Sw_42Ums7E" resolve="classifierData" />
-                <node concept="36biLy" id="7Sw_42UCHqm" role="2pJxcZ">
+                <node concept="36biLy" id="7Sw_42UCHqm" role="28nt2d">
                   <node concept="2YIFZM" id="7Sw_42UCHqn" role="36biLW">
                     <ref role="37wK5l" to="5jto:2SJclOrQjKm" resolve="makeReflection" />
                     <ref role="1Pybhc" to="5jto:2GZlO$G5IXQ" resolve="NodeReferenceUtil" />

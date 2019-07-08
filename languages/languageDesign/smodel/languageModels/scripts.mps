@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
-    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="2" />
+    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="3" />
     <use id="0eddeefa-c2d6-4437-bc2c-de50fd4ce470" name="jetbrains.mps.lang.script" version="1" />
     <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="4" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
@@ -187,9 +187,7 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -1839,7 +1837,7 @@
               <ref role="2pJxaS" to="tpee:hqOqwz4" resolve="DotExpression" />
               <node concept="2pIpSj" id="1tZss7cbuqe" role="2pJxcM">
                 <ref role="2pIpSl" to="tpee:hqOq$gm" resolve="operand" />
-                <node concept="36biLy" id="1tZss7cbuqf" role="2pJxcZ">
+                <node concept="36biLy" id="1tZss7cbuqf" role="28nt2d">
                   <node concept="37vLTw" id="1tZss7cbuOc" role="36biLW">
                     <ref role="3cqZAo" node="1tZss7cbuCF" resolve="nodeInstExpression" />
                   </node>
@@ -1847,11 +1845,11 @@
               </node>
               <node concept="2pIpSj" id="1tZss7cbuqh" role="2pJxcM">
                 <ref role="2pIpSl" to="tpee:hqOqNr4" resolve="operation" />
-                <node concept="2pJPED" id="1tZss7cbuqi" role="2pJxcZ">
+                <node concept="2pJPED" id="1tZss7cbuqi" role="28nt2d">
                   <ref role="2pJxaS" to="tp25:3bhfBP455GQ" resolve="Node_IsOperation" />
                   <node concept="2pIpSj" id="1tZss7cbuqj" role="2pJxcM">
                     <ref role="2pIpSl" to="tp25:3bhfBP455Ic" resolve="ref" />
-                    <node concept="36biLy" id="1tZss7cbuqk" role="2pJxcZ">
+                    <node concept="36biLy" id="1tZss7cbuqk" role="28nt2d">
                       <node concept="2YIFZM" id="1tZss7cbvRC" role="36biLW">
                         <ref role="1Pybhc" node="1tZss7c9H$s" resolve="NodePointerMigrations" />
                         <ref role="37wK5l" node="1tZss7c9HC7" resolve="toNodeIdentity" />
@@ -1903,7 +1901,7 @@
               <ref role="2pJxaS" to="tpee:fJfqX4d" resolve="NotExpression" />
               <node concept="2pIpSj" id="1tZss7cbwKk" role="2pJxcM">
                 <ref role="2pIpSl" to="tpee:fJfr32$" resolve="expression" />
-                <node concept="36biLy" id="1tZss7cbwMW" role="2pJxcZ">
+                <node concept="36biLy" id="1tZss7cbwMW" role="28nt2d">
                   <node concept="1rXfSq" id="1tZss7cbwOd" role="36biLW">
                     <ref role="37wK5l" node="1tZss7cbuh8" resolve="getEqualityReplacement" />
                     <node concept="37vLTw" id="1tZss7cbwTo" role="37wK5m">
@@ -2357,7 +2355,7 @@
                     <ref role="2pJxaS" to="dvox:46J8CTY3nWY" resolve="NamedNodeReference" />
                     <node concept="2pIpSj" id="7uvxILOSHov" role="2pJxcM">
                       <ref role="2pIpSl" to="dvox:6iN_brIg2YE" resolve="target" />
-                      <node concept="36biLy" id="7uvxILOSHow" role="2pJxcZ">
+                      <node concept="36biLy" id="7uvxILOSHow" role="28nt2d">
                         <node concept="2GrUjf" id="7uvxILOSHox" role="36biLW">
                           <ref role="2Gs0qQ" node="7uvxILOSHon" resolve="node" />
                         </node>
@@ -2365,7 +2363,7 @@
                     </node>
                     <node concept="2pIpSj" id="7uvxILOSHoy" role="2pJxcM">
                       <ref role="2pIpSl" to="dvox:6iN_brIg2YW" resolve="child" />
-                      <node concept="36biLy" id="7uvxILOSHoz" role="2pJxcZ">
+                      <node concept="36biLy" id="7uvxILOSHoz" role="28nt2d">
                         <node concept="37vLTw" id="7uvxILOSHo$" role="36biLW">
                           <ref role="3cqZAo" node="7uvxILOSHoj" resolve="result" />
                         </node>
@@ -2468,7 +2466,7 @@
               <ref role="2pJxaS" to="tpee:hqOqwz4" resolve="DotExpression" />
               <node concept="2pIpSj" id="2KtaGVsCMam" role="2pJxcM">
                 <ref role="2pIpSl" to="tpee:hqOq$gm" resolve="operand" />
-                <node concept="36biLy" id="2KtaGVsCMan" role="2pJxcZ">
+                <node concept="36biLy" id="2KtaGVsCMan" role="28nt2d">
                   <node concept="37vLTw" id="2KtaGVsCMao" role="36biLW">
                     <ref role="3cqZAo" node="2KtaGVsCMae" resolve="nodeInstExpression" />
                   </node>
@@ -2476,11 +2474,11 @@
               </node>
               <node concept="2pIpSj" id="2KtaGVsCMap" role="2pJxcM">
                 <ref role="2pIpSl" to="tpee:hqOqNr4" resolve="operation" />
-                <node concept="2pJPED" id="2KtaGVsCMaq" role="2pJxcZ">
+                <node concept="2pJPED" id="2KtaGVsCMaq" role="28nt2d">
                   <ref role="2pJxaS" to="tp25:3bhfBP455GQ" resolve="Node_IsOperation" />
                   <node concept="2pIpSj" id="2KtaGVsCMar" role="2pJxcM">
                     <ref role="2pIpSl" to="tp25:3bhfBP455Ic" resolve="ref" />
-                    <node concept="36biLy" id="2KtaGVsCMas" role="2pJxcZ">
+                    <node concept="36biLy" id="2KtaGVsCMas" role="28nt2d">
                       <node concept="2YIFZM" id="2KtaGVsEmoC" role="36biLW">
                         <ref role="37wK5l" node="2KtaGVsDOaL" resolve="quotationToNodeIdentity" />
                         <ref role="1Pybhc" node="1tZss7c9H$s" resolve="NodePointerMigrations" />
@@ -2527,7 +2525,7 @@
               <ref role="2pJxaS" to="tpee:fJfqX4d" resolve="NotExpression" />
               <node concept="2pIpSj" id="2KtaGVsCMaH" role="2pJxcM">
                 <ref role="2pIpSl" to="tpee:fJfr32$" resolve="expression" />
-                <node concept="36biLy" id="2KtaGVsCMaI" role="2pJxcZ">
+                <node concept="36biLy" id="2KtaGVsCMaI" role="28nt2d">
                   <node concept="1rXfSq" id="2KtaGVsCMaJ" role="36biLW">
                     <ref role="37wK5l" node="2KtaGVsCMad" resolve="getEqualityReplacement_Quotation" />
                     <node concept="37vLTw" id="2KtaGVsCMaK" role="37wK5m">
@@ -3011,7 +3009,7 @@
                   <ref role="2pJxaS" to="tpee:hqOqwz4" resolve="DotExpression" />
                   <node concept="2pIpSj" id="2KtaGVtwRqO" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:hqOq$gm" resolve="operand" />
-                    <node concept="36biLy" id="2KtaGVtwRqP" role="2pJxcZ">
+                    <node concept="36biLy" id="2KtaGVtwRqP" role="28nt2d">
                       <node concept="2OqwBi" id="2KtaGVtwRqQ" role="36biLW">
                         <node concept="1PxgMI" id="2KtaGVtwRqR" role="2Oq$k0">
                           <property role="1BlNFB" value="false" />
@@ -3035,7 +3033,7 @@
                   </node>
                   <node concept="2pIpSj" id="2KtaGVtwRqX" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:hqOqNr4" resolve="operation" />
-                    <node concept="2pJPED" id="2KtaGVtwRqY" role="2pJxcZ">
+                    <node concept="2pJPED" id="2KtaGVtwRqY" role="28nt2d">
                       <ref role="2pJxaS" to="tp25:4o40NPkYE0z" resolve="Node_PointerOperation" />
                     </node>
                   </node>
@@ -3072,7 +3070,7 @@
                   <ref role="2pJxaS" to="tpee:hqOqwz4" resolve="DotExpression" />
                   <node concept="2pIpSj" id="2KtaGVtwVBG" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:hqOq$gm" resolve="operand" />
-                    <node concept="36biLy" id="2KtaGVtwVBH" role="2pJxcZ">
+                    <node concept="36biLy" id="2KtaGVtwVBH" role="28nt2d">
                       <node concept="2OqwBi" id="2KtaGVtwVBI" role="36biLW">
                         <node concept="1PxgMI" id="2KtaGVtwVBJ" role="2Oq$k0">
                           <property role="1BlNFB" value="false" />
@@ -3096,7 +3094,7 @@
                   </node>
                   <node concept="2pIpSj" id="2KtaGVtwVBP" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:hqOqNr4" resolve="operation" />
-                    <node concept="2pJPED" id="2KtaGVumBmg" role="2pJxcZ">
+                    <node concept="2pJPED" id="2KtaGVumBmg" role="28nt2d">
                       <ref role="2pJxaS" to="tp25:32EzhoU4lKl" resolve="Model_PointerOperation" />
                     </node>
                   </node>
@@ -3177,7 +3175,7 @@
                   <ref role="2pJxaS" to="tpee:hqOqwz4" resolve="DotExpression" />
                   <node concept="2pIpSj" id="1tZss7caGNi" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:hqOq$gm" resolve="operand" />
-                    <node concept="36biLy" id="1tZss7caGOI" role="2pJxcZ">
+                    <node concept="36biLy" id="1tZss7caGOI" role="28nt2d">
                       <node concept="37vLTw" id="1tZss7caGP1" role="36biLW">
                         <ref role="3cqZAo" node="1tZss7caEat" resolve="linkAccessExpression" />
                       </node>
@@ -3185,15 +3183,15 @@
                   </node>
                   <node concept="2pIpSj" id="1tZss7caGQF" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:hqOqNr4" resolve="operation" />
-                    <node concept="2pJPED" id="1tZss7caGSa" role="2pJxcZ">
+                    <node concept="2pJPED" id="1tZss7caGSa" role="28nt2d">
                       <ref role="2pJxaS" to="tp25:OjQ__FNYXe" resolve="Link_SetTargetPointerOperation" />
                       <node concept="2pIpSj" id="1tZss7caIUo" role="2pJxcM">
                         <ref role="2pIpSl" to="tp25:OjQ__FNYXf" resolve="linkTarget" />
-                        <node concept="2pJPED" id="1tZss7caIUI" role="2pJxcZ">
+                        <node concept="2pJPED" id="1tZss7caIUI" role="28nt2d">
                           <ref role="2pJxaS" to="tp25:2SljyToQhUX" resolve="NodePointerArg_Identity" />
                           <node concept="2pIpSj" id="1tZss7caIVb" role="2pJxcM">
                             <ref role="2pIpSl" to="tp25:2SljyToQhW6" resolve="ref" />
-                            <node concept="36biLy" id="1tZss7caIVx" role="2pJxcZ">
+                            <node concept="36biLy" id="1tZss7caIVx" role="28nt2d">
                               <node concept="37vLTw" id="1tZss7caIVO" role="36biLW">
                                 <ref role="3cqZAo" node="1tZss7caGVs" resolve="targetNodeIdentity" />
                               </node>
@@ -3320,11 +3318,11 @@
                   <ref role="2pJxaS" to="tp25:OjQ__FNYXe" resolve="Link_SetTargetPointerOperation" />
                   <node concept="2pIpSj" id="1tZss7cb4Bv" role="2pJxcM">
                     <ref role="2pIpSl" to="tp25:OjQ__FNYXf" resolve="linkTarget" />
-                    <node concept="2pJPED" id="1tZss7cb4Bw" role="2pJxcZ">
+                    <node concept="2pJPED" id="1tZss7cb4Bw" role="28nt2d">
                       <ref role="2pJxaS" to="tp25:2SljyToQhUX" resolve="NodePointerArg_Identity" />
                       <node concept="2pIpSj" id="1tZss7cb4Bx" role="2pJxcM">
                         <ref role="2pIpSl" to="tp25:2SljyToQhW6" resolve="ref" />
-                        <node concept="36biLy" id="1tZss7cb4By" role="2pJxcZ">
+                        <node concept="36biLy" id="1tZss7cb4By" role="28nt2d">
                           <node concept="37vLTw" id="1tZss7cb4Bz" role="36biLW">
                             <ref role="3cqZAo" node="1tZss7cb4Bd" resolve="targetNodeIdentity" />
                           </node>
@@ -3891,7 +3889,7 @@
                   <ref role="2pJxaS" to="tpee:hqOqwz4" resolve="DotExpression" />
                   <node concept="2pIpSj" id="1tZss7duKVN" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:hqOq$gm" resolve="operand" />
-                    <node concept="36biLy" id="1tZss7duKVO" role="2pJxcZ">
+                    <node concept="36biLy" id="1tZss7duKVO" role="28nt2d">
                       <node concept="37vLTw" id="1tZss7duKVP" role="36biLW">
                         <ref role="3cqZAo" node="1tZss7duKVw" resolve="linkAccessExpression" />
                       </node>
@@ -3899,15 +3897,15 @@
                   </node>
                   <node concept="2pIpSj" id="1tZss7duKVQ" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:hqOqNr4" resolve="operation" />
-                    <node concept="2pJPED" id="1tZss7duKVR" role="2pJxcZ">
+                    <node concept="2pJPED" id="1tZss7duKVR" role="28nt2d">
                       <ref role="2pJxaS" to="tp25:OjQ__FNYXe" resolve="Link_SetTargetPointerOperation" />
                       <node concept="2pIpSj" id="1tZss7duKVS" role="2pJxcM">
                         <ref role="2pIpSl" to="tp25:OjQ__FNYXf" resolve="linkTarget" />
-                        <node concept="2pJPED" id="1tZss7duKVT" role="2pJxcZ">
+                        <node concept="2pJPED" id="1tZss7duKVT" role="28nt2d">
                           <ref role="2pJxaS" to="tp25:2SljyToQhUX" resolve="NodePointerArg_Identity" />
                           <node concept="2pIpSj" id="1tZss7duKVU" role="2pJxcM">
                             <ref role="2pIpSl" to="tp25:2SljyToQhW6" resolve="ref" />
-                            <node concept="36biLy" id="1tZss7duKVV" role="2pJxcZ">
+                            <node concept="36biLy" id="1tZss7duKVV" role="28nt2d">
                               <node concept="37vLTw" id="1tZss7duKVW" role="36biLW">
                                 <ref role="3cqZAo" node="1tZss7duKVA" resolve="targetNodeIdentity" />
                               </node>
@@ -4026,11 +4024,11 @@
                   <ref role="2pJxaS" to="tp25:OjQ__FNYXe" resolve="Link_SetTargetPointerOperation" />
                   <node concept="2pIpSj" id="1tZss7duKWH" role="2pJxcM">
                     <ref role="2pIpSl" to="tp25:OjQ__FNYXf" resolve="linkTarget" />
-                    <node concept="2pJPED" id="1tZss7duKWI" role="2pJxcZ">
+                    <node concept="2pJPED" id="1tZss7duKWI" role="28nt2d">
                       <ref role="2pJxaS" to="tp25:2SljyToQhUX" resolve="NodePointerArg_Identity" />
                       <node concept="2pIpSj" id="1tZss7duKWJ" role="2pJxcM">
                         <ref role="2pIpSl" to="tp25:2SljyToQhW6" resolve="ref" />
-                        <node concept="36biLy" id="1tZss7duKWK" role="2pJxcZ">
+                        <node concept="36biLy" id="1tZss7duKWK" role="28nt2d">
                           <node concept="37vLTw" id="1tZss7duKWL" role="36biLW">
                             <ref role="3cqZAo" node="1tZss7duKWw" resolve="targetNodeIdentity" />
                           </node>

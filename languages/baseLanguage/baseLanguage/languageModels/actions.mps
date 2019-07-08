@@ -237,12 +237,11 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
         <reference id="5455284157993911078" name="property" index="2pJxcJ" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -10726,7 +10725,7 @@
                               <ref role="2pJxaS" to="tpee:fzcmrck" resolve="IntegerConstant" />
                               <node concept="2pJxcG" id="QZgTbHze0a" role="2pJxcM">
                                 <ref role="2pJxcJ" to="tpee:fzcmrcl" resolve="value" />
-                                <node concept="3cmrfG" id="QZgTbHze2G" role="2pJxcZ">
+                                <node concept="3cmrfG" id="QZgTbHze2G" role="28ntcv">
                                   <property role="3cmrfH" value="0" />
                                 </node>
                               </node>
@@ -10787,11 +10786,11 @@
                               <ref role="2pJxaS" to="tpee:fJeOVwE" resolve="LessThanExpression" />
                               <node concept="2pIpSj" id="QZgTbHzhdt" role="2pJxcM">
                                 <ref role="2pIpSl" to="tpee:fJuHU4s" resolve="leftExpression" />
-                                <node concept="2pJPED" id="QZgTbHziu2" role="2pJxcZ">
+                                <node concept="2pJPED" id="QZgTbHziu2" role="28nt2d">
                                   <ref role="2pJxaS" to="tpee:fz7vLUo" resolve="VariableReference" />
                                   <node concept="2pIpSj" id="QZgTbHzivi" role="2pJxcM">
                                     <ref role="2pIpSl" to="tpee:fzcqZ_w" resolve="variableDeclaration" />
-                                    <node concept="36biLy" id="7iyvL_iQxz9" role="2pJxcZ">
+                                    <node concept="36biLy" id="7iyvL_iQxz9" role="28nt2d">
                                       <node concept="10Nm6u" id="7iyvL_iQxz8" role="36biLW" />
                                     </node>
                                   </node>
@@ -10799,15 +10798,15 @@
                               </node>
                               <node concept="2pIpSj" id="QZgTbHziyM" role="2pJxcM">
                                 <ref role="2pIpSl" to="tpee:fJuHU4r" resolve="rightExpression" />
-                                <node concept="2pJPED" id="QZgTbHzjRG" role="2pJxcZ">
+                                <node concept="2pJPED" id="QZgTbHzjRG" role="28nt2d">
                                   <ref role="2pJxaS" to="tpee:hqOqwz4" resolve="DotExpression" />
                                   <node concept="2pIpSj" id="QZgTbHzjSW" role="2pJxcM">
                                     <ref role="2pIpSl" to="tpee:hqOq$gm" resolve="operand" />
-                                    <node concept="2pJPED" id="QZgTbHzjVx" role="2pJxcZ">
+                                    <node concept="2pJPED" id="QZgTbHzjVx" role="28nt2d">
                                       <ref role="2pJxaS" to="tpee:fz7vLUo" resolve="VariableReference" />
                                       <node concept="2pIpSj" id="QZgTbHzjWL" role="2pJxcM">
                                         <ref role="2pIpSl" to="tpee:fzcqZ_w" resolve="variableDeclaration" />
-                                        <node concept="36biLy" id="7iyvL_iQxzb" role="2pJxcZ">
+                                        <node concept="36biLy" id="7iyvL_iQxzb" role="28nt2d">
                                           <node concept="10Nm6u" id="7iyvL_iQxza" role="36biLW" />
                                         </node>
                                       </node>
@@ -10815,7 +10814,7 @@
                                   </node>
                                   <node concept="2pIpSj" id="QZgTbHzjZT" role="2pJxcM">
                                     <ref role="2pIpSl" to="tpee:hqOqNr4" resolve="operation" />
-                                    <node concept="2pJPED" id="QZgTbHzk1Y" role="2pJxcZ">
+                                    <node concept="2pJPED" id="QZgTbHzk1Y" role="28nt2d">
                                       <ref role="2pJxaS" to="tpee:h_Rwk4t" resolve="ArrayLengthOperation" />
                                     </node>
                                   </node>
@@ -10842,11 +10841,11 @@
                               <ref role="2pJxaS" to="tpee:hFuNrjK" resolve="PostfixIncrementExpression" />
                               <node concept="2pIpSj" id="QZgTbHzJ$L" role="2pJxcM">
                                 <ref role="2pIpSl" to="tpee:i2$L3eA" resolve="expression" />
-                                <node concept="2pJPED" id="QZgTbHzJIF" role="2pJxcZ">
+                                <node concept="2pJPED" id="QZgTbHzJIF" role="28nt2d">
                                   <ref role="2pJxaS" to="tpee:fz7vLUo" resolve="VariableReference" />
                                   <node concept="2pIpSj" id="QZgTbHzJJK" role="2pJxcM">
                                     <ref role="2pIpSl" to="tpee:fzcqZ_w" resolve="variableDeclaration" />
-                                    <node concept="36biLy" id="7iyvL_iQxzd" role="2pJxcZ">
+                                    <node concept="36biLy" id="7iyvL_iQxzd" role="28nt2d">
                                       <node concept="10Nm6u" id="7iyvL_iQxzc" role="36biLW" />
                                     </node>
                                   </node>
@@ -10994,11 +10993,11 @@
                             <ref role="2pJxaS" to="tpee:h4AH0K_" resolve="ArrayAccessExpression" />
                             <node concept="2pIpSj" id="4AMCKbWNVwS" role="2pJxcM">
                               <ref role="2pIpSl" to="tpee:h4AHHTq" resolve="array" />
-                              <node concept="2pJPED" id="4AMCKbWNVxy" role="2pJxcZ">
+                              <node concept="2pJPED" id="4AMCKbWNVxy" role="28nt2d">
                                 <ref role="2pJxaS" to="tpee:fz7vLUo" resolve="VariableReference" />
                                 <node concept="2pIpSj" id="4AMCKbWNXH0" role="2pJxcM">
                                   <ref role="2pIpSl" to="tpee:fzcqZ_w" resolve="variableDeclaration" />
-                                  <node concept="36biLy" id="7iyvL_iQxzf" role="2pJxcZ">
+                                  <node concept="36biLy" id="7iyvL_iQxzf" role="28nt2d">
                                     <node concept="10Nm6u" id="7iyvL_iQxze" role="36biLW" />
                                   </node>
                                 </node>
@@ -11006,11 +11005,11 @@
                             </node>
                             <node concept="2pIpSj" id="4AMCKbWNXI6" role="2pJxcM">
                               <ref role="2pIpSl" to="tpee:h4AHEM9" resolve="index" />
-                              <node concept="2pJPED" id="4AMCKbWNXIL" role="2pJxcZ">
+                              <node concept="2pJPED" id="4AMCKbWNXIL" role="28nt2d">
                                 <ref role="2pJxaS" to="tpee:fz7vLUo" resolve="VariableReference" />
                                 <node concept="2pIpSj" id="4AMCKbWNXJ1" role="2pJxcM">
                                   <ref role="2pIpSl" to="tpee:fzcqZ_w" resolve="variableDeclaration" />
-                                  <node concept="36biLy" id="7iyvL_iQxzh" role="2pJxcZ">
+                                  <node concept="36biLy" id="7iyvL_iQxzh" role="28nt2d">
                                     <node concept="10Nm6u" id="7iyvL_iQxzg" role="36biLW" />
                                   </node>
                                 </node>
@@ -11267,11 +11266,11 @@
                                 <ref role="2pJxaS" to="tpee:hqOqwz4" resolve="DotExpression" />
                                 <node concept="2pIpSj" id="27_lgVXMsqi" role="2pJxcM">
                                   <ref role="2pIpSl" to="tpee:hqOq$gm" resolve="operand" />
-                                  <node concept="2pJPED" id="27_lgVXRLCs" role="2pJxcZ">
+                                  <node concept="2pJPED" id="27_lgVXRLCs" role="28nt2d">
                                     <ref role="2pJxaS" to="tpee:fz7vLUo" resolve="VariableReference" />
                                     <node concept="2pIpSj" id="27_lgVXRLDu" role="2pJxcM">
                                       <ref role="2pIpSl" to="tpee:fzcqZ_w" resolve="variableDeclaration" />
-                                      <node concept="36biLy" id="7iyvL_iQxzj" role="2pJxcZ">
+                                      <node concept="36biLy" id="7iyvL_iQxzj" role="28nt2d">
                                         <node concept="10Nm6u" id="7iyvL_iQxzi" role="36biLW" />
                                       </node>
                                     </node>
@@ -11279,7 +11278,7 @@
                                 </node>
                                 <node concept="2pIpSj" id="27_lgVXMTHO" role="2pJxcM">
                                   <ref role="2pIpSl" to="tpee:hqOqNr4" resolve="operation" />
-                                  <node concept="2pJPED" id="27_lgVXN7mk" role="2pJxcZ">
+                                  <node concept="2pJPED" id="27_lgVXN7mk" role="28nt2d">
                                     <ref role="2pJxaS" to="tp2q:i0uNJma" resolve="GetIteratorOperation" />
                                   </node>
                                 </node>
@@ -11464,11 +11463,11 @@
                                 <ref role="2pJxaS" to="tpee:hqOqwz4" resolve="DotExpression" />
                                 <node concept="2pIpSj" id="27_lgVSTMg3" role="2pJxcM">
                                   <ref role="2pIpSl" to="tpee:hqOq$gm" resolve="operand" />
-                                  <node concept="2pJPED" id="27_lgVSUZUh" role="2pJxcZ">
+                                  <node concept="2pJPED" id="27_lgVSUZUh" role="28nt2d">
                                     <ref role="2pJxaS" to="tpee:fz7vLUo" resolve="VariableReference" />
                                     <node concept="2pIpSj" id="27_lgVSUZVj" role="2pJxcM">
                                       <ref role="2pIpSl" to="tpee:fzcqZ_w" resolve="variableDeclaration" />
-                                      <node concept="36biLy" id="7iyvL_iQxzl" role="2pJxcZ">
+                                      <node concept="36biLy" id="7iyvL_iQxzl" role="28nt2d">
                                         <node concept="10Nm6u" id="7iyvL_iQxzk" role="36biLW" />
                                       </node>
                                     </node>
@@ -11476,11 +11475,11 @@
                                 </node>
                                 <node concept="2pIpSj" id="27_lgVSUZXL" role="2pJxcM">
                                   <ref role="2pIpSl" to="tpee:hqOqNr4" resolve="operation" />
-                                  <node concept="2pJPED" id="27_lgVSV00q" role="2pJxcZ">
+                                  <node concept="2pJPED" id="27_lgVSV00q" role="28nt2d">
                                     <ref role="2pJxaS" to="tpee:hwliAcM" resolve="InstanceMethodCallOperation" />
                                     <node concept="2pIpSj" id="27_lgVSV01s" role="2pJxcM">
                                       <ref role="2pIpSl" to="tpee:hwllgre" resolve="instanceMethodDeclaration" />
-                                      <node concept="36bGnv" id="27_lgVSVUXj" role="2pJxcZ">
+                                      <node concept="36bGnv" id="27_lgVSVUXj" role="28nt2d">
                                         <ref role="36bGnp" to="33ny:~Iterator.hasNext()" resolve="hasNext" />
                                       </node>
                                     </node>
@@ -11618,11 +11617,11 @@
                                 <ref role="2pJxaS" to="tpee:hqOqwz4" resolve="DotExpression" />
                                 <node concept="2pIpSj" id="27_lgVXY5YT" role="2pJxcM">
                                   <ref role="2pIpSl" to="tpee:hqOq$gm" resolve="operand" />
-                                  <node concept="2pJPED" id="27_lgVXYHu0" role="2pJxcZ">
+                                  <node concept="2pJPED" id="27_lgVXYHu0" role="28nt2d">
                                     <ref role="2pJxaS" to="tpee:fz7vLUo" resolve="VariableReference" />
                                     <node concept="2pIpSj" id="27_lgVXYHv2" role="2pJxcM">
                                       <ref role="2pIpSl" to="tpee:fzcqZ_w" resolve="variableDeclaration" />
-                                      <node concept="36biLy" id="7iyvL_iQxzn" role="2pJxcZ">
+                                      <node concept="36biLy" id="7iyvL_iQxzn" role="28nt2d">
                                         <node concept="10Nm6u" id="7iyvL_iQxzm" role="36biLW" />
                                       </node>
                                     </node>
@@ -11630,11 +11629,11 @@
                                 </node>
                                 <node concept="2pIpSj" id="27_lgVXYdI$" role="2pJxcM">
                                   <ref role="2pIpSl" to="tpee:hqOqNr4" resolve="operation" />
-                                  <node concept="2pJPED" id="27_lgVXYmzE" role="2pJxcZ">
+                                  <node concept="2pJPED" id="27_lgVXYmzE" role="28nt2d">
                                     <ref role="2pJxaS" to="tpee:hwliAcM" resolve="InstanceMethodCallOperation" />
                                     <node concept="2pIpSj" id="27_lgVXYm$G" role="2pJxcM">
                                       <ref role="2pIpSl" to="tpee:hwllgre" resolve="instanceMethodDeclaration" />
-                                      <node concept="36bGnv" id="27_lgVXYm_z" role="2pJxcZ">
+                                      <node concept="36bGnv" id="27_lgVXYm_z" role="28nt2d">
                                         <ref role="36bGnp" to="33ny:~Iterator.next()" resolve="next" />
                                       </node>
                                     </node>

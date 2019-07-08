@@ -92,9 +92,7 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -239,7 +237,7 @@
               <ref role="2pJxaS" to="rzqf:xZAjsdvxUz" resolve="CommandProcessType" />
               <node concept="2pIpSj" id="2F8bNQrGPs" role="2pJxcM">
                 <ref role="2pIpSl" to="rzqf:xZAjsdvxU$" resolve="commandDeclaration" />
-                <node concept="36biLy" id="2F8bNQrGPt" role="2pJxcZ">
+                <node concept="36biLy" id="2F8bNQrGPt" role="28nt2d">
                   <node concept="2OqwBi" id="1$vg1Ecg_d0" role="36biLW">
                     <node concept="2OqwBi" id="1$vg1Ecg_cU" role="2Oq$k0">
                       <node concept="1YBJjd" id="1$vg1Ecg_cT" role="2Oq$k0">
@@ -349,7 +347,7 @@
               <ref role="2pJxaS" to="rzqf:JzCdmU6yJm" resolve="CommandType" />
               <node concept="2pIpSj" id="2F8bNQrGUx" role="2pJxcM">
                 <ref role="2pIpSl" to="rzqf:JzCdmU6yJn" resolve="command" />
-                <node concept="36biLy" id="2F8bNQrGUy" role="2pJxcZ">
+                <node concept="36biLy" id="2F8bNQrGUy" role="28nt2d">
                   <node concept="2OqwBi" id="O$iR4JBiG6" role="36biLW">
                     <node concept="1YBJjd" id="O$iR4JBiG7" role="2Oq$k0">
                       <ref role="1YBMHb" node="O$iR4JBiGc" resolve="commandReferenceExpression" />
@@ -699,7 +697,7 @@
               <ref role="2pJxaS" to="tpd4:hausRW2" resolve="JoinType" />
               <node concept="2pIpSj" id="2F8bNQrJoR" role="2pJxcM">
                 <ref role="2pIpSl" to="tpd4:hausUtE" resolve="argument" />
-                <node concept="36be1Y" id="2F8bNQrJoS" role="2pJxcZ">
+                <node concept="36be1Y" id="2F8bNQrJoS" role="28nt2d">
                   <node concept="2pJPED" id="2F8bNQrJoQ" role="36be1Z">
                     <ref role="2pJxaS" to="tpee:hP7QB7G" resolve="StringType" />
                   </node>
@@ -707,7 +705,7 @@
                     <ref role="2pJxaS" to="tpee:g7uibYu" resolve="ClassifierType" />
                     <node concept="2pIpSj" id="2F8bNQrJoU" role="2pJxcM">
                       <ref role="2pIpSl" to="tpee:g7uigIF" resolve="classifier" />
-                      <node concept="36bGnv" id="2F8bNQrJoV" role="2pJxcZ">
+                      <node concept="36bGnv" id="2F8bNQrJoV" role="28nt2d">
                         <ref role="36bGnp" to="guwi:~File" resolve="File" />
                       </node>
                     </node>
@@ -842,7 +840,7 @@
                   <ref role="2pJxaS" to="tpd4:hausRW2" resolve="JoinType" />
                   <node concept="2pIpSj" id="2F8bNQrJ$6" role="2pJxcM">
                     <ref role="2pIpSl" to="tpd4:hausUtE" resolve="argument" />
-                    <node concept="36be1Y" id="2F8bNQrJ$7" role="2pJxcZ">
+                    <node concept="36be1Y" id="2F8bNQrJ$7" role="28nt2d">
                       <node concept="2pJPED" id="2F8bNQrJ$5" role="36be1Z">
                         <ref role="2pJxaS" to="tpee:hP7QB7G" resolve="StringType" />
                       </node>
@@ -850,7 +848,7 @@
                         <ref role="2pJxaS" to="tpee:g7uibYu" resolve="ClassifierType" />
                         <node concept="2pIpSj" id="2F8bNQrJ$9" role="2pJxcM">
                           <ref role="2pIpSl" to="tpee:g7uigIF" resolve="classifier" />
-                          <node concept="36bGnv" id="2F8bNQrJ$a" role="2pJxcZ">
+                          <node concept="36bGnv" id="2F8bNQrJ$a" role="28nt2d">
                             <ref role="36bGnp" to="guwi:~File" resolve="File" />
                           </node>
                         </node>

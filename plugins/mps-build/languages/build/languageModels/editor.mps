@@ -577,12 +577,11 @@
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
         <reference id="5455284157993911078" name="property" index="2pJxcJ" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -8833,7 +8832,7 @@
                       <ref role="2pJxaS" to="3ior:7usrAn056vL" resolve="BuildCompositePath" />
                       <node concept="2pIpSj" id="1wEcoXjJDk5" role="2pJxcM">
                         <ref role="2pIpSl" to="3ior:7usrAn056vM" resolve="tail" />
-                        <node concept="36biLy" id="1wEcoXjJDk6" role="2pJxcZ">
+                        <node concept="36biLy" id="1wEcoXjJDk6" role="28nt2d">
                           <node concept="2OqwBi" id="1wEcoXjJDk7" role="36biLW">
                             <node concept="7Obwk" id="1wEcoXjJDkn" role="2Oq$k0" />
                             <node concept="3TrEf2" id="1wEcoXjJDk9" role="2OqNvi">
@@ -9694,12 +9693,12 @@
                         <ref role="2pJxaS" to="3ior:IFRVVI5ZTn" resolve="BuildStringNotEmpty" />
                         <node concept="2pIpSj" id="1wEcoXjJDwM" role="2pJxcM">
                           <ref role="2pIpSl" to="3ior:4gdvEeQzbDb" resolve="parts" />
-                          <node concept="36be1Y" id="1wEcoXjJDwN" role="2pJxcZ">
+                          <node concept="36be1Y" id="1wEcoXjJDwN" role="28nt2d">
                             <node concept="2pJPED" id="1wEcoXjJDwO" role="36be1Z">
                               <ref role="2pJxaS" to="3ior:4gdvEeQyRO3" resolve="BuildTextStringPart" />
                               <node concept="2pJxcG" id="1wEcoXjJDwP" role="2pJxcM">
                                 <ref role="2pJxcJ" to="3ior:4gdvEeQz4Pm" resolve="text" />
-                                <node concept="37vLTw" id="1wEcoXjJDwQ" role="2pJxcZ">
+                                <node concept="37vLTw" id="1wEcoXjJDwQ" role="28ntcv">
                                   <ref role="3cqZAo" node="1wEcoXjJDw1" resolve="name" />
                                 </node>
                               </node>
@@ -9729,12 +9728,12 @@
                             <ref role="2pJxaS" to="3ior:IFRVVI5ZTn" resolve="BuildStringNotEmpty" />
                             <node concept="2pIpSj" id="1wEcoXjJDx1" role="2pJxcM">
                               <ref role="2pIpSl" to="3ior:4gdvEeQzbDb" resolve="parts" />
-                              <node concept="36be1Y" id="1wEcoXjJDx2" role="2pJxcZ">
+                              <node concept="36be1Y" id="1wEcoXjJDx2" role="28nt2d">
                                 <node concept="2pJPED" id="1wEcoXjJDx3" role="36be1Z">
                                   <ref role="2pJxaS" to="3ior:4gdvEeQyRO3" resolve="BuildTextStringPart" />
                                   <node concept="2pJxcG" id="1wEcoXjJDx4" role="2pJxcM">
                                     <ref role="2pJxcJ" to="3ior:4gdvEeQz4Pm" resolve="text" />
-                                    <node concept="37vLTw" id="1wEcoXjJDx5" role="2pJxcZ">
+                                    <node concept="37vLTw" id="1wEcoXjJDx5" role="28ntcv">
                                       <ref role="3cqZAo" node="1wEcoXjJDw4" resolve="value" />
                                     </node>
                                   </node>

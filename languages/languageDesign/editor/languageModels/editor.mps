@@ -768,9 +768,7 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -23429,7 +23427,7 @@
                 <ref role="2pJxaS" to="tpc2:7Ur4aGsHrro" resolve="StyleClassReferenceList" />
                 <node concept="2pIpSj" id="1wEcoXjJt$0" role="2pJxcM">
                   <ref role="2pIpSl" to="tpc2:7Ur4aGsHr_p" resolve="element" />
-                  <node concept="36biLy" id="1wEcoXjJt$1" role="2pJxcZ">
+                  <node concept="36biLy" id="1wEcoXjJt$1" role="28nt2d">
                     <node concept="2ShNRf" id="1wEcoXjJt$2" role="36biLW">
                       <node concept="2HTt$P" id="1wEcoXjJt$3" role="2ShVmc">
                         <node concept="3Tqbb2" id="1wEcoXjJt$4" role="2HTBi0">

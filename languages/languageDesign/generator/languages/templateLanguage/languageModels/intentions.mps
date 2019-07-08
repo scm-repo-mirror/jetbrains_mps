@@ -236,9 +236,7 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -9284,11 +9282,11 @@
                     <ref role="2pJxaS" to="tpf8:fPZhdom" resolve="ReferenceMacro" />
                     <node concept="2pIpSj" id="5$pvDtpc9zO" role="2pJxcM">
                       <ref role="2pIpSl" to="tpf8:gZ$ytBY" resolve="referentFunction" />
-                      <node concept="2pJPED" id="5$pvDtpccHM" role="2pJxcZ">
+                      <node concept="2pJPED" id="5$pvDtpccHM" role="28nt2d">
                         <ref role="2pJxaS" to="tpf8:gZ$xsMr" resolve="ReferenceMacro_GetReferent" />
                         <node concept="2pIpSj" id="5$pvDtpch$m" role="2pJxcM">
                           <ref role="2pIpSl" to="tpee:gyVODHa" resolve="body" />
-                          <node concept="36biLy" id="5$pvDtpcj0f" role="2pJxcZ">
+                          <node concept="36biLy" id="5$pvDtpcj0f" role="28nt2d">
                             <node concept="2OqwBi" id="5$pvDtpcrtV" role="36biLW">
                               <node concept="2OqwBi" id="5$pvDtpclWE" role="2Oq$k0">
                                 <node concept="2OqwBi" id="5$pvDtpck$w" role="2Oq$k0">
@@ -9356,7 +9354,7 @@
                   <ref role="2pJxaS" to="tpee:hqOqwz4" resolve="DotExpression" />
                   <node concept="2pIpSj" id="5$pvDtp4d6S" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:hqOq$gm" resolve="operand" />
-                    <node concept="36biLy" id="5$pvDtp4fqO" role="2pJxcZ">
+                    <node concept="36biLy" id="5$pvDtp4fqO" role="28nt2d">
                       <node concept="2OqwBi" id="5$pvDtp4xtB" role="36biLW">
                         <node concept="2OqwBi" id="5$pvDtp4g_H" role="2Oq$k0">
                           <node concept="2Sf5sV" id="5$pvDtp4gcc" role="2Oq$k0" />
@@ -9370,7 +9368,7 @@
                   </node>
                   <node concept="2pIpSj" id="5$pvDtp4j6N" role="2pJxcM">
                     <ref role="2pIpSl" to="tpee:hqOqNr4" resolve="operation" />
-                    <node concept="36biLy" id="5$pvDtp4jSB" role="2pJxcZ">
+                    <node concept="36biLy" id="5$pvDtp4jSB" role="28nt2d">
                       <node concept="37vLTw" id="5$pvDtp4kEm" role="36biLW">
                         <ref role="3cqZAo" node="5$pvDtoWTj9" resolve="replacement" />
                       </node>

@@ -75,9 +75,7 @@
       </concept>
       <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
         <reference id="5455284157993911078" name="property" index="2pJxcJ" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -183,7 +181,7 @@
               <ref role="2pJxaS" to="86gq:Xiy0zT4FQ3" resolve="DebuggerType" />
               <node concept="2pJxcG" id="2F8bNQskaR" role="2pJxcM">
                 <ref role="2pJxcJ" to="86gq:2eCkIB4f4lH" resolve="name" />
-                <node concept="2OqwBi" id="2F8bNQskd4" role="2pJxcZ">
+                <node concept="2OqwBi" id="2F8bNQskd4" role="28ntcv">
                   <node concept="1YBJjd" id="2F8bNQskbg" role="2Oq$k0">
                     <ref role="1YBMHb" node="2cgI0d$wEWE" resolve="debuggerReference" />
                   </node>

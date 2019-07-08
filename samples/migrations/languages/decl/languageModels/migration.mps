@@ -151,9 +151,7 @@
       </concept>
       <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
         <reference id="5455284157993911078" name="property" index="2pJxcJ" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -573,7 +571,7 @@
                               <ref role="2pJxaS" to="3whe:29O0pTxSzj9" resolve="DeclMigrationData" />
                               <node concept="2pJxcG" id="5TUCQr2AqWQ" role="2pJxcM">
                                 <ref role="2pJxcJ" to="3whe:3EYs7E9xnJu" resolve="oldId" />
-                                <node concept="2OqwBi" id="5TUCQr2AreN" role="2pJxcZ">
+                                <node concept="2OqwBi" id="5TUCQr2AreN" role="28ntcv">
                                   <node concept="2OqwBi" id="5TUCQr2AreO" role="2Oq$k0">
                                     <node concept="2JrnkZ" id="5TUCQr2AreP" role="2Oq$k0">
                                       <node concept="37vLTw" id="5TUCQr2AreQ" role="2JrQYb">
@@ -591,7 +589,7 @@
                               </node>
                               <node concept="2pJxcG" id="5TUCQr2AseE" role="2pJxcM">
                                 <ref role="2pJxcJ" to="3whe:3EYs7E9xnJv" resolve="newId" />
-                                <node concept="2OqwBi" id="5TUCQr2Asrl" role="2pJxcZ">
+                                <node concept="2OqwBi" id="5TUCQr2Asrl" role="28ntcv">
                                   <node concept="2OqwBi" id="5TUCQr2Asrm" role="2Oq$k0">
                                     <node concept="2JrnkZ" id="5TUCQr2Asrn" role="2Oq$k0">
                                       <node concept="37vLTw" id="5TUCQr2Asro" role="2JrQYb">

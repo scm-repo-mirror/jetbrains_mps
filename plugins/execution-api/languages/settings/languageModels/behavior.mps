@@ -156,9 +156,7 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -381,7 +379,7 @@
               <ref role="2pJxaS" to="fb9u:O$iR4J$g0s" resolve="PersistentConfigurationType" />
               <node concept="2pIpSj" id="2F8bNQsJWE" role="2pJxcM">
                 <ref role="2pIpSl" to="fb9u:O$iR4J$g0t" resolve="persistentConfiguration" />
-                <node concept="36biLy" id="2F8bNQsJWF" role="2pJxcZ">
+                <node concept="36biLy" id="2F8bNQsJWF" role="28nt2d">
                   <node concept="13iPFW" id="O$iR4J$g3c" role="36biLW" />
                 </node>
               </node>
@@ -928,7 +926,7 @@
               <ref role="2pJxaS" to="fb9u:O$iR4J$g3X" resolve="TemplatePersistentConfigurationType" />
               <node concept="2pIpSj" id="2F8bNQsJDN" role="2pJxcM">
                 <ref role="2pIpSl" to="fb9u:O$iR4J$g3Y" resolve="template" />
-                <node concept="36biLy" id="2F8bNQsJDO" role="2pJxcZ">
+                <node concept="36biLy" id="2F8bNQsJDO" role="28nt2d">
                   <node concept="13iPFW" id="63yBSeEXOdX" role="36biLW" />
                 </node>
               </node>

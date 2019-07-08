@@ -682,12 +682,11 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
         <reference id="5455284157993911078" name="property" index="2pJxcJ" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -48550,7 +48549,7 @@
                           <ref role="2pJxaS" to="tpc2:3J8eUL7n4GQ" resolve="SubstituteMenu_RefPresentationTemplate" />
                           <node concept="2pJxcG" id="1OqbCsxTg2p" role="2pJxcM">
                             <ref role="2pJxcJ" to="tpce:3J8eUL7n4Hp" resolve="prefix" />
-                            <node concept="2YIFZM" id="1OqbCsy8jli" role="2pJxcZ">
+                            <node concept="2YIFZM" id="1OqbCsy8jli" role="28ntcv">
                               <ref role="1Pybhc" to="18ew:~StringUtil" resolve="StringUtil" />
                               <ref role="37wK5l" to="18ew:~StringUtil.emptyIfNull(java.lang.String)" resolve="emptyIfNull" />
                               <node concept="2OqwBi" id="1OqbCsxTgcj" role="37wK5m">
@@ -48565,7 +48564,7 @@
                           </node>
                           <node concept="2pJxcG" id="1OqbCsxTgu2" role="2pJxcM">
                             <ref role="2pJxcJ" to="tpce:3J8eUL7n4Hs" resolve="suffix" />
-                            <node concept="2YIFZM" id="1OqbCsy8jvY" role="2pJxcZ">
+                            <node concept="2YIFZM" id="1OqbCsy8jvY" role="28ntcv">
                               <ref role="1Pybhc" to="18ew:~StringUtil" resolve="StringUtil" />
                               <ref role="37wK5l" to="18ew:~StringUtil.emptyIfNull(java.lang.String)" resolve="emptyIfNull" />
                               <node concept="2OqwBi" id="1OqbCsy8jvZ" role="37wK5m">
@@ -48599,7 +48598,7 @@
                           <ref role="2pJxaS" to="tpc2:2RDMjbOTqI4" resolve="SubstituteMenu_Default" />
                           <node concept="2pIpSj" id="1OqbCsxT4nH" role="2pJxcM">
                             <ref role="2pIpSl" to="tpc2:5HVj4Ph44AO" resolve="conceptDeclaration" />
-                            <node concept="36biLy" id="1OqbCsxT4oX" role="2pJxcZ">
+                            <node concept="36biLy" id="1OqbCsxT4oX" role="28nt2d">
                               <node concept="2OqwBi" id="1yWNr0blkq6" role="36biLW">
                                 <node concept="2GrUjf" id="1OqbCsxT4ps" role="2Oq$k0">
                                   <ref role="2Gs0qQ" node="1OqbCsxSZ8K" resolve="smartConceptEntry" />
@@ -48610,11 +48609,11 @@
                           </node>
                           <node concept="2pIpSj" id="1OqbCsxT4uP" role="2pJxcM">
                             <ref role="2pIpSl" to="tpc2:n0c53aH4X$" resolve="parts" />
-                            <node concept="2pJPED" id="1OqbCsxT4w9" role="2pJxcZ">
+                            <node concept="2pJPED" id="1OqbCsxT4w9" role="28nt2d">
                               <ref role="2pJxaS" to="tpc2:7jQE8Y9gpPl" resolve="SubstituteMenuPart_ReferenceScope" />
                               <node concept="2pIpSj" id="1OqbCsxT4zq" role="2pJxcM">
                                 <ref role="2pIpSl" to="tpc2:7jQE8Y9h_dD" resolve="reference" />
-                                <node concept="36biLy" id="1OqbCsxT4zL" role="2pJxcZ">
+                                <node concept="36biLy" id="1OqbCsxT4zL" role="28nt2d">
                                   <node concept="2OqwBi" id="1OqbCsxT68n" role="36biLW">
                                     <node concept="2OqwBi" id="1OqbCsxT4MX" role="2Oq$k0">
                                       <node concept="3AV6Ez" id="1yWNr0bllxn" role="2OqNvi" />
@@ -48630,7 +48629,7 @@
                               </node>
                               <node concept="2pIpSj" id="1OqbCsxT6Wf" role="2pJxcM">
                                 <ref role="2pIpSl" to="tpc2:3J8eUL7d57_" resolve="matchingTextFunction" />
-                                <node concept="36biLy" id="1OqbCsxTgVE" role="2pJxcZ">
+                                <node concept="36biLy" id="1OqbCsxTgVE" role="28nt2d">
                                   <node concept="37vLTw" id="1OqbCsxTgW3" role="36biLW">
                                     <ref role="3cqZAo" node="1OqbCsxT71a" resolve="template" />
                                   </node>
@@ -48640,7 +48639,7 @@
                           </node>
                           <node concept="2pIpSj" id="6szUVE$FaH6" role="2pJxcM">
                             <ref role="2pIpSl" to="tpc2:n0c53aH4X$" resolve="parts" />
-                            <node concept="2pJPED" id="6szUVE$FaH7" role="2pJxcZ">
+                            <node concept="2pJPED" id="6szUVE$FaH7" role="28nt2d">
                               <ref role="2pJxaS" to="tpc2:yarZQNHfz6" resolve="SubstituteMenuPart_Subconcepts" />
                             </node>
                           </node>
