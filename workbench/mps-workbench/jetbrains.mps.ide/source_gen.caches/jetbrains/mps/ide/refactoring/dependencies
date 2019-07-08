@@ -167,6 +167,7 @@
     <classNode dependClassName="java.lang.Runnable" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="javax.lang.model.SourceVersion" />
+    <classNode dependClassName="jetbrains.mps.ide.IdeBundle" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
     <classNode dependClassName="jetbrains.mps.refactoring.Renamer" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
@@ -189,6 +190,8 @@
     <classNode dependClassName="javax.swing.JLabel" />
     <classNode dependClassName="javax.swing.JPanel" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime.Wrappers" />
+    <classNode dependClassName="jetbrains.mps.ide.IdeBundle" />
+    <classNode dependClassName="jetbrains.mps.ide.ui.dialogs.properties.PropertiesBundle" />
     <classNode dependClassName="jetbrains.mps.project.AbstractModule" />
     <classNode dependClassName="jetbrains.mps.project.DescriptorTargetFileAlreadyExistsException" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />

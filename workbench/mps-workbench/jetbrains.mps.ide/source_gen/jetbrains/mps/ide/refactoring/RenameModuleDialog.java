@@ -10,6 +10,7 @@ import jetbrains.mps.project.MPSProject;
 import javax.swing.JPanel;
 import java.util.Collection;
 import java.awt.HeadlessException;
+import jetbrains.mps.ide.IdeBundle;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -19,6 +20,7 @@ import org.apache.log4j.Level;
 import javax.swing.JComponent;
 import com.intellij.ui.components.JBPanel;
 import java.util.Collections;
+import jetbrains.mps.ide.ui.dialogs.properties.PropertiesBundle;
 import javax.swing.JLabel;
 import com.intellij.ui.components.JBLabel;
 import com.intellij.util.ui.UIUtil;
@@ -35,7 +37,7 @@ public class RenameModuleDialog extends RenameDialog {
     myModule = module;
     myProject = project;
     updateCentralPanel();
-    setTitle("Rename Module");
+    setTitle(IdeBundle.message("actions.module.rename.title"));
   }
 
   @Nullable
@@ -52,7 +54,7 @@ public class RenameModuleDialog extends RenameDialog {
 
           // module.getModuleName() can be null 
           if (fqName.equals(module.getModuleName())) {
-            checkResult.value = "Module with the same name already exists in repository";
+            checkResult.value = IdeBundle.message("actions.module.rename.name.in.repository");
             break;
           }
         }
@@ -116,7 +118,7 @@ public class RenameModuleDialog extends RenameDialog {
     builder.append("</ul>");
 
 
-    final String info = String.format("<html><p>Module folder contains submodule(s):%s</p></html>", builder.toString());
+    final String info = "<html><p>" + PropertiesBundle.message("actions.module.rename.contains.submodules") + builder.toString() + "</html></p>";
     JLabel label = new JBLabel(info, UIUtil.getInformationIcon(), JBLabel.LEFT);
     myOptionsPanel.add(label);
   }

@@ -324,7 +324,7 @@ public abstract class MPSPropertiesConfigurable implements Configurable {
               GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
       myTextFieldName.addCaretListener(e -> {
         if(myTextFieldName.getText().isEmpty()) {
-          errorLabel.setErrorText("Name cannot be empty", JBColor.RED);
+          errorLabel.setErrorText(PropertiesBundle.message("mps.properties.common.namenotempty"), JBColor.RED);
         } else {
           errorLabel.setErrorText(null, null);
         }
@@ -555,7 +555,7 @@ public abstract class MPSPropertiesConfigurable implements Configurable {
       myTable = table;
       this.getTemplatePresentation().setEnabledAndVisible(true);
       this.getTemplatePresentation().setIcon(Actions.Find);
-      this.getTemplatePresentation().setText("Find usages");
+      this.getTemplatePresentation().setText(PropertiesBundle.message("model.dependencies.find.text"));
     }
 
     @Override

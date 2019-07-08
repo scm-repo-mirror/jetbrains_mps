@@ -7,6 +7,7 @@ import javax.swing.Icon;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
+import com.intellij.openapi.actionSystem.Presentation;
 import java.util.List;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
@@ -15,6 +16,7 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.project.Solution;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.project.DevKit;
+import jetbrains.mps.ide.IdeBundle;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.workbench.dialogs.DeleteDialog;
@@ -38,31 +40,32 @@ public class DeleteModules_Action extends BaseAction {
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
+    Presentation presentation = event.getPresentation();
+
     boolean isApplicable = ((List<SModule>) MapSequence.fromMap(_params).get("modules")).size() != 0 && !(Sequence.fromIterable(((Iterable<SModule>) ((List<SModule>) MapSequence.fromMap(_params).get("modules")))).any(new IWhereFilter<SModule>() {
       public boolean accept(SModule it) {
         return it.isPackaged() || it.isReadOnly() || !((it instanceof Solution || it instanceof Language || it instanceof DevKit));
       }
     }));
-    event.getPresentation().setEnabled(isApplicable);
-    event.getPresentation().setVisible(isApplicable);
+    presentation.setEnabledAndVisible(isApplicable);
 
     if (isApplicable) {
       if (((List<SModule>) MapSequence.fromMap(_params).get("modules")).size() > 1) {
-        event.getPresentation().setText("&Delete Modules...", true);
+        presentation.setText(IdeBundle.message("actions.module.delete.text.modules"), true);
       } else {
         // If isApplicable and !(modules > 1) => modules == 1 
         SModule module = ((List<SModule>) MapSequence.fromMap(_params).get("modules")).get(0);
         if (module instanceof Solution) {
-          event.getPresentation().setText("&Delete Solution...", true);
+          presentation.setText(IdeBundle.message("actions.module.delete.text.solution"), true);
         } else if (module instanceof Language) {
-          event.getPresentation().setText("&Delete Language...", true);
+          presentation.setText(IdeBundle.message("actions.module.delete.text.language"), true);
         } else if (module instanceof DevKit) {
-          event.getPresentation().setText("&Delete DevKit...", true);
+          presentation.setText(IdeBundle.message("actions.module.delete.text.devkit"), true);
         } else if (module instanceof Generator) {
-          // For fututre implementation 
-          event.getPresentation().setText("&Delete Generator...", true);
+          // For future implementation 
+          presentation.setText(IdeBundle.message("actions.module.delete.text.generator"), true);
         } else {
-          event.getPresentation().setText("&Delete Module...", true);
+          presentation.setText(IdeBundle.message("actions.module.delete.text.module"), true);
         }
       }
     }
@@ -90,11 +93,11 @@ public class DeleteModules_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    String message = "<html>Are you sure you want to delete selected modules?<br>This operation is not undoable.</html>";
+    String message = IdeBundle.message("actions.module.delete.message");
 
-    final DeleteDialog.DeleteOption filesOption = new DeleteDialog.DeleteOption(UIUtil.replaceMnemonicAmpersand("Delete &Files"), false, true);
+    final DeleteDialog.DeleteOption filesOption = new DeleteDialog.DeleteOption(UIUtil.replaceMnemonicAmpersand(IdeBundle.message("actions.module.delete.option.files")), false, true);
 
-    DeleteDialog dialog = new DeleteDialog(((MPSProject) MapSequence.fromMap(_params).get("project")), "Delete Modules", message, filesOption);
+    DeleteDialog dialog = new DeleteDialog(((MPSProject) MapSequence.fromMap(_params).get("project")), IdeBundle.message("actions.module.delete.title"), message, filesOption);
     dialog.show();
     if (!(dialog.isOK())) {
       return;
@@ -115,7 +118,7 @@ public class DeleteModules_Action extends BaseAction {
           builder.append("<br>").append(it.getModuleName());
         }
       });
-      Messages.showWarningDialog(((MPSProject) MapSequence.fromMap(_params).get("project")).getProject(), String.format("<html>Non-project modules can only be deleted with files deletion enabled:%s<html>", builder), "Can't delete module");
+      Messages.showWarningDialog(((MPSProject) MapSequence.fromMap(_params).get("project")).getProject(), IdeBundle.message("actions.module.delete.unable.message", builder), IdeBundle.message("actions.module.delete.unable.title"));
       return;
     }
 

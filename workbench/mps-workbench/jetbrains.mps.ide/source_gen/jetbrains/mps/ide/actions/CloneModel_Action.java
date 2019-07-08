@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import com.intellij.openapi.actionSystem.Presentation;
+import jetbrains.mps.ide.IdeBundle;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.smodel.SModelStereotype;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -15,10 +16,6 @@ import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.language.LanguageAspectSupport;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
-import jetbrains.mps.ide.dialogs.project.creation.NewModelDialog;
-import org.jetbrains.mps.openapi.model.EditableSModel;
-import jetbrains.mps.ide.dialogs.project.creation.ModelCreateHelper;
 
 public class CloneModel_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -35,20 +32,21 @@ public class CloneModel_Action extends BaseAction {
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
     Presentation presentation = event.getPresentation();
+
+    presentation.setText(IdeBundle.message("actions.model.clone.title"));
+
     if (((Integer) MapSequence.fromMap(_params).get("selSize")) != 1) {
       presentation.setVisible(true);
       presentation.setEnabled(false);
       return;
     }
     if (SModelStereotype.isDescriptorModel(((SModel) MapSequence.fromMap(_params).get("model")))) {
-      presentation.setVisible(false);
-      presentation.setEnabled(false);
+      presentation.setEnabledAndVisible(false);
       return;
     }
     SModule module = ((SModel) MapSequence.fromMap(_params).get("model")).getModule();
     boolean isAspectModel = module instanceof Language && LanguageAspectSupport.isAspectModel(((SModel) MapSequence.fromMap(_params).get("model")));
-    presentation.setVisible(!(isAspectModel));
-    presentation.setEnabled(!(isAspectModel));
+    presentation.setEnabledAndVisible(!(isAspectModel));
   }
   @Override
   protected boolean collectActionData(AnActionEvent event, final Map<String, Object> _params) {
@@ -80,25 +78,9 @@ public class CloneModel_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    final Wrappers._T<NewModelDialog> dialog = new Wrappers._T<NewModelDialog>();
-    ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().getModelAccess().runReadAction(new Runnable() {
-      public void run() {
-        dialog.value = NewModelDialog.createForCloneModel(((MPSProject) MapSequence.fromMap(_params).get("project")), ((SModel) MapSequence.fromMap(_params).get("model")).getModule(), ((SModel) MapSequence.fromMap(_params).get("model")).getName());
-      }
-    });
-    dialog.value.show();
-    check_38yux0_a3a6(check_38yux0_a0d0g(dialog.value.getResultHelper(), _params));
+    CloneModel_Action.this.getExecutor(_params).execute();
   }
-  private static EditableSModel check_38yux0_a3a6(ModelCreateHelper checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.createModelHandleExceptions();
-    }
-    return null;
-  }
-  private static ModelCreateHelper check_38yux0_a0d0g(ModelCreateHelper checkedDotOperand, Map<String, Object> _params) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.setClone(((SModel) MapSequence.fromMap(_params).get("model")), false);
-    }
-    return null;
+  protected CloneModelActionExecutor getExecutor(final Map<String, Object> _params) {
+    return new CloneModelActionExecutor(((MPSProject) MapSequence.fromMap(_params).get("project")), ((SModel) MapSequence.fromMap(_params).get("model")));
   }
 }

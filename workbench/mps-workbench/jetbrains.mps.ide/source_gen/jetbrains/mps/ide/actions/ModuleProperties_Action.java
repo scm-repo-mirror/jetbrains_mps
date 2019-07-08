@@ -5,12 +5,14 @@ package jetbrains.mps.ide.actions;
 import jetbrains.mps.workbench.action.BaseAction;
 import javax.swing.Icon;
 import com.intellij.icons.AllIcons;
+import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
+import com.intellij.openapi.actionSystem.Presentation;
+import jetbrains.mps.ide.IdeBundle;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.project.AbstractModule;
-import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.MPSProject;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -34,13 +36,12 @@ public class ModuleProperties_Action extends BaseAction {
     return true;
   }
   @Override
-  public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    // see MPS-19850 
-    return ((SModule) MapSequence.fromMap(_params).get("module")) instanceof AbstractModule && ((AbstractModule) ((SModule) MapSequence.fromMap(_params).get("module"))).getModuleDescriptor() != null;
-  }
-  @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
-    this.setEnabledState(event.getPresentation(), this.isApplicable(event, _params));
+    Presentation presentation = event.getPresentation();
+    presentation.setText(IdeBundle.message("actions.module.properties.title"));
+
+    // see MPS-19850 
+    presentation.setEnabledAndVisible(((SModule) MapSequence.fromMap(_params).get("module")) instanceof AbstractModule && ((AbstractModule) ((SModule) MapSequence.fromMap(_params).get("module"))).getModuleDescriptor() != null);
   }
   @Override
   protected boolean collectActionData(AnActionEvent event, final Map<String, Object> _params) {

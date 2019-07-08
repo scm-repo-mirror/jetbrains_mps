@@ -4,10 +4,12 @@ package jetbrains.mps.ide.actions;
 
 import jetbrains.mps.workbench.action.BaseAction;
 import javax.swing.Icon;
+import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
+import com.intellij.openapi.actionSystem.Presentation;
+import jetbrains.mps.ide.IdeBundle;
 import jetbrains.mps.smodel.language.LanguageAspectSupport;
-import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.MPSProject;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.EditableSModel;
@@ -26,12 +28,11 @@ public class RenameModel_Action extends BaseAction {
     return true;
   }
   @Override
-  public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    return !(LanguageAspectSupport.isAspectModel(event.getData(MPSCommonDataKeys.MODEL)));
-  }
-  @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
-    this.setEnabledState(event.getPresentation(), this.isApplicable(event, _params));
+    Presentation presentation = event.getPresentation();
+    presentation.setText(IdeBundle.message("actions.model.rename.title"));
+
+    presentation.setEnabledAndVisible(!(LanguageAspectSupport.isAspectModel(event.getData(MPSCommonDataKeys.MODEL))));
   }
   @Override
   protected boolean collectActionData(AnActionEvent event, final Map<String, Object> _params) {
