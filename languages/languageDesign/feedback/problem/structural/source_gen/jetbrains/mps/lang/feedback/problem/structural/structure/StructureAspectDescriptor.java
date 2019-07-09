@@ -13,6 +13,7 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.impl.ConceptDescriptorBuilder2;
 
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
+  /*package*/ final ConceptDescriptor myConceptMissingChildInConceptProblem = createDescriptorForMissingChildInConceptProblem();
   /*package*/ final ConceptDescriptor myConceptMissingPropertyInConceptProblem = createDescriptorForMissingPropertyInConceptProblem();
   private final LanguageConceptSwitch myIndexSwitch;
 
@@ -28,13 +29,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptMissingPropertyInConceptProblem);
+    return Arrays.asList(myConceptMissingChildInConceptProblem, myConceptMissingPropertyInConceptProblem);
   }
 
   @Override
   @Nullable
   public ConceptDescriptor getDescriptor(SConceptId id) {
     switch (myIndexSwitch.index(id)) {
+      case LanguageConceptSwitch.MissingChildInConceptProblem:
+        return myConceptMissingChildInConceptProblem;
       case LanguageConceptSwitch.MissingPropertyInConceptProblem:
         return myConceptMissingPropertyInConceptProblem;
       default:
@@ -51,6 +54,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     return myIndexSwitch.index(c);
   }
 
+  private static ConceptDescriptor createDescriptorForMissingChildInConceptProblem() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.feedback.problem.structural", "MissingChildInConceptProblem", 0x7127d40929f043e8L, 0x917ff016ea288944L, 0x2372fa56cc4ea3f4L);
+    b.class_(true, false, false);
+    b.super_("jetbrains.mps.lang.feedback.problem.structure.ProblemPointsToKindRoot", 0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL);
+    b.origin("r:270d7173-b5a9-45a3-a074-68571d20064c(jetbrains.mps.lang.feedback.problem.structural.structure)/2554379189374329844");
+    b.version(2);
+    b.associate("concept", 0x2372fa56cc4ea3f5L).target(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL).optional(false).origin("2554379189374329845").done();
+    b.alias("when child does not belong to the concept");
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForMissingPropertyInConceptProblem() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.feedback.problem.structural", "MissingPropertyInConceptProblem", 0x7127d40929f043e8L, 0x917ff016ea288944L, 0x4f7007d340049b31L);
     b.class_(true, false, false);

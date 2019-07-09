@@ -9,6 +9,7 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
+  private ConceptPresentation props_MissingChildInConceptProblem;
   private ConceptPresentation props_MissingPropertyInConceptProblem;
 
   @Override
@@ -16,6 +17,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   public ConceptPresentation getDescriptor(SAbstractConcept c) {
     StructureAspectDescriptor structureDescriptor = (StructureAspectDescriptor) myLanguageRuntime.getAspect(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.class);
     switch (structureDescriptor.internalIndex(c)) {
+      case LanguageConceptSwitch.MissingChildInConceptProblem:
+        if (props_MissingChildInConceptProblem == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("when child does not belong to the concept");
+          props_MissingChildInConceptProblem = cpb.create();
+        }
+        return props_MissingChildInConceptProblem;
       case LanguageConceptSwitch.MissingPropertyInConceptProblem:
         if (props_MissingPropertyInConceptProblem == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

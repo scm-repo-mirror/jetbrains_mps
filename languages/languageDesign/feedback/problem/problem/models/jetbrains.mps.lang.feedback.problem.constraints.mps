@@ -92,29 +92,44 @@
           </node>
         </node>
         <node concept="3clFbF" id="3Y1amMreI4a" role="3cqZAp">
-          <node concept="22lmx$" id="6X8eyFn9N3F" role="3clFbG">
-            <node concept="17R0WA" id="6X8eyFn9Nhb" role="3uHU7w">
-              <node concept="37vLTw" id="6X8eyFn9N4M" role="3uHU7B">
-                <ref role="3cqZAo" node="6X8eyFn9MU8" resolve="pointer" />
+          <node concept="22lmx$" id="1oq9tin0VGV" role="3clFbG">
+            <node concept="22lmx$" id="6X8eyFn9N3F" role="3uHU7B">
+              <node concept="17R0WA" id="3Y1amMreIgi" role="3uHU7B">
+                <node concept="37vLTw" id="6X8eyFn9MUc" role="3uHU7B">
+                  <ref role="3cqZAo" node="6X8eyFn9MU8" resolve="pointer" />
+                </node>
+                <node concept="1Xw6AR" id="3Y1amMreIkx" role="3uHU7w">
+                  <node concept="1dCxOl" id="6X8eyFn9NI_" role="1XwpL7">
+                    <property role="1XweGQ" value="r:5fb5395d-4f7b-4fac-941f-f4bc11c7dac5" />
+                    <node concept="1j_P7g" id="6X8eyFn9NIA" role="1j$8Uc">
+                      <property role="1j_P7h" value="jetbrains.mps.lang.feedback.problem.childAndProp.constraints" />
+                    </node>
+                  </node>
+                </node>
               </node>
-              <node concept="1Xw6AR" id="6X8eyFn9NlG" role="3uHU7w">
-                <node concept="1dCxOl" id="6X8eyFn9NN6" role="1XwpL7">
-                  <property role="1XweGQ" value="r:44de6cb2-b6eb-47d2-bf88-1577a328d3f6" />
-                  <node concept="1j_P7g" id="6X8eyFn9NN7" role="1j$8Uc">
-                    <property role="1j_P7h" value="jetbrains.mps.lang.feedback.problem.structural.constraints" />
+              <node concept="17R0WA" id="6X8eyFn9Nhb" role="3uHU7w">
+                <node concept="37vLTw" id="6X8eyFn9N4M" role="3uHU7B">
+                  <ref role="3cqZAo" node="6X8eyFn9MU8" resolve="pointer" />
+                </node>
+                <node concept="1Xw6AR" id="6X8eyFn9NlG" role="3uHU7w">
+                  <node concept="1dCxOl" id="6X8eyFn9NN6" role="1XwpL7">
+                    <property role="1XweGQ" value="r:44de6cb2-b6eb-47d2-bf88-1577a328d3f6" />
+                    <node concept="1j_P7g" id="6X8eyFn9NN7" role="1j$8Uc">
+                      <property role="1j_P7h" value="jetbrains.mps.lang.feedback.problem.structural.constraints" />
+                    </node>
                   </node>
                 </node>
               </node>
             </node>
-            <node concept="17R0WA" id="3Y1amMreIgi" role="3uHU7B">
-              <node concept="37vLTw" id="6X8eyFn9MUc" role="3uHU7B">
+            <node concept="17R0WA" id="1oq9tin0VIA" role="3uHU7w">
+              <node concept="37vLTw" id="1oq9tin0VIB" role="3uHU7B">
                 <ref role="3cqZAo" node="6X8eyFn9MU8" resolve="pointer" />
               </node>
-              <node concept="1Xw6AR" id="3Y1amMreIkx" role="3uHU7w">
-                <node concept="1dCxOl" id="6X8eyFn9NI_" role="1XwpL7">
-                  <property role="1XweGQ" value="r:5fb5395d-4f7b-4fac-941f-f4bc11c7dac5" />
-                  <node concept="1j_P7g" id="6X8eyFn9NIA" role="1j$8Uc">
-                    <property role="1j_P7h" value="jetbrains.mps.lang.feedback.problem.childAndProp.constraints" />
+              <node concept="1Xw6AR" id="1oq9tin0VIC" role="3uHU7w">
+                <node concept="1dCxOl" id="1oq9tin0VOG" role="1XwpL7">
+                  <property role="1XweGQ" value="r:bb0a30e0-9916-4d29-97fa-68ace0b06403" />
+                  <node concept="1j_P7g" id="1oq9tin0VOH" role="1j$8Uc">
+                    <property role="1j_P7h" value="jetbrains.mps.lang.feedback.problem.scopes.constraints" />
                   </node>
                 </node>
               </node>

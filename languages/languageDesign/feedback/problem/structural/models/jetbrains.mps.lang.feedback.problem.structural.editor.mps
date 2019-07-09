@@ -70,5 +70,35 @@
       <node concept="2iRfu4" id="6GnzfDReZx_" role="2iSdaV" />
     </node>
   </node>
+  <node concept="24kQdi" id="2dMY_rcjEfQ">
+    <ref role="1XX52x" to="uj7v:2dMY_rcjEfO" resolve="MissingChildInConceptProblem" />
+    <node concept="3EZMnI" id="2dMY_rcjEfR" role="2wV5jI">
+      <node concept="3F0ifn" id="2dMY_rcjEfS" role="3EZMnx">
+        <property role="3F0ifm" value="when child does not belong to concept" />
+      </node>
+      <node concept="1iCGBv" id="2dMY_rcjEfT" role="3EZMnx">
+        <ref role="1NtTu8" to="uj7v:2dMY_rcjEfP" resolve="concept" />
+        <node concept="1sVBvm" id="2dMY_rcjEfU" role="1sWHZn">
+          <node concept="3F0A7n" id="2dMY_rcjEfV" role="2wV5jI">
+            <property role="1Intyy" value="true" />
+            <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
+          </node>
+        </node>
+      </node>
+      <node concept="2iRfu4" id="2dMY_rcjEfW" role="2iSdaV" />
+    </node>
+    <node concept="3EZMnI" id="2dMY_rcjEfX" role="6VMZX">
+      <node concept="1iCGBv" id="2dMY_rcjEfY" role="3EZMnx">
+        <ref role="1NtTu8" to="sis7:6GnzfDRfssV" resolve="kind" />
+        <node concept="1sVBvm" id="2dMY_rcjEfZ" role="1sWHZn">
+          <node concept="3F0A7n" id="2dMY_rcjEg0" role="2wV5jI">
+            <property role="1Intyy" value="true" />
+            <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
+          </node>
+        </node>
+      </node>
+      <node concept="2iRfu4" id="2dMY_rcjEg1" role="2iSdaV" />
+    </node>
+  </node>
 </model>
 

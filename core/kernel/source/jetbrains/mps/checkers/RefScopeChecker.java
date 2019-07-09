@@ -91,8 +91,8 @@ public class RefScopeChecker extends AbstractNodeCheckerInEditor implements IChe
       // do we need all these additional dependencies? mb. it's better to use .runcheckingAction() instead? 
       errorsCollector.addDependency(target);
       errorsCollector.addDependency(SNodeOperations.getParent(node));
-      for (SNode c : SNodeOperations.getChildren(node)) {
-        errorsCollector.addDependency(c);
+      for (SNode child : SNodeOperations.getChildren(node)) {
+        errorsCollector.addDependency(child);
       }
       ReferenceDescriptor refDescriptor = ModelConstraints.getReferenceDescriptor(ref);
       Scope refScope = refDescriptor.getScope();
@@ -105,11 +105,10 @@ public class RefScopeChecker extends AbstractNodeCheckerInEditor implements IChe
           debugInfo = scopeProvider.getSearchScopeValidatorNode();
         }
         RefOutOfScopeProblem problem = new RefOutOfScopeProblem(ref.getLink(), null);
-        RefOutOfScopeContext context = new RefOutOfScopeContext(node, child, link);
-        assert link != null : "non-root node is supposed to have proper aggregation";
+        RefOutOfScopeContext context = new RefOutOfScopeContext(ref);
         FeedbackAspectRegistry registry = getFeedbackAspectRegistry();
         MessagesFacade facade = new MessagesFacade(registry);
-        List<String> messages = facade.findTextMessagesForProblem(concept, problem, context);
+        List<String> messages = facade.findTextMessagesForProblem(node.getConcept(), problem, context);
         for (String message : messages) {
           errorsCollector.addError(new OutOfScopeReferenceReportItem(ref,
                                                                      debugInfo,

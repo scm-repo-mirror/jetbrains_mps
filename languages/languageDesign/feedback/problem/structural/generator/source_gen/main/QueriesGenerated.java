@@ -23,9 +23,13 @@ public class QueriesGenerated extends QueryProviderBase {
   public static Object referenceMacro_GetReferent_0_0(final ReferenceMacroContext _context) {
     return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x7127d40929f043e8L, 0x917ff016ea288944L, 0x4f7007d340049b31L, 0x5803115ad14c43b2L, "concept"));
   }
+  public static Object referenceMacro_GetReferent_0_1(final ReferenceMacroContext _context) {
+    return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x7127d40929f043e8L, 0x917ff016ea288944L, 0x4f7007d340049b31L, 0x5803115ad14c43b2L, "concept"));
+  }
   private final Map<String, ReferenceTargetQuery> rtqMethods = new HashMap<String, ReferenceTargetQuery>();
   {
     rtqMethods.put("6341931782024059299", new QueriesGenerated.RTQ(0, "BaseConcept"));
+    rtqMethods.put("1592627013225768459", new QueriesGenerated.RTQ(1, "BaseConcept"));
   }
   @NotNull
   @Override
@@ -47,6 +51,8 @@ public class QueriesGenerated extends QueryProviderBase {
       switch (methodKey) {
         case 0:
           return QueriesGenerated.referenceMacro_GetReferent_0_0(ctx);
+        case 1:
+          return QueriesGenerated.referenceMacro_GetReferent_0_1(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }

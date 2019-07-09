@@ -23,33 +23,32 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.model.SReference;
 
 @Immutable
 public final class RefOutOfScopeContext implements Context {
-  private final SNode myNode;
   private final SAbstractConcept myConcept;
-  private final SReferenceLink myProperty;
-  private final String myTargetName;
   private final SNode myNode;
+  private final SReference myReference;
 
-  public RefOutOfScopeContext(@NotNull SNode node, @NotNull SProperty property, Object value) {
-    myProperty = property;
-    myValue = value;
-    myNode = node;
+  public RefOutOfScopeContext(@NotNull SReference reference) {
+    myReference = reference;
+    myNode = reference.getSourceNode();
+    myConcept = myNode.getConcept();
   }
 
   @NotNull
-  public SProperty getProperty() {
-    return myProperty;
-  }
-
-  @Nullable
-  public Object getValue() {
-    return myValue;
+  public SReference getReference() {
+    return myReference;
   }
 
   @NotNull
   public SNode getNode() {
     return myNode;
+  }
+
+  @NotNull
+  public SAbstractConcept getConcept() {
+    return myConcept;
   }
 }

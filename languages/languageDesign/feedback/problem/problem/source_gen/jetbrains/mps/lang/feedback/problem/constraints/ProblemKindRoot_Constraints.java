@@ -38,7 +38,7 @@ public class ProblemKindRoot_Constraints extends BaseConstraintsDescriptor {
   }
   private static boolean staticCanBeARoot(SModel model) {
     SModelReference pointer = SModelOperations.getPointer(model);
-    return Objects.equals(pointer, PersistenceFacade.getInstance().createModelReference("r:5fb5395d-4f7b-4fac-941f-f4bc11c7dac5(jetbrains.mps.lang.feedback.problem.childAndProp.constraints)")) || Objects.equals(pointer, PersistenceFacade.getInstance().createModelReference("r:44de6cb2-b6eb-47d2-bf88-1577a328d3f6(jetbrains.mps.lang.feedback.problem.structural.constraints)"));
+    return Objects.equals(pointer, PersistenceFacade.getInstance().createModelReference("r:5fb5395d-4f7b-4fac-941f-f4bc11c7dac5(jetbrains.mps.lang.feedback.problem.childAndProp.constraints)")) || Objects.equals(pointer, PersistenceFacade.getInstance().createModelReference("r:44de6cb2-b6eb-47d2-bf88-1577a328d3f6(jetbrains.mps.lang.feedback.problem.structural.constraints)")) || Objects.equals(pointer, PersistenceFacade.getInstance().createModelReference("r:bb0a30e0-9916-4d29-97fa-68ace0b06403(jetbrains.mps.lang.feedback.problem.scopes.constraints)"));
   }
   private static SNodePointer canBeRootBreakingPoint = new SNodePointer("r:7a404819-62e4-484e-8389-7ac268c0886e(jetbrains.mps.lang.feedback.problem.constraints)", "24399255755752753");
 }

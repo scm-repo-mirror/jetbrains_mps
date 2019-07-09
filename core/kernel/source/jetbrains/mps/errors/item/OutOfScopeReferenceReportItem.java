@@ -40,7 +40,11 @@ public class OutOfScopeReferenceReportItem extends ReferenceReportItem implement
     this(ref, ruleNode, quickfix, null, "");
   }
 
-  public OutOfScopeReferenceReportItem(@NotNull SReference ref, @Nullable SNodeReference ruleNode, @NotNull EditorQuickFix quickfix, @Nullable EditorQuickFix addImportQuickfix, @NotNull String message) {
+  public OutOfScopeReferenceReportItem(@NotNull SReference ref,
+                                       @Nullable SNodeReference ruleNode,
+                                       @NotNull EditorQuickFix quickfix,
+                                       @Nullable EditorQuickFix addImportQuickfix,
+                                       @NotNull String message) {
     super(MessageStatus.ERROR, ref, message);
     myRuleNode = ruleNode == null ? null : new TypesystemRuleId(ruleNode);
     myQuickfix = quickfix;

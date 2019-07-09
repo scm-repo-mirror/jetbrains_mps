@@ -7,8 +7,8 @@
   <imports>
     <import index="uj7v" ref="r:270d7173-b5a9-45a3-a074-68571d20064c(jetbrains.mps.lang.feedback.problem.structural.structure)" />
     <import index="biba" ref="r:0d1ebc40-50e2-42b7-a78e-20c299d62a43(main@generator)" />
-    <import index="vpzg" ref="6e98f4e2-decf-4e97-bf80-9109e8b759ef/java:messages(jetbrains.mps.lang.feedback.alltogether/)" />
     <import index="sis7" ref="r:ff619a2b-8fe7-4627-a515-9b4874d6fc53(jetbrains.mps.lang.feedback.problem.structure)" />
+    <import index="j809" ref="6e98f4e2-decf-4e97-bf80-9109e8b759ef/java:jetbrains.mps.core.aspects.feedback.messages(jetbrains.mps.lang.feedback.alltogether/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
   </imports>
   <registry>
@@ -16,6 +16,10 @@
       <concept id="1197027756228" name="jetbrains.mps.baseLanguage.structure.DotExpression" flags="nn" index="2OqwBi">
         <child id="1197027771414" name="operand" index="2Oq$k0" />
         <child id="1197027833540" name="operation" index="2OqNvi" />
+      </concept>
+      <concept id="1083260308424" name="jetbrains.mps.baseLanguage.structure.EnumConstantReference" flags="nn" index="Rm8GO">
+        <reference id="1083260308426" name="enumConstantDeclaration" index="Rm8GQ" />
+        <reference id="1144432896254" name="enumClass" index="1Px2BO" />
       </concept>
       <concept id="1145552977093" name="jetbrains.mps.baseLanguage.structure.GenericNewExpression" flags="nn" index="2ShNRf">
         <child id="1145553007750" name="creator" index="2ShVmc" />
@@ -99,7 +103,7 @@
       <node concept="gft3U" id="1mFJTG6WRj" role="1lVwrX">
         <node concept="2ShNRf" id="1mFJTG6WRq" role="gfFT$">
           <node concept="1pGfFk" id="1mFJTG6WRr" role="2ShVmc">
-            <ref role="37wK5l" to="vpzg:~MissingPropertyInConceptProblemId.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="MissingPropertyInConceptProblemId" />
+            <ref role="37wK5l" to="j809:~MissingFeatureInConceptProblemId.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept,jetbrains.mps.core.aspects.feedback.problem.ProblemKind)" resolve="MissingFeatureInConceptProblemId" />
             <node concept="35c_gC" id="5w34lFhj4d1" role="37wK5m">
               <ref role="35c_gD" to="tpck:gw2VY9q" resolve="BaseConcept" />
               <node concept="1ZhdrF" id="5w34lFhjtAz" role="lGtFl">
@@ -118,6 +122,44 @@
                   </node>
                 </node>
               </node>
+            </node>
+            <node concept="Rm8GO" id="1oq9tin0QeL" role="37wK5m">
+              <ref role="Rm8GQ" to="j809:~PredefinedStructureProblemKind.MISSING_PROPERTY" resolve="MISSING_PROPERTY" />
+              <ref role="1Px2BO" to="j809:~PredefinedStructureProblemKind" resolve="PredefinedStructureProblemKind" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3aamgX" id="1oq9tin0Qo6" role="3aUrZf">
+      <property role="36QftV" value="true" />
+      <ref role="30HIoZ" to="uj7v:2dMY_rcjEfO" resolve="MissingChildInConceptProblem" />
+      <node concept="gft3U" id="1oq9tin0Qo7" role="1lVwrX">
+        <node concept="2ShNRf" id="1oq9tin0Qo8" role="gfFT$">
+          <node concept="1pGfFk" id="1oq9tin0Qo9" role="2ShVmc">
+            <ref role="37wK5l" to="j809:~MissingFeatureInConceptProblemId.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept,jetbrains.mps.core.aspects.feedback.problem.ProblemKind)" resolve="MissingFeatureInConceptProblemId" />
+            <node concept="35c_gC" id="1oq9tin0Qoa" role="37wK5m">
+              <ref role="35c_gD" to="tpck:gw2VY9q" resolve="BaseConcept" />
+              <node concept="1ZhdrF" id="1oq9tin0Qob" role="lGtFl">
+                <property role="2qtEX8" value="conceptDeclaration" />
+                <property role="P3scX" value="7866978e-a0f0-4cc7-81bc-4d213d9375e1/2644386474300074836/2644386474300074837" />
+                <node concept="3$xsQk" id="1oq9tin0Qoc" role="3$ytzL">
+                  <node concept="3clFbS" id="1oq9tin0Qod" role="2VODD2">
+                    <node concept="3clFbF" id="1oq9tin0Qoe" role="3cqZAp">
+                      <node concept="2OqwBi" id="1oq9tin0Qof" role="3clFbG">
+                        <node concept="3TrEf2" id="1oq9tin0Qog" role="2OqNvi">
+                          <ref role="3Tt5mk" to="uj7v:5w34lFhj4eM" resolve="concept" />
+                        </node>
+                        <node concept="30H73N" id="1oq9tin0Qoh" role="2Oq$k0" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="Rm8GO" id="1oq9tin0QtX" role="37wK5m">
+              <ref role="Rm8GQ" to="j809:~PredefinedStructureProblemKind.MISSING_CHILD" resolve="MISSING_CHILD" />
+              <ref role="1Px2BO" to="j809:~PredefinedStructureProblemKind" resolve="PredefinedStructureProblemKind" />
             </node>
           </node>
         </node>
@@ -138,7 +180,16 @@
       <ref role="30HIoZ" to="uj7v:4XK1Xd019GL" resolve="MissingPropertyInConceptProblem" />
       <node concept="gft3U" id="1mFJTG6XQ4" role="1lVwrX">
         <node concept="3uibUv" id="4XK1Xd01jFq" role="gfFT$">
-          <ref role="3uigEE" to="vpzg:~MissingPropertyContext" resolve="MissingPropertyContext" />
+          <ref role="3uigEE" to="j809:~MissingPropertyContext" resolve="MissingPropertyContext" />
+        </node>
+      </node>
+    </node>
+    <node concept="3aamgX" id="2dMY_rcjFm8" role="3aUrZf">
+      <property role="36QftV" value="true" />
+      <ref role="30HIoZ" to="uj7v:2dMY_rcjEfO" resolve="MissingChildInConceptProblem" />
+      <node concept="gft3U" id="2dMY_rcjFm9" role="1lVwrX">
+        <node concept="3uibUv" id="1oq9tin0QFT" role="gfFT$">
+          <ref role="3uigEE" to="j809:~MissingChildContext" resolve="MissingChildContext" />
         </node>
       </node>
     </node>

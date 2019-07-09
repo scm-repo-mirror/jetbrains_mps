@@ -44,9 +44,9 @@ public enum PredefinedConstraintProblemKind implements ProblemKindAlsoProblem, P
       if (!(context instanceof RefOutOfScopeContext)) {
         throw new IllegalArgumentException("Received illegal context " + context);
       }
-      String targetName = ;
-      SReferenceLink referenceLink;
-      return "reference" + (targetName == null ? "" : " " + targetName) + " (" + referenceLink.getName() + ") is out of search scope";
+      String targetName = ((RefOutOfScopeContext) context).getReference().getTargetNode().getPresentation();
+      SReferenceLink referenceLink = ((RefOutOfScopeContext) context).getReference().getLink();
+      return "The reference " + (targetName == null ? "" : " " + targetName) + " (" + referenceLink.getName() + ") is out of search scope";
     }
   };
 

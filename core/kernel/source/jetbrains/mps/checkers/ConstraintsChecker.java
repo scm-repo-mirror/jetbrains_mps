@@ -32,7 +32,6 @@ import jetbrains.mps.errors.item.IssueKindReportItem;
 import jetbrains.mps.errors.item.NodeReportItem;
 import jetbrains.mps.errors.item.RuleIdFlavouredItem.TypesystemRuleId;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.project.validation.ConceptFeatureMissingError;
 import jetbrains.mps.project.validation.ConceptMissingError;
 import jetbrains.mps.smodel.constraints.ConstraintsCanBeFacade;
 import jetbrains.mps.smodel.constraints.ConstraintsChildAndPropFacade;
@@ -150,11 +149,11 @@ public class ConstraintsChecker extends AbstractNodeCheckerInEditor implements I
       errorsCollector.addDependency(parentNode);
       SConcept parentConcept = SNodeOperations.getConcept(parentNode);
       if (parentConcept.isValid()) {
-        if (!checkContainmentLinkIsPresentInConcept(childNode, parentConcept, errorsCollector)) {
-          errorsCollector.addError(new ConceptFeatureMissingError(childNode, childNode.getContainmentLink()));
+        if (isLinkPresentInConcept(childNode, parentConcept)) {
+          // otherwise it is the structure checker who must report
+          checkCanBeChild(childNode, errorsCollector);
+          checkCanBeParent(childNode, errorsCollector);
         }
-        checkCanBeChild(childNode, errorsCollector);
-        checkCanBeParent(childNode, errorsCollector);
       }
     }
   }
@@ -199,12 +198,9 @@ public class ConstraintsChecker extends AbstractNodeCheckerInEditor implements I
     return myHost.findComponent(FeedbackAspectRegistry.class);
   }
 
-  private boolean checkContainmentLinkIsPresentInConcept(SNode node, SConcept parentConcept, LanguageErrorsCollector errorsCollector) {
+  private boolean isLinkPresentInConcept(@NotNull SNode node,
+                                         @NotNull SConcept parentConcept) {
     SContainmentLink link = node.getContainmentLink();
-    if (!parentConcept.getContainmentLinks().contains(link)) {
-      errorsCollector.addError(new ConceptFeatureMissingError(node, SNodeOperations.getContainingLink(node)));
-      return false;
-    }
-    return true;
+    return parentConcept.getContainmentLinks().contains(link);
   }
 }

@@ -31,6 +31,7 @@ import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.core.aspects.feedback.messages.MissingChildContext;
 import jetbrains.mps.core.aspects.feedback.messages.MissingPropertyContext;
 import jetbrains.mps.core.aspects.feedback.messages.MissingPropertyInConceptProblem;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -148,7 +149,7 @@ public class StructureChecker extends AbstractNodeCheckerInEditor implements ICh
     }
   }
 
-  private void checkMissingChildren(SNode node, LanguageErrorsCollector errorsCollector, SConcept concept) {
+  private void checkMissingChildren(@NotNull SNode node, LanguageErrorsCollector errorsCollector, SConcept concept) {
     List<SContainmentLink> definedLinks = IterableUtil.asList(concept.getContainmentLinks());
     for (SNode child : node.getChildren()) {
       SContainmentLink link = child.getContainmentLink();

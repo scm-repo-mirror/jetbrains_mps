@@ -14,6 +14,11 @@
         </modelRoot>
       </models>
       <external-templates />
+      <dependencies>
+        <dependency reexport="false">3f67a24c-17dc-4d34-9ecd-d2790f764ce0(jetbrains.mps.lang.feedback.problem#01)</dependency>
+        <dependency reexport="false">6e98f4e2-decf-4e97-bf80-9109e8b759ef(jetbrains.mps.lang.feedback.alltogether)</dependency>
+        <dependency reexport="false">2bdcefec-ba49-4b32-ab50-ebc7a41d5090(jetbrains.mps.lang.smodel#1139186730696)</dependency>
+      </dependencies>
       <languageVersions>
         <language slang="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" version="9" />
         <language slang="l:fd392034-7849-419d-9071-12563d152375:jetbrains.mps.baseLanguage.closures" version="0" />
@@ -45,6 +50,12 @@
     </generator>
   </generators>
   <sourcePath />
+  <dependencies>
+    <dependency reexport="false">033598a4-76a9-47e1-ac89-a300c0fceab8(jetbrains.mps.lang.feedback.problem)</dependency>
+    <dependency reexport="false">c72da2b9-7cce-4447-8389-f407dc1158b7(jetbrains.mps.lang.structure)</dependency>
+    <dependency reexport="false">8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)</dependency>
+    <dependency reexport="false">2d3c70e9-aab2-4870-8d8d-6036800e4103(jetbrains.mps.kernel)</dependency>
+  </dependencies>
   <languageVersions>
     <language slang="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" version="9" />
     <language slang="l:443f4c36-fcf5-4eb6-9500-8d06ed259e3e:jetbrains.mps.baseLanguage.classifiers" version="0" />
@@ -81,6 +92,8 @@
     <module reference="a9e4c532-c5f5-4bb7-99ef-42abb73bbb70(jetbrains.mps.lang.descriptor.aspects)" version="0" />
     <module reference="feec32f9-bc8f-4da8-8efd-7f3f9dd4101b(jetbrains.mps.lang.feedback.problem.scopes)" version="0" />
   </dependencyVersions>
-  <extendedLanguages />
+  <extendedLanguages>
+    <extendedLanguage>033598a4-76a9-47e1-ac89-a300c0fceab8(jetbrains.mps.lang.feedback.problem)</extendedLanguage>
+  </extendedLanguages>
 </language>
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <root>
+    <file name="ActionAspectDescriptorImpl.java">
+      <unit at="13,0,30,0" name="jetbrains.mps.lang.feedback.problem.scopes.actions.ActionAspectDescriptorImpl" />
+    </file>
+  </root>
+  <root nodeRef="r:ce8f16f4-24c5-47e8-b357-561bf11455c0(jetbrains.mps.lang.feedback.problem.scopes.actions)/1592627013225788521">
+    <file name="DefaultNodeFactory.java">
+      <node id="7716791493892398464" at="14,91,15,307" concept="0" />
+      <node id="1592627013225788522" at="14,0,17,0" concept="1" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="1592627013225788522" at="14,91,15,307" />
+      <scope id="1592627013225788522" at="14,0,17,0">
+        <var name="enclosingNode" id="1592627013225788522" />
+        <var name="model" id="1592627013225788522" />
+        <var name="newNode" id="1592627013225788522" />
+        <var name="sampleNode" id="1592627013225788522" />
+      </scope>
+      <unit id="1592627013225788522" at="13,0,18,0" name="jetbrains.mps.lang.feedback.problem.scopes.actions.DefaultNodeFactory$NodeFactory_1592627013225788522" />
+      <unit id="1592627013225788521" at="12,0,19,0" name="jetbrains.mps.lang.feedback.problem.scopes.actions.DefaultNodeFactory" />
+    </file>
+  </root>
+</debug-info>
+

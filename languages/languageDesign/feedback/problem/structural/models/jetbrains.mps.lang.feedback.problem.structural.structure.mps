@@ -48,5 +48,19 @@
       <ref role="20lvS9" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
     </node>
   </node>
+  <node concept="1TIwiD" id="2dMY_rcjEfO">
+    <property role="EcuMT" value="2554379189374329844" />
+    <property role="TrG5h" value="MissingChildInConceptProblem" />
+    <property role="34LRSv" value="when child does not belong to the concept" />
+    <property role="R5$K2" value="true" />
+    <ref role="1TJDcQ" to="sis7:6GnzfDRfssU" resolve="ProblemPointsToKindRoot" />
+    <node concept="1TJgyj" id="2dMY_rcjEfP" role="1TKVEi">
+      <property role="IQ2ns" value="2554379189374329845" />
+      <property role="20lmBu" value="reference" />
+      <property role="20kJfa" value="concept" />
+      <property role="20lbJX" value="1" />
+      <ref role="20lvS9" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
+    </node>
+  </node>
 </model>
 
