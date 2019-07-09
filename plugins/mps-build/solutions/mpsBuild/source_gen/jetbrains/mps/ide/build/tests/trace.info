@@ -47,7 +47,7 @@
   </root>
   <root nodeRef="r:42d04941-551b-420d-9485-a5f496e15594(jetbrains.mps.ide.build.tests)/5003005296035786909">
     <file name="mpsEditorDiagram.xml">
-      <unit id="5003005296035786909" at="1,0,752,10" name="jetbrains.mps.ide.build.tests.mpsEditorDiagram" />
+      <unit id="5003005296035786909" at="1,0,753,10" name="jetbrains.mps.ide.build.tests.mpsEditorDiagram" />
     </file>
   </root>
   <root nodeRef="r:42d04941-551b-420d-9485-a5f496e15594(jetbrains.mps.ide.build.tests)/5332690376493680136">
@@ -62,7 +62,7 @@
   </root>
   <root nodeRef="r:42d04941-551b-420d-9485-a5f496e15594(jetbrains.mps.ide.build.tests)/5833628797344916224">
     <file name="mpsEditor.xml">
-      <unit id="5833628797344916224" at="1,0,2569,10" name="jetbrains.mps.ide.build.tests.mpsEditor" />
+      <unit id="5833628797344916224" at="1,0,2570,10" name="jetbrains.mps.ide.build.tests.mpsEditor" />
     </file>
   </root>
   <root nodeRef="r:42d04941-551b-420d-9485-a5f496e15594(jetbrains.mps.ide.build.tests)/5973657458022229901">
@@ -72,7 +72,7 @@
   </root>
   <root nodeRef="r:42d04941-551b-420d-9485-a5f496e15594(jetbrains.mps.ide.build.tests)/6147098677962246363">
     <file name="mpsHttpSupport.xml">
-      <unit id="6147098677962246363" at="1,0,514,10" name="jetbrains.mps.ide.build.tests.mpsHttpSupport" />
+      <unit id="6147098677962246363" at="1,0,515,10" name="jetbrains.mps.ide.build.tests.mpsHttpSupport" />
     </file>
   </root>
   <root nodeRef="r:42d04941-551b-420d-9485-a5f496e15594(jetbrains.mps.ide.build.tests)/617882099353312053">
@@ -92,7 +92,7 @@
   </root>
   <root nodeRef="r:42d04941-551b-420d-9485-a5f496e15594(jetbrains.mps.ide.build.tests)/7210153263370654627">
     <file name="mpsBaseLanguage.xml">
-      <unit id="7210153263370654627" at="1,0,893,10" name="jetbrains.mps.ide.build.tests.mpsBaseLanguage" />
+      <unit id="7210153263370654627" at="1,0,894,10" name="jetbrains.mps.ide.build.tests.mpsBaseLanguage" />
     </file>
   </root>
   <root nodeRef="r:42d04941-551b-420d-9485-a5f496e15594(jetbrains.mps.ide.build.tests)/7438002853058266164">
