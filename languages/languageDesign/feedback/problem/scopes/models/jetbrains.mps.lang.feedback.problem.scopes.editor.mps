@@ -9,7 +9,6 @@
     <import index="lk2x" ref="r:bc41db58-2589-400b-8121-4dd19c77316b(jetbrains.mps.lang.feedback.problem.scopes.structure)" implicit="true" />
     <import index="sis7" ref="r:ff619a2b-8fe7-4627-a515-9b4874d6fc53(jetbrains.mps.lang.feedback.problem.structure)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
-    <import index="tpco" ref="r:00000000-0000-4000-0000-011c89590284(jetbrains.mps.lang.core.editor)" implicit="true" />
   </imports>
   <registry>
     <language id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor">
@@ -19,9 +18,6 @@
       <concept id="1106270549637" name="jetbrains.mps.lang.editor.structure.CellLayout_Horizontal" flags="nn" index="2iRfu4" />
       <concept id="1080736578640" name="jetbrains.mps.lang.editor.structure.BaseEditorComponent" flags="ig" index="2wURMF">
         <child id="1080736633877" name="cellModel" index="2wV5jI" />
-      </concept>
-      <concept id="1078939183254" name="jetbrains.mps.lang.editor.structure.CellModel_Component" flags="sg" stub="3162947552742194261" index="PMmxH">
-        <reference id="1078939183255" name="editorComponent" index="PMmxG" />
       </concept>
       <concept id="1186403694788" name="jetbrains.mps.lang.editor.structure.ColorStyleClassItem" flags="ln" index="VaVBg">
         <property id="1186403713874" name="color" index="Vb096" />
@@ -67,10 +63,10 @@
       <node concept="2iRfu4" id="6GnzfDReZx_" role="2iSdaV" />
     </node>
     <node concept="3EZMnI" id="5sUTrySNjU1" role="2wV5jI">
-      <node concept="PMmxH" id="1oq9tin0Vh6" role="3EZMnx">
-        <ref role="PMmxG" to="tpco:2wZex4PafBj" resolve="alias" />
-      </node>
       <node concept="2iRfu4" id="5sUTrySNjU2" role="2iSdaV" />
+      <node concept="3F0ifn" id="1oq9tin1$Ge" role="3EZMnx">
+        <property role="3F0ifm" value="when reference" />
+      </node>
       <node concept="1iCGBv" id="4zSofKeeUoe" role="3EZMnx">
         <ref role="1NtTu8" to="lk2x:1oq9tin0Vhe" resolve="ref" />
         <node concept="1sVBvm" id="4zSofKeeUog" role="1sWHZn">
@@ -87,8 +83,8 @@
           <property role="Vb096" value="DARK_MAGENTA" />
         </node>
       </node>
-      <node concept="3F0ifn" id="5sUTrySNmFh" role="3EZMnx">
-        <property role="3F0ifm" value="fails" />
+      <node concept="3F0ifn" id="1oq9tin1$Gu" role="3EZMnx">
+        <property role="3F0ifm" value="is out of scope" />
       </node>
     </node>
   </node>

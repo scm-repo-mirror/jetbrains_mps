@@ -10,9 +10,9 @@ import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_Block;
-  private ConceptPresentation props_ConstraintsRoot2;
   private ConceptPresentation props_RuleBlock;
   private ConceptPresentation props_RuleBlockMember;
+  private ConceptPresentation props_RulesConstraintsRoot;
 
   @Override
   @Nullable
@@ -25,15 +25,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Block = cpb.create();
         }
         return props_Block;
-      case LanguageConceptSwitch.ConstraintsRoot2:
-        if (props_ConstraintsRoot2 == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.shortDesc("define rules here");
-          cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a1b0f);
-          props_ConstraintsRoot2 = cpb.create();
-        }
-        return props_ConstraintsRoot2;
       case LanguageConceptSwitch.RuleBlock:
         if (props_RuleBlock == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -47,6 +38,15 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_RuleBlockMember = cpb.create();
         }
         return props_RuleBlockMember;
+      case LanguageConceptSwitch.RulesConstraintsRoot:
+        if (props_RulesConstraintsRoot == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("define rules here");
+          cpb.presentationByName();
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a3b0f);
+          props_RulesConstraintsRoot = cpb.create();
+        }
+        return props_RulesConstraintsRoot;
     }
     return null;
   }

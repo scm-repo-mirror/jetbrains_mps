@@ -48,11 +48,11 @@ import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 
-/*package*/ class ConstraintsRoot2_EditorBuilder_a extends AbstractEditorBuilder {
+/*package*/ class RulesConstraintsRoot_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
   private SNode myNode;
 
-  public ConstraintsRoot2_EditorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
+  public RulesConstraintsRoot_EditorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
     super(context);
     myNode = node;
   }
@@ -69,7 +69,7 @@ import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 
   private EditorCell createCollection_0() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Indent());
-    editorCell.setCellId("Collection_n6v8kp_a");
+    editorCell.setCellId("Collection_ak7rf9_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
     editorCell.addEditorCell(createConstant_0());
@@ -79,7 +79,7 @@ import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
   }
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "constraints for concept");
-    editorCell.setCellId("Constant_n6v8kp_a0");
+    editorCell.setCellId("Constant_ak7rf9_a0");
     Style style = new StyleImpl();
     new RootHeadingStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
@@ -92,7 +92,7 @@ import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
       protected EditorCell createReferenceCell(final SNode targetNode) {
         EditorCell cell = getUpdateSession().updateReferencedNodeCell(new Computable<EditorCell>() {
           public EditorCell compute() {
-            return new ConstraintsRoot2_EditorBuilder_a.Inline_Builder0(getEditorContext(), getNode(), targetNode).createCell();
+            return new RulesConstraintsRoot_EditorBuilder_a.Inline_Builder0(getEditorContext(), getNode(), targetNode).createCell();
           }
         }, targetNode, MetaAdapterFactory.getReferenceLink(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, 0x19eb8590edaff8deL, "concept"));
         CellUtil.setupIDeprecatableStyles(targetNode, cell);
@@ -180,7 +180,7 @@ import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
     }
   }
   private EditorCell createRefNodeList_0() {
-    AbstractCellListHandler handler = new ConstraintsRoot2_EditorBuilder_a.blockListHandler_n6v8kp_c0(myNode, getEditorContext());
+    AbstractCellListHandler handler = new RulesConstraintsRoot_EditorBuilder_a.blockListHandler_ak7rf9_c0(myNode, getEditorContext());
     EditorCell_Collection editorCell = handler.createCells(new CellLayout_Indent(), false);
     editorCell.setCellId("refNodeList_block");
     Style style = new StyleImpl();
@@ -192,11 +192,11 @@ import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }
-  private static class blockListHandler_n6v8kp_c0 extends RefNodeListHandler {
+  private static class blockListHandler_ak7rf9_c0 extends RefNodeListHandler {
     @NotNull
     private SNode myNode;
 
-    public blockListHandler_n6v8kp_c0(SNode ownerNode, EditorContext context) {
+    public blockListHandler_ak7rf9_c0(SNode ownerNode, EditorContext context) {
       super(context, false);
       myNode = ownerNode;
     }
@@ -219,7 +219,7 @@ import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(blockListHandler_n6v8kp_c0.this.getNode(), MetaAdapterFactory.getContainmentLink(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, 0x19eb8590edaff8dbL, "block")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(blockListHandler_ak7rf9_c0.this.getNode(), MetaAdapterFactory.getContainmentLink(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, 0x19eb8590edaff8dbL, "block")));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();

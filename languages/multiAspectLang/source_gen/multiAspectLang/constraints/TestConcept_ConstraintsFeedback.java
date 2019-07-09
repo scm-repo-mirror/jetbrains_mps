@@ -11,6 +11,8 @@ import jetbrains.mps.core.aspects.feedback.messages.BaseMessageProvider;
 import jetbrains.mps.core.aspects.feedback.messages.FailingPropertyConstraintProblemId;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.core.aspects.feedback.messages.MessageProvider;
+import jetbrains.mps.core.aspects.feedback.messages.RefOutOfScopeContext;
+import jetbrains.mps.core.aspects.feedback.messages.RefOutOfScopeProblemId;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeRootContext;
 import jetbrains.mps.core.aspects.feedback.messages.FailingRuleProblemId;
 import java.util.List;
@@ -18,8 +20,8 @@ import java.util.Collections;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public final class A_ConstraintsFeedback extends BaseFeedbackDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "multiAspectLang.structure.A");
+public final class TestConcept_ConstraintsFeedback extends BaseFeedbackDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "multiAspectLang.structure.TestConcept");
 
   private static final FeedbackProvider<FailingPropertyConstraintContext> MSGPROVIDER_WhenPropertyConstraintFails_a = new BaseMessageProvider<FailingPropertyConstraintContext>(new FailingPropertyConstraintProblemId(MetaAdapterFactory.getProperty(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, 0x50310db2af989958L, "prop"))) {
     @NotNull
@@ -28,17 +30,24 @@ public final class A_ConstraintsFeedback extends BaseFeedbackDescriptor {
       return new MessageProvider.StringMsg("Property constraints are broken for the property" + " " + String.valueOf(context.getProperty()) + ", please do smth " + " ");
     }
   };
-  private static final FeedbackProvider<CanBeRootContext> MSGPROVIDER_WhenConstraintRuleFails_b = new BaseMessageProvider<CanBeRootContext>(new FailingRuleProblemId(A_ConstraintRules.Rule_check7932913038699129641_c0.ID_check7932913038699129641_c0)) {
+  private static final FeedbackProvider<RefOutOfScopeContext> MSGPROVIDER_WhenReferenceIsOutOfScope_b = new BaseMessageProvider<RefOutOfScopeContext>(new RefOutOfScopeProblemId(MetaAdapterFactory.getReferenceLink(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, 0x161a25d497067a9eL, "link"))) {
+    @NotNull
+    @Override
+    public MessageProvider.StringMsg yieldMessage(RefOutOfScopeContext context) {
+      return new MessageProvider.StringMsg("Link is out of scope: hahahahaha " + String.valueOf(context.getReference()));
+    }
+  };
+  private static final FeedbackProvider<CanBeRootContext> MSGPROVIDER_WhenConstraintRuleFails_c = new BaseMessageProvider<CanBeRootContext>(new FailingRuleProblemId(TestConcept_ConstraintRules.Rule_check7932913038699129641_c0.ID_check7932913038699129641_c0)) {
     @NotNull
     @Override
     public MessageProvider.StringMsg yieldMessage(CanBeRootContext context) {
-      return new MessageProvider.StringMsg("The name of the model '" + A_ConstraintRules.Def_AModelName2554379189374271668.getValue(context) + "' " + "" + "must start with 'A'");
+      return new MessageProvider.StringMsg("The name of the model '" + TestConcept_ConstraintRules.Def_AModelName2554379189374271668.getValue(context) + "' " + "" + "must start with 'A'");
     }
   };
 
-  private static final List<FeedbackProvider> PROVIDERS = Collections.unmodifiableList(Arrays.<FeedbackProvider>asList(MSGPROVIDER_WhenPropertyConstraintFails_a, MSGPROVIDER_WhenConstraintRuleFails_b));
+  private static final List<FeedbackProvider> PROVIDERS = Collections.unmodifiableList(Arrays.<FeedbackProvider>asList(MSGPROVIDER_WhenPropertyConstraintFails_a, MSGPROVIDER_WhenReferenceIsOutOfScope_b, MSGPROVIDER_WhenConstraintRuleFails_c));
 
-  public A_ConstraintsFeedback() {
+  public TestConcept_ConstraintsFeedback() {
     super(CONCEPT);
   }
 

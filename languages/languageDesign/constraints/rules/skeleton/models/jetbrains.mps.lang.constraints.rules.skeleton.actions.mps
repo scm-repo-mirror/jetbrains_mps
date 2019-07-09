@@ -87,7 +87,7 @@
   <node concept="37WguZ" id="5XPa2npUvne">
     <property role="TrG5h" value="RuleBlockImportKindModel" />
     <node concept="37WvkG" id="5XPa2npUvnf" role="37WGs$">
-      <ref role="37XkoT" to="mqj2:1BFxp3HFZzq" resolve="ConstraintsRoot2" />
+      <ref role="37XkoT" to="mqj2:1BFxp3HFZzq" resolve="RulesConstraintsRoot" />
       <node concept="37Y9Zx" id="5XPa2npUvng" role="37ZfLb">
         <node concept="3clFbS" id="5XPa2npUvnh" role="2VODD2">
           <node concept="3cpWs8" id="5XPa2npUxEF" role="3cqZAp">

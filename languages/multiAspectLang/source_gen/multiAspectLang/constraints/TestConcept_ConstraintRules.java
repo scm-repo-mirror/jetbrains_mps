@@ -19,13 +19,13 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.core.aspects.constraints.rules.RuleId;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.PredefinedRuleKinds;
 
-public final class A_ConstraintRules extends BaseRulesConstraintsDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "multiAspectLang.structure.A");
+public final class TestConcept_ConstraintRules extends BaseRulesConstraintsDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "multiAspectLang.structure.TestConcept");
 
-  /*package*/ A_ConstraintRules() {
+  /*package*/ TestConcept_ConstraintRules() {
     super(CONCEPT);
   }
-  public static final Rule<CanBeRootContext> check_id7932913038699129641 = new A_ConstraintRules.Rule_check7932913038699129641_c0();
+  public static final Rule<CanBeRootContext> check_id7932913038699129641 = new TestConcept_ConstraintRules.Rule_check7932913038699129641_c0();
 
   private static final List<Rule<?>> RULES = Collections.unmodifiableList(Arrays.<Rule<?>>asList(check_id7932913038699129641));
 
@@ -46,11 +46,11 @@ public final class A_ConstraintRules extends BaseRulesConstraintsDescriptor {
   }
   public static final class Def_AModelName2554379189374271668 {
     public static String getValue(@NotNull CanBeRootContext context) {
-      return SModelOperations.getModelName(A_ConstraintRules.Def_AModel7932913038696329443.getValue(context));
+      return SModelOperations.getModelName(TestConcept_ConstraintRules.Def_AModel7932913038696329443.getValue(context));
     }
 
     public static boolean isDefined(@NotNull CanBeRootContext context) {
-      if (!(A_ConstraintRules.Def_AModel7932913038696329443.isDefined(context))) {
+      if (!(TestConcept_ConstraintRules.Def_AModel7932913038696329443.isDefined(context))) {
         return false;
       }
       return true;
@@ -66,12 +66,12 @@ public final class A_ConstraintRules extends BaseRulesConstraintsDescriptor {
 
     @Override
     public boolean check(@NotNull CanBeRootContext context) {
-      return SModelOperations.getModelName(A_ConstraintRules.Def_AModel7932913038696329443.getValue(context)).startsWith("A");
+      return SModelOperations.getModelName(TestConcept_ConstraintRules.Def_AModel7932913038696329443.getValue(context)).startsWith("A");
     }
 
     @Override
     public boolean appliesTo(@NotNull CanBeRootContext context) {
-      if (!(A_ConstraintRules.Def_AModel7932913038696329443.isDefined(context))) {
+      if (!(TestConcept_ConstraintRules.Def_AModel7932913038696329443.isDefined(context))) {
         return false;
       }
       return true;

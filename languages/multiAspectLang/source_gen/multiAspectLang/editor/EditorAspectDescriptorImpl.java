@@ -18,7 +18,7 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase {
     SAbstractConcept cncpt = ((SAbstractConcept) concept);
     switch (conceptIndex.index(cncpt)) {
       case 0:
-        return Collections.<ConceptEditor>singletonList(new A_Editor());
+        return Collections.<ConceptEditor>singletonList(new TestConcept_Editor());
       default:
     }
     return Collections.<ConceptEditor>emptyList();

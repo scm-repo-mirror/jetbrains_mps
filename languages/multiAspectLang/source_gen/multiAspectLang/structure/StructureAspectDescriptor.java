@@ -14,7 +14,7 @@ import jetbrains.mps.smodel.runtime.impl.ConceptDescriptorBuilder2;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
-  /*package*/ final ConceptDescriptor myConceptA = createDescriptorForA();
+  /*package*/ final ConceptDescriptor myConceptTestConcept = createDescriptorForTestConcept();
   private final LanguageConceptSwitch myIndexSwitch;
 
   public StructureAspectDescriptor() {
@@ -29,15 +29,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptA);
+    return Arrays.asList(myConceptTestConcept);
   }
 
   @Override
   @Nullable
   public ConceptDescriptor getDescriptor(SConceptId id) {
     switch (myIndexSwitch.index(id)) {
-      case LanguageConceptSwitch.A:
-        return myConceptA;
+      case LanguageConceptSwitch.TestConcept:
+        return myConceptTestConcept;
       default:
         return null;
     }
@@ -52,12 +52,14 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     return myIndexSwitch.index(c);
   }
 
-  private static ConceptDescriptor createDescriptorForA() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("multiAspectLang", "A", 0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L);
+  private static ConceptDescriptor createDescriptorForTestConcept() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("multiAspectLang", "TestConcept", 0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L);
     b.class_(false, false, true);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.origin("r:7117f6c4-faaf-4889-b5b9-3fe628e41cf8(multiAspectLang.structure)/5983615114019032372");
     b.version(2);
     b.property("prop", 0x50310db2af989958L).type(PrimitiveTypeId.INTEGER).origin("5778414857994410328").done();
+    b.associate("link", 0x161a25d497067a9eL).target(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L).optional(true).origin("1592627013225970334").done();
     return b.create();
   }
 }

@@ -21,6 +21,9 @@
       <concept id="5724083730281438001" name="jetbrains.mps.lang.feedback.problem.structural.structure.MissingPropertyInConceptProblem" flags="ng" index="ft9Ny">
         <reference id="6341931782023955378" name="concept" index="29jPbC" />
       </concept>
+      <concept id="2554379189374329844" name="jetbrains.mps.lang.feedback.problem.structural.structure.MissingChildInConceptProblem" flags="ng" index="3Jf5Ay">
+        <reference id="2554379189374329845" name="concept" index="3Jf5Az" />
+      </concept>
     </language>
     <language id="cd17a113-ca4e-472f-a8de-c49008f9eea8" name="jetbrains.mps.lang.feedback">
       <concept id="6285588811486118729" name="jetbrains.mps.lang.feedback.structure.Feedback" flags="ng" index="3JXyrL">
@@ -51,11 +54,11 @@
     </language>
   </registry>
   <node concept="3QByoM" id="5ca4zTvKOON">
-    <ref role="3Z9TSV" to="pljn:5ca4zTvKOOO" resolve="A" />
+    <ref role="3Z9TSV" to="pljn:5ca4zTvKOOO" resolve="TestConcept" />
     <node concept="3QByp$" id="5XPa2npPrtQ" role="3QBEN7">
       <node concept="ft9Ny" id="5XPa2npPDZ_" role="3JXyrO">
         <ref role="sa$J1" to="1wpt:4XK1Xd019ID" resolve="MissingProperty" />
-        <ref role="29jPbC" to="pljn:5ca4zTvKOOO" resolve="A" />
+        <ref role="29jPbC" to="pljn:5ca4zTvKOOO" resolve="TestConcept" />
       </node>
       <node concept="16I2mz" id="5XPa2npPDZc" role="16N$OO">
         <node concept="16N$OT" id="5XPa2npPDZv" role="16I2mt">
@@ -65,8 +68,25 @@
           <ref role="16E0hz" to="1wpt:1mFJTG7MCZ" resolve="property" />
         </node>
         <node concept="16N$OT" id="2dMY_rcipX2" role="16I2mt">
-          <property role="16N$OU" value="' does not belong to the concept 'A', please do smth" />
+          <property role="16N$OU" value="' does not belong to the concept 'TestConcept', please do smth" />
         </node>
+      </node>
+    </node>
+    <node concept="3QByp$" id="7J3GgfrRU4Y" role="3QBEN7">
+      <node concept="16I2mz" id="7J3GgfrRU50" role="16N$OO">
+        <node concept="16N$OT" id="7J3GgfrRU5j" role="16I2mt">
+          <property role="16N$OU" value="The child '" />
+        </node>
+        <node concept="16Iohu" id="7J3GgfrRU5i" role="16I2mt">
+          <ref role="16E0hz" to="1wpt:2dMY_rcjEww" resolve="child" />
+        </node>
+        <node concept="16N$OT" id="7J3GgfrRU5m" role="16I2mt">
+          <property role="16N$OU" value="' does not belong to the concept 'TestConcept" />
+        </node>
+      </node>
+      <node concept="3Jf5Ay" id="7J3GgfrRU5f" role="3JXyrO">
+        <ref role="sa$J1" to="1wpt:2dMY_rcjEws" resolve="MissingChild" />
+        <ref role="3Jf5Az" to="pljn:5ca4zTvKOOO" resolve="TestConcept" />
       </node>
     </node>
   </node>
