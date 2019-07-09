@@ -42,7 +42,6 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNode;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -80,11 +79,11 @@ public class ModelActions {
   // referent substitute
   //-------------------
 
-  public static List<SubstituteAction> createReferentSubstituteActions(SNode referenceNode, SNode currentReferent, SReferenceLink link,
+  public static List<SubstituteAction> createReferentSubstituteActions(SNode referenceNode, SReferenceLink link,
                                                                        @NotNull IReferentPresentationProvider matchingTextProvider,
                                                                        @NotNull IReferentPresentationProvider visibleMatchingTextProvider,
-                                                                       IOperationContext context) {
-    return ReferentSubstituteActionsHelper.createActions(referenceNode, currentReferent, link, matchingTextProvider, visibleMatchingTextProvider);
+                                                                       EditorContext editorContext) {
+    return ReferentSubstituteActionsHelper.createActions(referenceNode, link, matchingTextProvider, visibleMatchingTextProvider, editorContext);
   }
 
   //-------------------
@@ -95,6 +94,7 @@ public class ModelActions {
    * @deprecated use {@link #createSideTransformSubstituteActions(EditorCell, Side)}
    */
   @Deprecated
+  @ToRemove(version = 2019.3)
   public static boolean canCreateSideTransformHintSubstituteActions(SNode sourceNode, CellSide side, String transformTag, IOperationContext context) {
     return false;
   }
@@ -103,9 +103,11 @@ public class ModelActions {
    * @deprecated use {@link #createSideTransformSubstituteActions(EditorCell, Side)}
    */
   @Deprecated
+  @ToRemove(version = 2019.3)
   public static List<SubstituteAction> createSideTransformHintSubstituteActions(SNode sourceNode, CellSide side, String transformTag, IOperationContext context) {
-    return new ArrayList<>();
+    return Collections.emptyList();
   }
+
 
   public static List<SubstituteAction> createSideTransformSubstituteActions(@NotNull EditorCell cell, @NotNull SideTransformSubstituteInfo.Side side) {
     final SNode sourceNode = cell.getSNode();

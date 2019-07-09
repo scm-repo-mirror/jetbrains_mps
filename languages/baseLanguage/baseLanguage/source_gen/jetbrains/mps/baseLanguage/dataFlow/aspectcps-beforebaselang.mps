@@ -14,6 +14,7 @@
     <import index="tpek" ref="r:00000000-0000-4000-0000-011c895902c0(jetbrains.mps.baseLanguage.behavior)" />
     <import index="7jhi" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.lang.pattern(MPS.Core/)" />
     <import index="9r19" ref="d936855b-48da-4812-a8a0-2bfddd633ac5/java:jetbrains.mps.core.aspects.behaviour.api(jetbrains.mps.lang.behavior.api/)" />
+    <import index="i51s" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.lang.smodel.generator.smodelAdapter(MPS.Core/)" />
     <import index="dau9" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.lang.dataFlow.framework.instructions(MPS.Core/)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
@@ -15623,8 +15624,8 @@
                               <node concept="3cpWsn" id="1qF" role="3cpWs9">
                                 <property role="TrG5h" value="facade" />
                                 <node concept="2YIFZM" id="1qG" role="33vP2m">
-                                  <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
                                   <ref role="1Pybhc" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
+                                  <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
                                 </node>
                                 <node concept="3uibUv" id="1qH" role="1tU5fm">
                                   <ref role="3uigEE" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
@@ -15647,8 +15648,8 @@
                                     <node concept="3clFbF" id="1qO" role="3cqZAp">
                                       <node concept="37vLTI" id="1qQ" role="3clFbG">
                                         <node concept="2YIFZM" id="1qR" role="37vLTx">
-                                          <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                           <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
+                                          <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                           <node concept="2YIFZM" id="1qT" role="37wK5m">
                                             <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(org.jetbrains.mps.openapi.language.SLanguage,long,java.lang.String)" resolve="getConcept" />
                                             <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
@@ -15708,8 +15709,8 @@
                                             </node>
                                           </node>
                                           <node concept="2YIFZM" id="1r7" role="37wK5m">
-                                            <ref role="37wK5l" to="w1kc:~SReference.create(org.jetbrains.mps.openapi.language.SReferenceLink,org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SModelReference,org.jetbrains.mps.openapi.model.SNodeId)" resolve="create" />
                                             <ref role="1Pybhc" to="w1kc:~SReference" resolve="SReference" />
+                                            <ref role="37wK5l" to="w1kc:~SReference.create(org.jetbrains.mps.openapi.language.SReferenceLink,org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SModelReference,org.jetbrains.mps.openapi.model.SNodeId)" resolve="create" />
                                             <node concept="2YIFZM" id="1rd" role="37wK5m">
                                               <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
                                               <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getReferenceLink(long,long,long,long,java.lang.String)" resolve="getReferenceLink" />
@@ -15812,8 +15813,8 @@
                               <node concept="3cpWsn" id="1rK" role="3cpWs9">
                                 <property role="TrG5h" value="facade" />
                                 <node concept="2YIFZM" id="1rL" role="33vP2m">
-                                  <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
                                   <ref role="1Pybhc" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
+                                  <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
                                 </node>
                                 <node concept="3uibUv" id="1rM" role="1tU5fm">
                                   <ref role="3uigEE" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
@@ -15836,8 +15837,8 @@
                                     <node concept="3clFbF" id="1rT" role="3cqZAp">
                                       <node concept="37vLTI" id="1rV" role="3clFbG">
                                         <node concept="2YIFZM" id="1rW" role="37vLTx">
-                                          <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                           <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
+                                          <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                           <node concept="2YIFZM" id="1rY" role="37wK5m">
                                             <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(org.jetbrains.mps.openapi.language.SLanguage,long,java.lang.String)" resolve="getConcept" />
                                             <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
@@ -15897,8 +15898,8 @@
                                             </node>
                                           </node>
                                           <node concept="2YIFZM" id="1sc" role="37wK5m">
-                                            <ref role="37wK5l" to="w1kc:~SReference.create(org.jetbrains.mps.openapi.language.SReferenceLink,org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SModelReference,org.jetbrains.mps.openapi.model.SNodeId)" resolve="create" />
                                             <ref role="1Pybhc" to="w1kc:~SReference" resolve="SReference" />
+                                            <ref role="37wK5l" to="w1kc:~SReference.create(org.jetbrains.mps.openapi.language.SReferenceLink,org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SModelReference,org.jetbrains.mps.openapi.model.SNodeId)" resolve="create" />
                                             <node concept="2YIFZM" id="1si" role="37wK5m">
                                               <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
                                               <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getReferenceLink(long,long,long,long,java.lang.String)" resolve="getReferenceLink" />
@@ -15999,8 +16000,8 @@
                             <node concept="3cpWsn" id="1sO" role="3cpWs9">
                               <property role="TrG5h" value="facade" />
                               <node concept="2YIFZM" id="1sP" role="33vP2m">
-                                <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
                                 <ref role="1Pybhc" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
+                                <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
                               </node>
                               <node concept="3uibUv" id="1sQ" role="1tU5fm">
                                 <ref role="3uigEE" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
@@ -16023,8 +16024,8 @@
                                   <node concept="3clFbF" id="1sX" role="3cqZAp">
                                     <node concept="37vLTI" id="1sZ" role="3clFbG">
                                       <node concept="2YIFZM" id="1t0" role="37vLTx">
-                                        <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                         <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
+                                        <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                         <node concept="2YIFZM" id="1t2" role="37wK5m">
                                           <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(org.jetbrains.mps.openapi.language.SLanguage,long,java.lang.String)" resolve="getConcept" />
                                           <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
@@ -16084,8 +16085,8 @@
                                           </node>
                                         </node>
                                         <node concept="2YIFZM" id="1tg" role="37wK5m">
-                                          <ref role="37wK5l" to="w1kc:~SReference.create(org.jetbrains.mps.openapi.language.SReferenceLink,org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SModelReference,org.jetbrains.mps.openapi.model.SNodeId)" resolve="create" />
                                           <ref role="1Pybhc" to="w1kc:~SReference" resolve="SReference" />
+                                          <ref role="37wK5l" to="w1kc:~SReference.create(org.jetbrains.mps.openapi.language.SReferenceLink,org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.model.SModelReference,org.jetbrains.mps.openapi.model.SNodeId)" resolve="create" />
                                           <node concept="2YIFZM" id="1tm" role="37wK5m">
                                             <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
                                             <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getReferenceLink(long,long,long,long,java.lang.String)" resolve="getReferenceLink" />
@@ -16257,8 +16258,8 @@
                                     <node concept="3cpWsn" id="1ut" role="3cpWs9">
                                       <property role="TrG5h" value="facade" />
                                       <node concept="2YIFZM" id="1uu" role="33vP2m">
-                                        <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
                                         <ref role="1Pybhc" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
+                                        <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
                                       </node>
                                       <node concept="3uibUv" id="1uv" role="1tU5fm">
                                         <ref role="3uigEE" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
@@ -16281,8 +16282,8 @@
                                           <node concept="3clFbF" id="1uA" role="3cqZAp">
                                             <node concept="37vLTI" id="1uC" role="3clFbG">
                                               <node concept="2YIFZM" id="1uD" role="37vLTx">
-                                                <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                                 <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
+                                                <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                                 <node concept="2YIFZM" id="1uF" role="37wK5m">
                                                   <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(org.jetbrains.mps.openapi.language.SLanguage,long,java.lang.String)" resolve="getConcept" />
                                                   <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
@@ -16317,8 +16318,8 @@
                                           </node>
                                           <node concept="3clFbF" id="1uB" role="3cqZAp">
                                             <node concept="2YIFZM" id="1uP" role="3clFbG">
-                                              <ref role="37wK5l" to="mhbf:~SNodeAccessUtil.setReferenceTarget(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SReferenceLink,org.jetbrains.mps.openapi.model.SNode)" resolve="setReferenceTarget" />
                                               <ref role="1Pybhc" to="mhbf:~SNodeAccessUtil" resolve="SNodeAccessUtil" />
+                                              <ref role="37wK5l" to="mhbf:~SNodeAccessUtil.setReferenceTarget(org.jetbrains.mps.openapi.model.SNode,org.jetbrains.mps.openapi.language.SReferenceLink,org.jetbrains.mps.openapi.model.SNode)" resolve="setReferenceTarget" />
                                               <node concept="37vLTw" id="1uQ" role="37wK5m">
                                                 <ref role="3cqZAo" node="1uw" resolve="quotedNode_2" />
                                               </node>
@@ -19548,7 +19549,7 @@
                     </node>
                   </node>
                   <node concept="2YIFZM" id="1LM" role="2kxYXX">
-                    <ref role="1Pybhc" to="i8bi:5IkW5anFfnn" resolve="SPropertyOperations" />
+                    <ref role="1Pybhc" to="i51s:~SPropertyOperations" resolve="SPropertyOperations" />
                     <ref role="37wK5l" to="i8bi:7rGiIAskums" resolve="booleanPropRef" />
                     <node concept="37vLTw" id="1LY" role="37wK5m">
                       <ref role="3cqZAo" node="1Kg" resolve="constant" />
@@ -22306,7 +22307,7 @@
                     </node>
                   </node>
                   <node concept="2YIFZM" id="21C" role="2kxYXX">
-                    <ref role="1Pybhc" to="i8bi:5IkW5anFfnn" resolve="SPropertyOperations" />
+                    <ref role="1Pybhc" to="i51s:~SPropertyOperations" resolve="SPropertyOperations" />
                     <ref role="37wK5l" to="i8bi:7rGiIAskums" resolve="booleanPropRef" />
                     <node concept="2YIFZM" id="22l" role="37wK5m">
                       <ref role="37wK5l" to="i8bi:5IkW5anFe$h" resolve="cast" />
@@ -30450,7 +30451,7 @@
                                             </node>
                                           </node>
                                           <node concept="2YIFZM" id="2N7" role="2kxYXX">
-                                            <ref role="1Pybhc" to="i8bi:5IkW5anFfnn" resolve="SPropertyOperations" />
+                                            <ref role="1Pybhc" to="i51s:~SPropertyOperations" resolve="SPropertyOperations" />
                                             <ref role="37wK5l" to="i8bi:7rGiIAsk6O7" resolve="stringPropRef" />
                                             <node concept="2YIFZM" id="2N_" role="37wK5m">
                                               <ref role="37wK5l" to="i8bi:5IkW5anFe$h" resolve="cast" />
@@ -41858,8 +41859,8 @@
                   <node concept="3cpWsn" id="3Rb" role="3cpWs9">
                     <property role="TrG5h" value="facade" />
                     <node concept="2YIFZM" id="3Rc" role="33vP2m">
-                      <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
                       <ref role="1Pybhc" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
+                      <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
                     </node>
                     <node concept="3uibUv" id="3Rd" role="1tU5fm">
                       <ref role="3uigEE" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
@@ -41891,8 +41892,8 @@
                         <node concept="3clFbF" id="3Rn" role="3cqZAp">
                           <node concept="37vLTI" id="3Rp" role="3clFbG">
                             <node concept="2YIFZM" id="3Rq" role="37vLTx">
-                              <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                               <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
+                              <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                               <node concept="2YIFZM" id="3Rs" role="37wK5m">
                                 <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(org.jetbrains.mps.openapi.language.SLanguage,long,java.lang.String)" resolve="getConcept" />
                                 <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
@@ -41932,8 +41933,8 @@
                                 <node concept="3clFbF" id="3RD" role="3cqZAp">
                                   <node concept="37vLTI" id="3RF" role="3clFbG">
                                     <node concept="2YIFZM" id="3RG" role="37vLTx">
-                                      <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                       <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
+                                      <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                       <node concept="2YIFZM" id="3RI" role="37wK5m">
                                         <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(org.jetbrains.mps.openapi.language.SLanguage,long,java.lang.String)" resolve="getConcept" />
                                         <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
@@ -42034,8 +42035,8 @@
                   <node concept="3cpWsn" id="3Sg" role="3cpWs9">
                     <property role="TrG5h" value="facade" />
                     <node concept="2YIFZM" id="3Sh" role="33vP2m">
-                      <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
                       <ref role="1Pybhc" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
+                      <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
                     </node>
                     <node concept="3uibUv" id="3Si" role="1tU5fm">
                       <ref role="3uigEE" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
@@ -42076,8 +42077,8 @@
                         <node concept="3clFbF" id="3Sv" role="3cqZAp">
                           <node concept="37vLTI" id="3Sy" role="3clFbG">
                             <node concept="2YIFZM" id="3Sz" role="37vLTx">
-                              <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                               <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
+                              <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                               <node concept="2YIFZM" id="3S_" role="37wK5m">
                                 <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(org.jetbrains.mps.openapi.language.SLanguage,long,java.lang.String)" resolve="getConcept" />
                                 <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
@@ -42117,8 +42118,8 @@
                                 <node concept="3clFbF" id="3SM" role="3cqZAp">
                                   <node concept="37vLTI" id="3SO" role="3clFbG">
                                     <node concept="2YIFZM" id="3SP" role="37vLTx">
-                                      <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                       <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
+                                      <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                       <node concept="2YIFZM" id="3SR" role="37wK5m">
                                         <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(org.jetbrains.mps.openapi.language.SLanguage,long,java.lang.String)" resolve="getConcept" />
                                         <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
@@ -42194,8 +42195,8 @@
                                 <node concept="3clFbF" id="3Te" role="3cqZAp">
                                   <node concept="37vLTI" id="3Tg" role="3clFbG">
                                     <node concept="2YIFZM" id="3Th" role="37vLTx">
-                                      <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                       <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
+                                      <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                       <node concept="2YIFZM" id="3Tj" role="37wK5m">
                                         <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(org.jetbrains.mps.openapi.language.SLanguage,long,java.lang.String)" resolve="getConcept" />
                                         <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
@@ -42296,8 +42297,8 @@
                   <node concept="3cpWsn" id="3TP" role="3cpWs9">
                     <property role="TrG5h" value="facade" />
                     <node concept="2YIFZM" id="3TQ" role="33vP2m">
-                      <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
                       <ref role="1Pybhc" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
+                      <ref role="37wK5l" to="dush:~PersistenceFacade.getInstance()" resolve="getInstance" />
                     </node>
                     <node concept="3uibUv" id="3TR" role="1tU5fm">
                       <ref role="3uigEE" to="dush:~PersistenceFacade" resolve="PersistenceFacade" />
@@ -42338,8 +42339,8 @@
                         <node concept="3clFbF" id="3U4" role="3cqZAp">
                           <node concept="37vLTI" id="3U7" role="3clFbG">
                             <node concept="2YIFZM" id="3U8" role="37vLTx">
-                              <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                               <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
+                              <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                               <node concept="2YIFZM" id="3Ua" role="37wK5m">
                                 <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(org.jetbrains.mps.openapi.language.SLanguage,long,java.lang.String)" resolve="getConcept" />
                                 <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
@@ -42379,8 +42380,8 @@
                                 <node concept="3clFbF" id="3Un" role="3cqZAp">
                                   <node concept="37vLTI" id="3Up" role="3clFbG">
                                     <node concept="2YIFZM" id="3Uq" role="37vLTx">
-                                      <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                       <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
+                                      <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                       <node concept="2YIFZM" id="3Us" role="37wK5m">
                                         <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(org.jetbrains.mps.openapi.language.SLanguage,long,java.lang.String)" resolve="getConcept" />
                                         <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
@@ -42456,8 +42457,8 @@
                                 <node concept="3clFbF" id="3UN" role="3cqZAp">
                                   <node concept="37vLTI" id="3UP" role="3clFbG">
                                     <node concept="2YIFZM" id="3UQ" role="37vLTx">
-                                      <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                       <ref role="1Pybhc" to="w1kc:~SModelUtil_new" resolve="SModelUtil_new" />
+                                      <ref role="37wK5l" to="w1kc:~SModelUtil_new.instantiateConceptDeclaration(org.jetbrains.mps.openapi.language.SAbstractConcept,org.jetbrains.mps.openapi.model.SModel,org.jetbrains.mps.openapi.model.SNodeId,boolean)" resolve="instantiateConceptDeclaration" />
                                       <node concept="2YIFZM" id="3US" role="37wK5m">
                                         <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(org.jetbrains.mps.openapi.language.SLanguage,long,java.lang.String)" resolve="getConcept" />
                                         <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
@@ -47117,7 +47118,7 @@
                             </node>
                           </node>
                           <node concept="2YIFZM" id="4nc" role="2kxYXX">
-                            <ref role="1Pybhc" to="i8bi:5IkW5anFfnn" resolve="SPropertyOperations" />
+                            <ref role="1Pybhc" to="i51s:~SPropertyOperations" resolve="SPropertyOperations" />
                             <ref role="37wK5l" to="i8bi:7rGiIAsk6O7" resolve="stringPropRef" />
                             <node concept="2YIFZM" id="4nx" role="37wK5m">
                               <ref role="1Pybhc" to="i8bi:5IkW5anFcpd" resolve="SLinkOperations" />
@@ -70432,7 +70433,7 @@
                     </node>
                   </node>
                   <node concept="2YIFZM" id="6$4" role="2kxYXX">
-                    <ref role="1Pybhc" to="i8bi:5IkW5anFfnn" resolve="SPropertyOperations" />
+                    <ref role="1Pybhc" to="i51s:~SPropertyOperations" resolve="SPropertyOperations" />
                     <ref role="37wK5l" to="i8bi:7rGiIAskums" resolve="booleanPropRef" />
                     <node concept="37vLTw" id="6$g" role="37wK5m">
                       <ref role="3cqZAo" node="6yy" resolve="constant" />

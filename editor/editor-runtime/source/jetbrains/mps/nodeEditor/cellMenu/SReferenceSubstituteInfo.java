@@ -27,12 +27,20 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.menus.transformation.TransformationMenuContext;
 import jetbrains.mps.openapi.editor.menus.transformation.TransformationMenuItem;
 import jetbrains.mps.openapi.editor.menus.transformation.TransformationMenuLookup;
+import jetbrains.mps.smodel.CopyUtil;
+import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.typesystem.inference.InequalitySystem;
+import jetbrains.mps.typesystem.inference.TypeChecker;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.model.SNodeUtil;
 
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 public class SReferenceSubstituteInfo extends TransformationMenuSubstituteInfo implements DefaultSubstituteInfo {
@@ -95,5 +103,10 @@ public class SReferenceSubstituteInfo extends TransformationMenuSubstituteInfo i
         }
       });
     }
+  }
+
+  @Override
+  protected InequalitySystem getInequalitiesSystem(EditorCell contextCell) {
+    return InequalitySystemFactory.getInequalitiesSystem(contextCell.getSNode());
   }
 }

@@ -17,7 +17,8 @@ public abstract class ValueWrapperFactory {
     return EvaluationUtils.JAVA_LANG_OBJECT;
   }
   public abstract ValueWrapper createValueWrapper(IValueProxy value, ThreadReference threadReference);
-  public String getName() {
-    return this.toString();
+  public abstract String getName();
+  public String toString() {
+    return getName();
   }
 }

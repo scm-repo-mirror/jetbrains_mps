@@ -33,15 +33,15 @@ public class State_Constraints extends BaseConstraintsDescriptor {
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:c9acaf76-5e77-4b59-ae68-703975aa4649(jetbrains.mps.samples.StateChart.constraints)", "1480846759627689861");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castBoolean(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
-    private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return (SPropertyOperations.getBoolean(propertyValue)) == false || Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getAllSiblings(node, false), MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a6L, "jetbrains.mps.samples.StateChart.structure.State"))).all(new IWhereFilter<SNode>() {
+    private static boolean staticValidateProperty(SNode node, boolean propertyValue) {
+      return propertyValue == false || Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getAllSiblings(node, false), MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a6L, "jetbrains.mps.samples.StateChart.structure.State"))).all(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return SPropertyOperations.getBoolean(it, MetaAdapterFactory.getProperty(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a6L, 0x148d064832658c3eL, "isInitial")) == false;
         }

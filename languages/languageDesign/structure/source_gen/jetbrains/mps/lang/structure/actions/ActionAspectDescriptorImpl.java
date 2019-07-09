@@ -23,8 +23,12 @@ public class ActionAspectDescriptorImpl extends BaseActionAspectDescriptor imple
         case 1:
           return Collections.<NodeFactory>singletonList(new STRL_node_factories.NodeFactory_1163111194508());
         case 2:
-          return Arrays.asList(new NodeFactory[]{new SetStructureIds.NodeFactory_5424895381999015757(), new DeclarationFactories.NodeFactory_850862791448416028()});
+          return Collections.<NodeFactory>singletonList(new SetStructureIds.NodeFactory_7791109065626944384());
         case 3:
+          return Collections.<NodeFactory>singletonList(new SetStructureIds.NodeFactory_1421157252384198379());
+        case 4:
+          return Arrays.asList(new NodeFactory[]{new SetStructureIds.NodeFactory_5424895381999015757(), new DeclarationFactories.NodeFactory_850862791448416028()});
+        case 5:
           return Arrays.asList(new NodeFactory[]{new SetStructureIds.NodeFactory_5424895381999015715(), new DeclarationFactories.NodeFactory_850862791450337452()});
         default:
       }
@@ -34,7 +38,7 @@ public class ActionAspectDescriptorImpl extends BaseActionAspectDescriptor imple
 
   @Override
   public Collection<PastePostProcessor> getPastePostProcessors() {
-    return Arrays.asList(new PastePostProcessor[]{new StructureIds_PastePostProcessor_0(), new StructureIds_PastePostProcessor_1(), new StructureIds_PastePostProcessor_2(), new StructureIds_PastePostProcessor_3()});
+    return Arrays.asList(new PastePostProcessor[]{new StructureIds_PastePostProcessor_0(), new StructureIds_PastePostProcessor_1(), new StructureIds_PastePostProcessor_2(), new StructureIds_PastePostProcessor_3(), new StructureIds_PastePostProcessor_4(), new StructureIds_PastePostProcessor_5()});
   }
-  private static String[] stringSwitchCases_tpto26_a0a0a0c = new String[]{"AbstractConceptDeclaration", "ConceptDeclaration", "LinkDeclaration", "PropertyDeclaration"};
+  private static String[] stringSwitchCases_tpto26_a0a0a0c = new String[]{"AbstractConceptDeclaration", "ConceptDeclaration", "DataTypeDeclaration", "EnumerationMemberDeclaration", "LinkDeclaration", "PropertyDeclaration"};
 }

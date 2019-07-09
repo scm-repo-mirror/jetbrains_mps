@@ -184,7 +184,7 @@ public class TypedNativeDef_SubstituteMenu extends SubstituteMenuBase {
   private static SNode createTypedNativeDef_m53iyy_a0a0a(Object p0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode n1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x4bf59690bc00f6b1L, "jetbrains.mps.lang.context.defs.structure.TypedNativeDef"), null, null, false);
-    n1.setProperty(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), p0 + "");
+    n1.setProperty(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name").getType().toString(p0));
     return n1;
   }
   private static SNode createTypedNativeDef_m53iyy_a0a0b(SNode node0) {

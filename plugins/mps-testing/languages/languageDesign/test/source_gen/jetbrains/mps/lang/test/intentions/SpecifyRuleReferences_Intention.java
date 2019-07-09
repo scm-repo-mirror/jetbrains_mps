@@ -10,6 +10,9 @@ import jetbrains.mps.openapi.intentions.Kind;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
+import jetbrains.mps.lang.test.behavior.NodesTestCase__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.test.scripts.SpecifyUtil;
 import java.util.Collections;
@@ -33,7 +36,7 @@ public final class SpecifyRuleReferences_Intention extends AbstractIntentionDesc
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return Sequence.fromIterable(SpecifyUtil.getErrorReporters(node)).isNotEmpty();
+    return (boolean) NodesTestCase__BehaviorDescriptor.isIntentionApplicable_idhHDM9no.invoke(SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase")), node) && Sequence.fromIterable(SpecifyUtil.getErrorReporters(node)).isNotEmpty();
   }
   @Override
   public boolean isSurroundWith() {

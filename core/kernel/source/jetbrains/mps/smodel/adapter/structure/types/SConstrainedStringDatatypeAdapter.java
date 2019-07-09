@@ -32,7 +32,7 @@ import java.util.regex.Pattern;
  * @author Radimir.Sorokin
  * @since 2018.3
  */
-public /*final*/ class SConstrainedStringDatatypeAdapter extends SNamedElementAdapter implements SDataType {
+public final class SConstrainedStringDatatypeAdapter extends SNamedElementAdapter implements SDataType {
 
   private final SDataTypeId myId;
 
@@ -94,5 +94,9 @@ public /*final*/ class SConstrainedStringDatatypeAdapter extends SNamedElementAd
   @Override
   public Object getDefault() {
     return null;
+  }
+
+  public SDataTypeId getId() {
+    return myId;
   }
 }

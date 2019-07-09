@@ -39,7 +39,12 @@ public interface SType {
    * {@code null} for such purpose since {@code null} can be actually
    * a value of some types.
    */
-  @NotNull Object NOT_A_VALUE = new Object();
+  @NotNull Object NOT_A_VALUE = new Object() {
+    @Override
+    public String toString() {
+      return "<NOT A VALUE>";
+    }
+  };
 
   /**
    * Returns {@code true} if given values belongs to this type.

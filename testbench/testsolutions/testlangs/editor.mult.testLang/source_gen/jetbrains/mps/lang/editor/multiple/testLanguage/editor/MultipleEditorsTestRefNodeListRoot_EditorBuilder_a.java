@@ -28,7 +28,6 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.openapi.editor.menus.transformation.SPropertyInfo;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
 import jetbrains.mps.nodeEditor.cells.SPropertyAccessor;
-import jetbrains.mps.editor.runtime.impl.cellActions.CellAction_DeleteSPropertyOrNode;
 import jetbrains.mps.nodeEditor.cellMenu.SPropertySubstituteInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
@@ -39,6 +38,7 @@ import java.util.Objects;
 import jetbrains.mps.lang.core.behavior.PropertyAttribute__BehaviorDescriptor;
 import jetbrains.mps.nodeEditor.EditorManager;
 import jetbrains.mps.openapi.editor.update.AttributeKind;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.Collections;
 
@@ -340,8 +340,6 @@ import java.util.Collections;
       getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
       EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new SPropertyAccessor(myNode, property, false, false), myNode);
       editorCell.setDefaultText("<no projectionType>");
-      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSPropertyOrNode(myNode, property, CellAction_DeleteNode.DeleteDirection.FORWARD));
-      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSPropertyOrNode(myNode, property, CellAction_DeleteNode.DeleteDirection.BACKWARD));
       editorCell.setCellId("property_projectionType");
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
       setCellContext(editorCell);
@@ -444,9 +442,9 @@ import java.util.Collections;
       }
     }
     private Iterable<String> getEditorHints0() {
-      if (SPropertyOperations.hasEnumValue(myNode, MetaAdapterFactory.getProperty(0x7a80051c66e94bfcL, 0x9698b12adfed3d9fL, 0x650641cc62465f6cL, 0x4de57101fd1b39a6L, "projectionType"), "rich")) {
+      if (SEnumOperations.isMember(SPropertyOperations.getEnum(myNode, MetaAdapterFactory.getProperty(0x7a80051c66e94bfcL, 0x9698b12adfed3d9fL, 0x650641cc62465f6cL, 0x4de57101fd1b39a6L, "projectionType")), 0x6aae07ffdad120e1L)) {
         return Collections.singletonList("jetbrains.mps.lang.editor.multiple.testLanguage.editor.MultipleEditorTestHints.rich");
-      } else if (SPropertyOperations.hasEnumValue(myNode, MetaAdapterFactory.getProperty(0x7a80051c66e94bfcL, 0x9698b12adfed3d9fL, 0x650641cc62465f6cL, 0x4de57101fd1b39a6L, "projectionType"), "compact")) {
+      } else if (SEnumOperations.isMember(SPropertyOperations.getEnum(myNode, MetaAdapterFactory.getProperty(0x7a80051c66e94bfcL, 0x9698b12adfed3d9fL, 0x650641cc62465f6cL, 0x4de57101fd1b39a6L, "projectionType")), 0x6aae07ffdad120deL)) {
         return Collections.singletonList("jetbrains.mps.lang.editor.multiple.testLanguage.editor.MultipleEditorTestHints.compact");
       }
       return Collections.emptyList();
@@ -503,8 +501,6 @@ import java.util.Collections;
       getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
       EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new SPropertyAccessor(myNode, property, false, false), myNode);
       editorCell.setDefaultText("<no projectAsCompact>");
-      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSPropertyOrNode(myNode, property, CellAction_DeleteNode.DeleteDirection.FORWARD));
-      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSPropertyOrNode(myNode, property, CellAction_DeleteNode.DeleteDirection.BACKWARD));
       editorCell.setCellId("property_projectAsCompact");
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
       setCellContext(editorCell);

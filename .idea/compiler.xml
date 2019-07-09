@@ -448,6 +448,7 @@
       <directory url="file://$PROJECT_DIR$/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/testModules/testClosures/solutions/jetbrains.mps.baseLanguage.closures.test/test_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/testModules/testSubstituteType/languages/testAnnotatedType/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/plugins/testModules/testSubstituteType/languages/testOverridingRule/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/testModules/testSubstituteType/languages/testOverridingType/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/testModules/testSubstituteType/languages/testWrappedType/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/testModules/testSubstituteType/solutions/testSubstituteType/source_gen" includeSubdirectories="true" />
@@ -457,6 +458,10 @@
       <directory url="file://$PROJECT_DIR$/plugins/testModules/testSubtyping/languages/testSubtypingB/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/testModules/testSubtyping/solutions/testSubtypingTest/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/plugins/testModules/testSubtyping/solutions/testSubtypingTest/test_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/samples/CustomTestCases/languages/jetbrains.mps.samples.CustomTestCases/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/samples/CustomTestCases/languages/jetbrains.mps.samples.CustomTestCases/sandbox/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/samples/CustomTestCases/languages/jetbrains.mps.samples.CustomTestCases/sandbox/test_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/samples/CustomTestCases/languages/jetbrains.mps.samples.CustomTestCases/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/samples/agreement/agreementLanguage/generator/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/samples/agreement/agreementLanguage/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/samples/agreement/framework/source_gen" includeSubdirectories="true" />
@@ -880,8 +885,6 @@
       <directory url="file://$PROJECT_DIR$/testbench/testsolutions/jetbrains.mps.lang.editor.imageGen.tests/test_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/testbench/testsolutions/jetbrains.mps.tests.sraMigration/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/testbench/testsolutions/jetbrains.mps.tests.sraMigration/test_gen" includeSubdirectories="true" />
-      <directory url="file://$PROJECT_DIR$/testbench/testsolutions/kernel.test/source_gen" includeSubdirectories="true" />
-      <directory url="file://$PROJECT_DIR$/testbench/testsolutions/kernel.test/test_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/testbench/testsolutions/lang.smodel.query.test/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/testbench/testsolutions/lang.smodel.query.test/test_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/testbench/testsolutions/make.test/source_gen" includeSubdirectories="true" />

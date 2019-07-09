@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.jdk7.typesystem;
 
 import jetbrains.mps.lang.typesystem.runtime.AbstractNonTypesystemRule_Runtime;
 import jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime;
+import jetbrains.mps.baseLanguage.typesystem.check_switchArgument_NonTypesystemRule;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
@@ -20,6 +21,12 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
 public class check_StringSwitchStatement_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_StringSwitchStatement_NonTypesystemRule() {
+  }
+  public boolean overrides(NonTypesystemRule_Runtime rule) {
+    if (rule instanceof check_switchArgument_NonTypesystemRule) {
+      return true;
+    }
+    return false;
   }
   public void applyRule(final SNode switchStatement, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     SNode arg = SLinkOperations.getTarget(switchStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, 0x10ef02ec241L, "expression"));
@@ -54,6 +61,6 @@ public class check_StringSwitchStatement_NonTypesystemRule extends AbstractNonTy
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
-    return true;
+    return false;
   }
 }

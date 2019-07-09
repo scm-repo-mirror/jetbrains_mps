@@ -19,7 +19,7 @@ public class CollapseRecursively_Action extends BaseAction {
   public CollapseRecursively_Action() {
     super("Collapse Recursively", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {

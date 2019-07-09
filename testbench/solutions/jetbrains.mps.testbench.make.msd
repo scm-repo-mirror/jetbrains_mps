@@ -31,8 +31,6 @@
     <dependency reexport="false">70b17f0c-ff72-43e8-9468-eda69efb2b71(jetbrains.mps.debugger.java.runtime.tests)</dependency>
     <dependency reexport="false">50fc24f9-2bc9-4702-84ed-7f00cd088aca(jetbrains.mps.generator.tests)</dependency>
     <dependency reexport="false">9dc77d7d-3b66-403c-b568-37677f157448(jetbrains.mps.ide.vcs.test)</dependency>
-    <dependency reexport="false">2d3c70e9-aab2-4870-8d8d-6036800e4103(jetbrains.mps.kernel)</dependency>
-    <dependency reexport="false">4076bab3-4981-4035-94aa-19b6b4c51a84(jetbrains.mps.kernel.tests)</dependency>
     <dependency reexport="false">ceab5195-25ea-4f22-9b92-103b95ca8c0c(jetbrains.mps.lang.core)</dependency>
     <dependency reexport="false">779ae18b-ee98-406e-94fd-dec40c78b92f(jetbrains.mps.lang.editor.diagram.tests)</dependency>
     <dependency reexport="false">bdcad511-2c95-4b17-90fb-99b248f018cc(jetbrains.mps.lang.extension.tests)</dependency>
@@ -70,7 +68,7 @@
     <language slang="l:83888646-71ce-4f1c-9c53-c54016f6ad4f:jetbrains.mps.baseLanguage.collections" version="1" />
     <language slang="l:f2801650-65d5-424e-bb1b-463a8781b786:jetbrains.mps.baseLanguage.javadoc" version="2" />
     <language slang="l:a247e09e-2435-45ba-b8d2-07e93feba96a:jetbrains.mps.baseLanguage.tuples" version="0" />
-    <language slang="l:ceab5195-25ea-4f22-9b92-103b95ca8c0c:jetbrains.mps.lang.core" version="1" />
+    <language slang="l:ceab5195-25ea-4f22-9b92-103b95ca8c0c:jetbrains.mps.lang.core" version="2" />
     <language slang="l:9ded098b-ad6a-4657-bfd9-48636cfe8bc3:jetbrains.mps.lang.traceable" version="0" />
     <language slang="l:696c1165-4a59-463b-bc5d-902caab85dd0:jetbrains.mps.make.facet" version="0" />
     <language slang="l:d3c5a46f-b8c2-47db-ad0a-30b8f19c2055:jetbrains.mps.testbench.suite" version="0" />

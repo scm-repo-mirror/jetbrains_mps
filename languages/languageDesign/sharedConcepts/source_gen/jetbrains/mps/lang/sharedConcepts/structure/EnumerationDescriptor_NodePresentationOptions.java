@@ -5,45 +5,60 @@ package jetbrains.mps.lang.sharedConcepts.structure;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptorBase;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptor;
+import jetbrains.mps.lang.smodel.EnumerationLiteralsIndex;
+import java.util.List;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
-import java.util.Collection;
-import java.util.Arrays;
 
 public class EnumerationDescriptor_NodePresentationOptions extends EnumerationDescriptorBase {
 
   public EnumerationDescriptor_NodePresentationOptions() {
-    super(0x13744753c81f424aL, 0x9c1bcf8943bf4e86L, 0x10f3fd43778L, "NodePresentationOptions", "r:00000000-0000-4000-0000-011c895902bc(jetbrains.mps.lang.sharedConcepts.structure)/1165007009656", PrimitiveTypeId.STRING);
+    super(0x13744753c81f424aL, 0x9c1bcf8943bf4e86L, 0x10f3fd43778L, "NodePresentationOptions", "r:00000000-0000-4000-0000-011c895902bc(jetbrains.mps.lang.sharedConcepts.structure)/4241665505353447419", PrimitiveTypeId.STRING);
   }
 
-  private final EnumerationDescriptor.MemberDescriptor VALUE__0 = new EnumerationDescriptor.MemberDescriptor(null, "default", "r:00000000-0000-4000-0000-011c895902bc(jetbrains.mps.lang.sharedConcepts.structure)/1165007009657", "default_");
-  private final EnumerationDescriptor.MemberDescriptor VALUE_default_referent_0 = new EnumerationDescriptor.MemberDescriptor("default_referent", "referent", "r:00000000-0000-4000-0000-011c895902bc(jetbrains.mps.lang.sharedConcepts.structure)/1165007068491", "referent_");
-  private final EnumerationDescriptor.MemberDescriptor VALUE_custom_0 = new EnumerationDescriptor.MemberDescriptor("custom", "custom", "r:00000000-0000-4000-0000-011c895902bc(jetbrains.mps.lang.sharedConcepts.structure)/1165007009658", "custom_");
+  private final EnumerationDescriptor.MemberDescriptor myMember_default__0 = new EnumerationDescriptor.MemberDescriptor("default_", "default", 0x10f3fd43779L, "r:00000000-0000-4000-0000-011c895902bc(jetbrains.mps.lang.sharedConcepts.structure)/4241665505353447421", "default_", null);
+  private final EnumerationDescriptor.MemberDescriptor myMember_referent__0 = new EnumerationDescriptor.MemberDescriptor("referent_", "referent", 0x10f3fd51d4bL, "r:00000000-0000-4000-0000-011c895902bc(jetbrains.mps.lang.sharedConcepts.structure)/4241665505353447422", "referent_", "default_referent");
+  private final EnumerationDescriptor.MemberDescriptor myMember_custom__0 = new EnumerationDescriptor.MemberDescriptor("custom_", "custom", 0x10f3fd4377aL, "r:00000000-0000-4000-0000-011c895902bc(jetbrains.mps.lang.sharedConcepts.structure)/4241665505353447423", "custom_", "custom");
+
+  private final EnumerationLiteralsIndex myIndex = EnumerationLiteralsIndex.build(0x13744753c81f424aL, 0x9c1bcf8943bf4e86L, 0x10f3fd43778L, 0x10f3fd43779L, 0x10f3fd51d4bL, 0x10f3fd4377aL);
+  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMember_default__0, myMember_referent__0, myMember_custom__0);
 
   @Nullable
   @Override
   public EnumerationDescriptor.MemberDescriptor getDefault() {
-    return VALUE__0;
+    return myMember_default__0;
   }
 
   @NotNull
   @Override
-  public Collection<EnumerationDescriptor.MemberDescriptor> getMembers() {
-    return Arrays.asList(VALUE__0, VALUE_default_referent_0, VALUE_custom_0);
+  public List<EnumerationDescriptor.MemberDescriptor> getMembers() {
+    return myMembers;
   }
 
   @Nullable
   @Override
-  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String string) {
-    if (string == null) {
-      return VALUE__0;
+  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String memberName) {
+    if (memberName == null) {
+      return null;
     }
-    switch (string) {
-      case "default_referent":
-        return VALUE_default_referent_0;
-      case "custom":
-        return VALUE_custom_0;
+    switch (memberName) {
+      case "default_":
+        return myMember_default__0;
+      case "referent_":
+        return myMember_referent__0;
+      case "custom_":
+        return myMember_custom__0;
     }
     return null;
+  }
+
+  @Nullable
+  @Override
+  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {
+    int index = myIndex.index(idValue);
+    if (index == -1) {
+      return null;
+    }
+    return myMembers.get(index);
   }
 }

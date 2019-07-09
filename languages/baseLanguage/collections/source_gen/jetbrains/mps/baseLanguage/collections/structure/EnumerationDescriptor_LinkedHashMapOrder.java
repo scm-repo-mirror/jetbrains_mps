@@ -5,44 +5,57 @@ package jetbrains.mps.baseLanguage.collections.structure;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptorBase;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptor;
+import jetbrains.mps.lang.smodel.EnumerationLiteralsIndex;
+import java.util.List;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
-import java.util.Collection;
-import java.util.Arrays;
 
 public class EnumerationDescriptor_LinkedHashMapOrder extends EnumerationDescriptorBase {
 
   public EnumerationDescriptor_LinkedHashMapOrder() {
-    super(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x120c2dd1862L, "LinkedHashMapOrder", "r:00000000-0000-4000-0000-011c8959032e(jetbrains.mps.baseLanguage.collections.structure)/1240219850850", PrimitiveTypeId.BOOLEAN);
+    super(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x120c2dd1862L, "LinkedHashMapOrder", "r:00000000-0000-4000-0000-011c8959032e(jetbrains.mps.baseLanguage.collections.structure)/4241665505353445528", PrimitiveTypeId.BOOLEAN);
   }
 
-  private final EnumerationDescriptor.MemberDescriptor VALUE_false_0 = new EnumerationDescriptor.MemberDescriptor("false", "insertion_order", "r:00000000-0000-4000-0000-011c8959032e(jetbrains.mps.baseLanguage.collections.structure)/1240219850851", "insertion_order");
-  private final EnumerationDescriptor.MemberDescriptor VALUE_true_0 = new EnumerationDescriptor.MemberDescriptor("true", "access_order", "r:00000000-0000-4000-0000-011c8959032e(jetbrains.mps.baseLanguage.collections.structure)/1240219896671", "access_order");
+  private final EnumerationDescriptor.MemberDescriptor myMember_insertion_order_0 = new EnumerationDescriptor.MemberDescriptor("insertion_order", "insertion_order", 0x120c2dd1863L, "r:00000000-0000-4000-0000-011c8959032e(jetbrains.mps.baseLanguage.collections.structure)/4241665505353445530", "insertion_order", "false");
+  private final EnumerationDescriptor.MemberDescriptor myMember_access_order_0 = new EnumerationDescriptor.MemberDescriptor("access_order", "access_order", 0x120c2ddcb5fL, "r:00000000-0000-4000-0000-011c8959032e(jetbrains.mps.baseLanguage.collections.structure)/4241665505353445531", "access_order", "true");
+
+  private final EnumerationLiteralsIndex myIndex = EnumerationLiteralsIndex.build(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x120c2dd1862L, 0x120c2dd1863L, 0x120c2ddcb5fL);
+  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMember_insertion_order_0, myMember_access_order_0);
 
   @Nullable
   @Override
   public EnumerationDescriptor.MemberDescriptor getDefault() {
-    return VALUE_false_0;
+    return myMember_insertion_order_0;
   }
 
   @NotNull
   @Override
-  public Collection<EnumerationDescriptor.MemberDescriptor> getMembers() {
-    return Arrays.asList(VALUE_false_0, VALUE_true_0);
+  public List<EnumerationDescriptor.MemberDescriptor> getMembers() {
+    return myMembers;
   }
 
   @Nullable
   @Override
-  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String string) {
-    if (string == null) {
+  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String memberName) {
+    if (memberName == null) {
       return null;
     }
-    switch (string) {
-      case "false":
-        return VALUE_false_0;
-      case "true":
-        return VALUE_true_0;
+    switch (memberName) {
+      case "insertion_order":
+        return myMember_insertion_order_0;
+      case "access_order":
+        return myMember_access_order_0;
     }
     return null;
+  }
+
+  @Nullable
+  @Override
+  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {
+    int index = myIndex.index(idValue);
+    if (index == -1) {
+      return null;
+    }
+    return myMembers.get(index);
   }
 }

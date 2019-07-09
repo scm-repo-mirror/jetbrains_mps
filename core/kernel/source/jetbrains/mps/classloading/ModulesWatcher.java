@@ -38,6 +38,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Consumer;
 
 import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.INVALID_NOT_LOADABLE;
 import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.INVALID_NO_RECORD;
@@ -169,17 +170,17 @@ public class ModulesWatcher {
       } else {
         LOG.warn(message);
       }
-      print(invalidModules);
+      print(invalidModules, LOG::warn);
       LOG.info("Totally " + allInvalidModules.size() + " modules are marked invalid for class loading:");
-      print(allInvalidModules);
+      print(allInvalidModules, LOG::info);
 
       checkStatusMapCorrectness();
     }
   }
 
-  private void print(Collection<? extends SModuleReference> modules) {
+  private void print(Collection<? extends SModuleReference> modules, Consumer<String> print) {
     for (SModuleReference ref : modules) {
-      LOG.info(ref);
+      print.accept(ref.toString());
     }
   }
 

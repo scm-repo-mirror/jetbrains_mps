@@ -92,9 +92,7 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -128,9 +126,6 @@
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
       <concept id="1179832490862" name="jetbrains.mps.lang.typesystem.structure.CreateStrongLessThanInequationStatement" flags="nn" index="2NvLDW" />
-      <concept id="1212056081426" name="jetbrains.mps.lang.typesystem.structure.AbstractInequationStatement" flags="ng" index="Ob1k8">
-        <property id="1212056105818" name="inequationPriority" index="Ob790" />
-      </concept>
       <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
         <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
       </concept>
@@ -242,7 +237,7 @@
               <ref role="2pJxaS" to="rzqf:xZAjsdvxUz" resolve="CommandProcessType" />
               <node concept="2pIpSj" id="2F8bNQrGPs" role="2pJxcM">
                 <ref role="2pIpSl" to="rzqf:xZAjsdvxU$" resolve="commandDeclaration" />
-                <node concept="36biLy" id="2F8bNQrGPt" role="2pJxcZ">
+                <node concept="36biLy" id="2F8bNQrGPt" role="28nt2d">
                   <node concept="2OqwBi" id="1$vg1Ecg_d0" role="36biLW">
                     <node concept="2OqwBi" id="1$vg1Ecg_cU" role="2Oq$k0">
                       <node concept="1YBJjd" id="1$vg1Ecg_cT" role="2Oq$k0">
@@ -273,7 +268,6 @@
     <property role="3GE5qa" value="command" />
     <node concept="3clFbS" id="O$iR4JBiFv" role="18ibNy">
       <node concept="2NvLDW" id="O$iR4JBiFw" role="3cqZAp">
-        <property role="Ob790" value="0" />
         <node concept="mw_s8" id="O$iR4JBiFy" role="1ZfhKB">
           <node concept="2OqwBi" id="O$iR4JBiFz" role="mwGJk">
             <node concept="2OqwBi" id="O$iR4JBiF$" role="2Oq$k0">
@@ -353,7 +347,7 @@
               <ref role="2pJxaS" to="rzqf:JzCdmU6yJm" resolve="CommandType" />
               <node concept="2pIpSj" id="2F8bNQrGUx" role="2pJxcM">
                 <ref role="2pIpSl" to="rzqf:JzCdmU6yJn" resolve="command" />
-                <node concept="36biLy" id="2F8bNQrGUy" role="2pJxcZ">
+                <node concept="36biLy" id="2F8bNQrGUy" role="28nt2d">
                   <node concept="2OqwBi" id="O$iR4JBiG6" role="36biLW">
                     <node concept="1YBJjd" id="O$iR4JBiG7" role="2Oq$k0">
                       <ref role="1YBMHb" node="O$iR4JBiGc" resolve="commandReferenceExpression" />
@@ -401,7 +395,6 @@
     <property role="TrG5h" value="typeof_RedirectOutputExpression" />
     <node concept="3clFbS" id="O$iR4JBiHt" role="18ibNy">
       <node concept="2NvLDW" id="O$iR4JBiHu" role="3cqZAp">
-        <property role="Ob790" value="0" />
         <node concept="mw_s8" id="O$iR4JBiHw" role="1ZfhKB">
           <node concept="2pJPEk" id="2F8bNQrJDj" role="mwGJk">
             <node concept="2pJPED" id="2F8bNQrJDi" role="2pJPEn">
@@ -423,7 +416,6 @@
         </node>
       </node>
       <node concept="2NvLDW" id="O$iR4JBiHC" role="3cqZAp">
-        <property role="Ob790" value="0" />
         <node concept="mw_s8" id="O$iR4JBiHE" role="1ZfhKB">
           <node concept="2c44tf" id="O$iR4JBiHF" role="mwGJk">
             <node concept="3uibUv" id="O$iR4JBiHG" role="2c44tc">
@@ -705,7 +697,7 @@
               <ref role="2pJxaS" to="tpd4:hausRW2" resolve="JoinType" />
               <node concept="2pIpSj" id="2F8bNQrJoR" role="2pJxcM">
                 <ref role="2pIpSl" to="tpd4:hausUtE" resolve="argument" />
-                <node concept="36be1Y" id="2F8bNQrJoS" role="2pJxcZ">
+                <node concept="36be1Y" id="2F8bNQrJoS" role="28nt2d">
                   <node concept="2pJPED" id="2F8bNQrJoQ" role="36be1Z">
                     <ref role="2pJxaS" to="tpee:hP7QB7G" resolve="StringType" />
                   </node>
@@ -713,7 +705,7 @@
                     <ref role="2pJxaS" to="tpee:g7uibYu" resolve="ClassifierType" />
                     <node concept="2pIpSj" id="2F8bNQrJoU" role="2pJxcM">
                       <ref role="2pIpSl" to="tpee:g7uigIF" resolve="classifier" />
-                      <node concept="36bGnv" id="2F8bNQrJoV" role="2pJxcZ">
+                      <node concept="36bGnv" id="2F8bNQrJoV" role="28nt2d">
                         <ref role="36bGnp" to="guwi:~File" resolve="File" />
                       </node>
                     </node>
@@ -848,7 +840,7 @@
                   <ref role="2pJxaS" to="tpd4:hausRW2" resolve="JoinType" />
                   <node concept="2pIpSj" id="2F8bNQrJ$6" role="2pJxcM">
                     <ref role="2pIpSl" to="tpd4:hausUtE" resolve="argument" />
-                    <node concept="36be1Y" id="2F8bNQrJ$7" role="2pJxcZ">
+                    <node concept="36be1Y" id="2F8bNQrJ$7" role="28nt2d">
                       <node concept="2pJPED" id="2F8bNQrJ$5" role="36be1Z">
                         <ref role="2pJxaS" to="tpee:hP7QB7G" resolve="StringType" />
                       </node>
@@ -856,7 +848,7 @@
                         <ref role="2pJxaS" to="tpee:g7uibYu" resolve="ClassifierType" />
                         <node concept="2pIpSj" id="2F8bNQrJ$9" role="2pJxcM">
                           <ref role="2pIpSl" to="tpee:g7uigIF" resolve="classifier" />
-                          <node concept="36bGnv" id="2F8bNQrJ$a" role="2pJxcZ">
+                          <node concept="36bGnv" id="2F8bNQrJ$a" role="28nt2d">
                             <ref role="36bGnp" to="guwi:~File" resolve="File" />
                           </node>
                         </node>

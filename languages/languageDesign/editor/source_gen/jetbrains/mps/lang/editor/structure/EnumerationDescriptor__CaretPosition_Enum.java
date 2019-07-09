@@ -5,47 +5,60 @@ package jetbrains.mps.lang.editor.structure;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptorBase;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptor;
+import jetbrains.mps.lang.smodel.EnumerationLiteralsIndex;
+import java.util.List;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
-import java.util.Collection;
-import java.util.Arrays;
 
 public class EnumerationDescriptor__CaretPosition_Enum extends EnumerationDescriptorBase {
 
   public EnumerationDescriptor__CaretPosition_Enum() {
-    super(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x116e8045225L, "_CaretPosition_Enum", "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/1197893505573", PrimitiveTypeId.STRING);
+    super(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x116e8045225L, "_CaretPosition_Enum", "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/4241665505353446192", PrimitiveTypeId.STRING);
   }
 
-  private final EnumerationDescriptor.MemberDescriptor VALUE_NONE_0 = new EnumerationDescriptor.MemberDescriptor("NONE", "none", "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/1197893505574", "none");
-  private final EnumerationDescriptor.MemberDescriptor VALUE_FIRST_0 = new EnumerationDescriptor.MemberDescriptor("FIRST", "first", "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/1197893580900", "first");
-  private final EnumerationDescriptor.MemberDescriptor VALUE_LAST_0 = new EnumerationDescriptor.MemberDescriptor("LAST", "last", "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/1197893584870", "last");
+  private final EnumerationDescriptor.MemberDescriptor myMember_NONE_0 = new EnumerationDescriptor.MemberDescriptor("NONE", "none", 0x116e8045226L, "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/4241665505353446194", "none", "NONE");
+  private final EnumerationDescriptor.MemberDescriptor myMember_FIRST_0 = new EnumerationDescriptor.MemberDescriptor("FIRST", "first", 0x116e8057864L, "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/4241665505353446195", "first", "FIRST");
+  private final EnumerationDescriptor.MemberDescriptor myMember_LAST_0 = new EnumerationDescriptor.MemberDescriptor("LAST", "last", 0x116e80587e6L, "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/4241665505353446196", "last", "LAST");
+
+  private final EnumerationLiteralsIndex myIndex = EnumerationLiteralsIndex.build(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x116e8045225L, 0x116e8045226L, 0x116e8057864L, 0x116e80587e6L);
+  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMember_NONE_0, myMember_FIRST_0, myMember_LAST_0);
 
   @Nullable
   @Override
   public EnumerationDescriptor.MemberDescriptor getDefault() {
-    return VALUE_NONE_0;
+    return myMember_NONE_0;
   }
 
   @NotNull
   @Override
-  public Collection<EnumerationDescriptor.MemberDescriptor> getMembers() {
-    return Arrays.asList(VALUE_NONE_0, VALUE_FIRST_0, VALUE_LAST_0);
+  public List<EnumerationDescriptor.MemberDescriptor> getMembers() {
+    return myMembers;
   }
 
   @Nullable
   @Override
-  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String string) {
-    if (string == null) {
+  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String memberName) {
+    if (memberName == null) {
       return null;
     }
-    switch (string) {
+    switch (memberName) {
       case "NONE":
-        return VALUE_NONE_0;
+        return myMember_NONE_0;
       case "FIRST":
-        return VALUE_FIRST_0;
+        return myMember_FIRST_0;
       case "LAST":
-        return VALUE_LAST_0;
+        return myMember_LAST_0;
     }
     return null;
+  }
+
+  @Nullable
+  @Override
+  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {
+    int index = myIndex.index(idValue);
+    if (index == -1) {
+      return null;
+    }
+    return myMembers.get(index);
   }
 }

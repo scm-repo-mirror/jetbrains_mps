@@ -114,6 +114,7 @@ public final class CommonPaths {
     addIfExists(result, "lib/trove4j.jar");
     addIfExists(result, "lib/jdom.jar");
     addIfExists(result, "lib/ecj-4.10.jar");
+    addIfExists(result, "plugins/java/lib/ecj-4.10.jar");
     addIfExists(result, "lib/guava-25.1-jre.jar");
     addIfExists(result, "lib/xstream-1.4.8.jar");
     addIfExists(result, "lib/asm-all-7.0.1.jar");
@@ -136,6 +137,14 @@ public final class CommonPaths {
     addIfExists(result, "lib/platform-objectSerializer-annotations.jar");
     addIfExists(result, "lib/platform-util-ui.jar");
     addIfExists(result, "lib/configuration-store-impl.jar");
+    addIfExists(result, "lib/platform-ide-util-io.jar");
+    addIfExists(result, "lib/platform-util-ex.jar");
+    addIfExists(result, "lib/intellij-dvcs.jar");
+    addIfExists(result, "lib/intellij-xml.jar");
+    addIfExists(result, "lib/spellchecker.jar");
+    addIfExists(result, "lib/images.jar");
+    addIfExists(result, "plugins/java/lib/java-api.jar");
+    addIfExists(result, "plugins/java/lib/java-impl.jar");
   }
 
   private static void addIdeaJars(Collection<QualifiedPath> result) {

@@ -56,18 +56,15 @@ public class BuildSource_JavaOptions_Constraints extends BaseConstraintsDescript
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:5076fdb3-19c3-4563-aa26-7ace7591e78d(jetbrains.mps.build.constraints)", "927724900262335948");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return isEmptyString((SPropertyOperations.getString(propertyValue))) || NameUtil.isValidProjectPartName((SPropertyOperations.getString(propertyValue)));
-    }
-    private static boolean isEmptyString(String str) {
-      return str == null || str.length() == 0;
+      return (propertyValue == null || propertyValue.length() == 0) || NameUtil.isValidProjectPartName(propertyValue);
     }
   }
   @Override

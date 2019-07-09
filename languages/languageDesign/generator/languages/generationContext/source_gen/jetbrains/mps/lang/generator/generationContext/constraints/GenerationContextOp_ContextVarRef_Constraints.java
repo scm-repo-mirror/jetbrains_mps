@@ -9,11 +9,11 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.generator.behavior.ContextVariableProvider__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.scope.Scope;
 import java.util.Map;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -35,8 +35,8 @@ public class GenerationContextOp_ContextVarRef_Constraints extends BaseConstrain
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c895902ee(jetbrains.mps.lang.generator.generationContext.constraints)", "7430509679014316431");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
@@ -48,7 +48,7 @@ public class GenerationContextOp_ContextVarRef_Constraints extends BaseConstrain
         if (SNodeOperations.isInstanceOf(n, MetaAdapterFactory.getInterfaceConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x671e792f3d934cacL, "jetbrains.mps.lang.generator.structure.ContextVariableProvider"))) {
           if (ListSequence.fromList(ContextVariableProvider__BehaviorDescriptor.contextVariables_id6suuiWX_oN7.invoke(SNodeOperations.cast(n, MetaAdapterFactory.getInterfaceConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x671e792f3d934cacL, "jetbrains.mps.lang.generator.structure.ContextVariableProvider")))).any(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
-              return SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals((SPropertyOperations.getString(propertyValue)));
+              return SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(propertyValue);
             }
           })) {
             return true;

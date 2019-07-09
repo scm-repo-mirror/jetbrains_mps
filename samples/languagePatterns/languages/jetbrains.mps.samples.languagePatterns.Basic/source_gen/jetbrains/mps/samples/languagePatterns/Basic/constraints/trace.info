@@ -70,25 +70,25 @@
       <node id="3803436373353551320" at="24,59,25,137" concept="9" />
       <node id="3803436373353551320" at="28,38,29,18" concept="5" />
       <node id="3803436373353551320" at="31,0,32,0" concept="7" trace="validatePropertyBreakingPoint" />
-      <node id="3803436373353551320" at="33,109,34,67" concept="4" />
+      <node id="3803436373353551320" at="33,109,34,99" concept="4" />
       <node id="3803436373353551320" at="35,53,36,75" concept="1" />
       <node id="3803436373353551320" at="37,7,38,20" concept="5" />
-      <node id="3803436373353555316" at="40,85,41,156" concept="5" />
+      <node id="3803436373353555316" at="40,85,41,90" concept="5" />
       <node id="3803436373353551319" at="45,84,46,119" concept="4" />
       <node id="3803436373353551320" at="46,119,47,177" concept="1" />
       <node id="3803436373353551319" at="47,177,48,22" concept="5" />
       <node id="3803436373353551319" at="19,0,22,0" concept="0" trace="Singer_Constraints#()V" />
       <node id="3803436373353551320" at="24,0,27,0" concept="0" trace="Name_Property#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
-      <node id="3803436373353551320" at="34,67,37,7" concept="2" />
+      <node id="3803436373353551320" at="34,99,37,7" concept="2" />
       <node id="3803436373353551320" at="40,0,43,0" concept="8" trace="staticValidateProperty#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Z" />
       <node id="3803436373353551320" at="27,0,31,0" concept="3" trace="hasOwnValidator#()Z" />
       <node id="3803436373353551319" at="44,0,50,0" concept="3" trace="getSpecifiedProperties#()Ljava/util/Map;" />
-      <node id="3803436373353551320" at="32,0,40,0" concept="3" trace="validateValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Z" />
+      <node id="3803436373353551320" at="32,0,40,0" concept="3" trace="validateValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Z" />
       <scope id="3803436373353551319" at="19,31,20,169" />
       <scope id="3803436373353551320" at="24,59,25,137" />
       <scope id="3803436373353551320" at="28,38,29,18" />
       <scope id="3803436373353551320" at="35,53,36,75" />
-      <scope id="3803436373353551329" at="40,85,41,156" />
+      <scope id="3803436373353551329" at="40,85,41,90" />
       <scope id="3803436373353551319" at="19,0,22,0" />
       <scope id="3803436373353551320" at="24,0,27,0">
         <var name="container" id="3803436373353551320" />

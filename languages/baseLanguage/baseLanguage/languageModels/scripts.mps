@@ -4,7 +4,7 @@
   <languages>
     <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="4" />
     <use id="0eddeefa-c2d6-4437-bc2c-de50fd4ce470" name="jetbrains.mps.lang.script" version="1" />
-    <use id="d4615e3b-d671-4ba9-af01-2b78369b0ba7" name="jetbrains.mps.lang.pattern" version="1" />
+    <use id="d4615e3b-d671-4ba9-af01-2b78369b0ba7" name="jetbrains.mps.lang.pattern" version="2" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -138,9 +138,7 @@
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -175,6 +173,10 @@
       </concept>
       <concept id="1145404486709" name="jetbrains.mps.lang.smodel.structure.SemanticDowncastExpression" flags="nn" index="2JrnkZ">
         <child id="1145404616321" name="leftExpression" index="2JrQYb" />
+      </concept>
+      <concept id="2644386474302386080" name="jetbrains.mps.lang.smodel.structure.PropertyIdRefExpression" flags="nn" index="355D3s">
+        <reference id="2644386474302386081" name="conceptDeclaration" index="355D3t" />
+        <reference id="2644386474302386082" name="propertyDeclaration" index="355D3u" />
       </concept>
       <concept id="1139613262185" name="jetbrains.mps.lang.smodel.structure.Node_GetParentOperation" flags="nn" index="1mfA1w" />
       <concept id="1139621453865" name="jetbrains.mps.lang.smodel.structure.Node_IsInstanceOfOperation" flags="nn" index="1mIQ4w">
@@ -1379,7 +1381,7 @@
                         <ref role="2pJxaS" to="tpee:hiAHcMF" resolve="AnnotationInstance" />
                         <node concept="2pIpSj" id="1rmSTqnxX6G" role="2pJxcM">
                           <ref role="2pIpSl" to="tpee:hiAI5P0" resolve="annotation" />
-                          <node concept="36bGnv" id="1rmSTqnxXu3" role="2pJxcZ">
+                          <node concept="36bGnv" id="1rmSTqnxXu3" role="28nt2d">
                             <ref role="36bGnp" to="wyt6:~Override" resolve="Override" />
                           </node>
                         </node>
@@ -1753,9 +1755,10 @@
                   <node concept="_YI3z" id="4xqiThWQp_A" role="2JrQYb" />
                 </node>
                 <node concept="liA8E" id="4xqiThWQp_B" role="2OqNvi">
-                  <ref role="37wK5l" to="mhbf:~SNode.getProperty(java.lang.String)" resolve="getProperty" />
-                  <node concept="Xl_RD" id="4xqiThWQp_C" role="37wK5m">
-                    <property role="Xl_RC" value="isNative" />
+                  <ref role="37wK5l" to="mhbf:~SNode.getProperty(org.jetbrains.mps.openapi.language.SProperty)" resolve="getProperty" />
+                  <node concept="355D3s" id="7_781d1kNwD" role="37wK5m">
+                    <ref role="355D3t" to="tpee:6LFqxSRBTg8" resolve="MethodDeclaration" />
+                    <ref role="355D3u" to="tpee:7fN3zRTn0HN" resolve="isNative" />
                   </node>
                 </node>
               </node>

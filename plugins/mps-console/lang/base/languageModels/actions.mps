@@ -3,8 +3,8 @@
   <persistence version="9" />
   <languages>
     <use id="aee9cad2-acd4-4608-aef2-0004f6a1cdbd" name="jetbrains.mps.lang.actions" version="4" />
-    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="1" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="15" />
+    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="3" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
@@ -41,9 +41,7 @@
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -117,7 +115,7 @@
                 <ref role="2pJxaS" to="eynw:6D0CP__oaBp" resolve="BLExpression" />
                 <node concept="2pIpSj" id="40bPOmRLlHd" role="2pJxcM">
                   <ref role="2pIpSl" to="eynw:6D0CP__oaD2" resolve="expression" />
-                  <node concept="36biLy" id="40bPOmRLlKu" role="2pJxcZ">
+                  <node concept="36biLy" id="40bPOmRLlKu" role="28nt2d">
                     <node concept="1ht04C" id="40bPOmRLlNR" role="36biLW" />
                   </node>
                 </node>
@@ -154,7 +152,7 @@
                 <ref role="2pJxaS" to="tpee:fzclF8j" resolve="ExpressionStatement" />
                 <node concept="2pIpSj" id="1fzYukMjjnt" role="2pJxcM">
                   <ref role="2pIpSl" to="tpee:fzclF8k" resolve="expression" />
-                  <node concept="36biLy" id="1fzYukMjl5c" role="2pJxcZ">
+                  <node concept="36biLy" id="1fzYukMjl5c" role="28nt2d">
                     <node concept="2OqwBi" id="5h_4CeHXA2x" role="36biLW">
                       <node concept="1ht04C" id="5h_4CeHX_X3" role="2Oq$k0" />
                       <node concept="3TrEf2" id="5h_4CeHXBDp" role="2OqNvi">

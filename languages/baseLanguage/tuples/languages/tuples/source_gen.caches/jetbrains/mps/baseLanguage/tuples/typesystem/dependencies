@@ -102,6 +102,7 @@
     <classNode extendsClassName="jetbrains.mps.lang.typesystem.runtime.NonTypesystemRule_Runtime" />
   </dependency>
   <dependency className="jetbrains.mps.baseLanguage.tuples.typesystem.check_NamedTupleType_NonTypesystemRule">
+    <classNode dependClassName="jetbrains.mps.baseLanguage.typesystem.check_ClassifierType_NonTypesystemRule" />
     <classNode dependClassName="jetbrains.mps.errors.IErrorReporter" />
     <classNode dependClassName="jetbrains.mps.errors.messageTargets.MessageTarget" />
     <classNode dependClassName="jetbrains.mps.errors.messageTargets.NodeMessageTarget" />

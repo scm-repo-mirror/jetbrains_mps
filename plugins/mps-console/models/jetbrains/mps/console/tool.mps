@@ -5,14 +5,14 @@
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
     <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="0" />
     <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="4" />
-    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="1" />
+    <use id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation" version="3" />
     <use id="696c1165-4a59-463b-bc5d-902caab85dd0" name="jetbrains.mps.make.facet" version="0" />
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
     <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="0" />
     <use id="774bf8a0-62e5-41e1-af63-f4812e60e48b" name="jetbrains.mps.baseLanguage.checkedDots" version="0" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="15" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
-    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="12" />
+    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="13" />
   </languages>
   <imports>
     <import index="eynw" ref="r:359b1d2b-77c4-46df-9bf2-b25cbea32254(jetbrains.mps.console.base.structure)" />
@@ -409,12 +409,11 @@
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
         <reference id="5455284157993911078" name="property" index="2pJxcJ" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -3431,7 +3430,7 @@
                                 </node>
                               </node>
                               <node concept="2B6iha" id="1yaya8iyNRq" role="lGT1i">
-                                <property role="1lyBwo" value="last" />
+                                <property role="1lyBwo" value="1S2pyLby17K/last" />
                               </node>
                               <node concept="3cmrfG" id="4JeKSmakolH" role="3dN3m$">
                                 <property role="3cmrfH" value="-1" />
@@ -5391,7 +5390,7 @@
         <node concept="3clFbJ" id="6ysF3v1j_ct" role="3cqZAp">
           <node concept="3clFbS" id="6ysF3v1j_cu" role="3clFbx">
             <node concept="RRSsy" id="3jYQuSB331h" role="3cqZAp">
-              <property role="RRSoG" value="error" />
+              <property role="RRSoG" value="gZ5fh_4/error" />
               <node concept="Xl_RD" id="6ysF3v1j_cw" role="RRSoy">
                 <property role="Xl_RC" value="Error: could not create console model" />
               </node>
@@ -5984,7 +5983,7 @@
         <node concept="3clFbJ" id="1jP7OZe1gRO" role="3cqZAp">
           <node concept="3clFbS" id="1jP7OZe1gRQ" role="3clFbx">
             <node concept="RRSsy" id="1jP7OZe3aTH" role="3cqZAp">
-              <property role="RRSoG" value="error" />
+              <property role="RRSoG" value="gZ5fh_4/error" />
               <node concept="Xl_RD" id="1jP7OZe3aTJ" role="RRSoy">
                 <property role="Xl_RC" value="Could not find console devkit in current repository" />
               </node>
@@ -7268,7 +7267,7 @@
                                       </node>
                                     </node>
                                     <node concept="2B6iha" id="b3HA6PmKMs" role="lGT1i">
-                                      <property role="1lyBwo" value="last" />
+                                      <property role="1lyBwo" value="1S2pyLby17K/last" />
                                     </node>
                                     <node concept="3cmrfG" id="b3HA6PmMdX" role="3dN3m$">
                                       <property role="3cmrfH" value="-1" />
@@ -7484,7 +7483,7 @@
                   </node>
                   <node concept="3clFbS" id="6ysF3v1G999" role="TDEfX">
                     <node concept="RRSsy" id="3jYQuSB331n" role="3cqZAp">
-                      <property role="RRSoG" value="warn" />
+                      <property role="RRSoG" value="gZ5fksE/warn" />
                       <node concept="Xl_RD" id="6ysF3v1G99c" role="RRSoy">
                         <property role="Xl_RC" value="Error on console model saving" />
                       </node>
@@ -7537,7 +7536,7 @@
           <node concept="TDmWw" id="TxhJRbnccP" role="TEbGg">
             <node concept="3clFbS" id="TxhJRbnccQ" role="TDEfX">
               <node concept="RRSsy" id="3jYQuSB331v" role="3cqZAp">
-                <property role="RRSoG" value="error" />
+                <property role="RRSoG" value="gZ5fh_4/error" />
                 <node concept="Xl_RD" id="TxhJRbnu9a" role="RRSoy">
                   <property role="Xl_RC" value="Console history was not loaded. Maybe you are opening project from previous MPS versions?" />
                 </node>
@@ -7629,7 +7628,7 @@
                             </node>
                           </node>
                           <node concept="RRSsy" id="3jYQuSB331_" role="3cqZAp">
-                            <property role="RRSoG" value="error" />
+                            <property role="RRSoG" value="gZ5fh_4/error" />
                             <node concept="Xl_RD" id="3BQjGtYQiyV" role="RRSoy">
                               <property role="Xl_RC" value="Unknown concept on loading console history: removing enclosing history item" />
                             </node>
@@ -7661,7 +7660,7 @@
                               </node>
                             </node>
                             <node concept="RRSsy" id="3jYQuSB331F" role="3cqZAp">
-                              <property role="RRSoG" value="error" />
+                              <property role="RRSoG" value="gZ5fh_4/error" />
                               <node concept="Xl_RD" id="3BQjGtYQcZp" role="RRSoy">
                                 <property role="Xl_RC" value="Unknown concept on loading console history: not loading history" />
                               </node>
@@ -7693,7 +7692,7 @@
             </node>
             <node concept="3clFbS" id="7QIjsKDa1l$" role="TDEfX">
               <node concept="RRSsy" id="3jYQuSB331L" role="3cqZAp">
-                <property role="RRSoG" value="error" />
+                <property role="RRSoG" value="gZ5fh_4/error" />
                 <node concept="Xl_RD" id="7QIjsKDaAs9" role="RRSoy">
                   <property role="Xl_RC" value="Error on loading console history." />
                 </node>
@@ -8843,7 +8842,7 @@
           </node>
           <node concept="3clFbS" id="6kErf9mKuu8" role="3clFbx">
             <node concept="RRSsy" id="3jYQuSB35mN" role="3cqZAp">
-              <property role="RRSoG" value="error" />
+              <property role="RRSoG" value="gZ5fh_4/error" />
               <node concept="Xl_RD" id="6kErf9mKzh$" role="RRSoy">
                 <property role="Xl_RC" value="Must be called not from EDT" />
               </node>
@@ -9109,7 +9108,7 @@
                 </node>
                 <node concept="3clFbS" id="3$1OzWlnE2q" role="TDEfX">
                   <node concept="RRSsy" id="3jYQuSB35mT" role="3cqZAp">
-                    <property role="RRSoG" value="error" />
+                    <property role="RRSoG" value="gZ5fh_4/error" />
                     <node concept="Xl_RD" id="6tSARFM5ZAr" role="RRSoy">
                       <property role="Xl_RC" value="Error on making temporary model" />
                     </node>
@@ -9128,7 +9127,7 @@
                 </node>
                 <node concept="3clFbS" id="3$1OzWlnJab" role="TDEfX">
                   <node concept="RRSsy" id="3jYQuSB35n1" role="3cqZAp">
-                    <property role="RRSoG" value="error" />
+                    <property role="RRSoG" value="gZ5fh_4/error" />
                     <node concept="Xl_RD" id="6tSARFM5GNa" role="RRSoy">
                       <property role="Xl_RC" value="Error on making temporary model" />
                     </node>
@@ -9222,7 +9221,7 @@
             </node>
             <node concept="3clFbS" id="6M9lfhDHQRB" role="TDEfX">
               <node concept="RRSsy" id="3jYQuSB35n9" role="3cqZAp">
-                <property role="RRSoG" value="warn" />
+                <property role="RRSoG" value="gZ5fksE/warn" />
                 <node concept="Xl_RD" id="6M9lfhDHRXF" role="RRSoy">
                   <property role="Xl_RC" value="Exception in showing custom console result" />
                 </node>
@@ -9469,7 +9468,7 @@
                         <ref role="2pJxaS" to="eynw:4SV0P5LGPKS" resolve="TextResponseItem" />
                         <node concept="2pJxcG" id="2F8bNQtEfP" role="2pJxcM">
                           <ref role="2pJxcJ" to="eynw:4SV0P5LGPOh" resolve="text" />
-                          <node concept="37vLTw" id="2F8bNQtEl6" role="2pJxcZ">
+                          <node concept="37vLTw" id="2F8bNQtEl6" role="28ntcv">
                             <ref role="3cqZAo" node="6ysF3v1j_nE" resolve="line" />
                           </node>
                         </node>
@@ -9598,7 +9597,7 @@
                 <ref role="2pJxaS" to="eynw:4SV0P5LGPKk" resolve="NodeResponseItem" />
                 <node concept="2pIpSj" id="6m6q652PlUS" role="2pJxcM">
                   <ref role="2pIpSl" to="eynw:4SV0P5LGPKl" resolve="node" />
-                  <node concept="36biLy" id="6m6q652PmVn" role="2pJxcZ">
+                  <node concept="36biLy" id="6m6q652PmVn" role="28nt2d">
                     <node concept="37vLTw" id="6m6q652PoT_" role="36biLW">
                       <ref role="3cqZAo" node="6ysF3v1j_oq" resolve="node" />
                     </node>

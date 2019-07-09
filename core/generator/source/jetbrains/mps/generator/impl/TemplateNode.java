@@ -28,6 +28,7 @@ import jetbrains.mps.generator.runtime.TemplateContext;
 import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.smodel.StaticReference;
@@ -330,8 +331,8 @@ class TemplateNode {
     public void expand(TemplateContext context, SNode outputNode) throws GenerationFailureException {
       PropertyMacroContext pmc = new PropertyMacroContext(context, myTemplateValue, myMacro);
       Object macroValue = context.getEnvironment().getQueryExecutor().evaluate(myQuery, pmc);
-      String propertyValue = macroValue == null ? null : String.valueOf(macroValue);
-      SNodeAccessUtil.setProperty(outputNode, myQuery.getProperty(), propertyValue);
+      SProperty property = myQuery.getProperty();
+      SNodeAccessUtil.setPropertyValue(outputNode, property, SPropertyOperations.upgradeToEnumMember(property, macroValue));
     }
   }
 

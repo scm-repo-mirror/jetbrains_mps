@@ -18,12 +18,15 @@ package jetbrains.mps.lang.editor.menus.transformation;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationContext;
 import jetbrains.mps.editor.runtime.menus.EditorMenuItemCompositeCustomizationContext;
+import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
+import jetbrains.mps.nodeEditor.cellMenu.AbstractNodeSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.BaseCompletionActionItem;
 import jetbrains.mps.nodeEditor.cellMenu.CompletionItemCustomizationUtil;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Label;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
+import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizationContext;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.openapi.editor.menus.transformation.ActionItemBase;
@@ -32,6 +35,7 @@ import jetbrains.mps.smodel.CopyUtil;
 import jetbrains.mps.smodel.presentation.NodePresentationUtil;
 import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.smodel.runtime.IconResourceUtil;
+import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.typesystem.inference.TypeChecker;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -40,6 +44,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 
 public class ReferenceTransformationMenuItem extends ActionItemBase implements BaseCompletionActionItem {
@@ -53,6 +58,8 @@ public class ReferenceTransformationMenuItem extends ActionItemBase implements B
   @NotNull
   private final EditorContext myEditorContext;
   private final EditorMenuTraceInfo myTraceInfo;
+
+  @Nullable
   private final TransformationMenuContext myContext;
 
   public ReferenceTransformationMenuItem(@NotNull SReferenceLink link, SNode targetNode, @NotNull TransformationMenuContext context) {
@@ -62,6 +69,16 @@ public class ReferenceTransformationMenuItem extends ActionItemBase implements B
     myEditorContext = context.getEditorContext();
     myTraceInfo = context.getEditorMenuTrace().getTraceInfo();
     myContext = context;
+  }
+
+  public ReferenceTransformationMenuItem(@NotNull SNode node, @NotNull EditorContext editorContext, @NotNull SReferenceLink link, SNode targetNode,
+                                         @Nullable EditorMenuTraceInfo traceInfo) {
+    myNode = node;
+    myLink = link;
+    myTargetNode = targetNode;
+    myEditorContext = editorContext;
+    myTraceInfo = traceInfo;
+    myContext = null;
   }
 
   @Nullable
@@ -114,7 +131,12 @@ public class ReferenceTransformationMenuItem extends ActionItemBase implements B
       return null;
     }
     SNodeAccessUtil.setReferenceTarget(sourceNodeCopy, myLink, myTargetNode);
-    return TypeChecker.getInstance().getTypeOf(nodeToEquateCopy);
+    AbstractNodeSubstituteInfo.getModelForTypechecking().addRootNode(nodeToEquateCopy);
+    try {
+      return TypecheckingFacade.getFromContext().getTypeOf(nodeToEquateCopy);
+    } finally {
+      AbstractNodeSubstituteInfo.getModelForTypechecking().removeRootNode(nodeToEquateCopy);
+    }
   }
 
   @Override
@@ -134,14 +156,25 @@ public class ReferenceTransformationMenuItem extends ActionItemBase implements B
 
   @Override
   public void customize(String pattern, EditorMenuItemStyle style) {
-    TransformationMenuContextToEditorMenuItemCustomizationContext
-        context = new TransformationMenuContextToEditorMenuItemCustomizationContext(myContext, null, myLink);
+    if (myContext != null) {
+      TransformationMenuContextToEditorMenuItemCustomizationContext
+          context = new TransformationMenuContextToEditorMenuItemCustomizationContext(myContext, null, myLink);
+      EditorMenuItemCompositeCustomizationContext compositeContext = getCompositeContext(pattern, context);
+      for (EditorMenuItemCustomizer customizer : myContext.getCustomizers()) {
+        customizer.customize(style, compositeContext);
+      }
+    } else {
+      EditorMenuItemModifyingCustomizationContext
+          context = new EditorMenuItemModifyingCustomizationContext(myNode, null, null, myLink);
+      CompletionItemCustomizationUtil.customize(getCompositeContext(pattern, context), style, myEditorContext.getRepository());
+    }
+  }
+
+  @NotNull
+  private EditorMenuItemCompositeCustomizationContext getCompositeContext(String pattern,
+                                                                          EditorMenuItemCustomizationContext context) {
     CompletionItemInformation completionItemInformation =
         new CompletionItemInformation(myTargetNode, null, getMatchingText(pattern), getShortDescriptionText(pattern));
-    EditorMenuItemCompositeCustomizationContext compositeContext =
-        new EditorMenuItemCompositeCustomizationContext(context, new CompletionMenuItemCustomizationContext(completionItemInformation));
-    for (EditorMenuItemCustomizer customizer : myContext.getCustomizers()) {
-      customizer.customize(style, compositeContext);
-    }
+    return new EditorMenuItemCompositeCustomizationContext(context, new CompletionMenuItemCustomizationContext(completionItemInformation));
   }
 }

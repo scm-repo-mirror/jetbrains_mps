@@ -5,44 +5,57 @@ package jetbrains.mps.samples.agreementLanguage.structure;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptorBase;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptor;
+import jetbrains.mps.lang.smodel.EnumerationLiteralsIndex;
+import java.util.List;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
-import java.util.Collection;
-import java.util.Arrays;
 
 public class EnumerationDescriptor_ValueType extends EnumerationDescriptorBase {
 
   public EnumerationDescriptor_ValueType() {
-    super(0x144f7012c2d543beL, 0xbe2b4bfb7dff6503L, 0x102dc04d86aL, "ValueType", "r:00000000-0000-4000-0000-011c8959040a(jetbrains.mps.samples.agreementLanguage.structure)/1111792867434", PrimitiveTypeId.STRING);
+    super(0x144f7012c2d543beL, 0xbe2b4bfb7dff6503L, 0x102dc04d86aL, "ValueType", "r:00000000-0000-4000-0000-011c8959040a(jetbrains.mps.samples.agreementLanguage.structure)/4241665505353448283", PrimitiveTypeId.STRING);
   }
 
-  private final EnumerationDescriptor.MemberDescriptor VALUE_Quantity_0 = new EnumerationDescriptor.MemberDescriptor("Quantity", "QUANTITY", "r:00000000-0000-4000-0000-011c8959040a(jetbrains.mps.samples.agreementLanguage.structure)/1111792874919", "Quantity");
-  private final EnumerationDescriptor.MemberDescriptor VALUE_Money_0 = new EnumerationDescriptor.MemberDescriptor("Money", "MONEY", "r:00000000-0000-4000-0000-011c8959040a(jetbrains.mps.samples.agreementLanguage.structure)/1111792901670", "Money");
+  private final EnumerationDescriptor.MemberDescriptor myMember_Quantity_0 = new EnumerationDescriptor.MemberDescriptor("Quantity", "QUANTITY", 0x102dc04f5a7L, "r:00000000-0000-4000-0000-011c8959040a(jetbrains.mps.samples.agreementLanguage.structure)/4241665505353448285", "Quantity", "Quantity");
+  private final EnumerationDescriptor.MemberDescriptor myMember_Money_0 = new EnumerationDescriptor.MemberDescriptor("Money", "MONEY", 0x102dc055e26L, "r:00000000-0000-4000-0000-011c8959040a(jetbrains.mps.samples.agreementLanguage.structure)/4241665505353448286", "Money", "Money");
+
+  private final EnumerationLiteralsIndex myIndex = EnumerationLiteralsIndex.build(0x144f7012c2d543beL, 0xbe2b4bfb7dff6503L, 0x102dc04d86aL, 0x102dc04f5a7L, 0x102dc055e26L);
+  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMember_Quantity_0, myMember_Money_0);
 
   @Nullable
   @Override
   public EnumerationDescriptor.MemberDescriptor getDefault() {
-    return VALUE_Quantity_0;
+    return myMember_Quantity_0;
   }
 
   @NotNull
   @Override
-  public Collection<EnumerationDescriptor.MemberDescriptor> getMembers() {
-    return Arrays.asList(VALUE_Quantity_0, VALUE_Money_0);
+  public List<EnumerationDescriptor.MemberDescriptor> getMembers() {
+    return myMembers;
   }
 
   @Nullable
   @Override
-  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String string) {
-    if (string == null) {
+  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String memberName) {
+    if (memberName == null) {
       return null;
     }
-    switch (string) {
+    switch (memberName) {
       case "Quantity":
-        return VALUE_Quantity_0;
+        return myMember_Quantity_0;
       case "Money":
-        return VALUE_Money_0;
+        return myMember_Money_0;
     }
     return null;
+  }
+
+  @Nullable
+  @Override
+  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {
+    int index = myIndex.index(idValue);
+    if (index == -1) {
+      return null;
+    }
+    return myMembers.get(index);
   }
 }

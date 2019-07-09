@@ -2,7 +2,7 @@
 <model ref="r:4ed18869-f098-400c-ba8a-f5a2ee09c21e(jetbrains.mps.lang.smodel.query.migration)">
   <persistence version="9" />
   <languages>
-    <use id="90746344-04fd-4286-97d5-b46ae6a81709" name="jetbrains.mps.lang.migration" version="-1" />
+    <use id="90746344-04fd-4286-97d5-b46ae6a81709" name="jetbrains.mps.lang.migration" version="2" />
     <use id="c7d5b9dd-a05f-4be2-bc73-f2e16994cc67" name="jetbrains.mps.baseLanguage.lightweightdsl" version="-1" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
@@ -157,9 +157,7 @@
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -899,7 +897,7 @@
                                 <ref role="2pJxaS" to="3xdn:238_VGTIKuD" resolve="CustomScope" />
                                 <node concept="2pIpSj" id="4T7JBGSp7v9" role="2pJxcM">
                                   <ref role="2pIpSl" to="3xdn:238_VGTIKuE" resolve="scope" />
-                                  <node concept="36biLy" id="4T7JBGSp7yl" role="2pJxcZ">
+                                  <node concept="36biLy" id="4T7JBGSp7yl" role="28nt2d">
                                     <node concept="2OqwBi" id="4T7JBGSp99E" role="36biLW">
                                       <node concept="1PxgMI" id="4T7JBGSp8Uu" role="2Oq$k0">
                                         <node concept="chp4Y" id="4T7JBGSp8Xm" role="3oSUPX">
@@ -950,21 +948,21 @@
                                   <ref role="2pJxaS" to="3xdn:238_VGTIKuD" resolve="CustomScope" />
                                   <node concept="2pIpSj" id="4T7JBGSwz6e" role="2pJxcM">
                                     <ref role="2pIpSl" to="3xdn:238_VGTIKuE" resolve="scope" />
-                                    <node concept="2pJPED" id="4T7JBGSwz6f" role="2pJxcZ">
+                                    <node concept="2pJPED" id="4T7JBGSwz6f" role="28nt2d">
                                       <ref role="2pJxaS" to="tpee:gEShNN5" resolve="GenericNewExpression" />
                                       <node concept="2pIpSj" id="4T7JBGSwz6g" role="2pJxcM">
                                         <ref role="2pIpSl" to="tpee:gEShVi6" resolve="creator" />
-                                        <node concept="2pJPED" id="4T7JBGSwz6h" role="2pJxcZ">
+                                        <node concept="2pJPED" id="4T7JBGSwz6h" role="28nt2d">
                                           <ref role="2pJxaS" to="tpee:hDpGfJe" resolve="ClassCreator" />
                                           <node concept="2pIpSj" id="4T7JBGSwz6i" role="2pJxcM">
                                             <ref role="2pIpSl" to="tpee:hDpISCB" resolve="constructorDeclaration" />
-                                            <node concept="36bGnv" id="4T7JBGSwz6j" role="2pJxcZ">
+                                            <node concept="36bGnv" id="4T7JBGSwz6j" role="28nt2d">
                                               <ref role="36bGnp" to="z1c3:~EditableFilteringScope.&lt;init&gt;(org.jetbrains.mps.openapi.module.SearchScope)" resolve="EditableFilteringScope" />
                                             </node>
                                           </node>
                                           <node concept="2pIpSj" id="4T7JBGSwz6k" role="2pJxcM">
                                             <ref role="2pIpSl" to="tpee:fz7wK6I" resolve="actualArgument" />
-                                            <node concept="36be1Y" id="4T7JBGSwz6l" role="2pJxcZ">
+                                            <node concept="36be1Y" id="4T7JBGSwz6l" role="28nt2d">
                                               <node concept="36biLy" id="4T7JBGSwB3G" role="36be1Z">
                                                 <node concept="2OqwBi" id="4T7JBGSx3uw" role="36biLW">
                                                   <node concept="2OqwBi" id="4T7JBGSwB6E" role="2Oq$k0">
@@ -1028,21 +1026,21 @@
                                 <ref role="2pJxaS" to="3xdn:238_VGTIKuD" resolve="CustomScope" />
                                 <node concept="2pIpSj" id="4T7JBGSuRxK" role="2pJxcM">
                                   <ref role="2pIpSl" to="3xdn:238_VGTIKuE" resolve="scope" />
-                                  <node concept="2pJPED" id="4T7JBGSuRxS" role="2pJxcZ">
+                                  <node concept="2pJPED" id="4T7JBGSuRxS" role="28nt2d">
                                     <ref role="2pJxaS" to="tpee:gEShNN5" resolve="GenericNewExpression" />
                                     <node concept="2pIpSj" id="4T7JBGSuRxT" role="2pJxcM">
                                       <ref role="2pIpSl" to="tpee:gEShVi6" resolve="creator" />
-                                      <node concept="2pJPED" id="4T7JBGSuRxU" role="2pJxcZ">
+                                      <node concept="2pJPED" id="4T7JBGSuRxU" role="28nt2d">
                                         <ref role="2pJxaS" to="tpee:hDpGfJe" resolve="ClassCreator" />
                                         <node concept="2pIpSj" id="4T7JBGSuRxV" role="2pJxcM">
                                           <ref role="2pIpSl" to="tpee:hDpISCB" resolve="constructorDeclaration" />
-                                          <node concept="36bGnv" id="4T7JBGSuRxW" role="2pJxcZ">
+                                          <node concept="36bGnv" id="4T7JBGSuRxW" role="28nt2d">
                                             <ref role="36bGnp" to="mte5:~ModelsScope.&lt;init&gt;(java.lang.Iterable)" resolve="ModelsScope" />
                                           </node>
                                         </node>
                                         <node concept="2pIpSj" id="4T7JBGSuRxX" role="2pJxcM">
                                           <ref role="2pIpSl" to="tpee:fz7wK6I" resolve="actualArgument" />
-                                          <node concept="36be1Y" id="4T7JBGSuRxY" role="2pJxcZ">
+                                          <node concept="36be1Y" id="4T7JBGSuRxY" role="28nt2d">
                                             <node concept="36biLy" id="4T7JBGSuRxZ" role="36be1Z">
                                               <node concept="2OqwBi" id="4T7JBGSx48E" role="36biLW">
                                                 <node concept="2OqwBi" id="4T7JBGSuRy0" role="2Oq$k0">
@@ -1102,36 +1100,36 @@
                                   <ref role="2pJxaS" to="3xdn:238_VGTIKuD" resolve="CustomScope" />
                                   <node concept="2pIpSj" id="4T7JBGSuqHq" role="2pJxcM">
                                     <ref role="2pIpSl" to="3xdn:238_VGTIKuE" resolve="scope" />
-                                    <node concept="2pJPED" id="4T7JBGSupOs" role="2pJxcZ">
+                                    <node concept="2pJPED" id="4T7JBGSupOs" role="28nt2d">
                                       <ref role="2pJxaS" to="tpee:gEShNN5" resolve="GenericNewExpression" />
                                       <node concept="2pIpSj" id="4T7JBGSupOt" role="2pJxcM">
                                         <ref role="2pIpSl" to="tpee:gEShVi6" resolve="creator" />
-                                        <node concept="2pJPED" id="4T7JBGSupOu" role="2pJxcZ">
+                                        <node concept="2pJPED" id="4T7JBGSupOu" role="28nt2d">
                                           <ref role="2pJxaS" to="tpee:hDpGfJe" resolve="ClassCreator" />
                                           <node concept="2pIpSj" id="4T7JBGSupOv" role="2pJxcM">
                                             <ref role="2pIpSl" to="tpee:hDpISCB" resolve="constructorDeclaration" />
-                                            <node concept="36bGnv" id="4T7JBGSupOw" role="2pJxcZ">
+                                            <node concept="36bGnv" id="4T7JBGSupOw" role="28nt2d">
                                               <ref role="36bGnp" to="z1c3:~EditableFilteringScope.&lt;init&gt;(org.jetbrains.mps.openapi.module.SearchScope)" resolve="EditableFilteringScope" />
                                             </node>
                                           </node>
                                           <node concept="2pIpSj" id="4T7JBGSupOx" role="2pJxcM">
                                             <ref role="2pIpSl" to="tpee:fz7wK6I" resolve="actualArgument" />
-                                            <node concept="36be1Y" id="4T7JBGSupOy" role="2pJxcZ">
+                                            <node concept="36be1Y" id="4T7JBGSupOy" role="28nt2d">
                                               <node concept="2pJPED" id="4T7JBGSu6o5" role="36be1Z">
                                                 <ref role="2pJxaS" to="tpee:gEShNN5" resolve="GenericNewExpression" />
                                                 <node concept="2pIpSj" id="4T7JBGSu6o6" role="2pJxcM">
                                                   <ref role="2pIpSl" to="tpee:gEShVi6" resolve="creator" />
-                                                  <node concept="2pJPED" id="4T7JBGSu6o7" role="2pJxcZ">
+                                                  <node concept="2pJPED" id="4T7JBGSu6o7" role="28nt2d">
                                                     <ref role="2pJxaS" to="tpee:hDpGfJe" resolve="ClassCreator" />
                                                     <node concept="2pIpSj" id="4T7JBGSu6o8" role="2pJxcM">
                                                       <ref role="2pIpSl" to="tpee:hDpISCB" resolve="constructorDeclaration" />
-                                                      <node concept="36bGnv" id="4T7JBGSufID" role="2pJxcZ">
+                                                      <node concept="36bGnv" id="4T7JBGSufID" role="28nt2d">
                                                         <ref role="36bGnp" to="mte5:~ModelsScope.&lt;init&gt;(java.lang.Iterable)" resolve="ModelsScope" />
                                                       </node>
                                                     </node>
                                                     <node concept="2pIpSj" id="4T7JBGSu6oa" role="2pJxcM">
                                                       <ref role="2pIpSl" to="tpee:fz7wK6I" resolve="actualArgument" />
-                                                      <node concept="36be1Y" id="4T7JBGSu6ob" role="2pJxcZ">
+                                                      <node concept="36be1Y" id="4T7JBGSu6ob" role="28nt2d">
                                                         <node concept="36biLy" id="4T7JBGSudj7" role="36be1Z">
                                                           <node concept="2OqwBi" id="4T7JBGSx4Vq" role="36biLW">
                                                             <node concept="2OqwBi" id="4T7JBGSudlX" role="2Oq$k0">
@@ -1199,21 +1197,21 @@
                                 <ref role="2pJxaS" to="3xdn:238_VGTIKuD" resolve="CustomScope" />
                                 <node concept="2pIpSj" id="4T7JBGSuPqv" role="2pJxcM">
                                   <ref role="2pIpSl" to="3xdn:238_VGTIKuE" resolve="scope" />
-                                  <node concept="2pJPED" id="4T7JBGSuPqB" role="2pJxcZ">
+                                  <node concept="2pJPED" id="4T7JBGSuPqB" role="28nt2d">
                                     <ref role="2pJxaS" to="tpee:gEShNN5" resolve="GenericNewExpression" />
                                     <node concept="2pIpSj" id="4T7JBGSuPqC" role="2pJxcM">
                                       <ref role="2pIpSl" to="tpee:gEShVi6" resolve="creator" />
-                                      <node concept="2pJPED" id="4T7JBGSuPqD" role="2pJxcZ">
+                                      <node concept="2pJPED" id="4T7JBGSuPqD" role="28nt2d">
                                         <ref role="2pJxaS" to="tpee:hDpGfJe" resolve="ClassCreator" />
                                         <node concept="2pIpSj" id="4T7JBGSuPqE" role="2pJxcM">
                                           <ref role="2pIpSl" to="tpee:hDpISCB" resolve="constructorDeclaration" />
-                                          <node concept="36bGnv" id="4T7JBGSuPqF" role="2pJxcZ">
+                                          <node concept="36bGnv" id="4T7JBGSuPqF" role="28nt2d">
                                             <ref role="36bGnp" to="mte5:~ModulesScope.&lt;init&gt;(java.lang.Iterable)" resolve="ModulesScope" />
                                           </node>
                                         </node>
                                         <node concept="2pIpSj" id="4T7JBGSuPqG" role="2pJxcM">
                                           <ref role="2pIpSl" to="tpee:fz7wK6I" resolve="actualArgument" />
-                                          <node concept="36be1Y" id="4T7JBGSuPqH" role="2pJxcZ">
+                                          <node concept="36be1Y" id="4T7JBGSuPqH" role="28nt2d">
                                             <node concept="36biLy" id="4T7JBGSuPqI" role="36be1Z">
                                               <node concept="2OqwBi" id="4T7JBGSuPqJ" role="36biLW">
                                                 <node concept="1PxgMI" id="4T7JBGSuPqK" role="2Oq$k0">
@@ -1270,36 +1268,36 @@
                                   <ref role="2pJxaS" to="3xdn:238_VGTIKuD" resolve="CustomScope" />
                                   <node concept="2pIpSj" id="4T7JBGSuuvl" role="2pJxcM">
                                     <ref role="2pIpSl" to="3xdn:238_VGTIKuE" resolve="scope" />
-                                    <node concept="2pJPED" id="4T7JBGSuveY" role="2pJxcZ">
+                                    <node concept="2pJPED" id="4T7JBGSuveY" role="28nt2d">
                                       <ref role="2pJxaS" to="tpee:gEShNN5" resolve="GenericNewExpression" />
                                       <node concept="2pIpSj" id="4T7JBGSuveZ" role="2pJxcM">
                                         <ref role="2pIpSl" to="tpee:gEShVi6" resolve="creator" />
-                                        <node concept="2pJPED" id="4T7JBGSuvf0" role="2pJxcZ">
+                                        <node concept="2pJPED" id="4T7JBGSuvf0" role="28nt2d">
                                           <ref role="2pJxaS" to="tpee:hDpGfJe" resolve="ClassCreator" />
                                           <node concept="2pIpSj" id="4T7JBGSuvf1" role="2pJxcM">
                                             <ref role="2pIpSl" to="tpee:hDpISCB" resolve="constructorDeclaration" />
-                                            <node concept="36bGnv" id="4T7JBGSuvf2" role="2pJxcZ">
+                                            <node concept="36bGnv" id="4T7JBGSuvf2" role="28nt2d">
                                               <ref role="36bGnp" to="z1c3:~EditableFilteringScope.&lt;init&gt;(org.jetbrains.mps.openapi.module.SearchScope)" resolve="EditableFilteringScope" />
                                             </node>
                                           </node>
                                           <node concept="2pIpSj" id="4T7JBGSuvf3" role="2pJxcM">
                                             <ref role="2pIpSl" to="tpee:fz7wK6I" resolve="actualArgument" />
-                                            <node concept="36be1Y" id="4T7JBGSuvf4" role="2pJxcZ">
+                                            <node concept="36be1Y" id="4T7JBGSuvf4" role="28nt2d">
                                               <node concept="2pJPED" id="4T7JBGSuvf5" role="36be1Z">
                                                 <ref role="2pJxaS" to="tpee:gEShNN5" resolve="GenericNewExpression" />
                                                 <node concept="2pIpSj" id="4T7JBGSuvf6" role="2pJxcM">
                                                   <ref role="2pIpSl" to="tpee:gEShVi6" resolve="creator" />
-                                                  <node concept="2pJPED" id="4T7JBGSuvf7" role="2pJxcZ">
+                                                  <node concept="2pJPED" id="4T7JBGSuvf7" role="28nt2d">
                                                     <ref role="2pJxaS" to="tpee:hDpGfJe" resolve="ClassCreator" />
                                                     <node concept="2pIpSj" id="4T7JBGSuvf8" role="2pJxcM">
                                                       <ref role="2pIpSl" to="tpee:hDpISCB" resolve="constructorDeclaration" />
-                                                      <node concept="36bGnv" id="4T7JBGSuwhG" role="2pJxcZ">
+                                                      <node concept="36bGnv" id="4T7JBGSuwhG" role="28nt2d">
                                                         <ref role="36bGnp" to="mte5:~ModulesScope.&lt;init&gt;(java.lang.Iterable)" resolve="ModulesScope" />
                                                       </node>
                                                     </node>
                                                     <node concept="2pIpSj" id="4T7JBGSuvfa" role="2pJxcM">
                                                       <ref role="2pIpSl" to="tpee:fz7wK6I" resolve="actualArgument" />
-                                                      <node concept="36be1Y" id="4T7JBGSuvfb" role="2pJxcZ">
+                                                      <node concept="36be1Y" id="4T7JBGSuvfb" role="28nt2d">
                                                         <node concept="36biLy" id="4T7JBGSuvfc" role="36be1Z">
                                                           <node concept="2OqwBi" id="4T7JBGSuvfd" role="36biLW">
                                                             <node concept="1PxgMI" id="4T7JBGSuvfe" role="2Oq$k0">

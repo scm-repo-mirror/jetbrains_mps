@@ -2,8 +2,8 @@
 <model ref="r:1c8c1989-0591-468a-b1d1-b72fb2712738(jetbrains.mps.build.mps.runner.generator.template.main@generator)">
   <persistence version="9" />
   <languages>
-    <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="-1" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="-1" />
+    <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="3" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="2" />
     <use id="798100da-4f0a-421a-b991-71f8c50ce5d2" name="jetbrains.mps.build" version="-1" />
     <use id="698a8d22-a104-47a0-ba8d-10e3ec237f13" name="jetbrains.mps.build.workflow" version="-1" />
     <use id="479c7a8c-02f9-43b5-9139-d910cb22f298" name="jetbrains.mps.core.xml" version="-1" />
@@ -205,9 +205,7 @@
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
       <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
         <reference id="5455284157993911078" name="property" index="2pJxcJ" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -531,7 +529,7 @@
                                         <ref role="2pJxaS" to="kdzh:3a3EL8RY1L9" resolve="GeneratorInternal_PluginExpanded" />
                                         <node concept="2pJxcG" id="3a3EL8S1ynC" role="2pJxcM">
                                           <ref role="2pJxcJ" to="kdzh:3a3EL8RY1La" resolve="path" />
-                                          <node concept="1LFfDK" id="3a3EL8S1_42" role="2pJxcZ">
+                                          <node concept="1LFfDK" id="3a3EL8S1_42" role="28ntcv">
                                             <node concept="3cmrfG" id="3a3EL8S1_$C" role="1LF_Uc">
                                               <property role="3cmrfH" value="0" />
                                             </node>
@@ -542,7 +540,7 @@
                                         </node>
                                         <node concept="2pJxcG" id="3a3EL8S1zHM" role="2pJxcM">
                                           <ref role="2pJxcJ" to="kdzh:3a3EL8RY1Lb" resolve="id" />
-                                          <node concept="1LFfDK" id="3a3EL8S1AVu" role="2pJxcZ">
+                                          <node concept="1LFfDK" id="3a3EL8S1AVu" role="28ntcv">
                                             <node concept="3cmrfG" id="3a3EL8S1Bsr" role="1LF_Uc">
                                               <property role="3cmrfH" value="1" />
                                             </node>

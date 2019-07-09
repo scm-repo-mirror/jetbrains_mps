@@ -69,24 +69,7 @@ public class DefaultSChildSubstituteInfo extends AbstractNodeSubstituteInfo impl
 
   @Override
   protected InequalitySystem getInequalitiesSystem(EditorCell contextCell) {
-    HashMap<SNode, SNode> mapping = new HashMap<>();
-    final SNode copy = CopyUtil.copy(Arrays.asList(myParentNode.getContainingRoot()), mapping).get(0);
-    getModelForTypechecking().addRootNode(copy);
-
-    final SAbstractConcept concept = myLink.getTargetConcept();
-    boolean holeIsAType = concept.isSubConceptOf(SNodeUtil.concept_IType);
-    SNode parent = mapping.get(myParentNode);
-    SNode hole = SModelUtil_new.instantiateConceptDeclaration(SNodeUtil.concept_BaseConcept, null, null, true);
-    if (myCurrentChild != null) {
-      SNode child = mapping.get(myCurrentChild);
-      parent.insertChildBefore(myLink, hole, child);
-      parent.removeChild(child);
-    } else {
-      parent.addChild(myLink, hole);
-    }
-    InequalitySystem inequationsForHole = TypeChecker.getInstance().getInequalitiesForHole(hole, holeIsAType);
-    inequationsForHole.replaceRefs(mapping);
-    return inequationsForHole;
+    return InequalitySystemFactory.getInequalitiesSystemForChildCell(contextCell, AbstractNodeSubstituteInfo.getModelForTypechecking());
   }
 
   protected DefaultSChildSetter createDefaultNodeSetter() {

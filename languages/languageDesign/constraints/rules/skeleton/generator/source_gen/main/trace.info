@@ -88,7 +88,7 @@
     <file name="QueriesGenerated.java">
       <node id="7291380803380540322" at="59,93,60,105" concept="4" />
       <node id="6551427688186223260" at="62,93,63,189" concept="4" />
-      <node id="6551427688186862767" at="80,104,81,230" concept="4" />
+      <node id="6551427688186862767" at="80,104,81,234" concept="4" />
       <node id="1889794043260130041" at="203,14,204,75" concept="0" />
       <node id="1889794043260130041" at="223,15,224,87" concept="4" />
       <node id="7291380803380540141" at="290,3,291,107" concept="0" />
@@ -100,7 +100,7 @@
       <node id="1889794043260130041" at="80,0,83,0" concept="6" trace="sourceNodesQuery_1_0#(Ljetbrains/mps/generator/template/SourceSubstituteMacroNodesContext;)Ljava/lang/Iterable;" />
       <scope id="7291380803380540143" at="59,93,60,105" />
       <scope id="6551427688186219816" at="62,93,63,189" />
-      <scope id="1889794043260130063" at="80,104,81,230" />
+      <scope id="1889794043260130063" at="80,104,81,234" />
       <scope id="1889794043260130041" at="223,15,224,87" />
       <scope id="7291380803380540141" at="314,15,315,70" />
       <scope id="6551427688186219814" at="316,15,317,70" />

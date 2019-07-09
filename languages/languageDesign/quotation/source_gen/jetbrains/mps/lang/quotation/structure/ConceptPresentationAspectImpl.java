@@ -18,6 +18,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_NodeBuilder;
   private ConceptPresentation props_NodeBuilderExpression;
   private ConceptPresentation props_NodeBuilderInitLink;
+  private ConceptPresentation props_NodeBuilderInitLinkValue;
   private ConceptPresentation props_NodeBuilderInitPart;
   private ConceptPresentation props_NodeBuilderInitProperty;
   private ConceptPresentation props_NodeBuilderList;
@@ -26,6 +27,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_PropertyAntiquotation;
   private ConceptPresentation props_Quotation;
   private ConceptPresentation props_ReferenceAntiquotation;
+  private ConceptPresentation props_StringToTypedValueMigrationInfo;
 
   @Override
   @Nullable
@@ -94,9 +96,16 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_NodeBuilderInitLink = cpb.create();
         }
         return props_NodeBuilderInitLink;
+      case LanguageConceptSwitch.NodeBuilderInitLinkValue:
+        if (props_NodeBuilderInitLinkValue == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_NodeBuilderInitLinkValue = cpb.create();
+        }
+        return props_NodeBuilderInitLinkValue;
       case LanguageConceptSwitch.NodeBuilderInitPart:
         if (props_NodeBuilderInitPart == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20b0339L);
+          cpb.deprecateAggregation(0x4bb51009d20b0336L, "expression");
           props_NodeBuilderInitPart = cpb.create();
         }
         return props_NodeBuilderInitPart;
@@ -149,6 +158,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ReferenceAntiquotation = cpb.create();
         }
         return props_ReferenceAntiquotation;
+      case LanguageConceptSwitch.StringToTypedValueMigrationInfo:
+        if (props_StringToTypedValueMigrationInfo == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_StringToTypedValueMigrationInfo = cpb.create();
+        }
+        return props_StringToTypedValueMigrationInfo;
     }
     return null;
   }

@@ -4,16 +4,20 @@ package jetbrains.mps.lang.smodel.generator.smodelAdapter;
 
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
+import org.jetbrains.mps.openapi.language.SEnumeration;
 import org.jetbrains.mps.openapi.language.SType;
 import jetbrains.mps.util.InternUtil;
 import java.util.Objects;
-import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
+import jetbrains.mps.smodel.adapter.structure.types.SEnumerationAdapter;
 import jetbrains.mps.util.EqualUtil;
 import org.jetbrains.mps.openapi.language.SDataType;
-import jetbrains.mps.smodel.adapter.structure.types.SEnumerationAdapter;
 import jetbrains.mps.smodel.adapter.structure.types.SPrimitiveTypes;
 import jetbrains.mps.references.Reference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.util.annotation.ToRemove;
 
 public class SPropertyOperations {
   public static String assign(SNode node, SProperty property, String propertyValue) {
@@ -26,6 +30,10 @@ public class SPropertyOperations {
   }
   public static boolean assign(SNode node, SProperty property, boolean propertyValue) {
     set(node, property, propertyValue);
+    return propertyValue;
+  }
+  public static SEnumerationLiteral assignEnum(SNode node, SProperty property, SEnumerationLiteral propertyValue) {
+    setEnum(node, property, propertyValue);
     return propertyValue;
   }
 
@@ -44,6 +52,19 @@ public class SPropertyOperations {
       SNodeAccessUtil.setPropertyValue(node, property, upgradeToEnumMember(property, propertyValue));
     }
   }
+  public static void setEnum(SNode node, SProperty property, SEnumerationLiteral propertyValue) {
+    if (node != null) {
+      SNodeAccessUtil.setPropertyValue(node, property, propertyValue);
+    }
+  }
+  public static void setEnum(SNode node, SProperty property, long enumMemberId, String enumMemberName) {
+    if (node != null) {
+      SEnumeration enumeration = as_sbyy7e_a0a0a0a9(property.getType(), SEnumeration.class);
+      SNodeAccessUtil.setPropertyValue(node, property, SEnumOperations.getMember(enumeration, enumMemberId, enumMemberName));
+    }
+  }
+
+
   public static void remove(SNode node, SProperty property) {
     if (node != null) {
       SNodeAccessUtil.setPropertyValue(node, property, null);
@@ -95,6 +116,16 @@ public class SPropertyOperations {
     return "true".equals(value);
   }
 
+  public static SEnumerationLiteral getEnum(SNode node, SProperty property) {
+    if (node != null) {
+      Object value = SNodeAccessUtil.getPropertyValue(node, property);
+      if (value != SType.NOT_A_VALUE) {
+        return (SEnumerationLiteral) value;
+      }
+    }
+    return null;
+  }
+
   public static boolean hasValue(SNode node, SProperty property, String value) {
     if (node != null) {
       return Objects.equals(downgradeFromEnumMember(property, SNodeAccessUtil.getPropertyValue(node, property)), value);
@@ -113,11 +144,11 @@ public class SPropertyOperations {
     }
     return false;
   }
-  public static boolean hasEnumValue(SNode node, SProperty property, String literalName) {
+  public static boolean hasEnumValue(SNode node, SProperty property, String literalRawValue) {
     if (node != null) {
       Object literal = SNodeAccessUtil.getPropertyValue(node, property);
       if (literal instanceof SEnumerationLiteral) {
-        return Objects.equals(literalName, ((SEnumerationLiteral) literal).getName());
+        return Objects.equals(literalRawValue, SEnumerationAdapter.getEnumMemberRawValue((SEnumerationLiteral) literal));
       }
     }
     return false;
@@ -134,7 +165,7 @@ public class SPropertyOperations {
     return false;
   }
 
-  private static Object upgradeToEnumMember(SProperty property, Object propertyValue) {
+  public static Object upgradeToEnumMember(SProperty property, Object propertyValue) {
     SDataType type = property.getType();
     if (type instanceof SEnumerationAdapter) {
       return ((SEnumerationAdapter) type).convertValueToLiteral(propertyValue);
@@ -148,7 +179,7 @@ public class SPropertyOperations {
     }
     return propertyValue;
   }
-  private static Object deserializeIfNeeded(String string, SProperty property) {
+  public static Object deserializeIfNeeded(String string, SProperty property) {
     // While regenerated smodel code calls proper `assign` and `set` methods (by respecting type of a property) 
     // old code serialize properties and then invokes `assign` and `set` with `String propertyValue` argument 
     // To handle not-regenerated code we have this compatiblity aux until 18.3 will be released 
@@ -195,6 +226,18 @@ public class SPropertyOperations {
       }
     };
   }
+  public static Reference<SEnumerationLiteral> enumPropRef(final SNode node, final SProperty property) {
+    return new Reference<SEnumerationLiteral>() {
+      @Override
+      public SEnumerationLiteral get() {
+        return SPropertyOperations.getEnum(node, property);
+      }
+      @Override
+      public void set(SEnumerationLiteral propertyValue) {
+        SPropertyOperations.setEnum(node, property, propertyValue);
+      }
+    };
+  }
   public static String plusAssignStringProp(final SNode node, final SProperty property, Object value) {
     String propertyValue = getString(node, property);
     if (propertyValue == null) {
@@ -203,5 +246,69 @@ public class SPropertyOperations {
     propertyValue += value;
     set(node, property, propertyValue);
     return propertyValue;
+  }
+
+  public static String serializeEnummember(SEnumerationLiteral member) {
+    if (member == null) {
+      return null;
+    }
+    SEnumerationAdapter enumeration = as_sbyy7e_a0a1a04(member.getEnumeration(), SEnumerationAdapter.class);
+    return enumeration.toString(member);
+  }
+
+  public static SEnumerationLiteral deserializeEnummember(long uuidHigh, long uuidLow, long enumId, String fqEnumNameHint, String serializedValue) {
+    SEnumerationAdapter enumeration = as_sbyy7e_a0a0a24(MetaAdapterFactory.getEnumeration(uuidHigh, uuidLow, enumId, fqEnumNameHint), SEnumerationAdapter.class);
+    Object value = enumeration.fromString(serializedValue);
+    return (value == SType.NOT_A_VALUE ? null : (SEnumerationLiteral) value);
+  }
+
+  public static String castString(@Nullable Object value) {
+    return (String) value;
+  }
+  public static boolean castBoolean(@Nullable Object value) {
+    return (boolean) value;
+  }
+  public static int castInteger(@Nullable Object value) {
+    return (value == null ? 0 : (int) value);
+  }
+  public static SEnumerationLiteral castEnummember(@Nullable Object value) {
+    return (SEnumerationLiteral) value;
+  }
+
+  @Deprecated
+  @ToRemove(version = 19.2)
+  public static String castEnumString(@Nullable Object value) {
+    return castString(getRawValueFromLiteral(value));
+  }
+  @Deprecated
+  @ToRemove(version = 19.2)
+  public static boolean castEnumBoolean(@Nullable Object value) {
+    return castBoolean(getRawValueFromLiteral(value));
+  }
+  @Deprecated
+  @ToRemove(version = 19.2)
+  public static int castEnumInteger(@Nullable Object value) {
+    return castInteger(getRawValueFromLiteral(value));
+  }
+
+  private static Object getRawValueFromLiteral(Object value) {
+    if (value == null) {
+      return null;
+    }
+    SEnumerationLiteral literal = (SEnumerationLiteral) value;
+    SEnumeration enumeration = literal.getEnumeration();
+    if (enumeration instanceof SEnumerationAdapter) {
+      return ((SEnumerationAdapter) enumeration).getRawValueFromLiteral(literal);
+    }
+    return null;
+  }
+  private static <T> T as_sbyy7e_a0a0a0a9(Object o, Class<T> type) {
+    return (type.isInstance(o) ? (T) o : null);
+  }
+  private static <T> T as_sbyy7e_a0a1a04(Object o, Class<T> type) {
+    return (type.isInstance(o) ? (T) o : null);
+  }
+  private static <T> T as_sbyy7e_a0a0a24(Object o, Class<T> type) {
+    return (type.isInstance(o) ? (T) o : null);
   }
 }

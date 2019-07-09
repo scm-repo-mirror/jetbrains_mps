@@ -78,7 +78,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return ((SModel) _context.getVariable("var:model")) != null;
   }
   public static Iterable<SNode> sourceNodesQuery_1_0(final SourceSubstituteMacroNodesContext _context) {
-    return SModelOperations.roots(_context.getInputModel(), MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.ConstraintsRoot2"));
+    return SModelOperations.roots(_context.getInputModel(), MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RulesConstraintsRoot"));
   }
   public static SNode weavingRule_ContextQuery_0_0(final WeavingMappingRuleContext _context) {
     return SNodeOperations.getParent(_context.getOutputNodeByInputNodeAndMappingLabel(_context.getNode(), "aspectLoop"));

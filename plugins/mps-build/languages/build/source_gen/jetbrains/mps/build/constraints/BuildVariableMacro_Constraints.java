@@ -31,15 +31,15 @@ public class BuildVariableMacro_Constraints extends BaseConstraintsDescriptor {
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:5076fdb3-19c3-4563-aa26-7ace7591e78d(jetbrains.mps.build.constraints)", "6420586245471679194");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return REGEXP_xr7ei4_a0a0a4c.matcher((SPropertyOperations.getString(propertyValue))).matches();
+      return REGEXP_xr7ei4_a0a0a4c.matcher(propertyValue).matches();
     }
   }
   @Override

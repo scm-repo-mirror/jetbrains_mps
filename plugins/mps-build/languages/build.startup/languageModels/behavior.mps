@@ -114,9 +114,7 @@
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
       <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
         <reference id="5455284157993911078" name="property" index="2pJxcJ" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -494,7 +492,7 @@
                         <ref role="2pJxaS" to="s7om:1w81suLPAyy" resolve="TextLine" />
                         <node concept="2pJxcG" id="7wjXRnK4HmK" role="2pJxcM">
                           <ref role="2pJxcJ" to="s7om:1w81suLRRvp" resolve="text" />
-                          <node concept="37vLTw" id="2lwFGYOYceb" role="2pJxcZ">
+                          <node concept="37vLTw" id="2lwFGYOYceb" role="28ntcv">
                             <ref role="3cqZAo" node="2lwFGYOYbIX" resolve="it" />
                           </node>
                         </node>
@@ -573,7 +571,7 @@
                         <ref role="2pJxaS" to="s7om:1w81suLPAyy" resolve="TextLine" />
                         <node concept="2pJxcG" id="7wjXRnK4HxS" role="2pJxcM">
                           <ref role="2pJxcJ" to="s7om:1w81suLRRvp" resolve="text" />
-                          <node concept="37vLTw" id="31jVCtHhzvC" role="2pJxcZ">
+                          <node concept="37vLTw" id="31jVCtHhzvC" role="28ntcv">
                             <ref role="3cqZAo" node="31jVCtHhzvD" resolve="it" />
                           </node>
                         </node>

@@ -30,15 +30,15 @@ public class ThreadPool_Constraints extends BaseConstraintsDescriptor {
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:30f28ecb-3abe-411d-8f10-86fc65916e39(org.jetbrains.mps.samples.ParallelFor.constraints)", "633195941006921801");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castInteger(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
-    private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return (SPropertyOperations.getInteger(propertyValue)) > 0;
+    private static boolean staticValidateProperty(SNode node, int propertyValue) {
+      return propertyValue > 0;
     }
   }
   @Override

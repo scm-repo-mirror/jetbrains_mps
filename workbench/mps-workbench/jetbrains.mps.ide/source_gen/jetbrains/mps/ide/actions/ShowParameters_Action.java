@@ -43,7 +43,7 @@ public class ShowParameters_Action extends BaseAction {
   public ShowParameters_Action() {
     super("Show Parameters", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -94,17 +94,21 @@ public class ShowParameters_Action extends BaseAction {
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     FeatureUsageTracker.getInstance().triggerFeatureUsed("editing.showParameters");
-    Point p = new Point(((EditorCell) MapSequence.fromMap(_params).get("cell")).getX() + ((EditorCell) MapSequence.fromMap(_params).get("cell")).getWidth(), ((EditorCell) MapSequence.fromMap(_params).get("cell")).getY() + ((EditorCell) MapSequence.fromMap(_params).get("cell")).getHeight());
-    EditorCell currentCell = ((EditorCell) MapSequence.fromMap(_params).get("cell"));
-    while (currentCell != null) {
-      ParametersInformation parametersInformation = currentCell.getStyle().get(StyleAttributes.PARAMETERS_INFORMATION);
-      if (parametersInformation != null) {
-        Component component = ShowParameters_Action.this.createComponent(parametersInformation, currentCell.getSNode(), _params);
-        MPSToolTipManager.getInstance().showToolTip(new ToolTipData(component), ((EditorComponent) MapSequence.fromMap(_params).get("editor")), p);
-        return;
+    ((EditorContext) MapSequence.fromMap(_params).get("editorContext")).getRepository().getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        Point p = new Point(((EditorCell) MapSequence.fromMap(_params).get("cell")).getX() + ((EditorCell) MapSequence.fromMap(_params).get("cell")).getWidth(), ((EditorCell) MapSequence.fromMap(_params).get("cell")).getY() + ((EditorCell) MapSequence.fromMap(_params).get("cell")).getHeight());
+        EditorCell currentCell = ((EditorCell) MapSequence.fromMap(_params).get("cell"));
+        while (currentCell != null) {
+          ParametersInformation parametersInformation = currentCell.getStyle().get(StyleAttributes.PARAMETERS_INFORMATION);
+          if (parametersInformation != null) {
+            Component component = ShowParameters_Action.this.createComponent(parametersInformation, currentCell.getSNode(), _params);
+            MPSToolTipManager.getInstance().showToolTip(new ToolTipData(component), ((EditorComponent) MapSequence.fromMap(_params).get("editor")), p);
+            return;
+          }
+          currentCell = currentCell.getParent();
+        }
       }
-      currentCell = currentCell.getParent();
-    }
+    });
   }
   /*package*/ SNode getCellNode(final Map<String, Object> _params) {
     return ((EditorCell) MapSequence.fromMap(_params).get("cell")).getSNode();

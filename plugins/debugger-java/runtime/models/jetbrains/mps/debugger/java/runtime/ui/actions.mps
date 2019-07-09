@@ -83,10 +83,14 @@
         <reference id="1204992316090" name="point" index="2f8Tey" />
         <reference id="1203092736097" name="modifiedGroup" index="tU$_T" />
       </concept>
-      <concept id="1227008846812" name="jetbrains.mps.lang.plugin.structure.ActionConstructionParameterDeclaration" flags="ig" index="2JriF1" />
+      <concept id="1227008846812" name="jetbrains.mps.lang.plugin.structure.ActionConstructionParameterDeclaration" flags="ig" index="2JriF1">
+        <child id="1227019158144" name="toStringFunction" index="2K2Cet" />
+      </concept>
       <concept id="1227013049127" name="jetbrains.mps.lang.plugin.structure.AddStatement" flags="nn" index="2JFkCU">
         <child id="1227013166210" name="item" index="2JFLmv" />
       </concept>
+      <concept id="1227019068586" name="jetbrains.mps.lang.plugin.structure.ToStringConceptFunction" flags="in" index="2K2imR" />
+      <concept id="1227019310584" name="jetbrains.mps.lang.plugin.structure.ToStringParameter" flags="nn" index="2K3dj_" />
       <concept id="1239975356883" name="jetbrains.mps.lang.plugin.structure.UpdateGroupBlock" flags="ng" index="2OiAzN">
         <child id="1239975488603" name="updateFunction" index="2Oj6PV" />
       </concept>
@@ -1437,6 +1441,18 @@
       <node concept="3Tm6S6" id="3E$bVnPdCoL" role="1B3o_S" />
       <node concept="3uibUv" id="3E$bVnPdCTO" role="1tU5fm">
         <ref role="3uigEE" to="y3sp:2Y$mRnICmxQ" resolve="ValueWrapperFactory" />
+      </node>
+      <node concept="2K2imR" id="7E$SATCMdz1" role="2K2Cet">
+        <node concept="3clFbS" id="7E$SATCMdz2" role="2VODD2">
+          <node concept="3clFbF" id="7E$SATCMdIw" role="3cqZAp">
+            <node concept="2OqwBi" id="7E$SATCMdRc" role="3clFbG">
+              <node concept="2K3dj_" id="7E$SATCMdIv" role="2Oq$k0" />
+              <node concept="liA8E" id="7E$SATCMe9E" role="2OqNvi">
+                <ref role="37wK5l" to="y3sp:45l905tDWfp" resolve="getName" />
+              </node>
+            </node>
+          </node>
+        </node>
       </node>
     </node>
     <node concept="tkhdA" id="3E$bVnPdDcn" role="tmbBb">

@@ -20,25 +20,25 @@
       <node id="2073504467208672625" at="26,63,27,151" concept="8" />
       <node id="2073504467208672625" at="30,38,31,18" concept="5" />
       <node id="2073504467208672625" at="33,0,34,0" concept="6" trace="validatePropertyBreakingPoint" />
-      <node id="2073504467208672625" at="35,109,36,67" concept="4" />
+      <node id="2073504467208672625" at="35,109,36,99" concept="4" />
       <node id="2073504467208672625" at="37,53,38,75" concept="1" />
       <node id="2073504467208672625" at="39,7,40,20" concept="5" />
-      <node id="2073504467208880117" at="42,85,43,232" concept="5" />
+      <node id="2073504467208880117" at="42,85,43,166" concept="5" />
       <node id="2073504467208672573" at="47,84,48,119" concept="4" />
       <node id="2073504467208672625" at="48,119,49,219" concept="1" />
       <node id="2073504467208672573" at="49,219,50,22" concept="5" />
       <node id="2073504467208672573" at="21,0,24,0" concept="0" trace="ArithmeticSimpleMathExpression_Constraints#()V" />
       <node id="2073504467208672625" at="26,0,29,0" concept="0" trace="Operator_Property#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
-      <node id="2073504467208672625" at="36,67,39,7" concept="2" />
+      <node id="2073504467208672625" at="36,99,39,7" concept="2" />
       <node id="2073504467208672625" at="42,0,45,0" concept="7" trace="staticValidateProperty#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Z" />
       <node id="2073504467208672625" at="29,0,33,0" concept="3" trace="hasOwnValidator#()Z" />
       <node id="2073504467208672573" at="46,0,52,0" concept="3" trace="getSpecifiedProperties#()Ljava/util/Map;" />
-      <node id="2073504467208672625" at="34,0,42,0" concept="3" trace="validateValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Z" />
+      <node id="2073504467208672625" at="34,0,42,0" concept="3" trace="validateValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Z" />
       <scope id="2073504467208672573" at="21,55,22,182" />
       <scope id="2073504467208672625" at="26,63,27,151" />
       <scope id="2073504467208672625" at="30,38,31,18" />
       <scope id="2073504467208672625" at="37,53,38,75" />
-      <scope id="2073504467208672628" at="42,85,43,232" />
+      <scope id="2073504467208672628" at="42,85,43,166" />
       <scope id="2073504467208672573" at="21,0,24,0" />
       <scope id="2073504467208672625" at="26,0,29,0">
         <var name="container" id="2073504467208672625" />

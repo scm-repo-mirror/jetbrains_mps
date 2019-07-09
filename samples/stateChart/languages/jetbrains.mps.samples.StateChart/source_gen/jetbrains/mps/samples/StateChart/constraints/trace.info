@@ -20,7 +20,7 @@
       <node id="1480846759627689859" at="27,64,28,152" concept="8" />
       <node id="1480846759627689859" at="31,38,32,18" concept="5" />
       <node id="1480846759627689859" at="34,0,35,0" concept="6" trace="validatePropertyBreakingPoint" />
-      <node id="1480846759627689859" at="36,109,37,67" concept="4" />
+      <node id="1480846759627689859" at="36,109,37,100" concept="4" />
       <node id="1480846759627689859" at="38,53,39,75" concept="1" />
       <node id="1480846759627689859" at="40,7,41,20" concept="5" />
       <node id="1480846759627734723" at="45,41,46,190" concept="5" />
@@ -29,13 +29,13 @@
       <node id="1480846759627689858" at="54,196,55,22" concept="5" />
       <node id="1480846759627689858" at="22,0,25,0" concept="0" trace="State_Constraints#()V" />
       <node id="1480846759627689859" at="27,0,30,0" concept="0" trace="IsInitial_Property#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
-      <node id="1480846759627689859" at="37,67,40,7" concept="2" />
+      <node id="1480846759627689859" at="37,100,40,7" concept="2" />
       <node id="1480846759627733070" at="45,0,48,0" concept="3" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="1480846759627689859" at="30,0,34,0" concept="3" trace="hasOwnValidator#()Z" />
-      <node id="1480846759627693532" at="43,85,48,9" concept="5" />
+      <node id="1480846759627693532" at="43,86,48,9" concept="5" />
       <node id="1480846759627689858" at="51,0,57,0" concept="3" trace="getSpecifiedProperties#()Ljava/util/Map;" />
-      <node id="1480846759627689859" at="43,0,50,0" concept="7" trace="staticValidateProperty#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Z" />
-      <node id="1480846759627689859" at="35,0,43,0" concept="3" trace="validateValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Z" />
+      <node id="1480846759627689859" at="43,0,50,0" concept="7" trace="staticValidateProperty#(Lorg/jetbrains/mps/openapi/model/SNode;Z)Z" />
+      <node id="1480846759627689859" at="35,0,43,0" concept="3" trace="validateValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Z" />
       <scope id="1480846759627689858" at="22,30,23,156" />
       <scope id="1480846759627689859" at="27,64,28,152" />
       <scope id="1480846759627689859" at="31,38,32,18" />
@@ -55,7 +55,7 @@
       <scope id="1480846759627689859" at="36,109,41,20">
         <var name="result" id="1480846759627689859" />
       </scope>
-      <scope id="1480846759627689862" at="43,85,48,9" />
+      <scope id="1480846759627689862" at="43,86,48,9" />
       <scope id="1480846759627689858" at="51,0,57,0" />
       <scope id="1480846759627689859" at="43,0,50,0">
         <var name="node" id="1480846759627689859" />
@@ -66,7 +66,7 @@
         <var name="node" id="1480846759627689859" />
         <var name="propertyValue" id="1480846759627689859" />
       </scope>
-      <unit id="1480846759627733070" at="44,321,48,7" name="jetbrains.mps.samples.StateChart.constraints.State_Constraints$IsInitial_Property$1" />
+      <unit id="1480846759627733070" at="44,287,48,7" name="jetbrains.mps.samples.StateChart.constraints.State_Constraints$IsInitial_Property$1" />
       <unit id="1480846759627689859" at="26,0,51,0" name="jetbrains.mps.samples.StateChart.constraints.State_Constraints$IsInitial_Property" />
       <unit id="1480846759627689858" at="21,0,58,0" name="jetbrains.mps.samples.StateChart.constraints.State_Constraints" />
     </file>

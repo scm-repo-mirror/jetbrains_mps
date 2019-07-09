@@ -30,15 +30,15 @@ public class LiteralMessageExpression_Constraints extends BaseConstraintsDescrip
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:a692cc04-06b7-49e7-9956-49ba1dc83c45(jetbrains.mps.lang.messages.constraints)", "5258059200641965863");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return (SPropertyOperations.getString(propertyValue)).matches("([^%]|\\\\%)*");
+      return propertyValue.matches("([^%]|\\\\%)*");
     }
   }
   @Override

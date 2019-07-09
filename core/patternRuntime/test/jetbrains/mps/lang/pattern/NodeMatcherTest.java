@@ -68,14 +68,14 @@ public class NodeMatcherTest {
 
     ValueContainer vc = new ValueContainer();
     final NodeMatcher top = new NodeMatcher(vc);
-    top.property(p1, "top1").property(p2, "top2").child(ourC1Child1).at(1).property(p1, "cp1").property(p2, "cp2");
+    top.property(p1, "top1").propertyValue(p2, "top2").child(ourC1Child1).at(1).propertyValue(p1, "cp1").propertyValue(p2, "cp2");
 
     final boolean matched = top.match(patternNode, actualNode);
     myErrors.checkThat("Shall match", matched, Matchers.equalTo(true));
-    myErrors.checkThat(vc.getProperty("top1"), Matchers.equalTo("true"));
-    myErrors.checkThat(vc.getProperty("top2"), Matchers.equalTo("yes"));
-    myErrors.checkThat(vc.getProperty("cp1"), Matchers.equalTo("One"));
-    myErrors.checkThat(vc.getProperty("cp2"), Matchers.equalTo("Two"));
+    myErrors.checkThat(vc.getPropertyValue("top1"), Matchers.equalTo("true"));
+    myErrors.checkThat(vc.getPropertyValue("top2"), Matchers.equalTo("yes"));
+    myErrors.checkThat(vc.getPropertyValue("cp1"), Matchers.equalTo("One"));
+    myErrors.checkThat(vc.getPropertyValue("cp2"), Matchers.equalTo("Two"));
   }
 
   @Test
@@ -222,9 +222,9 @@ public class NodeMatcherTest {
 
     ValueContainer vc = new ValueContainer();
     final NodeMatcher top = new NodeMatcher(vc);
-    top.capture("TopNodeVar").property(p, "PropertyVar").
+    top.capture("TopNodeVar").propertyValue(p, "PropertyVar").
         child(ourC1Child1).
-        at(0).capture("firstChild").property(p, "ChildName").done().
+        at(0).capture("firstChild").propertyValue(p, "ChildName").done().
         done().
         child(ourC1Child2).capture("list");
 
@@ -244,8 +244,8 @@ public class NodeMatcherTest {
     }
     myErrors.checkThat(vc.getNode("firstChild"), Matchers.equalTo(actualChild));
     myErrors.checkThat(vc.getNode("TopNodeVar"), Matchers.equalTo(actualNode));
-    myErrors.checkThat(vc.getProperty("PropertyVar"), Matchers.equalTo("ActualTopNodeName"));
-    myErrors.checkThat(vc.getProperty("ChildName"), Matchers.equalTo("ActualChildOne"));
+    myErrors.checkThat(vc.getPropertyValue("PropertyVar"), Matchers.equalTo("ActualTopNodeName"));
+    myErrors.checkThat(vc.getPropertyValue("ChildName"), Matchers.equalTo("ActualChildOne"));
   }
 
   /*

@@ -5,47 +5,60 @@ package jetbrains.mps.lang.editor.structure;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptorBase;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptor;
+import jetbrains.mps.lang.smodel.EnumerationLiteralsIndex;
+import java.util.List;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
-import java.util.Collection;
-import java.util.Arrays;
 
 public class EnumerationDescriptor__ImageAlignment_Enum extends EnumerationDescriptorBase {
 
   public EnumerationDescriptor__ImageAlignment_Enum() {
-    super(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1095e10780bL, "_ImageAlignment_Enum", "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/1139744471051", PrimitiveTypeId.STRING);
+    super(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1095e10780bL, "_ImageAlignment_Enum", "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/4241665505353446106", PrimitiveTypeId.STRING);
   }
 
-  private final EnumerationDescriptor.MemberDescriptor VALUE_justify_0 = new EnumerationDescriptor.MemberDescriptor("justify", "alignmentJustify", "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/1139744471411", "alignmentJustify");
-  private final EnumerationDescriptor.MemberDescriptor VALUE_center_0 = new EnumerationDescriptor.MemberDescriptor("center", "alignmentCenter", "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/1139744531598", "alignmentCenter");
-  private final EnumerationDescriptor.MemberDescriptor VALUE_tile_0 = new EnumerationDescriptor.MemberDescriptor("tile", "alignmentTile", "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/1139744545740", "alignmentTile");
+  private final EnumerationDescriptor.MemberDescriptor myMember_justify_0 = new EnumerationDescriptor.MemberDescriptor("justify", "alignmentJustify", 0x1095e107973L, "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/4241665505353446108", "alignmentJustify", "justify");
+  private final EnumerationDescriptor.MemberDescriptor myMember_center_0 = new EnumerationDescriptor.MemberDescriptor("center", "alignmentCenter", 0x1095e11648eL, "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/4241665505353446109", "alignmentCenter", "center");
+  private final EnumerationDescriptor.MemberDescriptor myMember_tile_0 = new EnumerationDescriptor.MemberDescriptor("tile", "alignmentTile", 0x1095e119bccL, "r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)/4241665505353446110", "alignmentTile", "tile");
+
+  private final EnumerationLiteralsIndex myIndex = EnumerationLiteralsIndex.build(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1095e10780bL, 0x1095e107973L, 0x1095e11648eL, 0x1095e119bccL);
+  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMember_justify_0, myMember_center_0, myMember_tile_0);
 
   @Nullable
   @Override
   public EnumerationDescriptor.MemberDescriptor getDefault() {
-    return VALUE_justify_0;
+    return myMember_justify_0;
   }
 
   @NotNull
   @Override
-  public Collection<EnumerationDescriptor.MemberDescriptor> getMembers() {
-    return Arrays.asList(VALUE_justify_0, VALUE_center_0, VALUE_tile_0);
+  public List<EnumerationDescriptor.MemberDescriptor> getMembers() {
+    return myMembers;
   }
 
   @Nullable
   @Override
-  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String string) {
-    if (string == null) {
+  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String memberName) {
+    if (memberName == null) {
       return null;
     }
-    switch (string) {
+    switch (memberName) {
       case "justify":
-        return VALUE_justify_0;
+        return myMember_justify_0;
       case "center":
-        return VALUE_center_0;
+        return myMember_center_0;
       case "tile":
-        return VALUE_tile_0;
+        return myMember_tile_0;
     }
     return null;
+  }
+
+  @Nullable
+  @Override
+  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {
+    int index = myIndex.index(idValue);
+    if (index == -1) {
+      return null;
+    }
+    return myMembers.get(index);
   }
 }

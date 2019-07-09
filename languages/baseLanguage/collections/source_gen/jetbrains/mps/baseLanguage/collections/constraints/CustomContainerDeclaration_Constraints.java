@@ -30,16 +30,16 @@ public class CustomContainerDeclaration_Constraints extends BaseConstraintsDescr
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590328(jetbrains.mps.baseLanguage.collections.constraints)", "6099516049395208154");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      for (int i = 0; i < (SPropertyOperations.getString(propertyValue)).length(); i++) {
-        char c = (SPropertyOperations.getString(propertyValue)).charAt(i);
+      for (int i = 0; i < propertyValue.length(); i++) {
+        char c = propertyValue.charAt(i);
         if (!(((i == 0 && Character.isJavaIdentifierStart(c)) || (i > 0 && Character.isJavaIdentifierPart(c))))) {
           return false;
         }

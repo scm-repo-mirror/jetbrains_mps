@@ -8,6 +8,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.project.MPSProject;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -18,7 +19,7 @@ public class ShowHelpForNode_Action extends BaseAction {
   public ShowHelpForNode_Action() {
     super("Show Help for Node", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -38,6 +39,12 @@ public class ShowHelpForNode_Action extends BaseAction {
       return false;
     }
     {
+      MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
+      if (p == null) {
+        return false;
+      }
+    }
+    {
       SModel p = event.getData(MPSCommonDataKeys.CONTEXT_MODEL);
     }
     {
@@ -53,6 +60,10 @@ public class ShowHelpForNode_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    HelpHelper.showHelpForNode(event.getData(MPSCommonDataKeys.NODE));
+    event.getData(MPSCommonDataKeys.MPS_PROJECT).getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        HelpHelper.showHelpForNode(event.getData(MPSCommonDataKeys.NODE));
+      }
+    });
   }
 }

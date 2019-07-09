@@ -43,6 +43,7 @@
     <copy todir="${build.layout}/lib">
       <fileset dir="${artifacts.mpsWorkbench}/lib" />
     </copy>
+    <copy file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" todir="${build.layout}/lib" />
     <mkdir dir="${build.layout}/license" />
     <copy todir="${build.layout}/license">
       <fileset dir="${basedir}/license" />
@@ -59,6 +60,10 @@
     <mkdir dir="${build.layout}/plugins/terminal" />
     <copy todir="${build.layout}/plugins/terminal">
       <fileset dir="${basedir}/plugins/terminal" />
+    </copy>
+    <mkdir dir="${build.layout}/plugins/java" />
+    <copy todir="${build.layout}/plugins/java">
+      <fileset dir="${basedir}/plugins/java" />
     </copy>
     <echo file="${build.layout}/build.properties">mpsBootstrapCore.version=${mpsBootstrapCore.version}</echo>
   </target>

@@ -92,7 +92,7 @@ public class Template_reduce_SPropertyAccess extends TemplateDeclarationBase imp
       {
         final SNode tnode9 = environment.createOutputNode(myConcepts[1]);
         try {
-          tnode9.setReference(myAssociationLinks[0], SReference.create(myAssociationLinks[0], tnode9, PersistenceFacade.getInstance().createModelReference("r:c3548bac-30eb-4a2a-937c-0111d5697309(jetbrains.mps.lang.smodel.generator.smodelAdapter)"), PersistenceFacade.getInstance().createNodeId("6599163591527298519")));
+          tnode9.setReference(myAssociationLinks[0], SReference.create(myAssociationLinks[0], tnode9, PersistenceFacade.getInstance().createModelReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.lang.smodel.generator.smodelAdapter(MPS.Core/)"), PersistenceFacade.getInstance().createNodeId("~SPropertyOperations")));
           environment.resolve(new RefResolver(tnode9, myAssociationLinks[1], context1, new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "5834820604012870031"), "stringPropRef") {
             @Override
             public Object resolve() {

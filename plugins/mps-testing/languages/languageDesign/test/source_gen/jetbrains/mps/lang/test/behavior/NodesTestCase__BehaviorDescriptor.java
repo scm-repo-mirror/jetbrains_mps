@@ -32,7 +32,7 @@ public final class NodesTestCase__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<List<SNode>> getTestMethods_id1RfJDyhAUar = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getTestMethods").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1RfJDyhAUar").build();
   public static final SMethod<Boolean> isIntentionApplicable_idhHDM9no = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isIntentionApplicable").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hHDM9no").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<String> getTestBodyName_idhOw0ICJ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getTestBodyName").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hOw0ICJ").build();
-  public static final SMethod<Boolean> needsWriteAction_id5vTxdEzuQjU = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("needsWriteAction").modifiers(SModifiersImpl.create(2, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vTxdEzuQjU").build();
+  public static final SMethod<Boolean> needsWriteAction_id5vTxdEzuQjU = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("needsWriteAction").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vTxdEzuQjU").build();
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTestSet_idhGB2z8L, isMpsStartRequired_id2RMg39tmiFh, getTestMethods_id1RfJDyhAUar, isIntentionApplicable_idhHDM9no, getTestBodyName_idhOw0ICJ, needsWriteAction_id5vTxdEzuQjU);
 
@@ -56,8 +56,7 @@ public final class NodesTestCase__BehaviorDescriptor extends BaseBHDescriptor {
     return ITestCase__BehaviorDescriptor.getTestSet_idhGB2z8L.invoke(__thisNode__);
   }
   /*package*/ static boolean isIntentionApplicable_idhHDM9no(@NotNull SAbstractConcept __thisConcept__, SNode node) {
-    SNode test = SNodeOperations.getNodeAncestorWhereConceptInList(node, new SAbstractConcept[]{MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode"), MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, "jetbrains.mps.lang.test.structure.EditorTestCase")}, true, false);
-    return test != null;
+    return (SNodeOperations.getNodeAncestor(node, MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode"), false, false) != null);
   }
   /*package*/ static String getTestBodyName_idhOw0ICJ(@NotNull SAbstractConcept __thisConcept__) {
     return "TestBody";

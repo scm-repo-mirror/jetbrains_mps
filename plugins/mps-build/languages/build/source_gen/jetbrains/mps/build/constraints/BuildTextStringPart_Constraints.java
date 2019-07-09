@@ -46,8 +46,8 @@ public class BuildTextStringPart_Constraints extends BaseConstraintsDescriptor {
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:5076fdb3-19c3-4563-aa26-7ace7591e78d(jetbrains.mps.build.constraints)", "9184644532456897313");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
@@ -56,9 +56,9 @@ public class BuildTextStringPart_Constraints extends BaseConstraintsDescriptor {
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
       SNode container = BuildTextStringPart__BehaviorDescriptor.getContainer_id5hFYqIiYHaE.invoke(node);
       if (container != null) {
-        return (boolean) BuildStringContainer__BehaviorDescriptor.isValidPart_id7XQqoCTkVIS.invoke(container, (SPropertyOperations.getString(propertyValue)), SNodeOperations.getParent(node).getContainmentLink());
+        return (boolean) BuildStringContainer__BehaviorDescriptor.isValidPart_id7XQqoCTkVIS.invoke(container, propertyValue, SNodeOperations.getParent(node).getContainmentLink());
       }
-      return !((SPropertyOperations.getString(propertyValue)).contains("$"));
+      return !(propertyValue.contains("$"));
     }
   }
   @Override

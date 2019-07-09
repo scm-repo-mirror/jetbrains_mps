@@ -137,9 +137,7 @@
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
       <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
         <reference id="5455284157993911078" name="property" index="2pJxcJ" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -179,7 +177,6 @@
       </concept>
       <concept id="1216390987552" name="jetbrains.mps.lang.typesystem.structure.QuickFixDescriptionBlock" flags="in" index="QznSV" />
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
-        <property id="1195213689297" name="overrides" index="18ip37" />
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
@@ -202,6 +199,12 @@
       </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
+      <concept id="4705942098322609812" name="jetbrains.mps.lang.smodel.structure.EnumMember_IsOperation" flags="ng" index="21noJN">
+        <child id="4705942098322609813" name="member" index="21noJM" />
+      </concept>
+      <concept id="4705942098322467729" name="jetbrains.mps.lang.smodel.structure.EnumMemberReference" flags="ng" index="21nZrQ">
+        <reference id="4705942098322467736" name="decl" index="21nZrZ" />
+      </concept>
       <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
         <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
       </concept>
@@ -209,9 +212,6 @@
         <child id="1144104376918" name="parameter" index="1xVPHs" />
       </concept>
       <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
-      <concept id="1138676077309" name="jetbrains.mps.lang.smodel.structure.EnumMemberReference" flags="nn" index="uoxfO">
-        <reference id="1138676095763" name="enumMember" index="uo_Cq" />
-      </concept>
       <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
         <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
         <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
@@ -223,9 +223,6 @@
       <concept id="1139613262185" name="jetbrains.mps.lang.smodel.structure.Node_GetParentOperation" flags="nn" index="1mfA1w" />
       <concept id="1139621453865" name="jetbrains.mps.lang.smodel.structure.Node_IsInstanceOfOperation" flags="nn" index="1mIQ4w">
         <child id="1177027386292" name="conceptArgument" index="cj9EA" />
-      </concept>
-      <concept id="1146171026731" name="jetbrains.mps.lang.smodel.structure.Property_HasValue_Enum" flags="nn" index="3t7uKx">
-        <child id="1146171026732" name="value" index="3t7uKA" />
       </concept>
       <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
       <concept id="1144101972840" name="jetbrains.mps.lang.smodel.structure.OperationParm_Concept" flags="ng" index="1xMEDy">
@@ -872,12 +869,12 @@
               <ref role="1YBMHb" node="1HQQX4XU$oz" resolve="tarArchive" />
             </node>
             <node concept="3TrcHB" id="1HQQX4XU$qL" role="2OqNvi">
-              <ref role="3TsBF5" to="3ior:1HQQX4XU8$C" resolve="compression" />
+              <ref role="3TsBF5" to="3ior:3Ftr4R6BHaf" resolve="compression" />
             </node>
           </node>
-          <node concept="3t7uKx" id="1HQQX4XU$rd" role="2OqNvi">
-            <node concept="uoxfO" id="1HQQX4XU$re" role="3t7uKA">
-              <ref role="uo_Cq" to="3ior:1HQQX4XU8$B" />
+          <node concept="21noJN" id="3Ftr4R8HfaS" role="2OqNvi">
+            <node concept="21nZrQ" id="3Ftr4R8HfaT" role="21noJM">
+              <ref role="21nZrZ" to="3ior:3Ftr4R6BFE2" resolve="bzip2" />
             </node>
           </node>
         </node>
@@ -888,12 +885,12 @@
                 <ref role="1YBMHb" node="1HQQX4XU$oz" resolve="tarArchive" />
               </node>
               <node concept="3TrcHB" id="1HQQX4XU$s7" role="2OqNvi">
-                <ref role="3TsBF5" to="3ior:1HQQX4XU8$C" resolve="compression" />
+                <ref role="3TsBF5" to="3ior:3Ftr4R6BHaf" resolve="compression" />
               </node>
             </node>
-            <node concept="3t7uKx" id="1HQQX4XU$sz" role="2OqNvi">
-              <node concept="uoxfO" id="1HQQX4XU$s$" role="3t7uKA">
-                <ref role="uo_Cq" to="3ior:1HQQX4XU8$A" />
+            <node concept="21noJN" id="3Ftr4R8HfaU" role="2OqNvi">
+              <node concept="21nZrQ" id="3Ftr4R8HfaV" role="21noJM">
+                <ref role="21nZrZ" to="3ior:3Ftr4R6BFE1" resolve="gzip" />
               </node>
             </node>
           </node>
@@ -1153,7 +1150,7 @@
                         <ref role="2pJxaS" to="3ior:4gdvEeQyRO3" resolve="BuildTextStringPart" />
                         <node concept="2pJxcG" id="7wjXRnJXRW2" role="2pJxcM">
                           <ref role="2pJxcJ" to="3ior:4gdvEeQz4Pm" resolve="text" />
-                          <node concept="QwW4i" id="1HQQX4XUAaW" role="2pJxcZ">
+                          <node concept="QwW4i" id="1HQQX4XUAaW" role="28ntcv">
                             <ref role="QwW4h" node="1HQQX4XU_TO" resolve="newExtension" />
                           </node>
                         </node>
@@ -1272,7 +1269,6 @@
     </node>
   </node>
   <node concept="18kY7G" id="1HQQX4XUAXV">
-    <property role="18ip37" value="true" />
     <property role="TrG5h" value="check_BuildLayout_Jar" />
     <property role="3GE5qa" value="Layout.Java" />
     <node concept="3clFbS" id="1HQQX4XUAXW" role="18ibNy">

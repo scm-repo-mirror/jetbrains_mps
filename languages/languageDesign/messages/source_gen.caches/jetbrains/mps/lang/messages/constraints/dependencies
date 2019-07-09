@@ -39,6 +39,7 @@
     <classNode extendsClassName="jetbrains.mps.core.aspects.constraints.rules.RulesConstraintsAspect" />
   </dependency>
   <dependency className="jetbrains.mps.lang.messages.constraints.LiteralMessageExpression_Constraints">
+    <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.HashMap" />

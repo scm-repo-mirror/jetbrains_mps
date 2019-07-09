@@ -1398,88 +1398,88 @@
   </root>
   <root nodeRef="r:f27d9626-8ef5-4cba-bce0-6aa6369f05ff(jetbrains.mps.lang.editor.completion.test)/3631615103242228896">
     <file name="TestEditorMenuTraceEnumPropertyDefaultEditor_Test.java">
-      <node id="3631615103242228896" at="27,62,28,25" concept="9" />
-      <node id="3631615103242228896" at="32,84,33,86" concept="1" />
-      <node id="3631615103242228896" at="38,52,39,19" concept="9" />
-      <node id="3631615103242228896" at="43,51,44,72" concept="1" />
-      <node id="3631615103242228902" at="44,72,45,71" concept="1" />
-      <node id="3631615103242228904" at="45,71,46,26" concept="1" />
-      <node id="3631615103242228917" at="48,27,49,89" concept="1" />
-      <node id="3631615103242228923" at="49,89,50,126" concept="4" />
-      <node id="3631615103242228934" at="50,126,51,44" concept="1" />
-      <node id="3631615103242228938" at="51,44,52,0" concept="6" />
-      <node id="3631615103242228939" at="52,0,53,84" concept="4" />
-      <node id="3631615103242228945" at="53,84,54,395" concept="4" />
-      <node id="3631615103242228959" at="54,395,55,97" concept="1" />
-      <node id="3631615103242228896" at="24,0,26,0" concept="7" trace="ourParamCache" />
-      <node id="3631615103242228896" at="27,0,30,0" concept="0" trace="TestEditorMenuTraceEnumPropertyDefaultEditor_Test#()V" />
-      <node id="3631615103242228896" at="38,0,41,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="3631615103242228896" at="31,0,35,0" concept="3" trace="test_TestEditorMenuTraceEnumPropertyDefaultEditor#()V" />
-      <node id="3631615103242228915" at="48,0,57,0" concept="3" trace="run#()V" />
-      <node id="3631615103242228905" at="46,26,57,9" concept="1" />
-      <node id="3631615103242228896" at="42,0,59,0" concept="3" trace="testMethodImpl#()V" />
-      <scope id="3631615103242228896" at="27,62,28,25" />
-      <scope id="3631615103242228896" at="32,84,33,86" />
-      <scope id="3631615103242228896" at="38,52,39,19" />
-      <scope id="3631615103242228896" at="27,0,30,0" />
-      <scope id="3631615103242228896" at="38,0,41,0">
+      <node id="3631615103242228896" at="24,62,25,25" concept="9" />
+      <node id="3631615103242228896" at="29,84,30,86" concept="1" />
+      <node id="3631615103242228896" at="35,52,36,19" concept="9" />
+      <node id="3631615103242228896" at="40,51,41,72" concept="1" />
+      <node id="3631615103242228902" at="41,72,42,71" concept="1" />
+      <node id="3631615103242228904" at="42,71,43,26" concept="1" />
+      <node id="3631615103242228917" at="45,27,46,89" concept="1" />
+      <node id="3631615103242228923" at="46,89,47,126" concept="4" />
+      <node id="3631615103242228934" at="47,126,48,44" concept="1" />
+      <node id="3631615103242228938" at="48,44,49,0" concept="6" />
+      <node id="3631615103242228939" at="49,0,50,84" concept="4" />
+      <node id="3631615103242228945" at="50,84,51,179" concept="4" />
+      <node id="3631615103242228959" at="51,179,52,97" concept="1" />
+      <node id="3631615103242228896" at="21,0,23,0" concept="7" trace="ourParamCache" />
+      <node id="3631615103242228896" at="24,0,27,0" concept="0" trace="TestEditorMenuTraceEnumPropertyDefaultEditor_Test#()V" />
+      <node id="3631615103242228896" at="35,0,38,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="3631615103242228896" at="28,0,32,0" concept="3" trace="test_TestEditorMenuTraceEnumPropertyDefaultEditor#()V" />
+      <node id="3631615103242228915" at="45,0,54,0" concept="3" trace="run#()V" />
+      <node id="3631615103242228905" at="43,26,54,9" concept="1" />
+      <node id="3631615103242228896" at="39,0,56,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="3631615103242228896" at="24,62,25,25" />
+      <scope id="3631615103242228896" at="29,84,30,86" />
+      <scope id="3631615103242228896" at="35,52,36,19" />
+      <scope id="3631615103242228896" at="24,0,27,0" />
+      <scope id="3631615103242228896" at="35,0,38,0">
         <var name="owner" id="3631615103242228896" />
       </scope>
-      <scope id="3631615103242228896" at="31,0,35,0" />
-      <scope id="3631615103242228916" at="48,27,55,97">
+      <scope id="3631615103242228896" at="28,0,32,0" />
+      <scope id="3631615103242228916" at="45,27,52,97">
         <var name="action" id="3631615103242228924" />
         <var name="editorMenuTraceInfo" id="3631615103242228940" />
         <var name="enumMemberDeclaration" id="3631615103242228946" />
       </scope>
-      <scope id="3631615103242228915" at="48,0,57,0" />
-      <scope id="3631615103242228896" at="43,51,57,9" />
-      <scope id="3631615103242228896" at="42,0,59,0" />
-      <unit id="3631615103242228915" at="47,97,57,7" name="jetbrains.mps.lang.editor.completion.test.TestEditorMenuTraceEnumPropertyDefaultEditor_Test$TestBody$1" />
-      <unit id="3631615103242228896" at="36,0,60,0" name="jetbrains.mps.lang.editor.completion.test.TestEditorMenuTraceEnumPropertyDefaultEditor_Test$TestBody" />
-      <unit id="3631615103242228896" at="22,0,61,0" name="jetbrains.mps.lang.editor.completion.test.TestEditorMenuTraceEnumPropertyDefaultEditor_Test" />
+      <scope id="3631615103242228915" at="45,0,54,0" />
+      <scope id="3631615103242228896" at="40,51,54,9" />
+      <scope id="3631615103242228896" at="39,0,56,0" />
+      <unit id="3631615103242228915" at="44,97,54,7" name="jetbrains.mps.lang.editor.completion.test.TestEditorMenuTraceEnumPropertyDefaultEditor_Test$TestBody$1" />
+      <unit id="3631615103242228896" at="33,0,57,0" name="jetbrains.mps.lang.editor.completion.test.TestEditorMenuTraceEnumPropertyDefaultEditor_Test$TestBody" />
+      <unit id="3631615103242228896" at="19,0,58,0" name="jetbrains.mps.lang.editor.completion.test.TestEditorMenuTraceEnumPropertyDefaultEditor_Test" />
     </file>
   </root>
   <root nodeRef="r:f27d9626-8ef5-4cba-bce0-6aa6369f05ff(jetbrains.mps.lang.editor.completion.test)/3631615103242345660">
     <file name="TestEditorMenuTraceEnumPropertyRegularEditor_Test.java">
-      <node id="3631615103242345660" at="27,62,28,25" concept="9" />
-      <node id="3631615103242345660" at="32,84,33,86" concept="1" />
-      <node id="3631615103242345660" at="38,52,39,19" concept="9" />
-      <node id="3631615103242345660" at="43,51,44,72" concept="1" />
-      <node id="3631615103242345666" at="44,72,45,71" concept="1" />
-      <node id="3631615103242345668" at="45,71,46,26" concept="1" />
-      <node id="3631615103242345681" at="48,27,49,89" concept="1" />
-      <node id="3631615103242345687" at="49,89,50,126" concept="4" />
-      <node id="3631615103242345698" at="50,126,51,44" concept="1" />
-      <node id="3631615103242345702" at="51,44,52,0" concept="6" />
-      <node id="3631615103242345703" at="52,0,53,84" concept="4" />
-      <node id="3631615103242345709" at="53,84,54,395" concept="4" />
-      <node id="3631615103242345720" at="54,395,55,103" concept="1" />
-      <node id="3631615103242345660" at="24,0,26,0" concept="7" trace="ourParamCache" />
-      <node id="3631615103242345660" at="27,0,30,0" concept="0" trace="TestEditorMenuTraceEnumPropertyRegularEditor_Test#()V" />
-      <node id="3631615103242345660" at="38,0,41,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="3631615103242345660" at="31,0,35,0" concept="3" trace="test_TestEditorMenuTraceEnumPropertyRegularEditor#()V" />
-      <node id="3631615103242345679" at="48,0,57,0" concept="3" trace="run#()V" />
-      <node id="3631615103242345669" at="46,26,57,9" concept="1" />
-      <node id="3631615103242345660" at="42,0,59,0" concept="3" trace="testMethodImpl#()V" />
-      <scope id="3631615103242345660" at="27,62,28,25" />
-      <scope id="3631615103242345660" at="32,84,33,86" />
-      <scope id="3631615103242345660" at="38,52,39,19" />
-      <scope id="3631615103242345660" at="27,0,30,0" />
-      <scope id="3631615103242345660" at="38,0,41,0">
+      <node id="3631615103242345660" at="24,62,25,25" concept="9" />
+      <node id="3631615103242345660" at="29,84,30,86" concept="1" />
+      <node id="3631615103242345660" at="35,52,36,19" concept="9" />
+      <node id="3631615103242345660" at="40,51,41,72" concept="1" />
+      <node id="3631615103242345666" at="41,72,42,71" concept="1" />
+      <node id="3631615103242345668" at="42,71,43,26" concept="1" />
+      <node id="3631615103242345681" at="45,27,46,89" concept="1" />
+      <node id="3631615103242345687" at="46,89,47,126" concept="4" />
+      <node id="3631615103242345698" at="47,126,48,44" concept="1" />
+      <node id="3631615103242345702" at="48,44,49,0" concept="6" />
+      <node id="3631615103242345703" at="49,0,50,84" concept="4" />
+      <node id="4781114563256093831" at="50,84,51,179" concept="4" />
+      <node id="3631615103242345720" at="51,179,52,103" concept="1" />
+      <node id="3631615103242345660" at="21,0,23,0" concept="7" trace="ourParamCache" />
+      <node id="3631615103242345660" at="24,0,27,0" concept="0" trace="TestEditorMenuTraceEnumPropertyRegularEditor_Test#()V" />
+      <node id="3631615103242345660" at="35,0,38,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="3631615103242345660" at="28,0,32,0" concept="3" trace="test_TestEditorMenuTraceEnumPropertyRegularEditor#()V" />
+      <node id="3631615103242345679" at="45,0,54,0" concept="3" trace="run#()V" />
+      <node id="3631615103242345669" at="43,26,54,9" concept="1" />
+      <node id="3631615103242345660" at="39,0,56,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="3631615103242345660" at="24,62,25,25" />
+      <scope id="3631615103242345660" at="29,84,30,86" />
+      <scope id="3631615103242345660" at="35,52,36,19" />
+      <scope id="3631615103242345660" at="24,0,27,0" />
+      <scope id="3631615103242345660" at="35,0,38,0">
         <var name="owner" id="3631615103242345660" />
       </scope>
-      <scope id="3631615103242345660" at="31,0,35,0" />
-      <scope id="3631615103242345680" at="48,27,55,103">
+      <scope id="3631615103242345660" at="28,0,32,0" />
+      <scope id="3631615103242345680" at="45,27,52,103">
         <var name="action" id="3631615103242345688" />
         <var name="editorMenuTraceInfo" id="3631615103242345704" />
-        <var name="enumMemberDeclaration" id="3631615103242345710" />
+        <var name="enumMemberDeclaration" id="4781114563256093832" />
       </scope>
-      <scope id="3631615103242345679" at="48,0,57,0" />
-      <scope id="3631615103242345660" at="43,51,57,9" />
-      <scope id="3631615103242345660" at="42,0,59,0" />
-      <unit id="3631615103242345679" at="47,97,57,7" name="jetbrains.mps.lang.editor.completion.test.TestEditorMenuTraceEnumPropertyRegularEditor_Test$TestBody$1" />
-      <unit id="3631615103242345660" at="36,0,60,0" name="jetbrains.mps.lang.editor.completion.test.TestEditorMenuTraceEnumPropertyRegularEditor_Test$TestBody" />
-      <unit id="3631615103242345660" at="22,0,61,0" name="jetbrains.mps.lang.editor.completion.test.TestEditorMenuTraceEnumPropertyRegularEditor_Test" />
+      <scope id="3631615103242345679" at="45,0,54,0" />
+      <scope id="3631615103242345660" at="40,51,54,9" />
+      <scope id="3631615103242345660" at="39,0,56,0" />
+      <unit id="3631615103242345679" at="44,97,54,7" name="jetbrains.mps.lang.editor.completion.test.TestEditorMenuTraceEnumPropertyRegularEditor_Test$TestBody$1" />
+      <unit id="3631615103242345660" at="33,0,57,0" name="jetbrains.mps.lang.editor.completion.test.TestEditorMenuTraceEnumPropertyRegularEditor_Test$TestBody" />
+      <unit id="3631615103242345660" at="19,0,58,0" name="jetbrains.mps.lang.editor.completion.test.TestEditorMenuTraceEnumPropertyRegularEditor_Test" />
     </file>
   </root>
   <root nodeRef="r:f27d9626-8ef5-4cba-bce0-6aa6369f05ff(jetbrains.mps.lang.editor.completion.test)/391899783184196706">
@@ -1784,6 +1784,88 @@
       <unit id="775415105914245930" at="48,97,58,7" name="jetbrains.mps.lang.editor.completion.test.TestEditorMenuTraceSubstituteMenuConceptList_Test$TestBody$1" />
       <unit id="6292171174659934747" at="37,0,61,0" name="jetbrains.mps.lang.editor.completion.test.TestEditorMenuTraceSubstituteMenuConceptList_Test$TestBody" />
       <unit id="6292171174659934747" at="23,0,62,0" name="jetbrains.mps.lang.editor.completion.test.TestEditorMenuTraceSubstituteMenuConceptList_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:f27d9626-8ef5-4cba-bce0-6aa6369f05ff(jetbrains.mps.lang.editor.completion.test)/6999890265142408986">
+    <file name="CompleteSmart_Child_Test.java">
+      <node id="6999890265142408986" at="21,37,22,25" concept="9" />
+      <node id="6999890265142408986" at="26,59,27,61" concept="1" />
+      <node id="6999890265142408986" at="32,52,33,19" concept="9" />
+      <node id="6999890265142408986" at="37,51,38,72" concept="1" />
+      <node id="6999890265142408988" at="38,72,39,76" concept="1" />
+      <node id="6999890265143331190" at="39,76,40,162" concept="1" />
+      <node id="6999890265143316140" at="40,162,41,82" concept="1" />
+      <node id="6999890265142408986" at="18,0,20,0" concept="7" trace="ourParamCache" />
+      <node id="6999890265142408986" at="21,0,24,0" concept="0" trace="CompleteSmart_Child_Test#()V" />
+      <node id="6999890265142408986" at="32,0,35,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="6999890265142408986" at="25,0,29,0" concept="3" trace="test_CompleteSmart_Child#()V" />
+      <node id="6999890265142408986" at="36,0,43,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="6999890265142408986" at="21,37,22,25" />
+      <scope id="6999890265142408986" at="26,59,27,61" />
+      <scope id="6999890265142408986" at="32,52,33,19" />
+      <scope id="6999890265142408986" at="21,0,24,0" />
+      <scope id="6999890265142408986" at="32,0,35,0">
+        <var name="owner" id="6999890265142408986" />
+      </scope>
+      <scope id="6999890265142408986" at="25,0,29,0" />
+      <scope id="6999890265142408986" at="37,51,41,82" />
+      <scope id="6999890265142408986" at="36,0,43,0" />
+      <unit id="6999890265142408986" at="30,0,44,0" name="jetbrains.mps.lang.editor.completion.test.CompleteSmart_Child_Test$TestBody" />
+      <unit id="6999890265142408986" at="16,0,45,0" name="jetbrains.mps.lang.editor.completion.test.CompleteSmart_Child_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:f27d9626-8ef5-4cba-bce0-6aa6369f05ff(jetbrains.mps.lang.editor.completion.test)/6999890265143044315">
+    <file name="CompleteSmart_Reference_Test.java">
+      <node id="6999890265143044315" at="18,41,19,25" concept="9" />
+      <node id="6999890265143044315" at="23,63,24,65" concept="1" />
+      <node id="6999890265143044315" at="29,52,30,19" concept="9" />
+      <node id="6999890265143044315" at="34,51,35,72" concept="1" />
+      <node id="6999890265143345985" at="35,72,36,24" concept="1" />
+      <node id="6999890265143044317" at="36,24,37,76" concept="1" />
+      <node id="6999890265143044315" at="15,0,17,0" concept="7" trace="ourParamCache" />
+      <node id="6999890265143044315" at="18,0,21,0" concept="0" trace="CompleteSmart_Reference_Test#()V" />
+      <node id="6999890265143044315" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="6999890265143044315" at="22,0,26,0" concept="3" trace="test_CompleteSmart_Reference#()V" />
+      <node id="6999890265143044315" at="33,0,39,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="6999890265143044315" at="18,41,19,25" />
+      <scope id="6999890265143044315" at="23,63,24,65" />
+      <scope id="6999890265143044315" at="29,52,30,19" />
+      <scope id="6999890265143044315" at="18,0,21,0" />
+      <scope id="6999890265143044315" at="29,0,32,0">
+        <var name="owner" id="6999890265143044315" />
+      </scope>
+      <scope id="6999890265143044315" at="34,51,37,76" />
+      <scope id="6999890265143044315" at="22,0,26,0" />
+      <scope id="6999890265143044315" at="33,0,39,0" />
+      <unit id="6999890265143044315" at="27,0,40,0" name="jetbrains.mps.lang.editor.completion.test.CompleteSmart_Reference_Test$TestBody" />
+      <unit id="6999890265143044315" at="13,0,41,0" name="jetbrains.mps.lang.editor.completion.test.CompleteSmart_Reference_Test" />
+    </file>
+  </root>
+  <root nodeRef="r:f27d9626-8ef5-4cba-bce0-6aa6369f05ff(jetbrains.mps.lang.editor.completion.test)/6999890265143052298">
+    <file name="CompleteSmart_SmartReference_Test.java">
+      <node id="6999890265143052298" at="18,46,19,25" concept="9" />
+      <node id="6999890265143052298" at="23,68,24,70" concept="1" />
+      <node id="6999890265143052298" at="29,52,30,19" concept="9" />
+      <node id="6999890265143052298" at="34,51,35,72" concept="1" />
+      <node id="6999890265143346532" at="35,72,36,24" concept="1" />
+      <node id="6999890265143052300" at="36,24,37,76" concept="1" />
+      <node id="6999890265143052298" at="15,0,17,0" concept="7" trace="ourParamCache" />
+      <node id="6999890265143052298" at="18,0,21,0" concept="0" trace="CompleteSmart_SmartReference_Test#()V" />
+      <node id="6999890265143052298" at="29,0,32,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="6999890265143052298" at="22,0,26,0" concept="3" trace="test_CompleteSmart_SmartReference#()V" />
+      <node id="6999890265143052298" at="33,0,39,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="6999890265143052298" at="18,46,19,25" />
+      <scope id="6999890265143052298" at="23,68,24,70" />
+      <scope id="6999890265143052298" at="29,52,30,19" />
+      <scope id="6999890265143052298" at="18,0,21,0" />
+      <scope id="6999890265143052298" at="29,0,32,0">
+        <var name="owner" id="6999890265143052298" />
+      </scope>
+      <scope id="6999890265143052298" at="34,51,37,76" />
+      <scope id="6999890265143052298" at="22,0,26,0" />
+      <scope id="6999890265143052298" at="33,0,39,0" />
+      <unit id="6999890265143052298" at="27,0,40,0" name="jetbrains.mps.lang.editor.completion.test.CompleteSmart_SmartReference_Test$TestBody" />
+      <unit id="6999890265143052298" at="13,0,41,0" name="jetbrains.mps.lang.editor.completion.test.CompleteSmart_SmartReference_Test" />
     </file>
   </root>
   <root nodeRef="r:f27d9626-8ef5-4cba-bce0-6aa6369f05ff(jetbrains.mps.lang.editor.completion.test)/787021975296531738">

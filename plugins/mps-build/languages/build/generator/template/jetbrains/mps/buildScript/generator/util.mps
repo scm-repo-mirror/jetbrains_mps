@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="479c7a8c-02f9-43b5-9139-d910cb22f298" name="jetbrains.mps.core.xml" version="0" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="2" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -148,6 +148,9 @@
       </concept>
       <concept id="1196350785113" name="jetbrains.mps.lang.quotation.structure.Quotation" flags="nn" index="2c44tf">
         <child id="1196350785114" name="quotedNode" index="2c44tc" />
+      </concept>
+      <concept id="4056363777117001481" name="jetbrains.mps.lang.quotation.structure.StringToTypedValueMigrationInfo" flags="ng" index="AAgTk">
+        <property id="2173356959483005420" name="stringValueMigrated" index="3qcH_f" />
       </concept>
       <concept id="1196866233735" name="jetbrains.mps.lang.quotation.structure.PropertyAntiquotation" flags="ng" index="2EMmih" />
     </language>
@@ -1232,6 +1235,7 @@
                           <property role="2qtEX9" value="text" />
                           <property role="3hQQBS" value="XmlTextValue" />
                           <property role="P4ACc" value="479c7a8c-02f9-43b5-9139-d910cb22f298/6666499814681541919/6666499814681541920" />
+                          <property role="3qcH_f" value="true" />
                           <node concept="37vLTw" id="3GM_nagTtgC" role="2c44t1">
                             <ref role="3cqZAo" node="5bUGwboXCc1" resolve="val" />
                           </node>
@@ -1367,6 +1371,7 @@
                           <property role="2qtEX9" value="text" />
                           <property role="3hQQBS" value="XmlTextValue" />
                           <property role="P4ACc" value="479c7a8c-02f9-43b5-9139-d910cb22f298/6666499814681541919/6666499814681541920" />
+                          <property role="3qcH_f" value="true" />
                           <node concept="37vLTw" id="3GM_nagTwLP" role="2c44t1">
                             <ref role="3cqZAo" node="7B9bSSBH7jc" resolve="val" />
                           </node>

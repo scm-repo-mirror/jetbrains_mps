@@ -5,44 +5,57 @@ package jetbrains.mps.lang.editor.menus.style.testLanguage.structure;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptorBase;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptor;
+import jetbrains.mps.lang.smodel.EnumerationLiteralsIndex;
+import java.util.List;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
-import java.util.Collection;
-import java.util.Arrays;
 
 public class EnumerationDescriptor_TestCompletionCustomization_Enum extends EnumerationDescriptorBase {
 
   public EnumerationDescriptor_TestCompletionCustomization_Enum() {
-    super(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510b71ff4L, "TestCompletionCustomization_Enum", "r:6ffe895d-c627-4bc6-b29b-11834fa1d0d7(jetbrains.mps.lang.editor.menus.style.testLanguage.structure)/5310043668063133684", PrimitiveTypeId.STRING);
+    super(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510b71ff4L, "TestCompletionCustomization_Enum", "r:6ffe895d-c627-4bc6-b29b-11834fa1d0d7(jetbrains.mps.lang.editor.menus.style.testLanguage.structure)/4241665505353448647", PrimitiveTypeId.STRING);
   }
 
-  private final EnumerationDescriptor.MemberDescriptor VALUE_withpriority_0 = new EnumerationDescriptor.MemberDescriptor("with priority", "with priority", "r:6ffe895d-c627-4bc6-b29b-11834fa1d0d7(jetbrains.mps.lang.editor.menus.style.testLanguage.structure)/5310043668063133685", "with priority");
-  private final EnumerationDescriptor.MemberDescriptor VALUE_nopriority_0 = new EnumerationDescriptor.MemberDescriptor("no priority", "no priority", "r:6ffe895d-c627-4bc6-b29b-11834fa1d0d7(jetbrains.mps.lang.editor.menus.style.testLanguage.structure)/5310043668063133686", "no priority");
+  private final EnumerationDescriptor.MemberDescriptor myMember_with_priority_0 = new EnumerationDescriptor.MemberDescriptor("with_priority", "with priority", 0x49b1109510b71ff5L, "r:6ffe895d-c627-4bc6-b29b-11834fa1d0d7(jetbrains.mps.lang.editor.menus.style.testLanguage.structure)/4241665505353448649", "with priority", "with priority");
+  private final EnumerationDescriptor.MemberDescriptor myMember_no_priority_0 = new EnumerationDescriptor.MemberDescriptor("no_priority", "no priority", 0x49b1109510b71ff6L, "r:6ffe895d-c627-4bc6-b29b-11834fa1d0d7(jetbrains.mps.lang.editor.menus.style.testLanguage.structure)/4241665505353448650", "no priority", "no priority");
+
+  private final EnumerationLiteralsIndex myIndex = EnumerationLiteralsIndex.build(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510b71ff4L, 0x49b1109510b71ff5L, 0x49b1109510b71ff6L);
+  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMember_with_priority_0, myMember_no_priority_0);
 
   @Nullable
   @Override
   public EnumerationDescriptor.MemberDescriptor getDefault() {
-    return VALUE_withpriority_0;
+    return myMember_with_priority_0;
   }
 
   @NotNull
   @Override
-  public Collection<EnumerationDescriptor.MemberDescriptor> getMembers() {
-    return Arrays.asList(VALUE_withpriority_0, VALUE_nopriority_0);
+  public List<EnumerationDescriptor.MemberDescriptor> getMembers() {
+    return myMembers;
   }
 
   @Nullable
   @Override
-  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String string) {
-    if (string == null) {
+  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String memberName) {
+    if (memberName == null) {
       return null;
     }
-    switch (string) {
-      case "with priority":
-        return VALUE_withpriority_0;
-      case "no priority":
-        return VALUE_nopriority_0;
+    switch (memberName) {
+      case "with_priority":
+        return myMember_with_priority_0;
+      case "no_priority":
+        return myMember_no_priority_0;
     }
     return null;
+  }
+
+  @Nullable
+  @Override
+  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {
+    int index = myIndex.index(idValue);
+    if (index == -1) {
+      return null;
+    }
+    return myMembers.get(index);
   }
 }

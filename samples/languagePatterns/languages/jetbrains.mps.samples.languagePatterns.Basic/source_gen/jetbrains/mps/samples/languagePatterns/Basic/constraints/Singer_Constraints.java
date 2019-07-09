@@ -30,15 +30,15 @@ public class Singer_Constraints extends BaseConstraintsDescriptor {
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:7e1c7518-df7a-4f22-84b2-a5e68261264a(jetbrains.mps.samples.languagePatterns.Basic.constraints)", "3803436373353551328");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return (SPropertyOperations.getString(propertyValue)).length() > 0 && Character.isUpperCase((SPropertyOperations.getString(propertyValue)).charAt(0));
+      return propertyValue.length() > 0 && Character.isUpperCase(propertyValue.charAt(0));
     }
   }
   @Override

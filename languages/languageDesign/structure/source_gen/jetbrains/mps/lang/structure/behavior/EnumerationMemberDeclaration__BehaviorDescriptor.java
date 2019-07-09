@@ -15,44 +15,33 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.util.NameUtil;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
 public final class EnumerationMemberDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, "jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration");
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, "jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration");
 
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIMiw").build();
-  public static final SMethod<String> getConstantName_idi2Z$rBf = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getConstantName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("i2Z$rBf").build();
-  public static final SMethod<String> getName_idi2ZRO7Q = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("i2ZRO7Q").build();
+  public static final SMethod<String> getMemberPresentation_idVFd4X$DFGV = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getMemberPresentation").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VFd4X$DFGV").build();
+  public static final SMethod<Boolean> isDefault_idVFd4X$DLvk = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDefault").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VFd4X$DLvk").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, getConstantName_idi2Z$rBf, getName_idi2ZRO7Q);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPresentation_idhEwIMiw, getMemberPresentation_idVFd4X$DFGV, isDefault_idVFd4X$DLvk);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
-    if (SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, 0xfc5ee06664L, "externalValue")) != null) {
-      return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, 0xfc5ee06664L, "externalValue"));
-    }
-    return "<no external value>";
+    return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
   }
-  /*package*/ static String getConstantName_idi2Z$rBf(@NotNull SNode __thisNode__) {
-    return NameUtil.toValidIdentifier(EnumerationMemberDeclaration__BehaviorDescriptor.getName_idi2ZRO7Q.invoke(__thisNode__));
+  /*package*/ static String getMemberPresentation_idVFd4X$DFGV(@NotNull SNode __thisNode__) {
+    String presentation = SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, 0x9538e3a78561888L, "presentation"));
+    return ((presentation == null || presentation.length() == 0) ? SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) : presentation);
   }
-  /*package*/ static String getName_idi2ZRO7Q(@NotNull SNode __thisNode__) {
-    SNode enumType = SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, "jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration"));
-    // FIXME had to break bootstrap cycle that occur since we have interpreted enumerations in SProperty#getType(). Return back original code after 2018.3 
-    String property = enumType.getProperty(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0x116d5fed0c2L, "memberIdentifierPolicy"));
-    if ("derive_from_internal_value".equals(property)) {
-      return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, 0xfc5ee06663L, "internalValue"));
-    }
-    if ("derive_from_presentation".equals(property) || property == null) {
-      return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, 0xfc5ee06664L, "externalValue"));
-    }
-    return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, 0x1158fb58479L, "javaIdentifier"));
+  /*package*/ static boolean isDefault_idVFd4X$DLvk(@NotNull SNode __thisNode__) {
+    return SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion")), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, 0xeeb344f63fe016cL, "defaultMember")) == __thisNode__;
   }
 
   /*package*/ EnumerationMemberDeclaration__BehaviorDescriptor() {
@@ -73,9 +62,9 @@ public final class EnumerationMemberDeclaration__BehaviorDescriptor extends Base
       case 0:
         return (T) ((String) getPresentation_idhEwIMiw(node));
       case 1:
-        return (T) ((String) getConstantName_idi2Z$rBf(node));
+        return (T) ((String) getMemberPresentation_idVFd4X$DFGV(node));
       case 2:
-        return (T) ((String) getName_idi2ZRO7Q(node));
+        return (T) ((Boolean) isDefault_idVFd4X$DLvk(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

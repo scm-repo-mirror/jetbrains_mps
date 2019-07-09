@@ -31,16 +31,16 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.project.facets.JavaModuleFacet;
 
 public class Ant_Command {
-  private SNode myTarget_NodeINamedConcept;
+  private SNode myTarget_SNode;
   private String myAntLocation_String = Ant_Command.getDefaultAntHome();
   private String myOptions_String;
   private String myTargetName_String;
   private List<String> myMacroToDefine_ListString = null;
   public Ant_Command() {
   }
-  public Ant_Command setTarget_NodeINamedConcept(SNode target) {
+  public Ant_Command setTarget_SNode(SNode target) {
     if (target != null) {
-      myTarget_NodeINamedConcept = target;
+      myTarget_SNode = target;
     }
     return this;
   }
@@ -70,7 +70,7 @@ public class Ant_Command {
   }
 
   public ProcessHandler createProcess(SNode project) throws ExecutionException {
-    SNode target = myTarget_NodeINamedConcept;
+    SNode target = myTarget_SNode;
     String targetName = SPropertyOperations.getString(target, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
     return new Ant_Command().setAntLocation_String(myAntLocation_String).setOptions_String(myOptions_String).setTargetName_String(targetName).createProcess(Ant_Command.getGeneratedFileName(project));
   }

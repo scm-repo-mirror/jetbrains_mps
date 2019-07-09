@@ -2,7 +2,7 @@
 <model ref="r:63c35524-f256-4fdd-b128-2c53748bdd7c(TestConstraints.test@tests)">
   <persistence version="9" />
   <languages>
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="2" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
     <use id="2b800570-3758-4c14-86fb-871266fb9d11" name="constraints.test" version="-1" />
   </languages>
   <imports>
@@ -23,8 +23,8 @@
         <reference id="8333855927540250453" name="declaration" index="39XzEq" />
       </concept>
       <concept id="1229187653856" name="jetbrains.mps.lang.test.structure.EditorTestCase" flags="lg" index="LiM7Y">
-        <child id="1229187676388" name="nodeToEdit" index="LiRBU" />
-        <child id="1229187707859" name="result" index="LiZbd" />
+        <child id="3143335925185262946" name="testNodeBefore" index="25YQCW" />
+        <child id="3143335925185262981" name="testNodeResult" index="25YQFr" />
         <child id="1229187755283" name="code" index="LjaKd" />
       </concept>
       <concept id="1229194968594" name="jetbrains.mps.lang.test.structure.AnonymousCellAnnotation" flags="ng" index="LIFWc">
@@ -289,119 +289,131 @@
   <node concept="LiM7Y" id="2hac6o5$hxg">
     <property role="3GE5qa" value="ref constraints inheritence" />
     <property role="TrG5h" value="ConstraintsReferenceInheritence_Handler1" />
-    <node concept="xbyMT" id="2hac6o5$hxj" role="LiRBU">
-      <node concept="xbyKi" id="2hac6o5$hxp" role="xbyM5">
-        <property role="TrG5h" value="Target" />
-        <property role="xbyNA" value="true" />
-        <property role="xbyKt" value="SubReference_HandlerSuperHandler set" />
-      </node>
-      <node concept="LIFWc" id="2hac6o5$hVX" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_references_handler" />
-      </node>
-    </node>
-    <node concept="xbyMT" id="2hac6o5$hxD" role="LiZbd">
-      <node concept="xbyKi" id="2hac6o5$hxE" role="xbyM5">
-        <property role="TrG5h" value="Target" />
-        <property role="xbyNA" value="true" />
-        <property role="xbyKt" value="SubReference_HandlerSuperHandler set" />
-      </node>
-      <node concept="xLZ3R" id="2hac6o5$ij7" role="xKW7c">
-        <ref role="xKHan" node="2hac6o5$hxE" resolve="Target" />
-        <node concept="LIFWc" id="2hac6o5$iA3" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="6" />
-          <property role="p6zMs" value="6" />
-          <property role="LIFWd" value="property_name" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="2hac6o5$hxR" role="LjaKd">
       <node concept="2TK7Tu" id="2hac6o5$hxQ" role="3cqZAp">
         <property role="2TTd_B" value="handler-super-handler Target" />
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pn8WT" role="25YQCW">
+      <node concept="xbyMT" id="2hac6o5$hxj" role="1qenE9">
+        <node concept="xbyKi" id="2hac6o5$hxp" role="xbyM5">
+          <property role="TrG5h" value="Target" />
+          <property role="xbyNA" value="true" />
+          <property role="xbyKt" value="SubReference_HandlerSuperHandler set" />
+        </node>
+        <node concept="LIFWc" id="2hac6o5$hVX" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_references_handler" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pn8WW" role="25YQFr">
+      <node concept="xbyMT" id="2hac6o5$hxD" role="1qenE9">
+        <node concept="xbyKi" id="2hac6o5$hxE" role="xbyM5">
+          <property role="TrG5h" value="Target" />
+          <property role="xbyNA" value="true" />
+          <property role="xbyKt" value="SubReference_HandlerSuperHandler set" />
+        </node>
+        <node concept="xLZ3R" id="2hac6o5$ij7" role="xKW7c">
+          <ref role="xKHan" node="2hac6o5$hxE" resolve="Target" />
+          <node concept="LIFWc" id="2hac6o5$iA3" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="6" />
+            <property role="p6zMs" value="6" />
+            <property role="LIFWd" value="property_name" />
+          </node>
+        </node>
       </node>
     </node>
   </node>
   <node concept="LiM7Y" id="2hac6o5$hVL">
     <property role="3GE5qa" value="ref constraints inheritence" />
     <property role="TrG5h" value="ConstraintsReferenceInheritence_Handler2" />
-    <node concept="xbyMT" id="2hac6o5$hVM" role="LiRBU">
-      <node concept="xbyKi" id="2hac6o5$hVN" role="xbyM5">
-        <property role="TrG5h" value="Target" />
-        <property role="xbyNA" value="true" />
-      </node>
-      <node concept="LIFWc" id="2hac6o5$hVO" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_references_scoping" />
-      </node>
-    </node>
-    <node concept="xbyMT" id="2hac6o5$hVP" role="LiZbd">
-      <node concept="xbyKi" id="2hac6o5$hVQ" role="xbyM5">
-        <property role="TrG5h" value="Target" />
-        <property role="xbyNA" value="true" />
-        <property role="xbyKt" value="SubReference_HandlerSuperScoping set" />
-      </node>
-      <node concept="xbyKp" id="2hac6o5$hVR" role="xbyM6">
-        <ref role="xbyP7" node="2hac6o5$hVQ" resolve="Target" />
-        <node concept="LIFWc" id="2hac6o5$hVS" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="6" />
-          <property role="p6zMs" value="6" />
-          <property role="LIFWd" value="property_name" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="2hac6o5$hVT" role="LjaKd">
       <node concept="2TK7Tu" id="2hac6o5$hVU" role="3cqZAp">
         <property role="2TTd_B" value="handler-super-scoping Target" />
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pn8WU" role="25YQCW">
+      <node concept="xbyMT" id="2hac6o5$hVM" role="1qenE9">
+        <node concept="xbyKi" id="2hac6o5$hVN" role="xbyM5">
+          <property role="TrG5h" value="Target" />
+          <property role="xbyNA" value="true" />
+        </node>
+        <node concept="LIFWc" id="2hac6o5$hVO" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_references_scoping" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pn8WX" role="25YQFr">
+      <node concept="xbyMT" id="2hac6o5$hVP" role="1qenE9">
+        <node concept="xbyKi" id="2hac6o5$hVQ" role="xbyM5">
+          <property role="TrG5h" value="Target" />
+          <property role="xbyNA" value="true" />
+          <property role="xbyKt" value="SubReference_HandlerSuperScoping set" />
+        </node>
+        <node concept="xbyKp" id="2hac6o5$hVR" role="xbyM6">
+          <ref role="xbyP7" node="2hac6o5$hVQ" resolve="Target" />
+          <node concept="LIFWc" id="2hac6o5$hVS" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="6" />
+            <property role="p6zMs" value="6" />
+            <property role="LIFWd" value="property_name" />
+          </node>
+        </node>
       </node>
     </node>
   </node>
   <node concept="LiM7Y" id="2hac6o5$iSZ">
     <property role="3GE5qa" value="ref constraints inheritence" />
     <property role="TrG5h" value="ConstraintsReferenceInheritence_Handler3" />
-    <node concept="xbyMT" id="2hac6o5$iT0" role="LiRBU">
-      <node concept="xbyKi" id="2hac6o5$iT1" role="xbyM5">
-        <property role="TrG5h" value="Target" />
-        <property role="xbyNA" value="true" />
-        <property role="xbyKt" value="SubReference_HandlerSuperHandler set" />
-      </node>
-      <node concept="LIFWc" id="2hac6o5$iT2" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_references_handler" />
-      </node>
-    </node>
-    <node concept="xbyMT" id="2hac6o5$iT3" role="LiZbd">
-      <node concept="xbyKi" id="2hac6o5$iT4" role="xbyM5">
-        <property role="TrG5h" value="Target" />
-        <property role="xbyNA" value="true" />
-        <property role="xbyKt" value="BaseReference_Handler set" />
-      </node>
-      <node concept="xLZ3C" id="2hac6o5$iT9" role="xKW7c">
-        <ref role="xKHan" node="2hac6o5$iT4" resolve="Target" />
-        <node concept="LIFWc" id="2hac6o5$iTb" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="6" />
-          <property role="p6zMs" value="6" />
-          <property role="LIFWd" value="property_name" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="2hac6o5$iT7" role="LjaKd">
       <node concept="2TK7Tu" id="2hac6o5$iT8" role="3cqZAp">
         <property role="2TTd_B" value="scoping-super-handler Target" />
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pn8WV" role="25YQCW">
+      <node concept="xbyMT" id="2hac6o5$iT0" role="1qenE9">
+        <node concept="xbyKi" id="2hac6o5$iT1" role="xbyM5">
+          <property role="TrG5h" value="Target" />
+          <property role="xbyNA" value="true" />
+          <property role="xbyKt" value="SubReference_HandlerSuperHandler set" />
+        </node>
+        <node concept="LIFWc" id="2hac6o5$iT2" role="lGtFl">
+          <property role="ZRATv" value="true" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="0" />
+          <property role="LIFWd" value="empty_references_handler" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pn8WY" role="25YQFr">
+      <node concept="xbyMT" id="2hac6o5$iT3" role="1qenE9">
+        <node concept="xbyKi" id="2hac6o5$iT4" role="xbyM5">
+          <property role="TrG5h" value="Target" />
+          <property role="xbyNA" value="true" />
+          <property role="xbyKt" value="BaseReference_Handler set" />
+        </node>
+        <node concept="xLZ3C" id="2hac6o5$iT9" role="xKW7c">
+          <ref role="xKHan" node="2hac6o5$iT4" resolve="Target" />
+          <node concept="LIFWc" id="2hac6o5$iTb" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="6" />
+            <property role="p6zMs" value="6" />
+            <property role="LIFWd" value="property_name" />
+          </node>
+        </node>
       </node>
     </node>
   </node>

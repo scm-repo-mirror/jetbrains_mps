@@ -30,15 +30,15 @@ public class BuildMps_Tips_Constraints extends BaseConstraintsDescriptor {
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:76dda237-5120-4688-b749-201ab5c5059d(jetbrains.mps.build.mps.constraints)", "5730480978697088991");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return !(((SPropertyOperations.getString(propertyValue)).contains(" ") || (SPropertyOperations.getString(propertyValue)).contains("/") || (SPropertyOperations.getString(propertyValue)).contains("\\")));
+      return !((propertyValue.contains(" ") || propertyValue.contains("/") || propertyValue.contains("\\")));
     }
   }
   @Override

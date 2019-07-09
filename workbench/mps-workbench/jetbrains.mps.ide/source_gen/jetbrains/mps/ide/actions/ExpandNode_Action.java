@@ -7,7 +7,6 @@ import javax.swing.Icon;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.projectPane.ProjectPane;
 import jetbrains.mps.ide.ui.tree.MPSTree;
@@ -20,7 +19,7 @@ public class ExpandNode_Action extends BaseAction {
   public ExpandNode_Action() {
     super("Expand All", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
   }
   @Override
   public boolean isDumbAware() {
@@ -33,7 +32,6 @@ public class ExpandNode_Action extends BaseAction {
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
-      MapSequence.fromMap(_params).put("project", p);
       if (p == null) {
         return false;
       }
@@ -42,7 +40,7 @@ public class ExpandNode_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    ProjectPane pane = ProjectPane.getInstance(((MPSProject) MapSequence.fromMap(_params).get("project")));
+    ProjectPane pane = ProjectPane.getInstance(event.getData(MPSCommonDataKeys.MPS_PROJECT));
     MPSTree tree = pane.getTree();
     TreePath path = tree.getSelectionPath();
     if (path == null) {

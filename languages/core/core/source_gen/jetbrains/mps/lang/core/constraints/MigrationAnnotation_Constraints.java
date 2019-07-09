@@ -32,8 +32,8 @@ public class MigrationAnnotation_Constraints extends BaseConstraintsDescriptor {
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590283(jetbrains.mps.lang.core.constraints)", "8703179436979151872");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
@@ -41,7 +41,7 @@ public class MigrationAnnotation_Constraints extends BaseConstraintsDescriptor {
     }
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
       try {
-        String migrationScriptReference = (SPropertyOperations.getString(propertyValue));
+        String migrationScriptReference = propertyValue;
         int version = Integer.parseInt(migrationScriptReference.substring(migrationScriptReference.indexOf('/') + 1));
         int ix = migrationScriptReference.indexOf('(');
         SLanguage language = MetaAdapterFactory.getLanguage(SLanguageId.deserialize(migrationScriptReference.substring(0, ix)), migrationScriptReference.substring(ix + 1, migrationScriptReference.indexOf(')', ix)));

@@ -52,15 +52,15 @@ public class ConceptEditorHintDeclaration_Constraints extends BaseConstraintsDes
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590298(jetbrains.mps.lang.editor.constraints)", "5944657839017584914");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return (SPropertyOperations.getString(propertyValue)).matches("[a-zA-Z0-9$[_]]*");
+      return propertyValue.matches("[a-zA-Z0-9$[_]]*");
     }
   }
   @Override

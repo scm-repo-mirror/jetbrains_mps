@@ -32,7 +32,6 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import difflib.Patch;
 import difflib.DiffUtils;
-import difflib.Delta;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.FileInputStream;
@@ -186,20 +185,26 @@ public class ModuleGenerationHolder {
             continue;
           }
           if ((onext.length() == 0 || rnext.length() == 0) && onext.length() != rnext.length()) {
-            //  no reason to dump whole file single diff for a completely replaced file. 
+            // no reason to dump whole file single diff for a completely replaced file. 
             ListSequence.fromList(diffs).addElement(String.format("Content replaced: %s (%d -> %d)", onext.getPath(), onext.length(), rnext.length()));
             continue;
           }
           List<String> olines = fileToStrings(onext);
-          Patch patch = DiffUtils.diff(olines, fileToStrings(rnext));
-          List<Delta> deltas = patch.getDeltas();
-          if (!(deltas.isEmpty())) {
-            if (deltas.size() < 5) {
-              ListSequence.fromList(diffs).addSequence(ListSequence.fromList(DiffUtils.generateUnifiedDiff(onext.getPath(), rnext.getPath(), olines, patch, 3)));
-            } else {
-              ListSequence.fromList(diffs).addElement(String.format("Too many changes (%d) in file %s", deltas.size(), onext.getPath()));
-            }
+          List<String> rlines = fileToStrings(rnext);
+          Iterable<String> diffLines = ListSequence.fromList(olines).subtract(ListSequence.fromList(rlines)).union(ListSequence.fromList(rlines).subtract(ListSequence.fromList(olines)));
+          if (Sequence.fromIterable(diffLines).isEmpty()) {
+            continue;
           }
+          if (Sequence.fromIterable(diffLines).count() >= 100) {
+            ListSequence.fromList(diffs).addElement(String.format("Too many changed lines (%d) in file %s", Sequence.fromIterable(diffLines).count(), onext.getPath()));
+            continue;
+          }
+          Patch patch = DiffUtils.diff(olines, rlines);
+          if (patch.getDeltas().size() >= 5) {
+            ListSequence.fromList(diffs).addElement(String.format("Too many changes (%d) in file %s", Sequence.fromIterable(diffLines).count(), onext.getPath()));
+            continue;
+          }
+          ListSequence.fromList(diffs).addSequence(ListSequence.fromList(DiffUtils.generateUnifiedDiff(onext.getPath(), rnext.getPath(), olines, patch, 3)));
         } else {
           diffDirs(onext, rnext, diffs);
         }

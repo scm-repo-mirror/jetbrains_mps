@@ -11,13 +11,14 @@ import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.SModifiersImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
+import org.jetbrains.mps.openapi.module.SRepository;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
 import jetbrains.mps.errors.MessageStatus;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -31,9 +32,9 @@ public final class NodeInfoCheckOperation__BehaviorDescriptor extends BaseBHDesc
   public static final SMethod<SNode> getReference_id7eBNsYUkslm = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7eBNsYUkslm").build();
   public static final SMethod<SNode> getReferencedRuleNode_id2wBFdLy8qmt = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getReferencedRuleNode").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2wBFdLy8qmt").build();
   public static final SMethod<String> getDefaultName_id7scb9XJdmH2 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getDefaultName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7scb9XJdmH2").build();
-  public static final SMethod<Void> perform_id1kgh5YabdhC = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("perform").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1kgh5YabdhC").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<CheckExpectedMessageAction> checkAction_id7jfLc8W17Cr = new SMethodBuilder<CheckExpectedMessageAction>(new SJavaCompoundTypeImpl(CheckExpectedMessageAction.class)).name("checkAction").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7jfLc8W17Cr").build(SMethodBuilder.createJavaParameter(SRepository.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(canAttachReference_id2wBFdLy7HtS, attachReference_id2wBFdLy8qmn, getReference_id7eBNsYUkslm, getReferencedRuleNode_id2wBFdLy8qmt, getDefaultName_id7scb9XJdmH2, perform_id1kgh5YabdhC);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(canAttachReference_id2wBFdLy7HtS, attachReference_id2wBFdLy8qmn, getReference_id7eBNsYUkslm, getReferencedRuleNode_id2wBFdLy8qmt, getDefaultName_id7scb9XJdmH2, checkAction_id7jfLc8W17Cr);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -61,9 +62,9 @@ public final class NodeInfoCheckOperation__BehaviorDescriptor extends BaseBHDesc
     }
     return "Node" + name + "Check";
   }
-  /*package*/ static void perform_id1kgh5YabdhC(@NotNull SNode __thisNode__, SNode node) {
-    CheckExpectedMessageAction action = (IReferenceAttachable__BehaviorDescriptor.getReferencedRuleNode_id2wBFdLy8qmt.invoke(__thisNode__) == null ? new CheckExpectedMessageAction.CheckAnyMessageAction(INodesTestMethod__BehaviorDescriptor.getAnnotatedNode_id38gbJV0XvZR.invoke(__thisNode__), MessageStatus.OK, SNodeOperations.getModel(node).getRepository()) : new CheckExpectedMessageAction.CheckExpectedRuleMessageAction(INodesTestMethod__BehaviorDescriptor.getAnnotatedNode_id38gbJV0XvZR.invoke(__thisNode__), MessageStatus.OK, SNodeOperations.getPointer(IReferenceAttachable__BehaviorDescriptor.getReferencedRuleNode_id2wBFdLy8qmt.invoke(__thisNode__)), SNodeOperations.getModel(node).getRepository()));
-    action.run();
+  /*package*/ static CheckExpectedMessageAction checkAction_id7jfLc8W17Cr(@NotNull SNode __thisNode__, SRepository ruleRepository) {
+    CheckExpectedMessageAction action = (IReferenceAttachable__BehaviorDescriptor.getReferencedRuleNode_id2wBFdLy8qmt.invoke(__thisNode__) == null ? new CheckExpectedMessageAction.CheckAnyMessageAction(INodesTestMethod__BehaviorDescriptor.getAnnotatedNode_id38gbJV0XvZR.invoke(__thisNode__), MessageStatus.OK, ruleRepository) : new CheckExpectedMessageAction.CheckExpectedRuleMessageAction(INodesTestMethod__BehaviorDescriptor.getAnnotatedNode_id38gbJV0XvZR.invoke(__thisNode__), MessageStatus.OK, SNodeOperations.getPointer(IReferenceAttachable__BehaviorDescriptor.getReferencedRuleNode_id2wBFdLy8qmt.invoke(__thisNode__)), ruleRepository));
+    return action;
   }
 
   /*package*/ NodeInfoCheckOperation__BehaviorDescriptor() {
@@ -93,8 +94,7 @@ public final class NodeInfoCheckOperation__BehaviorDescriptor extends BaseBHDesc
       case 4:
         return (T) ((String) getDefaultName_id7scb9XJdmH2(node));
       case 5:
-        perform_id1kgh5YabdhC(node, (SNode) parameters[0]);
-        return null;
+        return (T) ((CheckExpectedMessageAction) checkAction_id7jfLc8W17Cr(node, (SRepository) parameters[0]));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

@@ -32,15 +32,15 @@ public class ArithmeticSimpleMathExpression_Constraints extends BaseConstraintsD
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:c8883f02-cad6-4252-a4e6-ca01d435b80e(jetbrains.mps.samples.Expressions.constraints)", "2073504467208672627");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return (SPropertyOperations.getString(propertyValue)).length() == 1 && ListSequence.fromList(ListSequence.fromListAndArray(new ArrayList<String>(), "+", "-", "*", "/")).contains((SPropertyOperations.getString(propertyValue)));
+      return propertyValue.length() == 1 && ListSequence.fromList(ListSequence.fromListAndArray(new ArrayList<String>(), "+", "-", "*", "/")).contains(propertyValue);
     }
   }
   @Override

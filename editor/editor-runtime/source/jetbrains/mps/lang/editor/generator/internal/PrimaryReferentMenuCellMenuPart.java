@@ -38,7 +38,6 @@ public class PrimaryReferentMenuCellMenuPart implements SubstituteInfoPartExt {
   public List<SubstituteAction> createActions(CellContext cellContext, EditorContext editorContext) {
     SNode referenceNode = cellContext.get(BasicCellContext.EDITED_NODE);
     SReferenceLink linkDeclaration = cellContext.get(ReferenceCellContext.LINK_DECLARATION);
-    SNode currentReferent = cellContext.getOpt(ReferenceCellContext.CURRENT_REFERENT_NODE);
     IReferentPresentationProvider matchingTextProvider = getMatchingTextProvider();
     IReferentPresentationProvider visibleMatchingTextProvider = getVisibleMatchingTextProvider();
     if (matchingTextProvider == null) {
@@ -48,11 +47,10 @@ public class PrimaryReferentMenuCellMenuPart implements SubstituteInfoPartExt {
       visibleMatchingTextProvider = IReferentPresentationProvider.getDefaultVisibleMatchingText(linkDeclaration);
     }
     return ModelActions.createReferentSubstituteActions(referenceNode,
-                                                        currentReferent,
                                                         linkDeclaration,
                                                         matchingTextProvider,
                                                         visibleMatchingTextProvider,
-                                                        editorContext.getOperationContext());
+                                                        editorContext);
   }
 
   @Nullable

@@ -21,7 +21,7 @@ public class ShowEditorMenuItemTrace_Action extends BaseAction {
   public ShowEditorMenuItemTrace_Action() {
     super("Show item trace", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
     this.addPlace(null);
   }
   @Override

@@ -31,15 +31,15 @@ public class AbstractBuilderCommand_Constraints extends BaseConstraintsDescripto
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:84a4ed3f-fed0-4bb5-977e-0cf55665a49a(jetbrains.mps.samples.KajaSceneConstruction.constraints)", "3210697320273648136");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castInteger(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
-    private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return (SPropertyOperations.getInteger(propertyValue)) > 0 && (SPropertyOperations.getInteger(propertyValue)) < KajaFrame.WIDTH - 1;
+    private static boolean staticValidateProperty(SNode node, int propertyValue) {
+      return propertyValue > 0 && propertyValue < KajaFrame.WIDTH - 1;
     }
   }
   public static class Row_Property extends BasePropertyConstraintsDescriptor {
@@ -52,15 +52,15 @@ public class AbstractBuilderCommand_Constraints extends BaseConstraintsDescripto
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:84a4ed3f-fed0-4bb5-977e-0cf55665a49a(jetbrains.mps.samples.KajaSceneConstruction.constraints)", "3210697320273648165");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castInteger(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
-    private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return (SPropertyOperations.getInteger(propertyValue)) > 0 && (SPropertyOperations.getInteger(propertyValue)) < KajaFrame.HEIGHT - 1;
+    private static boolean staticValidateProperty(SNode node, int propertyValue) {
+      return propertyValue > 0 && propertyValue < KajaFrame.HEIGHT - 1;
     }
   }
   @Override

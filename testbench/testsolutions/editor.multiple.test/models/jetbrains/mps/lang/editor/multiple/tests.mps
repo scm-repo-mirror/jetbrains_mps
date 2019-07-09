@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="7a80051c-66e9-4bfc-9698-b12adfed3d9f" name="jetbrains.mps.lang.editor.multiple.testLanguage" version="0" />
-    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="2" />
+    <use id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test" version="5" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
   </languages>
@@ -23,8 +23,8 @@
       </concept>
       <concept id="1229187653856" name="jetbrains.mps.lang.test.structure.EditorTestCase" flags="lg" index="LiM7Y">
         <property id="1883175908513350760" name="description" index="3YCmrE" />
-        <child id="1229187676388" name="nodeToEdit" index="LiRBU" />
-        <child id="1229187707859" name="result" index="LiZbd" />
+        <child id="3143335925185262946" name="testNodeBefore" index="25YQCW" />
+        <child id="3143335925185262981" name="testNodeResult" index="25YQFr" />
         <child id="1229187755283" name="code" index="LjaKd" />
       </concept>
       <concept id="1229194968594" name="jetbrains.mps.lang.test.structure.AnonymousCellAnnotation" flags="ng" index="LIFWc">
@@ -44,6 +44,9 @@
       <concept id="5773579205429866751" name="jetbrains.mps.lang.test.structure.EditorComponentExpression" flags="nn" index="369mXd" />
       <concept id="4239542196496927193" name="jetbrains.mps.lang.test.structure.MPSActionReference" flags="ng" index="1iFQzN">
         <reference id="4239542196496929559" name="action" index="1iFR8X" />
+      </concept>
+      <concept id="1216989428737" name="jetbrains.mps.lang.test.structure.TestNode" flags="ng" index="1qefOq">
+        <child id="1216989461394" name="nodeToCheck" index="1qenE9" />
       </concept>
     </language>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -177,34 +180,38 @@
   <node concept="LiM7Y" id="5ajRFTcS84D">
     <property role="TrG5h" value="EditorSpecifiedBy_add_context_hints" />
     <property role="3YCmrE" value="Editing MultipleEditorsTestChild child concept instance using rich editor (rich context hint was pushed into context by parent collection)" />
-    <node concept="2MuQ0i" id="6BSFEB5muup" role="LiRBU">
-      <node concept="2MuRF6" id="6BSFEB5muus" role="2Mt0WF">
-        <property role="TrG5h" value="RichChild" />
-        <property role="2Mta2w" value="initValue" />
-        <node concept="LIFWc" id="6k6gsLy9Atc" role="lGtFl">
-          <property role="LIFWa" value="4" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="4" />
-          <property role="p6zMs" value="4" />
-          <property role="LIFWd" value="property_richProperty" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="5ajRFTcSMcx" role="LjaKd">
       <node concept="2TK7Tu" id="5ajRFTcSMcz" role="3cqZAp">
         <property role="2TTd_B" value="ial" />
       </node>
     </node>
-    <node concept="2MuQ0i" id="6BSFEB5muuG" role="LiZbd">
-      <node concept="2MuRF6" id="6BSFEB5muuH" role="2Mt0WF">
-        <property role="TrG5h" value="RichChild" />
-        <property role="2Mta2w" value="initialValue" />
-        <node concept="LIFWc" id="6k6gsLy9Aw6" role="lGtFl">
-          <property role="LIFWa" value="7" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="7" />
-          <property role="p6zMs" value="7" />
-          <property role="LIFWd" value="property_richProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6b" role="25YQCW">
+      <node concept="2MuQ0i" id="6BSFEB5muup" role="1qenE9">
+        <node concept="2MuRF6" id="6BSFEB5muus" role="2Mt0WF">
+          <property role="TrG5h" value="RichChild" />
+          <property role="2Mta2w" value="initValue" />
+          <node concept="LIFWc" id="6k6gsLy9Atc" role="lGtFl">
+            <property role="LIFWa" value="4" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="4" />
+            <property role="p6zMs" value="4" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6F" role="25YQFr">
+      <node concept="2MuQ0i" id="6BSFEB5muuG" role="1qenE9">
+        <node concept="2MuRF6" id="6BSFEB5muuH" role="2Mt0WF">
+          <property role="TrG5h" value="RichChild" />
+          <property role="2Mta2w" value="initialValue" />
+          <node concept="LIFWc" id="6k6gsLy9Aw6" role="lGtFl">
+            <property role="LIFWa" value="7" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="7" />
+            <property role="p6zMs" value="7" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -215,69 +222,77 @@
   <node concept="LiM7Y" id="5ajRFTcSNlv">
     <property role="TrG5h" value="DefaultEditor" />
     <property role="3YCmrE" value="Editing MultipleEditorsTestChild child concept instance using default editor (no context hints specified)" />
-    <node concept="2MuQ0i" id="5ajRFTcSNlw" role="LiRBU">
-      <node concept="2MuRF6" id="5ajRFTcSNlx" role="usPXg">
-        <property role="TrG5h" value="ChildWithDefaultEditor" />
-        <property role="2Mta2y" value="initialValue" />
-        <node concept="LIFWc" id="5ajRFTcSNly" role="lGtFl">
-          <property role="LIFWa" value="0" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="0" />
-          <property role="p6zMs" value="7" />
-          <property role="LIFWd" value="property_defaultProperty" />
-        </node>
-      </node>
-    </node>
-    <node concept="2MuQ0i" id="5ajRFTcSNlz" role="LiZbd">
-      <node concept="2MuRF6" id="5ajRFTcSNl$" role="usPXg">
-        <property role="TrG5h" value="ChildWithDefaultEditor" />
-        <property role="2Mta2y" value="newValue" />
-        <node concept="LIFWc" id="5ajRFTcSNl_" role="lGtFl">
-          <property role="LIFWa" value="3" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="3" />
-          <property role="p6zMs" value="3" />
-          <property role="LIFWd" value="property_defaultProperty" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="5ajRFTcSNlA" role="LjaKd">
       <node concept="2TK7Tu" id="5ajRFTcSNlB" role="3cqZAp">
         <property role="2TTd_B" value="new" />
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6c" role="25YQCW">
+      <node concept="2MuQ0i" id="5ajRFTcSNlw" role="1qenE9">
+        <node concept="2MuRF6" id="5ajRFTcSNlx" role="usPXg">
+          <property role="TrG5h" value="ChildWithDefaultEditor" />
+          <property role="2Mta2y" value="initialValue" />
+          <node concept="LIFWc" id="5ajRFTcSNly" role="lGtFl">
+            <property role="LIFWa" value="0" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="7" />
+            <property role="LIFWd" value="property_defaultProperty" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6G" role="25YQFr">
+      <node concept="2MuQ0i" id="5ajRFTcSNlz" role="1qenE9">
+        <node concept="2MuRF6" id="5ajRFTcSNl$" role="usPXg">
+          <property role="TrG5h" value="ChildWithDefaultEditor" />
+          <property role="2Mta2y" value="newValue" />
+          <node concept="LIFWc" id="5ajRFTcSNl_" role="lGtFl">
+            <property role="LIFWa" value="3" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="3" />
+            <property role="p6zMs" value="3" />
+            <property role="LIFWd" value="property_defaultProperty" />
+          </node>
+        </node>
       </node>
     </node>
   </node>
   <node concept="LiM7Y" id="5ajRFTcSPj7">
     <property role="TrG5h" value="EditorSpecifiedBy_add_remove_context_hints" />
     <property role="3YCmrE" value="Editing MultipleEditorsTestChild child concept instance using compact editor (rich context hint was removed from the context &amp; compact pushed instead by parent collection)" />
-    <node concept="2MuQ0i" id="6BSFEB5mbub" role="LiRBU">
-      <node concept="2MuRF6" id="6BSFEB5mbue" role="2dhxlo">
-        <property role="TrG5h" value="CompactChild" />
-        <property role="usFph" value="value" />
-        <node concept="LIFWc" id="6k6gsLy9AAs" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="0" />
-          <property role="p6zMs" value="5" />
-          <property role="LIFWd" value="property_compactProperty" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="5ajRFTcSPjb" role="LjaKd">
       <node concept="2TK7Tu" id="5ajRFTcSPjc" role="3cqZAp">
         <property role="2TTd_B" value="newValue" />
       </node>
     </node>
-    <node concept="2MuQ0i" id="6BSFEB5mdUn" role="LiZbd">
-      <node concept="2MuRF6" id="6BSFEB5mdUo" role="2dhxlo">
-        <property role="TrG5h" value="CompactChild" />
-        <property role="usFph" value="newValue" />
-        <node concept="LIFWc" id="6k6gsLy9AAu" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="8" />
-          <property role="p6zMs" value="8" />
-          <property role="LIFWd" value="property_compactProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6d" role="25YQCW">
+      <node concept="2MuQ0i" id="6BSFEB5mbub" role="1qenE9">
+        <node concept="2MuRF6" id="6BSFEB5mbue" role="2dhxlo">
+          <property role="TrG5h" value="CompactChild" />
+          <property role="usFph" value="value" />
+          <node concept="LIFWc" id="6k6gsLy9AAs" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="5" />
+            <property role="LIFWd" value="property_compactProperty" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6H" role="25YQFr">
+      <node concept="2MuQ0i" id="6BSFEB5mdUn" role="1qenE9">
+        <node concept="2MuRF6" id="6BSFEB5mdUo" role="2dhxlo">
+          <property role="TrG5h" value="CompactChild" />
+          <property role="usFph" value="newValue" />
+          <node concept="LIFWc" id="6k6gsLy9AAu" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="8" />
+            <property role="p6zMs" value="8" />
+            <property role="LIFWd" value="property_compactProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -285,71 +300,79 @@
   <node concept="LiM7Y" id="6BSFEB5mw81">
     <property role="TrG5h" value="ConditionalPresentation_addQuery_default" />
     <property role="3YCmrE" value="Testing if default conditional presentation works as expected (add hint query works properly)" />
-    <node concept="2MuQ0i" id="6BSFEB5mykl" role="LiRBU">
-      <node concept="2MuRF6" id="6BSFEB5myko" role="2KvMtK">
-        <property role="TrG5h" value="DefaultChildPresentation" />
-        <property role="2Mta2y" value="defaultPropertyValue" />
-        <node concept="LIFWc" id="6BSFEB5mykV" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="0" />
-          <property role="p6zMs" value="20" />
-          <property role="LIFWd" value="property_defaultProperty" />
-        </node>
-      </node>
-    </node>
-    <node concept="2MuQ0i" id="6BSFEB5myl9" role="LiZbd">
-      <node concept="2MuRF6" id="6BSFEB5myla" role="2KvMtK">
-        <property role="TrG5h" value="DefaultChildPresentation" />
-        <property role="2Mta2y" value="newPropertyValue" />
-        <node concept="LIFWc" id="6BSFEB5mylN" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="16" />
-          <property role="p6zMs" value="16" />
-          <property role="LIFWd" value="property_defaultProperty" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="6BSFEB5mymo" role="LjaKd">
       <node concept="2TK7Tu" id="6BSFEB5mymq" role="3cqZAp">
         <property role="2TTd_B" value="newPropertyValue" />
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6e" role="25YQCW">
+      <node concept="2MuQ0i" id="6BSFEB5mykl" role="1qenE9">
+        <node concept="2MuRF6" id="6BSFEB5myko" role="2KvMtK">
+          <property role="TrG5h" value="DefaultChildPresentation" />
+          <property role="2Mta2y" value="defaultPropertyValue" />
+          <node concept="LIFWc" id="6BSFEB5mykV" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="20" />
+            <property role="LIFWd" value="property_defaultProperty" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6I" role="25YQFr">
+      <node concept="2MuQ0i" id="6BSFEB5myl9" role="1qenE9">
+        <node concept="2MuRF6" id="6BSFEB5myla" role="2KvMtK">
+          <property role="TrG5h" value="DefaultChildPresentation" />
+          <property role="2Mta2y" value="newPropertyValue" />
+          <node concept="LIFWc" id="6BSFEB5mylN" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="16" />
+            <property role="p6zMs" value="16" />
+            <property role="LIFWd" value="property_defaultProperty" />
+          </node>
+        </node>
       </node>
     </node>
   </node>
   <node concept="LiM7Y" id="6BSFEB5myn9">
     <property role="TrG5h" value="ConditionalPresentation_addQuery_rich" />
     <property role="3YCmrE" value="Testing if rich conditional presentation works as expected (add hint query works properly)" />
-    <node concept="2MuQ0i" id="6BSFEB5myox" role="LiRBU">
-      <property role="2KvMrY" value="rich" />
-      <node concept="2MuRF6" id="6BSFEB5m$Io" role="2KvMtK">
-        <property role="TrG5h" value="RichChildPresentation" />
-        <property role="2Mta2w" value="oldValue" />
-        <node concept="LIFWc" id="6k6gsLy9AFN" role="lGtFl">
-          <property role="LIFWa" value="3" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="3" />
-          <property role="p6zMs" value="3" />
-          <property role="LIFWd" value="property_richProperty" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="6BSFEB5myr$" role="LjaKd">
       <node concept="2TK7Tu" id="6BSFEB5myrA" role="3cqZAp">
         <property role="2TTd_B" value="Property" />
       </node>
     </node>
-    <node concept="2MuQ0i" id="6BSFEB5m$IC" role="LiZbd">
-      <property role="2KvMrY" value="rich" />
-      <node concept="2MuRF6" id="6BSFEB5m$ID" role="2KvMtK">
-        <property role="TrG5h" value="RichChildPresentation" />
-        <property role="2Mta2w" value="oldPropertyValue" />
-        <node concept="LIFWc" id="6k6gsLy9AFP" role="lGtFl">
-          <property role="LIFWa" value="11" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="11" />
-          <property role="p6zMs" value="11" />
-          <property role="LIFWd" value="property_richProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6f" role="25YQCW">
+      <node concept="2MuQ0i" id="6BSFEB5myox" role="1qenE9">
+        <property role="2KvMrY" value="6EI1ZZqOi3x/rich" />
+        <node concept="2MuRF6" id="6BSFEB5m$Io" role="2KvMtK">
+          <property role="TrG5h" value="RichChildPresentation" />
+          <property role="2Mta2w" value="oldValue" />
+          <node concept="LIFWc" id="6k6gsLy9AFN" role="lGtFl">
+            <property role="LIFWa" value="3" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="3" />
+            <property role="p6zMs" value="3" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6J" role="25YQFr">
+      <node concept="2MuQ0i" id="6BSFEB5m$IC" role="1qenE9">
+        <property role="2KvMrY" value="6EI1ZZqOi3x/rich" />
+        <node concept="2MuRF6" id="6BSFEB5m$ID" role="2KvMtK">
+          <property role="TrG5h" value="RichChildPresentation" />
+          <property role="2Mta2w" value="oldPropertyValue" />
+          <node concept="LIFWc" id="6k6gsLy9AFP" role="lGtFl">
+            <property role="LIFWa" value="11" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="11" />
+            <property role="p6zMs" value="11" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -362,30 +385,34 @@
         <property role="2TTd_B" value="propValue" />
       </node>
     </node>
-    <node concept="2MuQ0i" id="6BSFEB5xNkP" role="LiRBU">
-      <property role="2GCwbj" value="true" />
-      <node concept="2MuRF6" id="6BSFEB5xNkR" role="2GCwbk">
-        <property role="TrG5h" value="CompactChild" />
-        <node concept="LIFWc" id="6k6gsLy9ALa" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="0" />
-          <property role="p6zMs" value="0" />
-          <property role="LIFWd" value="property_compactProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6g" role="25YQCW">
+      <node concept="2MuQ0i" id="6BSFEB5xNkP" role="1qenE9">
+        <property role="2GCwbj" value="true" />
+        <node concept="2MuRF6" id="6BSFEB5xNkR" role="2GCwbk">
+          <property role="TrG5h" value="CompactChild" />
+          <node concept="LIFWc" id="6k6gsLy9ALa" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
+            <property role="LIFWd" value="property_compactProperty" />
+          </node>
         </node>
       </node>
     </node>
-    <node concept="2MuQ0i" id="6BSFEB5xNl7" role="LiZbd">
-      <property role="2GCwbj" value="true" />
-      <node concept="2MuRF6" id="6BSFEB5xNl8" role="2GCwbk">
-        <property role="TrG5h" value="CompactChild" />
-        <property role="usFph" value="propValue" />
-        <node concept="LIFWc" id="6k6gsLy9ALc" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="9" />
-          <property role="p6zMs" value="9" />
-          <property role="LIFWd" value="property_compactProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6K" role="25YQFr">
+      <node concept="2MuQ0i" id="6BSFEB5xNl7" role="1qenE9">
+        <property role="2GCwbj" value="true" />
+        <node concept="2MuRF6" id="6BSFEB5xNl8" role="2GCwbk">
+          <property role="TrG5h" value="CompactChild" />
+          <property role="usFph" value="propValue" />
+          <node concept="LIFWc" id="6k6gsLy9ALc" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="9" />
+            <property role="p6zMs" value="9" />
+            <property role="LIFWd" value="property_compactProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -393,18 +420,6 @@
   <node concept="LiM7Y" id="6BSFEB5mA3w">
     <property role="TrG5h" value="ConditionalPresentation_addQuery_switch" />
     <property role="3YCmrE" value="Testing if child element projection will be switched from default to rich type on switching corresponding model property (add context hint query re-evaluated no model changes)" />
-    <node concept="2MuQ0i" id="6BSFEB5mA8g" role="LiRBU">
-      <node concept="2MuRF6" id="6BSFEB5xNg8" role="2KvMtK">
-        <property role="TrG5h" value="RichChild" />
-      </node>
-      <node concept="LIFWc" id="6BSFEB5xNhe" role="lGtFl">
-        <property role="LIFWa" value="2" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="13" />
-        <property role="LIFWd" value="property_projectionType" />
-      </node>
-    </node>
     <node concept="3clFbS" id="6BSFEB5mA9z" role="LjaKd">
       <node concept="2TK7Tu" id="6BSFEB5mA9B" role="3cqZAp">
         <property role="2TTd_B" value="rich" />
@@ -423,17 +438,33 @@
         <property role="2TTd_B" value="richPropertyValue" />
       </node>
     </node>
-    <node concept="2MuQ0i" id="6BSFEB5xNhs" role="LiZbd">
-      <property role="2KvMrY" value="rich" />
-      <node concept="2MuRF6" id="6BSFEB5xNht" role="2KvMtK">
-        <property role="TrG5h" value="RichChild" />
-        <property role="2Mta2w" value="richPropertyValue" />
-        <node concept="LIFWc" id="6k6gsLy9BLx" role="lGtFl">
-          <property role="ZRATv" value="true" />
+    <node concept="1qefOq" id="2aQPn0Pnk6h" role="25YQCW">
+      <node concept="2MuQ0i" id="6BSFEB5mA8g" role="1qenE9">
+        <node concept="2MuRF6" id="6BSFEB5xNg8" role="2KvMtK">
+          <property role="TrG5h" value="RichChild" />
+        </node>
+        <node concept="LIFWc" id="6BSFEB5xNhe" role="lGtFl">
+          <property role="LIFWa" value="2" />
           <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="17" />
-          <property role="p6zMs" value="17" />
-          <property role="LIFWd" value="property_richProperty" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="13" />
+          <property role="LIFWd" value="property_projectionType" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6L" role="25YQFr">
+      <node concept="2MuQ0i" id="6BSFEB5xNhs" role="1qenE9">
+        <property role="2KvMrY" value="6EI1ZZqOi3x/rich" />
+        <node concept="2MuRF6" id="6BSFEB5xNht" role="2KvMtK">
+          <property role="TrG5h" value="RichChild" />
+          <property role="2Mta2w" value="richPropertyValue" />
+          <node concept="LIFWc" id="6k6gsLy9BLx" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="17" />
+            <property role="p6zMs" value="17" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -459,29 +490,33 @@
         <property role="2TTd_B" value="propValue" />
       </node>
     </node>
-    <node concept="2MuQ0i" id="6BSFEB5xPQS" role="LiRBU">
-      <property role="2GCwbj" value="true" />
-      <node concept="2MuRF6" id="6BSFEB5xPQT" role="2GCwbk">
-        <property role="TrG5h" value="CompactChild" />
-      </node>
-      <node concept="LIFWc" id="6BSFEB5xPSc" role="lGtFl">
-        <property role="LIFWa" value="3" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="4" />
-        <property role="LIFWd" value="property_projectAsCompact" />
+    <node concept="1qefOq" id="2aQPn0Pnk6i" role="25YQCW">
+      <node concept="2MuQ0i" id="6BSFEB5xPQS" role="1qenE9">
+        <property role="2GCwbj" value="true" />
+        <node concept="2MuRF6" id="6BSFEB5xPQT" role="2GCwbk">
+          <property role="TrG5h" value="CompactChild" />
+        </node>
+        <node concept="LIFWc" id="6BSFEB5xPSc" role="lGtFl">
+          <property role="LIFWa" value="3" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="4" />
+          <property role="LIFWd" value="property_projectAsCompact" />
+        </node>
       </node>
     </node>
-    <node concept="2MuQ0i" id="6BSFEB5xPSq" role="LiZbd">
-      <node concept="2MuRF6" id="6BSFEB5xPSr" role="2GCwbk">
-        <property role="TrG5h" value="CompactChild" />
-        <property role="2Mta2w" value="propValue" />
-        <node concept="LIFWc" id="6k6gsLy9BQQ" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="9" />
-          <property role="p6zMs" value="9" />
-          <property role="LIFWd" value="property_richProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6M" role="25YQFr">
+      <node concept="2MuQ0i" id="6BSFEB5xPSq" role="1qenE9">
+        <node concept="2MuRF6" id="6BSFEB5xPSr" role="2GCwbk">
+          <property role="TrG5h" value="CompactChild" />
+          <property role="2Mta2w" value="propValue" />
+          <node concept="LIFWc" id="6k6gsLy9BQQ" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="9" />
+            <property role="p6zMs" value="9" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -489,34 +524,38 @@
   <node concept="LiM7Y" id="2gpcfU7jAe0">
     <property role="TrG5h" value="UnsupportedPresentation" />
     <property role="3YCmrE" value="Editing MultipleEditorsTestChild child concept instance using default editor (there is no editor associted with unsupported contxt hint pushed down to this child, so default editor should be used here)" />
-    <node concept="2MuQ0i" id="2gpcfU7jAe1" role="LiRBU">
-      <node concept="2MuRF6" id="2gpcfU7lgRF" role="2zkSAk">
-        <property role="TrG5h" value="DefaultChild" />
-        <property role="2Mta2y" value="oldProperty" />
-        <node concept="LIFWc" id="2gpcfU7lgRH" role="lGtFl">
-          <property role="LIFWa" value="0" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="0" />
-          <property role="p6zMs" value="3" />
-          <property role="LIFWd" value="property_defaultProperty" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="2gpcfU7jAe7" role="LjaKd">
       <node concept="2TK7Tu" id="2gpcfU7jAe8" role="3cqZAp">
         <property role="2TTd_B" value="new" />
       </node>
     </node>
-    <node concept="2MuQ0i" id="2gpcfU7lgRV" role="LiZbd">
-      <node concept="2MuRF6" id="2gpcfU7lgRW" role="2zkSAk">
-        <property role="TrG5h" value="DefaultChild" />
-        <property role="2Mta2y" value="newProperty" />
-        <node concept="LIFWc" id="2gpcfU7lgS1" role="lGtFl">
-          <property role="LIFWa" value="3" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="3" />
-          <property role="p6zMs" value="3" />
-          <property role="LIFWd" value="property_defaultProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6j" role="25YQCW">
+      <node concept="2MuQ0i" id="2gpcfU7jAe1" role="1qenE9">
+        <node concept="2MuRF6" id="2gpcfU7lgRF" role="2zkSAk">
+          <property role="TrG5h" value="DefaultChild" />
+          <property role="2Mta2y" value="oldProperty" />
+          <node concept="LIFWc" id="2gpcfU7lgRH" role="lGtFl">
+            <property role="LIFWa" value="0" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="3" />
+            <property role="LIFWd" value="property_defaultProperty" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6N" role="25YQFr">
+      <node concept="2MuQ0i" id="2gpcfU7lgRV" role="1qenE9">
+        <node concept="2MuRF6" id="2gpcfU7lgRW" role="2zkSAk">
+          <property role="TrG5h" value="DefaultChild" />
+          <property role="2Mta2y" value="newProperty" />
+          <node concept="LIFWc" id="2gpcfU7lgS1" role="lGtFl">
+            <property role="LIFWa" value="3" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="3" />
+            <property role="p6zMs" value="3" />
+            <property role="LIFWd" value="property_defaultProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -524,70 +563,78 @@
   <node concept="LiM7Y" id="6k6gsLyia2G">
     <property role="TrG5h" value="EditorSpecifiedBy_add_context_hints_RefNodeList" />
     <property role="3YCmrE" value="Editing MultipleEditorsTestChild child concept instance using rich editor (rich context hint was pushed into context by RefNodeList editor cell)" />
-    <node concept="7g1Uw" id="6k6gsLyiyJB" role="LiRBU">
-      <node concept="2MuRF6" id="4R_sg7X6HjB" role="7gbJm">
-        <property role="TrG5h" value="RichChild" />
-        <property role="2Mta2w" value="richProperty" />
-        <node concept="LIFWc" id="4R_sg7X6HjD" role="lGtFl">
-          <property role="LIFWa" value="4" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="4" />
-          <property role="p6zMs" value="4" />
-          <property role="LIFWd" value="property_richProperty" />
-        </node>
-      </node>
-    </node>
-    <node concept="7g1Uw" id="4R_sg7X6HjR" role="LiZbd">
-      <node concept="2MuRF6" id="4R_sg7X6HjS" role="7gbJm">
-        <property role="TrG5h" value="RichChild" />
-        <property role="2Mta2w" value="richNewProperty" />
-        <node concept="LIFWc" id="4R_sg7X6HjX" role="lGtFl">
-          <property role="LIFWa" value="7" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="7" />
-          <property role="p6zMs" value="7" />
-          <property role="LIFWd" value="property_richProperty" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="4R_sg7X6I8x" role="LjaKd">
       <node concept="2TK7Tu" id="4R_sg7X6I8w" role="3cqZAp">
         <property role="2TTd_B" value="New" />
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6k" role="25YQCW">
+      <node concept="7g1Uw" id="6k6gsLyiyJB" role="1qenE9">
+        <node concept="2MuRF6" id="4R_sg7X6HjB" role="7gbJm">
+          <property role="TrG5h" value="RichChild" />
+          <property role="2Mta2w" value="richProperty" />
+          <node concept="LIFWc" id="4R_sg7X6HjD" role="lGtFl">
+            <property role="LIFWa" value="4" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="4" />
+            <property role="p6zMs" value="4" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6O" role="25YQFr">
+      <node concept="7g1Uw" id="4R_sg7X6HjR" role="1qenE9">
+        <node concept="2MuRF6" id="4R_sg7X6HjS" role="7gbJm">
+          <property role="TrG5h" value="RichChild" />
+          <property role="2Mta2w" value="richNewProperty" />
+          <node concept="LIFWc" id="4R_sg7X6HjX" role="lGtFl">
+            <property role="LIFWa" value="7" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="7" />
+            <property role="p6zMs" value="7" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
+        </node>
       </node>
     </node>
   </node>
   <node concept="LiM7Y" id="6k6gsLyiyLk">
     <property role="TrG5h" value="EditorSpecifiedBy_add_remove_context_hints_RefNodeList" />
     <property role="3YCmrE" value="Editing MultipleEditorsTestChild child concept instance using compact editor (rich context hint was removed from the context &amp; compact pushed instead by RefNodeList editor cell)" />
-    <node concept="7g1Uw" id="6k6gsLyiyLl" role="LiRBU">
-      <node concept="2MuRF6" id="4R_sg7X6Iab" role="7gbJn">
-        <property role="TrG5h" value="CompactChild" />
-        <property role="usFph" value="compactProperty" />
-        <node concept="LIFWc" id="4R_sg7X6Iad" role="lGtFl">
-          <property role="LIFWa" value="7" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="7" />
-          <property role="p6zMs" value="7" />
-          <property role="LIFWd" value="property_compactProperty" />
-        </node>
-      </node>
-    </node>
-    <node concept="7g1Uw" id="4R_sg7X6Iar" role="LiZbd">
-      <node concept="2MuRF6" id="4R_sg7X6Ias" role="7gbJn">
-        <property role="TrG5h" value="CompactChild" />
-        <property role="usFph" value="compactNewProperty" />
-        <node concept="LIFWc" id="4R_sg7X6Iax" role="lGtFl">
-          <property role="LIFWa" value="10" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="10" />
-          <property role="p6zMs" value="10" />
-          <property role="LIFWd" value="property_compactProperty" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="4R_sg7X6Ia$" role="LjaKd">
       <node concept="2TK7Tu" id="4R_sg7X6Iaz" role="3cqZAp">
         <property role="2TTd_B" value="New" />
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6l" role="25YQCW">
+      <node concept="7g1Uw" id="6k6gsLyiyLl" role="1qenE9">
+        <node concept="2MuRF6" id="4R_sg7X6Iab" role="7gbJn">
+          <property role="TrG5h" value="CompactChild" />
+          <property role="usFph" value="compactProperty" />
+          <node concept="LIFWc" id="4R_sg7X6Iad" role="lGtFl">
+            <property role="LIFWa" value="7" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="7" />
+            <property role="p6zMs" value="7" />
+            <property role="LIFWd" value="property_compactProperty" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6P" role="25YQFr">
+      <node concept="7g1Uw" id="4R_sg7X6Iar" role="1qenE9">
+        <node concept="2MuRF6" id="4R_sg7X6Ias" role="7gbJn">
+          <property role="TrG5h" value="CompactChild" />
+          <property role="usFph" value="compactNewProperty" />
+          <node concept="LIFWc" id="4R_sg7X6Iax" role="lGtFl">
+            <property role="LIFWa" value="10" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="10" />
+            <property role="p6zMs" value="10" />
+            <property role="LIFWd" value="property_compactProperty" />
+          </node>
+        </node>
       </node>
     </node>
   </node>
@@ -599,30 +646,34 @@
         <property role="2TTd_B" value="Property" />
       </node>
     </node>
-    <node concept="7g1Uw" id="uMiWVbXpZV" role="LiRBU">
-      <property role="2KZ$yB" value="rich" />
-      <node concept="2MuRF6" id="uMiWVbXpZX" role="2KZwG9">
-        <property role="TrG5h" value="RichChild" />
-        <node concept="LIFWc" id="uMiWVbXpZZ" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="0" />
-          <property role="p6zMs" value="0" />
-          <property role="LIFWd" value="property_richProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6m" role="25YQCW">
+      <node concept="7g1Uw" id="uMiWVbXpZV" role="1qenE9">
+        <property role="2KZ$yB" value="6EI1ZZqOi3x/rich" />
+        <node concept="2MuRF6" id="uMiWVbXpZX" role="2KZwG9">
+          <property role="TrG5h" value="RichChild" />
+          <node concept="LIFWc" id="uMiWVbXpZZ" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
         </node>
       </node>
     </node>
-    <node concept="7g1Uw" id="uMiWVbXq0d" role="LiZbd">
-      <property role="2KZ$yB" value="rich" />
-      <node concept="2MuRF6" id="uMiWVbXq0e" role="2KZwG9">
-        <property role="TrG5h" value="RichChild" />
-        <property role="2Mta2w" value="Property" />
-        <node concept="LIFWc" id="uMiWVbXq0j" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="8" />
-          <property role="p6zMs" value="8" />
-          <property role="LIFWd" value="property_richProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6Q" role="25YQFr">
+      <node concept="7g1Uw" id="uMiWVbXq0d" role="1qenE9">
+        <property role="2KZ$yB" value="6EI1ZZqOi3x/rich" />
+        <node concept="2MuRF6" id="uMiWVbXq0e" role="2KZwG9">
+          <property role="TrG5h" value="RichChild" />
+          <property role="2Mta2w" value="Property" />
+          <node concept="LIFWc" id="uMiWVbXq0j" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="8" />
+            <property role="p6zMs" value="8" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -635,29 +686,33 @@
         <property role="2TTd_B" value="newPropertyValue" />
       </node>
     </node>
-    <node concept="7g1Uw" id="uMiWVbXpTS" role="LiRBU">
-      <node concept="2MuRF6" id="uMiWVbXpTU" role="2KZwG9">
-        <property role="TrG5h" value="DefaultChild" />
-        <property role="2Mta2y" value="propertyValue" />
-        <node concept="LIFWc" id="uMiWVbXpXF" role="lGtFl">
-          <property role="LIFWa" value="0" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="0" />
-          <property role="p6zMs" value="13" />
-          <property role="LIFWd" value="property_defaultProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6n" role="25YQCW">
+      <node concept="7g1Uw" id="uMiWVbXpTS" role="1qenE9">
+        <node concept="2MuRF6" id="uMiWVbXpTU" role="2KZwG9">
+          <property role="TrG5h" value="DefaultChild" />
+          <property role="2Mta2y" value="propertyValue" />
+          <node concept="LIFWc" id="uMiWVbXpXF" role="lGtFl">
+            <property role="LIFWa" value="0" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="13" />
+            <property role="LIFWd" value="property_defaultProperty" />
+          </node>
         </node>
       </node>
     </node>
-    <node concept="7g1Uw" id="uMiWVbXpXT" role="LiZbd">
-      <node concept="2MuRF6" id="uMiWVbXpXU" role="2KZwG9">
-        <property role="TrG5h" value="DefaultChild" />
-        <property role="2Mta2y" value="newPropertyValue" />
-        <node concept="LIFWc" id="uMiWVbXpXZ" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="16" />
-          <property role="p6zMs" value="16" />
-          <property role="LIFWd" value="property_defaultProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6R" role="25YQFr">
+      <node concept="7g1Uw" id="uMiWVbXpXT" role="1qenE9">
+        <node concept="2MuRF6" id="uMiWVbXpXU" role="2KZwG9">
+          <property role="TrG5h" value="DefaultChild" />
+          <property role="2Mta2y" value="newPropertyValue" />
+          <node concept="LIFWc" id="uMiWVbXpXZ" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="16" />
+            <property role="p6zMs" value="16" />
+            <property role="LIFWd" value="property_defaultProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -665,19 +720,6 @@
   <node concept="LiM7Y" id="uMiWVbXq3d">
     <property role="TrG5h" value="ConditionalPresentation_addQuery_RefNodeList_switch" />
     <property role="3YCmrE" value="Testing if child element projection will be switched from default to rich type on switching corresponding model property (add context hint query in RefNodeList cell re-evaluated no model changes)" />
-    <node concept="7g1Uw" id="uMiWVbXr2w" role="LiRBU">
-      <node concept="2MuRF6" id="uMiWVbXr2z" role="2KZwG9">
-        <property role="TrG5h" value="RichChild" />
-        <property role="2Mta2y" value="defaultProperty" />
-      </node>
-      <node concept="LIFWc" id="uMiWVbXr56" role="lGtFl">
-        <property role="LIFWa" value="10" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="13" />
-        <property role="LIFWd" value="property_projectionType" />
-      </node>
-    </node>
     <node concept="3clFbS" id="uMiWVbXq3h" role="LjaKd">
       <node concept="2TK7Tu" id="uMiWVbXq3i" role="3cqZAp">
         <property role="2TTd_B" value="rich" />
@@ -696,18 +738,35 @@
         <property role="2TTd_B" value="richPropertyValue" />
       </node>
     </node>
-    <node concept="7g1Uw" id="uMiWVbXr50" role="LiZbd">
-      <property role="2KZ$yB" value="rich" />
-      <node concept="2MuRF6" id="uMiWVbXr51" role="2KZwG9">
-        <property role="TrG5h" value="RichChild" />
-        <property role="2Mta2y" value="defaultProperty" />
-        <property role="2Mta2w" value="richPropertyValue" />
-        <node concept="LIFWc" id="uMiWVbXr58" role="lGtFl">
-          <property role="ZRATv" value="true" />
+    <node concept="1qefOq" id="2aQPn0Pnk6o" role="25YQCW">
+      <node concept="7g1Uw" id="uMiWVbXr2w" role="1qenE9">
+        <node concept="2MuRF6" id="uMiWVbXr2z" role="2KZwG9">
+          <property role="TrG5h" value="RichChild" />
+          <property role="2Mta2y" value="defaultProperty" />
+        </node>
+        <node concept="LIFWc" id="uMiWVbXr56" role="lGtFl">
+          <property role="LIFWa" value="10" />
           <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="17" />
-          <property role="p6zMs" value="17" />
-          <property role="LIFWd" value="property_richProperty" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="13" />
+          <property role="LIFWd" value="property_projectionType" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6S" role="25YQFr">
+      <node concept="7g1Uw" id="uMiWVbXr50" role="1qenE9">
+        <property role="2KZ$yB" value="6EI1ZZqOi3x/rich" />
+        <node concept="2MuRF6" id="uMiWVbXr51" role="2KZwG9">
+          <property role="TrG5h" value="RichChild" />
+          <property role="2Mta2y" value="defaultProperty" />
+          <property role="2Mta2w" value="richPropertyValue" />
+          <node concept="LIFWc" id="uMiWVbXr58" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="17" />
+            <property role="p6zMs" value="17" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -720,30 +779,34 @@
         <property role="2TTd_B" value="propValue" />
       </node>
     </node>
-    <node concept="7g1Uw" id="uMiWVbY7Ph" role="LiRBU">
-      <property role="3ch7Eg" value="true" />
-      <node concept="2MuRF6" id="uMiWVbY7Pj" role="3chZBA">
-        <property role="TrG5h" value="CompactChild" />
-        <node concept="LIFWc" id="uMiWVbY7Pl" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="0" />
-          <property role="p6zMs" value="0" />
-          <property role="LIFWd" value="property_compactProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6p" role="25YQCW">
+      <node concept="7g1Uw" id="uMiWVbY7Ph" role="1qenE9">
+        <property role="3ch7Eg" value="true" />
+        <node concept="2MuRF6" id="uMiWVbY7Pj" role="3chZBA">
+          <property role="TrG5h" value="CompactChild" />
+          <node concept="LIFWc" id="uMiWVbY7Pl" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
+            <property role="LIFWd" value="property_compactProperty" />
+          </node>
         </node>
       </node>
     </node>
-    <node concept="7g1Uw" id="uMiWVbY7Pz" role="LiZbd">
-      <property role="3ch7Eg" value="true" />
-      <node concept="2MuRF6" id="uMiWVbY7P$" role="3chZBA">
-        <property role="TrG5h" value="CompactChild" />
-        <property role="usFph" value="propValue" />
-        <node concept="LIFWc" id="uMiWVbY7PD" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="9" />
-          <property role="p6zMs" value="9" />
-          <property role="LIFWd" value="property_compactProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6T" role="25YQFr">
+      <node concept="7g1Uw" id="uMiWVbY7Pz" role="1qenE9">
+        <property role="3ch7Eg" value="true" />
+        <node concept="2MuRF6" id="uMiWVbY7P$" role="3chZBA">
+          <property role="TrG5h" value="CompactChild" />
+          <property role="usFph" value="propValue" />
+          <node concept="LIFWc" id="uMiWVbY7PD" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="9" />
+            <property role="p6zMs" value="9" />
+            <property role="LIFWd" value="property_compactProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -751,20 +814,6 @@
   <node concept="LiM7Y" id="uMiWVbY7JT">
     <property role="TrG5h" value="ConditionalPresentation_removeQuery_RefNodeList_switch" />
     <property role="3YCmrE" value="Testing if child element projection will be switched from compact to rich type on changing corresponding model property (remove context hint query in RefNodeList cell re-evaluated no model changes)" />
-    <node concept="7g1Uw" id="uMiWVbY7V7" role="LiZbd">
-      <node concept="2MuRF6" id="uMiWVbY7V8" role="3chZBA">
-        <property role="TrG5h" value="RichChild" />
-        <property role="usFph" value="compactProperty" />
-        <property role="2Mta2w" value="propValue" />
-        <node concept="LIFWc" id="uMiWVbY7Vd" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="9" />
-          <property role="p6zMs" value="9" />
-          <property role="LIFWd" value="property_richProperty" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="uMiWVbY7JU" role="LjaKd">
       <node concept="2TK7Tu" id="uMiWVbY7JV" role="3cqZAp">
         <property role="2TTd_B" value="false" />
@@ -783,18 +832,36 @@
         <property role="2TTd_B" value="propValue" />
       </node>
     </node>
-    <node concept="7g1Uw" id="uMiWVbY7UP" role="LiRBU">
-      <property role="3ch7Eg" value="true" />
-      <node concept="LIFWc" id="uMiWVbY7UT" role="lGtFl">
-        <property role="LIFWa" value="3" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="4" />
-        <property role="LIFWd" value="property_projectAsCompact" />
+    <node concept="1qefOq" id="2aQPn0Pnk6q" role="25YQCW">
+      <node concept="7g1Uw" id="uMiWVbY7UP" role="1qenE9">
+        <property role="3ch7Eg" value="true" />
+        <node concept="LIFWc" id="uMiWVbY7UT" role="lGtFl">
+          <property role="LIFWa" value="3" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="4" />
+          <property role="LIFWd" value="property_projectAsCompact" />
+        </node>
+        <node concept="2MuRF6" id="uMiWVbY7UR" role="3chZBA">
+          <property role="TrG5h" value="RichChild" />
+          <property role="usFph" value="compactProperty" />
+        </node>
       </node>
-      <node concept="2MuRF6" id="uMiWVbY7UR" role="3chZBA">
-        <property role="TrG5h" value="RichChild" />
-        <property role="usFph" value="compactProperty" />
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6U" role="25YQFr">
+      <node concept="7g1Uw" id="uMiWVbY7V7" role="1qenE9">
+        <node concept="2MuRF6" id="uMiWVbY7V8" role="3chZBA">
+          <property role="TrG5h" value="RichChild" />
+          <property role="usFph" value="compactProperty" />
+          <property role="2Mta2w" value="propValue" />
+          <node concept="LIFWc" id="uMiWVbY7Vd" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="9" />
+            <property role="p6zMs" value="9" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
+        </node>
       </node>
     </node>
   </node>
@@ -806,29 +873,33 @@
         <property role="2TTd_B" value="New" />
       </node>
     </node>
-    <node concept="3xAF0$" id="55my_QKWMnk" role="LiRBU">
-      <node concept="2MuRF6" id="55my_QKWMnm" role="3xAIfz">
-        <property role="TrG5h" value="RichChild" />
-        <property role="2Mta2w" value="richProperty" />
-        <node concept="LIFWc" id="1G6ITli8g4X" role="lGtFl">
-          <property role="LIFWa" value="4" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="4" />
-          <property role="p6zMs" value="4" />
-          <property role="LIFWd" value="property_richProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6r" role="25YQCW">
+      <node concept="3xAF0$" id="55my_QKWMnk" role="1qenE9">
+        <node concept="2MuRF6" id="55my_QKWMnm" role="3xAIfz">
+          <property role="TrG5h" value="RichChild" />
+          <property role="2Mta2w" value="richProperty" />
+          <node concept="LIFWc" id="1G6ITli8g4X" role="lGtFl">
+            <property role="LIFWa" value="4" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="4" />
+            <property role="p6zMs" value="4" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
         </node>
       </node>
     </node>
-    <node concept="3xAF0$" id="1G6ITli8g5b" role="LiZbd">
-      <node concept="2MuRF6" id="1G6ITli8g5c" role="3xAIfz">
-        <property role="TrG5h" value="RichChild" />
-        <property role="2Mta2w" value="richNewProperty" />
-        <node concept="LIFWc" id="1G6ITli8g5h" role="lGtFl">
-          <property role="LIFWa" value="7" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="7" />
-          <property role="p6zMs" value="7" />
-          <property role="LIFWd" value="property_richProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6V" role="25YQFr">
+      <node concept="3xAF0$" id="1G6ITli8g5b" role="1qenE9">
+        <node concept="2MuRF6" id="1G6ITli8g5c" role="3xAIfz">
+          <property role="TrG5h" value="RichChild" />
+          <property role="2Mta2w" value="richNewProperty" />
+          <node concept="LIFWc" id="1G6ITli8g5h" role="lGtFl">
+            <property role="LIFWa" value="7" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="7" />
+            <property role="p6zMs" value="7" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -841,29 +912,33 @@
         <property role="2TTd_B" value="New" />
       </node>
     </node>
-    <node concept="3xAF0$" id="55my_QKWMvO" role="LiRBU">
-      <node concept="2MuRF6" id="55my_QKWMyB" role="3xA_Vv">
-        <property role="TrG5h" value="CompactChild" />
-        <property role="usFph" value="compactProperty" />
-        <node concept="LIFWc" id="1G6ITli8g86" role="lGtFl">
-          <property role="LIFWa" value="7" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="7" />
-          <property role="p6zMs" value="7" />
-          <property role="LIFWd" value="property_compactProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6s" role="25YQCW">
+      <node concept="3xAF0$" id="55my_QKWMvO" role="1qenE9">
+        <node concept="2MuRF6" id="55my_QKWMyB" role="3xA_Vv">
+          <property role="TrG5h" value="CompactChild" />
+          <property role="usFph" value="compactProperty" />
+          <node concept="LIFWc" id="1G6ITli8g86" role="lGtFl">
+            <property role="LIFWa" value="7" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="7" />
+            <property role="p6zMs" value="7" />
+            <property role="LIFWd" value="property_compactProperty" />
+          </node>
         </node>
       </node>
     </node>
-    <node concept="3xAF0$" id="1G6ITli8g8k" role="LiZbd">
-      <node concept="2MuRF6" id="1G6ITli8g8l" role="3xA_Vv">
-        <property role="TrG5h" value="CompactChild" />
-        <property role="usFph" value="compactNewProperty" />
-        <node concept="LIFWc" id="1G6ITli8g8q" role="lGtFl">
-          <property role="LIFWa" value="10" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="10" />
-          <property role="p6zMs" value="10" />
-          <property role="LIFWd" value="property_compactProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6W" role="25YQFr">
+      <node concept="3xAF0$" id="1G6ITli8g8k" role="1qenE9">
+        <node concept="2MuRF6" id="1G6ITli8g8l" role="3xA_Vv">
+          <property role="TrG5h" value="CompactChild" />
+          <property role="usFph" value="compactNewProperty" />
+          <node concept="LIFWc" id="1G6ITli8g8q" role="lGtFl">
+            <property role="LIFWa" value="10" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="10" />
+            <property role="p6zMs" value="10" />
+            <property role="LIFWd" value="property_compactProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -876,29 +951,33 @@
         <property role="2TTd_B" value="newPropertyValue" />
       </node>
     </node>
-    <node concept="3xAF0$" id="1G6ITli9fm5" role="LiRBU">
-      <node concept="2MuRF6" id="1G6ITli9fm7" role="199YXt">
-        <property role="TrG5h" value="DefaultChild" />
-        <property role="2Mta2y" value="propertyValue" />
-        <node concept="LIFWc" id="1G6ITli9fm9" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="0" />
-          <property role="p6zMs" value="13" />
-          <property role="LIFWd" value="property_defaultProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6t" role="25YQCW">
+      <node concept="3xAF0$" id="1G6ITli9fm5" role="1qenE9">
+        <node concept="2MuRF6" id="1G6ITli9fm7" role="199YXt">
+          <property role="TrG5h" value="DefaultChild" />
+          <property role="2Mta2y" value="propertyValue" />
+          <node concept="LIFWc" id="1G6ITli9fm9" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="13" />
+            <property role="LIFWd" value="property_defaultProperty" />
+          </node>
         </node>
       </node>
     </node>
-    <node concept="3xAF0$" id="1G6ITli9fmn" role="LiZbd">
-      <node concept="2MuRF6" id="1G6ITli9fmo" role="199YXt">
-        <property role="TrG5h" value="DefaultChild" />
-        <property role="2Mta2y" value="newPropertyValue" />
-        <node concept="LIFWc" id="1G6ITli9fmt" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="16" />
-          <property role="p6zMs" value="16" />
-          <property role="LIFWd" value="property_defaultProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6X" role="25YQFr">
+      <node concept="3xAF0$" id="1G6ITli9fmn" role="1qenE9">
+        <node concept="2MuRF6" id="1G6ITli9fmo" role="199YXt">
+          <property role="TrG5h" value="DefaultChild" />
+          <property role="2Mta2y" value="newPropertyValue" />
+          <node concept="LIFWc" id="1G6ITli9fmt" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="16" />
+            <property role="p6zMs" value="16" />
+            <property role="LIFWd" value="property_defaultProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -911,30 +990,34 @@
         <property role="2TTd_B" value="Property" />
       </node>
     </node>
-    <node concept="3xAF0$" id="1G6ITli9ftd" role="LiRBU">
-      <property role="199YU9" value="rich" />
-      <node concept="2MuRF6" id="1G6ITli9ftf" role="199YXt">
-        <property role="TrG5h" value="RichChild" />
-        <node concept="LIFWc" id="1G6ITli9fth" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="0" />
-          <property role="p6zMs" value="0" />
-          <property role="LIFWd" value="property_richProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6u" role="25YQCW">
+      <node concept="3xAF0$" id="1G6ITli9ftd" role="1qenE9">
+        <property role="199YU9" value="6EI1ZZqOi3x/rich" />
+        <node concept="2MuRF6" id="1G6ITli9ftf" role="199YXt">
+          <property role="TrG5h" value="RichChild" />
+          <node concept="LIFWc" id="1G6ITli9fth" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
         </node>
       </node>
     </node>
-    <node concept="3xAF0$" id="1G6ITli9ftv" role="LiZbd">
-      <property role="199YU9" value="rich" />
-      <node concept="2MuRF6" id="1G6ITli9ftw" role="199YXt">
-        <property role="TrG5h" value="RichChild" />
-        <property role="2Mta2w" value="Property" />
-        <node concept="LIFWc" id="1G6ITli9ft_" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="8" />
-          <property role="p6zMs" value="8" />
-          <property role="LIFWd" value="property_richProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6Y" role="25YQFr">
+      <node concept="3xAF0$" id="1G6ITli9ftv" role="1qenE9">
+        <property role="199YU9" value="6EI1ZZqOi3x/rich" />
+        <node concept="2MuRF6" id="1G6ITli9ftw" role="199YXt">
+          <property role="TrG5h" value="RichChild" />
+          <property role="2Mta2w" value="Property" />
+          <node concept="LIFWc" id="1G6ITli9ft_" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="8" />
+            <property role="p6zMs" value="8" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -960,31 +1043,35 @@
         <property role="2TTd_B" value="richPropertyValue" />
       </node>
     </node>
-    <node concept="3xAF0$" id="1G6ITli9f$l" role="LiRBU">
-      <node concept="2MuRF6" id="1G6ITli9f$n" role="199YXt">
-        <property role="TrG5h" value="RichChild" />
-        <property role="2Mta2y" value="defaultProperty" />
-      </node>
-      <node concept="LIFWc" id="1G6ITli9f$H" role="lGtFl">
-        <property role="LIFWa" value="7" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="13" />
-        <property role="LIFWd" value="property_projectionType" />
+    <node concept="1qefOq" id="2aQPn0Pnk6v" role="25YQCW">
+      <node concept="3xAF0$" id="1G6ITli9f$l" role="1qenE9">
+        <node concept="2MuRF6" id="1G6ITli9f$n" role="199YXt">
+          <property role="TrG5h" value="RichChild" />
+          <property role="2Mta2y" value="defaultProperty" />
+        </node>
+        <node concept="LIFWc" id="1G6ITli9f$H" role="lGtFl">
+          <property role="LIFWa" value="7" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="13" />
+          <property role="LIFWd" value="property_projectionType" />
+        </node>
       </node>
     </node>
-    <node concept="3xAF0$" id="1G6ITli9f$B" role="LiZbd">
-      <property role="199YU9" value="rich" />
-      <node concept="2MuRF6" id="1G6ITli9f$C" role="199YXt">
-        <property role="TrG5h" value="RichChild" />
-        <property role="2Mta2y" value="defaultProperty" />
-        <property role="2Mta2w" value="richPropertyValue" />
-        <node concept="LIFWc" id="1G6ITli9f$J" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="17" />
-          <property role="p6zMs" value="17" />
-          <property role="LIFWd" value="property_richProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6Z" role="25YQFr">
+      <node concept="3xAF0$" id="1G6ITli9f$B" role="1qenE9">
+        <property role="199YU9" value="6EI1ZZqOi3x/rich" />
+        <node concept="2MuRF6" id="1G6ITli9f$C" role="199YXt">
+          <property role="TrG5h" value="RichChild" />
+          <property role="2Mta2y" value="defaultProperty" />
+          <property role="2Mta2w" value="richPropertyValue" />
+          <node concept="LIFWc" id="1G6ITli9f$J" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="17" />
+            <property role="p6zMs" value="17" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -997,30 +1084,34 @@
         <property role="2TTd_B" value="propValue" />
       </node>
     </node>
-    <node concept="3xAF0$" id="1G6ITli9fSC" role="LiRBU">
-      <property role="199YU8" value="true" />
-      <node concept="2MuRF6" id="1G6ITli9fSE" role="199YXs">
-        <property role="TrG5h" value="CompactChlid" />
-        <node concept="LIFWc" id="1G6ITli9fSG" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="0" />
-          <property role="p6zMs" value="0" />
-          <property role="LIFWd" value="property_compactProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk6w" role="25YQCW">
+      <node concept="3xAF0$" id="1G6ITli9fSC" role="1qenE9">
+        <property role="199YU8" value="true" />
+        <node concept="2MuRF6" id="1G6ITli9fSE" role="199YXs">
+          <property role="TrG5h" value="CompactChlid" />
+          <node concept="LIFWc" id="1G6ITli9fSG" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
+            <property role="LIFWd" value="property_compactProperty" />
+          </node>
         </node>
       </node>
     </node>
-    <node concept="3xAF0$" id="1G6ITli9fSU" role="LiZbd">
-      <property role="199YU8" value="true" />
-      <node concept="2MuRF6" id="1G6ITli9fSV" role="199YXs">
-        <property role="TrG5h" value="CompactChlid" />
-        <property role="usFph" value="propValue" />
-        <node concept="LIFWc" id="1G6ITli9fT0" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="9" />
-          <property role="p6zMs" value="9" />
-          <property role="LIFWd" value="property_compactProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk70" role="25YQFr">
+      <node concept="3xAF0$" id="1G6ITli9fSU" role="1qenE9">
+        <property role="199YU8" value="true" />
+        <node concept="2MuRF6" id="1G6ITli9fSV" role="199YXs">
+          <property role="TrG5h" value="CompactChlid" />
+          <property role="usFph" value="propValue" />
+          <node concept="LIFWc" id="1G6ITli9fT0" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="9" />
+            <property role="p6zMs" value="9" />
+            <property role="LIFWd" value="property_compactProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -1046,31 +1137,35 @@
         <property role="2TTd_B" value="propValue" />
       </node>
     </node>
-    <node concept="3xAF0$" id="1G6ITli9lxX" role="LiRBU">
-      <property role="199YU8" value="true" />
-      <node concept="2MuRF6" id="1G6ITli9lxZ" role="199YXs">
-        <property role="TrG5h" value="RichChild" />
-        <property role="usFph" value="compactProperty" />
-      </node>
-      <node concept="LIFWc" id="1G6ITli9lyd" role="lGtFl">
-        <property role="LIFWa" value="2" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="4" />
-        <property role="LIFWd" value="property_projectAsCompact" />
+    <node concept="1qefOq" id="2aQPn0Pnk6x" role="25YQCW">
+      <node concept="3xAF0$" id="1G6ITli9lxX" role="1qenE9">
+        <property role="199YU8" value="true" />
+        <node concept="2MuRF6" id="1G6ITli9lxZ" role="199YXs">
+          <property role="TrG5h" value="RichChild" />
+          <property role="usFph" value="compactProperty" />
+        </node>
+        <node concept="LIFWc" id="1G6ITli9lyd" role="lGtFl">
+          <property role="LIFWa" value="2" />
+          <property role="OXtK3" value="true" />
+          <property role="p6zMq" value="0" />
+          <property role="p6zMs" value="4" />
+          <property role="LIFWd" value="property_projectAsCompact" />
+        </node>
       </node>
     </node>
-    <node concept="3xAF0$" id="1G6ITli9ly9" role="LiZbd">
-      <node concept="2MuRF6" id="1G6ITli9lya" role="199YXs">
-        <property role="TrG5h" value="RichChild" />
-        <property role="usFph" value="compactProperty" />
-        <property role="2Mta2w" value="propValue" />
-        <node concept="LIFWc" id="1G6ITli9lyf" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="9" />
-          <property role="p6zMs" value="9" />
-          <property role="LIFWd" value="property_richProperty" />
+    <node concept="1qefOq" id="2aQPn0Pnk71" role="25YQFr">
+      <node concept="3xAF0$" id="1G6ITli9ly9" role="1qenE9">
+        <node concept="2MuRF6" id="1G6ITli9lya" role="199YXs">
+          <property role="TrG5h" value="RichChild" />
+          <property role="usFph" value="compactProperty" />
+          <property role="2Mta2w" value="propValue" />
+          <node concept="LIFWc" id="1G6ITli9lyf" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="9" />
+            <property role="p6zMs" value="9" />
+            <property role="LIFWd" value="property_richProperty" />
+          </node>
         </node>
       </node>
     </node>
@@ -1078,35 +1173,39 @@
   <node concept="LiM7Y" id="5wNXW0WXvxF">
     <property role="TrG5h" value="MostSpecificEditor" />
     <property role="3YCmrE" value="Editing MultipleEditorsTestMostSpecificChild child concept instance using editor applicable to both compact &amp; rich context hints. This editor is specified in a sub-language + there are &quot;less-specific&quot; editors specified for &quot;rich&quot; or &quot;compact&quot; hints" />
-    <node concept="tJ_u8" id="5wNXW0WXvBI" role="LiRBU">
-      <node concept="tJAI_" id="5wNXW0WXvFz" role="tJAGL">
-        <property role="TrG5h" value="RichCompactChild" />
-        <property role="tJAfQ" value="richCompactProperty" />
-        <node concept="LIFWc" id="5wNXW0WXvF_" role="lGtFl">
-          <property role="LIFWa" value="11" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="0" />
-          <property role="p6zMs" value="19" />
-          <property role="LIFWd" value="property_richCompactProperty" />
-        </node>
-      </node>
-    </node>
-    <node concept="tJ_u8" id="5wNXW0WXvFN" role="LiZbd">
-      <node concept="tJAI_" id="5wNXW0WXvFO" role="tJAGL">
-        <property role="TrG5h" value="RichCompactChild" />
-        <property role="tJAfQ" value="newPropertyValue" />
-        <node concept="LIFWc" id="5wNXW0WXvFT" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="16" />
-          <property role="p6zMs" value="16" />
-          <property role="LIFWd" value="property_richCompactProperty" />
-        </node>
-      </node>
-    </node>
     <node concept="3clFbS" id="5wNXW0WXwwt" role="LjaKd">
       <node concept="2TK7Tu" id="5wNXW0WXwws" role="3cqZAp">
         <property role="2TTd_B" value="newPropertyValue" />
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk6y" role="25YQCW">
+      <node concept="tJ_u8" id="5wNXW0WXvBI" role="1qenE9">
+        <node concept="tJAI_" id="5wNXW0WXvFz" role="tJAGL">
+          <property role="TrG5h" value="RichCompactChild" />
+          <property role="tJAfQ" value="richCompactProperty" />
+          <node concept="LIFWc" id="5wNXW0WXvF_" role="lGtFl">
+            <property role="LIFWa" value="11" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="19" />
+            <property role="LIFWd" value="property_richCompactProperty" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk72" role="25YQFr">
+      <node concept="tJ_u8" id="5wNXW0WXvFN" role="1qenE9">
+        <node concept="tJAI_" id="5wNXW0WXvFO" role="tJAGL">
+          <property role="TrG5h" value="RichCompactChild" />
+          <property role="tJAfQ" value="newPropertyValue" />
+          <node concept="LIFWc" id="5wNXW0WXvFT" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="16" />
+            <property role="p6zMs" value="16" />
+            <property role="LIFWd" value="property_richCompactProperty" />
+          </node>
+        </node>
       </node>
     </node>
   </node>
@@ -1181,23 +1280,27 @@
         </node>
       </node>
     </node>
-    <node concept="7g1Uw" id="1PhFbPjm96I" role="LiRBU">
-      <node concept="LIFWc" id="1PhFbPjmcni" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_compactChildren" />
-      </node>
-    </node>
-    <node concept="7g1Uw" id="1PhFbPjm96L" role="LiZbd">
-      <node concept="2MuRF6" id="1PhFbPjmcBZ" role="7gbJn">
-        <node concept="LIFWc" id="1PhFbPjmcC1" role="lGtFl">
+    <node concept="1qefOq" id="2aQPn0Pnk6z" role="25YQCW">
+      <node concept="7g1Uw" id="1PhFbPjm96I" role="1qenE9">
+        <node concept="LIFWc" id="1PhFbPjmcni" role="lGtFl">
           <property role="ZRATv" value="true" />
           <property role="OXtK3" value="true" />
           <property role="p6zMq" value="0" />
           <property role="p6zMs" value="0" />
-          <property role="LIFWd" value="property_name" />
+          <property role="LIFWd" value="empty_compactChildren" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk73" role="25YQFr">
+      <node concept="7g1Uw" id="1PhFbPjm96L" role="1qenE9">
+        <node concept="2MuRF6" id="1PhFbPjmcBZ" role="7gbJn">
+          <node concept="LIFWc" id="1PhFbPjmcC1" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
+            <property role="LIFWd" value="property_name" />
+          </node>
         </node>
       </node>
     </node>
@@ -1273,23 +1376,27 @@
         </node>
       </node>
     </node>
-    <node concept="7g1Uw" id="1PhFbPjmdQr" role="LiRBU">
-      <node concept="LIFWc" id="1PhFbPjme3H" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_richChildren" />
-      </node>
-    </node>
-    <node concept="7g1Uw" id="1PhFbPjmdQt" role="LiZbd">
-      <node concept="2MuRF6" id="1PhFbPjme3J" role="7gbJm">
-        <node concept="LIFWc" id="1PhFbPjme3L" role="lGtFl">
+    <node concept="1qefOq" id="2aQPn0Pnk6$" role="25YQCW">
+      <node concept="7g1Uw" id="1PhFbPjmdQr" role="1qenE9">
+        <node concept="LIFWc" id="1PhFbPjme3H" role="lGtFl">
           <property role="ZRATv" value="true" />
           <property role="OXtK3" value="true" />
           <property role="p6zMq" value="0" />
           <property role="p6zMs" value="0" />
-          <property role="LIFWd" value="property_name" />
+          <property role="LIFWd" value="empty_richChildren" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk74" role="25YQFr">
+      <node concept="7g1Uw" id="1PhFbPjmdQt" role="1qenE9">
+        <node concept="2MuRF6" id="1PhFbPjme3J" role="7gbJm">
+          <node concept="LIFWc" id="1PhFbPjme3L" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
+            <property role="LIFWd" value="property_name" />
+          </node>
         </node>
       </node>
     </node>
@@ -1365,23 +1472,27 @@
         </node>
       </node>
     </node>
-    <node concept="7g1Uw" id="1PhFbPjme4R" role="LiRBU">
-      <node concept="LIFWc" id="1PhFbPjmeeT" role="lGtFl">
-        <property role="ZRATv" value="true" />
-        <property role="OXtK3" value="true" />
-        <property role="p6zMq" value="0" />
-        <property role="p6zMs" value="0" />
-        <property role="LIFWd" value="empty_conditionallyProjectedChildren" />
-      </node>
-    </node>
-    <node concept="7g1Uw" id="1PhFbPjme4T" role="LiZbd">
-      <node concept="2MuRF6" id="1PhFbPjmecz" role="2KZwG9">
-        <node concept="LIFWc" id="1PhFbPjmeeR" role="lGtFl">
+    <node concept="1qefOq" id="2aQPn0Pnk6_" role="25YQCW">
+      <node concept="7g1Uw" id="1PhFbPjme4R" role="1qenE9">
+        <node concept="LIFWc" id="1PhFbPjmeeT" role="lGtFl">
           <property role="ZRATv" value="true" />
           <property role="OXtK3" value="true" />
           <property role="p6zMq" value="0" />
           <property role="p6zMs" value="0" />
-          <property role="LIFWd" value="property_name" />
+          <property role="LIFWd" value="empty_conditionallyProjectedChildren" />
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2aQPn0Pnk75" role="25YQFr">
+      <node concept="7g1Uw" id="1PhFbPjme4T" role="1qenE9">
+        <node concept="2MuRF6" id="1PhFbPjmecz" role="2KZwG9">
+          <node concept="LIFWc" id="1PhFbPjmeeR" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
+            <property role="LIFWd" value="property_name" />
+          </node>
         </node>
       </node>
     </node>
@@ -1607,14 +1718,16 @@
         </node>
       </node>
     </node>
-    <node concept="7g1Uw" id="1PhFbPjmekG" role="LiRBU">
-      <node concept="2MuRF6" id="1PhFbPjmeR0" role="2KZwG9">
-        <node concept="LIFWc" id="1PhFbPjmeTn" role="lGtFl">
-          <property role="ZRATv" value="true" />
-          <property role="OXtK3" value="true" />
-          <property role="p6zMq" value="0" />
-          <property role="p6zMs" value="0" />
-          <property role="LIFWd" value="property_name" />
+    <node concept="1qefOq" id="2aQPn0Pnk6A" role="25YQCW">
+      <node concept="7g1Uw" id="1PhFbPjmekG" role="1qenE9">
+        <node concept="2MuRF6" id="1PhFbPjmeR0" role="2KZwG9">
+          <node concept="LIFWc" id="1PhFbPjmeTn" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
+            <property role="LIFWd" value="property_name" />
+          </node>
         </node>
       </node>
     </node>

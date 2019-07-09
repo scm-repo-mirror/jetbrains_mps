@@ -11,7 +11,7 @@
     <use id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples" version="-1" />
     <use id="fbc14279-5e2a-4c87-a5d1-5f7061e6c456" name="jetbrains.mps.debugger.api.lang" version="-1" />
     <use id="f3347d8a-0e79-4f35-8ac9-1574f25c986f" name="jetbrains.mps.execution.commands" version="-1" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="15" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="-1" />
     <use id="22e72e4c-0f69-46ce-8403-6750153aa615" name="jetbrains.mps.execution.configurations" version="-1" />
@@ -2966,7 +2966,7 @@
       </node>
       <node concept="3clFbS" id="4e85Rl_lPuK" role="3clF47">
         <node concept="RRSsy" id="4e85Rl_mzSq" role="3cqZAp">
-          <property role="RRSoG" value="trace" />
+          <property role="RRSoG" value="gZ5frni/trace" />
           <node concept="37vLTw" id="4e85Rl_mzU7" role="RRSoy">
             <ref role="3cqZAo" node="4e85Rl_lPuS" resolve="msg" />
           </node>
@@ -3815,7 +3815,7 @@
         <node concept="3clFbJ" id="3r8SyoZsWtc" role="3cqZAp">
           <node concept="3clFbS" id="3r8SyoZsWte" role="3clFbx">
             <node concept="RRSsy" id="3jYQuSB39KO" role="3cqZAp">
-              <property role="RRSoG" value="error" />
+              <property role="RRSoG" value="gZ5fh_4/error" />
               <node concept="Xl_RD" id="3r8SyoZt2ms" role="RRSoy">
                 <property role="Xl_RC" value="Seems that the previous test is not finished yet" />
               </node>
@@ -4121,7 +4121,7 @@
             <node concept="3clFbJ" id="2Q$7c$4xqDd" role="3cqZAp">
               <node concept="3clFbS" id="2Q$7c$4xqDf" role="3clFbx">
                 <node concept="RRSsy" id="2Q$7c$4xyRJ" role="3cqZAp">
-                  <property role="RRSoG" value="error" />
+                  <property role="RRSoG" value="gZ5fh_4/error" />
                   <node concept="Xl_RD" id="2Q$7c$4xyRL" role="RRSoy">
                     <property role="Xl_RC" value="consistency is broken: passedCount &lt; 0" />
                   </node>
@@ -4149,7 +4149,7 @@
             <node concept="3clFbJ" id="2Q$7c$4xCUR" role="3cqZAp">
               <node concept="3clFbS" id="2Q$7c$4xCUT" role="3clFbx">
                 <node concept="RRSsy" id="2Q$7c$4xCZV" role="3cqZAp">
-                  <property role="RRSoG" value="error" />
+                  <property role="RRSoG" value="gZ5fh_4/error" />
                   <node concept="Xl_RD" id="2Q$7c$4xCZW" role="RRSoy">
                     <property role="Xl_RC" value="consistency is broken: completed &gt; total" />
                   </node>
@@ -7820,9 +7820,38 @@
           </node>
         </node>
         <node concept="3clFbS" id="1KnTQt4Oiq2" role="3clF47">
+          <node concept="3cpWs8" id="5iXtqbebnX_" role="3cqZAp">
+            <node concept="3cpWsn" id="5iXtqbebnXA" role="3cpWs9">
+              <property role="TrG5h" value="testCase" />
+              <node concept="3Tqbb2" id="5iXtqbebeif" role="1tU5fm">
+                <ref role="ehGHo" to="tpe3:hGB2rPm" resolve="ITestCase" />
+              </node>
+              <node concept="2OqwBi" id="5iXtqbebnXB" role="33vP2m">
+                <node concept="37vLTw" id="5iXtqbebnXC" role="2Oq$k0">
+                  <ref role="3cqZAo" node="1KnTQt4OipX" resolve="node" />
+                </node>
+                <node concept="2qgKlT" id="5iXtqbebnXD" role="2OqNvi">
+                  <ref role="37wK5l" to="tpe5:hGBgWVd" resolve="getTestCase" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3clFbJ" id="5iXtqbebs$x" role="3cqZAp">
+            <node concept="3clFbS" id="5iXtqbebs$z" role="3clFbx">
+              <node concept="3cpWs6" id="5iXtqbebucH" role="3cqZAp">
+                <node concept="10Nm6u" id="5iXtqbebuuK" role="3cqZAk" />
+              </node>
+            </node>
+            <node concept="3clFbC" id="5iXtqbebtzV" role="3clFbw">
+              <node concept="10Nm6u" id="5iXtqbebtVK" role="3uHU7w" />
+              <node concept="37vLTw" id="5iXtqbebsXW" role="3uHU7B">
+                <ref role="3cqZAo" node="5iXtqbebnXA" resolve="testCase" />
+              </node>
+            </node>
+          </node>
           <node concept="3cpWs8" id="3vuXxl_8Jp6" role="3cqZAp">
             <node concept="3cpWsn" id="3vuXxl_8Jp7" role="3cpWs9">
-              <property role="TrG5h" value="testCase" />
+              <property role="TrG5h" value="testCaseWrap" />
               <node concept="3uibUv" id="3vuXxl_8JoE" role="1tU5fm">
                 <ref role="3uigEE" node="56tRMpP_ej7" resolve="ITestNodeWrapper" />
               </node>
@@ -7833,13 +7862,8 @@
                 </node>
                 <node concept="liA8E" id="3vuXxl_8Jpa" role="2OqNvi">
                   <ref role="37wK5l" node="1KnTQt4OitQ" resolve="wrap" />
-                  <node concept="2OqwBi" id="3vuXxl_8Jpb" role="37wK5m">
-                    <node concept="37vLTw" id="3vuXxl_8Jpc" role="2Oq$k0">
-                      <ref role="3cqZAo" node="1KnTQt4OipX" resolve="node" />
-                    </node>
-                    <node concept="2qgKlT" id="3vuXxl_8Jpd" role="2OqNvi">
-                      <ref role="37wK5l" to="tpe5:hGBgWVd" resolve="getTestCase" />
-                    </node>
+                  <node concept="37vLTw" id="5iXtqbebvqX" role="37wK5m">
+                    <ref role="3cqZAo" node="5iXtqbebnXA" resolve="testCase" />
                   </node>
                 </node>
               </node>
@@ -7851,14 +7875,14 @@
               <node concept="3clFbC" id="3vuXxl_8Nhj" role="3K4Cdx">
                 <node concept="10Nm6u" id="3vuXxl_8NzK" role="3uHU7w" />
                 <node concept="37vLTw" id="3vuXxl_8N6$" role="3uHU7B">
-                  <ref role="3cqZAo" node="3vuXxl_8Jp7" resolve="testCase" />
+                  <ref role="3cqZAo" node="3vuXxl_8Jp7" resolve="testCaseWrap" />
                 </node>
               </node>
               <node concept="2ShNRf" id="1KnTQt4Oiq4" role="3K4GZi">
                 <node concept="1pGfFk" id="1KnTQt4Oiq5" role="2ShVmc">
                   <ref role="37wK5l" node="3vuXxl_7PqY" resolve="LanguageTestWrapper" />
                   <node concept="37vLTw" id="3vuXxl_8M6z" role="37wK5m">
-                    <ref role="3cqZAo" node="3vuXxl_8Jp7" resolve="testCase" />
+                    <ref role="3cqZAo" node="3vuXxl_8Jp7" resolve="testCaseWrap" />
                   </node>
                   <node concept="37vLTw" id="2BHiRxglwye" role="37wK5m">
                     <ref role="3cqZAo" node="1KnTQt4OipX" resolve="node" />
@@ -8332,7 +8356,7 @@
                 <property role="3oM_SC" value="class" />
               </node>
               <node concept="3oM_SD" id="ATZLwXoecn" role="1PaTwD">
-                <property role="3oM_SC" value="hierarch)" />
+                <property role="3oM_SC" value="hierarchy)" />
               </node>
             </node>
           </node>
@@ -9013,7 +9037,7 @@
           <node concept="3clFbJ" id="4qqte4NATgs" role="3cqZAp">
             <node concept="3clFbS" id="4qqte4NATgu" role="3clFbx">
               <node concept="RRSsy" id="4qqte4NAP7u" role="3cqZAp">
-                <property role="RRSoG" value="warn" />
+                <property role="RRSoG" value="gZ5fksE/warn" />
                 <node concept="Xl_RD" id="4qqte4NAP7v" role="RRSoy">
                   <property role="Xl_RC" value="This is deprecated (since MPS 2018.3) way to execute JUnit tests, please refactor" />
                 </node>
@@ -9539,7 +9563,7 @@
                 </node>
               </node>
               <node concept="RRSsy" id="4qqte4NAvZ0" role="3cqZAp">
-                <property role="RRSoG" value="warn" />
+                <property role="RRSoG" value="gZ5fksE/warn" />
                 <node concept="Xl_RD" id="4qqte4NAvZ2" role="RRSoy">
                   <property role="Xl_RC" value="This is deprecated (since MPS 2018.3) way to execute JUnit tests, please refactor" />
                 </node>
@@ -11041,7 +11065,7 @@
         <node concept="3clFbJ" id="5gyVhZ1bgOY" role="3cqZAp">
           <node concept="3clFbS" id="5gyVhZ1bgOZ" role="3clFbx">
             <node concept="RRSsy" id="3jYQuSB39NW" role="3cqZAp">
-              <property role="RRSoG" value="warn" />
+              <property role="RRSoG" value="gZ5fksE/warn" />
               <node concept="3cpWs3" id="5gyVhZ1bgP1" role="RRSoy">
                 <node concept="37vLTw" id="3GM_nagTukI" role="3uHU7w">
                   <ref role="3cqZAo" node="5gyVhZ1bgNB" resolve="skipped" />
@@ -16365,7 +16389,7 @@
                     </node>
                   </node>
                   <node concept="RRSsy" id="4djPN1tNO9v" role="3cqZAp">
-                    <property role="RRSoG" value="warn" />
+                    <property role="RRSoG" value="gZ5fksE/warn" />
                     <node concept="2YIFZM" id="4djPN1tNOtU" role="RRSoy">
                       <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
                       <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
@@ -16783,7 +16807,7 @@
                               </node>
                             </node>
                             <node concept="RRSsy" id="58KCQIwaWap" role="3cqZAp">
-                              <property role="RRSoG" value="warn" />
+                              <property role="RRSoG" value="gZ5fksE/warn" />
                               <node concept="37vLTw" id="58KCQIwaWaq" role="RRSoy">
                                 <ref role="3cqZAo" node="58KCQIwaWai" resolve="m" />
                               </node>
@@ -17231,7 +17255,7 @@
                           </node>
                         </node>
                         <node concept="RRSsy" id="58KCQIwaH_F" role="3cqZAp">
-                          <property role="RRSoG" value="error" />
+                          <property role="RRSoG" value="gZ5fh_4/error" />
                           <node concept="37vLTw" id="58KCQIwaH_G" role="RRSoy">
                             <ref role="3cqZAo" node="58KCQIwaH_y" resolve="msg" />
                           </node>

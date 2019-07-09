@@ -55,6 +55,8 @@ public class GeneratedMatcher extends GeneratedMatchingPattern implements INodeM
     // FIXME compatibility code. Shall introduce typed getters and use them instead
     SNode node = myValues.getNode(varName);
     if (node != null) { return node; }
+    Object pv = myValues.getPropertyValue(varName);
+    if (pv != null) { return pv; }
     String p = myValues.getProperty(varName);
     if (p != null) { return p; }
     List<SNode> list = myValues.getList(varName);
@@ -95,6 +97,12 @@ public class GeneratedMatcher extends GeneratedMatchingPattern implements INodeM
   @Override
   public String getMatchedProperty(String varName) {
     return myValues.getProperty(varName);
+  }
+
+  @Nullable
+  @Override
+  public Object getMatchedPropertyValue(String varName) {
+    return myValues.getPropertyValue(varName);
   }
 
   @Nullable

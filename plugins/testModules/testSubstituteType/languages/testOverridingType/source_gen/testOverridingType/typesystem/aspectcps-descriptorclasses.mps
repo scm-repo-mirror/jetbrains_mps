@@ -165,6 +165,9 @@
       <concept id="1196350785113" name="jetbrains.mps.lang.quotation.structure.Quotation" flags="nn" index="2c44tf">
         <child id="1196350785114" name="quotedNode" index="2c44tc" />
       </concept>
+      <concept id="4056363777117001481" name="jetbrains.mps.lang.quotation.structure.StringToTypedValueMigrationInfo" flags="ng" index="AAgTk">
+        <property id="2173356959483005420" name="stringValueMigrated" index="3qcH_f" />
+      </concept>
       <concept id="1196866233735" name="jetbrains.mps.lang.quotation.structure.PropertyAntiquotation" flags="ng" index="2EMmih" />
     </language>
     <language id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem">
@@ -458,7 +461,7 @@
       </node>
     </node>
     <node concept="39e2AJ" id="5" role="39e2AI">
-      <property role="39e3Y2" value="supercedesMethod" />
+      <property role="39e3Y2" value="supersedesMethod" />
       <node concept="39e2AG" id="19" role="39e3Y0">
         <ref role="39e2AK" to="nlh8:5GcBY$qkT5W" resolve="typeof_OverrideAnnotation" />
         <node concept="385nmt" id="1b" role="385vvn">
@@ -476,7 +479,7 @@
           </node>
         </node>
         <node concept="39e2AT" id="1c" role="39e2AY">
-          <ref role="39e2AS" node="2e" resolve="supercedesAttributed" />
+          <ref role="39e2AS" node="2e" resolve="supersedesAttributed" />
         </node>
       </node>
       <node concept="39e2AG" id="1a" role="39e3Y0">
@@ -496,7 +499,7 @@
           </node>
         </node>
         <node concept="39e2AT" id="1h" role="39e2AY">
-          <ref role="39e2AS" node="aL" resolve="supercedesAttributed" />
+          <ref role="39e2AS" node="aL" resolve="supersedesAttributed" />
         </node>
       </node>
     </node>
@@ -1290,7 +1293,7 @@
       </node>
     </node>
     <node concept="3clFb_" id="2e" role="jymVt">
-      <property role="TrG5h" value="supercedesAttributed" />
+      <property role="TrG5h" value="supersedesAttributed" />
       <node concept="10P_77" id="6m" role="3clF45">
         <node concept="cd27G" id="6s" role="lGtFl">
           <node concept="3u3nmq" id="6t" role="cd27D">
@@ -1690,6 +1693,7 @@
                               <property role="P4ACc" value="ceab5195-25ea-4f22-9b92-103b95ca8c0c/1169194658468/1169194664001" />
                               <property role="2qtEX9" value="name" />
                               <property role="3hQQBS" value="PresenceCondition" />
+                              <property role="3qcH_f" value="true" />
                               <node concept="2OqwBi" id="94" role="2c44t1">
                                 <node concept="37vLTw" id="96" role="2Oq$k0">
                                   <ref role="3cqZAo" node="7N" resolve="overridingPrimNumConstant" />
@@ -2754,7 +2758,7 @@
       </node>
     </node>
     <node concept="3clFb_" id="aL" role="jymVt">
-      <property role="TrG5h" value="supercedesAttributed" />
+      <property role="TrG5h" value="supersedesAttributed" />
       <node concept="10P_77" id="fn" role="3clF45">
         <node concept="cd27G" id="ft" role="lGtFl">
           <node concept="3u3nmq" id="fu" role="cd27D">

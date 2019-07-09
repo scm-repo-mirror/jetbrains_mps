@@ -21,7 +21,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode.DeleteDirectio
 import jetbrains.mps.nodeEditor.cellActions.CellAction_Insert;
 import jetbrains.mps.nodeEditor.cellMenu.CellContext;
 import jetbrains.mps.nodeEditor.cellMenu.DefaultSChildSubstituteInfo;
-import jetbrains.mps.nodeEditor.cellMenu.DefaultSReferenceSubstituteInfo;
+import jetbrains.mps.nodeEditor.cellMenu.NullSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellProviders.CellProviderWithRole;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Error;
@@ -142,8 +142,7 @@ public abstract class AbstractReferentCellProvider extends CellProviderWithRole 
     if (isAggregation()) {
       return new DefaultSChildSubstituteInfo(getSNode(), ((SContainmentLink) myLink), myEditorContext);
     }
-    // this class is now used only by aggregation cell, so this code is for backward compatibility only
-    return new DefaultSReferenceSubstituteInfo(getSNode(), ((SReferenceLink) myLink), myEditorContext);
+    return new NullSubstituteInfo();
   }
 
   @Override

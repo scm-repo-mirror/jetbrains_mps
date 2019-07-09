@@ -5,44 +5,57 @@ package jetbrains.mps.lang.generator.structure;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptorBase;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptor;
+import jetbrains.mps.lang.smodel.EnumerationLiteralsIndex;
+import java.util.List;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
-import java.util.Collection;
-import java.util.Arrays;
 
 public class EnumerationDescriptor_MappingScriptKind extends EnumerationDescriptorBase {
 
   public EnumerationDescriptor_MappingScriptKind() {
-    super(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1165f07f3c1L, "MappingScriptKind", "r:00000000-0000-4000-0000-011c895902e8(jetbrains.mps.lang.generator.structure)/1195595264961", PrimitiveTypeId.STRING);
+    super(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1165f07f3c1L, "MappingScriptKind", "r:00000000-0000-4000-0000-011c895902e8(jetbrains.mps.lang.generator.structure)/4241665505353446769", PrimitiveTypeId.STRING);
   }
 
-  private final EnumerationDescriptor.MemberDescriptor VALUE_pre_processing_0 = new EnumerationDescriptor.MemberDescriptor("pre_processing", "pre-process input model", "r:00000000-0000-4000-0000-011c895902e8(jetbrains.mps.lang.generator.structure)/1195595264962", "pre-process input model");
-  private final EnumerationDescriptor.MemberDescriptor VALUE_post_processing_0 = new EnumerationDescriptor.MemberDescriptor("post_processing", "post-process output model", "r:00000000-0000-4000-0000-011c895902e8(jetbrains.mps.lang.generator.structure)/1195595382324", "post-process output model");
+  private final EnumerationDescriptor.MemberDescriptor myMember_pre_processing_0 = new EnumerationDescriptor.MemberDescriptor("pre_processing", "pre-process input model", 0x1165f07f3c2L, "r:00000000-0000-4000-0000-011c895902e8(jetbrains.mps.lang.generator.structure)/4241665505353446771", "pre-process input model", "pre_processing");
+  private final EnumerationDescriptor.MemberDescriptor myMember_post_processing_0 = new EnumerationDescriptor.MemberDescriptor("post_processing", "post-process output model", 0x1165f09be34L, "r:00000000-0000-4000-0000-011c895902e8(jetbrains.mps.lang.generator.structure)/4241665505353446772", "post-process output model", "post_processing");
+
+  private final EnumerationLiteralsIndex myIndex = EnumerationLiteralsIndex.build(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1165f07f3c1L, 0x1165f07f3c2L, 0x1165f09be34L);
+  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMember_pre_processing_0, myMember_post_processing_0);
 
   @Nullable
   @Override
   public EnumerationDescriptor.MemberDescriptor getDefault() {
-    return VALUE_post_processing_0;
+    return myMember_post_processing_0;
   }
 
   @NotNull
   @Override
-  public Collection<EnumerationDescriptor.MemberDescriptor> getMembers() {
-    return Arrays.asList(VALUE_pre_processing_0, VALUE_post_processing_0);
+  public List<EnumerationDescriptor.MemberDescriptor> getMembers() {
+    return myMembers;
   }
 
   @Nullable
   @Override
-  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String string) {
-    if (string == null) {
+  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String memberName) {
+    if (memberName == null) {
       return null;
     }
-    switch (string) {
+    switch (memberName) {
       case "pre_processing":
-        return VALUE_pre_processing_0;
+        return myMember_pre_processing_0;
       case "post_processing":
-        return VALUE_post_processing_0;
+        return myMember_post_processing_0;
     }
     return null;
+  }
+
+  @Nullable
+  @Override
+  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {
+    int index = myIndex.index(idValue);
+    if (index == -1) {
+      return null;
+    }
+    return myMembers.get(index);
   }
 }

@@ -198,7 +198,7 @@
       <concept id="7400021826774799413" name="jetbrains.mps.lang.smodel.structure.NodePointerExpression" flags="ng" index="2tJFMh">
         <child id="7400021826774799510" name="ref" index="2tJFKM" />
       </concept>
-      <concept id="1138676077309" name="jetbrains.mps.lang.smodel.structure.EnumMemberReference" flags="nn" index="uoxfO">
+      <concept id="1138676077309" name="jetbrains.mps.lang.smodel.structure.EnumMemberReference_Old" flags="nn" index="uoxfO">
         <reference id="1138676095763" name="enumMember" index="uo_Cq" />
       </concept>
       <concept id="4065387505485742749" name="jetbrains.mps.lang.smodel.structure.AbstractPointerResolveOperation" flags="ng" index="2yCiFS">
@@ -926,7 +926,7 @@
                                                     <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
                                                   </node>
                                                   <node concept="37vLTw" id="4J" role="1EMhIo">
-                                                    <ref role="3cqZAo" node="3Y" resolve="_context" />
+                                                    <ref role="3cqZAo" to=":^" resolve="_context" />
                                                   </node>
                                                   <node concept="cd27G" id="4K" role="lGtFl">
                                                     <node concept="3u3nmq" id="4L" role="cd27D">
@@ -1466,7 +1466,7 @@
                                                 <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
                                               </node>
                                               <node concept="37vLTw" id="7W" role="1EMhIo">
-                                                <ref role="3cqZAo" node="7k" resolve="_context" />
+                                                <ref role="3cqZAo" to=":^" resolve="_context" />
                                               </node>
                                               <node concept="cd27G" id="7X" role="lGtFl">
                                                 <node concept="3u3nmq" id="7Y" role="cd27D">

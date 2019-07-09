@@ -41,6 +41,6 @@ public class check_BuildLayout_Jar_NonTypesystemRule extends AbstractNonTypesyst
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
-    return true;
+    return false;
   }
 }

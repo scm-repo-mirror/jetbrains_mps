@@ -52,15 +52,15 @@ public class ParallelLoopVariable_Constraints extends BaseConstraintsDescriptor 
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:30f28ecb-3abe-411d-8f10-86fc65916e39(org.jetbrains.mps.samples.ParallelFor.constraints)", "7793246093816048070");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castBoolean(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
-    private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return (SPropertyOperations.getBoolean(propertyValue));
+    private static boolean staticValidateProperty(SNode node, boolean propertyValue) {
+      return propertyValue;
     }
   }
   @Override

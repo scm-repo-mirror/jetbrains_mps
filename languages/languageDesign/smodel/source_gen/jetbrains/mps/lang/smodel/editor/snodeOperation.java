@@ -89,6 +89,9 @@ public class snodeOperation extends SubstituteMenuBase {
           if (TypecheckingFacade.getFromContext().strongCoerceType(leftType, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a2d94c0cdL, "jetbrains.mps.lang.smodel.structure.SModelType")) != null) {
             result.myToModel = true;
           }
+          if (TypecheckingFacade.getFromContext().strongCoerceType(leftType, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120bfe51421L, "jetbrains.mps.lang.smodel.structure.SEnumerationMemberType")) != null) {
+            result.myToEnumMember = true;
+          }
           return result;
         }
       }.compute();
@@ -160,7 +163,11 @@ public class snodeOperation extends SubstituteMenuBase {
         if (leftOperation != null) {
           if (SNodeOperations.isInstanceOf(leftOperation, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f96cca6fL, "jetbrains.mps.lang.smodel.structure.SPropertyAccess"))) {
             SNode dataType = SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(leftOperation, MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f96cca6fL, "jetbrains.mps.lang.smodel.structure.SPropertyAccess")), MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f96cca6fL, 0x108f9727bcdL, "property")), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0xfc26f42fe5L, "dataType"));
-            if (SNodeOperations.isInstanceOf(dataType, MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, "jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration"))) {
+            if ((boolean) SNodeOperation__BehaviorDescriptor.applicableToProperty_id45eRmv019Ae.invoke(SNodeOperations.asSConcept(parameterOp), dataType)) {
+              return true;
+            }
+            // TODO remove this clause after 2019.1 
+            if (SNodeOperations.isInstanceOf(dataType, MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, "jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration_Old"))) {
               return (boolean) SNodeOperation__BehaviorDescriptor.applicableToEnumProperty_id1653mnvAguj.invoke(SNodeOperations.asSConcept(parameterOp));
             } else {
               return (boolean) SNodeOperation__BehaviorDescriptor.applicableToSimpleProperty_id1653mnvAgrO.invoke(SNodeOperations.asSConcept(parameterOp));
@@ -193,6 +200,10 @@ public class snodeOperation extends SubstituteMenuBase {
         // is smodel ? 
         if (appTypesInfo.myToModel) {
           return (boolean) SNodeOperation__BehaviorDescriptor.applicableToModel_id1653mnvAf1y.invoke(SNodeOperations.asSConcept(parameterOp));
+        }
+        // is enum member ? 
+        if (appTypesInfo.myToEnumMember) {
+          return SConceptOperations.isExactly(SNodeOperations.asSConcept(concept), MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110e0974e46L, "jetbrains.mps.lang.smodel.structure.Node_IsNullOperation")) || SConceptOperations.isExactly(SNodeOperations.asSConcept(concept), MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110e123bce7L, "jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation"));
         }
         return false;
       }

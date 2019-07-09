@@ -9,7 +9,6 @@ import java.util.Map;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.ide.editor.MPSEditorDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -29,7 +28,7 @@ public class FoldSelection_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    return FoldSelection_Action.this.getAction(_params) != null;
+    return FoldSelection_Action.this.getAction(event) != null;
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -42,7 +41,6 @@ public class FoldSelection_Action extends BaseAction {
     }
     {
       EditorContext p = event.getData(MPSEditorDataKeys.EDITOR_CONTEXT);
-      MapSequence.fromMap(_params).put("editorContext", p);
       if (p == null) {
         return false;
       }
@@ -52,7 +50,6 @@ public class FoldSelection_Action extends BaseAction {
       if (editorComponent != null && editorComponent.isInvalid()) {
         editorComponent = null;
       }
-      MapSequence.fromMap(_params).put("editorComponent", editorComponent);
       if (editorComponent == null) {
         return false;
       }
@@ -61,9 +58,9 @@ public class FoldSelection_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    FoldSelection_Action.this.getAction(_params).execute(((EditorContext) MapSequence.fromMap(_params).get("editorContext")));
+    FoldSelection_Action.this.getAction(event).execute(event.getData(MPSEditorDataKeys.EDITOR_CONTEXT));
   }
-  /*package*/ CellAction getAction(final Map<String, Object> _params) {
-    return ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getComponentAction(CellActionType.TOGGLE_FOLDING);
+  /*package*/ CellAction getAction(final AnActionEvent event) {
+    return event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getComponentAction(CellActionType.TOGGLE_FOLDING);
   }
 }

@@ -61,13 +61,6 @@ public class PropertyCellProvider extends CellProviderWithRole {
     PropertyAccessor propertyAccessor = new PropertyAccessor(getSNode(), myProperty, myReadOnly, myAllowsEmptyTarget, context);
     EditorCell_Property editorCell = EditorCell_Property.create(context, propertyAccessor, getSNode());
     editorCell.setDefaultText(myNoTargetText);
-    if (!myReadOnly) {
-      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSPropertyOrNode(getSNode(), myProperty, DeleteDirection.FORWARD));
-      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSPropertyOrNode(getSNode(), myProperty, DeleteDirection.BACKWARD));
-    } else {
-      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteEasily(getSNode(), DeleteDirection.FORWARD));
-      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteEasily(getSNode(), DeleteDirection.BACKWARD));
-    }
     return editorCell;
   }
 

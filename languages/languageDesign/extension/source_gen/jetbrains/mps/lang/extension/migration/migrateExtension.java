@@ -19,6 +19,7 @@ import jetbrains.mps.internal.collections.runtime.IVisitor;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.util.Computable;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.Objects;
@@ -37,8 +38,8 @@ import jetbrains.mps.lang.migration.runtime.base.DeprecatedConceptNotMigratedPro
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.smodel.SReference;
+import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 
 public class migrateExtension extends MigrationScriptBase {
   public String getCaption() {
@@ -89,7 +90,7 @@ public class migrateExtension extends MigrationScriptBase {
           }
           applyTransormMigration(nodeToMigrate, new Computable<SNode>() {
             public SNode compute() {
-              return _quotation_createNode_2kk9yi_a0d0c(MigrationScriptBase.detachNodePatternVariable(pattern.getMatchedNode("type")), pattern.getMatchedProperty("name"));
+              return _quotation_createNode_2kk9yi_a0d0c(MigrationScriptBase.detachNodePatternVariable(pattern.getMatchedNode("type")), SPropertyOperations.castString(pattern.getMatchedPropertyValue("name")));
             }
           }, new _FunctionTypes._void_P2_E0<SNode, SNode>() {
             public void invoke(SNode oldNode, SNode newNode) {
@@ -251,7 +252,7 @@ public class migrateExtension extends MigrationScriptBase {
           }
           applyTransormMigration(nodeToMigrate, new Computable<SNode>() {
             public SNode compute() {
-              return _quotation_createNode_2kk9yi_a0j0c(MigrationScriptBase.detachListPatternVariable(pattern.getMatchedList("fields")), MigrationScriptBase.detachListPatternVariable((ListSequence.fromList(pattern.getMatchedList("activate")).isEmpty() ? ListSequence.fromListAndArray(new ArrayList<SNode>(), SNodeOperations.copyNode(activatePlaceholder)) : pattern.getMatchedList("activate"))), MigrationScriptBase.detachListPatternVariable((ListSequence.fromList(pattern.getMatchedList("deactivate")).isEmpty() ? ListSequence.fromListAndArray(new ArrayList<SNode>(), SNodeOperations.copyNode(deactivatePlaceholder)) : pattern.getMatchedList("deactivate"))), MigrationScriptBase.detachListPatternVariable(pattern.getMatchedList("statements")), pattern.getMatchedProperty("name"), pattern.getMatchedNode("ep"));
+              return _quotation_createNode_2kk9yi_a0j0c(MigrationScriptBase.detachListPatternVariable(pattern.getMatchedList("fields")), MigrationScriptBase.detachListPatternVariable((ListSequence.fromList(pattern.getMatchedList("activate")).isEmpty() ? ListSequence.fromListAndArray(new ArrayList<SNode>(), SNodeOperations.copyNode(activatePlaceholder)) : pattern.getMatchedList("activate"))), MigrationScriptBase.detachListPatternVariable((ListSequence.fromList(pattern.getMatchedList("deactivate")).isEmpty() ? ListSequence.fromListAndArray(new ArrayList<SNode>(), SNodeOperations.copyNode(deactivatePlaceholder)) : pattern.getMatchedList("deactivate"))), MigrationScriptBase.detachListPatternVariable(pattern.getMatchedList("statements")), SPropertyOperations.castString(pattern.getMatchedPropertyValue("name")), pattern.getMatchedNode("ep"));
             }
           }, new _FunctionTypes._void_P2_E0<SNode, SNode>() {
             public void invoke(SNode oldNode, SNode newNode) {
@@ -351,7 +352,7 @@ public class migrateExtension extends MigrationScriptBase {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, "jetbrains.mps.baseLanguage.lightweightdsl"), 0x59e9926e840d7db2L, "MemberPlaceholder"), null, null, false);
-    SNodeAccessUtil.setProperty(quotedNode_1, MetaAdapterFactory.getProperty(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, 0x59e9926e840d7db3L, "caption"), "activate");
+    quotedNode_1.setProperty(MetaAdapterFactory.getProperty(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, 0x59e9926e840d7db3L, "caption"), "activate");
     quotedNode_1.setReference(MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, 0x59e9926e840d7db5L, "decl"), SReference.create(MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, 0x59e9926e840d7db5L, "decl"), quotedNode_1, facade.createModelReference("r:421d64ed-8024-497f-aeab-8bddeb389dd2(jetbrains.mps.lang.extension.methods)"), facade.createNodeId("4103205777865608546")));
     return quotedNode_1;
   }
@@ -359,7 +360,7 @@ public class migrateExtension extends MigrationScriptBase {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, "jetbrains.mps.baseLanguage.lightweightdsl"), 0x59e9926e840d7db2L, "MemberPlaceholder"), null, null, false);
-    SNodeAccessUtil.setProperty(quotedNode_1, MetaAdapterFactory.getProperty(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, 0x59e9926e840d7db3L, "caption"), "deactivate");
+    quotedNode_1.setProperty(MetaAdapterFactory.getProperty(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, 0x59e9926e840d7db3L, "caption"), "deactivate");
     quotedNode_1.setReference(MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, 0x59e9926e840d7db5L, "decl"), SReference.create(MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, 0x59e9926e840d7db5L, "decl"), quotedNode_1, facade.createModelReference("r:421d64ed-8024-497f-aeab-8bddeb389dd2(jetbrains.mps.lang.extension.methods)"), facade.createNodeId("4103205777865603700")));
     return quotedNode_1;
   }
@@ -378,7 +379,7 @@ public class migrateExtension extends MigrationScriptBase {
     SNode quotedNode_4 = null;
     SNode quotedNode_5 = null;
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8c108ca68L, "FieldDeclaration"), null, null, false);
-    SNodeAccessUtil.setProperty(quotedNode_3, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), (String) parameter_2);
+    SNodeAccessUtil.setPropertyValue(quotedNode_3, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), (String) parameter_2);
     quotedNode_4 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x10af9586f0cL, "PrivateVisibility"), null, null, false);
     quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility"), quotedNode_4);
     quotedNode_5 = (SNode) parameter_1;
@@ -420,7 +421,7 @@ public class migrateExtension extends MigrationScriptBase {
     SNode quotedNode_5 = null;
     SNode quotedNode_6 = null;
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, "jetbrains.mps.baseLanguage.lightweightdsl"), 0x340eb2bd2e03d154L, "MethodInstance"), null, null, false);
-    SNodeAccessUtil.setProperty(quotedNode_2, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "activate");
+    quotedNode_2.setProperty(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "activate");
     quotedNode_2.setReference(MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d154L, 0x443e89bb321537L, "decl"), SReference.create(MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d154L, 0x443e89bb321537L, "decl"), quotedNode_2, facade.createModelReference("r:421d64ed-8024-497f-aeab-8bddeb389dd2(jetbrains.mps.lang.extension.methods)"), facade.createNodeId("4103205777865608546")));
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x10af9581ff1L, "PublicVisibility"), null, null, false);
     quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility"), quotedNode_3);
@@ -444,7 +445,7 @@ public class migrateExtension extends MigrationScriptBase {
     SNode quotedNode_5 = null;
     SNode quotedNode_6 = null;
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, "jetbrains.mps.baseLanguage.lightweightdsl"), 0x340eb2bd2e03d154L, "MethodInstance"), null, null, false);
-    SNodeAccessUtil.setProperty(quotedNode_2, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "deactivate");
+    quotedNode_2.setProperty(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "deactivate");
     quotedNode_2.setReference(MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d154L, 0x443e89bb321537L, "decl"), SReference.create(MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d154L, 0x443e89bb321537L, "decl"), quotedNode_2, facade.createModelReference("r:421d64ed-8024-497f-aeab-8bddeb389dd2(jetbrains.mps.lang.extension.methods)"), facade.createNodeId("4103205777865603700")));
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x10af9581ff1L, "PublicVisibility"), null, null, false);
     quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility"), quotedNode_3);
@@ -474,7 +475,7 @@ public class migrateExtension extends MigrationScriptBase {
     SNode quotedNode_10 = null;
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xc0080a477e374558L, 0xbee99ae18e690549L, "jetbrains.mps.lang.extension"), 0x33c018482cafa9d4L, "ExtensionDeclaration"), null, null, false);
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xc0080a477e374558L, 0xbee99ae18e690549L, "jetbrains.mps.lang.extension"), 0x61a62b43e1534e99L, "ExtensionFieldDeclaration"), null, null, false);
-    SNodeAccessUtil.setProperty(quotedNode_2, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "i");
+    quotedNode_2.setProperty(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "i");
     quotedNode_6 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf940d22479L, "IntegerType"), null, null, false);
     quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x61a62b43e1534e99L, 0x61a62b43e1534e9dL, "fieldType"), quotedNode_6);
     quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x33c018482cafa9d4L, 0x61a62b43e1534edcL, "fieldDeclaration"), quotedNode_2);
@@ -510,8 +511,8 @@ public class migrateExtension extends MigrationScriptBase {
     SNode quotedNode_18 = null;
     SNode quotedNode_19 = null;
     quotedNode_7 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xc0080a477e374558L, 0xbee99ae18e690549L, "jetbrains.mps.lang.extension"), 0x1c30c5b543be3b2L, "Extension"), null, null, false);
-    SNodeAccessUtil.setProperty(quotedNode_7, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x73c6d8a8c021f99L, "nonStatic"), "true");
-    SNodeAccessUtil.setProperty(quotedNode_7, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), (String) parameter_5);
+    quotedNode_7.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x73c6d8a8c021f99L, "nonStatic"), "true");
+    SNodeAccessUtil.setPropertyValue(quotedNode_7, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), (String) parameter_5);
     SNodeAccessUtil.setReferenceTarget(quotedNode_7, MetaAdapterFactory.getReferenceLink(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x1c30c5b543be3b2L, 0x1c30c5b543be565L, "extensionPoint"), (SNode) parameter_6);
     quotedNode_8 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x10af9581ff1L, "PublicVisibility"), null, null, false);
     quotedNode_7.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility"), quotedNode_8);
@@ -540,7 +541,7 @@ public class migrateExtension extends MigrationScriptBase {
     quotedNode_14 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x1458378889e6d166L, "PlaceholderMember"), null, null, false);
     quotedNode_7.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member"), quotedNode_14);
     quotedNode_15 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, "jetbrains.mps.baseLanguage.lightweightdsl"), 0x340eb2bd2e03d154L, "MethodInstance"), null, null, false);
-    SNodeAccessUtil.setProperty(quotedNode_15, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "get");
+    quotedNode_15.setProperty(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "get");
     quotedNode_15.setReference(MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d154L, 0x443e89bb321537L, "decl"), SReference.create(MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d154L, 0x443e89bb321537L, "decl"), quotedNode_15, facade.createModelReference("r:421d64ed-8024-497f-aeab-8bddeb389dd2(jetbrains.mps.lang.extension.methods)"), facade.createNodeId("4103205777865557979")));
     quotedNode_16 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x10af9581ff1L, "PublicVisibility"), null, null, false);
     quotedNode_15.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility"), quotedNode_16);

@@ -45,10 +45,10 @@ public class MetaIdByDeclaration {
     );
   }
 
-  public static SDataTypeId getDatatypeId(@NotNull SNode csDatatypeDeclaration) {
+  public static SDataTypeId getDatatypeId(@NotNull SNode datatypeDeclaration) {
     return new SDataTypeId(
-        getLangId(null, csDatatypeDeclaration),
-        getID(null, csDatatypeDeclaration)
+        getLangId(datatypeDeclaration.getProperty(SNodeUtil.property_DataType_LangId), datatypeDeclaration),
+        getID(datatypeDeclaration.getProperty(SNodeUtil.property_DataType_Id), datatypeDeclaration)
     );
   }
 
@@ -73,6 +73,13 @@ public class MetaIdByDeclaration {
     );
   }
 
+  public static SEnumerationLiteralId getEnumLiteralId(@NotNull SNode enumLiteral) {
+    return new SEnumerationLiteralId(
+        getDatatypeId(enumLiteral.getContainingRoot()),
+        getID(enumLiteral.getProperty(SNodeUtil.property_EnumerationMemberDeclaration_memberId), enumLiteral)
+    );
+  }
+
   private static Long getID(String explicitlySerializedId, SNode declaration) {
     Long id = null;
 
@@ -94,7 +101,7 @@ public class MetaIdByDeclaration {
 
   private static SLanguageId getLangId(String explicitlySerializedLangId, SNode declaration) {
     if (StringUtil.isEmpty(explicitlySerializedLangId)) {
-      return getLanguageId(((Language) declaration.getModel().getModule()));
+      return ref2LangId(declaration.getModel().getModule().getModuleReference());
     } else {
       return MetaIdFactory.langId(UUID.fromString(explicitlySerializedLangId));
     }

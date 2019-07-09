@@ -22,6 +22,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.kernel.model.SModelUtil;
 
 public final class SNodeUtil {
@@ -30,6 +31,8 @@ public final class SNodeUtil {
   public static final SProperty property_Concept_Rootable = BootstrapAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xff49c1d648L, "rootable");
   public static final SProperty property_Property_Id = BootstrapAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId");
   public static final SProperty property_Link_Id = BootstrapAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId");
+  public static final SProperty property_DataType_Id = BootstrapAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId");
+  public static final SProperty property_DataType_LangId = BootstrapAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044404L, "languageId");
 
   public static final SAbstractConcept concept_PropertyAttribute = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da56L, "jetbrains.mps.lang.core.structure.PropertyAttribute");
   public static final SAbstractConcept concept_LinkAttribute = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da51L, "jetbrains.mps.lang.core.structure.LinkAttribute");
@@ -99,6 +102,7 @@ public final class SNodeUtil {
   public static final SReferenceLink link_LinkDeclaration_specializedLink = BootstrapAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98051c244L, "specializedLink");
   public static final SProperty property_BaseConcept_virtualPackage = BootstrapAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage");
   public static final SContainmentLink link_BaseConcept_smodelAttribute = BootstrapAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
+  public static final SProperty property_EnumerationMemberDeclaration_memberId = BootstrapAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, 0x13b8f6fdce540e38L, "memberId");
 
   private SNodeUtil() {
   }
@@ -219,7 +223,7 @@ public final class SNodeUtil {
     if (node == null) {
       return false;
     }
-    return SNodeOperations.getConcept(node).equals(MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, "jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration"));
+    return SNodeOperations.getConcept(node).equals(MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, "jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration_Old"));
   }
   public static boolean isInstanceOfConstrainedStringDataTypeDeclaration(SNode node) {
     if (node == null) {
@@ -229,28 +233,28 @@ public final class SNodeUtil {
   }
 
   public static boolean getLinkDeclaration_IsReference(SNode link) {
-    return SPropertyOperations.hasEnumValue(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass"), "reference");
+    return SEnumOperations.isMember(SPropertyOperations.getEnum(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b8L);
   }
   public static boolean getLinkDeclaration_IsExactlyOneMultiplicity(SNode link) {
-    return SPropertyOperations.hasEnumValue(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality"), "1");
+    return SEnumOperations.isMember(SPropertyOperations.getEnum(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality")), 0xfc6f3944c4L);
   }
   public static boolean getLinkDeclaration_IsAtLeastOneMultiplicity(SNode link) {
-    return SPropertyOperations.hasEnumValue(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality"), "1") || SPropertyOperations.hasEnumValue(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality"), "1..n");
+    return SEnumOperations.isMember(SPropertyOperations.getEnum(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality")), 0xfc6f3944c4L) || SEnumOperations.isMember(SPropertyOperations.getEnum(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality")), 0xfc6f3944c6L);
   }
   public static boolean getLinkDeclaration_IsSingular(SNode link) {
     SNode genuineLinkDeclaration = ((SNode) SModelUtil.getGenuineLinkDeclaration(link));
-    return SPropertyOperations.hasEnumValue(genuineLinkDeclaration, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality"), "0..1") || SPropertyOperations.hasEnumValue(genuineLinkDeclaration, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality"), "1");
+    return SEnumOperations.isMember(SPropertyOperations.getEnum(genuineLinkDeclaration, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality")), 0xfc6f3944c3L) || SEnumOperations.isMember(SPropertyOperations.getEnum(genuineLinkDeclaration, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality")), 0xfc6f3944c4L);
   }
   public static boolean isSideTransformInfo(SNode node) {
     return SNodeOperations.getConcept(node).equals(MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7ae9194dL, "jetbrains.mps.lang.core.structure.SideTransformInfo"));
   }
   public static boolean isAtLeastOne(String cardinality) {
     cardinality = defaultCardinalityIfNotSet(cardinality);
-    return "1".equals(cardinality) || "1..n".equals(cardinality);
+    return SEnumOperations.getMemberPresentation(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc6f3944c2L, "jetbrains.mps.lang.structure.structure.Cardinality"), 0xfc6f3944c4L, "_1")).equals(cardinality) || SEnumOperations.getMemberPresentation(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc6f3944c2L, "jetbrains.mps.lang.structure.structure.Cardinality"), 0xfc6f3944c6L, "_1__n")).equals(cardinality);
   }
   public static boolean isAtMostOne(String cardinality) {
     cardinality = defaultCardinalityIfNotSet(cardinality);
-    return "1".equals(cardinality) || "0..1".equals(cardinality);
+    return SEnumOperations.getMemberPresentation(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc6f3944c2L, "jetbrains.mps.lang.structure.structure.Cardinality"), 0xfc6f3944c4L, "_1")).equals(cardinality) || SEnumOperations.getMemberPresentation(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc6f3944c2L, "jetbrains.mps.lang.structure.structure.Cardinality"), 0xfc6f3944c3L, "_0__1")).equals(cardinality);
   }
   public static SReferenceLink getLink(SNode attribute) {
     return ((SReferenceLink) (SReferenceLink) BHReflection.invoke0(SNodeOperations.cast(attribute, MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da51L, "jetbrains.mps.lang.core.structure.LinkAttribute")), MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da51L, "jetbrains.mps.lang.core.structure.LinkAttribute"), SMethodTrimmedId.create("getLink", MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da51L, "jetbrains.mps.lang.core.structure.LinkAttribute"), "1avfQ4BEFo6")));
@@ -259,11 +263,11 @@ public final class SNodeUtil {
     // couldn't use type for cardinality (enummember<Cardinality> is SNode) 
     // can't use link.sourceCardinality.is because I need sourceCardinality to be *bootstrap* property, which is possible at the moment 
     // only for PropertyIdRefExpression, and not for SPropertyAccess 
-    return (cardinality == null ? "0..1" : cardinality);
+    return (cardinality == null ? SEnumOperations.getMemberPresentation(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc6f3944c2L, "jetbrains.mps.lang.structure.structure.Cardinality"), 0xfc6f3944c3L, "_0__1")) : cardinality);
   }
   public static boolean isAssociationLink(String metaclass) {
     // same as cardinality, would like to access LinkDeclaration.metaClass via bootstrap property 
-    return metaclass == null || "reference".equals(metaclass);
+    return metaclass == null || SEnumOperations.getMemberName0(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc6f4e95b7L, "jetbrains.mps.lang.structure.structure.LinkMetaclass"), 0xfc6f4e95b8L, "reference")).equals(metaclass);
   }
   public static String getConstrainedDataTypeDeclaration_constraint(SNode constrainedDataType) {
     return SPropertyOperations.getString(constrainedDataType, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc268c7a37L, 0xfc2bc4ff02L, "constraint"));

@@ -79,10 +79,10 @@ public class FailingRuleProblem_Constraints extends BaseConstraintsDescriptor {
                     return true;
                   }
                   SNode containingRoot = SNodeOperations.getContainingRoot(SNodeOperations.cast(node, MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593586de2L, "jetbrains.mps.lang.constraints.rules.structure.Rule")));
-                  if (!(SNodeOperations.isInstanceOf(containingRoot, MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.ConstraintsRoot2")))) {
+                  if (!(SNodeOperations.isInstanceOf(containingRoot, MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RulesConstraintsRoot")))) {
                     return false;
                   }
-                  return !(Objects.equals(SLinkOperations.getTarget(SNodeOperations.cast(containingRoot, MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.ConstraintsRoot2")), MetaAdapterFactory.getReferenceLink(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, 0x19eb8590edaff8deL, "concept")), concept));
+                  return !(Objects.equals(SLinkOperations.getTarget(SNodeOperations.cast(containingRoot, MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RulesConstraintsRoot")), MetaAdapterFactory.getReferenceLink(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, 0x19eb8590edaff8deL, "concept")), concept));
                 }
               };
             }

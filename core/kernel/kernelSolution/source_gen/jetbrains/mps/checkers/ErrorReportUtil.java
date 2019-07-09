@@ -6,11 +6,11 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
 import jetbrains.mps.errors.item.NodeReportItem;
 import org.jetbrains.mps.openapi.module.SRepository;
-import org.jetbrains.mps.util.Condition;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.apache.log4j.Level;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.SModelStereotype;
+import org.jetbrains.mps.util.Condition;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -26,10 +26,6 @@ public class ErrorReportUtil {
   private static final Logger LOG = LogManager.getLogger(ErrorReportUtil.class);
 
   public static boolean shouldReportError(NodeReportItem reportItem, SRepository repository) {
-    return shouldReportError(reportItem, repository, Condition.<SNode>always());
-  }
-
-  public static boolean shouldReportError(NodeReportItem reportItem, SRepository repository, final Condition<SNode> acceptingSuppressors) {
     SNode node = reportItem.getNode().resolve(repository);
     if (node == null) {
       if (LOG.isEnabledFor(Level.ERROR)) {
@@ -44,6 +40,7 @@ public class ErrorReportUtil {
     if (SModelStereotype.isStubModel(model)) {
       return false;
     }
+    final Condition<SNode> acceptingSuppressors = Condition.<SNode>always();
     return Sequence.fromIterable(getActiveSuppressors(node, reportItem)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return acceptingSuppressors.met(it);
@@ -51,7 +48,7 @@ public class ErrorReportUtil {
     }).isEmpty();
   }
 
-  private static Iterable<SNode> getActiveSuppressors(final SNode node, final NodeReportItem reportItem) {
+  public static Iterable<SNode> getActiveSuppressors(final SNode node, final NodeReportItem reportItem) {
     return ListSequence.fromList(SNodeOperations.getNodeAncestors(node, null, true)).translate(new ITranslator2<SNode, SNode>() {
       public Iterable<SNode> translate(SNode ancestor) {
         Iterable<SNode> possibleSuppressors = ListSequence.fromList(AttributeOperations.getAttributeList(ancestor, new IAttributeDescriptor.AllAttributes())).union(Sequence.fromIterable(Sequence.<SNode>singleton(ancestor)));

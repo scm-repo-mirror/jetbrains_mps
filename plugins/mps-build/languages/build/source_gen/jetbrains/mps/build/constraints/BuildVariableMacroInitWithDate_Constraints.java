@@ -9,8 +9,8 @@ import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
-import java.text.SimpleDateFormat;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import java.text.SimpleDateFormat;
 import java.util.Map;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
@@ -31,8 +31,8 @@ public class BuildVariableMacroInitWithDate_Constraints extends BaseConstraintsD
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:5076fdb3-19c3-4563-aa26-7ace7591e78d(jetbrains.mps.build.constraints)", "244868996532454388");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
@@ -40,7 +40,7 @@ public class BuildVariableMacroInitWithDate_Constraints extends BaseConstraintsD
     }
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
       try {
-        new SimpleDateFormat((SPropertyOperations.getString(propertyValue)));
+        new SimpleDateFormat(propertyValue);
         return true;
       } catch (IllegalArgumentException ex) {
         return false;

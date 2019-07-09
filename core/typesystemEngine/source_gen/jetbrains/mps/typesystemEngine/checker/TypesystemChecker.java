@@ -5,43 +5,38 @@ package jetbrains.mps.typesystemEngine.checker;
 import jetbrains.mps.checkers.IChecker;
 import jetbrains.mps.errors.item.NodeReportItem;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.typesystem.inference.DefaultTypecheckingContextOwner;
 import java.util.Set;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
-import jetbrains.mps.typesystem.inference.TypeContextManager;
-import jetbrains.mps.typesystem.inference.ITypechecking;
-import jetbrains.mps.typesystem.inference.TypeCheckingContext;
-import jetbrains.mps.util.Pair;
-import java.util.List;
-import jetbrains.mps.errors.IErrorReporter;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.errors.item.TypesystemReportItemAdapter;
-import org.jetbrains.mps.openapi.util.Consumer;
+import jetbrains.mps.typechecking.TypecheckingFacade;
+import jetbrains.mps.typechecking.backend.TypecheckingSession;
+import java.util.function.Consumer;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 
 public class TypesystemChecker extends IChecker.AbstractRootChecker<NodeReportItem> implements IChecker<SNode, NodeReportItem> {
-  private DefaultTypecheckingContextOwner myContextOwner = new DefaultTypecheckingContextOwner();
   public TypesystemChecker() {
   }
-  public Set<NodeReportItem> getErrors(SNode root, SRepository repository) {
+  public Set<NodeReportItem> getErrors(final SNode root, SRepository repository) {
     final Set<NodeReportItem> errors = SetSequence.fromSet(new HashSet<NodeReportItem>());
-    TypeContextManager.getInstance().runTypeCheckingAction(myContextOwner, root, new ITypechecking.Action() {
-      public void run(TypeCheckingContext typeContext) {
-        for (Pair<SNode, List<IErrorReporter>> pair : typeContext.checkRootAndGetErrors(true)) {
-          for (IErrorReporter error : ListSequence.fromList(pair.o2)) {
-            SetSequence.fromSet(errors).addElement(new TypesystemReportItemAdapter(error));
+    TypecheckingFacade.getFromContext().runIsolated(TypecheckingSession.Flags.forRoot(root).incremental(), new Runnable() {
+      public void run() {
+
+        TypecheckingFacade.getFromContext().checkRoot(root, new Consumer<NodeReportItem>() {
+          public void accept(NodeReportItem it) {
+            SetSequence.fromSet(errors).addElement(it);
           }
-        }
+        });
+
       }
     });
+
     return errors;
   }
   @Override
-  public void check(SNode root, SRepository repository, final Consumer<? super NodeReportItem> errorCollector, final ProgressMonitor monitor) {
+  public void check(SNode root, SRepository repository, final org.jetbrains.mps.openapi.util.Consumer<? super NodeReportItem> errorCollector, final ProgressMonitor monitor) {
     SetSequence.fromSet(getErrors(root, repository)).visitAll(new IVisitor<NodeReportItem>() {
       public void visit(NodeReportItem it) {
         errorCollector.consume(it);

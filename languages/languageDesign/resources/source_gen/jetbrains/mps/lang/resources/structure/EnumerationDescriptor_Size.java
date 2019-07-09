@@ -5,47 +5,60 @@ package jetbrains.mps.lang.resources.structure;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptorBase;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptor;
+import jetbrains.mps.lang.smodel.EnumerationLiteralsIndex;
+import java.util.List;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
-import java.util.Collection;
-import java.util.Arrays;
 
 public class EnumerationDescriptor_Size extends EnumerationDescriptorBase {
 
   public EnumerationDescriptor_Size() {
-    super(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x15d013b3c3eb278aL, "Size", "r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/1571777932759345034", PrimitiveTypeId.INTEGER);
+    super(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x15d013b3c3eb278aL, "Size", "r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/4241665505353447278", PrimitiveTypeId.INTEGER);
   }
 
-  private final EnumerationDescriptor.MemberDescriptor VALUE_8_0 = new EnumerationDescriptor.MemberDescriptor("8", "big", "r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/1571777932759345035", "big");
-  private final EnumerationDescriptor.MemberDescriptor VALUE_6_0 = new EnumerationDescriptor.MemberDescriptor("6", "medium", "r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/1571777932759345036", "medium");
-  private final EnumerationDescriptor.MemberDescriptor VALUE_4_0 = new EnumerationDescriptor.MemberDescriptor("4", "small", "r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/1571777932759345039", "small");
+  private final EnumerationDescriptor.MemberDescriptor myMember_big_0 = new EnumerationDescriptor.MemberDescriptor("big", "big", 0x15d013b3c3eb278bL, "r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/4241665505353447280", "big", "8");
+  private final EnumerationDescriptor.MemberDescriptor myMember_medium_0 = new EnumerationDescriptor.MemberDescriptor("medium", "medium", 0x15d013b3c3eb278cL, "r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/4241665505353447281", "medium", "6");
+  private final EnumerationDescriptor.MemberDescriptor myMember_small_0 = new EnumerationDescriptor.MemberDescriptor("small", "small", 0x15d013b3c3eb278fL, "r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)/4241665505353447282", "small", "4");
+
+  private final EnumerationLiteralsIndex myIndex = EnumerationLiteralsIndex.build(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x15d013b3c3eb278aL, 0x15d013b3c3eb278bL, 0x15d013b3c3eb278cL, 0x15d013b3c3eb278fL);
+  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMember_big_0, myMember_medium_0, myMember_small_0);
 
   @Nullable
   @Override
   public EnumerationDescriptor.MemberDescriptor getDefault() {
-    return VALUE_8_0;
+    return myMember_big_0;
   }
 
   @NotNull
   @Override
-  public Collection<EnumerationDescriptor.MemberDescriptor> getMembers() {
-    return Arrays.asList(VALUE_8_0, VALUE_6_0, VALUE_4_0);
+  public List<EnumerationDescriptor.MemberDescriptor> getMembers() {
+    return myMembers;
   }
 
   @Nullable
   @Override
-  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String string) {
-    if (string == null) {
+  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String memberName) {
+    if (memberName == null) {
       return null;
     }
-    switch (string) {
-      case "8":
-        return VALUE_8_0;
-      case "6":
-        return VALUE_6_0;
-      case "4":
-        return VALUE_4_0;
+    switch (memberName) {
+      case "big":
+        return myMember_big_0;
+      case "medium":
+        return myMember_medium_0;
+      case "small":
+        return myMember_small_0;
     }
     return null;
+  }
+
+  @Nullable
+  @Override
+  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {
+    int index = myIndex.index(idValue);
+    if (index == -1) {
+      return null;
+    }
+    return myMembers.get(index);
   }
 }

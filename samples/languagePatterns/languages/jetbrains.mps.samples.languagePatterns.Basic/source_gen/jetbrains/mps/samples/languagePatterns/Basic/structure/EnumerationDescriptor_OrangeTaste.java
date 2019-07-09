@@ -5,41 +5,60 @@ package jetbrains.mps.samples.languagePatterns.Basic.structure;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptorBase;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 import jetbrains.mps.smodel.runtime.EnumerationDescriptor;
+import jetbrains.mps.lang.smodel.EnumerationLiteralsIndex;
+import java.util.List;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
-import java.util.Collection;
-import java.util.Arrays;
 
 public class EnumerationDescriptor_OrangeTaste extends EnumerationDescriptorBase {
 
   public EnumerationDescriptor_OrangeTaste() {
-    super(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae786bbbcL, "OrangeTaste", "r:150e80ad-a158-4a95-9515-f61f51743da4(jetbrains.mps.samples.languagePatterns.Basic.structure)/3803436373353348028", PrimitiveTypeId.STRING);
+    super(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae786bbbcL, "OrangeTaste", "r:150e80ad-a158-4a95-9515-f61f51743da4(jetbrains.mps.samples.languagePatterns.Basic.structure)/4241665505353448359", PrimitiveTypeId.STRING);
   }
 
-  private final EnumerationDescriptor.MemberDescriptor VALUE__0 = new EnumerationDescriptor.MemberDescriptor(null, "Sweet", "r:150e80ad-a158-4a95-9515-f61f51743da4(jetbrains.mps.samples.languagePatterns.Basic.structure)/3803436373353348029", "Sweet");
-  private final EnumerationDescriptor.MemberDescriptor VALUE__1 = new EnumerationDescriptor.MemberDescriptor(null, "Sour", "r:150e80ad-a158-4a95-9515-f61f51743da4(jetbrains.mps.samples.languagePatterns.Basic.structure)/3803436373353348030", "Sour");
-  private final EnumerationDescriptor.MemberDescriptor VALUE__2 = new EnumerationDescriptor.MemberDescriptor(null, "Bitter", "r:150e80ad-a158-4a95-9515-f61f51743da4(jetbrains.mps.samples.languagePatterns.Basic.structure)/3803436373353348033", "Bitter");
+  private final EnumerationDescriptor.MemberDescriptor myMember_Sweet_0 = new EnumerationDescriptor.MemberDescriptor("Sweet", "Sweet", 0x34c8853ae786bbbdL, "r:150e80ad-a158-4a95-9515-f61f51743da4(jetbrains.mps.samples.languagePatterns.Basic.structure)/4241665505353448361", "Sweet", null);
+  private final EnumerationDescriptor.MemberDescriptor myMember_Sour_0 = new EnumerationDescriptor.MemberDescriptor("Sour", "Sour", 0x34c8853ae786bbbeL, "r:150e80ad-a158-4a95-9515-f61f51743da4(jetbrains.mps.samples.languagePatterns.Basic.structure)/4241665505353448362", "Sour", null);
+  private final EnumerationDescriptor.MemberDescriptor myMember_Bitter_0 = new EnumerationDescriptor.MemberDescriptor("Bitter", "Bitter", 0x34c8853ae786bbc1L, "r:150e80ad-a158-4a95-9515-f61f51743da4(jetbrains.mps.samples.languagePatterns.Basic.structure)/4241665505353448363", "Bitter", null);
+
+  private final EnumerationLiteralsIndex myIndex = EnumerationLiteralsIndex.build(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae786bbbcL, 0x34c8853ae786bbbdL, 0x34c8853ae786bbbeL, 0x34c8853ae786bbc1L);
+  private final List<EnumerationDescriptor.MemberDescriptor> myMembers = new EnumerationDescriptorBase.MembersList(myIndex, myMember_Sweet_0, myMember_Sour_0, myMember_Bitter_0);
 
   @Nullable
   @Override
   public EnumerationDescriptor.MemberDescriptor getDefault() {
-    return VALUE__0;
+    return myMember_Sweet_0;
   }
 
   @NotNull
   @Override
-  public Collection<EnumerationDescriptor.MemberDescriptor> getMembers() {
-    return Arrays.asList(VALUE__0, VALUE__1, VALUE__2);
+  public List<EnumerationDescriptor.MemberDescriptor> getMembers() {
+    return myMembers;
   }
 
   @Nullable
   @Override
-  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String string) {
-    if (string == null) {
-      return VALUE__0;
+  public EnumerationDescriptor.MemberDescriptor getMember(@Nullable String memberName) {
+    if (memberName == null) {
+      return null;
     }
-    switch (string) {
+    switch (memberName) {
+      case "Sweet":
+        return myMember_Sweet_0;
+      case "Sour":
+        return myMember_Sour_0;
+      case "Bitter":
+        return myMember_Bitter_0;
     }
     return null;
+  }
+
+  @Nullable
+  @Override
+  public EnumerationDescriptor.MemberDescriptor getMember(long idValue) {
+    int index = myIndex.index(idValue);
+    if (index == -1) {
+      return null;
+    }
+    return myMembers.get(index);
   }
 }

@@ -31,22 +31,22 @@ public class EncodingLiteral_Constraints extends BaseConstraintsDescriptor {
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:472e3702-e789-4c3f-b300-132c65ad44f1(jetbrains.mps.lang.textGen.constraints)", "7166719696753421212");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      if (isEmptyString(trim_p9uqyx_a0a0a4c((SPropertyOperations.getString(propertyValue))))) {
+      if (isEmptyString(((propertyValue == null ? null : propertyValue.trim())))) {
         return false;
       }
-      if ((SPropertyOperations.getString(propertyValue)).equals("binary")) {
+      if (propertyValue.equals("binary")) {
         return true;
       }
       try {
-        Charset.forName((SPropertyOperations.getString(propertyValue)));
+        Charset.forName(propertyValue);
         return true;
       } catch (IllegalArgumentException uc) {
         return false;
@@ -54,9 +54,6 @@ public class EncodingLiteral_Constraints extends BaseConstraintsDescriptor {
     }
     private static boolean isEmptyString(String str) {
       return str == null || str.length() == 0;
-    }
-    public static String trim_p9uqyx_a0a0a4c(String str) {
-      return (str == null ? null : str.trim());
     }
   }
   @Override

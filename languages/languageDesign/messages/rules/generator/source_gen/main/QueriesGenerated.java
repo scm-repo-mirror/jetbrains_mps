@@ -44,7 +44,7 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static boolean rule_Condition_0_0(final BaseMappingRuleContext _context) {
     @NotNull final SNode myConcept = SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x6530303593ae1607L, 0x63c2f3669ce56d5dL, "concept"));
-    return ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(_context.getNode()), MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.ConstraintsRoot2"))).any(new IWhereFilter<SNode>() {
+    return ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(_context.getNode()), MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RulesConstraintsRoot"))).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return Objects.equals(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, 0x19eb8590edaff8deL, "concept")), myConcept) && ListSequence.fromList(SNodeOperations.getNodeDescendants(it, MetaAdapterFactory.getConcept(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, "jetbrains.mps.lang.rulesAndMessages.structure.RuleWithMessage"), false, new SAbstractConcept[]{})).isNotEmpty();
       }
@@ -61,7 +61,7 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Iterable<SNode> sourceNodesQuery_2_0(final SourceSubstituteMacroNodesContext _context) {
     @NotNull final SNode myConcept = SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x6530303593ae1607L, 0x63c2f3669ce56d5dL, "concept"));
-    return SNodeOperations.getNodeDescendants(ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(_context.getNode()), MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.ConstraintsRoot2"))).where(new IWhereFilter<SNode>() {
+    return SNodeOperations.getNodeDescendants(ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(_context.getNode()), MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RulesConstraintsRoot"))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return Objects.equals(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, 0x19eb8590edaff8deL, "concept")), myConcept);
       }
@@ -71,7 +71,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.getCopiedOutputNodeForInputNode(_context.getNode());
   }
   public static void mappingScript_CodeBlock_1(final MappingScriptContext _context) {
-    for (SNode root : ListSequence.fromList(SModelOperations.roots(_context.getModel(), MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.ConstraintsRoot2")))) {
+    for (SNode root : ListSequence.fromList(SModelOperations.roots(_context.getModel(), MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RulesConstraintsRoot")))) {
       @NotNull final SNode rootConcept = SLinkOperations.getTarget(root, MetaAdapterFactory.getReferenceLink(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, 0x19eb8590edaff8deL, "concept"));
       // look for existing roots, if there are no such message roots, create a new one 
       if (!(ListSequence.fromList(SModelOperations.roots(_context.getModel(), MetaAdapterFactory.getConcept(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x6530303593ae1607L, "jetbrains.mps.lang.feedback.skeleton.structure.FeedbackPerConceptRoot"))).any(new IWhereFilter<SNode>() {

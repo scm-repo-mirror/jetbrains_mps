@@ -30,18 +30,15 @@ public class Text_Constraints extends BaseConstraintsDescriptor {
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:91a4131e-4695-42c0-aafd-5099770207dd(jetbrains.mps.lang.resources.constraints)", "5917655937629124437");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return isNotEmptyString((SPropertyOperations.getString(propertyValue))) && (SPropertyOperations.getString(propertyValue)).length() == 1;
-    }
-    private static boolean isNotEmptyString(String str) {
-      return str != null && str.length() > 0;
+      return (propertyValue != null && propertyValue.length() > 0) && propertyValue.length() == 1;
     }
   }
   @Override

@@ -898,38 +898,47 @@
       </scope>
     </file>
     <file name="check_NamedTupleType_NonTypesystemRule.java">
-      <node id="1239881405754" at="22,757,23,58" concept="6" />
-      <node id="1239881405754" at="23,58,24,242" concept="6" />
-      <node id="1239881381603" at="27,50,28,161" concept="7" />
-      <node id="1239881381603" at="30,68,31,102" concept="7" />
-      <node id="1239881381603" at="33,30,34,16" concept="7" />
-      <node id="1239881381603" at="19,0,21,0" concept="1" trace="check_NamedTupleType_NonTypesystemRule#()V" />
-      <node id="1239881381603" at="27,0,30,0" concept="5" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="1239881381603" at="30,0,33,0" concept="5" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
-      <node id="1239881381603" at="33,0,36,0" concept="5" trace="overrides#()Z" />
-      <node id="1239881405754" at="21,116,25,5" concept="4" />
-      <node id="1239881381603" at="21,0,27,0" concept="5" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
-      <scope id="1239881381603" at="19,51,19,51" />
-      <scope id="1239881381603" at="27,50,28,161" />
-      <scope id="1239881381603" at="30,68,31,102" />
-      <scope id="1239881381603" at="33,30,34,16" />
-      <scope id="1239881381603" at="19,0,21,0" />
-      <scope id="1239881405754" at="22,757,24,242">
+      <node id="1239881381603" at="23,65,24,18" concept="7" />
+      <node id="1239881381603" at="25,5,26,17" concept="7" />
+      <node id="1239881405754" at="29,757,30,58" concept="6" />
+      <node id="1239881405754" at="30,58,31,242" concept="6" />
+      <node id="1239881381603" at="34,50,35,161" concept="7" />
+      <node id="1239881381603" at="37,68,38,102" concept="7" />
+      <node id="1239881381603" at="40,30,41,17" concept="7" />
+      <node id="1239881381603" at="20,0,22,0" concept="1" trace="check_NamedTupleType_NonTypesystemRule#()V" />
+      <node id="1239881381603" at="22,60,25,5" concept="4" />
+      <node id="1239881381603" at="34,0,37,0" concept="5" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="1239881381603" at="37,0,40,0" concept="5" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
+      <node id="1239881381603" at="40,0,43,0" concept="5" trace="overrides#()Z" />
+      <node id="1239881405754" at="28,116,32,5" concept="4" />
+      <node id="1239881381603" at="22,0,28,0" concept="5" trace="overrides#(Ljetbrains/mps/lang/typesystem/runtime/NonTypesystemRule_Runtime;)Z" />
+      <node id="1239881381603" at="28,0,34,0" concept="5" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
+      <scope id="1239881381603" at="20,51,20,51" />
+      <scope id="1239881381603" at="23,65,24,18" />
+      <scope id="1239881381603" at="34,50,35,161" />
+      <scope id="1239881381603" at="37,68,38,102" />
+      <scope id="1239881381603" at="40,30,41,17" />
+      <scope id="1239881381603" at="20,0,22,0" />
+      <scope id="1239881405754" at="29,757,31,242">
         <var name="_reporter_2309309498" id="1239881405754" />
         <var name="errorTarget" id="1239881405754" />
       </scope>
-      <scope id="1239881381603" at="27,0,30,0" />
-      <scope id="1239881381603" at="30,0,33,0">
+      <scope id="1239881381603" at="34,0,37,0" />
+      <scope id="1239881381603" at="37,0,40,0">
         <var name="argument" id="1239881381603" />
       </scope>
-      <scope id="1239881381603" at="33,0,36,0" />
-      <scope id="1239881381604" at="21,116,25,5" />
-      <scope id="1239881381603" at="21,0,27,0">
+      <scope id="1239881381603" at="40,0,43,0" />
+      <scope id="1239881381603" at="22,60,26,17" />
+      <scope id="1239881381604" at="28,116,32,5" />
+      <scope id="1239881381603" at="22,0,28,0">
+        <var name="rule" id="1239881381603" />
+      </scope>
+      <scope id="1239881381603" at="28,0,34,0">
         <var name="ntt" id="1239881381603" />
         <var name="status" id="1239881381603" />
         <var name="typeCheckingContext" id="1239881381603" />
       </scope>
-      <unit id="1239881381603" at="18,0,37,0" name="jetbrains.mps.baseLanguage.tuples.typesystem.check_NamedTupleType_NonTypesystemRule" />
+      <unit id="1239881381603" at="19,0,44,0" name="jetbrains.mps.baseLanguage.tuples.typesystem.check_NamedTupleType_NonTypesystemRule" />
     </file>
   </root>
   <root nodeRef="r:e119dbbd-3529-4067-8bad-6b9edd79d0b6(jetbrains.mps.baseLanguage.tuples.typesystem)/1654804677203434347">

@@ -31,25 +31,22 @@ public class NodePointer_Constraints extends BaseConstraintsDescriptor {
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:1a4a897f-9f8b-4a0a-812b-895506d5a1ab(jetbrains.mps.lang.modelapi.constraints)", "2465383939051567977");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      if (isEmptyString((SPropertyOperations.getString(propertyValue)))) {
+      if ((propertyValue == null || propertyValue.length() == 0)) {
         return true;
       }
       try {
-        return PersistenceFacade.getInstance().createNodeId((SPropertyOperations.getString(propertyValue))) != null;
+        return PersistenceFacade.getInstance().createNodeId(propertyValue) != null;
       } catch (PersistenceFacade.IncorrectNodeIdFormatException exc) {
         return false;
       }
-    }
-    private static boolean isEmptyString(String str) {
-      return str == null || str.length() == 0;
     }
   }
   @Override

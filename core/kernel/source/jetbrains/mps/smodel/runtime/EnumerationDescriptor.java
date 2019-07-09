@@ -15,13 +15,16 @@
  */
 package jetbrains.mps.smodel.runtime;
 
+import jetbrains.mps.smodel.SNodeId.Regular;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 
 import java.util.Collection;
+import java.util.Objects;
 
 /**
  * Descriptor of `enumeration` entity.
@@ -32,14 +35,17 @@ import java.util.Collection;
 public interface EnumerationDescriptor extends DataTypeDescriptor {
 
   @NotNull
+    /* change to List<MemberDescriptor> after 19.1 when descriptors regenerated */
   Collection<MemberDescriptor> getMembers();
 
   @Nullable
-  MemberDescriptor getMember(@Nullable String value);
+  MemberDescriptor getMember(@Nullable String name);
+
+  @Nullable
+  MemberDescriptor getMember(long idValue);
 
   @Nullable
   MemberDescriptor getDefault();
-
 
   @Nullable
   default PrimitiveTypeId getMemberRawType() {
@@ -54,16 +60,31 @@ public interface EnumerationDescriptor extends DataTypeDescriptor {
     private final String myPresentation;
 
     @Nullable
+    @Deprecated
     private final String myIdentifier;
 
     @Nullable
+    @Deprecated
+    private final String myLegacyRawValue;
+
+    @Nullable
     private final SNodeReference mySourceNode;
+
+    private final long myIdValue;
 
     public MemberDescriptor(@Nullable String name, @NotNull String presentation, @Nullable String sourceNode, @Nullable String identifier) {
       myName = name;
       myPresentation = presentation;
       mySourceNode = sourceNode == null ? null : PersistenceFacade.getInstance().createNodeReference(sourceNode);
       myIdentifier = identifier;
+      if (mySourceNode != null) {
+        SNodeId nodeId = mySourceNode.getNodeId();
+        assert nodeId instanceof Regular;
+        myIdValue = ((Regular) nodeId).getId();
+      } else {
+        myIdValue = Objects.hashCode(name);
+      }
+      myLegacyRawValue = name;
     }
 
     public MemberDescriptor(@Nullable String name, @NotNull String presentation, @Nullable String sourceNode) {
@@ -71,7 +92,26 @@ public interface EnumerationDescriptor extends DataTypeDescriptor {
     }
 
     public MemberDescriptor(@Nullable String name, @NotNull String presentation) {
-      this(name, presentation, null, null);
+      this(name, presentation, null);
+    }
+
+    @Deprecated
+    public MemberDescriptor(@NotNull String name, @NotNull String presentation, long idValue, @Nullable String sourceNode, @Nullable String identifier,
+                            @Nullable String legacyRawValue) {
+      myName = name;
+      myPresentation = presentation;
+      mySourceNode = sourceNode == null ? null : PersistenceFacade.getInstance().createNodeReference(sourceNode);
+      myIdValue = idValue;
+      myIdentifier = identifier;
+      myLegacyRawValue = legacyRawValue;
+    }
+
+    public MemberDescriptor(@NotNull String name, @NotNull String presentation, long idValue, @Nullable String sourceNode) {
+      this(name, presentation, idValue, sourceNode, name, name);
+    }
+
+    public MemberDescriptor(@NotNull String name, @NotNull String presentation, long idValue) {
+      this(name, presentation, idValue, null);
     }
 
     @Nullable
@@ -89,9 +129,20 @@ public interface EnumerationDescriptor extends DataTypeDescriptor {
       return mySourceNode;
     }
 
+    public long getIdValue() {
+      return myIdValue;
+    }
+
     @Nullable
+    @Deprecated
     public String getIdentifier() {
       return myIdentifier;
+    }
+
+    @Nullable
+    @Deprecated
+    public String getLegacyRawValue() {
+      return myLegacyRawValue;
     }
   }
 }

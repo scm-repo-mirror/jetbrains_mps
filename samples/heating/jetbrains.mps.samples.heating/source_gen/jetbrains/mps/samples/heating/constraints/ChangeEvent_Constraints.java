@@ -30,15 +30,15 @@ public class ChangeEvent_Constraints extends BaseConstraintsDescriptor {
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:85427802-2815-4ede-beac-6d6b51b72018(jetbrains.mps.samples.heating.constraints)", "5063359128232933521");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castInteger(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
-    private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return (SPropertyOperations.getInteger(propertyValue)) >= 12 && (SPropertyOperations.getInteger(propertyValue)) <= 30;
+    private static boolean staticValidateProperty(SNode node, int propertyValue) {
+      return propertyValue >= 12 && propertyValue <= 30;
     }
   }
   @Override

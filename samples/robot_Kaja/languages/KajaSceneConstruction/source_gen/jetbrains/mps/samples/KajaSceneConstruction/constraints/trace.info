@@ -20,42 +20,42 @@
       <node id="3210697320273648135" at="25,58,26,146" concept="8" />
       <node id="3210697320273648135" at="29,38,30,18" concept="5" />
       <node id="3210697320273648135" at="32,0,33,0" concept="6" trace="validatePropertyBreakingPoint" />
-      <node id="3210697320273648135" at="34,109,35,67" concept="4" />
+      <node id="3210697320273648135" at="34,109,35,100" concept="4" />
       <node id="3210697320273648135" at="36,53,37,75" concept="1" />
       <node id="3210697320273648135" at="38,7,39,20" concept="5" />
-      <node id="3210697320273648138" at="41,85,42,138" concept="5" />
+      <node id="3210697320273648138" at="41,82,42,70" concept="5" />
       <node id="3210697320273648164" at="46,58,47,146" concept="8" />
       <node id="3210697320273648164" at="50,38,51,18" concept="5" />
       <node id="3210697320273648164" at="53,0,54,0" concept="6" trace="validatePropertyBreakingPoint" />
-      <node id="3210697320273648164" at="55,109,56,67" concept="4" />
+      <node id="3210697320273648164" at="55,109,56,100" concept="4" />
       <node id="3210697320273648164" at="57,53,58,75" concept="1" />
       <node id="3210697320273648164" at="59,7,60,20" concept="5" />
-      <node id="3210697320273648167" at="62,85,63,139" concept="5" />
+      <node id="3210697320273648167" at="62,82,63,71" concept="5" />
       <node id="3210697320273648134" at="67,84,68,119" concept="4" />
       <node id="3210697320273648135" at="68,119,69,201" concept="1" />
       <node id="3210697320273648164" at="69,201,70,201" concept="1" />
       <node id="3210697320273648134" at="70,201,71,22" concept="5" />
       <node id="3210697320273648134" at="20,0,23,0" concept="0" trace="AbstractBuilderCommand_Constraints#()V" />
       <node id="3210697320273648135" at="25,0,28,0" concept="0" trace="Col_Property#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
-      <node id="3210697320273648135" at="35,67,38,7" concept="2" />
-      <node id="3210697320273648135" at="41,0,44,0" concept="7" trace="staticValidateProperty#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Z" />
+      <node id="3210697320273648135" at="35,100,38,7" concept="2" />
+      <node id="3210697320273648135" at="41,0,44,0" concept="7" trace="staticValidateProperty#(Lorg/jetbrains/mps/openapi/model/SNode;I)Z" />
       <node id="3210697320273648164" at="46,0,49,0" concept="0" trace="Row_Property#(Ljetbrains/mps/smodel/runtime/ConstraintsDescriptor;)V" />
-      <node id="3210697320273648164" at="56,67,59,7" concept="2" />
-      <node id="3210697320273648164" at="62,0,65,0" concept="7" trace="staticValidateProperty#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Z" />
+      <node id="3210697320273648164" at="56,100,59,7" concept="2" />
+      <node id="3210697320273648164" at="62,0,65,0" concept="7" trace="staticValidateProperty#(Lorg/jetbrains/mps/openapi/model/SNode;I)Z" />
       <node id="3210697320273648135" at="28,0,32,0" concept="3" trace="hasOwnValidator#()Z" />
       <node id="3210697320273648164" at="49,0,53,0" concept="3" trace="hasOwnValidator#()Z" />
       <node id="3210697320273648134" at="66,0,73,0" concept="3" trace="getSpecifiedProperties#()Ljava/util/Map;" />
-      <node id="3210697320273648135" at="33,0,41,0" concept="3" trace="validateValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Z" />
-      <node id="3210697320273648164" at="54,0,62,0" concept="3" trace="validateValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Z" />
+      <node id="3210697320273648135" at="33,0,41,0" concept="3" trace="validateValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Z" />
+      <node id="3210697320273648164" at="54,0,62,0" concept="3" trace="validateValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Object;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Z" />
       <scope id="3210697320273648134" at="20,47,21,184" />
       <scope id="3210697320273648135" at="25,58,26,146" />
       <scope id="3210697320273648135" at="29,38,30,18" />
       <scope id="3210697320273648135" at="36,53,37,75" />
-      <scope id="3210697320273648137" at="41,85,42,138" />
+      <scope id="3210697320273648137" at="41,82,42,70" />
       <scope id="3210697320273648164" at="46,58,47,146" />
       <scope id="3210697320273648164" at="50,38,51,18" />
       <scope id="3210697320273648164" at="57,53,58,75" />
-      <scope id="3210697320273648166" at="62,85,63,139" />
+      <scope id="3210697320273648166" at="62,82,63,71" />
       <scope id="3210697320273648134" at="20,0,23,0" />
       <scope id="3210697320273648135" at="25,0,28,0">
         <var name="container" id="3210697320273648135" />

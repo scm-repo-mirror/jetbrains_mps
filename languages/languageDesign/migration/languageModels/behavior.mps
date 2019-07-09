@@ -171,9 +171,7 @@
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
       <concept id="5455284157993911077" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty" flags="ng" index="2pJxcG">
         <reference id="5455284157993911078" name="property" index="2pJxcJ" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045201" name="initValue" index="28ntcv" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -1350,7 +1348,7 @@
                 <ref role="2pJxaS" to="tpce:hOasaTk" resolve="DeprecatedNodeAnnotation" />
                 <node concept="2pJxcG" id="6gEjUfBrBbS" role="2pJxcM">
                   <ref role="2pJxcJ" to="tpce:hOYLQ3C" resolve="comment" />
-                  <node concept="3cpWs3" id="6gEjUfBrBbT" role="2pJxcZ">
+                  <node concept="3cpWs3" id="6gEjUfBrBbT" role="28ntcv">
                     <node concept="3cpWs3" id="6gEjUfBrBbU" role="3uHU7B">
                       <node concept="Xl_RD" id="6gEjUfBrBbZ" role="3uHU7B">
                         <property role="Xl_RC" value="The link was moved to concept \&quot;" />
@@ -1553,7 +1551,7 @@
                 <ref role="2pJxaS" to="tpce:hOasaTk" resolve="DeprecatedNodeAnnotation" />
                 <node concept="2pJxcG" id="7Cf7MJZZ9Ad" role="2pJxcM">
                   <ref role="2pJxcJ" to="tpce:hOYLQ3C" resolve="comment" />
-                  <node concept="3cpWs3" id="7Cf7MJZZ9Ae" role="2pJxcZ">
+                  <node concept="3cpWs3" id="7Cf7MJZZ9Ae" role="28ntcv">
                     <node concept="3cpWs3" id="7Cf7MJZZ9Af" role="3uHU7B">
                       <node concept="Xl_RD" id="7Cf7MJZZ9Ag" role="3uHU7B">
                         <property role="Xl_RC" value="The concept was moved to language \&quot;" />
@@ -2018,7 +2016,7 @@
                 <ref role="2pJxaS" to="tpce:hOasaTk" resolve="DeprecatedNodeAnnotation" />
                 <node concept="2pJxcG" id="2mdzW6dVrz5" role="2pJxcM">
                   <ref role="2pJxcJ" to="tpce:hOYLQ3C" resolve="comment" />
-                  <node concept="3cpWs3" id="2mdzW6dVrz6" role="2pJxcZ">
+                  <node concept="3cpWs3" id="2mdzW6dVrz6" role="28ntcv">
                     <node concept="3cpWs3" id="2mdzW6dVrz7" role="3uHU7B">
                       <node concept="Xl_RD" id="2mdzW6dVrz8" role="3uHU7B">
                         <property role="Xl_RC" value="The property was moved to concept \&quot;" />
@@ -2160,7 +2158,7 @@
                 <ref role="2pJxaS" to="tpce:hOasaTk" resolve="DeprecatedNodeAnnotation" />
                 <node concept="2pJxcG" id="2mdzW6dVual" role="2pJxcM">
                   <ref role="2pJxcJ" to="tpce:hOYLQ3C" resolve="comment" />
-                  <node concept="3cpWs3" id="2mdzW6dVuam" role="2pJxcZ">
+                  <node concept="3cpWs3" id="2mdzW6dVuam" role="28ntcv">
                     <node concept="3cpWs3" id="2mdzW6dVuan" role="3uHU7B">
                       <node concept="Xl_RD" id="2mdzW6dVuao" role="3uHU7B">
                         <property role="Xl_RC" value="The link was moved to concept \&quot;" />

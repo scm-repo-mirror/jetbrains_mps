@@ -19,7 +19,57 @@
       <unit at="10,0,62,0" name="jetbrains.mps.lang.editor.menus.style.testLanguage.structure.LanguageConceptSwitch" />
     </file>
     <file name="StructureAspectDescriptor.java">
-      <unit at="18,0,271,0" name="jetbrains.mps.lang.editor.menus.style.testLanguage.structure.StructureAspectDescriptor" />
+      <unit at="18,0,272,0" name="jetbrains.mps.lang.editor.menus.style.testLanguage.structure.StructureAspectDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:6ffe895d-c627-4bc6-b29b-11834fa1d0d7(jetbrains.mps.lang.editor.menus.style.testLanguage.structure)/4241665505353448647">
+    <file name="EnumerationDescriptor_TestCompletionCustomization_Enum.java">
+      <node id="4241665505353448647" at="15,67,16,257" concept="9" />
+      <node id="4241665505353448649" at="19,0,20,0" concept="2" trace="myMember_with_priority_0" />
+      <node id="4241665505353448650" at="20,0,21,0" concept="2" trace="myMember_no_priority_0" />
+      <node id="4241665505353448647" at="22,0,23,0" concept="2" trace="myIndex" />
+      <node id="4241665505353448647" at="23,0,24,0" concept="2" trace="myMembers" />
+      <node id="4241665505353448647" at="27,62,28,36" concept="6" />
+      <node id="4241665505353448647" at="33,68,34,21" concept="6" />
+      <node id="4241665505353448647" at="40,29,41,18" concept="6" />
+      <node id="4241665505353448649" at="44,27,45,40" concept="6" />
+      <node id="4241665505353448650" at="46,25,47,38" concept="6" />
+      <node id="4241665505353448647" at="48,5,49,16" concept="6" />
+      <node id="4241665505353448647" at="54,73,55,39" concept="5" />
+      <node id="4241665505353448647" at="56,22,57,18" concept="6" />
+      <node id="4241665505353448647" at="58,5,59,32" concept="6" />
+      <node id="4241665505353448647" at="15,0,18,0" concept="0" trace="EnumerationDescriptor_TestCompletionCustomization_Enum#()V" />
+      <node id="4241665505353448647" at="39,88,42,5" concept="3" />
+      <node id="4241665505353448647" at="55,39,58,5" concept="3" />
+      <node id="4241665505353448647" at="25,0,30,0" concept="4" trace="getDefault#()Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
+      <node id="4241665505353448647" at="31,0,36,0" concept="4" trace="getMembers#()Ljava/util/List;" />
+      <node id="4241665505353448647" at="42,5,48,5" concept="10" />
+      <node id="4241665505353448647" at="52,0,61,0" concept="4" trace="getMember#(J)Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
+      <node id="4241665505353448647" at="37,0,51,0" concept="4" trace="getMember#(Ljava/lang/String;)Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
+      <scope id="4241665505353448647" at="15,67,16,257" />
+      <scope id="4241665505353448647" at="27,62,28,36" />
+      <scope id="4241665505353448647" at="33,68,34,21" />
+      <scope id="4241665505353448647" at="40,29,41,18" />
+      <scope id="4241665505353448649" at="44,27,45,40" />
+      <scope id="4241665505353448650" at="46,25,47,38" />
+      <scope id="4241665505353448647" at="56,22,57,18" />
+      <scope id="4241665505353448647" at="15,0,18,0" />
+      <scope id="4241665505353448647" at="25,0,30,0" />
+      <scope id="4241665505353448647" at="31,0,36,0" />
+      <scope id="4241665505353448647" at="54,73,59,32">
+        <var name="index" id="4241665505353448647" />
+      </scope>
+      <scope id="4241665505353448647" at="52,0,61,0">
+        <var name="idValue" id="4241665505353448647" />
+      </scope>
+      <scope id="4241665505353448647" at="39,88,49,16" />
+      <scope id="4241665505353448647" at="37,0,51,0">
+        <var name="memberName" id="4241665505353448647" />
+      </scope>
+      <unit id="4241665505353448647" at="13,0,62,0" name="jetbrains.mps.lang.editor.menus.style.testLanguage.structure.EnumerationDescriptor_TestCompletionCustomization_Enum" />
+    </file>
+    <file name="StructureAspectDescriptor.java">
+      <node id="4241665505353448647" at="37,0,38,0" concept="2" trace="myEnumerationTestCompletionCustomization_Enum" />
     </file>
   </root>
   <root nodeRef="r:6ffe895d-c627-4bc6-b29b-11834fa1d0d7(jetbrains.mps.lang.editor.menus.style.testLanguage.structure)/4639084645851051085">
@@ -42,19 +92,19 @@
     <file name="StructureAspectDescriptor.java">
       <node id="4639084645851051085" at="36,0,37,0" concept="2" trace="myConceptTestCompletionCustomization_RootToReference" />
       <node id="4639084645851051085" at="93,77,94,68" concept="6" />
-      <node id="4639084645851051085" at="261,101,262,228" concept="5" />
-      <node id="4639084645851051085" at="262,228,263,33" concept="1" />
-      <node id="4639084645851051085" at="263,33,264,71" concept="1" />
-      <node id="4639084645851051085" at="264,71,265,137" concept="1" />
-      <node id="4639084645851051085" at="265,137,266,17" concept="1" />
-      <node id="4639084645851051089" at="266,17,267,200" concept="1" />
-      <node id="4639084645851051085" at="267,200,268,22" concept="6" />
-      <node id="4639084645851051085" at="261,0,270,0" concept="8" trace="createDescriptorForTestCompletionCustomization_RootToReference#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <node id="4639084645851051085" at="262,101,263,228" concept="5" />
+      <node id="4639084645851051085" at="263,228,264,33" concept="1" />
+      <node id="4639084645851051085" at="264,33,265,71" concept="1" />
+      <node id="4639084645851051085" at="265,71,266,137" concept="1" />
+      <node id="4639084645851051085" at="266,137,267,17" concept="1" />
+      <node id="4639084645851051089" at="267,17,268,200" concept="1" />
+      <node id="4639084645851051085" at="268,200,269,22" concept="6" />
+      <node id="4639084645851051085" at="262,0,271,0" concept="8" trace="createDescriptorForTestCompletionCustomization_RootToReference#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
       <scope id="4639084645851051085" at="93,77,94,68" />
-      <scope id="4639084645851051085" at="261,101,268,22">
+      <scope id="4639084645851051085" at="262,101,269,22">
         <var name="b" id="4639084645851051085" />
       </scope>
-      <scope id="4639084645851051085" at="261,0,270,0" />
+      <scope id="4639084645851051085" at="262,0,271,0" />
     </file>
   </root>
   <root nodeRef="r:6ffe895d-c627-4bc6-b29b-11834fa1d0d7(jetbrains.mps.lang.editor.menus.style.testLanguage.structure)/4639084645851051086">
@@ -252,26 +302,27 @@
       <node id="5310043668061067463" at="235,34,236,137" concept="1" />
       <node id="5310043668061067463" at="236,137,237,17" concept="1" />
       <node id="5310043668063133032" at="237,17,238,122" concept="1" />
-      <node id="5310043668063133681" at="238,122,239,183" concept="1" />
-      <node id="3806643308052246762" at="239,183,240,195" concept="1" />
+      <node id="4241665505353454390" at="238,122,239,183" concept="1" />
+      <node id="4241665505353454392" at="239,183,240,195" concept="1" />
       <node id="4639084645851274518" at="240,195,241,120" concept="1" />
       <node id="4639084645851051093" at="241,120,242,172" concept="1" />
-      <node id="3806643308052247140" at="242,172,243,184" concept="1" />
-      <node id="5310043668061067495" at="243,184,244,203" concept="1" />
-      <node id="5310043668062452893" at="244,203,245,217" concept="1" />
-      <node id="5310043668063018993" at="245,217,246,224" concept="1" />
-      <node id="5310043668063086720" at="246,224,247,215" concept="1" />
-      <node id="4639084645851198791" at="247,215,248,211" concept="1" />
-      <node id="8199816903240189236" at="248,211,249,221" concept="1" />
-      <node id="4639084645853185651" at="249,221,250,209" concept="1" />
-      <node id="3806643308052247216" at="250,209,251,223" concept="1" />
-      <node id="5310043668061067463" at="251,223,252,22" concept="6" />
-      <node id="5310043668061067463" at="233,0,254,0" concept="8" trace="createDescriptorForTestCompletionCustomization_ParentTestContextMatcher#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <node id="4151313971380832159" at="242,172,243,185" concept="1" />
+      <node id="3806643308052247140" at="243,185,244,184" concept="1" />
+      <node id="5310043668061067495" at="244,184,245,203" concept="1" />
+      <node id="5310043668062452893" at="245,203,246,217" concept="1" />
+      <node id="5310043668063018993" at="246,217,247,224" concept="1" />
+      <node id="5310043668063086720" at="247,224,248,215" concept="1" />
+      <node id="4639084645851198791" at="248,215,249,211" concept="1" />
+      <node id="8199816903240189236" at="249,211,250,221" concept="1" />
+      <node id="4639084645853185651" at="250,221,251,209" concept="1" />
+      <node id="3806643308052247216" at="251,209,252,223" concept="1" />
+      <node id="5310043668061067463" at="252,223,253,22" concept="6" />
+      <node id="5310043668061067463" at="233,0,255,0" concept="8" trace="createDescriptorForTestCompletionCustomization_ParentTestContextMatcher#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
       <scope id="5310043668061067463" at="89,86,90,77" />
-      <scope id="5310043668061067463" at="233,110,252,22">
+      <scope id="5310043668061067463" at="233,110,253,22">
         <var name="b" id="5310043668061067463" />
       </scope>
-      <scope id="5310043668061067463" at="233,0,254,0" />
+      <scope id="5310043668061067463" at="233,0,255,0" />
     </file>
   </root>
   <root nodeRef="r:6ffe895d-c627-4bc6-b29b-11834fa1d0d7(jetbrains.mps.lang.editor.menus.style.testLanguage.structure)/5310043668061067666">
@@ -611,42 +662,6 @@
       <scope id="5310043668063055324" at="207,0,218,0" />
     </file>
   </root>
-  <root nodeRef="r:6ffe895d-c627-4bc6-b29b-11834fa1d0d7(jetbrains.mps.lang.editor.menus.style.testLanguage.structure)/5310043668063133684">
-    <file name="EnumerationDescriptor_TestCompletionCustomization_Enum.java">
-      <node id="5310043668063133684" at="15,67,16,257" concept="9" />
-      <node id="5310043668063133685" at="19,0,20,0" concept="2" trace="VALUE_withpriority_0" />
-      <node id="5310043668063133686" at="20,0,21,0" concept="2" trace="VALUE_nopriority_0" />
-      <node id="5310043668063133684" at="24,62,25,32" concept="6" />
-      <node id="5310043668063133684" at="30,74,31,67" concept="6" />
-      <node id="5310043668063133684" at="37,25,38,18" concept="6" />
-      <node id="5310043668063133685" at="41,27,42,36" concept="6" />
-      <node id="5310043668063133686" at="43,25,44,34" concept="6" />
-      <node id="5310043668063133684" at="45,5,46,16" concept="6" />
-      <node id="5310043668063133684" at="15,0,18,0" concept="0" trace="EnumerationDescriptor_TestCompletionCustomization_Enum#()V" />
-      <node id="5310043668063133684" at="36,84,39,5" concept="3" />
-      <node id="5310043668063133684" at="22,0,27,0" concept="4" trace="getDefault#()Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
-      <node id="5310043668063133684" at="28,0,33,0" concept="4" trace="getMembers#()Ljava/util/Collection;" />
-      <node id="5310043668063133684" at="39,5,45,5" concept="10" />
-      <node id="5310043668063133684" at="34,0,48,0" concept="4" trace="getMember#(Ljava/lang/String;)Ljetbrains/mps/smodel/runtime/EnumerationDescriptor/MemberDescriptor;" />
-      <scope id="5310043668063133684" at="15,67,16,257" />
-      <scope id="5310043668063133684" at="24,62,25,32" />
-      <scope id="5310043668063133684" at="30,74,31,67" />
-      <scope id="5310043668063133684" at="37,25,38,18" />
-      <scope id="5310043668063133685" at="41,27,42,36" />
-      <scope id="5310043668063133686" at="43,25,44,34" />
-      <scope id="5310043668063133684" at="15,0,18,0" />
-      <scope id="5310043668063133684" at="22,0,27,0" />
-      <scope id="5310043668063133684" at="28,0,33,0" />
-      <scope id="5310043668063133684" at="36,84,46,16" />
-      <scope id="5310043668063133684" at="34,0,48,0">
-        <var name="string" id="5310043668063133684" />
-      </scope>
-      <unit id="5310043668063133684" at="13,0,49,0" name="jetbrains.mps.lang.editor.menus.style.testLanguage.structure.EnumerationDescriptor_TestCompletionCustomization_Enum" />
-    </file>
-    <file name="StructureAspectDescriptor.java">
-      <node id="5310043668063133684" at="37,0,38,0" concept="2" trace="myEnumerationTestCompletionCustomization_Enum" />
-    </file>
-  </root>
   <root nodeRef="r:6ffe895d-c627-4bc6-b29b-11834fa1d0d7(jetbrains.mps.lang.editor.menus.style.testLanguage.structure)/8199816903239730016">
     <file name="ConceptPresentationAspectImpl.java">
       <node id="8199816903239730016" at="28,0,29,0" concept="2" trace="props_TestCompletionCustomization_ParentTestStyle" />
@@ -667,17 +682,17 @@
     <file name="StructureAspectDescriptor.java">
       <node id="8199816903239730016" at="35,0,36,0" concept="2" trace="myConceptTestCompletionCustomization_ParentTestStyle" />
       <node id="8199816903239730016" at="91,77,92,68" concept="6" />
-      <node id="8199816903239730016" at="254,101,255,228" concept="5" />
-      <node id="8199816903239730016" at="255,228,256,34" concept="1" />
-      <node id="8199816903239730016" at="256,34,257,137" concept="1" />
-      <node id="8199816903239730016" at="257,137,258,17" concept="1" />
-      <node id="8199816903239730016" at="258,17,259,22" concept="6" />
-      <node id="8199816903239730016" at="254,0,261,0" concept="8" trace="createDescriptorForTestCompletionCustomization_ParentTestStyle#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <node id="8199816903239730016" at="255,101,256,228" concept="5" />
+      <node id="8199816903239730016" at="256,228,257,34" concept="1" />
+      <node id="8199816903239730016" at="257,34,258,137" concept="1" />
+      <node id="8199816903239730016" at="258,137,259,17" concept="1" />
+      <node id="8199816903239730016" at="259,17,260,22" concept="6" />
+      <node id="8199816903239730016" at="255,0,262,0" concept="8" trace="createDescriptorForTestCompletionCustomization_ParentTestStyle#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
       <scope id="8199816903239730016" at="91,77,92,68" />
-      <scope id="8199816903239730016" at="254,101,259,22">
+      <scope id="8199816903239730016" at="255,101,260,22">
         <var name="b" id="8199816903239730016" />
       </scope>
-      <scope id="8199816903239730016" at="254,0,261,0" />
+      <scope id="8199816903239730016" at="255,0,262,0" />
     </file>
   </root>
 </debug-info>

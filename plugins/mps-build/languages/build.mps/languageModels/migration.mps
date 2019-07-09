@@ -2,7 +2,7 @@
 <model ref="r:6b4c7cba-3f3c-4384-aa02-e68ac5ea8ee8(jetbrains.mps.build.mps.migration)">
   <persistence version="9" />
   <languages>
-    <use id="90746344-04fd-4286-97d5-b46ae6a81709" name="jetbrains.mps.lang.migration" version="-1" />
+    <use id="90746344-04fd-4286-97d5-b46ae6a81709" name="jetbrains.mps.lang.migration" version="2" />
     <use id="c7d5b9dd-a05f-4be2-bc73-f2e16994cc67" name="jetbrains.mps.baseLanguage.lightweightdsl" version="-1" />
     <use id="1a8554c4-eb84-43ba-8c34-6f0d90c6e75a" name="jetbrains.mps.lang.smodel.query" version="-1" />
     <use id="798100da-4f0a-421a-b991-71f8c50ce5d2" name="jetbrains.mps.build" version="-1" />
@@ -195,9 +195,7 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -205,6 +203,9 @@
       <concept id="5455284157993863840" name="jetbrains.mps.lang.quotation.structure.NodeBuilderNode" flags="nn" index="2pJPED">
         <reference id="5455284157993910961" name="concept" index="2pJxaS" />
         <child id="5455284157993911099" name="values" index="2pJxcM" />
+      </concept>
+      <concept id="4056363777117001481" name="jetbrains.mps.lang.quotation.structure.StringToTypedValueMigrationInfo" flags="ng" index="AAgTk">
+        <property id="2173356959483005420" name="stringValueMigrated" index="3qcH_f" />
       </concept>
       <concept id="1196866233735" name="jetbrains.mps.lang.quotation.structure.PropertyAntiquotation" flags="ng" index="2EMmih" />
       <concept id="8182547171709752110" name="jetbrains.mps.lang.quotation.structure.NodeBuilderExpression" flags="nn" index="36biLy">
@@ -2044,7 +2045,7 @@
                       <ref role="2pJxaS" to="kdzh:16hzwWwASfB" resolve="BuildMpsLayout_ModuleJars" />
                       <node concept="2pIpSj" id="7pUrxqEKEYg" role="2pJxcM">
                         <ref role="2pIpSl" to="kdzh:16hzwWwASfD" resolve="module" />
-                        <node concept="36biLy" id="7pUrxqEKEYh" role="2pJxcZ">
+                        <node concept="36biLy" id="7pUrxqEKEYh" role="28nt2d">
                           <node concept="37vLTw" id="36cV00CDwaa" role="36biLW">
                             <ref role="3cqZAo" node="36cV00CDwa5" resolve="moduleSource" />
                           </node>
@@ -2588,6 +2589,7 @@
                           <property role="2qtEX9" value="text" />
                           <property role="P4ACc" value="798100da-4f0a-421a-b991-71f8c50ce5d2/4903714810883702019/4903714810883755350" />
                           <property role="3hQQBS" value="BuildTextStringPart" />
+                          <property role="3qcH_f" value="true" />
                           <node concept="37vLTw" id="36cV00CDAXC" role="2c44t1">
                             <ref role="3cqZAo" node="36cV00CD_vC" resolve="name" />
                           </node>
@@ -2859,7 +2861,7 @@
                       <node concept="9aQIb" id="36cV00C$An_" role="9aQIa">
                         <node concept="3clFbS" id="36cV00C$AnA" role="9aQI4">
                           <node concept="2xdQw9" id="36cV00C$ktx" role="3cqZAp">
-                            <property role="2xdLsb" value="error" />
+                            <property role="2xdLsb" value="gZ5fh_4/error" />
                             <node concept="Xl_RD" id="36cV00C$ktz" role="9lYJi">
                               <property role="Xl_RC" value="Discovered unknown content in the BuildMps_IdeaPlugin instance" />
                             </node>

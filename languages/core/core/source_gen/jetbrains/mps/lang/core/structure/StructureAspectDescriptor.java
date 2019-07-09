@@ -418,6 +418,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.property("name_DebugInfo", 0x18649a5c82123515L).type(PrimitiveTypeId.STRING).origin("1757699476691236117").done();
     b.property("propertyId", 0x129f3f61278d556dL).type(PrimitiveTypeId.STRING).origin("1341860900487648621").done();
+    b.property("enumUsageMigrated", 0x1081af3d7e9d6a2fL).type(PrimitiveTypeId.BOOLEAN).origin("1189424455254633007").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForReviewMigration() {
@@ -464,7 +465,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_("jetbrains.mps.lang.core.structure.NodeAttribute", 0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da54L);
     b.origin("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)/779128492853369165");
     b.version(2);
-    b.property("side", 0xad0053c7aee2321L).type(MetaIdFactory.dataTypeId(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7aee25ecL)).origin("779128492853699361").done();
+    b.property("side", 0xad0053c7aee2321L).type(MetaIdFactory.dataTypeId(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7aee25ecL)).origin("4241665505353453590").done();
     b.property("cellId", 0xad0053c7af1b9bbL).type(PrimitiveTypeId.STRING).origin("779128492853934523").done();
     b.property("anchorTag", 0xad0053c7af1bf58L).type(PrimitiveTypeId.STRING).origin("779128492853935960").done();
     return b.create();

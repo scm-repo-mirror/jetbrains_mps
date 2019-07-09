@@ -18,7 +18,7 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
 public class SNodeTypeCastExpression_completelyRemoved extends MigrationScriptBase {
   public String getCaption() {
-    return "Move nodes refactoring";
+    return "SNodeTypeCastExpression_completelyRemoved";
   }
   @Override
   public boolean isRerunnable() {

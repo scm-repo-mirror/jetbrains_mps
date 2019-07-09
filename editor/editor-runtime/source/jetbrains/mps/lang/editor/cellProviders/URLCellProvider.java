@@ -38,13 +38,6 @@ public class URLCellProvider extends PropertyCellProvider {
   public EditorCell createEditorCell(EditorContext context) {
     EditorCell_URL editorCell = EditorCell_URL.create(context, getSNode(), getProperty());
     editorCell.setDefaultText(myNoTargetText);
-    if (!myReadOnly) {
-      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSPropertyOrNode(getSNode(), getProperty(), DeleteDirection.FORWARD));
-      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSPropertyOrNode(getSNode(), getProperty(), DeleteDirection.BACKWARD));
-    } else {
-      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteEasily(getSNode(), DeleteDirection.FORWARD));
-      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteEasily(getSNode(), DeleteDirection.BACKWARD));
-    }
     return editorCell;
   }
 }

@@ -71,7 +71,7 @@ public class ConvertConstraints extends IntentionsFactory {
 
 
   public void execute(SNode node, EditorContext editorContext) {
-    SNode newRoot = SModelOperations.createNewRootNode(SNodeOperations.getModel(node), MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.ConstraintsRoot2"));
+    SNode newRoot = SModelOperations.createNewRootNode(SNodeOperations.getModel(node), MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RulesConstraintsRoot"));
     as_kwcbwx_a0a1a32(SNodeOperations.getModel(node), SModelInternal.class).addLanguage(MetaAdapterFactory.getLanguage(0x47257bf378d3470bL, 0x89d98c3261a61d15L, "jetbrains.mps.lang.constraints.rules"));
     as_kwcbwx_a0a2a32(SNodeOperations.getModel(node), SModelInternal.class).addLanguage(MetaAdapterFactory.getLanguage(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, "jetbrains.mps.lang.constraints.rules.skeleton"));
     SLinkOperations.setTarget(newRoot, MetaAdapterFactory.getReferenceLink(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, 0x19eb8590edaff8deL, "concept"), SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, 0x11a720969b6L, "concept")));

@@ -4,7 +4,7 @@
   <languages>
     <use id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior" version="2" />
     <use id="d8f591ec-4d86-4af2-9f92-a9e93c803ffa" name="jetbrains.mps.lang.scopes" version="0" />
-    <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="1" />
+    <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="4" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
@@ -230,9 +230,7 @@
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
-      </concept>
-      <concept id="5455284157993911097" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitPart" flags="ng" index="2pJxcK">
-        <child id="5455284157993911094" name="expression" index="2pJxcZ" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
       </concept>
       <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
         <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
@@ -1428,7 +1426,7 @@
                 <ref role="2pJxaS" to="tpee:g7uibYu" resolve="ClassifierType" />
                 <node concept="2pIpSj" id="6GFpWnVm8m_" role="2pJxcM">
                   <ref role="2pIpSl" to="tpee:g7uigIF" resolve="classifier" />
-                  <node concept="36biLy" id="7iyvL_iQxzD" role="2pJxcZ">
+                  <node concept="36biLy" id="7iyvL_iQxzD" role="28nt2d">
                     <node concept="10Nm6u" id="7iyvL_iQxzC" role="36biLW" />
                   </node>
                 </node>
@@ -1487,7 +1485,7 @@
         <node concept="3clFbJ" id="6GFpWnVbTlV" role="3cqZAp">
           <node concept="3clFbS" id="6GFpWnVbTlX" role="3clFbx">
             <node concept="RRSsy" id="3jYQuSB36MR" role="3cqZAp">
-              <property role="RRSoG" value="warn" />
+              <property role="RRSoG" value="gZ5fksE/warn" />
               <node concept="3cpWs3" id="3l53ckIYMv7" role="RRSoy">
                 <node concept="Xl_RD" id="3l53ckIYMv9" role="3uHU7B">
                   <property role="Xl_RC" value="No classifier found:" />

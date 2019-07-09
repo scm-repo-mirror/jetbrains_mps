@@ -2,7 +2,7 @@
 <model ref="r:00000000-0000-4000-0000-011c89590371(jetbrains.mps.baseLanguage.classifiers.typesystem)">
   <persistence version="9" />
   <languages>
-    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
+    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
     <devkit ref="00000000-0000-4000-0000-1de82b3a4936(jetbrains.mps.devkit.aspect.typesystem)" />
   </languages>
   <imports>
@@ -106,14 +106,10 @@
       <concept id="1175517767210" name="jetbrains.mps.lang.typesystem.structure.ReportErrorStatement" flags="nn" index="2MkqsV">
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
-      <concept id="1212056081426" name="jetbrains.mps.lang.typesystem.structure.AbstractInequationStatement" flags="ng" index="Ob1k8">
-        <property id="1212056105818" name="inequationPriority" index="Ob790" />
-      </concept>
       <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
         <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
       </concept>
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
-        <property id="1195213689297" name="overrides" index="18ip37" />
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
@@ -358,7 +354,6 @@
                     <node concept="1bVj0M" id="3c0ZDt2q1AR" role="23t8la">
                       <node concept="3clFbS" id="3c0ZDt2q1AS" role="1bW5cS">
                         <node concept="1ZobV4" id="3c0ZDt2pPIa" role="3cqZAp">
-                          <property role="Ob790" value="0" />
                           <node concept="mw_s8" id="3c0ZDt2pPIb" role="1ZfhK$">
                             <node concept="1Z2H0r" id="3c0ZDt2pPIc" role="mwGJk">
                               <node concept="37vLTw" id="3c0ZDt2q26w" role="1Z2MuG">
@@ -416,7 +411,6 @@
             <node concept="9aQIb" id="3c0ZDt2pmVv" role="9aQIa">
               <node concept="3clFbS" id="3c0ZDt2pmVw" role="9aQI4">
                 <node concept="1ZobV4" id="Hjn6ojfrqy" role="3cqZAp">
-                  <property role="Ob790" value="0" />
                   <node concept="mw_s8" id="Hjn6ojfrqz" role="1ZfhK$">
                     <node concept="1Z2H0r" id="Hjn6ojfrq$" role="mwGJk">
                       <node concept="3M$PaV" id="Hjn6ojfrqF" role="1Z2MuG">
@@ -758,16 +752,6 @@
     <node concept="1YaCAy" id="hHOI6jx" role="1YuTPh">
       <property role="TrG5h" value="expresson" />
       <ref role="1YaFvo" to="tp4f:hHOG3lW" resolve="SuperClassifierExpresson" />
-    </node>
-  </node>
-  <node concept="18kY7G" id="4GB5wjQy8Vl">
-    <property role="TrG5h" value="check_DefaultClassifierFieldDeclaration" />
-    <property role="3GE5qa" value="Fields" />
-    <property role="18ip37" value="true" />
-    <node concept="3clFbS" id="4GB5wjQy8Vm" role="18ibNy" />
-    <node concept="1YaCAy" id="4GB5wjQy8Vn" role="1YuTPh">
-      <property role="TrG5h" value="decl" />
-      <ref role="1YaFvo" to="tp4f:hEBZ0aj" resolve="DefaultClassifierFieldDeclaration" />
     </node>
   </node>
   <node concept="2sgARr" id="6FkefidRNml">

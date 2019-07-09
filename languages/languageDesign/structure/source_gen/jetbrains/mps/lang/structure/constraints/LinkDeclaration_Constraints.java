@@ -10,6 +10,7 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import java.util.Map;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -48,36 +49,15 @@ public class LinkDeclaration_Constraints extends BaseConstraintsDescriptor {
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "589716822028322823");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castEnummember(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
-    private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return SPropertyOperations.hasEnumValue(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass"), "aggregation") || SEnumOperations.getMemberValue(SEnumOperations.getMember(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, "jetbrains.mps.lang.structure", 0xfc6f3944c2L, "Cardinality", 0xfc6f3944c4L, "1")).equals((SPropertyOperations.getString(propertyValue))) || SEnumOperations.getMemberValue(SEnumOperations.getMember(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, "jetbrains.mps.lang.structure", 0xfc6f3944c2L, "Cardinality", 0xfc6f3944c3L, "0..1")).equals((SPropertyOperations.getString(propertyValue)));
-    }
-  }
-  public static class Role_Property extends BasePropertyConstraintsDescriptor {
-    public Role_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role"), container);
-    }
-    @Override
-    public boolean hasOwnValidator() {
-      return true;
-    }
-    private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "4049502122675870325");
-    @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
-      if (!(result) && checkingNodeContext != null) {
-        checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
-      }
-      return result;
-    }
-    private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return (SPropertyOperations.getString(propertyValue)).matches("[a-zA-Z[_]][a-zA-Z0-9$[_]]*");
+    private static boolean staticValidateProperty(SNode node, SEnumerationLiteral propertyValue) {
+      return SEnumOperations.isMember(SPropertyOperations.getEnum(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b9L) || SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc6f3944c2L, "jetbrains.mps.lang.structure.structure.Cardinality"), 0xfc6f3944c4L, "_1") == propertyValue || SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc6f3944c2L, "jetbrains.mps.lang.structure.structure.Cardinality"), 0xfc6f3944c3L, "_0__1") == propertyValue;
     }
   }
   public static class LinkId_Property extends BasePropertyConstraintsDescriptor {
@@ -90,26 +70,23 @@ public class LinkDeclaration_Constraints extends BaseConstraintsDescriptor {
     }
     private static final SNodePointer validatePropertyBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "241647608299431198");
     @Override
-    public boolean validateValue(SNode node, String propertyValue, CheckingNodeContext checkingNodeContext) {
-      boolean result = staticValidateProperty(node, propertyValue);
+    public boolean validateValue(SNode node, Object propertyValue, CheckingNodeContext checkingNodeContext) {
+      boolean result = staticValidateProperty(node, SPropertyOperations.castString(propertyValue));
       if (!(result) && checkingNodeContext != null) {
         checkingNodeContext.setBreakingNode(validatePropertyBreakingPoint);
       }
       return result;
     }
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      if (isEmptyString((SPropertyOperations.getString(propertyValue)))) {
+      if ((propertyValue == null || propertyValue.length() == 0)) {
         return true;
       }
       try {
-        Long.parseLong((SPropertyOperations.getString(propertyValue)));
+        Long.parseLong(propertyValue);
         return true;
       } catch (NumberFormatException e) {
         return false;
       }
-    }
-    private static boolean isEmptyString(String str) {
-      return str == null || str.length() == 0;
     }
   }
   public static class Name_Property extends BasePropertyConstraintsDescriptor {
@@ -129,15 +106,17 @@ public class LinkDeclaration_Constraints extends BaseConstraintsDescriptor {
       return true;
     }
     @Override
-    public void setValue(SNode node, String propertyValue) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role"), (SPropertyOperations.getString(propertyValue)));
+    public void setPropertyValue(SNode node, Object propertyValue) {
+      staticSetPropertyValue(node, SPropertyOperations.castString(propertyValue));
+    }
+    private static void staticSetPropertyValue(SNode node, String propertyValue) {
+      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role"), propertyValue);
     }
   }
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
     properties.put(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality"), new LinkDeclaration_Constraints.SourceCardinality_Property(this));
-    properties.put(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role"), new LinkDeclaration_Constraints.Role_Property(this));
     properties.put(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId"), new LinkDeclaration_Constraints.LinkId_Property(this));
     properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), new LinkDeclaration_Constraints.Name_Property(this));
     return properties;
@@ -155,7 +134,7 @@ public class LinkDeclaration_Constraints extends BaseConstraintsDescriptor {
         return new BaseScopeProvider() {
           @Override
           public SNodeReference getSearchScopeValidatorNode() {
-            return breakingNode_nfyhm3_a0a0a0a0a1a0a0a0h;
+            return breakingNode_nfyhm3_a0a0a0a0a1a0a0a0g;
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
@@ -163,7 +142,7 @@ public class LinkDeclaration_Constraints extends BaseConstraintsDescriptor {
             if (_context.getReferenceNode() == null) {
               return null;
             }
-            final boolean aggregation = SPropertyOperations.hasEnumValue(_context.getReferenceNode(), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass"), "aggregation");
+            final boolean aggregation = SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getReferenceNode(), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b9L);
             List<SNode> result = new ArrayList<SNode>();
             SNode enclosingConcept = SNodeOperations.getNodeAncestor(_context.getContextNode(), MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration"), true, false);
             List<SNode> directSupers = AbstractConceptDeclaration__BehaviorDescriptor.getImmediateSuperconcepts_idhMuxyK2.invoke(enclosingConcept);
@@ -172,9 +151,9 @@ public class LinkDeclaration_Constraints extends BaseConstraintsDescriptor {
               ListSequence.fromList(result).addSequence(ListSequence.fromList(links).where(new IWhereFilter<SNode>() {
                 public boolean accept(SNode it) {
                   if (aggregation) {
-                    return SPropertyOperations.hasEnumValue(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass"), "aggregation");
+                    return SEnumOperations.isMember(SPropertyOperations.getEnum(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b9L);
                   }
-                  return SPropertyOperations.hasEnumValue(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass"), "reference");
+                  return SEnumOperations.isMember(SPropertyOperations.getEnum(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b8L);
                 }
               }));
             }
@@ -187,5 +166,5 @@ public class LinkDeclaration_Constraints extends BaseConstraintsDescriptor {
     references.put(d0.getReference(), d0);
     return references;
   }
-  private static SNodePointer breakingNode_nfyhm3_a0a0a0a0a1a0a0a0h = new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "6836281137582805253");
+  private static SNodePointer breakingNode_nfyhm3_a0a0a0a0a1a0a0a0g = new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "6836281137582805253");
 }

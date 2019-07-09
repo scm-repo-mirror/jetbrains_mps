@@ -11,7 +11,10 @@ import com.intellij.openapi.extensions.PluginId;
 
 public class DevkitActions_ActionGroup extends GeneratedActionGroup {
   public static final String ID = "jetbrains.mps.ide.actions.DevkitActions_ActionGroup";
+  public static final String LABEL_ID_check = ID + "check";
   public static final String LABEL_ID_analyze = ID + "analyze";
+  public static final String LABEL_ID_delete = ID + "delete";
+  public static final String LABEL_ID_refactoring = ID + "refactoring";
   public static final String LABEL_ID_find_usages = ID + "find_usages";
   public static final String LABEL_ID_favorites = ID + "favorites";
 
@@ -20,6 +23,12 @@ public class DevkitActions_ActionGroup extends GeneratedActionGroup {
     setIsInternal(false);
     setPopup(false);
     {
+      LabelledAnchor action = new LabelledAnchor(DevkitActions_ActionGroup.LABEL_ID_check);
+      ActionManagerEx manager = ActionManagerEx.getInstanceEx();
+      manager.registerAction(action.getId(), action, PluginId.getId("jetbrains.mps.ide"));
+      DevkitActions_ActionGroup.this.addAction(action);
+    }
+    {
       LabelledAnchor action = new LabelledAnchor(DevkitActions_ActionGroup.LABEL_ID_analyze);
       ActionManagerEx manager = ActionManagerEx.getInstanceEx();
       manager.registerAction(action.getId(), action, PluginId.getId("jetbrains.mps.ide"));
@@ -27,10 +36,22 @@ public class DevkitActions_ActionGroup extends GeneratedActionGroup {
     }
     DevkitActions_ActionGroup.this.addSeparator();
     DevkitActions_ActionGroup.this.addAction("jetbrains.mps.ide.actions.DeleteModules_Action");
+    {
+      LabelledAnchor action = new LabelledAnchor(DevkitActions_ActionGroup.LABEL_ID_delete);
+      ActionManagerEx manager = ActionManagerEx.getInstanceEx();
+      manager.registerAction(action.getId(), action, PluginId.getId("jetbrains.mps.ide"));
+      DevkitActions_ActionGroup.this.addAction(action);
+    }
     DevkitActions_ActionGroup.this.addAction("jetbrains.mps.ide.actions.CopyModuleName_Action");
     DevkitActions_ActionGroup.this.addSeparator();
     DevkitActions_ActionGroup.this.addAction("jetbrains.mps.ide.actions.SetVirtualFolder_Action");
     DevkitActions_ActionGroup.this.addAction("jetbrains.mps.ide.actions.RenameModule_Action");
+    {
+      LabelledAnchor action = new LabelledAnchor(DevkitActions_ActionGroup.LABEL_ID_refactoring);
+      ActionManagerEx manager = ActionManagerEx.getInstanceEx();
+      manager.registerAction(action.getId(), action, PluginId.getId("jetbrains.mps.ide"));
+      DevkitActions_ActionGroup.this.addAction(action);
+    }
     DevkitActions_ActionGroup.this.addSeparator();
     {
       LabelledAnchor action = new LabelledAnchor(DevkitActions_ActionGroup.LABEL_ID_find_usages);

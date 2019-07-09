@@ -10,6 +10,7 @@ import java.util.Map;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import com.intellij.ide.actions.ContextHelpAction;
 import jetbrains.mps.util.NameUtil;
+import jetbrains.mps.project.MPSProject;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -20,7 +21,7 @@ public class ShowDefaultHelp_Action extends BaseAction {
   public ShowDefaultHelp_Action() {
     super("Show Default Help", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setExecuteOutsideCommand(false);
+    this.setExecuteOutsideCommand(true);
     this.addPlace(null);
   }
   @Override
@@ -48,6 +49,12 @@ public class ShowDefaultHelp_Action extends BaseAction {
       return false;
     }
     {
+      MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
+      if (p == null) {
+        return false;
+      }
+    }
+    {
       SModule p = event.getData(MPSCommonDataKeys.CONTEXT_MODULE);
     }
     {
@@ -60,14 +67,18 @@ public class ShowDefaultHelp_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    if (HelpHelper.getDefaultHelpFor(event.getData(MPSCommonDataKeys.CONTEXT_MODULE), event.getData(MPSCommonDataKeys.CONTEXT_MODEL), event.getData(MPSCommonDataKeys.NODE)) == null) {
-      ContextHelpAction contextHelpAction = new ContextHelpAction();
-      contextHelpAction.update(event);
-      if (event.getPresentation().isEnabled()) {
-        contextHelpAction.actionPerformed(event);
+    event.getData(MPSCommonDataKeys.MPS_PROJECT).getModelAccess().runReadAction(new Runnable() {
+      public void run() {
+        if (HelpHelper.getDefaultHelpFor(event.getData(MPSCommonDataKeys.CONTEXT_MODULE), event.getData(MPSCommonDataKeys.CONTEXT_MODEL), event.getData(MPSCommonDataKeys.NODE)) == null) {
+          ContextHelpAction contextHelpAction = new ContextHelpAction();
+          contextHelpAction.update(event);
+          if (event.getPresentation().isEnabled()) {
+            contextHelpAction.actionPerformed(event);
+          }
+          return;
+        }
+        HelpHelper.showHelpFor(event.getData(MPSCommonDataKeys.CONTEXT_MODULE), event.getData(MPSCommonDataKeys.CONTEXT_MODEL), event.getData(MPSCommonDataKeys.NODE));
       }
-      return;
-    }
-    HelpHelper.showHelpFor(event.getData(MPSCommonDataKeys.CONTEXT_MODULE), event.getData(MPSCommonDataKeys.CONTEXT_MODEL), event.getData(MPSCommonDataKeys.NODE));
+    });
   }
 }

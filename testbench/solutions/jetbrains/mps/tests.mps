@@ -54,6 +54,8 @@
     <import index="2j2z" ref="r:809bd876-c877-4bf5-8f9e-fbd73017df4f(jetbrains.mps.lang.pattern.editorTest@tests)" />
     <import index="uro6" ref="r:b7700ddb-0ad2-4309-a33f-b642f5922d06(jetbrains.mps.internalCollections.test.dataFlow@tests)" />
     <import index="34tp" ref="r:ea0833ca-e474-4ae3-b6d3-3f8d18af5a89(jetbrains.mps.internalCollections.test.typechecking@tests)" />
+    <import index="tk9j" ref="r:afa6200c-5e34-4244-b141-d3f095bc906f(jetbrains.mps.checkers.test@tests)" />
+    <import index="yutu" ref="r:1cc42aa8-6d2d-49a0-9b1f-2e5f92988fc5(jetbrains.mps.lang.quotation.test.generationTest@tests)" />
     <import index="j5ir" ref="r:b4fd80fc-7d6c-4c99-be6d-090ae8779bdc(jetbrains.mps.ide.vcs.test.merge@tests)" implicit="true" />
   </imports>
   <registry>
@@ -1125,6 +1127,21 @@
     </node>
     <node concept="lpD6D" id="6dQuMDPab3$" role="lpD6w">
       <ref role="lpD7u" to="mpm6:6dQuMDPa6_7" resolve="Test_CreateReferenceAntiquotation_Key" />
+    </node>
+    <node concept="lpD6D" id="29gobADrLOU" role="lpD6w">
+      <ref role="lpD7u" to="tk9j:5TUCQr3cQ2o" resolve="SuppressErrorsTest" />
+    </node>
+    <node concept="lpD6D" id="29gobADrLPg" role="lpD6w">
+      <ref role="lpD7u" to="mpm6:6nbww93UGaw" resolve="Test_QuotationDetachNodes_Test" />
+    </node>
+    <node concept="lpD6D" id="29gobADrLPv" role="lpD6w">
+      <ref role="lpD7u" to="yutu:2ZO5wSvEFpN" resolve="QuotationConverterTest" />
+    </node>
+    <node concept="lpD6D" id="29gobADrLPw" role="lpD6w">
+      <ref role="lpD7u" to="yutu:2ZO5wSvGkY7" resolve="QuotationConverterPreservesSemantics" />
+    </node>
+    <node concept="lpD6D" id="gLrprVOLA3" role="lpD6w">
+      <ref role="lpD7u" to="yutu:29gobADrNp5" resolve="LightQuotationFinal" />
     </node>
   </node>
 </model>

@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior" version="-1" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="1" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="2" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -371,8 +371,8 @@
                   </node>
                 </node>
               </node>
-              <node concept="liA8E" id="5I1s5NvyQLy" role="2OqNvi">
-                <ref role="37wK5l" to="tken:5bXKZTgq2AH" resolve="runtimeClosure" />
+              <node concept="liA8E" id="1lLjvV_zx08" role="2OqNvi">
+                <ref role="37wK5l" to="tken:7LkEFTMzmuw" resolve="designtimeClosure" />
               </node>
             </node>
           </node>
