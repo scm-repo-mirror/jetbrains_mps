@@ -156,6 +156,8 @@
 
       <add-to-group group-id="GoToMenu" anchor="after" relative-to-action="JumpToNextChange"/>
     </group>
+
+    <action id="GotoDeclarationOnly" class="com.intellij.codeInsight.navigation.actions.GotoDeclarationOnlyAction"/>
     -->
 
     <group id="GoToCodeGroup">
@@ -1258,6 +1260,8 @@
       <separator/>
       <action id="RunDashboard.ClearContent" class="com.intellij.execution.dashboard.actions.ClearContentAction"
               text="Clear Content" icon="AllIcons.Actions.Cancel"/>
+      <action id="RunDashboard.RestoreConfiguration" class="com.intellij.execution.dashboard.actions.RestoreConfigurationAction"
+              text="Restore Configuration" icon="AllIcons.Actions.Rollback"/>
       <separator/>
       <action id="RunDashboard.GroupConfigurations" class="com.intellij.execution.dashboard.actions.GroupConfigurationsAction"
               text="Group Configurations" icon="AllIcons.Actions.GroupByPackage"/>
@@ -1270,11 +1274,11 @@
     <group id="ServiceViewTreeToolbar">
       <group id="ServiceView.GroupBy" popup="true" text="Group By" icon="AllIcons.Actions.GroupBy"
              class="com.intellij.ide.actions.NonEmptyActionGroup">
-        <action id="ServiceView.GroupByType" class="com.intellij.execution.services.GroupByTypeAction"
-                text="Type"/>
+        <action id="ServiceView.GroupByContributor" class="com.intellij.execution.services.GroupByContributorAction"
+                text="Service Type"/>
+        <action id="ServiceView.GroupByServiceGroups" class="com.intellij.execution.services.GroupByServiceGroupsAction"
+                text="Service Groups"/>
       </group>
-      <action id="ServiceView.FlattenServices" class="com.intellij.execution.services.FlattenServicesAction"
-              text="Flatten Services" icon="AllIcons.Actions.ListFiles"/>
       <separator/>
       <action id="ServiceView.ShowInNewTab" class="com.intellij.execution.services.ShowInNewTabAction"
               text="Show in New Tab" icon="AllIcons.Actions.OpenNewTab"/>
@@ -1289,8 +1293,6 @@
     </group>
     <group id="ServiceViewNodePopup">
       <group class="com.intellij.execution.services.ServiceViewActionProvider$ItemPopupActionGroup" id="ServiceViewItemPopupGroup"/>
-      <separator/>
-      <reference id="ServiceView.FlattenServices"/>
       <separator/>
       <reference id="ServiceView.ShowInNewTab"/>
       <reference id="ServiceView.SplitToNewTabs"/>
@@ -1428,18 +1430,10 @@
       <add-to-group group-id="Other.KeymapGroup"/>
     <group id="TodoViewGroupByGroup" class="com.intellij.ide.todo.TodoPanel$GroupByActionGroup">
         <separator text="Group By"/>
-      <action class="com.intellij.ide.todo.TodoPanel$MyShowModulesAction" id="TodoViewGroupByShowModules">
-          <keyboard-shortcut first-keystroke="control M" keymap="$default"/>
-      </action>
-
-      <action class="com.intellij.ide.todo.TodoPanel$MyShowPackagesAction" id="TodoViewGroupByShowPackages">
-          <keyboard-shortcut first-keystroke="control P" keymap="$default"/>
-      </action>
-
-      <action class="com.intellij.ide.todo.TodoPanel$MyFlattenPackagesAction" id="TodoViewGroupByFlattenPackage">
-          <keyboard-shortcut first-keystroke="control F" keymap="$default"/>
-      </action>
-
+        <action class="com.intellij.ide.todo.TodoPanel$MyShowModulesAction" id="TodoViewGroupByShowModules"/>
+        <action class="com.intellij.ide.todo.TodoPanel$MyShowPackagesAction" id="TodoViewGroupByShowPackages"/>
+        <action class="com.intellij.ide.todo.TodoPanel$MyFlattenPackagesAction" id="TodoViewGroupByFlattenPackage"/>
+      </group>
     </group>
     -->
   </actions>
