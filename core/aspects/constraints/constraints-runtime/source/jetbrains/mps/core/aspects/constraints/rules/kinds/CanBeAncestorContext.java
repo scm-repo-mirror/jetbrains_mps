@@ -66,7 +66,7 @@ public final class CanBeAncestorContext implements Context {
     return myParentNode;
   }
 
-  @NotNull
+  @Nullable
   public SContainmentLink getLink() {
     return myLink;
   }
