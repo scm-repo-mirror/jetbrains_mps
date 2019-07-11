@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.nodeEditor;
 
+import com.intellij.ui.DarculaColors;
 import com.intellij.ui.JBColor;
 import jetbrains.mps.errors.MessageStatus;
 import jetbrains.mps.errors.item.NodeReportItem;
@@ -45,7 +46,7 @@ public class HighlighterMessage extends EditorMessageWithTarget {
 
   public static Color getMessageColor(MessageStatus messageStatus) {
     if (messageStatus == MessageStatus.ERROR) {
-      return JBColor.RED;
+      return MPSColors.RED;
     }
     if (messageStatus == MessageStatus.WARNING) {
       return new JBColor(ColorConstants.WARNING, ColorConstants.WARNING_DARK);
