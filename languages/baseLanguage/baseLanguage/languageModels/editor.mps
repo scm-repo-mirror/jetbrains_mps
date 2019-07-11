@@ -5323,9 +5323,6 @@
       <node concept="3F0ifn" id="fMVQ5Oh" role="3EZMnx">
         <property role="3F0ifm" value="enum" />
         <ref role="1k5W1q" node="hgVS8CF" resolve="KeyWord" />
-        <node concept="VechU" id="hEZR8ze" role="3F10Kt">
-          <property role="Vb096" value="DARK_BLUE" />
-        </node>
       </node>
       <node concept="3F0A7n" id="fMVQ5Oi" role="3EZMnx">
         <property role="1cu_pB" value="1" />
@@ -5393,9 +5390,6 @@
                 </node>
               </node>
             </node>
-          </node>
-          <node concept="VechU" id="hEZR8ov" role="3F10Kt">
-            <property role="Vb096" value="DARK_BLUE" />
           </node>
         </node>
         <node concept="3F2HdR" id="h1rmjd8" role="3EZMnx">
