@@ -8,7 +8,8 @@
   <sourcePath />
   <languageVersions>
     <language slang="l:a6518565-7876-48e9-8d43-9ef97836a52e:constraints.rules.sandbox" version="0" />
-    <language slang="l:ceab5195-25ea-4f22-9b92-103b95ca8c0c:jetbrains.mps.lang.core" version="1" />
+    <language slang="l:fc39d726-4089-464a-8fc1-5f71edfdf03b:constraints.rulesAndMessages.sandbox" version="0" />
+    <language slang="l:ceab5195-25ea-4f22-9b92-103b95ca8c0c:jetbrains.mps.lang.core" version="2" />
   </languageVersions>
   <dependencyVersions>
     <module reference="cb885e5f-877e-4c08-bcf9-99105bbba313(rules.sandbox.sln)" version="0" />
