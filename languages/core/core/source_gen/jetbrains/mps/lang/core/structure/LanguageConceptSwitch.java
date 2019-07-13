@@ -47,6 +47,7 @@ public final class LanguageConceptSwitch {
   public static final int ScopeProvider = 35;
   public static final int SideTransformInfo = 36;
   public static final int SuppressErrorsAnnotation = 37;
+  public static final int TypeAnnotated = 38;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL);
@@ -88,6 +89,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x33d23ee961a0cbf3L, ScopeProvider);
     builder.put(0xad0053c7ae9194dL, SideTransformInfo);
     builder.put(0x3a98b0957fe8e5d2L, SuppressErrorsAnnotation);
+    builder.put(0x48fdf6754d38a0a9L, TypeAnnotated);
     myIndex = builder.seal();
   }
 

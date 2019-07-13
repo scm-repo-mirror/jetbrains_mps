@@ -61,6 +61,7 @@
         <property id="6714410169261853888" name="conceptId" index="EcuMT" />
         <property id="4628067390765956807" name="final" index="R5$K2" />
         <property id="4628067390765956802" name="abstract" index="R5$K7" />
+        <property id="5092175715804935370" name="conceptAlias" index="34LRSv" />
         <child id="1071489727083" name="linkDeclaration" index="1TKVEi" />
         <child id="1071489727084" name="propertyDeclaration" index="1TKVEl" />
       </concept>
@@ -645,6 +646,19 @@
       <property role="TrG5h" value="left" />
       <property role="3tVfz5" value="779128492853702223" />
       <ref role="2wpffI" node="Fg1jLUVyTf" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="4zXXBldea2D">
+    <property role="EcuMT" value="5259630923505770665" />
+    <property role="3GE5qa" value="types" />
+    <property role="TrG5h" value="TypeAnnotated" />
+    <property role="34LRSv" value="_:" />
+    <ref role="1TJDcQ" node="gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="4zXXBldea2E" role="1TKVEi">
+      <property role="IQ2ns" value="5259630923505770666" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="annotation" />
+      <ref role="20lvS9" node="gw2VY9q" resolve="BaseConcept" />
     </node>
   </node>
 </model>

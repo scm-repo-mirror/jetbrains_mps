@@ -1898,5 +1898,31 @@
       </node>
     </node>
   </node>
+  <node concept="24kQdi" id="4zXXBldea2O">
+    <property role="3GE5qa" value="types" />
+    <ref role="1XX52x" to="tpck:4zXXBldea2D" resolve="TypeAnnotated" />
+    <node concept="3EZMnI" id="4zXXBldea2Q" role="2wV5jI">
+      <node concept="3F0ifn" id="4zXXBldea2X" role="3EZMnx">
+        <property role="3F0ifm" value="[" />
+      </node>
+      <node concept="3F0ifn" id="4zXXBldfhbg" role="3EZMnx">
+        <property role="3F0ifm" value="_" />
+      </node>
+      <node concept="3F0ifn" id="4zXXBldea3b" role="3EZMnx">
+        <property role="3F0ifm" value=":" />
+      </node>
+      <node concept="3F1sOY" id="4zXXBldea3l" role="3EZMnx">
+        <ref role="1NtTu8" to="tpck:4zXXBldea2E" resolve="annotation" />
+      </node>
+      <node concept="3F0ifn" id="4zXXBldea33" role="3EZMnx">
+        <property role="3F0ifm" value="]" />
+      </node>
+      <node concept="2iRfu4" id="4zXXBldea2T" role="2iSdaV" />
+    </node>
+  </node>
+  <node concept="3p36aQ" id="4zXXBldfhbK">
+    <property role="3GE5qa" value="types" />
+    <ref role="aqKnT" to="tpck:4zXXBldea2D" resolve="TypeAnnotated" />
+  </node>
 </model>
 

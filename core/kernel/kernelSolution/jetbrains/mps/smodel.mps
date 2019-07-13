@@ -1329,6 +1329,29 @@
         <ref role="3uigEE" to="c17a:~SAbstractConcept" resolve="SAbstractConcept" />
       </node>
     </node>
+    <node concept="Wx3nA" id="4zXXBldgRju" role="jymVt">
+      <property role="TrG5h" value="concept_TypeAnnotated" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm1VV" id="4zXXBldgRjv" role="1B3o_S" />
+      <node concept="35c_gC" id="4zXXBldgRjw" role="33vP2m">
+        <ref role="35c_gD" to="tpck:4zXXBldea2D" resolve="TypeAnnotated" />
+      </node>
+      <node concept="3uibUv" id="4zXXBldgRGE" role="1tU5fm">
+        <ref role="3uigEE" to="c17a:~SConcept" resolve="SConcept" />
+      </node>
+    </node>
+    <node concept="Wx3nA" id="4zXXBldgXgx" role="jymVt">
+      <property role="TrG5h" value="link_TypeAnnotated_annotation" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm1VV" id="4zXXBldgXgy" role="1B3o_S" />
+      <node concept="3uibUv" id="4zXXBldgYue" role="1tU5fm">
+        <ref role="3uigEE" to="c17a:~SContainmentLink" resolve="SContainmentLink" />
+      </node>
+      <node concept="359W_D" id="4zXXBldgXg$" role="33vP2m">
+        <ref role="359W_E" to="tpck:4zXXBldea2D" resolve="TypeAnnotated" />
+        <ref role="359W_F" to="tpck:4zXXBldea2E" resolve="annotation" />
+      </node>
+    </node>
     <node concept="2tJIrI" id="4wG2MBHiBy0" role="jymVt" />
     <node concept="2tJIrI" id="4soTJTMNmN0" role="jymVt" />
     <node concept="Wx3nA" id="48K6v0B_84r" role="jymVt">
