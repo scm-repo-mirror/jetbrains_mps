@@ -326,7 +326,7 @@
                           </node>
                         </node>
                         <node concept="t5JxF" id="W" role="lGtFl">
-                          <property role="t5JxN" value="expression in which we are able to refer to the context defs" />
+                          <property role="t5JxN" value="a string in which we are able to refer to the context defs" />
                           <node concept="cd27G" id="10" role="lGtFl">
                             <node concept="3u3nmq" id="11" role="cd27D">
                               <property role="3u3nmv" value="5155963451167470575" />

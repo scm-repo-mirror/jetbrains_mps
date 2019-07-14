@@ -20,11 +20,11 @@
         <child id="1225194240805" name="method" index="13h7CS" />
         <child id="1225194240801" name="constructor" index="13h7CW" />
       </concept>
-      <concept id="1225194413805" name="jetbrains.mps.lang.behavior.structure.ConceptConstructorDeclaration" flags="ng" index="13hLZK" />
+      <concept id="1225194413805" name="jetbrains.mps.lang.behavior.structure.ConceptConstructorDeclaration" flags="in" index="13hLZK" />
       <concept id="1225194472830" name="jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration" flags="ng" index="13i0hz">
         <reference id="1225194472831" name="overriddenMethod" index="13i0hy" />
       </concept>
-      <concept id="1225194691553" name="jetbrains.mps.lang.behavior.structure.ThisNodeExpression" flags="ng" index="13iPFW" />
+      <concept id="1225194691553" name="jetbrains.mps.lang.behavior.structure.ThisNodeExpression" flags="nn" index="13iPFW" />
     </language>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
       <concept id="1197027756228" name="jetbrains.mps.baseLanguage.structure.DotExpression" flags="nn" index="2OqwBi">
@@ -96,15 +96,15 @@
           <node concept="2YIFZM" id="2zJEoOoNnqq" role="3cqZAk">
             <ref role="37wK5l" to="o8zo:52_Geb4SiYg" resolve="getScope" />
             <ref role="1Pybhc" to="o8zo:3fifI_xCtN$" resolve="Scope" />
-            <node concept="2OqwBi" id="2zJEoOoNnSg" role="37wK5m">
+            <node concept="2OqwBi" id="2mL_UKGrGLf" role="37wK5m">
               <node concept="2OqwBi" id="2zJEoOoNn$0" role="2Oq$k0">
                 <node concept="13iPFW" id="2zJEoOoNnr0" role="2Oq$k0" />
                 <node concept="3TrEf2" id="2zJEoOoNnHH" role="2OqNvi">
                   <ref role="3Tt5mk" to="xjeg:5sUTrySNhio" resolve="rule" />
                 </node>
               </node>
-              <node concept="2qgKlT" id="2zJEoOoNo8L" role="2OqNvi">
-                <ref role="37wK5l" to="4boq:1BFxp3HHhyj" resolve="getRuleKind" />
+              <node concept="2qgKlT" id="2mL_UKGrH1t" role="2OqNvi">
+                <ref role="37wK5l" to="4boq:1BFxp3HHhy9" resolve="getBlock" />
               </node>
             </node>
             <node concept="10Nm6u" id="2zJEoOoNomU" role="37wK5m" />

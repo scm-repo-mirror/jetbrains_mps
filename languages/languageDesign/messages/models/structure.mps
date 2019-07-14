@@ -85,7 +85,7 @@
       <ref role="20lvS9" node="4zSofKedyR4" resolve="MessageExpression" />
     </node>
     <node concept="t5JxF" id="4udEn3XIZfJ" role="lGtFl">
-      <property role="t5JxN" value="expression in which we are able to refer to the context defs" />
+      <property role="t5JxN" value="a string in which we are able to refer to the context defs" />
     </node>
   </node>
 </model>

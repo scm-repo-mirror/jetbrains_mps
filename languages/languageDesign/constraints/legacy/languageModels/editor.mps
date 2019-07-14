@@ -13,6 +13,7 @@
     <import index="tpen" ref="r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)" />
     <import index="tpco" ref="r:00000000-0000-4000-0000-011c89590284(jetbrains.mps.lang.core.editor)" />
     <import index="wcxw" ref="r:b9f36c08-4a75-4513-9277-a390d3426e0f(jetbrains.mps.editor.runtime.impl.cellActions)" />
+    <import index="tpch" ref="r:00000000-0000-4000-0000-011c8959028d(jetbrains.mps.lang.structure.editor)" implicit="true" />
     <import index="tpc5" ref="r:00000000-0000-4000-0000-011c89590299(jetbrains.mps.lang.editor.editor)" implicit="true" />
   </imports>
   <registry>
@@ -1308,9 +1309,7 @@
       </node>
       <node concept="3F0ifn" id="7ipADkTf7eT" role="3EZMnx">
         <property role="3F0ifm" value="for" />
-        <node concept="VechU" id="7ipADkTfhte" role="3F10Kt">
-          <property role="Vb096" value="g1_eI4o/DARK_BLUE" />
-        </node>
+        <ref role="1k5W1q" to="tpch:24YP6ZDyde4" resolve="Keyword" />
       </node>
       <node concept="1iCGBv" id="7ipADkTf7eV" role="3EZMnx">
         <ref role="1NtTu8" to="tp1t:7ipADkTf7eN" resolve="kind" />

@@ -9,15 +9,6 @@
   <imports>
     <import index="m19b" ref="r:bce9672d-89d3-47d7-90eb-dde7199917c2(jetbrains.mps.lang.feedback.messages.structure)" />
   </imports>
-  <registry>
-    <language id="3f4bc5f5-c6c1-4a28-8b10-c83066ffa4a1" name="jetbrains.mps.lang.constraints">
-      <concept id="1213093968558" name="jetbrains.mps.lang.constraints.structure.ConceptConstraints" flags="ng" index="1M2fIO">
-        <reference id="1213093996982" name="concept" index="1M2myG" />
-      </concept>
-    </language>
-  </registry>
-  <node concept="1M2fIO" id="1FBVWojsZme">
-    <ref role="1M2myG" to="m19b:6kKc3mjFxph" resolve="ShowMessage" />
-  </node>
+  <registry />
 </model>
 
