@@ -252,6 +252,9 @@
   <node concept="24kQdi" id="hyoMxHKDHA">
     <ref role="1XX52x" to="t16r:hyoMxHKcU1" resolve="InlineMessageProvider" />
     <node concept="3EZMnI" id="40CvJkJzGIY" role="2wV5jI">
+      <node concept="nf9zX" id="yXuRM1UKzm" role="3F10Kt">
+        <property role="nf9zW" value="600" />
+      </node>
       <node concept="37jFXN" id="5jg33KK9Mqt" role="3F10Kt">
         <property role="37lx6p" value="hZ7kOz9/RIGHT" />
       </node>

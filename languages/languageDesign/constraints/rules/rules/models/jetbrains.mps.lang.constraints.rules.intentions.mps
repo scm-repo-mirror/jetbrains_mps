@@ -818,14 +818,14 @@
     </node>
   </node>
   <node concept="2S6QgY" id="22K8sKDGmAz">
-    <property role="TrG5h" value="AddCondition" />
+    <property role="TrG5h" value="AddWhenCondition" />
     <property role="2ZfUl0" value="true" />
     <ref role="2ZfgGC" to="bm42:3JhyZiL33La" resolve="IsApplicable" />
     <node concept="2S6ZIM" id="22K8sKDGmA$" role="2ZfVej">
       <node concept="3clFbS" id="22K8sKDGmA_" role="2VODD2">
         <node concept="3clFbF" id="22K8sKDGmFz" role="3cqZAp">
           <node concept="Xl_RD" id="22K8sKDGmFy" role="3clFbG">
-            <property role="Xl_RC" value="Specify the Applicability Condition" />
+            <property role="Xl_RC" value="Specify a Custom 'When' Condition" />
           </node>
         </node>
       </node>
@@ -836,7 +836,7 @@
           <node concept="37vLTI" id="22K8sKDGoM4" role="3clFbG">
             <node concept="2OqwBi" id="22K8sKDGo9X" role="37vLTJ">
               <node concept="2Sf5sV" id="22K8sKDGo03" role="2Oq$k0" />
-              <node concept="3TrEf2" id="22K8sKDGoob" role="2OqNvi">
+              <node concept="3TrEf2" id="yXuRM1UPVu" role="2OqNvi">
                 <ref role="3Tt5mk" to="bm42:6SnnA3pyTLc" resolve="condition" />
               </node>
             </node>
@@ -861,12 +861,39 @@
             <node concept="2OqwBi" id="22K8sKDGp90" role="37vLTJ">
               <node concept="2OqwBi" id="22K8sKDGp5L" role="2Oq$k0">
                 <node concept="2Sf5sV" id="22K8sKDGoW6" role="2Oq$k0" />
-                <node concept="3TrEf2" id="22K8sKDGp7N" role="2OqNvi">
+                <node concept="3TrEf2" id="yXuRM1UPYp" role="2OqNvi">
                   <ref role="3Tt5mk" to="bm42:6SnnA3pyTLc" resolve="condition" />
                 </node>
               </node>
               <node concept="3TrEf2" id="22K8sKDGpho" role="2OqNvi">
                 <ref role="3Tt5mk" to="bm42:19J4M2yro9m" resolve="expr" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="yXuRM1UFBc" role="3cqZAp">
+          <node concept="37vLTI" id="yXuRM1UGyh" role="3clFbG">
+            <node concept="2ShNRf" id="yXuRM1UGFt" role="37vLTx">
+              <node concept="3zrR0B" id="yXuRM1UGY6" role="2ShVmc">
+                <node concept="3Tqbb2" id="yXuRM1UGY8" role="3zrR0E">
+                  <ref role="ehGHo" to="tpee:fz3vP1J" resolve="Expression" />
+                </node>
+              </node>
+            </node>
+            <node concept="2OqwBi" id="yXuRM1UGgW" role="37vLTJ">
+              <node concept="2OqwBi" id="yXuRM1UG08" role="2Oq$k0">
+                <node concept="2OqwBi" id="yXuRM1UFJp" role="2Oq$k0">
+                  <node concept="2Sf5sV" id="yXuRM1UFBa" role="2Oq$k0" />
+                  <node concept="3TrEf2" id="yXuRM1UFSd" role="2OqNvi">
+                    <ref role="3Tt5mk" to="bm42:6SnnA3pyTLc" resolve="condition" />
+                  </node>
+                </node>
+                <node concept="3TrEf2" id="yXuRM1UG9d" role="2OqNvi">
+                  <ref role="3Tt5mk" to="bm42:19J4M2yro9m" resolve="expr" />
+                </node>
+              </node>
+              <node concept="3TrEf2" id="yXuRM1UGqv" role="2OqNvi">
+                <ref role="3Tt5mk" to="bm42:19J4M2yrjkd" resolve="expression" />
               </node>
             </node>
           </node>
@@ -878,7 +905,7 @@
               <node concept="2OqwBi" id="3ZKqOfptU9Y" role="37wK5m">
                 <node concept="2OqwBi" id="3ZKqOfptU9Z" role="2Oq$k0">
                   <node concept="2OqwBi" id="3ZKqOfptUa0" role="2Oq$k0">
-                    <node concept="3TrEf2" id="3ZKqOfptUa2" role="2OqNvi">
+                    <node concept="3TrEf2" id="yXuRM1UQbf" role="2OqNvi">
                       <ref role="3Tt5mk" to="bm42:6SnnA3pyTLc" resolve="condition" />
                     </node>
                     <node concept="2Sf5sV" id="22K8sKDGsNX" role="2Oq$k0" />
@@ -903,8 +930,8 @@
           <node concept="3clFbC" id="22K8sKDGnxX" role="3clFbG">
             <node concept="10Nm6u" id="22K8sKDGnyb" role="3uHU7w" />
             <node concept="2OqwBi" id="22K8sKDGn7m" role="3uHU7B">
-              <node concept="2Sf5sV" id="22K8sKDGmRD" role="2Oq$k0" />
-              <node concept="3TrEf2" id="6SnnA3pDJkx" role="2OqNvi">
+              <node concept="2Sf5sV" id="yXuRM1UTDm" role="2Oq$k0" />
+              <node concept="3TrEf2" id="yXuRM1UTQh" role="2OqNvi">
                 <ref role="3Tt5mk" to="bm42:6SnnA3pyTLc" resolve="condition" />
               </node>
             </node>

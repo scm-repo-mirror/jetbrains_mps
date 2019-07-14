@@ -44,7 +44,7 @@ public final class IntentionsDescriptor extends AbstractIntentionAspectDescripto
         if (true) {
           // concept 
           intentions = new IntentionFactory[1];
-          intentions[0] = new AddCondition_Intention();
+          intentions[0] = new AddWhenCondition_Intention();
         }
         break;
       default:
@@ -57,7 +57,7 @@ public final class IntentionsDescriptor extends AbstractIntentionAspectDescripto
   @Override
   public Collection<IntentionFactory> getAllIntentions() {
     IntentionFactory[] rv = new IntentionFactory[2];
-    rv[0] = new AddCondition_Intention();
+    rv[0] = new AddWhenCondition_Intention();
     rv[1] = new NodeTransformerBasedIntentionFactory(new ConvertConstraints(), NodeTransformer.Kind.INTENTION);
     return Arrays.asList(rv);
   }

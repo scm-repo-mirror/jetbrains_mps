@@ -53,6 +53,7 @@ import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
     editorCell.setBig(true);
     setCellContext(editorCell);
     Style style = new StyleImpl();
+    style.set(StyleAttributes.MAX_WIDTH, 600);
     style.set(StyleAttributes.HORIZONTAL_ALIGN, CellAlign.RIGHT);
     editorCell.getStyle().putAll(style);
     editorCell.addEditorCell(createConstant_0());

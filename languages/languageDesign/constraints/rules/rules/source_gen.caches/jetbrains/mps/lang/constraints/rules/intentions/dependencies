@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dependenciesRoot>
-  <dependency className="jetbrains.mps.lang.constraints.rules.intentions.AddCondition_Intention">
+  <dependency className="jetbrains.mps.lang.constraints.rules.intentions.AddWhenCondition_Intention">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.Collection" />
@@ -54,7 +54,7 @@
     <classNode dependClassName="java.util.Map" />
     <classNode dependClassName="jetbrains.mps.editor.intentions.NodeTransformer" />
     <classNode dependClassName="jetbrains.mps.editor.intentions.NodeTransformerBasedIntentionFactory" />
-    <classNode dependClassName="jetbrains.mps.lang.constraints.rules.intentions.AddCondition_Intention" />
+    <classNode dependClassName="jetbrains.mps.lang.constraints.rules.intentions.AddWhenCondition_Intention" />
     <classNode dependClassName="jetbrains.mps.lang.constraints.rules.intentions.ConvertConstraints" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.ConceptSwitchIndex" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.ConceptSwitchIndexBuilder" />
