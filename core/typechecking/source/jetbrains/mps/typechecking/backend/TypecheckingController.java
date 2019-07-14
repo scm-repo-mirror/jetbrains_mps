@@ -108,6 +108,16 @@ public abstract class TypecheckingController implements TypecheckingQueries {
     getQueries(root, null, null).checkRecursively(root, errorsConsumer);
   }
 
+  @Override
+  public void clearCache(SNode root) {
+    getQueries(root, null, null).clearCache(root);
+  }
+
+  @Override
+  public boolean isCacheUpToDate(SNode root) {
+    return getQueries(root, null, null).isCacheUpToDate(root);
+  }
+
   /**
    * Either initialize a new session or return a sharable session.
    */

@@ -113,6 +113,16 @@ public abstract class TypecheckingFacade extends TypecheckingSessionHandler impl
     controller().checkRecursively(root, errorsConsumer);
   }
 
+  @Override
+  public void clearCache(SNode root) {
+    controller().clearCache(root);
+  }
+
+  @Override
+  public boolean isCacheUpToDate(SNode root) {
+    return controller().isCacheUpToDate(root);
+  }
+
   protected static TypecheckingFacade getContextInstance() {
     return CONTEXT_INSTANCE.get();
   }

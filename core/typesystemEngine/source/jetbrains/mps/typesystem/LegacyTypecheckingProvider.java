@@ -23,6 +23,7 @@ import jetbrains.mps.lang.pattern.ConceptMatchingPattern;
 import jetbrains.mps.lang.pattern.INodeMatchingPattern;
 import jetbrains.mps.newTypesystem.context.IncrementalTypecheckingContext;
 import jetbrains.mps.newTypesystem.context.TargetTypecheckingContext;
+import jetbrains.mps.newTypesystem.context.typechecking.IncrementalTypechecking;
 import jetbrains.mps.typechecking.TypecheckingQueries;
 import jetbrains.mps.typechecking.backend.TypecheckingProvider;
 import jetbrains.mps.typechecking.backend.TypecheckingSession.Flags;
@@ -161,6 +162,7 @@ public class LegacyTypecheckingProvider implements TypecheckingProvider<LegacyTy
       run((tcc) -> {
         // the typechecking context is expected to have been created with the same root node
         if (tcc.getNode() == null || tcc.getNode() != root) return;
+        tcc.checkRoot(true);
         tcc.checkRootAndGetErrors(true)
            .stream()
            .flatMap((pair) -> pair.o2.stream())
@@ -170,6 +172,16 @@ public class LegacyTypecheckingProvider implements TypecheckingProvider<LegacyTy
         // clear all errors
         tcc.clear();
       });
+    }
+
+    @Override
+    public void clearCache(SNode root) {
+      run(TypeCheckingContext::clear);
+    }
+
+    @Override
+    public boolean isCacheUpToDate(SNode root) {
+      return false;
     }
 
     protected abstract <R> R compute(Function<? super TypeCheckingContext, R> fun);
@@ -194,6 +206,33 @@ public class LegacyTypecheckingProvider implements TypecheckingProvider<LegacyTy
     @Override
     public TypeCheckingContext getTypeCheckingContext() {
       return myTypecheckingContext;
+    }
+
+    @Override
+    public void checkRecursively(SNode root, Consumer<? super NodeReportItem> errorsConsumer) {
+      run((tcc) -> {
+        // the typechecking context is expected to have been created with the same root node
+        if (tcc.getNode() == null || tcc.getNode() != root) return;
+        tcc.checkIfNotChecked(root, false);
+        tcc.getNodesWithErrors(true)
+           .stream()
+           .flatMap((pair) -> pair.o2.stream())
+           .map(TypesystemReportItemAdapter::new)
+           .forEach(errorsConsumer);
+
+        // clear all errors
+//        tcc.clear();
+      });
+    }
+
+    @Override
+    public boolean isCacheUpToDate(SNode root) {
+      return compute((tcc) -> {
+        // the typechecking context is expected to have been created with the same root node
+        if (tcc.getNode() == null || tcc.getNode() != root) return false;
+        IncrementalTypechecking typesComponent = tcc.getBaseNodeTypesComponent();
+        return  typesComponent.isChecked(false);
+      });
     }
 
     protected void disposeTypeCheckingContext() {
