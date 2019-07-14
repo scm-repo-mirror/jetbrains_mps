@@ -61,7 +61,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:2ac18004-8536-478a-bf05-03a0f407633f(jetbrains.mps.lang.feedback.skeleton.structure)/7291380803381892615");
     b.version(2);
     b.associate("concept", 0x63c2f3669ce56d5dL).target(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL).optional(false).origin("7188575577281228125").done();
-    b.aggregate("feedback", 0x6530303593ae9cf2L).target(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x573ae5b8b8cc650eL).optional(true).ordered(true).multiple(true).origin("7291380803381927154").done();
+    b.aggregate("feedbacks", 0x6530303593ae9cf2L).target(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x573ae5b8b8cc650eL).optional(true).ordered(true).multiple(true).origin("7291380803381927154").done();
     b.alias("Feedback Root");
     return b.create();
   }

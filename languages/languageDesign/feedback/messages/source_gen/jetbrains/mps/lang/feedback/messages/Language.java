@@ -12,9 +12,10 @@ import jetbrains.mps.core.aspects.feedback.api.FeedbackAspect;
 import jetbrains.mps.core.aspects.constraints.rules.RulesConstraintsAspect;
 import jetbrains.mps.lang.feedback.messages.constraints.GeneratedRulesConstraintsAspect;
 import jetbrains.mps.smodel.runtime.BehaviorAspectDescriptor;
-import jetbrains.mps.smodel.runtime.ConstraintsAspectDescriptor;
 import jetbrains.mps.openapi.editor.descriptor.EditorAspectDescriptor;
 import jetbrains.mps.lang.feedback.messages.editor.EditorAspectDescriptorImpl;
+import jetbrains.mps.openapi.intentions.IntentionAspectDescriptor;
+import jetbrains.mps.lang.feedback.messages.intentions.IntentionsDescriptor;
 import jetbrains.mps.smodel.runtime.StructureAspectDescriptor;
 import jetbrains.mps.smodel.runtime.ConceptPresentationAspect;
 import jetbrains.mps.lang.feedback.messages.structure.ConceptPresentationAspectImpl;
@@ -59,11 +60,11 @@ public class Language extends LanguageRuntime {
     if (aspectClass == BehaviorAspectDescriptor.class) {
       return aspectClass.cast(new jetbrains.mps.lang.feedback.messages.behavior.BehaviorAspectDescriptor());
     }
-    if (aspectClass == ConstraintsAspectDescriptor.class) {
-      return aspectClass.cast(new jetbrains.mps.lang.feedback.messages.constraints.ConstraintsAspectDescriptor());
-    }
     if (aspectClass == EditorAspectDescriptor.class) {
       return aspectClass.cast(new EditorAspectDescriptorImpl());
+    }
+    if (aspectClass == IntentionAspectDescriptor.class) {
+      return aspectClass.cast(new IntentionsDescriptor());
     }
     if (aspectClass == StructureAspectDescriptor.class) {
       return aspectClass.cast(new jetbrains.mps.lang.feedback.messages.structure.StructureAspectDescriptor());

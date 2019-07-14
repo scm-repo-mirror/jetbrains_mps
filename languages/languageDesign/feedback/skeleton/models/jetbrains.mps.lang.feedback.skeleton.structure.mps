@@ -61,7 +61,7 @@
       <property role="IQ2ns" value="7291380803381927154" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20lbJX" value="fLJekj5/_0__n" />
-      <property role="20kJfa" value="feedback" />
+      <property role="20kJfa" value="feedbacks" />
       <ref role="20lvS9" node="5sUTrySN6ke" resolve="FeedbackRootMember" />
     </node>
     <node concept="PrWs8" id="47X3GcVYaDI" role="PzmwI">

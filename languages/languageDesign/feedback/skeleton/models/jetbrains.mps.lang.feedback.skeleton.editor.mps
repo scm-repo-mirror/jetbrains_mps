@@ -94,7 +94,7 @@
         </node>
       </node>
       <node concept="3F2HdR" id="6kKc3mjFDNO" role="3EZMnx">
-        <ref role="1NtTu8" to="wff5:6kKc3mjFDNM" resolve="feedback" />
+        <ref role="1NtTu8" to="wff5:6kKc3mjFDNM" resolve="feedbacks" />
         <node concept="l2Vlx" id="6kKc3mjFDNQ" role="2czzBx" />
         <node concept="pj6Ft" id="6kKc3mjFDNX" role="3F10Kt">
           <property role="VOm3f" value="true" />

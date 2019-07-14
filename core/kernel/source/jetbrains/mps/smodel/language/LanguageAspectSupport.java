@@ -76,6 +76,14 @@ public class LanguageAspectSupport {
   }
 
   @Nullable
+  public static LanguageAspectDescriptor getAspectDescriptorById(@NotNull String id) {
+    return collectAspects().stream()
+                           .filter(it -> id.equals(it.getId()))
+                           .findAny()
+                           .orElse(null);
+  }
+
+  @Nullable
   public static String getHelpUrl(SModel model) {
     if (!(model.getModule() instanceof Language)) return null;
 

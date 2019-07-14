@@ -47,6 +47,10 @@
       <concept id="1213093968558" name="jetbrains.mps.lang.constraints.structure.ConceptConstraints" flags="ng" index="1M2fIO">
         <reference id="1213093996982" name="concept" index="1M2myG" />
         <child id="6702802731807737306" name="canBeChild" index="9Vyp8" />
+        <child id="1213100494875" name="referent" index="1Mr941" />
+      </concept>
+      <concept id="1148687176410" name="jetbrains.mps.lang.constraints.structure.NodeReferentConstraint" flags="ng" index="1N5Pfh">
+        <reference id="1148687202698" name="applicableLink" index="1N5Vy1" />
       </concept>
     </language>
     <language id="b3551702-269c-4f05-ba61-58060cef4292" name="jetbrains.mps.lang.rulesAndMessages">
@@ -109,6 +113,9 @@
   </registry>
   <node concept="1M2fIO" id="1uv0FAtCoKz">
     <ref role="1M2myG" to="npmf:7w_sh_iHHi0" resolve="ChildConcept" />
+    <node concept="1N5Pfh" id="7_GILwdChnO" role="1Mr941">
+      <ref role="1N5Vy1" to="npmf:7_GILwdChnI" resolve="a" />
+    </node>
   </node>
   <node concept="3Oh7Pa" id="1TfWqDAKmRD">
     <ref role="3Oh7Pe" to="npmf:7w_sh_iHHi0" resolve="ChildConcept" />

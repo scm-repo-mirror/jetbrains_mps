@@ -64,7 +64,7 @@ public enum LanguageAspect {
   FIND_USAGES("findUsages", BootstrapLanguages.findUsagesLanguageRef(), LanguageAspect.CONFLUENCE_BASE + "find-usages.html"),
 
   //migrated, uncomment when migration is finished [compatibility] and deprecate this class
-  PLUGIN("plugin", null, LanguageAspect.CONFLUENCE_BASE + "plugin.html"){
+  PLUGIN("plugin", null, LanguageAspect.CONFLUENCE_BASE + "plugin.html") {
     @Override
     public Collection<SLanguage> getMainLanguages() {
       ArrayList<SLanguage> result = new ArrayList<>();

@@ -8757,9 +8757,7 @@
     <node concept="3EZMnI" id="gTgVsle" role="2wV5jI">
       <node concept="3F0ifn" id="gTgVsSE" role="3EZMnx">
         <property role="3F0ifm" value="assert" />
-        <node concept="VechU" id="hEZR8BA" role="3F10Kt">
-          <property role="Vb096" value="DARK_BLUE" />
-        </node>
+        <ref role="1k5W1q" node="hgVS8CF" resolve="KeyWord" />
       </node>
       <node concept="3F1sOY" id="gTgVwXU" role="3EZMnx">
         <ref role="1NtTu8" to="tpee:gTgVkje" resolve="condition" />
