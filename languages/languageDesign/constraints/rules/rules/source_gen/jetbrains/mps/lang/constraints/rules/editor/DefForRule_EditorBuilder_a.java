@@ -349,6 +349,9 @@ import jetbrains.mps.lang.constraints.rules.editor.Rules_Styles_StyleSheet.AndDe
   }
   private EditorCell createComponent_0() {
     EditorCell editorCell = getCellFactory().createEditorComponentCell(myNode, "jetbrains.mps.lang.constraints.rules.editor.IsApplicable");
+    Style style = new StyleImpl();
+    new DefStyleStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+    editorCell.getStyle().putAll(style);
     return editorCell;
   }
   private EditorCell createConstant_5() {

@@ -255,9 +255,6 @@
       <node concept="37jFXN" id="5jg33KK9Mqt" role="3F10Kt">
         <property role="37lx6p" value="hZ7kOz9/RIGHT" />
       </node>
-      <node concept="nf9zX" id="4tQ8CttL1oV" role="3F10Kt">
-        <property role="nf9zW" value="200" />
-      </node>
       <node concept="3F0ifn" id="6Q2nboo7HCB" role="3EZMnx">
         <property role="3F0ifm" value=" -&gt; when fails show" />
         <ref role="1k5W1q" to="bgop:5GbbOB11OBg" resolve="WhenHint" />
@@ -267,11 +264,17 @@
         </node>
       </node>
       <node concept="l2Vlx" id="3LOLRuvo2vg" role="2iSdaV" />
-      <node concept="3F1sOY" id="5VED60U2Jx8" role="3EZMnx">
-        <property role="39s7Ar" value="true" />
-        <property role="1$x2rV" value="&lt;default message&gt;" />
-        <ref role="1NtTu8" to="t16r:4zSofKedyR8" resolve="messagesExpr" />
-        <ref role="34QXea" node="2dMY_rc2UlY" resolve="NoMessageKeymap" />
+      <node concept="3EZMnI" id="yXuRM1SszZ" role="3EZMnx">
+        <node concept="2iRfu4" id="yXuRM1Ss$0" role="2iSdaV" />
+        <node concept="3F1sOY" id="5VED60U2Jx8" role="3EZMnx">
+          <property role="39s7Ar" value="true" />
+          <property role="1$x2rV" value="&lt;default message&gt;" />
+          <ref role="1NtTu8" to="t16r:4zSofKedyR8" resolve="messagesExpr" />
+          <ref role="34QXea" node="2dMY_rc2UlY" resolve="NoMessageKeymap" />
+        </node>
+        <node concept="nf9zX" id="yXuRM1Ss$7" role="3F10Kt">
+          <property role="nf9zW" value="100" />
+        </node>
       </node>
     </node>
   </node>
@@ -449,10 +452,13 @@
     <ref role="1chiOs" to="t16r:hyoMxHKcU1" resolve="InlineMessageProvider" />
     <node concept="2PxR9H" id="2dMY_rc2UlZ" role="2QnnpI">
       <node concept="2Py5lD" id="2dMY_rc2Um0" role="2PyaAO">
-        <property role="2PWKIS" value="space char" />
+        <property role="2PWKIS" value=" " />
       </node>
       <node concept="2Py5lD" id="2dMY_rc2Umf" role="2PyaAO">
         <property role="2PWKIS" value="letter or digit" />
+      </node>
+      <node concept="2Py5lD" id="yXuRM1Uub2" role="2PyaAO">
+        <property role="2PWKIS" value="'" />
       </node>
       <node concept="2PzhpH" id="2dMY_rc2Um1" role="2PL9iG">
         <node concept="3clFbS" id="2dMY_rc2Um2" role="2VODD2">

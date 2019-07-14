@@ -54,7 +54,6 @@
       <modulePath path="${mps_home}/editor/editorlang-runtime/jetbrains.mps.editorlang.runtime.msd" folder="core.aspects.editor" />
       <modulePath path="${mps_home}/editor/typesystemIntegration/typesystemIntegration.msd" folder="core.aspects.editor" />
       <modulePath path="${mps_home}/languages.test/constraints.rulesAndMessages.sandbox/constraints.rulesAndMessages.sandbox.mpl" folder="samplesForNewConstraints" />
-      <modulePath path="${mps_home}/languages.test/languageDesign/constraints.rules.sandbox.mpl" folder="samplesForNewConstraints" />
       <modulePath path="${mps_home}/languages.test/languageDesign/lang.editor.editorTest.extension/jetbrains.mps.lang.editor.editorTest.extension.mpl" folder="core.aspects.editor" />
       <modulePath path="${mps_home}/languages.test/languageDesign/lang.editor.editorTest/jetbrains.mps.lang.editor.editorTest.mpl" folder="core.aspects.editor" />
       <modulePath path="${mps_home}/languages.test/languageDesign/lang.editor.ide.tests/module.msd" folder="core.aspects.editor" />
@@ -476,7 +475,6 @@
       <modulePath path="${mps_home}/samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence.ideaPlugin/jetbrains.mps.samples.xmlPersistence.ideaPlugin.msd" folder="samples.persistence" />
       <modulePath path="${mps_home}/samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence/jetbrains.mps.samples.xmlPersistence.msd" folder="samples.persistence" />
       <modulePath path="${mps_home}/solutions/multiAspectLang.sandbox/multiAspectLang.sandbox.msd" folder="samplesForNewConstraints" />
-      <modulePath path="${mps_home}/solutions/rules.sandbox.sln/rules.sandbox.sln.msd" folder="samplesForNewConstraints" />
       <modulePath path="${mps_home}/testbench/build/jetbrains.mps.build.mps.testModules/jetbrains.mps.build.mps.testModules.msd" folder="platform.build" />
       <modulePath path="${mps_home}/testbench/ideatestsolutions/ide.vcs.test/jetbrains.mps.ide.vcs.test.msd" folder="platform.vcs" />
       <modulePath path="${mps_home}/testbench/languages/jetbrains.mps.testbench.suite.mpl" folder="tests" />

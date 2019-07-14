@@ -10,8 +10,7 @@ import jetbrains.mps.editor.runtime.style.AbstractStyleClass;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.nodeEditor.MPSColors;
-import jetbrains.mps.lang.editor.editor.EditorLanguageKeyPack_KeyPack.KEYWORD_StyleKey;
-import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.FieldStyleClass;
+import jetbrains.mps.baseLanguage.editor.BaseLanguageKeyPack_KeyPack.METHOD_DECLARATION_StyleKey;
 import jetbrains.mps.nodeEditor.MPSFonts;
 import jetbrains.mps.nodeEditor.EditorSettings;
 
@@ -105,7 +104,7 @@ public class Rules_Styles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new KEYWORD_StyleKey().apply(style);
+      new METHOD_DECLARATION_StyleKey().apply(style);
     }
 
   }
@@ -116,7 +115,7 @@ public class Rules_Styles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new FieldStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
+      new METHOD_DECLARATION_StyleKey().apply(style);
     }
 
   }

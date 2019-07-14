@@ -78,7 +78,7 @@ import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
     return editorCell;
   }
   private EditorCell createConstant_0() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "rule block for");
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "rules block for");
     editorCell.setCellId("Constant_ait8bh_a0");
     Style style = new StyleImpl();
     new RuleBlockDeclarationStyleClass(getEditorContext(), getNode()).apply(style, editorCell);

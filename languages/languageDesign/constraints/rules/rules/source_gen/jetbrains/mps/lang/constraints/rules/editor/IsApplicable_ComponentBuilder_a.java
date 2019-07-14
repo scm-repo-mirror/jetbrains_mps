@@ -16,7 +16,10 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Horizontal;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
+import jetbrains.mps.nodeEditor.MPSFonts;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
+import jetbrains.mps.lang.constraints.rules.editor.Rules_Styles_StyleSheet.RuleStyleStyleClass;
+import jetbrains.mps.lang.constraints.rules.editor.Rules_Styles_StyleSheet.DefStyleStyleClass;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.editor.cellProviders.SingleRoleCellProvider;
@@ -106,12 +109,19 @@ import jetbrains.mps.openapi.editor.selection.SelectionManager;
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "when");
     editorCell.setCellId("Constant_gagq4k_a0a0");
+    Style style = new StyleImpl();
+    style.set(StyleAttributes.FONT_STYLE, MPSFonts.PLAIN);
+    editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;
   }
   private EditorCell createCollection_2() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Vertical());
     editorCell.setCellId("Collection_gagq4k_b0a0");
+    Style style = new StyleImpl();
+    new RuleStyleStyleClass(getEditorContext(), getNode()).unapply(style, editorCell);
+    new DefStyleStyleClass(getEditorContext(), getNode()).unapply(style, editorCell);
+    editorCell.getStyle().putAll(style);
     editorCell.addEditorCell(createRefNode_0());
     if (nodeCondition_gagq4k_a1b0a0()) {
       editorCell.addEditorCell(createCollection_3());
@@ -221,6 +231,10 @@ import jetbrains.mps.openapi.editor.selection.SelectionManager;
     } else {
       editorCell = createCollection_4();
     }
+    Style style = new StyleImpl();
+    new RuleStyleStyleClass(getEditorContext(), getNode()).unapply(style, editorCell);
+    new DefStyleStyleClass(getEditorContext(), getNode()).unapply(style, editorCell);
+    editorCell.getStyle().putAll(style);
     return editorCell;
   }
   private boolean nodeCondition_gagq4k_a0a0() {

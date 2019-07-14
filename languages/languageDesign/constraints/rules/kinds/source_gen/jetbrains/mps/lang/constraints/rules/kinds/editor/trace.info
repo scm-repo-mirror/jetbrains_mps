@@ -17,36 +17,35 @@
   </root>
   <root nodeRef="r:9c52f381-93f4-47f9-bd21-f9de8f562b1c(jetbrains.mps.lang.constraints.rules.kinds.editor)/24399255755751902">
     <file name="RuleKindStyle_StyleSheet.java">
-      <node id="2740527090601232175" at="23,73,24,69" concept="5" />
-      <node id="2740527090601232175" at="24,69,25,88" concept="5" />
-      <node id="2740527090601232175" at="25,88,26,98" concept="1" />
-      <node id="2740527090601232175" at="30,72,31,33" concept="8" />
-      <node id="2740527090601232183" at="35,59,36,59" concept="1" />
-      <node id="24399255755751962" at="36,59,37,82" concept="1" />
-      <node id="8018723092206558063" at="37,82,38,104" concept="1" />
-      <node id="2740527090601232175" at="30,0,33,0" concept="0" trace="RuleKindStyleClass#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="2740527090601232175" at="22,0,28,0" concept="7" trace="apply_RuleKind#(Ljetbrains/mps/openapi/editor/style/Style;Ljetbrains/mps/openapi/editor/cells/EditorCell;)V" />
-      <node id="2740527090601232175" at="34,0,40,0" concept="4" trace="apply#(Ljetbrains/mps/openapi/editor/style/Style;Ljetbrains/mps/openapi/editor/cells/EditorCell;)V" />
-      <scope id="2740527090601232175" at="30,72,31,33" />
-      <scope id="2740527090601232175" at="23,73,26,98">
+      <node id="2740527090601232175" at="21,73,22,69" concept="5" />
+      <node id="2740527090601232175" at="22,69,23,88" concept="5" />
+      <node id="2740527090601232175" at="23,88,24,98" concept="1" />
+      <node id="2740527090601232175" at="28,72,29,33" concept="8" />
+      <node id="629795297586780096" at="33,59,34,87" concept="1" />
+      <node id="24399255755751962" at="34,87,35,82" concept="1" />
+      <node id="2740527090601232175" at="28,0,31,0" concept="0" trace="RuleKindStyleClass#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="2740527090601232175" at="32,0,37,0" concept="4" trace="apply#(Ljetbrains/mps/openapi/editor/style/Style;Ljetbrains/mps/openapi/editor/cells/EditorCell;)V" />
+      <node id="2740527090601232175" at="20,0,26,0" concept="7" trace="apply_RuleKind#(Ljetbrains/mps/openapi/editor/style/Style;Ljetbrains/mps/openapi/editor/cells/EditorCell;)V" />
+      <scope id="2740527090601232175" at="28,72,29,33" />
+      <scope id="2740527090601232175" at="33,59,35,82" />
+      <scope id="2740527090601232175" at="21,73,24,98">
         <var name="editorContext" id="2740527090601232175" />
         <var name="node" id="2740527090601232175" />
       </scope>
-      <scope id="2740527090601232175" at="30,0,33,0">
+      <scope id="2740527090601232175" at="28,0,31,0">
         <var name="editorContext" id="2740527090601232175" />
         <var name="node" id="2740527090601232175" />
       </scope>
-      <scope id="2740527090601232175" at="35,59,38,104" />
-      <scope id="2740527090601232175" at="22,0,28,0">
+      <scope id="2740527090601232175" at="32,0,37,0">
         <var name="editorCell" id="2740527090601232175" />
         <var name="style" id="2740527090601232175" />
       </scope>
-      <scope id="2740527090601232175" at="34,0,40,0">
+      <scope id="2740527090601232175" at="20,0,26,0">
         <var name="editorCell" id="2740527090601232175" />
         <var name="style" id="2740527090601232175" />
       </scope>
-      <unit id="2740527090601232175" at="29,0,42,0" name="jetbrains.mps.lang.constraints.rules.kinds.editor.RuleKindStyle_StyleSheet$RuleKindStyleClass" />
-      <unit id="24399255755751902" at="17,0,43,0" name="jetbrains.mps.lang.constraints.rules.kinds.editor.RuleKindStyle_StyleSheet" />
+      <unit id="2740527090601232175" at="27,0,39,0" name="jetbrains.mps.lang.constraints.rules.kinds.editor.RuleKindStyle_StyleSheet$RuleKindStyleClass" />
+      <unit id="24399255755751902" at="15,0,40,0" name="jetbrains.mps.lang.constraints.rules.kinds.editor.RuleKindStyle_StyleSheet" />
     </file>
   </root>
   <root nodeRef="r:9c52f381-93f4-47f9-bd21-f9de8f562b1c(jetbrains.mps.lang.constraints.rules.kinds.editor)/7291380803376071472">

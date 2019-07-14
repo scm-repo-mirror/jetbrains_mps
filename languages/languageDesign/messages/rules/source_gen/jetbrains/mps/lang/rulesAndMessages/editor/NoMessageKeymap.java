@@ -19,8 +19,9 @@ public class NoMessageKeymap extends KeyMapImpl {
     this.setApplicableToEveryModel(false);
     KeyMapAction action;
     action = new NoMessageKeymap.NoMessageKeymap_Action0();
-    this.putAction("any", "space char", action);
+    this.putAction("any", " ", action);
     this.putAction("any", "letter or digit", action);
+    this.putAction("any", "'", action);
   }
   public static class NoMessageKeymap_Action0 extends KeyMapActionImpl {
     public NoMessageKeymap_Action0() {
@@ -51,7 +52,7 @@ public class NoMessageKeymap extends KeyMapImpl {
       SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce81L, 0x48f860fc0e362dc8L, "messagesExpr"), SNodeFactoryOperations.createNewNode(MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, "jetbrains.mps.lang.messages.structure.CombinedMessageExpression"), null));
     }
     public String getKeyStroke() {
-      return " space char";
+      return "  ";
     }
   }
 }
