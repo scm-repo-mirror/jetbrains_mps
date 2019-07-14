@@ -15,9 +15,9 @@ import jetbrains.mps.lang.constraints.rules.editor.Rules_Styles_StyleSheet.AndDe
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.AbstractCellProvider;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.lang.constraints.rules.skeleton.behavior.RuleBlockMember__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.constraints.rules.util.RequiredDefsCalculator;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 
 /*package*/ class HintIsApplicable_ComponentBuilder_a extends AbstractEditorBuilder {
@@ -53,7 +53,7 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
   private EditorCell createCustom_0() {
     AbstractCellProvider provider = new _FunctionTypes._return_P0_E0<HintDefsCustomEditorCell>() {
       public HintDefsCustomEditorCell invoke() {
-        return new HintDefsCustomEditorCell(SNodeOperations.cast(myNode, MetaAdapterFactory.getInterfaceConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb51750L, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RuleBlockMember")));
+        return new HintDefsCustomEditorCell(RuleBlockMember__BehaviorDescriptor.getHighestMember_id2mL_UKGkn8G.invoke(myNode));
       }
     }.invoke();
     EditorCell editorCell = provider.createEditorCell(getEditorContext());
@@ -79,7 +79,7 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
     return editorCell;
   }
   private boolean nodeCondition_vdat08_a1a() {
-    return ListSequence.fromList(ApplicabilityHelper.getRequiredDefsForCondition(SNodeOperations.cast(myNode, MetaAdapterFactory.getInterfaceConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb51750L, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RuleBlockMember")))).count() == 1;
+    return ListSequence.fromList(new RequiredDefsCalculator().calculate(RuleBlockMember__BehaviorDescriptor.getHighestMember_id2mL_UKGkn8G.invoke(myNode))).count() == 1;
   }
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "is defined");

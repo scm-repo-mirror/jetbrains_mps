@@ -5,7 +5,7 @@ package jetbrains.mps.lang.constraints.rules.editor;
 import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.constraints.rules.skeleton.behavior.RuleBlockMember__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
@@ -22,9 +22,10 @@ public class deleteExpressionFromRuleOrDef {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode highestRuleBlock = ListSequence.fromList(SNodeOperations.getNodeAncestors(node, MetaAdapterFactory.getInterfaceConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb51750L, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RuleBlockMember"), false)).last();
-        if (!(DeletionApproverUtil.approve(editorContext, highestRuleBlock))) {
-          SNodeOperations.deleteNode(highestRuleBlock);
+        // I do not know how to do without this hack 
+        SNode highestRuleMember = RuleBlockMember__BehaviorDescriptor.getHighestMember_id2mL_UKGkn8G.invoke(SNodeOperations.getNodeAncestor(node, MetaAdapterFactory.getInterfaceConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb51750L, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RuleBlockMember"), false, false));
+        if (!(DeletionApproverUtil.approve(editorContext, highestRuleMember))) {
+          SNodeOperations.deleteNode(highestRuleMember);
         }
       }
 

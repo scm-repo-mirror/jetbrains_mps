@@ -18,6 +18,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptNativeTypedConceptDef = createDescriptorForNativeTypedConceptDef();
   /*package*/ final ConceptDescriptor myConceptNativeTypedNodeDef = createDescriptorForNativeTypedNodeDef();
   /*package*/ final ConceptDescriptor myConceptTypedDef = createDescriptorForTypedDef();
+  /*package*/ final ConceptDescriptor myConceptTypedDefReference = createDescriptorForTypedDefReference();
   /*package*/ final ConceptDescriptor myConceptTypedNativeDef = createDescriptorForTypedNativeDef();
   private final LanguageConceptSwitch myIndexSwitch;
 
@@ -28,13 +29,14 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public void reportDependencies(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.Dependencies deps) {
+    deps.extendedLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage");
     deps.extendedLanguage(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, "jetbrains.mps.lang.core");
     deps.aggregatedLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage");
   }
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptContextConceptParameter, myConceptNativeDef, myConceptNativeTypedConceptDef, myConceptNativeTypedNodeDef, myConceptTypedDef, myConceptTypedNativeDef);
+    return Arrays.asList(myConceptContextConceptParameter, myConceptNativeDef, myConceptNativeTypedConceptDef, myConceptNativeTypedNodeDef, myConceptTypedDef, myConceptTypedDefReference, myConceptTypedNativeDef);
   }
 
   @Override
@@ -51,6 +53,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptNativeTypedNodeDef;
       case LanguageConceptSwitch.TypedDef:
         return myConceptTypedDef;
+      case LanguageConceptSwitch.TypedDefReference:
+        return myConceptTypedDefReference;
       case LanguageConceptSwitch.TypedNativeDef:
         return myConceptTypedNativeDef;
       default:
@@ -110,6 +114,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.origin("r:bd012d1c-91a4-4783-a33f-d2037e757f6d(jetbrains.mps.lang.context.defs.structure)/7291380803377301036");
     b.version(2);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForTypedDefReference() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.context.defs", "TypedDefReference", 0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x6530303593574311L);
+    b.class_(false, false, false);
+    b.super_("jetbrains.mps.baseLanguage.structure.Expression", 0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL);
+    b.origin("r:bd012d1c-91a4-4783-a33f-d2037e757f6d(jetbrains.mps.lang.context.defs.structure)/7291380803376202513");
+    b.version(2);
+    b.associate("declaration", 0x6530303593578e5eL).target(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x653030359368062cL).optional(false).origin("7291380803376221790").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForTypedNativeDef() {

@@ -13,10 +13,9 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_DefForRule;
   private ConceptPresentation props_EditorListOfDefs;
   private ConceptPresentation props_ExpressionWrapper;
-  private ConceptPresentation props_IsApplicable;
   private ConceptPresentation props_Rule;
+  private ConceptPresentation props_RuleBlockMemberWithApplicability;
   private ConceptPresentation props_RuleIdHolder;
-  private ConceptPresentation props_TypedDefReference;
 
   @Override
   @Nullable
@@ -52,12 +51,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ExpressionWrapper = cpb.create();
         }
         return props_ExpressionWrapper;
-      case LanguageConceptSwitch.IsApplicable:
-        if (props_IsApplicable == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          props_IsApplicable = cpb.create();
-        }
-        return props_IsApplicable;
       case LanguageConceptSwitch.Rule:
         if (props_Rule == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -66,19 +59,18 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Rule = cpb.create();
         }
         return props_Rule;
+      case LanguageConceptSwitch.RuleBlockMemberWithApplicability:
+        if (props_RuleBlockMemberWithApplicability == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_RuleBlockMemberWithApplicability = cpb.create();
+        }
+        return props_RuleBlockMemberWithApplicability;
       case LanguageConceptSwitch.RuleIdHolder:
         if (props_RuleIdHolder == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           props_RuleIdHolder = cpb.create();
         }
         return props_RuleIdHolder;
-      case LanguageConceptSwitch.TypedDefReference:
-        if (props_TypedDefReference == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.presentationByReference(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593574311L, 0x6530303593578e5eL, "declaration", "", "");
-          props_TypedDefReference = cpb.create();
-        }
-        return props_TypedDefReference;
     }
     return null;
   }

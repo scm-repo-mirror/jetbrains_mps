@@ -5,10 +5,9 @@ package jetbrains.mps.lang.constraints.rules.editor;
 import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.lang.constraints.rules.skeleton.behavior.RuleBlockMember__BehaviorDescriptor;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -23,7 +22,7 @@ public class deleteRuleWithBlockAllTogether {
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
         // hack because editor does not allow to override the delete action for the concept rule-with-message  
-        SNode highestRuleBlock = ListSequence.fromList(SNodeOperations.getNodeAncestors(node, MetaAdapterFactory.getInterfaceConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb51750L, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RuleBlockMember"), false)).last();
+        SNode highestRuleBlock = RuleBlockMember__BehaviorDescriptor.getHighestMember_id2mL_UKGkn8G.invoke(node);
         if (!(DeletionApproverUtil.approve(editorContext, highestRuleBlock))) {
           SNodeOperations.deleteNode(highestRuleBlock);
         }

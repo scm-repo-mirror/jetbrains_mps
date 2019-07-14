@@ -28,6 +28,7 @@
         <reference id="1169127628841" name="intfc" index="PrY4T" />
       </concept>
       <concept id="1071489090640" name="jetbrains.mps.lang.structure.structure.ConceptDeclaration" flags="ig" index="1TIwiD">
+        <reference id="1071489389519" name="extends" index="1TJDcQ" />
         <child id="1169129564478" name="implements" index="PzmwI" />
       </concept>
       <concept id="1071489288298" name="jetbrains.mps.lang.structure.structure.LinkDeclaration" flags="ig" index="1TJgyj">
@@ -118,6 +119,17 @@
     <property role="34LRSv" value="concept parameter" />
     <node concept="PrWs8" id="4JP_D2W1rsQ" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="6kKc3mjlOch">
+    <property role="EcuMT" value="7291380803376202513" />
+    <property role="TrG5h" value="TypedDefReference" />
+    <ref role="1TJDcQ" to="tpee:fz3vP1J" resolve="Expression" />
+    <node concept="1TJgyj" id="6kKc3mjlSTu" role="1TKVEi">
+      <property role="IQ2ns" value="7291380803376221790" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <property role="20kJfa" value="declaration" />
+      <ref role="20lvS9" node="6kKc3mjq0oG" resolve="TypedDef" />
     </node>
   </node>
 </model>

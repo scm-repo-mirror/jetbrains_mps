@@ -22,9 +22,11 @@ public class ConstraintsAspectDescriptor extends BaseConstraintsAspectDescriptor
         return new NativeTypedConceptDef_Constraints();
       case 1:
         return new NativeTypedNodeDef_Constraints();
+      case 2:
+        return new TypedDefReference_Constraints();
       default:
     }
     return new BaseConstraintsDescriptor(concept);
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x26084ede749bc5f2L), MetaIdFactory.conceptId(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x46263286da99051L)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x26084ede749bc5f2L), MetaIdFactory.conceptId(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x46263286da99051L), MetaIdFactory.conceptId(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x6530303593574311L)).seal();
 }

@@ -33,10 +33,6 @@
       <concept id="1070475926800" name="jetbrains.mps.baseLanguage.structure.StringLiteral" flags="nn" index="Xl_RD">
         <property id="1070475926801" name="value" index="Xl_RC" />
       </concept>
-      <concept id="1081236700938" name="jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" flags="ig" index="2YIFZL" />
-      <concept id="1081236700937" name="jetbrains.mps.baseLanguage.structure.StaticMethodCall" flags="nn" index="2YIFZM">
-        <reference id="1144433194310" name="classConcept" index="1Pybhc" />
-      </concept>
       <concept id="1070534058343" name="jetbrains.mps.baseLanguage.structure.NullLiteral" flags="nn" index="10Nm6u" />
       <concept id="1068390468200" name="jetbrains.mps.baseLanguage.structure.FieldDeclaration" flags="ig" index="312cEg">
         <property id="8606350594693632173" name="isTransient" index="eg7rD" />
@@ -86,7 +82,6 @@
       <concept id="1068581517677" name="jetbrains.mps.baseLanguage.structure.VoidType" flags="in" index="3cqZAl" />
       <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
-        <child id="1068499141038" name="actualArgument" index="37wK5m" />
       </concept>
       <concept id="1107461130800" name="jetbrains.mps.baseLanguage.structure.Classifier" flags="ng" index="3pOWGL">
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
@@ -104,18 +99,6 @@
       </concept>
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
-    </language>
-    <language id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc">
-      <concept id="5349172909345501395" name="jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment" flags="ng" index="P$AiS">
-        <child id="8465538089690331502" name="body" index="TZ5H$" />
-      </concept>
-      <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
-        <child id="8970989240999019149" name="part" index="1dT_Ay" />
-      </concept>
-      <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
-        <property id="8970989240999019144" name="text" index="1dT_AB" />
-      </concept>
-      <concept id="2068944020170241612" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment" flags="ng" index="3UR2Jj" />
     </language>
     <language id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext">
       <concept id="1217960179967" name="jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_ShowErrorMessage" flags="nn" index="2k5nB$" />
@@ -136,9 +119,6 @@
       </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
-      <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
-        <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
-      </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
@@ -334,76 +314,6 @@
       </node>
     </node>
     <node concept="3Tm1VV" id="69bfTY3vCY7" role="1B3o_S" />
-  </node>
-  <node concept="312cEu" id="4Np0kcC9DT6">
-    <property role="TrG5h" value="ContextMethodUtil" />
-    <property role="1EXbeo" value="true" />
-    <node concept="3clFbW" id="3Y1amMrfwUp" role="jymVt">
-      <node concept="3cqZAl" id="3Y1amMrfwUq" role="3clF45" />
-      <node concept="3clFbS" id="3Y1amMrfwUs" role="3clF47" />
-      <node concept="3Tm6S6" id="3Y1amMrfwTD" role="1B3o_S" />
-    </node>
-    <node concept="2tJIrI" id="3Y1amMrfwVi" role="jymVt" />
-    <node concept="3Tm1VV" id="4Np0kcC9DT7" role="1B3o_S" />
-    <node concept="2YIFZL" id="q4prYF2CJB" role="jymVt">
-      <property role="TrG5h" value="getContextMethodName" />
-      <node concept="37vLTG" id="q4prYF2CP1" role="3clF46">
-        <property role="TrG5h" value="def" />
-        <node concept="3Tqbb2" id="q4prYF2CPp" role="1tU5fm">
-          <ref role="ehGHo" to="iwhd:6kKc3mjq0oG" resolve="TypedDef" />
-        </node>
-      </node>
-      <node concept="17QB3L" id="q4prYF2EuS" role="3clF45" />
-      <node concept="3Tm1VV" id="q4prYF2CJE" role="1B3o_S" />
-      <node concept="3clFbS" id="q4prYF2CJF" role="3clF47">
-        <node concept="3cpWs6" id="q4prYF2DMa" role="3cqZAp">
-          <node concept="3cpWs3" id="q4prYF2E4V" role="3cqZAk">
-            <node concept="Xl_RD" id="q4prYF2DN0" role="3uHU7B">
-              <property role="Xl_RC" value="get" />
-            </node>
-            <node concept="2YIFZM" id="q4prYF3jRW" role="3uHU7w">
-              <ref role="37wK5l" to="18ew:~NameUtil.capitalize(java.lang.String)" resolve="capitalize" />
-              <ref role="1Pybhc" to="18ew:~NameUtil" resolve="NameUtil" />
-              <node concept="2OqwBi" id="q4prYF3k7K" role="37wK5m">
-                <node concept="37vLTw" id="q4prYF3jSR" role="2Oq$k0">
-                  <ref role="3cqZAo" node="q4prYF2CP1" resolve="def" />
-                </node>
-                <node concept="3TrcHB" id="q4prYF3khk" role="2OqNvi">
-                  <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="3UR2Jj" id="1mFJTG6LZy" role="lGtFl">
-      <node concept="TZ5HA" id="1mFJTG6LZz" role="TZ5H$">
-        <node concept="1dT_AC" id="1mFJTG6LZ$" role="1dT_Ay">
-          <property role="1dT_AB" value="here we claim that every MPS def is one-to-one with its java counterpart." />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="1mFJTG6M6F" role="TZ5H$">
-        <node concept="1dT_AC" id="1mFJTG6M6G" role="1dT_Ay">
-          <property role="1dT_AB" value="For now Kinds are non-generatable language stub construction" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="1mFJTG6M6O" role="TZ5H$">
-        <node concept="1dT_AC" id="1mFJTG6M6P" role="1dT_Ay">
-          <property role="1dT_AB" value="It is still a question whether we need to generate kinds" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="1mFJTG6M7X" role="TZ5H$">
-        <node concept="1dT_AC" id="1mFJTG6M7Y" role="1dT_Ay">
-          <property role="1dT_AB" value="" />
-        </node>
-      </node>
-      <node concept="TZ5HA" id="1mFJTG6M7K" role="TZ5H$">
-        <node concept="1dT_AC" id="1mFJTG6M7L" role="1dT_Ay">
-          <property role="1dT_AB" value="apyshkin, mburyakov" />
-        </node>
-      </node>
-    </node>
   </node>
 </model>
 

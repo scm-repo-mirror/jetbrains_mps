@@ -14,6 +14,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_NativeTypedConceptDef;
   private ConceptPresentation props_NativeTypedNodeDef;
   private ConceptPresentation props_TypedDef;
+  private ConceptPresentation props_TypedDefReference;
   private ConceptPresentation props_TypedNativeDef;
 
   @Override
@@ -54,6 +55,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_TypedDef = cpb.create();
         }
         return props_TypedDef;
+      case LanguageConceptSwitch.TypedDefReference:
+        if (props_TypedDefReference == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x6530303593574311L, 0x6530303593578e5eL, "declaration", "", "");
+          props_TypedDefReference = cpb.create();
+        }
+        return props_TypedDefReference;
       case LanguageConceptSwitch.TypedNativeDef:
         if (props_TypedNativeDef == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

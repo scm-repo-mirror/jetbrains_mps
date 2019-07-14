@@ -14,7 +14,6 @@ import jetbrains.mps.lang.constraints.rules.constraints.GeneratedRulesConstraint
 import jetbrains.mps.openapi.actions.descriptor.ActionAspectDescriptor;
 import jetbrains.mps.lang.constraints.rules.actions.ActionAspectDescriptorImpl;
 import jetbrains.mps.smodel.runtime.BehaviorAspectDescriptor;
-import jetbrains.mps.smodel.runtime.ConstraintsAspectDescriptor;
 import jetbrains.mps.openapi.editor.descriptor.EditorAspectDescriptor;
 import jetbrains.mps.lang.constraints.rules.editor.EditorAspectDescriptorImpl;
 import jetbrains.mps.openapi.intentions.IntentionAspectDescriptor;
@@ -50,7 +49,6 @@ public class Language extends LanguageRuntime {
   protected void fillExtendedLanguages(Collection<SLanguage> extendedLanguages) {
     extendedLanguages.add(MetaAdapterFactory.getLanguage(SLanguageId.deserialize("134c38d4-e3af-4d9e-b069-1c7df0a4005d"), "jetbrains.mps.lang.constraints.rules.skeleton"));
     extendedLanguages.add(MetaAdapterFactory.getLanguage(SLanguageId.deserialize("ea3159bf-f48e-4720-bde2-86dba75f0d34"), "jetbrains.mps.lang.context.defs"));
-    extendedLanguages.add(MetaAdapterFactory.getLanguage(SLanguageId.deserialize("f3061a53-9226-4cc5-a443-f952ceaf5816"), "jetbrains.mps.baseLanguage"));
   }
 
   @Override
@@ -69,9 +67,6 @@ public class Language extends LanguageRuntime {
     }
     if (aspectClass == BehaviorAspectDescriptor.class) {
       return aspectClass.cast(new jetbrains.mps.lang.constraints.rules.behavior.BehaviorAspectDescriptor());
-    }
-    if (aspectClass == ConstraintsAspectDescriptor.class) {
-      return aspectClass.cast(new jetbrains.mps.lang.constraints.rules.constraints.ConstraintsAspectDescriptor());
     }
     if (aspectClass == EditorAspectDescriptor.class) {
       return aspectClass.cast(new EditorAspectDescriptorImpl());

@@ -4742,9 +4742,6 @@
       <node concept="3F0ifn" id="g1_gCbl" role="3EZMnx">
         <property role="3F0ifm" value="continue" />
         <ref role="1k5W1q" node="hgVS8CF" resolve="KeyWord" />
-        <node concept="VechU" id="hEZR8Aj" role="3F10Kt">
-          <property role="Vb096" value="DARK_BLUE" />
-        </node>
         <node concept="A1WHr" id="1wEcoXjJMIe" role="3vIgyS">
           <ref role="2ZyFGn" to="tpee:fJN13sA" resolve="ContinueStatement" />
         </node>

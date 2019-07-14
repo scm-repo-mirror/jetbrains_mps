@@ -21,7 +21,8 @@ import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.lang.constraints.rules.editor.Rules_Styles_StyleSheet.RuleStyleStyleClass;
 import jetbrains.mps.lang.constraints.rules.editor.Rules_Styles_StyleSheet.DefStyleStyleClass;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.constraints.rules.util.RequiredDefsCalculator;
+import jetbrains.mps.lang.constraints.rules.skeleton.behavior.RuleBlockMember__BehaviorDescriptor;
 import jetbrains.mps.lang.editor.cellProviders.SingleRoleCellProvider;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -129,7 +130,7 @@ import jetbrains.mps.openapi.editor.selection.SelectionManager;
     return editorCell;
   }
   private boolean nodeCondition_gagq4k_a1b0a0() {
-    return ListSequence.fromList(ApplicabilityHelper.getRequiredDefsForCondition(SNodeOperations.cast(myNode, MetaAdapterFactory.getInterfaceConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb51750L, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RuleBlockMember")))).isNotEmpty();
+    return ListSequence.fromList(new RequiredDefsCalculator().calculate(RuleBlockMember__BehaviorDescriptor.getHighestMember_id2mL_UKGkn8G.invoke(myNode))).isNotEmpty();
   }
   private EditorCell createRefNode_0() {
     SingleRoleCellProvider provider = new IsApplicable_ComponentBuilder_a.conditionSingleRoleHandler_gagq4k_a1a0a(myNode, MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3bd18bf4b10c3c4aL, 0x6e175e60d98b9c4cL, "condition"), getEditorContext());
@@ -238,7 +239,7 @@ import jetbrains.mps.openapi.editor.selection.SelectionManager;
     return editorCell;
   }
   private boolean nodeCondition_gagq4k_a0a0() {
-    return ListSequence.fromList(ApplicabilityHelper.getRequiredDefsForCondition(SNodeOperations.cast(myNode, MetaAdapterFactory.getInterfaceConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb51750L, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RuleBlockMember")))).isEmpty();
+    return ListSequence.fromList(new RequiredDefsCalculator().calculate(RuleBlockMember__BehaviorDescriptor.getHighestMember_id2mL_UKGkn8G.invoke(myNode))).isEmpty();
   }
   private EditorCell createConstant_3() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
@@ -248,11 +249,11 @@ import jetbrains.mps.openapi.editor.selection.SelectionManager;
     style.set(StyleAttributes.PADDING_RIGHT, new Padding(0.5, Measure.SPACES));
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("always");
-    editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new BasicCellContext(myNode), new SubstituteInfoPartExt[]{new IsApplicable_ComponentBuilder_a.IsApplicable_generic_cellMenu_gagq4k_a0a0a0(), new SChildSubstituteInfoPartEx(editorCell)}));
+    editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new BasicCellContext(myNode), new SubstituteInfoPartExt[]{new IsApplicable_ComponentBuilder_a.RuleBlockMemberWithApplicability_generic_cellMenu_gagq4k_a0a0a0(), new SChildSubstituteInfoPartEx(editorCell)}));
     return editorCell;
   }
-  public static class IsApplicable_generic_cellMenu_gagq4k_a0a0a0 extends AbstractCellMenuPart_Generic_Item {
-    public IsApplicable_generic_cellMenu_gagq4k_a0a0a0() {
+  public static class RuleBlockMemberWithApplicability_generic_cellMenu_gagq4k_a0a0a0 extends AbstractCellMenuPart_Generic_Item {
+    public RuleBlockMemberWithApplicability_generic_cellMenu_gagq4k_a0a0a0() {
     }
     @Override
     public List<SubstituteAction> createActions(CellContext cellContext, EditorContext editorContext) {
@@ -298,11 +299,11 @@ import jetbrains.mps.openapi.editor.selection.SelectionManager;
     style.set(StyleAttributes.SELECTABLE, true);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
-    editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new BasicCellContext(myNode), new SubstituteInfoPartExt[]{new IsApplicable_ComponentBuilder_a.IsApplicable_generic_cellMenu_gagq4k_a0a0a0a(), new SChildSubstituteInfoPartEx(editorCell)}));
+    editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new BasicCellContext(myNode), new SubstituteInfoPartExt[]{new IsApplicable_ComponentBuilder_a.RuleBlockMemberWithApplicability_generic_cellMenu_gagq4k_a0a0a0a(), new SChildSubstituteInfoPartEx(editorCell)}));
     return editorCell;
   }
-  public static class IsApplicable_generic_cellMenu_gagq4k_a0a0a0a extends AbstractCellMenuPart_Generic_Item {
-    public IsApplicable_generic_cellMenu_gagq4k_a0a0a0a() {
+  public static class RuleBlockMemberWithApplicability_generic_cellMenu_gagq4k_a0a0a0a extends AbstractCellMenuPart_Generic_Item {
+    public RuleBlockMemberWithApplicability_generic_cellMenu_gagq4k_a0a0a0a() {
     }
     @Override
     public List<SubstituteAction> createActions(CellContext cellContext, EditorContext editorContext) {

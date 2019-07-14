@@ -25,7 +25,9 @@
         <child id="1071489727083" name="linkDeclaration" index="1TKVEi" />
         <child id="1071489727084" name="propertyDeclaration" index="1TKVEl" />
       </concept>
-      <concept id="1169125989551" name="jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration" flags="ig" index="PlHQZ" />
+      <concept id="1169125989551" name="jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration" flags="ig" index="PlHQZ">
+        <child id="1169127546356" name="extends" index="PrDN$" />
+      </concept>
       <concept id="1169127622168" name="jetbrains.mps.lang.structure.structure.InterfaceConceptReference" flags="ig" index="PrWs8">
         <reference id="1169127628841" name="intfc" index="PrY4T" />
       </concept>
@@ -54,17 +56,6 @@
       </concept>
     </language>
   </registry>
-  <node concept="1TIwiD" id="6kKc3mjlOch">
-    <property role="EcuMT" value="7291380803376202513" />
-    <property role="TrG5h" value="TypedDefReference" />
-    <ref role="1TJDcQ" to="tpee:fz3vP1J" resolve="Expression" />
-    <node concept="1TJgyj" id="6kKc3mjlSTu" role="1TKVEi">
-      <property role="IQ2ns" value="7291380803376221790" />
-      <property role="20lbJX" value="fLJekj4/_1" />
-      <property role="20kJfa" value="declaration" />
-      <ref role="20lvS9" to="iwhd:6kKc3mjq0oG" resolve="TypedDef" />
-    </node>
-  </node>
   <node concept="1TIwiD" id="6kKc3mjm6Ry">
     <property role="EcuMT" value="7291380803376279010" />
     <property role="TrG5h" value="Rule" />
@@ -80,7 +71,7 @@
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
     <node concept="PrWs8" id="3JhyZiL33N2" role="PzmwI">
-      <ref role="PrY4T" node="3JhyZiL33La" resolve="IsApplicable" />
+      <ref role="PrY4T" node="3JhyZiL33La" resolve="RuleBlockMemberWithApplicability" />
     </node>
     <node concept="1TJgyj" id="19J4M2yrqiS" role="1TKVEi">
       <property role="IQ2ns" value="1328301445982561464" />
@@ -119,7 +110,7 @@
       <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
     </node>
     <node concept="PrWs8" id="3JhyZiL33MR" role="PzmwI">
-      <ref role="PrY4T" node="3JhyZiL33La" resolve="IsApplicable" />
+      <ref role="PrY4T" node="3JhyZiL33La" resolve="RuleBlockMemberWithApplicability" />
     </node>
     <node concept="t5JxF" id="19J4M2yrl9S" role="lGtFl">
       <property role="t5JxN" value="definition inside the rule block" />
@@ -169,12 +160,18 @@
   </node>
   <node concept="PlHQZ" id="3JhyZiL33La">
     <property role="EcuMT" value="4310380201428925514" />
-    <property role="TrG5h" value="IsApplicable" />
+    <property role="TrG5h" value="RuleBlockMemberWithApplicability" />
     <node concept="1TJgyj" id="6SnnA3pyTLc" role="1TKVEi">
       <property role="IQ2ns" value="7932913038696094796" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="condition" />
       <ref role="20lvS9" node="35M2kEOxcOG" resolve="ApplicableCondition" />
+    </node>
+    <node concept="PrWs8" id="2mL_UKGkquk" role="PrDN$">
+      <ref role="PrY4T" to="mqj2:1BFxp3HHhtg" resolve="RuleBlockMember" />
+    </node>
+    <node concept="t5JxF" id="2mL_UKGkqum" role="lGtFl">
+      <property role="t5JxN" value="Apparently, it is sometimes very difficult to avoid such extending pattern (see the editor)" />
     </node>
   </node>
   <node concept="1TIwiD" id="62gW3lfTxOG">
@@ -186,7 +183,7 @@
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="defs" />
       <property role="20lbJX" value="fLJekj6/_1__n" />
-      <ref role="20lvS9" node="6kKc3mjlOch" resolve="TypedDefReference" />
+      <ref role="20lvS9" to="iwhd:6kKc3mjlOch" resolve="TypedDefReference" />
     </node>
     <node concept="t5JxF" id="2dMY_rcc7Gw" role="lGtFl">
       <property role="t5JxN" value="auxiliary concept for the def hint editor" />

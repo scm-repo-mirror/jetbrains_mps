@@ -9506,8 +9506,10 @@
         <node concept="3F0A7n" id="6OtXG9K2KVy" role="3EZMnx">
           <property role="1O74Pk" value="true" />
           <ref role="1NtTu8" to="tpce:6OtXG9K2KUL" resolve="text" />
-          <node concept="VechU" id="6OtXG9K2KVz" role="3F10Kt">
-            <property role="Vb096" value="g1_qRwE/DARK_GREEN" />
+          <node concept="3Xmtl4" id="2mL_UKGkrnC" role="3F10Kt">
+            <node concept="1wgc9g" id="2mL_UKGkrnL" role="3XvnJa">
+              <ref role="1wgcnl" to="tpen:aeM1BF$KI9" />
+            </node>
           </node>
           <node concept="3$7fVu" id="6OtXG9K2KV$" role="3F10Kt">
             <property role="3$6WeP" value="0.0" />

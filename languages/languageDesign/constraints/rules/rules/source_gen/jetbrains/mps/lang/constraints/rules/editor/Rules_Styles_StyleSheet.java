@@ -10,8 +10,9 @@ import jetbrains.mps.editor.runtime.style.AbstractStyleClass;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.nodeEditor.MPSColors;
-import jetbrains.mps.baseLanguage.editor.BaseLanguageKeyPack_KeyPack.METHOD_DECLARATION_StyleKey;
 import jetbrains.mps.nodeEditor.MPSFonts;
+import java.awt.Color;
+import com.intellij.ui.JBColor;
 import jetbrains.mps.nodeEditor.EditorSettings;
 
 public class Rules_Styles_StyleSheet {
@@ -104,9 +105,13 @@ public class Rules_Styles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new METHOD_DECLARATION_StyleKey().apply(style);
+      style.set(StyleAttributes.FONT_STYLE, MPSFonts.PLAIN);
+      style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(_StyleParameter_QueryFunction_xgtt4l_a1b()));
     }
 
+    private Color _StyleParameter_QueryFunction_xgtt4l_a1b() {
+      return new JBColor(MPSColors.DARK_BLUE, new Color(0xffc66d));
+    }
   }
   public static class DefStyleStyleClass extends AbstractStyleClass {
     public DefStyleStyleClass(EditorContext editorContext, SNode node) {
@@ -115,9 +120,13 @@ public class Rules_Styles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      new METHOD_DECLARATION_StyleKey().apply(style);
+      style.set(StyleAttributes.FONT_STYLE, MPSFonts.PLAIN);
+      style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(_StyleParameter_QueryFunction_xgtt4l_a1c()));
     }
 
+    private Color _StyleParameter_QueryFunction_xgtt4l_a1c() {
+      return new JBColor(MPSColors.DARK_BLUE, new Color(0xffc66d));
+    }
   }
   public static class TypeOfDefStyleStyleClass extends AbstractStyleClass {
     public TypeOfDefStyleStyleClass(EditorContext editorContext, SNode node) {

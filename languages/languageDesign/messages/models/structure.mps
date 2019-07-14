@@ -72,6 +72,13 @@
       <property role="20kJfa" value="declaration" />
       <ref role="20lvS9" to="iwhd:6kKc3mjq0oG" resolve="TypedDef" />
     </node>
+    <node concept="1TJgyj" id="2mL_UKGiu88" role="1TKVEi">
+      <property role="IQ2ns" value="2716118816014328328" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="defRef" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="iwhd:6kKc3mjlOch" resolve="TypedDefReference" />
+    </node>
   </node>
   <node concept="1TIwiD" id="4zSofKeg4lv">
     <property role="EcuMT" value="5258059200642172255" />

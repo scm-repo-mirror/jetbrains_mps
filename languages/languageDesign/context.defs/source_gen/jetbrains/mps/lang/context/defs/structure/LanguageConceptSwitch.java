@@ -14,7 +14,8 @@ public final class LanguageConceptSwitch {
   public static final int NativeTypedConceptDef = 2;
   public static final int NativeTypedNodeDef = 3;
   public static final int TypedDef = 4;
-  public static final int TypedNativeDef = 5;
+  public static final int TypedDefReference = 5;
+  public static final int TypedNativeDef = 6;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xea3159bff48e4720L, 0xbde286dba75f0d34L);
@@ -23,6 +24,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x26084ede749bc5f2L, NativeTypedConceptDef);
     builder.put(0x46263286da99051L, NativeTypedNodeDef);
     builder.put(0x653030359368062cL, TypedDef);
+    builder.put(0x6530303593574311L, TypedDefReference);
     builder.put(0x4bf59690bc00f6b1L, TypedNativeDef);
     myIndex = builder.seal();
   }

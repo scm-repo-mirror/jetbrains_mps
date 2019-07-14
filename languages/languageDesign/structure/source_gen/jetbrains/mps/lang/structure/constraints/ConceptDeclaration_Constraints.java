@@ -34,7 +34,7 @@ public class ConceptDeclaration_Constraints extends BaseConstraintsDescriptor {
     super(MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration"));
   }
   public IconResource getInstanceIcon(SNode node) {
-    return (SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xff49c1d648L, "rootable")) ? IconContainer.RESOURCE_a0a0b : IconContainer.RESOURCE_a0a0b_0);
+    return (SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xff49c1d648L, "rootable")) ? IconContainer.RESOURCE_a0a0a : IconContainer.RESOURCE_a0a0a_0);
   }
 
   @Override

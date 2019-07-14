@@ -2,7 +2,6 @@
 <dependenciesRoot>
   <dependency className="jetbrains.mps.lang.constraints.rules.skeleton.constraints.ConstraintsAspectDescriptor">
     <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="jetbrains.mps.lang.constraints.rules.skeleton.constraints.RuleBlockMember_Constraints" />
     <classNode dependClassName="jetbrains.mps.lang.constraints.rules.skeleton.constraints.RuleBlock_Constraints" />
     <classNode dependClassName="jetbrains.mps.lang.constraints.rules.skeleton.constraints.RulesConstraintsRoot_Constraints" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.ConceptSwitchIndex" />
@@ -20,10 +19,6 @@
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
     <classNode extendsClassName="jetbrains.mps.core.aspects.constraints.rules.RulesConstraintsAspect" />
-  </dependency>
-  <dependency className="jetbrains.mps.lang.constraints.rules.skeleton.constraints.RuleBlockMember_Constraints">
-    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
-    <classNode extendsClassName="jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor" />
   </dependency>
   <dependency className="jetbrains.mps.lang.constraints.rules.skeleton.constraints.RuleBlock_Constraints">
     <classNode dependClassName="java.lang.Iterable" />

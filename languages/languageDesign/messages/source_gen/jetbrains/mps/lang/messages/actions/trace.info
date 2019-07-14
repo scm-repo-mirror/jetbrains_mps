@@ -10,10 +10,10 @@
   </root>
   <root nodeRef="r:2c81f1b6-e29d-4398-bafd-f3e2c23d7c1e(jetbrains.mps.lang.messages.actions)/5258059200644005942">
     <file name="DefaultNodeFactory.java">
-      <node id="5258059200644007846" at="15,211,16,534" concept="0" />
+      <node id="2716118816014332390" at="15,211,16,554" concept="0" />
       <node id="5258059200644005956" at="14,91,17,7" concept="1" />
       <node id="5258059200644005943" at="14,0,19,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="5258059200644005958" at="15,211,16,534" />
+      <scope id="5258059200644005958" at="15,211,16,554" />
       <scope id="5258059200644005943" at="14,91,17,7" />
       <scope id="5258059200644005943" at="14,0,19,0">
         <var name="enclosingNode" id="5258059200644005943" />

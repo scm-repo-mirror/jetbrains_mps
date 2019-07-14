@@ -13,10 +13,9 @@ public final class LanguageConceptSwitch {
   public static final int DefForRule = 1;
   public static final int EditorListOfDefs = 2;
   public static final int ExpressionWrapper = 3;
-  public static final int IsApplicable = 4;
-  public static final int Rule = 5;
+  public static final int Rule = 4;
+  public static final int RuleBlockMemberWithApplicability = 5;
   public static final int RuleIdHolder = 6;
-  public static final int TypedDefReference = 7;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0x47257bf378d3470bL, 0x89d98c3261a61d15L);
@@ -24,10 +23,9 @@ public final class LanguageConceptSwitch {
     builder.put(0x653030359366e9d5L, DefForRule);
     builder.put(0x6090f0354fe61d2cL, EditorListOfDefs);
     builder.put(0x126f1320a26cf7f1L, ExpressionWrapper);
-    builder.put(0x3bd18bf4b10c3c4aL, IsApplicable);
     builder.put(0x6530303593586de2L, Rule);
+    builder.put(0x3bd18bf4b10c3c4aL, RuleBlockMemberWithApplicability);
     builder.put(0x46263286dbf54aaL, RuleIdHolder);
-    builder.put(0x6530303593574311L, TypedDefReference);
     myIndex = builder.seal();
   }
 

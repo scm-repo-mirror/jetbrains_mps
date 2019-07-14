@@ -539,8 +539,5 @@
       </node>
     </node>
   </node>
-  <node concept="1M2fIO" id="1BFxp3HHhxl">
-    <ref role="1M2myG" to="mqj2:1BFxp3HHhtg" resolve="RuleBlockMember" />
-  </node>
 </model>
 
