@@ -25939,6 +25939,9 @@
     <node concept="26Ea6D" id="4A8SxGHvPcJ" role="2hID6k">
       <property role="26Ea6C" value="-XX:ReservedCodeCacheSize=240m" />
     </node>
+    <node concept="26Ea6D" id="2sJHcZ7KMn9" role="2hID6k">
+      <property role="26Ea6C" value="-Dperformance.watcher.freeze.report=false" />
+    </node>
     <node concept="26Ea6D" id="2lwFGYOW7EZ" role="2hID6k">
       <property role="2eq24a" value="true" />
       <property role="26Ea6C" value="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5071" />
@@ -26008,6 +26011,9 @@
     </node>
     <node concept="26Ea6D" id="4A8SxGHvPdc" role="26FZ21">
       <property role="26Ea6C" value="-XX:ReservedCodeCacheSize=240m" />
+    </node>
+    <node concept="26Ea6D" id="2sJHcZ7KMnC" role="26FZ21">
+      <property role="26Ea6C" value="-Dperformance.watcher.freeze.report=false" />
     </node>
     <node concept="26Ea6D" id="BJYGrH08XG" role="26FZ21">
       <property role="2eq24a" value="true" />

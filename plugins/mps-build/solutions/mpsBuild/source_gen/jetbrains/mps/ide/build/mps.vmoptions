@@ -16,4 +16,5 @@
 -Didea.invalidate.caches.invalidates.vfs=true
 -XX:-OmitStackTraceInFastThrow
 -XX:ReservedCodeCacheSize=240m
+-Dperformance.watcher.freeze.report=false
 #-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5071
