@@ -66,7 +66,6 @@ import java.util.Set;
 import java.util.UUID;
 
 public abstract class StubSolutionIdea extends StubSolution {
-
   private final RootSetChangedListener myRootSetChangedListener = new RootSetChangedListener() {
     @Override
     public void rootSetChanged(RootProvider wrapper) {
@@ -92,22 +91,22 @@ public abstract class StubSolutionIdea extends StubSolution {
   }
 
   @Nullable
-  public static Solution newInstance(Library library, MPSModuleOwner moduleOwner, SRepositoryExt repository) throws StubModuleNameTakenException {
+  public static Solution newInstance(Library library, MPSModuleOwner moduleOwner, SRepositoryExt repository, @NotNull VFSManager vfsManager) throws StubModuleNameTakenException {
     String namespace = library.getName();
     if (namespace != null && !new ModuleRepositoryFacade(repository).getModulesByName(namespace).isEmpty()) {
       throw new StubModuleNameTakenException(library.getName(), namespace);
     }
-    SolutionDescriptor descriptor = createDescriptor(namespace, library.getFiles(OrderRootType.CLASSES), false);
+    SolutionDescriptor descriptor = createDescriptor(namespace, library.getFiles(OrderRootType.CLASSES), false, vfsManager);
     return register(repository, moduleOwner, new LibraryStubSolution(descriptor, library));
   }
 
-  public static Solution newInstance(Sdk sdk, Sdk baseJdk, MPSModuleOwner moduleOwner, SRepositoryExt repository) {
-    SolutionDescriptor descriptor = createDescriptor(sdk.getName(), ((SdkModificator) sdk).getRoots(OrderRootType.CLASSES), false);
+  public static Solution newInstance(Sdk sdk, Sdk baseJdk, MPSModuleOwner moduleOwner, SRepositoryExt repository, @NotNull VFSManager vfsManager) {
+    SolutionDescriptor descriptor = createDescriptor(sdk.getName(), ((SdkModificator) sdk).getRoots(OrderRootType.CLASSES), false, vfsManager);
     return register(repository, moduleOwner, new SdkStubSolution(descriptor, sdk, baseJdk));
   }
 
-  public static Solution newInstanceForJdk(Sdk sdk, MPSModuleOwner moduleOwner, SRepositoryExt repository) {
-    SolutionDescriptor descriptor = createDescriptor("JDK", ((SdkModificator) sdk).getRoots(OrderRootType.CLASSES), true);
+  public static Solution newInstanceForJdk(Sdk sdk, MPSModuleOwner moduleOwner, SRepositoryExt repository, @NotNull VFSManager vfsManager) {
+    SolutionDescriptor descriptor = createDescriptor("JDK", ((SdkModificator) sdk).getRoots(OrderRootType.CLASSES), true, vfsManager);
 
     // giving the SDK the hard-coded module id
     ModuleId jdkId = ModuleId.regular(UUID.fromString("6354ebe7-c22a-4a0f-ac54-50b52ab9b065"));
@@ -124,8 +123,8 @@ public abstract class StubSolutionIdea extends StubSolution {
     return register(repository, moduleOwner, new SdkStubSolution(descriptor, sdk, null));
   }
 
-  public static Solution newInstanceForRoots(Sdk sdk, Sdk baseJdk, VirtualFile[] roots, MPSModuleOwner moduleOwner, SRepositoryExt repository) {
-    SolutionDescriptor descriptor = createDescriptor(sdk.getName(), roots, false);
+  public static Solution newInstanceForRoots(Sdk sdk, Sdk baseJdk, VirtualFile[] roots, MPSModuleOwner moduleOwner, SRepositoryExt repository, @NotNull VFSManager vfsManager) {
+    SolutionDescriptor descriptor = createDescriptor(sdk.getName(), roots, false, vfsManager);
     return register(repository, moduleOwner, new SdkStubSolution(descriptor, sdk, baseJdk));
   }
 
@@ -139,7 +138,7 @@ public abstract class StubSolutionIdea extends StubSolution {
     return null;
   }
 
-  private static SolutionDescriptor createDescriptor(String name, VirtualFile[] roots, boolean isJdk) {
+  private static SolutionDescriptor createDescriptor(String name, VirtualFile[] roots, boolean isJdk, @NotNull VFSManager vfsManager) {
     SolutionDescriptor sd = new SolutionDescriptor();
     sd.setNamespace(name);
     sd.setId(ModuleId.foreign(name));
@@ -151,7 +150,7 @@ public abstract class StubSolutionIdea extends StubSolution {
       MementoImpl memento = new MementoImpl();
       for (VirtualFile f : roots) {
         //todo good conversion
-        memento.createChild("path").put("value", file2QP(f).serialize(new MacroNoHelper()));
+        memento.createChild("path").put("value", file2QP(f, vfsManager).serialize(new MacroNoHelper()));
       }
       //todo [MM] this was not here , still, seems to be actually reequired
       //      PackageScopeControl psc = getPackageScopeControl(ClassType.JDK);
@@ -164,7 +163,12 @@ public abstract class StubSolutionIdea extends StubSolution {
   }
 
   @NotNull
-  private static QualifiedPath file2QP(VirtualFile f) {
+  private static QualifiedPath file2QP(VirtualFile f, @NotNull VFSManager vfsManager) {
+    String url = f.getUrl();
+    String fsId = url.substring(0, url.indexOf(":"));
+    if (vfsManager.getFileSystem(fsId)==null){
+      throw new IllegalArgumentException("File system not supported: " + fsId);
+    }
     return new QualifiedPath(VFSManager.JRT_FS, f.getPath());
   }
 
