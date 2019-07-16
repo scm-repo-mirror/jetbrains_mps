@@ -171,15 +171,8 @@ public class DataTree implements IExternalizeable, IChangeListener {
     }
 
     final List<? extends SearchResult<?>> notNullResults = results.getNotNullResults();
-    final Icon i;
-    final String c;
-    if (nodeRepresentator == null) {
-      i = null; // use default
-      c = NameUtil.formatNumericalString(notNullResults.size(), "usage") + " found";
-    } else {
-      i = nodeRepresentator.getResultsIcon();
-      c = nodeRepresentator.getResultsText(new TextOptions(true, false, notNullResults.size()));
-    }
+    final Icon i = null; // use default
+    final String c = NameUtil.formatNumericalString(notNullResults.size(), "usage") + " found";
     ResultsNodeData resultsRoot = new ResultsNodeData(PathItemRole.ROLE_MAIN_RESULTS, i, c);
     root.addChild(resultsRoot);
     final PathProvider pp2 = new PathProvider(nodeRepresentator, true);

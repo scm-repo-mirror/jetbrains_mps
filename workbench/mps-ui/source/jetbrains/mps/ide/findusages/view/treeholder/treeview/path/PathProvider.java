@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -69,17 +69,7 @@ public class PathProvider {
     myLanguageElementFactory = c -> new DeployedLanguageNodeData(c.getRole(), caption.apply(c), info.apply(c), c.getIdObject(), c.isTail(), resultsSection);
     myCategoryElementFactory = creator -> {
       Pair<CategoryKind, String> category = creator.getIdObject();
-      Icon i;
-      String c;
-      if (presentationProvider != null) {
-        // FIXME why getCategoryIcon in ModelCheckerViewer (the only place to care about this method) uses 1 category kind and name to distinguish an icon?
-        i = presentationProvider.getCategoryIcon(category.o2);
-        c = presentationProvider.getCategoryText(new TextOptions(true, false, 0), category.o2, resultsSection);
-      } else {
-        i = category.o1.getIcon();
-        c = category.o2;
-      }
-      return new CategoryNodeData(creator.getRole(), category.o1, c, i, resultsSection);
+      return new CategoryNodeData(creator.getRole(), category.o1, category.o2, resultsSection);
     };
   }
 

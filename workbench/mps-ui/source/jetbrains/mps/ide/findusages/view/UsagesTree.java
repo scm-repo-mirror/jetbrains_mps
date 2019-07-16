@@ -369,6 +369,7 @@ public class UsagesTree extends MPSTree {
       // used to be in CategoryNodeData.getText
       // CategoryNodeData.myCategory == BaseNodeData.caption, hence getPlainText
       final String text = myPresentationProvider.getCategoryText(to, root.getUsageData().getCaption(), root.getUsageData().isResultsSection());
+      root.setIcon(myPresentationProvider.getCategoryIcon(root.getUsageData().getCaption()));
       if (text != null) {
         root.setText(text);
         // assume INodeRepresentator could use count in caption, if needed
@@ -379,6 +380,7 @@ public class UsagesTree extends MPSTree {
     } else if (root.getUsageData() instanceof ResultsNodeData) {
       // used to be in ResultsNodeData.getText
       final String text = myPresentationProvider.getResultsText(new TextOptions(myAdditionalInfoNeeded, !root.isLeaf(), root.getSubresultsCount()));
+      root.setIcon(myPresentationProvider.getResultsIcon());
       if (text != null) {
         root.setText(text);
         // assume INodeRepresentator could use count in caption, if needed
