@@ -44,7 +44,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ContainmentLinkId;
   private ConceptPresentation props_DevkitIdentity;
   private ConceptPresentation props_DevkitPointer;
-  private ConceptPresentation props_EnumBody;
   private ConceptPresentation props_EnumMemberOperation;
   private ConceptPresentation props_EnumMemberReference;
   private ConceptPresentation props_EnumMemberReference_Old;
@@ -56,6 +55,9 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_EnumMember_ValueOperation_Old;
   private ConceptPresentation props_EnumOperation;
   private ConceptPresentation props_EnumSwitchCase;
+  private ConceptPresentation props_EnumSwitchCaseBody;
+  private ConceptPresentation props_EnumSwitchCaseBody_Expression;
+  private ConceptPresentation props_EnumSwitchCaseBody_StatementList;
   private ConceptPresentation props_EnumSwitchExpression;
   private ConceptPresentation props_Enum_FromNameOperation;
   private ConceptPresentation props_Enum_FromPresentationOperation;
@@ -64,7 +66,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_EnumerationIdRefExpression;
   private ConceptPresentation props_EqualsStructurallyExpression;
   private ConceptPresentation props_ExactConceptCase;
-  private ConceptPresentation props_ExpressionEnumBody;
   private ConceptPresentation props_GeneratorIdentity;
   private ConceptPresentation props_GeneratorModulePointer;
   private ConceptPresentation props_IConceptSwitchCase;
@@ -210,7 +211,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_SearchScopeType;
   private ConceptPresentation props_SearchScope_ContainsOperation;
   private ConceptPresentation props_SemanticDowncastExpression;
-  private ConceptPresentation props_StatementListEnumBody;
   private ConceptPresentation props_SubconceptCase;
 
   @Override
@@ -464,12 +464,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_DevkitPointer = cpb.create();
         }
         return props_DevkitPointer;
-      case LanguageConceptSwitch.EnumBody:
-        if (props_EnumBody == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          props_EnumBody = cpb.create();
-        }
-        return props_EnumBody;
       case LanguageConceptSwitch.EnumMemberOperation:
         if (props_EnumMemberOperation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -554,6 +548,26 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_EnumSwitchCase = cpb.create();
         }
         return props_EnumSwitchCase;
+      case LanguageConceptSwitch.EnumSwitchCaseBody:
+        if (props_EnumSwitchCaseBody == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_EnumSwitchCaseBody = cpb.create();
+        }
+        return props_EnumSwitchCaseBody;
+      case LanguageConceptSwitch.EnumSwitchCaseBody_Expression:
+        if (props_EnumSwitchCaseBody_Expression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("EnumSwitchCaseBody_Expression");
+          props_EnumSwitchCaseBody_Expression = cpb.create();
+        }
+        return props_EnumSwitchCaseBody_Expression;
+      case LanguageConceptSwitch.EnumSwitchCaseBody_StatementList:
+        if (props_EnumSwitchCaseBody_StatementList == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("{");
+          props_EnumSwitchCaseBody_StatementList = cpb.create();
+        }
+        return props_EnumSwitchCaseBody_StatementList;
       case LanguageConceptSwitch.EnumSwitchExpression:
         if (props_EnumSwitchExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -616,13 +630,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ExactConceptCase = cpb.create();
         }
         return props_ExactConceptCase;
-      case LanguageConceptSwitch.ExpressionEnumBody:
-        if (props_ExpressionEnumBody == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("ExpressionEnumBody");
-          props_ExpressionEnumBody = cpb.create();
-        }
-        return props_ExpressionEnumBody;
       case LanguageConceptSwitch.GeneratorIdentity:
         if (props_GeneratorIdentity == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -1707,13 +1714,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_SemanticDowncastExpression = cpb.create();
         }
         return props_SemanticDowncastExpression;
-      case LanguageConceptSwitch.StatementListEnumBody:
-        if (props_StatementListEnumBody == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("{");
-          props_StatementListEnumBody = cpb.create();
-        }
-        return props_StatementListEnumBody;
       case LanguageConceptSwitch.SubconceptCase:
         if (props_SubconceptCase == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

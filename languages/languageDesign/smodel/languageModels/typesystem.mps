@@ -15008,7 +15008,7 @@
                   <ref role="1YBMHb" node="28aPEVvy7TL" resolve="enumSwitchExpression" />
                 </node>
                 <node concept="3TrEf2" id="28aPEVvzrLf" role="2OqNvi">
-                  <ref role="3Tt5mk" to="tp25:28aPEVvzpHe" resolve="default" />
+                  <ref role="3Tt5mk" to="tp25:28aPEVvzpHe" resolve="otherwiseBody" />
                 </node>
               </node>
               <node concept="3w_OXm" id="28aPEVv_nuC" role="2OqNvi" />
@@ -15139,7 +15139,7 @@
     </node>
     <node concept="1YaCAy" id="28aPEVv80Rf" role="1YuTPh">
       <property role="TrG5h" value="expressionEnumBody" />
-      <ref role="1YaFvo" to="tp25:28aPEVv7XN5" resolve="ExpressionEnumBody" />
+      <ref role="1YaFvo" to="tp25:28aPEVv7XN5" resolve="EnumSwitchCaseBody_Expression" />
     </node>
   </node>
   <node concept="1YbPZF" id="28aPEVvk5RY">
@@ -15325,7 +15325,7 @@
     </node>
     <node concept="1YaCAy" id="28aPEVvbud5" role="1YuTPh">
       <property role="TrG5h" value="statementListEnumBody" />
-      <ref role="1YaFvo" to="tp25:28aPEVv7XN9" resolve="StatementListEnumBody" />
+      <ref role="1YaFvo" to="tp25:28aPEVv7XN9" resolve="EnumSwitchCaseBody_StatementList" />
     </node>
   </node>
   <node concept="1YbPZF" id="66cvXGSmGZq">

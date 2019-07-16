@@ -3030,8 +3030,8 @@
     <node concept="1TJgyj" id="28aPEVvzpHe" role="1TKVEi">
       <property role="IQ2ns" value="2453008993619909454" />
       <property role="20lmBu" value="fLJjDmT" />
-      <property role="20kJfa" value="default" />
-      <ref role="20lvS9" node="28aPEVv7XLw" resolve="EnumBody" />
+      <property role="20kJfa" value="otherwiseBody" />
+      <ref role="20lvS9" node="28aPEVv7XLw" resolve="EnumSwitchCaseBody" />
     </node>
   </node>
   <node concept="1TIwiD" id="28aPEVv7nnz">
@@ -3051,21 +3051,21 @@
       <property role="20lmBu" value="fLJjDmT" />
       <property role="20kJfa" value="body" />
       <property role="20lbJX" value="fLJekj4" />
-      <ref role="20lvS9" node="28aPEVv7XLw" resolve="EnumBody" />
+      <ref role="20lvS9" node="28aPEVv7XLw" resolve="EnumSwitchCaseBody" />
     </node>
   </node>
   <node concept="1TIwiD" id="28aPEVv7XLw">
     <property role="EcuMT" value="2453008993612717152" />
     <property role="3GE5qa" value="enumSwitch" />
-    <property role="TrG5h" value="EnumBody" />
+    <property role="TrG5h" value="EnumSwitchCaseBody" />
     <property role="R5$K7" value="true" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
   </node>
   <node concept="1TIwiD" id="28aPEVv7XN5">
     <property role="EcuMT" value="2453008993612717253" />
     <property role="3GE5qa" value="enumSwitch" />
-    <property role="TrG5h" value="ExpressionEnumBody" />
-    <ref role="1TJDcQ" node="28aPEVv7XLw" resolve="EnumBody" />
+    <property role="TrG5h" value="EnumSwitchCaseBody_Expression" />
+    <ref role="1TJDcQ" node="28aPEVv7XLw" resolve="EnumSwitchCaseBody" />
     <node concept="1TJgyj" id="28aPEVv7XN6" role="1TKVEi">
       <property role="IQ2ns" value="2453008993612717254" />
       <property role="20lmBu" value="fLJjDmT" />
@@ -3077,9 +3077,9 @@
   <node concept="1TIwiD" id="28aPEVv7XN9">
     <property role="EcuMT" value="2453008993612717257" />
     <property role="3GE5qa" value="enumSwitch" />
-    <property role="TrG5h" value="StatementListEnumBody" />
+    <property role="TrG5h" value="EnumSwitchCaseBody_StatementList" />
     <property role="34LRSv" value="{" />
-    <ref role="1TJDcQ" node="28aPEVv7XLw" resolve="EnumBody" />
+    <ref role="1TJDcQ" node="28aPEVv7XLw" resolve="EnumSwitchCaseBody" />
     <node concept="1TJgyj" id="28aPEVv7XNa" role="1TKVEi">
       <property role="IQ2ns" value="2453008993612717258" />
       <property role="20lmBu" value="fLJjDmT" />

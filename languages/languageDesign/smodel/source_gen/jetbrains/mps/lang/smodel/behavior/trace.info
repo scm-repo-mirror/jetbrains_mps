@@ -6471,7 +6471,7 @@
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902fa(jetbrains.mps.lang.smodel.behavior)/2453008993620382996">
-    <file name="StatementListEnumBody__BehaviorDescriptor.java">
+    <file name="EnumSwitchCaseBody_StatementList__BehaviorDescriptor.java">
       <node id="2453008993620382996" at="24,0,25,0" concept="9" trace="CONCEPT" />
       <node id="2453008993620382996" at="26,0,27,0" concept="9" trace="isExecuteSynchronous_idhTIpcC8" />
       <node id="2453008993620382996" at="27,0,28,0" concept="9" trace="isPassLastExpressionValue_id28aPEVv$IZv" />
@@ -6493,7 +6493,7 @@
       <node id="2453008993620382996" at="85,48,86,22" concept="7" />
       <node id="2453008993620382996" at="91,40,92,19" concept="7" />
       <node id="2453008993620382996" at="32,0,34,0" concept="10" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="2453008993620382996" at="45,0,47,0" concept="1" trace="StatementListEnumBody__BehaviorDescriptor#()V" />
+      <node id="2453008993620382996" at="45,0,47,0" concept="1" trace="EnumSwitchCaseBody_StatementList__BehaviorDescriptor#()V" />
       <node id="2453008993620382996" at="35,0,38,0" concept="10" trace="isExecuteSynchronous_idhTIpcC8#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="2453008993620382996" at="38,0,41,0" concept="10" trace="isPassLastExpressionValue_id28aPEVv$IZv#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="2453008993620382996" at="41,0,44,0" concept="10" trace="getStatementList_id28aPEVv_31A#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
@@ -6507,7 +6507,7 @@
       <node id="2453008993620382996" at="71,0,82,0" concept="5" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
       <node id="2453008993620382996" at="53,0,70,0" concept="5" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
       <scope id="2453008993620382996" at="32,63,32,63" />
-      <scope id="2453008993620382996" at="45,59,45,59" />
+      <scope id="2453008993620382996" at="45,70,45,70" />
       <scope id="2453008993620383013" at="35,90,36,16" />
       <scope id="2453008993622352411" at="38,99,39,340" />
       <scope id="2453008993620384232" at="41,88,42,191" />
@@ -6557,7 +6557,7 @@
         <var name="node" id="2453008993620382996" />
         <var name="parameters" id="2453008993620382996" />
       </scope>
-      <unit id="2453008993620382996" at="23,0,95,0" name="jetbrains.mps.lang.smodel.behavior.StatementListEnumBody__BehaviorDescriptor" />
+      <unit id="2453008993620382996" at="23,0,95,0" name="jetbrains.mps.lang.smodel.behavior.EnumSwitchCaseBody_StatementList__BehaviorDescriptor" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902fa(jetbrains.mps.lang.smodel.behavior)/2469893808081857999">
