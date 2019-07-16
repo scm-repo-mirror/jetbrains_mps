@@ -15,16 +15,22 @@
  */
 package jetbrains.mps.ide.projectPane;
 
+import com.intellij.icons.AllIcons;
+import com.intellij.icons.AllIcons.General;
 import com.intellij.ide.FileEditorProvider;
 import com.intellij.ide.SelectInContext;
 import com.intellij.ide.SelectInTarget;
 import com.intellij.ide.projectView.ProjectView;
 import com.intellij.ide.projectView.impl.AbstractProjectViewPane;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.Presentation;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.ui.LayeredIcon;
+import com.intellij.ui.SizedIcon;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.ide.icons.GlobalIconManager;
+import jetbrains.mps.ide.messages.Icons;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.nodefs.NodeVirtualFileSystem;
 import jetbrains.mps.openapi.navigation.NavigationSupport;
@@ -34,6 +40,8 @@ import jetbrains.mps.smodel.SModelInternal;
 import jetbrains.mps.smodel.SModelOperations;
 import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.smodel.action.NodeFactoryManager;
+import jetbrains.mps.smodel.language.ConceptRegistry;
+import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import jetbrains.mps.workbench.action.BaseAction;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -47,6 +55,8 @@ import org.jetbrains.mps.openapi.module.ModelAccess;
 import org.jetbrains.mps.openapi.module.SRepository;
 
 import javax.swing.Icon;
+import java.awt.Component;
+import java.awt.Graphics;
 import java.util.Map;
 
 public class NewRootNodeAction extends BaseAction implements DumbAware {
@@ -60,19 +70,30 @@ public class NewRootNodeAction extends BaseAction implements DumbAware {
     myNodeConcept = nodeConcept;
     myModel = model;
     myVirtualPackage = virtualPackage;
+
+    ConceptPresentation conceptPresentation = ConceptRegistry.getInstance().getConceptProperties(nodeConcept);
+    Presentation templatePresentation = getTemplatePresentation();
+
     String name = nodeConcept.getConceptAlias();
     if (name.isEmpty()) {
       name = nodeConcept.getName();
     }
-    getTemplatePresentation().setText(name);
+    if (conceptPresentation.isDeprecated()) {
+      name = "(deprecated) " + name;
+    }
+    templatePresentation.setText(name);
+
     Icon icon = GlobalIconManager.getInstance().getIconFor(nodeConcept);
-    getTemplatePresentation().setIcon(icon);
+    templatePresentation.setIcon(icon);
+
     setExecuteOutsideCommand(true);
   }
 
   @Override
   protected boolean collectActionData(AnActionEvent e, Map<String, Object> _params) {
-    if (!super.collectActionData(e, _params)) return false;
+    if (!super.collectActionData(e, _params)) {
+      return false;
+    }
     myProject = MPSCommonDataKeys.MPS_PROJECT.getData(e.getDataContext());
     return true;
   }
@@ -83,8 +104,8 @@ public class NewRootNodeAction extends BaseAction implements DumbAware {
     final ModelAccess modelAccess = projectRepo.getModelAccess();
     modelAccess.executeCommandInEDT(() -> {
       SLanguage l = myNodeConcept.getLanguage();
-      if (!SModelOperations.getAllLanguageImports(myModel).contains(l)){
-        ((SModelInternal)myModel).addLanguage(l);
+      if (!SModelOperations.getAllLanguageImports(myModel).contains(l)) {
+        ((SModelInternal) myModel).addLanguage(l);
       }
       final SNode node = NodeFactoryManager.createNode(myNodeConcept, null, null, myModel);
       SNodeAccessUtil.setProperty(node, SNodeUtil.property_BaseConcept_virtualPackage, myVirtualPackage);
