@@ -536,6 +536,9 @@ public class IdeaFile implements IFile, CachingFile {
 
   @Override
   public void addListener(@NotNull FileListener listener) {
+    if (isInArchive()) {
+      LOG.warn("There might be a problem when adding file listener for the files inside the archive: '" + getPath() + "'");
+    }
     FileListenerAdapter listenerAdapter = new FileListenerAdapter(this, listener);
     myListenerLegacy2New.put(listener, listenerAdapter);
     getFileSystem().addListener(listenerAdapter);
