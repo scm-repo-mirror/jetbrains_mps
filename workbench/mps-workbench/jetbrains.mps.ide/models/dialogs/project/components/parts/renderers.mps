@@ -351,8 +351,8 @@
               <node concept="1rXfSq" id="4hiugqyz8ah" role="3clFbG">
                 <ref role="37wK5l" to="dxuu:~JComponent.setForeground(java.awt.Color)" resolve="setForeground" />
                 <node concept="10M0yZ" id="1mBiRF0LBK1" role="37wK5m">
-                  <ref role="3cqZAo" to="z60i:~Color.RED" resolve="RED" />
                   <ref role="1PxDUh" to="exr9:~MPSColors" resolve="MPSColors" />
+                  <ref role="3cqZAo" to="exr9:~MPSColors.RED" resolve="RED" />
                 </node>
               </node>
             </node>

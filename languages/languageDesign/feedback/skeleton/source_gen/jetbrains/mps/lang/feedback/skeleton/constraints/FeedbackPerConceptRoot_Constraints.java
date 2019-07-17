@@ -27,11 +27,15 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.IOperationContext;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
+import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPointerOperations;
+import jetbrains.mps.smodel.SNodePointer;
+import jetbrains.mps.scope.ListScope;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.scope.EmptyScope;
 import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
-import jetbrains.mps.smodel.SNodePointer;
 
 public class FeedbackPerConceptRoot_Constraints extends BaseConstraintsDescriptor {
   public FeedbackPerConceptRoot_Constraints() {
@@ -85,7 +89,11 @@ public class FeedbackPerConceptRoot_Constraints extends BaseConstraintsDescripto
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SModel structure = check_pwu0qc_a0a0b0a0a0b0a0a0a4(Language.getLanguageForLanguageAspect(SNodeOperations.getModel(_context.getContextNode())));
+            if ((boolean) BaseConcept__BehaviorDescriptor.isInTemplates_idhEwIMij.invoke(_context.getContextNode())) {
+              Iterable<SNode> seq = Sequence.<SNode>singleton(SPointerOperations.resolveNode(new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1133920641626"), SNodeOperations.getModel(_context.getContextNode()).getRepository()));
+              return ListScope.forNamedElements(seq);
+            }
+            SModel structure = check_pwu0qc_a0b0b0a0a0b0a0a0a4(Language.getLanguageForLanguageAspect(SNodeOperations.getModel(_context.getContextNode())));
             if (structure == null) {
               return new EmptyScope();
             }
@@ -99,7 +107,7 @@ public class FeedbackPerConceptRoot_Constraints extends BaseConstraintsDescripto
     references.put(d0.getReference(), d0);
     return references;
   }
-  private static SModel check_pwu0qc_a0a0b0a0a0b0a0a0a4(Language checkedDotOperand) {
+  private static SModel check_pwu0qc_a0b0b0a0a0b0a0a0a4(Language checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getStructureModelDescriptor();
     }

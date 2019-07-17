@@ -37,7 +37,7 @@
     <import index="tpfj" ref="r:00000000-0000-4000-0000-011c895902e3(jetbrains.mps.lang.generator.editor)" implicit="true" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
     <import index="o8zo" ref="r:314576fc-3aee-4386-a0a5-a38348ac317d(jetbrains.mps.scope)" implicit="true" />
-    <import index="z60i" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.awt(JDK/)" implicit="true" />
+    <import index="lzb2" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui(MPS.IDEA/)" implicit="true" />
   </imports>
   <registry>
     <language id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples">
@@ -9962,8 +9962,8 @@
                     <ref role="1PxDUh" to="exr9:~MPSColors" resolve="MPSColors" />
                   </node>
                   <node concept="10M0yZ" id="VFd4XzYaWp" role="3K4GZi">
-                    <ref role="3cqZAo" to="z60i:~Color.GRAY" resolve="GRAY" />
                     <ref role="1PxDUh" to="exr9:~MPSColors" resolve="MPSColors" />
+                    <ref role="3cqZAo" to="lzb2:~JBColor.GRAY" resolve="GRAY" />
                   </node>
                   <node concept="2OqwBi" id="VFd4XzXYgF" role="3K4Cdx">
                     <node concept="pncrf" id="VFd4XzXXY_" role="2Oq$k0" />

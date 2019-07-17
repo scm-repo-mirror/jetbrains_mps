@@ -2783,8 +2783,8 @@
                                   <node concept="1rXfSq" id="4hiugqyyYfS" role="3clFbG">
                                     <ref role="37wK5l" to="dxuu:~JComponent.setForeground(java.awt.Color)" resolve="setForeground" />
                                     <node concept="10M0yZ" id="3SnNvqCby2j" role="37wK5m">
-                                      <ref role="3cqZAo" to="z60i:~Color.gray" resolve="gray" />
                                       <ref role="1PxDUh" to="exr9:~MPSColors" resolve="MPSColors" />
+                                      <ref role="3cqZAo" to="lzb2:~JBColor.gray" resolve="gray" />
                                     </node>
                                   </node>
                                 </node>
