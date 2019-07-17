@@ -2900,6 +2900,9 @@
           <node concept="L2wRC" id="SHPhCD4vuC" role="39821P">
             <ref role="L2wRA" node="3qkjbZn878o" resolve="jetbrains.mps.lang.feedback.messages" />
           </node>
+          <node concept="L2wRC" id="UzCO9pUGx6" role="39821P">
+            <ref role="L2wRA" node="3qkjbZn86st" resolve="jetbrains.mps.lang.feedback" />
+          </node>
           <node concept="L2wRC" id="SHPhCD4wIK" role="39821P">
             <ref role="L2wRA" node="3qkjbZn89Td" resolve="jetbrains.mps.lang.messages" />
           </node>
