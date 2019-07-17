@@ -19,6 +19,7 @@ import gnu.trove.THashSet;
 import gnu.trove.TObjectHashingStrategy;
 import jetbrains.mps.generator.GenerationPlanBuilder;
 import jetbrains.mps.generator.ModelGenerationPlan;
+import jetbrains.mps.generator.RigidGenerationPlan;
 import jetbrains.mps.generator.plan.CheckpointIdentity;
 import jetbrains.mps.generator.plan.PlanIdentity;
 import jetbrains.mps.generator.runtime.TemplateMappingConfiguration;
@@ -37,6 +38,7 @@ import java.util.Set;
 public class DependencyCollectorPlanBuilder implements GenerationPlanBuilder {
   private final Set<SLanguage> myLanguages;
   private final Set<SModuleReference> myGenerators;
+  private int myForks = 0;
 
   @SuppressWarnings("unchecked")
   public DependencyCollectorPlanBuilder() {
@@ -77,12 +79,18 @@ public class DependencyCollectorPlanBuilder implements GenerationPlanBuilder {
 
   @Override
   public GenerationPlanBuilder fork() {
+    myForks++;
     return this;
   }
 
   @NotNull
   @Override
   public ModelGenerationPlan wrapUp(@NotNull PlanIdentity planIdentity) {
+    if (myForks > 0) {
+      myForks--;
+      // blank plan instance of no use, covers fork() {return this;} scenario
+      return new RigidGenerationPlan(planIdentity, Collections.emptyList());
+    }
     // perhaps, empty MGP (with no steps) is better alternative?
     throw new IllegalStateException("No need to wrapUp the plan here");
   }
