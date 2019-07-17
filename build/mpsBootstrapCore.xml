@@ -4901,6 +4901,7 @@
           <module ref="9a4afe51-f114-4595-b5df-048ce3c596be(jetbrains.mps.runtime)" kind="rt" />
           <module ref="2d3c70e9-aab2-4870-8d8d-6036800e4103(jetbrains.mps.kernel)" kind="cl" />
           <module ref="47257bf3-78d3-470b-89d9-8c3261a61d15(jetbrains.mps.lang.constraints.rules)" kind="cl" />
+          <module ref="5dae8159-ab99-46bb-a40d-0cee30ee7018(jetbrains.mps.lang.constraints.rules.kinds)" kind="cl" />
           <module ref="a9e4c532-c5f5-4bb7-99ef-42abb73bbb70(jetbrains.mps.lang.descriptor.aspects)" kind="cl" />
           <module ref="517077fd-e44f-4338-a475-1d29781dfdb8(jetbrains.mps.lang.feedback.skeleton)" kind="cl" />
           <module ref="ad93155d-79b2-4759-b10c-55123e763903(jetbrains.mps.lang.messages)" kind="cl" />
@@ -4964,6 +4965,7 @@
           <module ref="31f56055-9d30-42b3-a2b1-fb3f554d7075(jetbrains.mps.lang.smodel.query.runtime)" kind="rt" />
           <module ref="9a4afe51-f114-4595-b5df-048ce3c596be(jetbrains.mps.runtime)" kind="rt" />
           <module ref="47257bf3-78d3-470b-89d9-8c3261a61d15(jetbrains.mps.lang.constraints.rules)" kind="cl" />
+          <module ref="5dae8159-ab99-46bb-a40d-0cee30ee7018(jetbrains.mps.lang.constraints.rules.kinds)" kind="cl" />
           <module ref="517077fd-e44f-4338-a475-1d29781dfdb8(jetbrains.mps.lang.feedback.skeleton)" kind="cl" />
           <module ref="ad93155d-79b2-4759-b10c-55123e763903(jetbrains.mps.lang.messages)" kind="cl" />
           <module ref="528ff3b9-5fc4-40dd-931f-c6ce3650640e(jetbrains.mps.lang.migration.runtime)" kind="cl" />
@@ -17806,10 +17808,7 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.scopes.runtime" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.structure" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.traceable" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/feedback-api.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/context.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/problem.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/messages-api.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-messages-lang.jar" />
         <path refid="path.java.library.idea-libraries" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -17882,10 +17881,7 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.feedback.problem#01" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.feedback.skeleton" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/feedback-api.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/context.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/problem.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/messages-api.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-messages-lang.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
@@ -18245,8 +18241,6 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.smodel" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.structure" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.traceable" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/context.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/problem.jar" />
         <path refid="path.java.library.idea-libraries" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -18836,9 +18830,6 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.scopes.runtime" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.structure" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.traceable" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/feedback-api.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/context.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/problem.jar" />
         <path refid="path.java.library.idea-libraries" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -18913,9 +18904,6 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.feedback.skeleton" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.project" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.traceable" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/feedback-api.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/context.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/problem.jar" />
         <path refid="path.java.library.idea-libraries" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -19047,7 +19035,6 @@
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
         <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/context.jar" />
         <path refid="path.java.library.idea-libraries" />
         <path refid="path.java.library.ecj" />
         <pathelement path="${build.tmp}/java/out/aux-runtimes" />
@@ -19294,7 +19281,6 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.sharedConcepts" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.structure" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.traceable" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/context.jar" />
         <path refid="path.java.library.idea-libraries" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -19339,7 +19325,6 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-persistence.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/context.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
         <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
@@ -19441,7 +19426,6 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.context.defs" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.core" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.traceable" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/context.jar" />
         <path refid="path.java.library.idea-libraries" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -20516,7 +20500,6 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.smodel" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.structure" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.traceable" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/context.jar" />
         <path refid="path.java.library.idea-libraries" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -20595,7 +20578,6 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.core" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.structure" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.traceable" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/context.jar" />
         <path refid="path.java.library.idea-libraries" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -20611,7 +20593,7 @@
     </copy>
   </target>
   
-  <target name="java.compile.jetbrains.mps.lang.rulesAndMessages" depends="java.compile.aux-runtimes, java.compile.dataflow-rt, java.compile.idea-platform, java.compile.mps-debuginfo-api, java.compile.mps-debuginfo-impl, java.compile.mps-editing, java.compile.mps-editor-api, java.compile.mps-editorlang-runtime, java.compile.mps-typesystem, java.compile.mps-editor, java.compile.mps-generator, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.mps-migration, java.compile.platform, java.compile.mps-environment, java.compile.mps-platform, java.compile.mps-project-check, java.compile.mps-textgen, java.compile.mps-ui, java.compile.pattern-runtime, java.compile.scripts-runtime, java.compile.jetbrains.mps.baseLanguage, java.compile.jetbrains.mps.baseLanguage.logging.runtime, java.compile.jetbrains.mps.baseLanguage.scopes, java.compile.jetbrains.mps.lang.constraints.rules, java.compile.jetbrains.mps.lang.constraints.rules.skeleton, java.compile.jetbrains.mps.lang.context.defs, java.compile.jetbrains.mps.lang.core, java.compile.jetbrains.mps.lang.descriptor.aspects, java.compile.jetbrains.mps.lang.feedback.skeleton, java.compile.jetbrains.mps.lang.messages, java.compile.jetbrains.mps.lang.structure, java.compile.jetbrains.mps.lang.traceable, fetchDependencies">
+  <target name="java.compile.jetbrains.mps.lang.rulesAndMessages" depends="java.compile.aux-runtimes, java.compile.dataflow-rt, java.compile.idea-platform, java.compile.mps-debuginfo-api, java.compile.mps-debuginfo-impl, java.compile.mps-editing, java.compile.mps-editor-api, java.compile.mps-editorlang-runtime, java.compile.mps-typesystem, java.compile.mps-editor, java.compile.mps-generator, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.mps-migration, java.compile.platform, java.compile.mps-environment, java.compile.mps-platform, java.compile.mps-project-check, java.compile.mps-textgen, java.compile.mps-ui, java.compile.pattern-runtime, java.compile.scripts-runtime, java.compile.jetbrains.mps.baseLanguage, java.compile.jetbrains.mps.baseLanguage.logging.runtime, java.compile.jetbrains.mps.baseLanguage.scopes, java.compile.jetbrains.mps.lang.constraints.rules, java.compile.jetbrains.mps.lang.constraints.rules.kinds, java.compile.jetbrains.mps.lang.constraints.rules.skeleton, java.compile.jetbrains.mps.lang.context.defs, java.compile.jetbrains.mps.lang.core, java.compile.jetbrains.mps.lang.descriptor.aspects, java.compile.jetbrains.mps.lang.feedback.skeleton, java.compile.jetbrains.mps.lang.messages, java.compile.jetbrains.mps.lang.structure, java.compile.jetbrains.mps.lang.traceable, fetchDependencies">
     <mkdir dir="${mps_home}/languages/languageDesign/messages/rules/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.rulesAndMessages" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.rulesAndMessages" fork="false" encoding="utf8" includeantruntime="false" debug="true">
@@ -20666,6 +20648,7 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.baseLanguage.logging.runtime" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.baseLanguage.scopes" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules" />
+        <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules.kinds" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules.skeleton" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.context.defs" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.core" />
@@ -20688,7 +20671,7 @@
     </copy>
   </target>
   
-  <target name="java.compile.jetbrains.mps.lang.rulesAndMessages#01" depends="java.compile.aux-runtimes, java.compile.dataflow-rt, java.compile.idea-platform, java.compile.mps-debuginfo-api, java.compile.mps-debuginfo-impl, java.compile.mps-editing, java.compile.mps-editor-api, java.compile.mps-editorlang-runtime, java.compile.mps-typesystem, java.compile.mps-editor, java.compile.mps-generator, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.mps-migration, java.compile.platform, java.compile.mps-environment, java.compile.mps-platform, java.compile.mps-project-check, java.compile.mps-textgen, java.compile.mps-ui, java.compile.pattern-runtime, java.compile.scripts-runtime, java.compile.jetbrains.mps.baseLanguage, java.compile.jetbrains.mps.baseLanguage.logging.runtime, java.compile.jetbrains.mps.baseLanguage.scopes, java.compile.jetbrains.mps.lang.constraints.rules, java.compile.jetbrains.mps.lang.constraints.rules.skeleton, java.compile.jetbrains.mps.lang.context.defs, java.compile.jetbrains.mps.lang.core, java.compile.jetbrains.mps.lang.feedback.skeleton, java.compile.jetbrains.mps.lang.messages, java.compile.jetbrains.mps.lang.rulesAndMessages, java.compile.jetbrains.mps.lang.structure, java.compile.jetbrains.mps.lang.traceable, fetchDependencies">
+  <target name="java.compile.jetbrains.mps.lang.rulesAndMessages#01" depends="java.compile.aux-runtimes, java.compile.dataflow-rt, java.compile.idea-platform, java.compile.mps-debuginfo-api, java.compile.mps-debuginfo-impl, java.compile.mps-editing, java.compile.mps-editor-api, java.compile.mps-editorlang-runtime, java.compile.mps-typesystem, java.compile.mps-editor, java.compile.mps-generator, java.compile.kernel-resources, java.compile.mps-make-rt, java.compile.mps-migration, java.compile.platform, java.compile.mps-environment, java.compile.mps-platform, java.compile.mps-project-check, java.compile.mps-textgen, java.compile.mps-ui, java.compile.pattern-runtime, java.compile.scripts-runtime, java.compile.jetbrains.mps.baseLanguage, java.compile.jetbrains.mps.baseLanguage.logging.runtime, java.compile.jetbrains.mps.baseLanguage.scopes, java.compile.jetbrains.mps.lang.constraints.rules, java.compile.jetbrains.mps.lang.constraints.rules.kinds, java.compile.jetbrains.mps.lang.constraints.rules.skeleton, java.compile.jetbrains.mps.lang.context.defs, java.compile.jetbrains.mps.lang.core, java.compile.jetbrains.mps.lang.feedback.skeleton, java.compile.jetbrains.mps.lang.messages, java.compile.jetbrains.mps.lang.rulesAndMessages, java.compile.jetbrains.mps.lang.structure, java.compile.jetbrains.mps.lang.traceable, fetchDependencies">
     <mkdir dir="${mps_home}/languages/languageDesign/messages/rules/generator/source_gen" />
     <mkdir dir="${build.tmp}/java/out/jetbrains.mps.lang.rulesAndMessages#01" />
     <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.lang.rulesAndMessages#01" fork="false" encoding="utf8" includeantruntime="false" debug="true">
@@ -20743,6 +20726,7 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.baseLanguage.logging.runtime" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.baseLanguage.scopes" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules" />
+        <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules.kinds" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.constraints.rules.skeleton" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.context.defs" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.core" />
@@ -20751,11 +20735,7 @@
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.rulesAndMessages" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.structure" />
         <pathelement path="${build.tmp}/java/out/jetbrains.mps.lang.traceable" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/feedback-api.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/context.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/problem.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/messages-for-rules.jar" />
-        <fileset file="${mps_home}/core/aspects/feedback/classes/messages-api.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-messages-lang.jar" />
         <path refid="path.java.library.idea-libraries" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />

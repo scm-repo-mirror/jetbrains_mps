@@ -8513,6 +8513,9 @@
                 </node>
               </node>
             </node>
+            <node concept="3yrxFa" id="UzCO9oXM2z" role="2gdwQb">
+              <ref role="3yrxFb" node="SHPhCCYHaw" resolve="mps-context.jar" />
+            </node>
           </node>
         </node>
       </node>
@@ -8580,6 +8583,9 @@
                 </node>
               </node>
             </node>
+            <node concept="3yrxFa" id="UzCO9p6Xu$" role="2gdwQb">
+              <ref role="3yrxFb" node="SHPhCCYHdU" resolve="mps-messages-lang.jar" />
+            </node>
           </node>
         </node>
       </node>
@@ -8637,6 +8643,9 @@
                   </node>
                 </node>
               </node>
+            </node>
+            <node concept="3yrxFa" id="UzCO9p6X$A" role="2gdwQb">
+              <ref role="3yrxFb" node="SHPhCCYHdU" resolve="mps-messages-lang.jar" />
             </node>
           </node>
         </node>
@@ -8706,6 +8715,9 @@
                   </node>
                 </node>
               </node>
+            </node>
+            <node concept="3yrxFa" id="UzCO9p6XEC" role="2gdwQb">
+              <ref role="3yrxFb" node="SHPhCCYHdU" resolve="mps-messages-lang.jar" />
             </node>
           </node>
         </node>
@@ -8778,6 +8790,9 @@
                 </node>
               </node>
             </node>
+            <node concept="3yrxFa" id="UzCO9p6XKE" role="2gdwQb">
+              <ref role="3yrxFb" node="SHPhCCYHdU" resolve="mps-messages-lang.jar" />
+            </node>
           </node>
         </node>
       </node>
@@ -8844,6 +8859,9 @@
                   </node>
                 </node>
               </node>
+            </node>
+            <node concept="3yrxFa" id="UzCO9p6XQG" role="2gdwQb">
+              <ref role="3yrxFb" node="SHPhCCYH7i" resolve="mps-feedback.jar" />
             </node>
           </node>
         </node>
@@ -9553,13 +9571,16 @@
                     <property role="2Ry0Am" value="feedback" />
                     <node concept="2Ry0Ak" id="6AgsdgT8VYn" role="2Ry0An">
                       <property role="2Ry0Am" value="classes" />
-                      <node concept="2Ry0Ak" id="6AgsdgT8VYo" role="2Ry0An">
+                      <node concept="2Ry0Ak" id="UzCO9pkZzb" role="2Ry0An">
                         <property role="2Ry0Am" value="feedback-api.jar" />
                       </node>
                     </node>
                   </node>
                 </node>
               </node>
+            </node>
+            <node concept="3yrxFa" id="UzCO9pkZHK" role="2gdwQb">
+              <ref role="3yrxFb" node="SHPhCCYH7i" resolve="mps-feedback.jar" />
             </node>
           </node>
         </node>
@@ -10864,6 +10885,11 @@
           <node concept="1SiIV0" id="SHPhCD4ydb" role="3bR37C">
             <node concept="3bR9La" id="SHPhCD4ydc" role="1SiIV1">
               <ref role="3bR37D" node="3qkjbZn7Ykj" resolve="jetbrains.mps.lang.constraints.rules" />
+            </node>
+          </node>
+          <node concept="1SiIV0" id="UzCO9oOi7u" role="3bR37C">
+            <node concept="3bR9La" id="UzCO9oOi7v" role="1SiIV1">
+              <ref role="3bR37D" node="3qkjbZn4_1I" resolve="jetbrains.mps.lang.constraints.rules.kinds" />
             </node>
           </node>
         </node>
