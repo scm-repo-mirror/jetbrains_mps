@@ -72,14 +72,22 @@
     <jar destfile="${build.layout}/mps-context.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/context" />
     </jar>
-    <jar destfile="${build.layout}/mps-messages-lang.jar" duplicate="preserve">
+    <jar destfile="${build.layout}/mps-messages-api.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/messages-api" />
+    </jar>
+    <jar destfile="${build.layout}/mps-messages-for-legacy-constraints.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/messages-for-legacy-constraints" />
+    </jar>
+    <jar destfile="${build.layout}/mps-messages-for-rules.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/messages-for-rules" />
+    </jar>
+    <jar destfile="${build.layout}/mps-messages-for-structure.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/messages-for-structure" />
     </jar>
-    <jar destfile="${build.layout}/mps-feedback.jar" duplicate="preserve">
+    <jar destfile="${build.layout}/mps-problem.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/problem" />
+    </jar>
+    <jar destfile="${build.layout}/mps-feedback-api.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/feedback-api" />
     </jar>
     <jar destfile="${build.layout}/mps-behavior-api.jar" duplicate="preserve">

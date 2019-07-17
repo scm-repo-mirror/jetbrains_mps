@@ -2,8 +2,11 @@
 <solution name="jetbrains.mps.lang.messages.api" uuid="9abaaae2-decf-4e97-bf80-9109e8b759cc" moduleVersion="0" compileInMPS="false">
   <compileInIDEA />
   <models>
-    <modelRoot contentPath="${module}" type="java_classes">
-      <sourceRoot location="messages-api/classes" />
+    <modelRoot contentPath="${module}/classes/messages-api.jar!/" type="java_classes">
+      <sourceRoot location="." />
+    </modelRoot>
+    <modelRoot contentPath="${platform_lib}" type="java_classes">
+      <sourceRoot location="mps-messages-api.jar" />
     </modelRoot>
   </models>
   <facets>

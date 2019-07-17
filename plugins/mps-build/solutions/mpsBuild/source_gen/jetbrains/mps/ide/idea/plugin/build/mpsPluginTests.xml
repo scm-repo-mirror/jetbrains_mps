@@ -167,7 +167,8 @@
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-messaging.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-context.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-constraints-runtime.jar" />
-        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-feedback.jar" />
+        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-problem.jar" />
+        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-feedback-api.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-common.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-platform.jar" />
@@ -222,7 +223,8 @@
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-messaging.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-context.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-constraints-runtime.jar" />
-        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-feedback.jar" />
+        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-problem.jar" />
+        <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-feedback-api.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-common.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-generator.jar" />
         <fileset file="${artifacts.mpsPluginCore}/mps-core/lib/mps-platform.jar" />

@@ -2,8 +2,11 @@
 <solution name="jetbrains.mps.lang.feedback.context" uuid="9e98f4e2-decf-4e97-bf80-9109e8b759aa" moduleVersion="0" compileInMPS="false">
   <compileInIDEA />
   <models>
-    <modelRoot contentPath="${module}" type="java_classes">
-      <sourceRoot location="context/classes" />
+    <modelRoot contentPath="${module}/classes/context.jar!/" type="java_classes">
+      <sourceRoot location="." />
+    </modelRoot>
+    <modelRoot contentPath="${platform_lib}" type="java_classes">
+      <sourceRoot location="mps-context.jar" />
     </modelRoot>
   </models>
   <facets>
