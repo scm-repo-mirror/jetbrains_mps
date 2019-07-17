@@ -25,11 +25,11 @@ import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.RightBraceStyleClass;
 
-/*package*/ class StatementListEnumBody_EditorBuilder_a extends AbstractEditorBuilder {
+/*package*/ class EnumSwitchCaseBody_StatementList_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
   private SNode myNode;
 
-  public StatementListEnumBody_EditorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
+  public EnumSwitchCaseBody_StatementList_EditorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
     super(context);
     myNode = node;
   }
@@ -46,7 +46,7 @@ import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.RightBrace
 
   private EditorCell createCollection_0() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Indent());
-    editorCell.setCellId("Collection_818jmm_a");
+    editorCell.setCellId("Collection_vker23_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
     editorCell.addEditorCell(createConstant_0());
@@ -56,7 +56,7 @@ import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.RightBrace
   }
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "{");
-    editorCell.setCellId("Constant_818jmm_a0");
+    editorCell.setCellId("Constant_vker23_a0");
     Style style = new StyleImpl();
     new LeftBraceStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
@@ -64,14 +64,14 @@ import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.RightBrace
     return editorCell;
   }
   private EditorCell createRefNode_0() {
-    SingleRoleCellProvider provider = new StatementListEnumBody_EditorBuilder_a.statementListSingleRoleHandler_818jmm_b0(myNode, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc9L, 0x220ad6aedf1fdccaL, "statementList"), getEditorContext());
+    SingleRoleCellProvider provider = new EnumSwitchCaseBody_StatementList_EditorBuilder_a.statementListSingleRoleHandler_vker23_b0(myNode, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc9L, 0x220ad6aedf1fdccaL, "statementList"), getEditorContext());
     return provider.createCell();
   }
-  private static class statementListSingleRoleHandler_818jmm_b0 extends SingleRoleCellProvider {
+  private static class statementListSingleRoleHandler_vker23_b0 extends SingleRoleCellProvider {
     @NotNull
     private SNode myNode;
 
-    public statementListSingleRoleHandler_818jmm_b0(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
+    public statementListSingleRoleHandler_vker23_b0(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
       super(containmentLink, context);
       myNode = ownerNode;
     }
@@ -124,7 +124,7 @@ import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.RightBrace
   }
   private EditorCell createConstant_1() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "}");
-    editorCell.setCellId("Constant_818jmm_c0");
+    editorCell.setCellId("Constant_vker23_c0");
     Style style = new StyleImpl();
     new RightBraceStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
     style.set(StyleAttributes.INDENT_LAYOUT_ON_NEW_LINE, true);

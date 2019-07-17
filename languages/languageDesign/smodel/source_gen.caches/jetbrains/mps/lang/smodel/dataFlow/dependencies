@@ -56,9 +56,10 @@
     <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.ConceptSwitchStatement_DataFlow" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.Concept_IsSubConceptOfOperation_DataFlow" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.Concept_IsSuperConceptOfOperation_DataFlow" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.EnumSwitchCaseBody_Expression_DataFlow" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.EnumSwitchCaseBody_StatementList_DataFlow" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.EnumSwitchExpression_DataFlow" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.ExactConceptCase_DataFlow" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.ExpressionEnumBody_DataFlow" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.IfInstanceOfStatement_DataFlow" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.IfInstanceOfVarReference_DataFlow" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.LinkAttributeQualifier_DataFlow" />
@@ -70,12 +71,25 @@
     <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.PropertyAttributeQualifier_DataFlow" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.SNodeOperation_DataFlow" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.SemanticDowncastExpression_DataFlow" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.StatementListEnumBody_DataFlow" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.dataFlow.SubconceptCase_DataFlow" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.ids.MetaIdFactory" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
     <classNode extendsClassName="jetbrains.mps.lang.dataFlow.framework.DataFlowAspectDescriptorBase" />
+  </dependency>
+  <dependency className="jetbrains.mps.lang.smodel.dataFlow.EnumSwitchCaseBody_Expression_DataFlow">
+    <classNode dependClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilderContext" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode extendsClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilder" />
+  </dependency>
+  <dependency className="jetbrains.mps.lang.smodel.dataFlow.EnumSwitchCaseBody_StatementList_DataFlow">
+    <classNode dependClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilderContext" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode extendsClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilder" />
   </dependency>
   <dependency className="jetbrains.mps.lang.smodel.dataFlow.EnumSwitchExpression_DataFlow">
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
@@ -86,13 +100,6 @@
     <classNode extendsClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilder" />
   </dependency>
   <dependency className="jetbrains.mps.lang.smodel.dataFlow.ExactConceptCase_DataFlow">
-    <classNode dependClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilderContext" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
-    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
-    <classNode extendsClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilder" />
-  </dependency>
-  <dependency className="jetbrains.mps.lang.smodel.dataFlow.ExpressionEnumBody_DataFlow">
     <classNode dependClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilderContext" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
@@ -169,13 +176,6 @@
     <classNode extendsClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilder" />
   </dependency>
   <dependency className="jetbrains.mps.lang.smodel.dataFlow.SemanticDowncastExpression_DataFlow">
-    <classNode dependClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilderContext" />
-    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
-    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
-    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
-    <classNode extendsClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilder" />
-  </dependency>
-  <dependency className="jetbrains.mps.lang.smodel.dataFlow.StatementListEnumBody_DataFlow">
     <classNode dependClassName="jetbrains.mps.lang.dataFlow.DataFlowBuilderContext" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />

@@ -276,8 +276,9 @@
                       serviceImplementation="com.intellij.openapi.application.impl.ApplicationInfoImpl"/>
 
   <!--
-  <applicationService serviceInterface="org.jetbrains.ide.script.IdeScriptEngineManager"
-                      serviceImplementation="org.jetbrains.ide.script.IdeScriptEngineManagerImpl"/>
+  <applicationService serviceInterface="com.intellij.ide.script.IdeScriptEngineManager"
+                        serviceImplementation="com.intellij.ide.script.IdeScriptEngineManagerImpl"/>
+  <statistics.counterUsagesCollector groupId="ide.script.engine" version="1"/>
   -->
 
   <applicationService serviceImplementation="com.intellij.ide.ui.UISettings"/>
@@ -477,6 +478,7 @@
   <statistics.validation.customWhiteListRule implementation="com.intellij.execution.dashboard.RunDashboardUsagesCollector$RunConfigurationTypeValidator" />
   <statistics.validation.customWhiteListRule implementation="com.intellij.featureStatistics.FeatureUsageTrackerImpl$ProductivityUtilValidator" />
   <statistics.validation.customWhiteListRule implementation="com.intellij.internal.statistic.collectors.fus.RegistryApplicationUsagesCollector$RegistryUtilValidator" />
+  <statistics.validation.customWhiteListRule implementation="com.intellij.internal.statistic.collectors.fus.PluginInfoWhiteListRule"/>
 
   <statistics.projectUsagesCollector implementation="com.intellij.internal.statistic.collectors.fus.fileTypes.ProjectStructureUsageCollector"/>
   <statistics.projectUsagesCollector implementation="com.intellij.internal.statistic.collectors.fus.FacetTypeUsageCollector"/>
@@ -496,7 +498,7 @@
 
   <statistics.counterUsagesCollector groupId="vcs.diff.trigger" version="1"/>
   <statistics.counterUsagesCollector groupId="vcs.back.forward.trigger" version="1"/>
-  <statistics.counterUsagesCollector groupId="ide.self.update" version="1"/>
+  <statistics.counterUsagesCollector groupId="ide.self.update" version="2"/>
   <statistics.counterUsagesCollector groupId="import.old.config" version="1"/>
   <statistics.counterUsagesCollector groupId="ui.tips" version="2"/>
   <statistics.counterUsagesCollector groupId="gutter.icon.click" version="1"/>
@@ -504,10 +506,8 @@
   <statistics.counterUsagesCollector groupId="new.project.wizard" version="1"/>
 
   <statistics.projectUsagesCollector implementation="com.intellij.openapi.vcs.statistics.VcsOptionsUsagesCollector"/>
-  <statistics.projectUsagesCollector implementation="com.intellij.openapi.vcs.statistics.VcsStatsUsagesCollector"/>
-  <statistics.projectUsagesCollector implementation="com.intellij.openapi.vcs.statistics.VcsNamesUsagesCollector"/>
+  <statistics.projectUsagesCollector implementation="com.intellij.openapi.vcs.statistics.VcsUsagesCollector"/>
 
-  <applicationInitializedListener implementation="com.intellij.openapi.vcs.statistics.VcsBackForwardUsageTriggerCollector$Trigger"/>
   <applicationInitializedListener implementation="com.intellij.openapi.application.Preloader"/>
 
   <statistics.applicationUsagesCollector implementation="com.intellij.featureStatistics.fusCollectors.EAPUsageCollector"/>
@@ -543,7 +543,7 @@
   <postStartupActivity implementation="com.intellij.openapi.wm.impl.ToolWindowManagerImpl$InitToolWindowsActivity"/>
   <postStartupActivity implementation="com.intellij.xml.breadcrumbs.BreadcrumbsInitializingActivity"/>
 
-  <postStartupActivity implementation="com.intellij.diagnostic.WindowsDefenderCheckerActivity"/>
+  <backgroundPostStartupActivity implementation="com.intellij.diagnostic.WindowsDefenderCheckerActivity" os="windows"/>
 
   <preloadingActivity implementation="com.intellij.openapi.actionSystem.impl.ActionPreloader"/>
   <preloadingActivity implementation="com.intellij.ide.ui.search.SearchableOptionPreloader"/>
@@ -729,6 +729,9 @@
 
   <postStartupActivity implementation="com.intellij.diagnostic.GenerateJarAccessLogActivity" order="last"/>
   <postStartupActivity implementation="com.intellij.diagnostic.startUpPerformanceReporter.StartUpPerformanceReporter" order="last"/>
+
+  <backgroundPostStartupActivity implementation="com.intellij.diagnostic.MemorySizeConfigurator"/>
+  <applicationService serviceImplementation="com.intellij.diagnostic.MemorySizeConfiguratorService"/>
 
   <httpRequestHandler implementation="com.intellij.ide.FavIconHttpRequestHandler" order="last"/>
 </extensions>

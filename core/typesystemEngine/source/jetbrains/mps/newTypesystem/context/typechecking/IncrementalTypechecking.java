@@ -263,7 +263,6 @@ public class IncrementalTypechecking extends ReportingTypechecking<State, TypeSy
     Set<Pair<SNode, List<IErrorReporter>>> result = new THashSet<>();
     Map<SNode, List<IErrorReporter>> nodesToErrorsMapNT = myNonTypeSystemComponent.getNodesToErrorsMap();
     Set<SNode> keySet = new THashSet<>(nodesToErrorsMapNT.keySet());
-    keySet.addAll(nodesToErrorsMapNT.keySet());
 
     for (SNode key : keySet) {
       List<IErrorReporter> reporters = nodesToErrorsMapNT.get(key);

@@ -26,7 +26,6 @@ import jetbrains.mps.ide.findusages.CantLoadSomethingException;
 import jetbrains.mps.ide.findusages.CantSaveSomethingException;
 import jetbrains.mps.ide.findusages.model.CategoryKind;
 import jetbrains.mps.ide.findusages.model.SearchResults;
-import jetbrains.mps.ide.findusages.view.icons.IconManager;
 import jetbrains.mps.ide.findusages.view.icons.Icons;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.DataTree;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.DataTreeChangesNotifier;
@@ -121,8 +120,8 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
     // XXX no idea what to pass as type, id into Progress cons here
     // final Progress p = new Progress("setContents", getClass().getName());
     // UiActivityMonitor.getInstance().addActivity(ProjectHelper.toIdeaProject(myProject), p);
-    // XXX no idea if there's real need to have read action here, just refactored ModelAccess static out of DataTree here.
-    myProject.getModelAccess().runReadAction(() -> myContents.setContents(contents, myTree.getPresentationProvider()));
+    // Need model read here, as DataTree builds its NodeNodeData elements with access to SNode, as well accessing model/module to figure out path.
+    myProject.getModelAccess().runReadAction(() -> myContents.setContents(contents));
     // UiActivityMonitor.getInstance().removeActivity(ProjectHelper.toIdeaProject(myProject), p);
   }
 
@@ -354,8 +353,12 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
       }
 
       void recreateActions() {
+        // XXX the reason we keep this odd code is that CategoryKind.DEFAULT_CATEGORY_KIND resides in [findUsages-runtime] module with no means to reference
+        //     UI icons. Though I'd like to move default icon into default INodeRepresentator implementation and remove CategoryKind.getIcon altogether,
+        //     I have to deal with categories of ModelCheckerViewer first, as there are icon for toggle button in toolbar and distinct icons per specific
+        //     category entry
         List<CategoryKind> categoryKinds = Collections.singletonList(
-            new CategoryKind(CategoryKind.DEFAULT_CATEGORY_KIND.getName(), General.Filter, CategoryKind.DEFAULT_CATEGORY_KIND.getTooltip())
+            new CategoryKind(CategoryKind.DEFAULT_CATEGORY_KIND.getName(), Icons.CATEGORY_ICON, CategoryKind.DEFAULT_CATEGORY_KIND.getTooltip())
         );
         if (myTree.getPresentationProvider() != null) {
           List<CategoryKind> kinds = myTree.getPresentationProvider().getCategoryKinds();
@@ -367,7 +370,7 @@ public class UsagesTreeComponent extends JPanel implements IChangeListener {
         myCategoryPathButtons.clear();
         for (CategoryKind kind : categoryKinds) {
           myCategoryPathButtons.add(new MyBasePathToggleAction(
-              PathItemRole.getCategoryRole(kind), kind.getTooltip(), IconManager.getIconForCategoryKind(kind)));
+              PathItemRole.getCategoryRole(kind), kind.getTooltip(), kind.getIcon()));
         }
 
         myModulePathButton = new MyBasePathToggleAction(PathItemRole.ROLE_MODULE, "Group by module", Icons.MODULE_ICON);

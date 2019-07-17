@@ -19,20 +19,14 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.SubstituteAction;
-import jetbrains.mps.smodel.CopyUtil;
 import jetbrains.mps.smodel.NodeReadAccessCasterInEditor;
-import jetbrains.mps.smodel.SModelUtil_new;
-import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.smodel.action.DefaultSChildSetter;
 import jetbrains.mps.smodel.action.ModelActions;
 import jetbrains.mps.typesystem.inference.InequalitySystem;
-import jetbrains.mps.typesystem.inference.TypeChecker;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.model.SNode;
 
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 public class DefaultSChildSubstituteInfo extends AbstractNodeSubstituteInfo implements DefaultSubstituteInfo {
@@ -70,6 +64,11 @@ public class DefaultSChildSubstituteInfo extends AbstractNodeSubstituteInfo impl
   @Override
   protected InequalitySystem getInequalitiesSystem(EditorCell contextCell) {
     return InequalitySystemFactory.getInequalitiesSystemForChildCell(contextCell, AbstractNodeSubstituteInfo.getModelForTypechecking());
+  }
+
+  @Override
+  protected SubstitutionTrial getSubstitutionTrial(EditorCell contextCell) {
+    return SubstitutionTrial.forCell(contextCell, getModelForTypechecking());
   }
 
   protected DefaultSChildSetter createDefaultNodeSetter() {

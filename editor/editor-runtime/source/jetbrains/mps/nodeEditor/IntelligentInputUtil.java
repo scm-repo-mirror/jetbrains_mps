@@ -39,7 +39,6 @@ import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.typechecking.backend.TypecheckingSession;
-import jetbrains.mps.typesystem.inference.TypeContextManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.mps.openapi.model.SNode;
 

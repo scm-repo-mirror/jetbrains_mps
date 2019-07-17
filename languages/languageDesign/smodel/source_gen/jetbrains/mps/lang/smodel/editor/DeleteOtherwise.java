@@ -5,30 +5,30 @@ package jetbrains.mps.lang.smodel.editor;
 import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
-import jetbrains.mps.smodel.action.SNodeFactoryOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.editor.runtime.selection.SelectionUtil;
+import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
 
-public class EnumSwitchExpression_AddDefaultClause {
+public class DeleteOtherwise {
 
-  /*package*/ static AbstractCellAction createAction_INSERT(final SNode node) {
+  /*package*/ static AbstractCellAction createAction_DELETE(final SNode node) {
     return new AbstractCellAction() {
       public void execute(EditorContext editorContext) {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNodeFactoryOperations.setNewChild(node, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf8d9b4eL, "default"), null);
-      }
-      @Override
-      public boolean canExecute(EditorContext editorContext) {
-        return this.canExecute_internal(editorContext, node);
-      }
-      public boolean canExecute_internal(EditorContext editorContext, SNode node) {
-        return (SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf8d9b4eL, "default")) == null);
+        if (DeletionApproverUtil.approve(editorContext, node, "OtherwiseClause")) {
+          return;
+        }
+        SNodeOperations.deleteNode(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf8d9b4eL, "otherwiseBody")));
+        SelectionUtil.selectLabelCellAnSetCaret(editorContext, node, SelectionManager.LAST_EDITABLE_CELL, -1);
       }
 
     };
@@ -55,7 +55,7 @@ public class EnumSwitchExpression_AddDefaultClause {
     // set cell actions from all imported action maps 
 
     // set cell actions defined directly in this action map 
-    editorCell.setAction(CellActionType.INSERT, createAction_INSERT(node));
+    editorCell.setAction(CellActionType.DELETE, createAction_DELETE(node));
 
   }
 
@@ -64,8 +64,8 @@ public class EnumSwitchExpression_AddDefaultClause {
     // set cell action(s) of the given type from imported action maps 
 
     // set cell action of the given type defined directly in this action map 
-    if (Objects.equals(actionType, CellActionType.INSERT)) {
-      editorCell.setAction(actionType, createAction_INSERT(node));
+    if (Objects.equals(actionType, CellActionType.DELETE)) {
+      editorCell.setAction(actionType, createAction_DELETE(node));
     }
   }
 }

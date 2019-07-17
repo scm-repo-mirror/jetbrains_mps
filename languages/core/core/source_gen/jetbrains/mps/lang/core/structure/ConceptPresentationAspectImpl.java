@@ -47,6 +47,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ScopeProvider;
   private ConceptPresentation props_SideTransformInfo;
   private ConceptPresentation props_SuppressErrorsAnnotation;
+  private ConceptPresentation props_TypeAnnotated;
 
   @Override
   @Nullable
@@ -56,7 +57,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.Attribute:
         if (props_Attribute == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.icon(IconContainer.RESOURCE_a0a1a0a0b0nb);
+          cpb.icon(IconContainer.RESOURCE_a0a1a0a0b0ob);
           props_Attribute = cpb.create();
         }
         return props_Attribute;
@@ -299,6 +300,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_SuppressErrorsAnnotation = cpb.create();
         }
         return props_SuppressErrorsAnnotation;
+      case LanguageConceptSwitch.TypeAnnotated:
+        if (props_TypeAnnotated == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("_:");
+          props_TypeAnnotated = cpb.create();
+        }
+        return props_TypeAnnotated;
     }
     return null;
   }

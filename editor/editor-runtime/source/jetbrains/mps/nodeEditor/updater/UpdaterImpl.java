@@ -30,7 +30,6 @@ import jetbrains.mps.openapi.editor.update.UpdaterListener;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.smodel.event.SModelEvent;
 import jetbrains.mps.typechecking.TypecheckingFacade;
-import jetbrains.mps.typesystem.inference.TypeContextManager;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.util.WeakSet;
 import org.apache.log4j.LogManager;

@@ -2,13 +2,13 @@
 <model ref="r:00000000-0000-4000-0000-011c895903a2(jetbrains.mps.lang.test.runtime)">
   <persistence version="9" />
   <languages>
-    <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
-    <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="0" />
-    <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
-    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
-    <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
+    <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
+    <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="-1" />
+    <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="-1" />
+    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
+    <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="-1" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="-1" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
   </languages>
   <imports>
     <import index="tp5g" ref="r:00000000-0000-4000-0000-011c89590388(jetbrains.mps.lang.test.structure)" />
@@ -6724,6 +6724,20 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="mDYNhtx7wA" role="3cqZAp">
+          <node concept="2OqwBi" id="mDYNhtx7wB" role="3clFbG">
+            <node concept="37vLTw" id="mDYNhtx7wC" role="2Oq$k0">
+              <ref role="3cqZAo" node="fM_JX6va0M" resolve="result" />
+            </node>
+            <node concept="TSZUe" id="mDYNhtx7wD" role="2OqNvi">
+              <node concept="2ShNRf" id="mDYNhtx7wE" role="25WWJ7">
+                <node concept="1pGfFk" id="mDYNhtx7wF" role="2ShVmc">
+                  <ref role="37wK5l" to="k8ev:mDYNhtw$3s" resolve="NonTypesystemChecker" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="fM_JX6vcUz" role="3cqZAp">
           <node concept="2OqwBi" id="fM_JX6vcU$" role="3clFbG">
             <node concept="37vLTw" id="fM_JX6vcU_" role="2Oq$k0">
@@ -8282,6 +8296,32 @@
               </node>
               <node concept="2ShNRf" id="3RAxiQnC0TT" role="37wK5m">
                 <node concept="1pGfFk" id="3RAxiQnCimp" role="2ShVmc">
+                  <ref role="37wK5l" to="mk8z:~EmptyProgressMonitor.&lt;init&gt;()" resolve="EmptyProgressMonitor" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="mDYNhtxTVn" role="3cqZAp">
+          <node concept="2OqwBi" id="mDYNhtxTVo" role="3clFbG">
+            <node concept="2ShNRf" id="mDYNhtxTVp" role="2Oq$k0">
+              <node concept="1pGfFk" id="mDYNhtxTVq" role="2ShVmc">
+                <ref role="37wK5l" to="k8ev:mDYNhtw$3s" resolve="NonTypesystemChecker" />
+              </node>
+            </node>
+            <node concept="liA8E" id="mDYNhtxTVr" role="2OqNvi">
+              <ref role="37wK5l" to="k8ev:mDYNhtw$4d" resolve="check" />
+              <node concept="37vLTw" id="mDYNhtxTVs" role="37wK5m">
+                <ref role="3cqZAo" node="3fCX6WCBvHQ" resolve="myRoot" />
+              </node>
+              <node concept="37vLTw" id="mDYNhtxTVt" role="37wK5m">
+                <ref role="3cqZAo" node="5P_sMle8E0v" resolve="repository" />
+              </node>
+              <node concept="37vLTw" id="mDYNhtxTVu" role="37wK5m">
+                <ref role="3cqZAo" node="dTvp$Z0Imi" resolve="errorCollector" />
+              </node>
+              <node concept="2ShNRf" id="mDYNhtxTVv" role="37wK5m">
+                <node concept="1pGfFk" id="mDYNhtxTVw" role="2ShVmc">
                   <ref role="37wK5l" to="mk8z:~EmptyProgressMonitor.&lt;init&gt;()" resolve="EmptyProgressMonitor" />
                 </node>
               </node>

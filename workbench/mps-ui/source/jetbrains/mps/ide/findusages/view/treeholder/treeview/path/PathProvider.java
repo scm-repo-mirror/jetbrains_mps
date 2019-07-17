@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,17 +17,14 @@ package jetbrains.mps.ide.findusages.view.treeholder.treeview.path;
 
 import jetbrains.mps.ide.findusages.model.CategoryKind;
 import jetbrains.mps.ide.findusages.model.SearchResult;
-import jetbrains.mps.ide.findusages.view.treeholder.tree.TextOptions;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.CategoryNodeData;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.DeployedLanguageNodeData;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.ModelNodeData;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.ModuleNodeData;
 import jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes.NodeNodeData;
-import jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator;
 import jetbrains.mps.util.Pair;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
@@ -35,11 +32,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 
-import javax.swing.Icon;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.function.Function;
 
 public class PathProvider {
   private static final Logger LOG = LogManager.getLogger(PathProvider.class);
@@ -49,37 +44,14 @@ public class PathProvider {
   private final PathItem.Factory<SLanguage> myLanguageElementFactory;
   private final PathItem.Factory<Pair<CategoryKind, String>> myCategoryElementFactory;
 
-  public PathProvider(@Nullable final INodeRepresentator<? super Object> presentationProvider, final boolean resultsSection) {
-    final Function<PathItem<?>, String> caption = o -> {
-      if (presentationProvider != null && o.isTail() && o.getPresentationObject() != null) {
-        return presentationProvider.getPresentation(o.getPresentationObject());
-      }
-      return null;
-    };
-    final Function<PathItem<?>, String> info = o -> {
-        if (presentationProvider != null && o.isTail() && o.getPresentationObject() != null) {
-          return presentationProvider.getAdditionalInfo(o.getPresentationObject());
-        }
-        return null;
-    };
-
-    myNodeElementFactory = c -> new NodeNodeData(c.getRole(), caption.apply(c), info.apply(c), c.getIdObject(), c.isTail(), resultsSection);
-    myModelElementFactory = c -> new ModelNodeData(c.getRole(), caption.apply(c), info.apply(c), c.getIdObject(), c.isTail(), resultsSection);
-    myModuleElementFactory = c -> new ModuleNodeData(c.getRole(), caption.apply(c), info.apply(c), c.getIdObject(), c.isTail(), resultsSection);
-    myLanguageElementFactory = c -> new DeployedLanguageNodeData(c.getRole(), caption.apply(c), info.apply(c), c.getIdObject(), c.isTail(), resultsSection);
+  public PathProvider(final boolean resultsSection) {
+    myNodeElementFactory = c -> new NodeNodeData(c.getRole(), c.getIdObject(), c.getPresentationObject(), c.isTail(), resultsSection);
+    myModelElementFactory = c -> new ModelNodeData(c.getRole(), c.getIdObject(), c.getPresentationObject(), c.isTail(), resultsSection);
+    myModuleElementFactory = c -> new ModuleNodeData(c.getRole(), c.getIdObject(), c.getPresentationObject(), c.isTail(), resultsSection);
+    myLanguageElementFactory = c -> new DeployedLanguageNodeData(c.getRole(), c.getIdObject(), c.getPresentationObject(), c.isTail(), resultsSection);
     myCategoryElementFactory = creator -> {
       Pair<CategoryKind, String> category = creator.getIdObject();
-      Icon i;
-      String c;
-      if (presentationProvider != null) {
-        // FIXME why getCategoryIcon in ModelCheckerViewer (the only place to care about this method) uses 1 category kind and name to distinguish an icon?
-        i = presentationProvider.getCategoryIcon(category.o2);
-        c = presentationProvider.getCategoryText(new TextOptions(true, false, 0), category.o2, resultsSection);
-      } else {
-        i = category.o1.getIcon();
-        c = category.o2;
-      }
-      return new CategoryNodeData(creator.getRole(), category.o1, c, i, resultsSection);
+      return new CategoryNodeData(creator.getRole(), category.o1, category.o2, resultsSection);
     };
   }
 

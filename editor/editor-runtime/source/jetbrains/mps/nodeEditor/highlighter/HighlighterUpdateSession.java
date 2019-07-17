@@ -29,7 +29,6 @@ import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.typechecking.backend.TypecheckingSession;
-import jetbrains.mps.typesystem.inference.TypeContextManager;
 import jetbrains.mps.util.Cancellable;
 import jetbrains.mps.util.Pair;
 import org.apache.log4j.LogManager;

@@ -7,8 +7,8 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.EditorContext;
 import org.jetbrains.mps.openapi.model.SNode;
 
-public class ExpressionEnumBody_Editor extends DefaultNodeEditor {
+public class EnumSwitchCaseBody_Expression_Editor extends DefaultNodeEditor {
   public EditorCell createEditorCell(EditorContext editorContext, SNode node) {
-    return new ExpressionEnumBody_EditorBuilder_a(editorContext, node).createCell();
+    return new EnumSwitchCaseBody_Expression_EditorBuilder_a(editorContext, node).createCell();
   }
 }

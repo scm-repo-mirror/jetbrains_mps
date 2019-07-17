@@ -255,8 +255,12 @@ public class SLibrary implements MPSModuleOwner, Comparable<SLibrary> {
     for (ModuleHandle moduleHandle : moduleHandles) {
       SModule module = mrf.instantiateModule(moduleHandle, this);
       loaded.add(module);
-      myFileTracker.track(moduleHandle.getFile(), module);
-      uniqueFiles.add(moduleHandle.getFile());
+      IFile file = moduleHandle.getFile();
+      if (file.isInArchive()) {
+        file = file.getBundleHome();
+      }
+      myFileTracker.track(file, module);
+      uniqueFiles.add(file);
     }
     for (SModule module : loaded) {
       if (module instanceof AbstractModule) {

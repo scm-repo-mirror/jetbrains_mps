@@ -20,8 +20,8 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 
-public final class StatementListEnumBody__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc9L, "jetbrains.mps.lang.smodel.structure.StatementListEnumBody");
+public final class EnumSwitchCaseBody_StatementList__BehaviorDescriptor extends BaseBHDescriptor {
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc9L, "jetbrains.mps.lang.smodel.structure.EnumSwitchCaseBody_StatementList");
 
   public static final SMethod<Boolean> isExecuteSynchronous_idhTIpcC8 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isExecuteSynchronous").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hTIpcC8").build();
   public static final SMethod<Boolean> isPassLastExpressionValue_id28aPEVv$IZv = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isPassLastExpressionValue").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("28aPEVv$IZv").build();
@@ -42,7 +42,7 @@ public final class StatementListEnumBody__BehaviorDescriptor extends BaseBHDescr
     return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc9L, 0x220ad6aedf1fdccaL, "statementList"));
   }
 
-  /*package*/ StatementListEnumBody__BehaviorDescriptor() {
+  /*package*/ EnumSwitchCaseBody_StatementList__BehaviorDescriptor() {
   }
 
   @Override

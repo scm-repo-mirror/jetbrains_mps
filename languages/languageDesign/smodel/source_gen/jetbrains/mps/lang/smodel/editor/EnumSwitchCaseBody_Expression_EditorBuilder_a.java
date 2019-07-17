@@ -23,11 +23,11 @@ import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.SemicolonStyleClass;
 
-/*package*/ class ExpressionEnumBody_EditorBuilder_a extends AbstractEditorBuilder {
+/*package*/ class EnumSwitchCaseBody_Expression_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
   private SNode myNode;
 
-  public ExpressionEnumBody_EditorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
+  public EnumSwitchCaseBody_Expression_EditorBuilder_a(@NotNull EditorContext context, @NotNull SNode node) {
     super(context);
     myNode = node;
   }
@@ -44,7 +44,7 @@ import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.SemicolonS
 
   private EditorCell createCollection_0() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Indent());
-    editorCell.setCellId("Collection_1qps48_a");
+    editorCell.setCellId("Collection_727x32_a");
     editorCell.setBig(true);
     setCellContext(editorCell);
     editorCell.addEditorCell(createRefNode_0());
@@ -52,14 +52,14 @@ import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.SemicolonS
     return editorCell;
   }
   private EditorCell createRefNode_0() {
-    SingleRoleCellProvider provider = new ExpressionEnumBody_EditorBuilder_a.expressionSingleRoleHandler_1qps48_a0(myNode, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc5L, 0x220ad6aedf1fdcc6L, "expression"), getEditorContext());
+    SingleRoleCellProvider provider = new EnumSwitchCaseBody_Expression_EditorBuilder_a.expressionSingleRoleHandler_727x32_a0(myNode, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc5L, 0x220ad6aedf1fdcc6L, "expression"), getEditorContext());
     return provider.createCell();
   }
-  private static class expressionSingleRoleHandler_1qps48_a0 extends SingleRoleCellProvider {
+  private static class expressionSingleRoleHandler_727x32_a0 extends SingleRoleCellProvider {
     @NotNull
     private SNode myNode;
 
-    public expressionSingleRoleHandler_1qps48_a0(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
+    public expressionSingleRoleHandler_727x32_a0(SNode ownerNode, SContainmentLink containmentLink, EditorContext context) {
       super(containmentLink, context);
       myNode = ownerNode;
     }
@@ -108,7 +108,7 @@ import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.SemicolonS
   }
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, ";");
-    editorCell.setCellId("Constant_1qps48_b0");
+    editorCell.setCellId("Constant_727x32_b0");
     Style style = new StyleImpl();
     new SemicolonStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
     editorCell.getStyle().putAll(style);

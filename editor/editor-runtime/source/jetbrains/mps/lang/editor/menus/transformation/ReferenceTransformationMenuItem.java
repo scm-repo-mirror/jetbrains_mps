@@ -29,6 +29,7 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizationContext;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
+import jetbrains.mps.openapi.editor.menus.substitute.SubstitutionAcceptable;
 import jetbrains.mps.openapi.editor.menus.transformation.ActionItemBase;
 import jetbrains.mps.openapi.editor.menus.transformation.TransformationMenuContext;
 import jetbrains.mps.smodel.CopyUtil;
@@ -36,7 +37,6 @@ import jetbrains.mps.smodel.presentation.NodePresentationUtil;
 import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.smodel.runtime.IconResourceUtil;
 import jetbrains.mps.typechecking.TypecheckingFacade;
-import jetbrains.mps.typesystem.inference.TypeChecker;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -44,7 +44,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 
 public class ReferenceTransformationMenuItem extends ActionItemBase implements BaseCompletionActionItem {
@@ -111,32 +110,20 @@ public class ReferenceTransformationMenuItem extends ActionItemBase implements B
     return "^" + NodePresentationUtil.descriptionText(myTargetNode, myNode);
   }
 
+  @Override
+  public boolean isAcceptable(String pattern, SubstitutionAcceptable acceptable) {
+    SNode actionType = getActionType(pattern);
+    if (actionType != null) return acceptable.acceptType(actionType);
+
+    SNode sourceNodeCopy = CopyUtil.copy(myNode);
+    SNodeAccessUtil.setReferenceTarget(sourceNodeCopy, myLink, myTargetNode);
+    return acceptable.acceptNode(sourceNodeCopy);
+  }
+
   @Nullable
   @Override
   public SNode getActionType(@NotNull String pattern) {
-    HashMap<SNode, SNode> mapping = new HashMap<>();
-    CopyUtil.copy(Arrays.asList(myNode.getContainingRoot()), mapping);
-    SNode sourceNodeCopy = mapping.get(myNode);
-    SNode nodeToEquate = myNode;
-    TypeChecker typeChecker = TypeChecker.getInstance();
-    while (nodeToEquate != null && typeChecker.getTypeOf(nodeToEquate) == null) {
-      nodeToEquate = nodeToEquate.getParent();
-    }
-    if (nodeToEquate == null) {
-      return null;
-    }
-    SNode nodeToEquateCopy = mapping.get(nodeToEquate);
-    if (nodeToEquateCopy.getParent() == null) {
-      // why?..
-      return null;
-    }
-    SNodeAccessUtil.setReferenceTarget(sourceNodeCopy, myLink, myTargetNode);
-    AbstractNodeSubstituteInfo.getModelForTypechecking().addRootNode(nodeToEquateCopy);
-    try {
-      return TypecheckingFacade.getFromContext().getTypeOf(nodeToEquateCopy);
-    } finally {
-      AbstractNodeSubstituteInfo.getModelForTypechecking().removeRootNode(nodeToEquateCopy);
-    }
+    return null;
   }
 
   @Override

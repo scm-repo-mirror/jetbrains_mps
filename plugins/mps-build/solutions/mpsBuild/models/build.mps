@@ -2,11 +2,11 @@
 <model ref="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)">
   <persistence version="9" />
   <languages>
-    <use id="798100da-4f0a-421a-b991-71f8c50ce5d2" name="jetbrains.mps.build" version="0" />
-    <use id="d5033cee-f632-44b6-b308-89d4fbde34ff" name="jetbrains.mps.build.startup" version="0" />
-    <use id="0cf935df-4699-4e9c-a132-fa109541cba3" name="jetbrains.mps.build.mps" version="7" />
-    <use id="698a8d22-a104-47a0-ba8d-10e3ec237f13" name="jetbrains.mps.build.workflow" version="0" />
-    <use id="479c7a8c-02f9-43b5-9139-d910cb22f298" name="jetbrains.mps.core.xml" version="0" />
+    <use id="798100da-4f0a-421a-b991-71f8c50ce5d2" name="jetbrains.mps.build" version="-1" />
+    <use id="d5033cee-f632-44b6-b308-89d4fbde34ff" name="jetbrains.mps.build.startup" version="-1" />
+    <use id="0cf935df-4699-4e9c-a132-fa109541cba3" name="jetbrains.mps.build.mps" version="-1" />
+    <use id="698a8d22-a104-47a0-ba8d-10e3ec237f13" name="jetbrains.mps.build.workflow" version="-1" />
+    <use id="479c7a8c-02f9-43b5-9139-d910cb22f298" name="jetbrains.mps.core.xml" version="-1" />
   </languages>
   <imports />
   <registry>
@@ -2675,7 +2675,7 @@
           </node>
           <node concept="L2wRC" id="wKi8DpCCoi" role="39821P">
             <property role="3PtdQa" value="true" />
-            <ref role="L2wRA" node="2Tl9xCDWpd" resolve="jetbrains.mps.lang.behavior.api" />
+            <ref role="L2wRA" node="2Tl9xCDWpd" />
             <node concept="3yLZsm" id="wKi8DpCCGH" role="3yL2VB">
               <property role="3yLZsk" value="/lib/mps-behavior-api.jar" />
               <node concept="55IIr" id="wKi8DpCCHs" role="3yLZsn">
@@ -2686,13 +2686,13 @@
             </node>
             <node concept="3PtdJl" id="wKi8DpCCL$" role="3PtcVe">
               <node concept="3ygNvl" id="wKi8DpCCMh" role="39821P">
-                <ref role="3ygNvj" node="wKi8DpgB$b" resolve="mps-behavior-api.jar" />
+                <ref role="3ygNvj" node="wKi8DpgB$b" />
               </node>
             </node>
           </node>
           <node concept="L2wRC" id="wKi8DpCCSJ" role="39821P">
             <property role="3PtdQa" value="true" />
-            <ref role="L2wRA" node="bOvjGOUy$U" resolve="jetbrains.mps.lang.behavior.runtime" />
+            <ref role="L2wRA" node="bOvjGOUy$U" />
             <node concept="3yLZsm" id="wKi8DpCD0C" role="3yL2VB">
               <property role="3yLZsk" value="/lib/mps-behavior-runtime.jar" />
               <node concept="55IIr" id="wKi8DpCD1n" role="3yLZsn">
@@ -2703,7 +2703,7 @@
             </node>
             <node concept="3PtdJl" id="wKi8DpCCWR" role="3PtcVe">
               <node concept="3ygNvl" id="wKi8DpgG7z" role="39821P">
-                <ref role="3ygNvj" node="wKi8DpgBx5" resolve="mps-behavior-runtime.jar" />
+                <ref role="3ygNvj" node="wKi8DpgBx5" />
               </node>
             </node>
           </node>
@@ -2720,7 +2720,7 @@
                 </node>
               </node>
               <node concept="1kK7hY" id="wKi8DoCAOj" role="39821P">
-                <ref role="1kK7hZ" node="7Kfy9QB6Lh2" resolve="jetbrains.mps.refactoring.runtime" />
+                <ref role="1kK7hZ" node="7Kfy9QB6Lh2" />
                 <node concept="1cIVw3" id="wKi8DoCAX_" role="1622H7">
                   <property role="1cIVw0" value="/lib/mps-core.jar" />
                 </node>
@@ -2739,12 +2739,12 @@
                 </node>
               </node>
               <node concept="3$exzU" id="wKi8DoCAOn" role="39821P">
-                <ref role="3$exzV" node="7Kfy9QB6Lh2" resolve="jetbrains.mps.refactoring.runtime" />
+                <ref role="3$exzV" node="7Kfy9QB6Lh2" />
               </node>
             </node>
           </node>
           <node concept="L2wRC" id="72hUg2Ux6sD" role="39821P">
-            <ref role="L2wRA" node="7Kfy9QB6LeP" resolve="jetbrains.mps.analyzers.runtime" />
+            <ref role="L2wRA" node="7Kfy9QB6LeP" />
           </node>
           <node concept="3981dx" id="wKi8Dot5aP" role="39821P">
             <node concept="398223" id="wKi8Dot5cy" role="39821P">
@@ -2754,7 +2754,7 @@
                 </node>
               </node>
               <node concept="1kK7hY" id="wKi8Dot5c_" role="39821P">
-                <ref role="1kK7hZ" node="7Kfy9QB6LfK" resolve="jetbrains.mps.dataFlow.runtime" />
+                <ref role="1kK7hZ" node="7Kfy9QB6LfK" />
                 <node concept="1cIVw3" id="wKi8Dot5cA" role="1622H7">
                   <property role="1cIVw0" value="/lib/mps-core.jar" />
                 </node>
@@ -2773,7 +2773,7 @@
                 </node>
               </node>
               <node concept="3$exzU" id="wKi8Dot5cG" role="39821P">
-                <ref role="3$exzV" node="7Kfy9QB6LfK" resolve="jetbrains.mps.dataFlow.runtime" />
+                <ref role="3$exzV" node="7Kfy9QB6LfK" />
               </node>
             </node>
             <node concept="3_J27D" id="wKi8Dot5aR" role="Nbhlr">
@@ -2795,7 +2795,7 @@
                 </node>
               </node>
               <node concept="1kK7hY" id="wKi8Dot4Uh" role="39821P">
-                <ref role="1kK7hZ" node="7Kfy9QB6Lfd" resolve="jetbrains.mps.findUsages.runtime" />
+                <ref role="1kK7hZ" node="7Kfy9QB6Lfd" />
                 <node concept="1cIVw3" id="wKi8Dot53a" role="1622H7">
                   <property role="1cIVw0" value="/lib/mps-core.jar" />
                 </node>
@@ -2814,7 +2814,7 @@
                 </node>
               </node>
               <node concept="3$exzU" id="wKi8Dot51M" role="39821P">
-                <ref role="3$exzV" node="7Kfy9QB6Lfd" resolve="jetbrains.mps.findUsages.runtime" />
+                <ref role="3$exzV" node="7Kfy9QB6Lfd" />
               </node>
             </node>
           </node>
@@ -2831,7 +2831,7 @@
                 </node>
               </node>
               <node concept="1kK7hY" id="wKi8Dotbbl" role="39821P">
-                <ref role="1kK7hZ" node="uyj83GeNPj" resolve="jetbrains.mps.lang.smodel.query.runtime" />
+                <ref role="1kK7hZ" node="uyj83GeNPj" />
                 <node concept="1cIVw3" id="wKi8Dotbe7" role="1622H7">
                   <property role="1cIVw0" value="/lib/mps-core.jar" />
                 </node>
@@ -2850,12 +2850,12 @@
                 </node>
               </node>
               <node concept="3$exzU" id="wKi8Dotb9X" role="39821P">
-                <ref role="3$exzV" node="uyj83GeNPj" resolve="jetbrains.mps.lang.smodel.query.runtime" />
+                <ref role="3$exzV" node="uyj83GeNPj" />
               </node>
             </node>
           </node>
           <node concept="L2wRC" id="3A3gNhef2z9" role="39821P">
-            <ref role="L2wRA" node="5cCcm$KATVz" resolve="jetbrains.mps.lang.migration.runtime" />
+            <ref role="L2wRA" node="5cCcm$KATVz" />
           </node>
         </node>
         <node concept="398223" id="2d0qgmCdfZo" role="39821P">
@@ -28207,6 +28207,9 @@
     <node concept="26Ea6D" id="4A8SxGHvPcJ" role="2hID6k">
       <property role="26Ea6C" value="-XX:ReservedCodeCacheSize=240m" />
     </node>
+    <node concept="26Ea6D" id="2sJHcZ7KMn9" role="2hID6k">
+      <property role="26Ea6C" value="-Dperformance.watcher.freeze.report=false" />
+    </node>
     <node concept="26Ea6D" id="2lwFGYOW7EZ" role="2hID6k">
       <property role="2eq24a" value="true" />
       <property role="26Ea6C" value="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5071" />
@@ -28276,6 +28279,9 @@
     </node>
     <node concept="26Ea6D" id="4A8SxGHvPdc" role="26FZ21">
       <property role="26Ea6C" value="-XX:ReservedCodeCacheSize=240m" />
+    </node>
+    <node concept="26Ea6D" id="2sJHcZ7KMnC" role="26FZ21">
+      <property role="26Ea6C" value="-Dperformance.watcher.freeze.report=false" />
     </node>
     <node concept="26Ea6D" id="BJYGrH08XG" role="26FZ21">
       <property role="2eq24a" value="true" />
@@ -38150,10 +38156,10 @@
     <node concept="398b33" id="SHPhCCYuJN" role="3989C9">
       <property role="TrG5h" value="messages-for-legacy-constraints" />
       <node concept="nCB5N" id="6e4RFSGTKuP" role="nCB5Z">
-        <ref role="nCB5Y" node="5RhptgddDKp" resolve="context" />
+        <ref role="nCB5Y" node="5RhptgddDKp" />
       </node>
       <node concept="nCB5N" id="6e4RFSGTM4s" role="nCB5Z">
-        <ref role="nCB5Y" node="SHPhCCYob1" resolve="problem" />
+        <ref role="nCB5Y" node="SHPhCCYob1" />
       </node>
       <node concept="nCB5N" id="SHPhCCYoii" role="nCB5Z">
         <ref role="nCB5Y" node="5Lo0z0qFWkX" resolve="mps-openapi" />
@@ -38161,7 +38167,7 @@
       <node concept="2GAZfH" id="6e4RFSGTEPm" role="398b2p">
         <node concept="TIC1d" id="6e4RFSGTEPk" role="2GAZfG">
           <node concept="398BVA" id="6e4RFSGTI0W" role="TIC6M">
-            <ref role="398BVh" node="6IJvZDkyhr7" resolve="projectHome" />
+            <ref role="398BVh" node="6IJvZDkyhr7" />
             <node concept="2Ry0Ak" id="6e4RFSGTI0Z" role="iGT6I">
               <property role="2Ry0Am" value="core" />
               <node concept="2Ry0Ak" id="6e4RFSGTIyV" role="2Ry0An">

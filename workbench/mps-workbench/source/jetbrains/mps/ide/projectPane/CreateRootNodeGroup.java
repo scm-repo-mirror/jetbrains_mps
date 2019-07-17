@@ -25,6 +25,7 @@ import jetbrains.mps.smodel.SModelOperations;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.smodel.constraints.ModelConstraints;
+import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.smodel.language.LanguageAspectSupport;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.util.ToStringComparator;
@@ -162,15 +163,30 @@ public class CreateRootNodeGroup extends BaseGroup {
   }
 
   private void addActionsForRoots(SLanguage from, SModel target, DefaultActionGroup group) {
-    for (SAbstractConcept c : from.getConcepts()) {
-      if (!ModelConstraints.canBeRoot(c, target)) {
-        continue;
+    for (SAbstractConcept concept : from.getConcepts()) {
+      if (shouldAddActionForConcept(concept, target, false)) {
+        addAction(concept, target, group);
       }
-      if (CreateRootFilterEP.getInstance().shouldBeRemoved(c)) {
-        continue;
-      }
-
-      group.add(new NewRootNodeAction(c, target, myPackage));
     }
+    boolean separatorAdded = false;
+    for (SAbstractConcept concept : from.getConcepts()) {
+      if (shouldAddActionForConcept(concept, target, true)) {
+        if (!separatorAdded) {
+          separatorAdded = true;
+          group.addSeparator();
+        }
+        addAction(concept, target, group);
+      }
+    }
+  }
+
+  private boolean shouldAddActionForConcept(SAbstractConcept concept, SModel target, boolean forDeprecated) {
+    return ModelConstraints.canBeRoot(concept, target)
+           && !CreateRootFilterEP.getInstance().shouldBeRemoved(concept)
+           && ConceptRegistry.getInstance().getConceptProperties(concept).isDeprecated() == forDeprecated;
+  }
+
+  private void addAction(SAbstractConcept concept, SModel target, DefaultActionGroup group) {
+    group.add(new NewRootNodeAction(concept, target, myPackage));
   }
 }
