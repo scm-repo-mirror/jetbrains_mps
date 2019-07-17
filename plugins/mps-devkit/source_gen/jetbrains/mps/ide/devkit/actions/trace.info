@@ -2271,53 +2271,61 @@
   </root>
   <root nodeRef="r:90fa2771-55a5-4174-b12a-f5413c5a876c(jetbrains.mps.ide.devkit.actions)/2662234144540708083">
     <file name="CellProperties_Action.java">
-      <node id="2662234144540708083" at="18,0,19,0" concept="14" trace="ICON" />
-      <node id="2662234144540708083" at="20,34,21,39" concept="16" />
-      <node id="2662234144540708083" at="21,39,22,34" concept="5" />
-      <node id="2662234144540708083" at="22,34,23,40" concept="5" />
-      <node id="2662234144540708083" at="26,32,27,16" concept="11" />
-      <node id="2662234144540708083" at="31,53,32,19" concept="11" />
-      <node id="2662234144540708095" at="34,5,35,55" concept="10" />
-      <node id="2662234144540708095" at="35,55,36,51" concept="5" />
-      <node id="8898893144448209958" at="37,22,38,21" concept="11" />
-      <node id="2662234144540708096" at="41,5,42,66" concept="10" />
-      <node id="2662234144540708096" at="42,66,43,50" concept="5" />
+      <node id="2662234144540708083" at="20,0,21,0" concept="14" trace="ICON" />
+      <node id="2662234144540708083" at="22,34,23,39" concept="16" />
+      <node id="2662234144540708083" at="23,39,24,34" concept="5" />
+      <node id="2662234144540708083" at="24,34,25,40" concept="5" />
+      <node id="2662234144540708083" at="28,32,29,16" concept="11" />
+      <node id="2662234144540708083" at="33,53,34,19" concept="11" />
+      <node id="2662234144540708095" at="36,5,37,55" concept="10" />
+      <node id="8898893144448209958" at="38,22,39,21" concept="11" />
+      <node id="2662234144540708096" at="42,5,43,66" concept="10" />
       <node id="8898893144448210491" at="44,22,45,21" concept="11" />
       <node id="2662234144540708083" at="47,5,48,16" concept="11" />
-      <node id="2662234144540708086" at="51,96,52,139" concept="5" />
-      <node id="2662234144540708083" at="30,95,33,5" concept="8" />
-      <node id="8898893144448209958" at="36,51,39,7" concept="8" />
-      <node id="8898893144448210491" at="43,50,46,7" concept="8" />
-      <node id="2662234144540708083" at="25,0,29,0" concept="9" trace="isDumbAware#()Z" />
-      <node id="2662234144540708083" at="50,0,54,0" concept="9" trace="doExecute#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
-      <node id="2662234144540708083" at="20,0,25,0" concept="3" trace="CellProperties_Action#()V" />
-      <node id="2662234144540708095" at="33,5,40,5" concept="1" />
-      <node id="2662234144540708096" at="40,5,47,5" concept="1" />
-      <node id="2662234144540708083" at="29,0,50,0" concept="9" trace="collectActionData#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)Z" />
-      <scope id="2662234144540708083" at="26,32,27,16" />
-      <scope id="2662234144540708083" at="31,53,32,19" />
-      <scope id="8898893144448209958" at="37,22,38,21" />
+      <node id="1093488058661516669" at="51,96,52,73" concept="10" />
+      <node id="1093488058661681780" at="54,39,55,40" concept="11" />
+      <node id="2662234144540708086" at="57,7,58,93" concept="5" />
+      <node id="2662234144540708083" at="32,95,35,5" concept="8" />
+      <node id="8898893144448209958" at="37,55,40,7" concept="8" />
+      <node id="8898893144448210491" at="43,66,46,7" concept="8" />
+      <node id="1093488058661681778" at="54,0,57,0" concept="9" trace="compute#()Ljetbrains/mps/ide/devkit/cellExplorer/CellProperties;" />
+      <node id="2662234144540708083" at="27,0,31,0" concept="9" trace="isDumbAware#()Z" />
+      <node id="2662234144540708083" at="22,0,27,0" concept="3" trace="CellProperties_Action#()V" />
+      <node id="1093488058661681765" at="52,73,57,7" concept="10" />
+      <node id="2662234144540708095" at="35,5,41,5" concept="1" />
+      <node id="2662234144540708096" at="41,5,47,5" concept="1" />
+      <node id="2662234144540708083" at="50,0,60,0" concept="9" trace="doExecute#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
+      <node id="2662234144540708083" at="31,0,50,0" concept="9" trace="collectActionData#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)Z" />
+      <scope id="2662234144540708083" at="28,32,29,16" />
+      <scope id="2662234144540708083" at="33,53,34,19" />
+      <scope id="8898893144448209958" at="38,22,39,21" />
       <scope id="8898893144448210491" at="44,22,45,21" />
-      <scope id="2662234144540708083" at="51,96,52,139" />
-      <scope id="2662234144540708083" at="20,34,23,40" />
-      <scope id="2662234144540708083" at="25,0,29,0" />
-      <scope id="2662234144540708083" at="50,0,54,0">
-        <var name="_params" id="2662234144540708083" />
-        <var name="event" id="2662234144540708083" />
-      </scope>
-      <scope id="2662234144540708083" at="20,0,25,0" />
-      <scope id="2662234144540708095" at="34,5,39,7">
+      <scope id="1093488058661681779" at="54,39,55,40" />
+      <scope id="2662234144540708083" at="22,34,25,40" />
+      <scope id="1093488058661681778" at="54,0,57,0" />
+      <scope id="2662234144540708083" at="27,0,31,0" />
+      <scope id="2662234144540708095" at="36,5,40,7">
         <var name="p" id="2662234144540708095" />
       </scope>
-      <scope id="2662234144540708096" at="41,5,46,7">
+      <scope id="2662234144540708096" at="42,5,46,7">
         <var name="p" id="2662234144540708096" />
       </scope>
-      <scope id="2662234144540708083" at="30,95,48,16" />
-      <scope id="2662234144540708083" at="29,0,50,0">
+      <scope id="2662234144540708083" at="22,0,27,0" />
+      <scope id="2662234144540708083" at="51,96,58,93">
+        <var name="cell" id="1093488058661516670" />
+        <var name="props" id="1093488058661681766" />
+      </scope>
+      <scope id="2662234144540708083" at="50,0,60,0">
         <var name="_params" id="2662234144540708083" />
         <var name="event" id="2662234144540708083" />
       </scope>
-      <unit id="2662234144540708083" at="17,0,55,0" name="jetbrains.mps.ide.devkit.actions.CellProperties_Action" />
+      <scope id="2662234144540708083" at="32,95,48,16" />
+      <scope id="2662234144540708083" at="31,0,50,0">
+        <var name="_params" id="2662234144540708083" />
+        <var name="event" id="2662234144540708083" />
+      </scope>
+      <unit id="1093488058661681778" at="53,129,57,5" name="jetbrains.mps.ide.devkit.actions.CellProperties_Action$1" />
+      <unit id="2662234144540708083" at="19,0,61,0" name="jetbrains.mps.ide.devkit.actions.CellProperties_Action" />
     </file>
     <file name="Mpsdevkit_ApplicationPlugin.java">
       <node id="2662234144540708083" at="40,46,41,43" concept="5" />

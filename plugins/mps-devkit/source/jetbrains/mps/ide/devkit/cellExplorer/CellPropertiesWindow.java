@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 package jetbrains.mps.ide.devkit.cellExplorer;
-
-import jetbrains.mps.ide.icons.GlobalIconManager;
-import jetbrains.mps.openapi.editor.cells.EditorCell;
 
 import javax.swing.Icon;
 import javax.swing.JFrame;
@@ -37,13 +34,10 @@ import java.awt.GridLayout;
  */
 public class CellPropertiesWindow extends JFrame {
 
-  public CellPropertiesWindow(EditorCell editorCell, Frame mainFrame) {
-    CellProperties cellProperties = new CellProperties(editorCell);
-
+  public CellPropertiesWindow(CellProperties cellProperties, Frame mainFrame) {
     String cellText = cellProperties.getCellText();
 
     String cellKind = cellProperties.getCellKind();
-    String hashCode = " @ "+editorCell.hashCode();
     String cellWidth = cellProperties.getCellWidth();
     String cellHeight = cellProperties.getCellHeight();
     String cellEffectiveWidth = cellProperties.getCellEffectiveWidth();
@@ -52,7 +46,7 @@ public class CellPropertiesWindow extends JFrame {
     String cellNumber = cellProperties.getCellNumber();
     String cellRole = cellProperties.getCellRole();
     String cellSNode = cellProperties.getCellSNode();
-    Icon icon = GlobalIconManager.getInstance().getIconFor(cellProperties.getSNode());
+    Icon icon = cellProperties.getNodeIcon();
 
     setLayout(new BorderLayout());
 
@@ -64,7 +58,7 @@ public class CellPropertiesWindow extends JFrame {
     Font f = panel.getFont();
     Font bold = new Font(f.getName(), Font.BOLD, f.getSize());
     Font italic = new Font(f.getName(), Font.ITALIC, f.getSize());
-    panel.add(new JLabel("Cell:")).setFont(bold); panel.add(new JLabel(cellKind + hashCode)).setFont(bold);
+    panel.add(new JLabel("Cell:")).setFont(bold); panel.add(new JLabel(cellKind)).setFont(bold);
     panel.add(new JLabel("ID:")).setFont(bold); panel.add(new JLabel(cellID));
     panel.add(new JLabel("Role:")).setFont(bold);panel.add(new JLabel(cellRole));
     panel.add(new JLabel("Text:")).setFont(bold); panel.add(new JLabel(cellText)).setFont(italic);
@@ -79,8 +73,6 @@ public class CellPropertiesWindow extends JFrame {
 
     add(outerPanel, BorderLayout.NORTH);
 
-    pack();
-
     setAlwaysOnTop(true);
     setResizable(false);
     setTitle("Cell Properties");
@@ -89,9 +81,7 @@ public class CellPropertiesWindow extends JFrame {
     int y = mainFrame.getY() + mainFrame.getHeight() / 2 - getHeight() / 2;
 
     setLocation(x, y);
-
-
-    setVisible(true);
+    pack();
   }
 
 }
