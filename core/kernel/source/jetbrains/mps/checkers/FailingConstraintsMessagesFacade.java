@@ -24,7 +24,6 @@ import jetbrains.mps.core.aspects.feedback.messages.FailingRuleProblemKind;
 import jetbrains.mps.core.aspects.feedback.messages.MessageProvider;
 import jetbrains.mps.core.aspects.feedback.problem.Problem;
 import jetbrains.mps.core.context.Context;
-import jetbrains.mps.project.validation.MessagesFacade;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -106,4 +105,5 @@ final class FailingConstraintsMessagesFacade {
                                                               @NotNull C context) {
     return myMainFacade.findTextMessagesForProblem(concept, problem, context);
   }
+
 }

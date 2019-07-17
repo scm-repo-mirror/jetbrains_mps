@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package jetbrains.mps.project.validation;
+package jetbrains.mps.checkers;
 
 import jetbrains.mps.core.aspects.feedback.api.FeedbackAspectRegistry;
 import jetbrains.mps.core.aspects.feedback.messages.MessageProvider;
@@ -35,7 +35,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public final class MessagesFacade {
-  @Nullable private final FeedbackAspectRegistry myRegistry;
+  @Nullable
+  private final FeedbackAspectRegistry myRegistry;
 
   /**
    * @param registry can be null (sometimes we do not have the registry and do not care (192) because we still have some defaults)

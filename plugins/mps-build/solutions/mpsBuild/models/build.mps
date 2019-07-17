@@ -1307,6 +1307,9 @@
       <node concept="nCB5N" id="4_qKb05GBx4" role="nCB5Z">
         <ref role="nCB5Y" node="4_qKb05xiaz" resolve="aux-runtimes" />
       </node>
+      <node concept="nCB5N" id="3naTEl9uty3" role="nCB5Z">
+        <ref role="nCB5Y" node="5RhptgddDxG" resolve="feedback-api" />
+      </node>
     </node>
     <node concept="398b33" id="TfcoydlQ6W" role="3989C9">
       <property role="TrG5h" value="idea-platform" />
@@ -1843,6 +1846,18 @@
         </node>
         <node concept="3_I8Xc" id="wKi8DpgCai" role="39821P">
           <ref role="3_I8Xa" node="wKi8DpgBx5" resolve="mps-behavior-runtime.jar" />
+        </node>
+        <node concept="3_I8Xc" id="3naTEl9MoQU" role="39821P">
+          <ref role="3_I8Xa" node="5RhptgddDoa" resolve="mps-constraints-runtime.jar" />
+        </node>
+        <node concept="3_I8Xc" id="3naTEl9MoUs" role="39821P">
+          <ref role="3_I8Xa" node="SHPhCCYHaw" resolve="mps-context.jar" />
+        </node>
+        <node concept="3_I8Xc" id="3naTEl9MoZY" role="39821P">
+          <ref role="3_I8Xa" node="SHPhCCYH7i" resolve="mps-feedback.jar" />
+        </node>
+        <node concept="3_I8Xc" id="3naTEl9Mp5x" role="39821P">
+          <ref role="3_I8Xa" node="SHPhCCYHdU" resolve="mps-messages-lang.jar" />
         </node>
         <node concept="3_I8Xc" id="3fmo8W2LOq2" role="39821P">
           <ref role="3_I8Xa" node="3fmo8W2LOl8" resolve="mps-persistence.jar" />
@@ -37981,6 +37996,7 @@
         </node>
       </node>
       <node concept="nCB5N" id="SHPhCCYouA" role="nCB5Z">
+        <property role="1Sh$E4" value="true" />
         <ref role="nCB5Y" node="5RhptgddDKp" resolve="context" />
       </node>
       <node concept="nCB5N" id="SHPhCCYouF" role="nCB5Z">
@@ -38063,10 +38079,8 @@
         <ref role="nCB5Y" node="5StVQ8qcIGg" resolve="mps-core-components" />
       </node>
       <node concept="nCB5N" id="SHPhCCYohh" role="nCB5Z">
+        <property role="1Sh$E4" value="true" />
         <ref role="nCB5Y" node="SHPhCCYob1" resolve="problem" />
-      </node>
-      <node concept="nCB5N" id="SHPhCCYohv" role="nCB5Z">
-        <ref role="nCB5Y" node="5RhptgddDKp" resolve="context" />
       </node>
     </node>
     <node concept="398b33" id="SHPhCCYnUi" role="3989C9">
@@ -38104,9 +38118,6 @@
       </node>
       <node concept="nCB5N" id="SHPhCCYohG" role="nCB5Z">
         <ref role="nCB5Y" node="SHPhCCYob1" resolve="problem" />
-      </node>
-      <node concept="nCB5N" id="SHPhCCYohS" role="nCB5Z">
-        <ref role="nCB5Y" node="5RhptgddDKp" resolve="context" />
       </node>
       <node concept="nCB5N" id="SHPhCCYoi6" role="nCB5Z">
         <ref role="nCB5Y" node="3vjn6$4rsZc" resolve="util-core" />
@@ -38245,12 +38256,15 @@
         </node>
       </node>
       <node concept="nCB5N" id="SHPhCCYob9" role="nCB5Z">
+        <property role="1Sh$E4" value="true" />
         <ref role="nCB5Y" node="5RhptgddDKp" resolve="context" />
       </node>
       <node concept="nCB5N" id="SHPhCCYoba" role="nCB5Z">
+        <property role="1Sh$E4" value="true" />
         <ref role="nCB5Y" node="5Lo0z0qFWkX" resolve="mps-openapi" />
       </node>
       <node concept="nCB5N" id="SHPhCCYovy" role="nCB5Z">
+        <property role="1Sh$E4" value="true" />
         <ref role="nCB5Y" node="1s0vtrwURQP" resolve="mps-annotations" />
       </node>
     </node>
@@ -38357,7 +38371,21 @@
         <ref role="nCB5Y" node="5d$B_bnZPNh" resolve="mps-boot-util" />
       </node>
       <node concept="nCB5N" id="SHPhCCYz9W" role="nCB5Z">
+        <property role="1Sh$E4" value="true" />
         <ref role="nCB5Y" node="SHPhCCYooj" resolve="constraints-runtime" />
+      </node>
+      <node concept="nCB5N" id="1vxgdUOrFdC" role="nCB5Z">
+        <property role="1Sh$E4" value="true" />
+        <ref role="nCB5Y" node="5RhptgddDxG" resolve="feedback-api" />
+      </node>
+      <node concept="nCB5N" id="1vxgdUOrFec" role="nCB5Z">
+        <ref role="nCB5Y" node="SHPhCCYnUi" resolve="messages-api" />
+      </node>
+      <node concept="nCB5N" id="1vxgdUOrFeM" role="nCB5Z">
+        <ref role="nCB5Y" node="SHPhCCYnZA" resolve="messages-for-rules" />
+      </node>
+      <node concept="nCB5N" id="1vxgdUOrFfq" role="nCB5Z">
+        <ref role="nCB5Y" node="SHPhCCYuJN" resolve="messages-for-legacy-constraints" />
       </node>
       <node concept="2sjeV3" id="6NgXkpBjPQ0" role="nCB5Z">
         <property role="2a2d0E" value="true" />

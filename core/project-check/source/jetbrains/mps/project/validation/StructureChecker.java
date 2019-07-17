@@ -18,6 +18,7 @@ package jetbrains.mps.project.validation;
 import jetbrains.mps.checkers.AbstractNodeCheckerInEditor;
 import jetbrains.mps.checkers.IChecker;
 import jetbrains.mps.checkers.LanguageErrorsCollector;
+import jetbrains.mps.checkers.MessagesFacade;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.core.aspects.feedback.api.FeedbackAspectRegistry;
 import jetbrains.mps.core.aspects.feedback.messages.MissingChildInConceptProblem;

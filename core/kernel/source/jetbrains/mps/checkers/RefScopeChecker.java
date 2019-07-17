@@ -19,9 +19,6 @@ import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.core.aspects.feedback.api.FeedbackAspectRegistry;
 import jetbrains.mps.core.aspects.feedback.messages.RefOutOfScopeContext;
 import jetbrains.mps.core.aspects.feedback.messages.RefOutOfScopeProblem;
-import jetbrains.mps.core.platform.MPSCore;
-import jetbrains.mps.project.validation.MessagesFacade;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.errors.item.NodeReportItem;
@@ -162,7 +159,7 @@ public class RefScopeChecker extends AbstractNodeCheckerInEditor implements IChe
 
     @Override
     public Set<FlavouredItem.ReportItemFlavour<?, ?>> getIdFlavours() {
-      return SetSequence.fromSetAndArray(new HashSet<FlavouredItem.ReportItemFlavour<?, ?>>(), FlavouredItem.FLAVOUR_CLASS, FLAVOUR_NODE, FLAVOUR_NODE_FEATURE);
+      return SetSequence.fromSetAndArray(new HashSet<>(), FlavouredItem.FLAVOUR_CLASS, FLAVOUR_NODE, FLAVOUR_NODE_FEATURE);
     }
 
     @Override

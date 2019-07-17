@@ -78,6 +78,10 @@
     <copy file="${artifacts.mpsTrueBootstrap}/mps-openapi.jar" todir="${build.layout}/lib" />
     <copy file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" todir="${build.layout}/lib" />
     <copy file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" todir="${build.layout}/lib" />
+    <copy file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" todir="${build.layout}/lib" />
+    <copy file="${artifacts.mpsTrueBootstrap}/mps-context.jar" todir="${build.layout}/lib" />
+    <copy file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" todir="${build.layout}/lib" />
+    <copy file="${artifacts.mpsTrueBootstrap}/mps-messages-lang.jar" todir="${build.layout}/lib" />
     <copy file="${artifacts.mpsTrueBootstrap}/mps-persistence.jar" todir="${build.layout}/lib" />
     <jar destfile="${build.layout}/lib/mps-core.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/deps/mpsTrueBootstrap/vfs.jar" />
@@ -13390,10 +13394,10 @@
     <unzip src="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" dest="${build.tmp}/deps/mpsTrueBootstrap/mps-behavior-api.jar" />
     <mkdir dir="${build.tmp}/deps/mpsTrueBootstrap/mps-behavior-runtime.jar" />
     <unzip src="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" dest="${build.tmp}/deps/mpsTrueBootstrap/mps-behavior-runtime.jar" />
-    <mkdir dir="${build.tmp}/deps/mpsTrueBootstrap/mps-kernel.jar" />
-    <unzip src="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" dest="${build.tmp}/deps/mpsTrueBootstrap/mps-kernel.jar" />
     <mkdir dir="${build.tmp}/deps/mpsTrueBootstrap/mps-constraints-runtime.jar" />
     <unzip src="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" dest="${build.tmp}/deps/mpsTrueBootstrap/mps-constraints-runtime.jar" />
+    <mkdir dir="${build.tmp}/deps/mpsTrueBootstrap/mps-kernel.jar" />
+    <unzip src="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" dest="${build.tmp}/deps/mpsTrueBootstrap/mps-kernel.jar" />
   </target>
   
   <target name="build" depends="assemble" />
@@ -13632,6 +13636,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -13666,6 +13673,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -13703,6 +13713,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -13742,6 +13755,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/pattern-runtime" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -13785,6 +13801,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -13829,6 +13848,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -13868,6 +13890,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-generator" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -13910,6 +13935,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-generator" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -13970,6 +13998,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-generator" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -14008,6 +14039,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-persistence.jar" />
         <pathelement path="${build.tmp}/java/out/mps-typesystem" />
@@ -14046,10 +14080,11 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-generator" />
-        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
-        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messages-lang.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -14085,6 +14120,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -14122,6 +14160,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-persistence.jar" />
         <pathelement path="${build.tmp}/java/out/idea-platform" />
@@ -14164,6 +14205,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
         <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
@@ -14203,6 +14247,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -14242,6 +14289,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -14282,6 +14332,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/platform" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
@@ -14327,6 +14380,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -14372,6 +14428,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-debuginfo-api" />
         <pathelement path="${build.tmp}/java/out/mps-textgen" />
@@ -14427,6 +14486,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-persistence.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
@@ -14497,6 +14559,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-persistence.jar" />
         <pathelement path="${build.tmp}/java/out/mps-generator" />
@@ -14577,6 +14642,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -14636,6 +14704,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-generator" />
@@ -14646,7 +14717,6 @@
         <pathelement path="${build.tmp}/java/out/mps-environment" />
         <pathelement path="${build.tmp}/java/out/mps-platform" />
         <pathelement path="${build.tmp}/java/out/mps-ui" />
-        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
         <pathelement path="${build.tmp}/java/out/mps-editorlang-runtime" />
         <pathelement path="${build.tmp}/java/out/mps-icons" />
@@ -14696,6 +14766,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-tool" />
         <pathelement path="${build.tmp}/java/out/mps-generator" />
@@ -14750,6 +14823,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -14850,6 +14926,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-persistence.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -14917,6 +14996,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -14984,6 +15066,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -15052,6 +15137,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -15118,6 +15206,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -15193,6 +15284,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -15259,6 +15353,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -15334,6 +15431,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -15400,6 +15500,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -15469,6 +15572,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -15534,6 +15640,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -15602,6 +15711,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -15670,6 +15782,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -15736,6 +15851,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -15805,6 +15923,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -15874,6 +15995,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -15941,6 +16065,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -16006,6 +16133,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -16071,6 +16201,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -16139,6 +16272,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -16210,6 +16346,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -16280,6 +16419,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -16350,6 +16492,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -16401,6 +16546,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -16470,6 +16618,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -16538,6 +16689,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -16604,6 +16758,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -16673,6 +16830,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -16738,6 +16898,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -16806,6 +16969,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -16873,6 +17039,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -16961,6 +17130,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -17025,6 +17197,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -17094,6 +17269,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -17162,6 +17340,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -17233,6 +17414,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -17303,6 +17487,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -17372,6 +17559,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -17440,6 +17630,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -17507,6 +17700,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -17573,6 +17769,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -17654,6 +17853,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -17727,6 +17929,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -17796,6 +18001,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -17866,6 +18074,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -17932,6 +18143,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -17997,6 +18211,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -18073,6 +18290,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -18141,6 +18361,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -18216,6 +18439,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -18287,6 +18513,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -18361,6 +18590,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -18429,6 +18661,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -18498,6 +18733,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -18565,6 +18803,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -18641,6 +18882,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -18715,6 +18959,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -18791,6 +19038,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-persistence.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -18873,6 +19123,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -18943,6 +19196,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -19008,6 +19264,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -19075,6 +19334,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-persistence.jar" />
         <fileset file="${mps_home}/core/aspects/feedback/classes/context.jar" />
@@ -19151,6 +19413,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -19221,6 +19486,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -19282,6 +19550,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-persistence.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -19360,6 +19631,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -19435,6 +19709,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -19486,6 +19763,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -19551,6 +19831,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -19615,6 +19898,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -19680,6 +19966,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -19757,6 +20046,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -19822,6 +20114,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -19893,6 +20188,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -19958,6 +20256,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -20034,6 +20335,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -20104,6 +20408,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -20172,6 +20479,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -20251,6 +20561,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -20327,6 +20640,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -20401,6 +20717,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -20480,6 +20799,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -20555,6 +20877,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -20628,6 +20953,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -20694,6 +21022,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -20770,6 +21101,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -20836,6 +21170,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -20917,6 +21254,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -20986,6 +21326,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -21054,6 +21397,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -21134,6 +21480,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -21214,6 +21563,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -21276,6 +21628,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -21349,6 +21704,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -21419,6 +21777,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -21485,6 +21846,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -21558,6 +21922,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -21636,6 +22003,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -21713,6 +22083,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -21781,6 +22154,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -21849,6 +22225,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -21914,6 +22293,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -22005,6 +22387,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -22071,6 +22456,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -22140,6 +22528,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -22209,6 +22600,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -22278,6 +22672,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -22343,6 +22740,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -22424,6 +22824,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -22498,6 +22901,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -22563,6 +22969,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -22636,6 +23045,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -22702,6 +23114,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -22773,6 +23188,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -22839,6 +23257,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -22920,6 +23341,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -22986,6 +23410,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -23062,6 +23489,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -23129,6 +23559,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -23207,6 +23640,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -23272,6 +23708,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -23342,6 +23781,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -23412,6 +23854,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -23481,6 +23926,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -23546,6 +23994,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -23620,6 +24071,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -23685,6 +24139,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -23751,6 +24208,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -23825,6 +24285,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -23891,6 +24354,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -23961,6 +24427,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -24027,6 +24496,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -24092,6 +24564,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -24163,6 +24638,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -24228,6 +24706,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -24297,6 +24778,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -24363,6 +24847,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -24438,6 +24925,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -24519,6 +25009,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -24594,6 +25087,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -24660,6 +25156,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -24734,6 +25233,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -24800,6 +25302,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -24875,6 +25380,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -24940,6 +25448,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -25006,6 +25517,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -25084,6 +25598,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -25160,6 +25677,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -25232,6 +25752,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -25295,6 +25818,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -25361,6 +25887,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -25429,6 +25958,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -25494,6 +26026,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -25561,6 +26096,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -25630,6 +26168,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -25698,6 +26239,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -25758,6 +26302,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-persistence.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -25838,6 +26385,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -25912,6 +26462,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-persistence.jar" />
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
@@ -25989,6 +26542,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -26066,6 +26622,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -26139,6 +26698,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -26210,6 +26772,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/mps-editing" />
         <pathelement path="${build.tmp}/java/out/mps-editor-api" />
@@ -26284,6 +26849,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -26349,6 +26917,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
@@ -26414,6 +26985,9 @@
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-api.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-behavior-runtime.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/mps-messaging.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-context.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mpsTrueBootstrap}/mps-feedback.jar" />
         <fileset file="${artifacts.mpsTrueBootstrap}/to-be-imported/mps-kernel.jar" />
         <pathelement path="${build.tmp}/java/out/kernel-resources" />
         <pathelement path="${build.tmp}/java/out/mps-make-rt" />
