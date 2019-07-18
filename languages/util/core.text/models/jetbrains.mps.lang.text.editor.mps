@@ -14,6 +14,7 @@
     <import index="lwvz" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.selection(MPS.Editor/)" />
     <import index="b8lf" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.selection(MPS.Editor/)" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" />
+    <import index="lzb2" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui(MPS.IDEA/)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
   </imports>
   <registry>
@@ -720,16 +721,16 @@
                 <node concept="3clFbS" id="1vDyKXK0uZb" role="3clFbx">
                   <node concept="3cpWs6" id="1vDyKXK0yeq" role="3cqZAp">
                     <node concept="10M0yZ" id="1vDyKXK0yK6" role="3cqZAk">
-                      <ref role="3cqZAo" to="z60i:~Color.BLUE" resolve="BLUE" />
                       <ref role="1PxDUh" to="exr9:~MPSColors" resolve="MPSColors" />
+                      <ref role="3cqZAo" to="lzb2:~JBColor.BLUE" resolve="BLUE" />
                     </node>
                   </node>
                 </node>
               </node>
               <node concept="3cpWs6" id="1vDyKXK0z6V" role="3cqZAp">
                 <node concept="10M0yZ" id="1vDyKXK0zDt" role="3cqZAk">
-                  <ref role="3cqZAo" to="z60i:~Color.BLACK" resolve="BLACK" />
                   <ref role="1PxDUh" to="exr9:~MPSColors" resolve="MPSColors" />
+                  <ref role="3cqZAo" to="lzb2:~JBColor.BLACK" resolve="BLACK" />
                 </node>
               </node>
             </node>
