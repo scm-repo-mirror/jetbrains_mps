@@ -15432,20 +15432,20 @@
       </node>
     </node>
     <node concept="39e2AJ" id="1rs" role="39e2AI">
-      <property role="39e3Y2" value="map_IconContainer" />
+      <property role="39e3Y2" value="constraints2DescriptorClass" />
       <node concept="39e2AG" id="1rG" role="39e3Y0">
         <property role="2mV_xN" value="true" />
         <node concept="39e2AT" id="1rH" role="39e2AY">
-          <ref role="39e2AS" node="1y5" resolve="IconContainer" />
+          <ref role="39e2AS" node="1r8" resolve="GeneratedRulesConstraintsAspect" />
         </node>
       </node>
     </node>
     <node concept="39e2AJ" id="1rt" role="39e2AI">
-      <property role="39e3Y2" value="constraints2DescriptorClass" />
+      <property role="39e3Y2" value="map_IconContainer" />
       <node concept="39e2AG" id="1rI" role="39e3Y0">
         <property role="2mV_xN" value="true" />
         <node concept="39e2AT" id="1rJ" role="39e2AY">
-          <ref role="39e2AS" node="1r8" resolve="GeneratedRulesConstraintsAspect" />
+          <ref role="39e2AS" node="1y5" resolve="IconContainer" />
         </node>
       </node>
     </node>

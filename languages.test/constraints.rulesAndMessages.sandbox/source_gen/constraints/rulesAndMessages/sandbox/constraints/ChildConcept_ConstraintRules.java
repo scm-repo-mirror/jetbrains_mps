@@ -21,9 +21,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 public final class ChildConcept_ConstraintRules extends BaseRulesConstraintsDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept");
 
-  /*package*/ ChildConcept_ConstraintRules() {
-    super(CONCEPT);
-  }
   public static final Rule<ContainmentContext> check_id8878450512092605113 = new ChildConcept_ConstraintRules.Rule_toleranceNotTooHigh();
   public static final Rule<ContainmentContext> check_id8878450512092611869 = new ChildConcept_ConstraintRules.Rule_toleranceNotTooLow();
 
@@ -53,6 +50,7 @@ public final class ChildConcept_ConstraintRules extends BaseRulesConstraintsDesc
       return true;
     }
   }
+
   public static final class Rule_toleranceNotTooLow extends BaseRule<ContainmentContext> {
     private static final SNodeReference SOURCE_NODE_REF = PersistenceFacade.getInstance().createNodeReference("r:50e6e59b-26e4-4ba1-9996-7aefbabd31cf(constraints.rulesAndMessages.sandbox.constraints)/8878450512092611869");
     public static final RuleId ID_toleranceNotTooLow = new RuleId(8878450512092611869L, SOURCE_NODE_REF);
@@ -70,5 +68,9 @@ public final class ChildConcept_ConstraintRules extends BaseRulesConstraintsDesc
     public boolean appliesTo(@NotNull ContainmentContext context) {
       return true;
     }
+  }
+
+  /*package*/ ChildConcept_ConstraintRules() {
+    super(CONCEPT);
   }
 }
