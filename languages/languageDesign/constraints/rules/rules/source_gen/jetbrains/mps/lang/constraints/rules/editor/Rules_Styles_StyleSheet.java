@@ -162,7 +162,7 @@ public class Rules_Styles_StyleSheet {
     }
 
     private int _StyleParameter_QueryFunction_xgtt4l_a2f() {
-      return (EditorSettings.getInstance().getFontSize() * 7) / 8;
+      return (EditorSettings.getInstance().getFontSize() * 8) / 10;
     }
   }
   public static class HintStyleClass extends AbstractStyleClass {

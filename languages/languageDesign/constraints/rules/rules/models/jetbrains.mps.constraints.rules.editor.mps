@@ -477,6 +477,7 @@
           <node concept="3$7fVu" id="3ZKqOfptUa8" role="3F10Kt">
             <property role="3$6WeP" value="1.5" />
           </node>
+          <node concept="VPM3Z" id="40_QUL9w9Tn" role="3F10Kt" />
         </node>
         <node concept="3F0ifn" id="3f9_B0POd6m" role="1QoVPY">
           <property role="3F0ifm" value="is defined" />
@@ -484,6 +485,7 @@
           <node concept="3$7fVu" id="3f9_B0POd6n" role="3F10Kt">
             <property role="3$6WeP" value="1.5" />
           </node>
+          <node concept="VPM3Z" id="40_QUL9w9Tu" role="3F10Kt" />
         </node>
         <node concept="pVoyu" id="3f9_B0POdtG" role="3F10Kt">
           <property role="VOm3f" value="true" />
@@ -732,13 +734,13 @@
                         <ref role="37wK5l" to="exr9:~EditorSettings.getFontSize()" resolve="getFontSize" />
                       </node>
                     </node>
-                    <node concept="3cmrfG" id="MbI_D0EP0g" role="3uHU7w">
-                      <property role="3cmrfH" value="7" />
+                    <node concept="3cmrfG" id="40_QUL9w3An" role="3uHU7w">
+                      <property role="3cmrfH" value="8" />
                     </node>
                   </node>
                 </node>
-                <node concept="3cmrfG" id="MbI_D0EPlX" role="3uHU7w">
-                  <property role="3cmrfH" value="8" />
+                <node concept="3cmrfG" id="40_QUL9vW$S" role="3uHU7w">
+                  <property role="3cmrfH" value="10" />
                 </node>
               </node>
             </node>
