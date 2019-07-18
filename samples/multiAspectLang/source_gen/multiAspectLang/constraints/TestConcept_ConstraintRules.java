@@ -13,6 +13,7 @@ import java.util.Collections;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -26,10 +27,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 public final class TestConcept_ConstraintRules extends BaseRulesConstraintsDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "multiAspectLang.structure.TestConcept");
 
-  /*package*/ TestConcept_ConstraintRules() {
-    super(CONCEPT);
-  }
-  public static final Rule<CanBeRootContext> check_id7932913038699129641 = new TestConcept_ConstraintRules.Rule_check7932913038699129641_d0();
+  public static final Rule<CanBeRootContext> check_id7932913038699129641 = new TestConcept_ConstraintRules.Rule_check7932913038699129641_e0();
   public static final Rule<ContainmentContext> check_id2716118816015675669 = new TestConcept_ConstraintRules.Rule_check2716118816015675669_a1();
 
   private static final List<Rule<?>> RULES = Collections.unmodifiableList(Arrays.<Rule<?>>asList(check_id7932913038699129641, check_id2716118816015675669));
@@ -40,34 +38,53 @@ public final class TestConcept_ConstraintRules extends BaseRulesConstraintsDescr
     return RULES;
   }
 
+  public static final class Def_Concept4622342125580529919 {
+    /**
+     * null is an allowed value
+     * though null is also returned if the def is not defined
+     */
+    @Nullable
+    public static SConcept getValue(@NotNull CanBeRootContext context) {
+      if (!(isDefined(context))) {
+        return null;
+      }
+      return (SConcept) context.getConcept();
+    }
+
+    public static boolean isDefined(@NotNull CanBeRootContext context) {
+      return true;
+    }
+  }
+
   public static final class Def_AModel7932913038696329443 {
     /**
-     * null is absolutely allowed value
-     * null is also return if the def is not defined
+     * null is an allowed value
+     * though null is also returned if the def is not defined
      */
     @Nullable
     public static SModel getValue(@NotNull CanBeRootContext context) {
       if (!(isDefined(context))) {
         return null;
       }
-      return context.getModel();
+      return (SModel) context.getModel();
     }
 
     public static boolean isDefined(@NotNull CanBeRootContext context) {
       return context.getModel() != null;
     }
   }
+
   public static final class Def_AModelName2554379189374271668 {
     /**
-     * null is absolutely allowed value
-     * null is also return if the def is not defined
+     * null is an allowed value
+     * though null is also returned if the def is not defined
      */
     @Nullable
     public static String getValue(@NotNull CanBeRootContext context) {
       if (!(isDefined(context))) {
         return null;
       }
-      return SModelOperations.getModelName(TestConcept_ConstraintRules.Def_AModel7932913038696329443.getValue(context));
+      return (String) SModelOperations.getModelName(TestConcept_ConstraintRules.Def_AModel7932913038696329443.getValue(context));
     }
 
     public static boolean isDefined(@NotNull CanBeRootContext context) {
@@ -77,17 +94,18 @@ public final class TestConcept_ConstraintRules extends BaseRulesConstraintsDescr
       return ListSequence.fromList(SModelOperations.nodes(TestConcept_ConstraintRules.Def_AModel7932913038696329443.getValue(context), MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "multiAspectLang.structure.TestConcept"))).isNotEmpty();
     }
   }
+
   public static final class Def_AModelName2629795297587612183 {
     /**
-     * null is absolutely allowed value
-     * null is also return if the def is not defined
+     * null is an allowed value
+     * though null is also returned if the def is not defined
      */
     @Nullable
     public static String getValue(@NotNull CanBeRootContext context) {
       if (!(isDefined(context))) {
         return null;
       }
-      return SModelOperations.getModelName(TestConcept_ConstraintRules.Def_AModel7932913038696329443.getValue(context));
+      return (String) SModelOperations.getModelName(TestConcept_ConstraintRules.Def_AModel7932913038696329443.getValue(context));
     }
 
     public static boolean isDefined(@NotNull CanBeRootContext context) {
@@ -97,12 +115,13 @@ public final class TestConcept_ConstraintRules extends BaseRulesConstraintsDescr
       return true;
     }
   }
-  public static final class Rule_check7932913038699129641_d0 extends BaseRule<CanBeRootContext> {
-    private static final SNodeReference SOURCE_NODE_REF = PersistenceFacade.getInstance().createNodeReference("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(multiAspectLang.constraints)/7932913038699129641");
-    public static final RuleId ID_check7932913038699129641_d0 = new RuleId(7932913038699129641L, SOURCE_NODE_REF);
 
-    public Rule_check7932913038699129641_d0() {
-      super(CONCEPT, PredefinedRuleKinds.CAN_BE_ROOT, ID_check7932913038699129641_d0, SOURCE_NODE_REF);
+  public static final class Rule_check7932913038699129641_e0 extends BaseRule<CanBeRootContext> {
+    private static final SNodeReference SOURCE_NODE_REF = PersistenceFacade.getInstance().createNodeReference("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(multiAspectLang.constraints)/7932913038699129641");
+    public static final RuleId ID_check7932913038699129641_e0 = new RuleId(7932913038699129641L, SOURCE_NODE_REF);
+
+    public Rule_check7932913038699129641_e0() {
+      super(CONCEPT, PredefinedRuleKinds.CAN_BE_ROOT, ID_check7932913038699129641_e0, SOURCE_NODE_REF);
     }
 
     @Override
@@ -118,6 +137,7 @@ public final class TestConcept_ConstraintRules extends BaseRulesConstraintsDescr
       return true;
     }
   }
+
   public static final class Rule_check2716118816015675669_a1 extends BaseRule<ContainmentContext> {
     private static final SNodeReference SOURCE_NODE_REF = PersistenceFacade.getInstance().createNodeReference("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(multiAspectLang.constraints)/2716118816015675669");
     public static final RuleId ID_check2716118816015675669_a1 = new RuleId(2716118816015675669L, SOURCE_NODE_REF);
@@ -135,5 +155,9 @@ public final class TestConcept_ConstraintRules extends BaseRulesConstraintsDescr
     public boolean appliesTo(@NotNull ContainmentContext context) {
       return true;
     }
+  }
+
+  /*package*/ TestConcept_ConstraintRules() {
+    super(CONCEPT);
   }
 }

@@ -143,6 +143,9 @@
       <concept id="2644386474300074836" name="jetbrains.mps.lang.smodel.structure.ConceptIdRefExpression" flags="nn" index="35c_gC">
         <reference id="2644386474300074837" name="conceptDeclaration" index="35c_gD" />
       </concept>
+      <concept id="6677504323281689838" name="jetbrains.mps.lang.smodel.structure.SConceptType" flags="in" index="3bZ5Sz">
+        <reference id="6677504323281689839" name="conceptDeclaraton" index="3bZ5Sy" />
+      </concept>
       <concept id="1138056143562" name="jetbrains.mps.lang.smodel.structure.SLinkAccess" flags="nn" index="3TrEf2">
         <reference id="1138056516764" name="link" index="3Tt5mk" />
       </concept>
@@ -181,6 +184,17 @@
     <ref role="3Oh7Pe" to="pljn:5ca4zTvKOOO" resolve="TestConcept" />
     <node concept="3OnDbq" id="1mFJTG0Yqf" role="3Oh7Pb">
       <ref role="3OnDbs" to="prp3:6X8eyFnbGDJ" resolve="CanBeRoot" />
+      <node concept="3QlHBw" id="40_QUL9zj3Z" role="3OnDbr">
+        <property role="TrG5h" value="concept" />
+        <node concept="3bZ5Sz" id="40_QUL9zj4W" role="3RXm0Z">
+          <ref role="3bZ5Sy" to="pljn:5ca4zTvKOOO" resolve="TestConcept" />
+        </node>
+        <node concept="2K0Yjh" id="40_QUL9zj43" role="2K0Fub">
+          <node concept="3QpRc$" id="40_QUL9zj53" role="2K0yoH">
+            <ref role="3QpVTF" to="prp3:6X8eyFnbMKc" resolve="concept" />
+          </node>
+        </node>
+      </node>
       <node concept="3QlHBw" id="6SnnA3pzN3z" role="3OnDbr">
         <property role="TrG5h" value="AModel" />
         <node concept="H_c77" id="2dMY_rc2ZIO" role="3RXm0Z" />
