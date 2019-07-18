@@ -16,13 +16,13 @@ import jetbrains.mps.typechecking.TypecheckingFacade;
 import java.util.function.Supplier;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.annotations.Nullable;
-import jetbrains.mps.typesystem.inference.util.StructuralNodeMap;
+import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
+import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.internal.collections.runtime.IMapping;
 import java.util.Iterator;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -35,6 +35,8 @@ import java.util.Objects;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.lang.pattern.util.MatchingUtil;
+import jetbrains.mps.lang.pattern.util.IMatchModifier;
 
 public class MethodResolveUtil {
   private MethodResolveUtil() {
@@ -134,7 +136,7 @@ public class MethodResolveUtil {
   }
   private static List<SNode> selectByParameterTypeNode(@Nullable SNode typeOfArg, int indexOfArg, List<SNode> candidates, Map<SNode, SNode> typeByTypeVar, boolean mostSpecific, boolean isWeak) {
     List<SNode> result = new ArrayList<SNode>();
-    StructuralNodeMap<Set<SNode>> typesOfParamToMethods = new StructuralNodeMap<Set<SNode>>();
+    Map<MethodResolveUtil.NodeWrapper, List<SNode>> typesOfParamToMethods = MapSequence.fromMap(new HashMap<MethodResolveUtil.NodeWrapper, List<SNode>>());
     for (SNode candidate : candidates) {
       boolean varArg = false;
       List<SNode> params = SLinkOperations.getChildren(candidate, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"));
@@ -159,22 +161,26 @@ public class MethodResolveUtil {
       boolean boxingInvolved = SNodeOperations.isInstanceOf(typeOfArg, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType")) != SNodeOperations.isInstanceOf(typeOfParam, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType"));
       // in case boxing is involved and isWeak is false, isSubtype is always false 
       if ((isWeak || !(boxingInvolved)) && TypecheckingFacade.getFromContext().isSubtype(typeOfArg, typeOfParam)) {
-        Set<SNode> methods = typesOfParamToMethods.get(typeOfParam);
+        List<SNode> methods = MapSequence.fromMap(typesOfParamToMethods).get(new MethodResolveUtil.NodeWrapper(typeOfParam));
         if (methods == null) {
-          methods = new HashSet<SNode>();
-          typesOfParamToMethods.put(typeOfParam, methods);
+          methods = new ArrayList<SNode>();
+          MapSequence.fromMap(typesOfParamToMethods).put(new MethodResolveUtil.NodeWrapper(typeOfParam), methods);
         }
         methods.add(candidate);
         result.add(candidate);
       }
     }
     if (mostSpecific) {
-      Set<SNode> goodParamTypes = typesOfParamToMethods.keySet();
+      List<SNode> goodParamTypes = SetSequence.fromSet(MapSequence.fromMap(typesOfParamToMethods).keySet()).select(new ISelector<MethodResolveUtil.NodeWrapper, SNode>() {
+        public SNode select(MethodResolveUtil.NodeWrapper it) {
+          return it.myNode;
+        }
+      }).toListSequence();
       Iterable<SNode> mostSpecificTypes = selectMostSpecific(goodParamTypes);
       if (!(Sequence.fromIterable(mostSpecificTypes).isEmpty())) {
         result = new ArrayList<SNode>();
         for (SNode mostSpecificType : mostSpecificTypes) {
-          result.addAll(typesOfParamToMethods.get(mostSpecificType));
+          result.addAll(MapSequence.fromMap(typesOfParamToMethods).get(new MethodResolveUtil.NodeWrapper(mostSpecificType)));
         }
       }
     }
@@ -417,4 +423,28 @@ with_next_t:
     }
     return result;
   }
+  private static class NodeWrapper {
+    private int myHash;
+    private SNode myNode;
+
+    public NodeWrapper(SNode node) {
+      this.myNode = node;
+      this.myHash = MatchingUtil.hash(node);
+    }
+
+    @Override
+    public int hashCode() {
+      return myHash;
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (!(that instanceof MethodResolveUtil.NodeWrapper)) {
+        return false;
+      }
+      // ignore attributes while matching types 
+      return MatchingUtil.matchNodes(this.myNode, ((MethodResolveUtil.NodeWrapper) that).myNode, IMatchModifier.DEFAULT, false);
+    }
+  }
+
 }
