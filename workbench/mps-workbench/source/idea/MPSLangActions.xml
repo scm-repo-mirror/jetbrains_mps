@@ -1,13 +1,11 @@
 <component>
   <actions>
     <action id="IncrementalSearch" class="com.intellij.codeInsight.navigation.actions.IncrementalSearchAction"/>
-    <!--
     <action id="AddToFavoritesPopup" class="com.intellij.ide.favoritesTreeView.actions.AddToFavoritesPopupAction"/>
     <group id="AddToFavorites" class="com.intellij.ide.favoritesTreeView.actions.AddToFavoritesActionGroup" popup="true"/>
     <group id="AddAllToFavorites" class="com.intellij.ide.favoritesTreeView.actions.AddAllToFavoritesActionGroup" popup="true"/>
     <action id="AddNewFavoritesList" class="com.intellij.ide.favoritesTreeView.actions.AddNewFavoritesListAction"/>
     <group id="SendToFavoritesGroup" class="com.intellij.ide.favoritesTreeView.actions.SendToFavoritesGroup" popup="true"/>
-    -->
 
     <action id="RunConfiguration" class="com.intellij.execution.actions.RunConfigurationsComboBoxAction"/>
     <action id="ChooseRunConfiguration" class="com.intellij.execution.actions.ChooseRunConfigurationPopupAction" text="Run..." description="Choose and run configuration" icon="AllIcons.Actions.Execute"/>
@@ -90,11 +88,11 @@
       <add-to-group group-id="FileMenu" anchor="after" relative-to-action="InvalidateCaches"/>
     </group>
 
-    <!--
     <reference ref="AddToFavorites">
       <add-to-group group-id="FileMenu" anchor="after" relative-to-action="PrintExportGroup"/>
     </reference>
 
+    <!--
     <action id="ChangeTemplateDataLanguage" class="com.intellij.psi.templateLanguages.ChangeTemplateDataLanguageAction">
       <add-to-group group-id="FileMenu" anchor="before" relative-to-action="ToggleReadOnlyAttribute"/>
       <add-to-group group-id="EditorPopupMenu" anchor="before" relative-to-action="ToggleReadOnlyAttribute"/>
@@ -571,16 +569,18 @@
       <action id="ProjectViewEditSource" use-shortcut-of="EditSource" class="com.intellij.ide.actions.ProjectViewEditSourceAction"
         text="Edit Source"/>
       <reference ref="ChangesView.ApplyPatch"/>
-      <!--
       <separator/>
+      <!--
       <reference ref="FindUsages"/>
       <reference ref="FindInPath"/>
       <reference ref="ReplaceInPath"/>
       <separator/>
       <reference ref="ProjectViewPopupMenuRefactoringGroup"/>
       <separator/>
+      -->
       <reference ref="AddToFavorites"/>
       <separator/>
+      <!--
       <reference ref="ProjectViewPopupMenuModifyGroup"/>
       <separator/>
       <reference ref="ProjectViewPopupMenuRunGroup"/>
@@ -624,7 +624,9 @@
       <separator/>
       <reference ref="ProjectViewPopupMenuRefactoringGroup"/>
       <separator/>
+      -->
       <reference ref="AddToFavorites"/>
+      <!--
       <separator/>
       <reference ref="ProjectViewPopupMenuModifyGroup"/>
       <separator/>
@@ -654,9 +656,11 @@
       <separator/>
       <reference ref="ProjectViewPopupMenuRefactoringGroup"/>
       <separator/>
+      -->
       <action id="EditFavorites" class="com.intellij.ide.favoritesTreeView.actions.EditFavoritesAction"/>
       <reference ref="AddToFavorites"/>
       <reference ref="SendToFavoritesGroup"/>
+      <!--
       <separator/>
       <reference ref="ProjectViewPopupMenuModifyGroup"/>
       <separator/>
@@ -665,7 +669,6 @@
       <reference ref="VersionControlsGroup"/>
       <reference ref="SynchronizeCurrentFile"/>
       <separator/>
-      <reference ref="RevealIn"/>
       <reference ref="ShowFilePath"/>
       <separator/>
       <reference ref="CompareTwoFiles"/>
@@ -692,9 +695,9 @@
       <reference ref="FindUsages"/>
       <reference ref="RefactoringMenu"/>
       <separator/>
+      -->
       <reference ref="AddToFavorites"/>
       <separator/>
-      -->
       <reference ref="CutCopyPasteGroup"/>
       <!--
       <separator/>
@@ -744,9 +747,11 @@
       <!-- add group for RenameFile action
       <separator/>
       <reference ref="AssociateWithFileType"/>
+      -->
       <reference ref="AddToFavorites"/>
       <reference ref="AddAllToFavorites"/>
       <separator/>
+      <!--
       <reference ref="RunContextPopupGroup"/>
       <separator/>
       <reference ref="VersionControlsGroup"/>

@@ -601,8 +601,8 @@
     <customScopesProvider implementation="com.intellij.packageDependencies.TestScopeProvider"/>
     <!-- MPS Patch end -->
 
-    <!--
     <searchScopesProvider implementation="com.intellij.psi.search.DefaultSearchScopeProviders$Favorites"/>
+    <!--
     <searchScopesProvider implementation="com.intellij.psi.search.DefaultSearchScopeProviders$ChangeLists"/>
     <searchScopesProvider implementation="com.intellij.psi.search.DefaultSearchScopeProviders$CustomNamed" order="last"/>
     -->
@@ -766,8 +766,10 @@
     <selectInTarget implementation="com.intellij.ide.navigationToolbar.SelectInNavBarTarget"/>
     <selectInTarget implementation="com.intellij.ide.impl.StructureViewSelectInTarget"/>
     <selectInTarget implementation="com.intellij.ide.impl.ProjectViewSelectInExplorerTarget"/>
+    -->
     <selectInTarget implementation="com.intellij.ide.favoritesTreeView.FavoritesViewSelectInTarget"/>
 
+    <!--
     <elementLookupRenderer implementation="com.intellij.codeInsight.template.impl.TemplateLookupRenderer"/>
 
     <modelScopeItemPresenter implementation="com.intellij.analysis.dialog.ProjectScopeItemPresenter" id="project_scope" order="first"/>
@@ -995,10 +997,8 @@
     -->
     <toolWindow id="Structure" anchor="left" icon="AllIcons.Toolwindows.ToolWindowStructure" secondary="true"
                 factoryClass="com.intellij.ide.structureView.impl.StructureViewToolWindowFactory"/>
-    <!--
     <toolWindow id="Favorites" anchor="left" icon="AllIcons.Toolwindows.ToolWindowFavorites" secondary="true"
                 factoryClass="com.intellij.ide.projectView.impl.FavoritesViewToolWindowFactory"/>
-    -->
     <toolWindow id="Services" anchor="bottom" icon="AllIcons.Toolwindows.ToolWindowServices" canCloseContents="true"
                 factoryClass="com.intellij.execution.services.ServiceViewToolWindowFactory"
                 conditionClass="com.intellij.execution.services.ServiceViewToolWindowFactory"/>
