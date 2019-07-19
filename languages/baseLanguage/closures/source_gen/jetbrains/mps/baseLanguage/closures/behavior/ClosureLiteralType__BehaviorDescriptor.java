@@ -15,25 +15,35 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.baseLanguage.closures.helper.ClosureLiteralUtil;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 
 public final class ClosureLiteralType__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0xe8770ba07b68051L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteralType");
 
   public static final SMethod<SNode> getPublicType_idhEwIXGa = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getPublicType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIXGa").build();
+  public static final SMethod<SNode> getJavaType_idhEwIzO1 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getJavaType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIzO1").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPublicType_idhEwIXGa);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getPublicType_idhEwIXGa, getJavaType_idhEwIzO1);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static SNode getPublicType_idhEwIXGa(@NotNull SNode __thisNode__) {
     return _quotation_createNode_okkob5_a0a0(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x1174a4e013cL, "parameterType")), SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x1174a4d5371L, "resultType")), SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x11ad99d9c36L, "throwsType")));
+  }
+  /*package*/ static SNode getJavaType_idhEwIzO1(@NotNull SNode __thisNode__) {
+    if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x16630bea72d45e9L, "runtimeIface")) == null)) {
+      return FunctionType__BehaviorDescriptor.getDeclarationRuntimeType_idhTOKQzf.invoke(__thisNode__);
+    } else {
+      return ClosureLiteralUtil.fillParams(_quotation_createNode_okkob5_a0a0a0a1(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x16630bea72d45e9L, "runtimeIface"))), __thisNode__);
+    }
   }
 
   /*package*/ ClosureLiteralType__BehaviorDescriptor() {
@@ -53,6 +63,8 @@ public final class ClosureLiteralType__BehaviorDescriptor extends BaseBHDescript
     switch (methodIndex) {
       case 0:
         return (T) ((SNode) getPublicType_idhEwIXGa(node));
+      case 1:
+        return (T) ((SNode) getJavaType_idhEwIzO1(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -105,5 +117,12 @@ public final class ClosureLiteralType__BehaviorDescriptor extends BaseBHDescript
       }
     }
     return quotedNode_4;
+  }
+  private static SNode _quotation_createNode_okkob5_a0a0a0a1(Object parameter_1) {
+    PersistenceFacade facade = PersistenceFacade.getInstance();
+    SNode quotedNode_2 = null;
+    quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType"), null, null, false);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_2, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), (SNode) parameter_1);
+    return quotedNode_2;
   }
 }

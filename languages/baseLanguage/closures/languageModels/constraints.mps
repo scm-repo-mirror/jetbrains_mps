@@ -232,9 +232,6 @@
       </concept>
     </language>
     <language id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem">
-      <concept id="1177068340529" name="jetbrains.mps.lang.typesystem.structure.ImmediateSupertypesExpression" flags="nn" index="eJogz">
-        <child id="1177068475017" name="subtypeExpression" index="eJTer" />
-      </concept>
       <concept id="1176544042499" name="jetbrains.mps.lang.typesystem.structure.Node_TypeOperation" flags="nn" index="3JvlWi" />
       <concept id="1176558773329" name="jetbrains.mps.lang.typesystem.structure.CoerceStatement" flags="nn" index="3Knyl0">
         <child id="1176558868203" name="body" index="3KnTvU" />
@@ -1694,9 +1691,12 @@
                 <property role="TrG5h" value="sup" />
                 <node concept="3Tqbb2" id="hBxo4bT" role="1tU5fm" />
               </node>
-              <node concept="eJogz" id="hBxo4bQ" role="1DdaDG">
-                <node concept="37vLTw" id="3GM_nagTuCr" role="eJTer">
+              <node concept="2OqwBi" id="6k$qpVd4i6R" role="1DdaDG">
+                <node concept="37vLTw" id="6k$qpVd4hGP" role="2Oq$k0">
                   <ref role="3cqZAo" node="hBxo4bq" resolve="ct" />
+                </node>
+                <node concept="2qgKlT" id="6k$qpVd4iIS" role="2OqNvi">
+                  <ref role="37wK5l" to="tpek:4w2h6RLlygH" resolve="getSupertypes" />
                 </node>
               </node>
               <node concept="3clFbS" id="hBxo4bG" role="2LFqv$">

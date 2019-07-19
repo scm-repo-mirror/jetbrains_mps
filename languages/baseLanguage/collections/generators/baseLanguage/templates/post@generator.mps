@@ -16,6 +16,7 @@
     <import index="tp2g" ref="r:00000000-0000-4000-0000-011c89590334(jetbrains.mps.baseLanguage.closures.constraints)" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" />
     <import index="tp2q" ref="r:00000000-0000-4000-0000-011c8959032e(jetbrains.mps.baseLanguage.collections.structure)" />
+    <import index="tpek" ref="r:00000000-0000-4000-0000-011c895902c0(jetbrains.mps.baseLanguage.behavior)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
   </imports>
@@ -176,9 +177,6 @@
       </concept>
     </language>
     <language id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem">
-      <concept id="1177068340529" name="jetbrains.mps.lang.typesystem.structure.ImmediateSupertypesExpression" flags="nn" index="eJogz">
-        <child id="1177068475017" name="subtypeExpression" index="eJTer" />
-      </concept>
       <concept id="1176544042499" name="jetbrains.mps.lang.typesystem.structure.Node_TypeOperation" flags="nn" index="3JvlWi" />
       <concept id="1176558773329" name="jetbrains.mps.lang.typesystem.structure.CoerceStatement" flags="nn" index="3Knyl0">
         <child id="1220447035659" name="elseClause" index="CjY0n" />
@@ -201,6 +199,7 @@
       <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
         <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
       </concept>
+      <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
       <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
         <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
         <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
@@ -396,9 +395,12 @@
                                   <property role="TrG5h" value="supt" />
                                   <node concept="3Tqbb2" id="16t6kMkZM0S" role="1tU5fm" />
                                 </node>
-                                <node concept="eJogz" id="16t6kMkZM0T" role="1DdaDG">
-                                  <node concept="37vLTw" id="3GM_nagTtRe" role="eJTer">
+                                <node concept="2OqwBi" id="6k$qpVd4N9U" role="1DdaDG">
+                                  <node concept="37vLTw" id="6k$qpVd4Mf1" role="2Oq$k0">
                                     <ref role="3cqZAo" node="16t6kMkZM0f" resolve="ct" />
+                                  </node>
+                                  <node concept="2qgKlT" id="6k$qpVd4OoI" role="2OqNvi">
+                                    <ref role="37wK5l" to="tpek:4w2h6RLlygH" resolve="getSupertypes" />
                                   </node>
                                 </node>
                               </node>
@@ -1394,9 +1396,12 @@
                                     <property role="TrG5h" value="supt" />
                                     <node concept="3Tqbb2" id="16t6kMkZM5o" role="1tU5fm" />
                                   </node>
-                                  <node concept="eJogz" id="16t6kMkZM5p" role="1DdaDG">
-                                    <node concept="37vLTw" id="3GM_nagTzXA" role="eJTer">
+                                  <node concept="2OqwBi" id="6k$qpVd4Svx" role="1DdaDG">
+                                    <node concept="37vLTw" id="6k$qpVd4RAy" role="2Oq$k0">
                                       <ref role="3cqZAo" node="16t6kMkZM4U" resolve="ct" />
+                                    </node>
+                                    <node concept="2qgKlT" id="6k$qpVd4Tqs" role="2OqNvi">
+                                      <ref role="37wK5l" to="tpek:4w2h6RLlygH" resolve="getSupertypes" />
                                     </node>
                                   </node>
                                 </node>

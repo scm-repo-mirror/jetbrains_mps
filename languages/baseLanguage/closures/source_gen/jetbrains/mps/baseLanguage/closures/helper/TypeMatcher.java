@@ -14,7 +14,8 @@ import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import java.util.ArrayList;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
-import jetbrains.mps.typechecking.TypecheckingFacade;
+import jetbrains.mps.baseLanguage.behavior.Type__BehaviorDescriptor;
+import jetbrains.mps.lang.pattern.util.MatchingUtil;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import java.util.Objects;
@@ -64,8 +65,14 @@ public class TypeMatcher {
           return;
         }
         SetSequence.fromSet(visited).addElement(BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(candidate));
-        for (SNode superType : TypecheckingFacade.getFromContext().getImmediateSupertypes(candidate)) {
-          ListSequence.fromList(queue).addElement(superType);
+        if (SNodeOperations.isInstanceOf(candidate, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"))) {
+          for (SNode superType : Type__BehaviorDescriptor.getSupertypes_id4w2h6RLlygH.invoke(SNodeOperations.as(candidate, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type")))) {
+            ListSequence.fromList(queue).addElement(superType);
+          }
+          SNode javaType = Type__BehaviorDescriptor.getJavaType_idhEwIzO1.invoke(SNodeOperations.as(candidate, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type")));
+          if (!((MatchingUtil.matchNodes(candidate, javaType)))) {
+            ListSequence.fromList(queue).addElement(javaType);
+          }
         }
       }
     }

@@ -13,6 +13,7 @@ import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import jetbrains.mps.baseLanguage.behavior.Type__BehaviorDescriptor;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.typesystem.inference.TypeChecker;
@@ -152,7 +153,7 @@ with_meet:
         continue;
       }
       ListSequence.fromList(visitedClassifiers).addElement(SLinkOperations.getTarget(ct, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")));
-      for (SNode sup : TypecheckingFacade.getFromContext().getImmediateSupertypes(ct)) {
+      for (SNode sup : Type__BehaviorDescriptor.getSupertypes_id4w2h6RLlygH.invoke(ct)) {
         {
           SNode coercedNode_zgotlq_a0d0e0h = TypecheckingFacade.getFromContext().coerceType(sup, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType"));
           if (coercedNode_zgotlq_a0d0e0h != null) {
