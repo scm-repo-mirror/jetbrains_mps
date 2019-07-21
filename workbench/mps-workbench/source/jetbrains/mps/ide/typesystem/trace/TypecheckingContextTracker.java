@@ -15,17 +15,11 @@
  */
 package jetbrains.mps.ide.typesystem.trace;
 
-import jetbrains.mps.newTypesystem.context.IncrementalTypecheckingContext;
 import jetbrains.mps.newTypesystem.context.TracingTypecheckingContext;
 import jetbrains.mps.newTypesystem.operation.AbstractOperation;
 import jetbrains.mps.newTypesystem.state.State;
-import jetbrains.mps.typesystem.inference.ITypeContextOwner;
-import jetbrains.mps.typesystem.inference.ITypechecking;
 import jetbrains.mps.typesystem.inference.TypeChecker;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
-import jetbrains.mps.typesystem.inference.TypeContextManager;
-import jetbrains.mps.typesystem.inference.util.ConcurrentSubtypingCache;
-import jetbrains.mps.typesystem.inference.util.SubtypingCache;
 import org.jetbrains.mps.openapi.model.SNode;
 
 import java.util.List;
