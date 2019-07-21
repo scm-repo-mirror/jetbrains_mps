@@ -18,6 +18,7 @@ package jetbrains.mps.typesystem.checking;
 import com.intellij.openapi.components.ApplicationComponent;
 import jetbrains.mps.errors.CheckerRegistry;
 import jetbrains.mps.ide.MPSCoreComponents;
+import jetbrains.mps.typesystemEngine.checker.NonTypesystemChecker;
 import jetbrains.mps.typesystemEngine.checker.TypesystemChecker;
 import typesystemIntegration.languageChecker.RefScopeCheckerInEditor;
 
@@ -25,6 +26,7 @@ import typesystemIntegration.languageChecker.RefScopeCheckerInEditor;
 public class EditorCheckerComponent implements ApplicationComponent {
   private final MPSCoreComponents myCoreComponents;
   private TypesystemChecker myTypesystemChecker;
+  private NonTypesystemChecker myNonTypesystemChecker;
   private RefScopeCheckerInEditor myRefScopeCheckerInEditor;
 
   public EditorCheckerComponent(MPSCoreComponents mpsCoreComponents) {
@@ -37,6 +39,7 @@ public class EditorCheckerComponent implements ApplicationComponent {
     if (registry != null) {
       myRefScopeCheckerInEditor = new RefScopeCheckerInEditor(myCoreComponents.getPlatform());
       myTypesystemChecker = new TypesystemChecker();
+      myNonTypesystemChecker = new NonTypesystemChecker();
       registry.registerChecker(myTypesystemChecker);
       registry.registerEditorChecker(myRefScopeCheckerInEditor);
     }
@@ -46,9 +49,11 @@ public class EditorCheckerComponent implements ApplicationComponent {
   public void disposeComponent() {
     final CheckerRegistry registry = myCoreComponents.getPlatform().findComponent(CheckerRegistry.class);
     if (registry != null) {
+      registry.unregisterChecker(myNonTypesystemChecker);
       registry.unregisterChecker(myTypesystemChecker);
       registry.unregisterEditorChecker(myRefScopeCheckerInEditor);
       myTypesystemChecker = null;
+      myNonTypesystemChecker = null;
       myRefScopeCheckerInEditor = null;
     }
   }
