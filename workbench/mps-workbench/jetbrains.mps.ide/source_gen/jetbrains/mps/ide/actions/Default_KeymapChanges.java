@@ -27,7 +27,7 @@ public class Default_KeymapChanges extends BaseKeymapChanges {
     addSimpleShortcut("jetbrains.mps.ide.actions.FindConceptInstances_Action", getShortcut("alt F6"));
     addSimpleShortcut("jetbrains.mps.ide.actions.FindModelUsages_Action", getShortcut("alt F7"));
     addSimpleShortcut("jetbrains.mps.ide.actions.FindSpecificNodeUsages_Action", getShortcut("ctrl alt shift F7"));
-    addSimpleShortcut("jetbrains.mps.ide.actions.FindTextInProject_Action", getShortcut("ctrl shift F"));
+    addSimpleShortcut("jetbrains.mps.ide.actions.FindTextInProject_Action", getShortcut("ctrl alt shift F"));
     addSimpleShortcut("jetbrains.mps.ide.actions.GoToConceptDescendants_Action", getShortcut("ctrl alt B"));
     addSimpleShortcut("jetbrains.mps.ide.actions.GoToImplementationBehaviorMethod_Action", getShortcut("ctrl alt B"));
     addSimpleShortcut("jetbrains.mps.ide.actions.GoToModel_Action", getShortcut("ctrl alt shift M"));

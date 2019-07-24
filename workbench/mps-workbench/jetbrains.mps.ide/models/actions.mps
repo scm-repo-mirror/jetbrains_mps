@@ -15861,7 +15861,7 @@
     <node concept="Zd509" id="2MtyMjGZCGK" role="Zd508">
       <ref role="1bYAoF" node="1AwcMxRXXaC" resolve="FindTextInProject" />
       <node concept="pLAjd" id="2MtyMjGZCGL" role="Zd501">
-        <property role="pLAjc" value="ctrl+shift" />
+        <property role="pLAjc" value="ctrl+alt+shift" />
         <property role="pLAjf" value="VK_F" />
         <property role="3hacHL" value="5SFo3Mf0QpD/replace all" />
       </node>
@@ -24441,7 +24441,7 @@
     <node concept="Zd509" id="2bueJxWahEo" role="Zd508">
       <ref role="1bYAoF" node="1AwcMxRXXaC" resolve="FindTextInProject" />
       <node concept="pLAjd" id="2bueJxWahEq" role="Zd501">
-        <property role="pLAjc" value="ctrl+shift" />
+        <property role="pLAjc" value="ctrl+alt+shift" />
         <property role="pLAjf" value="VK_F" />
       </node>
     </node>
@@ -37780,7 +37780,7 @@
     <node concept="Zd509" id="2MtyMjGZCGM" role="Zd508">
       <ref role="1bYAoF" node="1AwcMxRXXaC" resolve="FindTextInProject" />
       <node concept="pLAjd" id="2MtyMjGZCGN" role="Zd501">
-        <property role="pLAjc" value="ctrl+shift" />
+        <property role="pLAjc" value="ctrl+alt+shift" />
         <property role="pLAjf" value="VK_F" />
         <property role="3hacHL" value="5SFo3Mf0QpD/replace all" />
       </node>
