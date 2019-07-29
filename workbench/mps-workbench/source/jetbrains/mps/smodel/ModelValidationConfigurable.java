@@ -16,7 +16,6 @@
 package jetbrains.mps.smodel;
 
 
-import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SearchableConfigurable;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
@@ -33,13 +32,11 @@ public class ModelValidationConfigurable implements SearchableConfigurable {
   private ModelValidationSettings myModelValidationSettings;
 
   private JPanel myJPanel = new JPanel(new BorderLayout());
-  private JCheckBox myCheckBoxOpenAPI = new JCheckBox("Enable nonpublic API usage check");
   private JCheckBox myCheckBoxTypeWasNotCalculated = new JCheckBox("Enable 'type was not calculated' check");
 
   public ModelValidationConfigurable(@NotNull ModelValidationSettings modelValidationSettings) {
     myModelValidationSettings = modelValidationSettings;
     Box box = Box.createVerticalBox();
-    box.add(myCheckBoxOpenAPI);
     box.add(myCheckBoxTypeWasNotCalculated);
     myJPanel.add(box, BorderLayout.WEST);
   }
@@ -64,25 +61,21 @@ public class ModelValidationConfigurable implements SearchableConfigurable {
 
   @Override
   public void apply() {
-    myModelValidationSettings.setDisableCheckOpenAPI(!myCheckBoxOpenAPI.isSelected());
     myModelValidationSettings.setDisableTypeWasNotCalculated(!myCheckBoxTypeWasNotCalculated.isSelected());
   }
 
   @Override
   public void reset() {
-    myCheckBoxOpenAPI.setSelected(!myModelValidationSettings.isDisableCheckOpenAPI());
     myCheckBoxTypeWasNotCalculated.setSelected(!myModelValidationSettings.isDisableTypeWasNotCalculated());
   }
 
   public boolean isModified() {
     // Shown value is inverted, so check for equality to avoid double negation
-    return myModelValidationSettings.isDisableCheckOpenAPI() == myCheckBoxOpenAPI.isSelected() ||
-           myModelValidationSettings.isDisableTypeWasNotCalculated() == myCheckBoxTypeWasNotCalculated.isSelected();
+    return myModelValidationSettings.isDisableTypeWasNotCalculated() == myCheckBoxTypeWasNotCalculated.isSelected();
   }
 
   @Override
   public void disposeUIResources() {
-    myCheckBoxOpenAPI = null;
     myCheckBoxTypeWasNotCalculated = null;
     myJPanel = null;
   }

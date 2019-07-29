@@ -36,21 +36,10 @@ import javax.swing.Icon;
   storages = @Storage("mpsModelValidationSettings.xml")
 )
 public class ModelValidationSettings implements PersistentStateComponent<MyState>, IModelValidationSettings, Disposable {
-
-  private boolean myDisableCheckOpenAPI = true;
   private boolean myDisableTypeWasNotCalculated = true;
 
   public ModelValidationSettings(MPSCoreComponents coreComponents) {
     ValidationSettings.getInstance().setModelValidationSettings(this);
-  }
-
-  void setDisableCheckOpenAPI(boolean disableCheckOpenAPI) {
-    myDisableCheckOpenAPI = disableCheckOpenAPI;
-  }
-
-  @Override
-  public boolean isDisableCheckOpenAPI() {
-    return myDisableCheckOpenAPI;
   }
 
   void setDisableTypeWasNotCalculated(boolean disableTypeWasNotCalculated) {
@@ -79,19 +68,16 @@ public class ModelValidationSettings implements PersistentStateComponent<MyState
   @Override
   public MyState getState() {
     MyState result = new MyState();
-    result.myDisableCheckOpenAPI = myDisableCheckOpenAPI;
     result.myDisableTypeWasNotCalculated = myDisableTypeWasNotCalculated;
     return result;
   }
 
   @Override
   public void loadState(@NotNull MyState state) {
-    myDisableCheckOpenAPI = state.myDisableCheckOpenAPI;
     myDisableTypeWasNotCalculated = state.myDisableTypeWasNotCalculated;
   }
 
   public static class MyState {
-    public boolean myDisableCheckOpenAPI = true;
     public boolean myDisableTypeWasNotCalculated = true;
   }
 }

@@ -2706,11 +2706,6 @@
     <option name="not" hit="Disable 'type was not calculated' check" />
     <option name="type" hit="Disable 'type was not calculated' check" />
     <option name="was" hit="Disable 'type was not calculated' check" />
-    <option name="api" hit="Disable nonpublic API usage check" />
-    <option name="check" hit="Disable nonpublic API usage check" />
-    <option name="disable" hit="Disable nonpublic API usage check" />
-    <option name="nonpublic" hit="Disable nonpublic API usage check" />
-    <option name="usage" hit="Disable nonpublic API usage check" />
     <option name="model" hit="Model Validation" />
     <option name="validation" hit="Model Validation" />
   </configurable>
