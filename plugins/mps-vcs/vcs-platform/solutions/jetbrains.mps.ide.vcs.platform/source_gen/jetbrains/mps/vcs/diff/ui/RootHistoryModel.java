@@ -63,7 +63,7 @@ import jetbrains.mps.smodel.persistence.lines.NodeLineContent;
         myProcessedRevisions++;
         try {
           byte[] revContent = rev.loadContent();
-          List<LineContent> lineToContentMap = VCSPersistenceSupport.getLineToContentMap(revContent);
+          List<LineContent> lineToContentMap = VCSPersistenceSupport.getLineToContentMap(revContent, true);
           if (lineToContentMap == null) {
             // FIXME report somehow 
             continue;
@@ -176,7 +176,7 @@ import jetbrains.mps.smodel.persistence.lines.NodeLineContent;
           return true;
         }
         for (int j = 0; j < a1.length; j++) {
-          if (a1[j].getClass() != a2[j].getClass()) {
+          if (!(a1[j].matches(a2[j]))) {
             return true;
           }
         }

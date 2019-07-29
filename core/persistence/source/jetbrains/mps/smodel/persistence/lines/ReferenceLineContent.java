@@ -19,6 +19,8 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNodeId;
 
+import java.util.Objects;
+
 /**
  * @author Evgeny Gerashchenko
  * @since 11/22/10
@@ -26,21 +28,32 @@ import org.jetbrains.mps.openapi.model.SNodeId;
 public final class ReferenceLineContent extends LineContent {
   private final String myRole;
   private final SReferenceLink myLink;
+  private final String myTarget;
 
   /**
    * Cons for legacy persistence, with string as meta-objects
    */
   public ReferenceLineContent(SNodeId nodeId, String role) {
+    this(nodeId, role, null);
+  }
+
+  public ReferenceLineContent(SNodeId nodeId, String role, @Nullable String target) {
     super(nodeId);
     myRole = role;
     myLink = null;
+    myTarget = target;
   }
 
   // both args are not null
   public ReferenceLineContent(SNodeId nodeId, SReferenceLink link) {
+    this(nodeId, link, null);
+  }
+
+  public ReferenceLineContent(SNodeId nodeId, SReferenceLink link, @Nullable String target) {
     super(nodeId);
     myRole = null;
     myLink = link;
+    myTarget = target;
   }
 
   public String getRole() {
@@ -50,6 +63,16 @@ public final class ReferenceLineContent extends LineContent {
   @Nullable
   public SReferenceLink getLink() {
     return myLink;
+  }
+
+  @Override
+  public boolean matches(LineContent other) {
+    if (!super.matches(other)) {
+      return false;
+    }
+    final ReferenceLineContent o = (ReferenceLineContent) other;
+    // see PropertyLineContent#matches() for further considerations.
+    return Objects.equals(myLink, o.myLink) && Objects.equals(myRole, o.myRole) && Objects.equals(myTarget, o.myTarget);
   }
 
   @Override

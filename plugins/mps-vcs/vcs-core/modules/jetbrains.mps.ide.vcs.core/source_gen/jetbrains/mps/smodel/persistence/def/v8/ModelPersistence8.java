@@ -33,6 +33,11 @@ public class ModelPersistence8 implements IModelPersistence {
   }
   @Override
   public XMLSAXHandler<List<LineContent>> getLineToContentMapReaderHandler() {
-    return new LineToContentMapReader8Handler();
+    return getAnnotateHandler(false, false);
+  }
+
+  @Override
+  public XMLSAXHandler<List<LineContent>> getAnnotateHandler(boolean withPropertyValues, boolean withAssociationTarget) {
+    return new LineToContentMapReader8Handler(withPropertyValues, withAssociationTarget);
   }
 }

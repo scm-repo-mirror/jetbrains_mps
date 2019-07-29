@@ -11,8 +11,6 @@ import jetbrains.mps.smodel.persistence.def.LineContentAccumulator;
 import org.xml.sax.SAXException;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXParseException;
-import org.jetbrains.mps.openapi.language.SProperty;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class AnnotationInfoReader9Handler extends XMLSAXHandler<List<LineContent>> {
   private ModelElementHandler modelHandler = new ModelElementHandler();
@@ -31,9 +29,13 @@ public class AnnotationInfoReader9Handler extends XMLSAXHandler<List<LineContent
   private Locator myLocator;
   private List<LineContent> myResult;
   private IdInfoReadHelper my_readHelperParam;
+  private boolean my_withPropertyValuesParam;
+  private boolean my_withAssocTargetsParam;
   private LineContentAccumulator my_accumulatorField;
-  public AnnotationInfoReader9Handler(IdInfoReadHelper readHelper) {
+  public AnnotationInfoReader9Handler(IdInfoReadHelper readHelper, boolean withPropertyValues, boolean withAssocTargets) {
     my_readHelperParam = readHelper;
+    my_withPropertyValuesParam = withPropertyValues;
+    my_withAssocTargetsParam = withAssocTargets;
   }
   public List<LineContent> getResult() {
     return myResult;
@@ -97,7 +99,7 @@ public class AnnotationInfoReader9Handler extends XMLSAXHandler<List<LineContent
   }
   public void globalHandleText(Object resultObject, String value) {
     List<LineContent> result = (List<LineContent>) resultObject;
-    my_accumulatorField.processText(value, myLocator);
+    my_accumulatorField.processText(value);
   }
   private interface ChildHandler {
     void apply(Object resultObject, Object value) throws SAXException;
@@ -135,7 +137,7 @@ public class AnnotationInfoReader9Handler extends XMLSAXHandler<List<LineContent
     }
     @Override
     protected List<LineContent> createObject(Attributes attrs) throws SAXException {
-      my_accumulatorField = new LineContentAccumulator();
+      my_accumulatorField = new LineContentAccumulator(myLocator, my_withPropertyValuesParam, my_withAssocTargetsParam);
       return my_accumulatorField.getLineToContentMap();
     }
     @Override
@@ -158,7 +160,7 @@ public class AnnotationInfoReader9Handler extends XMLSAXHandler<List<LineContent
     }
     private void handleChild_4287403191275410481(Object resultObject, Object value) throws SAXException {
       Void child = (Void) value;
-      my_accumulatorField.popNode(myLocator);
+      my_accumulatorField.popNode();
     }
   }
   public class RegistryElementHandler extends ElementHandler {
@@ -243,7 +245,7 @@ public class AnnotationInfoReader9Handler extends XMLSAXHandler<List<LineContent
       Void result = (Void) resultObject;
       if ("id".equals(name)) {
         try {
-          my_accumulatorField.pushNode(my_readHelperParam.getIdEncoder().parseNodeId(value), myLocator);
+          my_accumulatorField.pushNode(my_readHelperParam.getIdEncoder().parseNodeId(value));
         } catch (IdEncoder.EncodingException e) {
           throw new IllegalArgumentException(e);
         }
@@ -254,21 +256,11 @@ public class AnnotationInfoReader9Handler extends XMLSAXHandler<List<LineContent
     @Override
     protected ElementHandler createChild(Object resultObject, String tagName, Attributes attrs) throws SAXException {
       if ("property".equals(tagName)) {
-        myChildHandlersStack.push(new ChildHandler() {
-          @Override
-          public void apply(Object resultObject, Object value) throws SAXException {
-            handleChild_7167172773708891038(resultObject, value);
-          }
-        });
+        myChildHandlersStack.push(null);
         return propertyHandler;
       }
       if ("ref".equals(tagName)) {
-        myChildHandlersStack.push(new ChildHandler() {
-          @Override
-          public void apply(Object resultObject, Object value) throws SAXException {
-            handleChild_7167172773708891052(resultObject, value);
-          }
-        });
+        myChildHandlersStack.push(null);
         return referenceHandler;
       }
       if ("node".equals(tagName)) {
@@ -282,21 +274,9 @@ public class AnnotationInfoReader9Handler extends XMLSAXHandler<List<LineContent
       }
       return super.createChild(resultObject, tagName, attrs);
     }
-    private void handleChild_7167172773708891038(Object resultObject, Object value) throws SAXException {
-      SProperty child = (SProperty) value;
-      if (child != null) {
-        my_accumulatorField.saveProperty(child, myLocator);
-      }
-    }
-    private void handleChild_7167172773708891052(Object resultObject, Object value) throws SAXException {
-      SReferenceLink child = (SReferenceLink) value;
-      if (child != null) {
-        my_accumulatorField.saveReference(child, myLocator);
-      }
-    }
     private void handleChild_7167172773708891066(Object resultObject, Object value) throws SAXException {
       Void child = (Void) value;
-      my_accumulatorField.popNode(myLocator);
+      my_accumulatorField.popNode();
     }
   }
   public class PropertyElementHandler extends ElementHandler {
@@ -304,8 +284,9 @@ public class AnnotationInfoReader9Handler extends XMLSAXHandler<List<LineContent
       setRequiredAttributes("role");
     }
     @Override
-    protected SProperty createObject(Attributes attrs) throws SAXException {
-      return my_readHelperParam.readProperty(attrs.getValue("role"));
+    protected Object createObject(Attributes attrs) throws SAXException {
+      my_accumulatorField.saveProperty(my_readHelperParam.readProperty(attrs.getValue("role")), attrs.getValue("value"));
+      return null;
     }
   }
   public class ReferenceElementHandler extends ElementHandler {
@@ -313,8 +294,10 @@ public class AnnotationInfoReader9Handler extends XMLSAXHandler<List<LineContent
       setRequiredAttributes("role");
     }
     @Override
-    protected SReferenceLink createObject(Attributes attrs) throws SAXException {
-      return my_readHelperParam.readAssociation(attrs.getValue("role"));
+    protected Object createObject(Attributes attrs) throws SAXException {
+      String targetAsIs = (attrs.getValue("node") != null ? attrs.getValue("node") : attrs.getValue("to"));
+      my_accumulatorField.saveReference(my_readHelperParam.readAssociation(attrs.getValue("role")), targetAsIs);
+      return null;
     }
   }
   public class DefaultElementHandler extends ElementHandler {

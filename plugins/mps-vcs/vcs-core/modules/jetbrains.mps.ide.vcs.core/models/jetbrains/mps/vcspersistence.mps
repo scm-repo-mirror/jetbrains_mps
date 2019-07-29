@@ -2158,6 +2158,10 @@
           <node concept="10PrrI" id="F8s4TbNHTG" role="10Q1$1" />
         </node>
       </node>
+      <node concept="37vLTG" id="3qUma2siPLh" role="3clF46">
+        <property role="TrG5h" value="withValues" />
+        <node concept="10P_77" id="3qUma2siQ3F" role="1tU5fm" />
+      </node>
       <node concept="3uibUv" id="F8s4TbNGCM" role="Sfmx6">
         <ref role="3uigEE" to="5fzo:~ModelReadException" resolve="ModelReadException" />
       </node>
@@ -2276,8 +2280,14 @@
                   <node concept="37vLTw" id="F8s4TbNGDy" role="2Oq$k0">
                     <ref role="3cqZAo" node="F8s4TbNGDe" resolve="mp" />
                   </node>
-                  <node concept="liA8E" id="F8s4TbNGDz" role="2OqNvi">
-                    <ref role="37wK5l" to="5fzo:~IModelPersistence.getLineToContentMapReaderHandler()" resolve="getLineToContentMapReaderHandler" />
+                  <node concept="liA8E" id="3qUma2siQpM" role="2OqNvi">
+                    <ref role="37wK5l" to="5fzo:~IModelPersistence.getAnnotateHandler(boolean,boolean)" resolve="getAnnotateHandler" />
+                    <node concept="37vLTw" id="3qUma2siQIq" role="37wK5m">
+                      <ref role="3cqZAo" node="3qUma2siPLh" resolve="withValues" />
+                    </node>
+                    <node concept="37vLTw" id="3qUma2siR8l" role="37wK5m">
+                      <ref role="3cqZAo" node="3qUma2siPLh" resolve="withValues" />
+                    </node>
                   </node>
                 </node>
               </node>

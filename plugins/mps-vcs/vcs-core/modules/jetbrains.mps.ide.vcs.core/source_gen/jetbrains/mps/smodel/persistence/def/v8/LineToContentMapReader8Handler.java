@@ -25,8 +25,12 @@ public class LineToContentMapReader8Handler extends XMLSAXHandler<List<LineConte
   private Stack<Object> myValues = new Stack<Object>();
   private Locator myLocator;
   private List<LineContent> myResult;
+  private boolean my_withPropertyValuesParam;
+  private boolean my_withAssocTargetsParam;
   private LineContentAccumulator my_accumulatorField;
-  public LineToContentMapReader8Handler() {
+  public LineToContentMapReader8Handler(boolean withPropertyValues, boolean withAssocTargets) {
+    my_withPropertyValuesParam = withPropertyValues;
+    my_withAssocTargetsParam = withAssocTargets;
   }
   public List<LineContent> getResult() {
     return myResult;
@@ -90,7 +94,7 @@ public class LineToContentMapReader8Handler extends XMLSAXHandler<List<LineConte
   }
   public void globalHandleText(Object resultObject, String value) {
     List<LineContent> result = (List<LineContent>) resultObject;
-    my_accumulatorField.processText(value, myLocator);
+    my_accumulatorField.processText(value);
   }
   private interface ChildHandler {
     void apply(Object resultObject, Object value) throws SAXException;
@@ -128,7 +132,7 @@ public class LineToContentMapReader8Handler extends XMLSAXHandler<List<LineConte
     }
     @Override
     protected List<LineContent> createObject(Attributes attrs) throws SAXException {
-      my_accumulatorField = new LineContentAccumulator();
+      my_accumulatorField = new LineContentAccumulator(myLocator, my_withPropertyValuesParam, my_withAssocTargetsParam);
       return my_accumulatorField.getLineToContentMap();
     }
     @Override
@@ -166,7 +170,7 @@ public class LineToContentMapReader8Handler extends XMLSAXHandler<List<LineConte
     }
     private void handleChild_1361478912234927293(Object resultObject, Object value) throws SAXException {
       SNode child = (SNode) value;
-      my_accumulatorField.popNode(myLocator);
+      my_accumulatorField.popNode();
     }
   }
   public class NodeElementHandler extends ElementHandler {
@@ -176,7 +180,7 @@ public class LineToContentMapReader8Handler extends XMLSAXHandler<List<LineConte
     protected void handleAttribute(Object resultObject, String name, String value) throws SAXException {
       SNode result = (SNode) resultObject;
       if ("id".equals(name)) {
-        my_accumulatorField.pushNode(SNodeId.fromString(value), myLocator);
+        my_accumulatorField.pushNode(SNodeId.fromString(value));
         return;
       }
       super.handleAttribute(resultObject, name, value);
@@ -184,21 +188,11 @@ public class LineToContentMapReader8Handler extends XMLSAXHandler<List<LineConte
     @Override
     protected ElementHandler createChild(Object resultObject, String tagName, Attributes attrs) throws SAXException {
       if ("property".equals(tagName)) {
-        myChildHandlersStack.push(new ChildHandler() {
-          @Override
-          public void apply(Object resultObject, Object value) throws SAXException {
-            handleChild_5797832288566425627(resultObject, value);
-          }
-        });
+        myChildHandlersStack.push(null);
         return propertyHandler;
       }
       if ("link".equals(tagName)) {
-        myChildHandlersStack.push(new ChildHandler() {
-          @Override
-          public void apply(Object resultObject, Object value) throws SAXException {
-            handleChild_5797832288566425650(resultObject, value);
-          }
-        });
+        myChildHandlersStack.push(null);
         return linkHandler;
       }
       if ("node".equals(tagName)) {
@@ -212,21 +206,9 @@ public class LineToContentMapReader8Handler extends XMLSAXHandler<List<LineConte
       }
       return super.createChild(resultObject, tagName, attrs);
     }
-    private void handleChild_5797832288566425627(Object resultObject, Object value) throws SAXException {
-      String child = (String) value;
-      if (child != null) {
-        my_accumulatorField.saveProperty(child, myLocator);
-      }
-    }
-    private void handleChild_5797832288566425650(Object resultObject, Object value) throws SAXException {
-      String child = (String) value;
-      if (child != null) {
-        my_accumulatorField.saveReference(child, myLocator);
-      }
-    }
     private void handleChild_5797832288566425695(Object resultObject, Object value) throws SAXException {
       SNode child = (SNode) value;
-      my_accumulatorField.popNode(myLocator);
+      my_accumulatorField.popNode();
     }
   }
   public class PropertyElementHandler extends ElementHandler {
@@ -234,17 +216,19 @@ public class LineToContentMapReader8Handler extends XMLSAXHandler<List<LineConte
       setRequiredAttributes("name");
     }
     @Override
-    protected String createObject(Attributes attrs) throws SAXException {
-      return attrs.getValue("name");
+    protected Object createObject(Attributes attrs) throws SAXException {
+      my_accumulatorField.saveProperty(attrs.getValue("name"), attrs.getValue("value"));
+      return null;
     }
   }
   public class LinkElementHandler extends ElementHandler {
     public LinkElementHandler() {
-      setRequiredAttributes("role");
+      setRequiredAttributes("role", "targetNodeId");
     }
     @Override
-    protected String createObject(Attributes attrs) throws SAXException {
-      return attrs.getValue("role");
+    protected Object createObject(Attributes attrs) throws SAXException {
+      my_accumulatorField.saveReference(attrs.getValue("role"), attrs.getValue("targetNodeId"));
+      return null;
     }
   }
   public class NullElementHandler extends ElementHandler {

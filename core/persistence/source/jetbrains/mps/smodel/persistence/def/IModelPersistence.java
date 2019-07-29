@@ -39,4 +39,8 @@ public interface IModelPersistence {
   XMLSAXHandler<ModelLoadResult> getModelReaderHandler(ModelLoadingState state, SModelHeader header);
 
   XMLSAXHandler<List<LineContent>> getLineToContentMapReaderHandler();
+
+  default XMLSAXHandler<List<LineContent>> getAnnotateHandler(boolean withPropertyValues, boolean withAssociationTarget) {
+    return getLineToContentMapReaderHandler();
+  }
 }

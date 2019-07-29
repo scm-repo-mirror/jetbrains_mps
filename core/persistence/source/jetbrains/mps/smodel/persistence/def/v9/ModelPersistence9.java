@@ -115,10 +115,15 @@ public class ModelPersistence9 implements IModelPersistence, XMLPersistence {
 
   @Override
   public XMLSAXHandler<List<LineContent>> getLineToContentMapReaderHandler() {
+    return getAnnotateHandler(false, false);
+  }
+
+  @Override
+  public XMLSAXHandler<List<LineContent>> getAnnotateHandler(boolean withPropertyValues, boolean withAssociationTarget) {
     // for annotation purposes, we don't need to publish meta-model or to query outer world, information from model file should be sufficient
     MetaModelInfoProvider mmiProvider = new StuffedMetaModelInfo(new BaseMetaModelInfo());
     IdInfoReadHelper readHelper = new IdInfoReadHelper(mmiProvider, true, true);
-    return new AnnotationInfoReader9Handler(readHelper);
+    return new AnnotationInfoReader9Handler(readHelper, withPropertyValues, withAssociationTarget);
   }
 
   @Override

@@ -19,6 +19,8 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.model.SNodeId;
 
+import java.util.Objects;
+
 /**
  * @author Evgeny Gerashchenko
  * @since 11/22/10
@@ -26,21 +28,33 @@ import org.jetbrains.mps.openapi.model.SNodeId;
 public final class PropertyLineContent extends LineContent {
   private final String myName;
   private final SProperty myProperty;
+  private final String myValue;
 
   /**
    * Legacy persistence, just property name kept
    */
   public PropertyLineContent(SNodeId nodeId, String name) {
+    this(nodeId, name, null);
+  }
+
+  public PropertyLineContent(SNodeId nodeId, String name, @Nullable String value) {
     super(nodeId);
     myName = name;
     myProperty = null;
+    myValue = value;
   }
 
   // both arguments are not null
   public PropertyLineContent(SNodeId nodeId, SProperty property) {
+    this(nodeId, property, null);
+  }
+
+  // two first arguments are not null, third generally is null
+  public PropertyLineContent(SNodeId nodeId, SProperty property, @Nullable String value) {
     super(nodeId);
     myName = null;
     myProperty = property;
+    myValue = value;
   }
 
   public String getName() {
@@ -50,6 +64,18 @@ public final class PropertyLineContent extends LineContent {
   @Nullable
   public SProperty getProperty() {
     return myProperty;
+  }
+
+  @Override
+  public boolean matches(LineContent other) {
+    if (!super.matches(other)) {
+      return false;
+    }
+    final PropertyLineContent o = (PropertyLineContent) other;
+    // it's fine that either myProperty or myName is null.
+    // Don't want to complicate matching here for a scenario when the same property crosses v8/v9 persistence boundary
+    // (same property line content, reported as PLC(string) in v8, matched against PLC(SProperty) of v9.
+    return Objects.equals(myProperty, o.myProperty) && Objects.equals(myName, o.myName) && Objects.equals(myValue, o.myValue);
   }
 
   @Override

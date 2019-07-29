@@ -19,8 +19,6 @@
     <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
     <import index="ze1i" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)" />
-    <import index="pa15" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.persistence(MPS.Core/)" />
-    <import index="cavf" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.legacy(MPS.Core/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -88,7 +86,9 @@
       <concept id="1070534555686" name="jetbrains.mps.baseLanguage.structure.CharType" flags="in" index="10Pfzv" />
       <concept id="1070534644030" name="jetbrains.mps.baseLanguage.structure.BooleanType" flags="in" index="10P_77" />
       <concept id="1068390468200" name="jetbrains.mps.baseLanguage.structure.FieldDeclaration" flags="ig" index="312cEg" />
-      <concept id="1068390468198" name="jetbrains.mps.baseLanguage.structure.ClassConcept" flags="ig" index="312cEu" />
+      <concept id="1068390468198" name="jetbrains.mps.baseLanguage.structure.ClassConcept" flags="ig" index="312cEu">
+        <property id="1221565133444" name="isFinal" index="1EXbeo" />
+      </concept>
       <concept id="1068431474542" name="jetbrains.mps.baseLanguage.structure.VariableDeclaration" flags="ng" index="33uBYm">
         <property id="1176718929932" name="isFinal" index="3TUv4t" />
         <child id="1068431790190" name="initializer" index="33vP2m" />
@@ -256,6 +256,7 @@
   </registry>
   <node concept="312cEu" id="7E_6zdv1nko">
     <property role="TrG5h" value="LineContentAccumulator" />
+    <property role="1EXbeo" value="true" />
     <node concept="312cEg" id="7E_6zdv1nla" role="jymVt">
       <property role="TrG5h" value="myLineToContentMap" />
       <node concept="_YKpA" id="7E_6zdv1nlc" role="1tU5fm">
@@ -288,11 +289,78 @@
       </node>
       <node concept="3Tm6S6" id="7E_6zdv1nli" role="1B3o_S" />
     </node>
-    <node concept="3clFbW" id="7E_6zdv1nlp" role="jymVt">
-      <node concept="3clFbS" id="7E_6zdv1nls" role="3clF47" />
-      <node concept="3Tm1VV" id="7E_6zdv1nlr" role="1B3o_S" />
-      <node concept="3cqZAl" id="7E_6zdv1nlq" role="3clF45" />
+    <node concept="312cEg" id="1Xtqokxj1b7" role="jymVt">
+      <property role="TrG5h" value="myLocator" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="1Xtqokxj1b8" role="1B3o_S" />
+      <node concept="3uibUv" id="1Xtqokxj1ba" role="1tU5fm">
+        <ref role="3uigEE" to="kart:~Locator" resolve="Locator" />
+      </node>
     </node>
+    <node concept="312cEg" id="1XtqokxkaKi" role="jymVt">
+      <property role="TrG5h" value="myWithPropertyValue" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="1XtqokxkaKj" role="1B3o_S" />
+      <node concept="10P_77" id="1XtqokxkaKl" role="1tU5fm" />
+    </node>
+    <node concept="312cEg" id="1Xtqokxk9tm" role="jymVt">
+      <property role="TrG5h" value="myWithAssociationTarget" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="1Xtqokxk9tn" role="1B3o_S" />
+      <node concept="10P_77" id="1Xtqokxk9tp" role="1tU5fm" />
+    </node>
+    <node concept="2tJIrI" id="1Xtqokxj4cu" role="jymVt" />
+    <node concept="3clFbW" id="1XtqokxiZPc" role="jymVt">
+      <node concept="37vLTG" id="1Xtqokxj18a" role="3clF46">
+        <property role="TrG5h" value="locator" />
+        <node concept="3uibUv" id="1Xtqokxj18b" role="1tU5fm">
+          <ref role="3uigEE" to="kart:~Locator" resolve="Locator" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="1Xtqokxk9dL" role="3clF46">
+        <property role="TrG5h" value="withPropertyValue" />
+        <node concept="10P_77" id="1Xtqokxk9hp" role="1tU5fm" />
+      </node>
+      <node concept="37vLTG" id="1Xtqokxk9i4" role="3clF46">
+        <property role="TrG5h" value="withAssociationTarget" />
+        <node concept="10P_77" id="1Xtqokxk9lI" role="1tU5fm" />
+      </node>
+      <node concept="3cqZAl" id="1XtqokxiZPe" role="3clF45" />
+      <node concept="3Tm1VV" id="1XtqokxiZPf" role="1B3o_S" />
+      <node concept="3clFbS" id="1XtqokxiZPg" role="3clF47">
+        <node concept="3clFbF" id="1Xtqokxj1bb" role="3cqZAp">
+          <node concept="37vLTI" id="1Xtqokxj1bd" role="3clFbG">
+            <node concept="37vLTw" id="1Xtqokxj1bg" role="37vLTJ">
+              <ref role="3cqZAo" node="1Xtqokxj1b7" resolve="myLocator" />
+            </node>
+            <node concept="37vLTw" id="1Xtqokxj1bh" role="37vLTx">
+              <ref role="3cqZAo" node="1Xtqokxj18a" resolve="locator" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="1XtqokxkaKm" role="3cqZAp">
+          <node concept="37vLTI" id="1XtqokxkaKo" role="3clFbG">
+            <node concept="37vLTw" id="1XtqokxkaKr" role="37vLTJ">
+              <ref role="3cqZAo" node="1XtqokxkaKi" resolve="myWithPropertyValue" />
+            </node>
+            <node concept="37vLTw" id="1XtqokxkaKs" role="37vLTx">
+              <ref role="3cqZAo" node="1Xtqokxk9dL" resolve="withPropertyValue" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="1Xtqokxk9tq" role="3cqZAp">
+          <node concept="37vLTI" id="1Xtqokxk9ts" role="3clFbG">
+            <node concept="37vLTw" id="1Xtqokxk9tv" role="37vLTJ">
+              <ref role="3cqZAo" node="1Xtqokxk9tm" resolve="myWithAssociationTarget" />
+            </node>
+            <node concept="37vLTw" id="1Xtqokxk9tw" role="37vLTx">
+              <ref role="3cqZAo" node="1Xtqokxk9i4" resolve="withAssociationTarget" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="1Xtqokxj2vh" role="jymVt" />
     <node concept="3clFb_" id="7E_6zdv1nkp" role="jymVt">
       <property role="TrG5h" value="pushNode" />
       <node concept="3Tm1VV" id="7E_6zdv1nkr" role="1B3o_S" />
@@ -310,11 +378,19 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="6AfXaC8OvM3" role="3cqZAp">
-          <node concept="1rXfSq" id="4hiugqyzfjc" role="3clFbG">
-            <ref role="37wK5l" node="7E_6zdv1nkG" resolve="saveNode" />
-            <node concept="37vLTw" id="2BHiRxgmGUu" role="37wK5m">
-              <ref role="3cqZAo" node="6AfXaC8OvLZ" resolve="locator" />
+        <node concept="3clFbF" id="1XtqokxjzIf" role="3cqZAp">
+          <node concept="1rXfSq" id="1XtqokxjzIg" role="3clFbG">
+            <ref role="37wK5l" node="7E_6zdv1nnq" resolve="saveElement" />
+            <node concept="2ShNRf" id="1XtqokxjzIh" role="37wK5m">
+              <node concept="1pGfFk" id="1XtqokxjzIi" role="2ShVmc">
+                <ref role="37wK5l" to="mdm6:~NodeLineContent.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNodeId)" resolve="NodeLineContent" />
+                <node concept="2OqwBi" id="1XtqokxjzIj" role="37wK5m">
+                  <node concept="37vLTw" id="1XtqokxjzIk" role="2Oq$k0">
+                    <ref role="3cqZAo" node="7E_6zdv1nlh" resolve="myNodeIdStack" />
+                  </node>
+                  <node concept="2oR75g" id="1XtqokxjzIl" role="2OqNvi" />
+                </node>
+              </node>
             </node>
           </node>
         </node>
@@ -325,28 +401,24 @@
           <ref role="3uigEE" to="mhbf:~SNodeId" resolve="SNodeId" />
         </node>
       </node>
-      <node concept="37vLTG" id="6AfXaC8OvLZ" role="3clF46">
-        <property role="TrG5h" value="locator" />
-        <node concept="3uibUv" id="6AfXaC8OvM1" role="1tU5fm">
-          <ref role="3uigEE" to="kart:~Locator" resolve="Locator" />
-        </node>
-      </node>
     </node>
     <node concept="3clFb_" id="7E_6zdv1nk$" role="jymVt">
       <property role="TrG5h" value="popNode" />
-      <node concept="37vLTG" id="6AfXaC8OvLQ" role="3clF46">
-        <property role="TrG5h" value="locator" />
-        <node concept="3uibUv" id="6AfXaC8OvLR" role="1tU5fm">
-          <ref role="3uigEE" to="kart:~Locator" resolve="Locator" />
-        </node>
-      </node>
       <node concept="3Tm1VV" id="7E_6zdv1nkA" role="1B3o_S" />
       <node concept="3clFbS" id="7E_6zdv1nkB" role="3clF47">
-        <node concept="3clFbF" id="6AfXaC8OvLT" role="3cqZAp">
-          <node concept="1rXfSq" id="4hiugqyz5Hu" role="3clFbG">
-            <ref role="37wK5l" node="7E_6zdv1nkG" resolve="saveNode" />
-            <node concept="37vLTw" id="2BHiRxghiCe" role="37wK5m">
-              <ref role="3cqZAo" node="6AfXaC8OvLQ" resolve="locator" />
+        <node concept="3clFbF" id="7E_6zdv1nlL" role="3cqZAp">
+          <node concept="1rXfSq" id="4hiugqyyHYj" role="3clFbG">
+            <ref role="37wK5l" node="7E_6zdv1nnq" resolve="saveElement" />
+            <node concept="2ShNRf" id="7E_6zdv1nml" role="37wK5m">
+              <node concept="1pGfFk" id="7E_6zdv1nmn" role="2ShVmc">
+                <ref role="37wK5l" to="mdm6:~NodeLineContent.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNodeId)" resolve="NodeLineContent" />
+                <node concept="2OqwBi" id="7E_6zdv1nmo" role="37wK5m">
+                  <node concept="37vLTw" id="2BHiRxeuWaS" role="2Oq$k0">
+                    <ref role="3cqZAo" node="7E_6zdv1nlh" resolve="myNodeIdStack" />
+                  </node>
+                  <node concept="2oR75g" id="7E_6zdv1nmq" role="2OqNvi" />
+                </node>
+              </node>
             </node>
           </node>
         </node>
@@ -361,6 +433,7 @@
       </node>
       <node concept="3cqZAl" id="7E_6zdv1nk_" role="3clF45" />
     </node>
+    <node concept="2tJIrI" id="1XtqokxjwjW" role="jymVt" />
     <node concept="3clFb_" id="7E_6zdv1nlW" role="jymVt">
       <property role="TrG5h" value="saveElement" />
       <node concept="37vLTG" id="7E_6zdv1nm1" role="3clF46">
@@ -429,8 +502,8 @@
                 <node concept="liA8E" id="7E_6zdv1nnJ" role="2OqNvi">
                   <ref role="37wK5l" to="kart:~Locator.getLineNumber()" resolve="getLineNumber" />
                 </node>
-                <node concept="37vLTw" id="2BHiRxgm7K2" role="2Oq$k0">
-                  <ref role="3cqZAo" node="7E_6zdv1nnv" resolve="locator" />
+                <node concept="37vLTw" id="1XtqokxjwdB" role="2Oq$k0">
+                  <ref role="3cqZAo" node="1Xtqokxj1b7" resolve="myLocator" />
                 </node>
               </node>
               <node concept="3cmrfG" id="7E_6zdv1nnN" role="3uHU7w">
@@ -444,49 +517,11 @@
         </node>
       </node>
       <node concept="3Tm6S6" id="7E_6zdv1nnu" role="1B3o_S" />
-      <node concept="37vLTG" id="7E_6zdv1nnv" role="3clF46">
-        <property role="TrG5h" value="locator" />
-        <node concept="3uibUv" id="7E_6zdv1nnw" role="1tU5fm">
-          <ref role="3uigEE" to="kart:~Locator" resolve="Locator" />
-        </node>
-      </node>
       <node concept="3cqZAl" id="7E_6zdv1nnr" role="3clF45" />
       <node concept="37vLTG" id="7E_6zdv1nnx" role="3clF46">
         <property role="TrG5h" value="lineContent" />
         <node concept="3uibUv" id="7E_6zdv1nn$" role="1tU5fm">
           <ref role="3uigEE" to="mdm6:~LineContent" resolve="LineContent" />
-        </node>
-      </node>
-    </node>
-    <node concept="3clFb_" id="7E_6zdv1nkG" role="jymVt">
-      <property role="TrG5h" value="saveNode" />
-      <node concept="3Tm6S6" id="6AfXaC8OvMa" role="1B3o_S" />
-      <node concept="3clFbS" id="7E_6zdv1nkJ" role="3clF47">
-        <node concept="3clFbF" id="7E_6zdv1nlL" role="3cqZAp">
-          <node concept="1rXfSq" id="4hiugqyyHYj" role="3clFbG">
-            <ref role="37wK5l" node="7E_6zdv1nnq" resolve="saveElement" />
-            <node concept="37vLTw" id="2BHiRxgha3t" role="37wK5m">
-              <ref role="3cqZAo" node="7E_6zdv1nkK" resolve="locator" />
-            </node>
-            <node concept="2ShNRf" id="7E_6zdv1nml" role="37wK5m">
-              <node concept="1pGfFk" id="7E_6zdv1nmn" role="2ShVmc">
-                <ref role="37wK5l" to="mdm6:~NodeLineContent.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNodeId)" resolve="NodeLineContent" />
-                <node concept="2OqwBi" id="7E_6zdv1nmo" role="37wK5m">
-                  <node concept="37vLTw" id="2BHiRxeuWaS" role="2Oq$k0">
-                    <ref role="3cqZAo" node="7E_6zdv1nlh" resolve="myNodeIdStack" />
-                  </node>
-                  <node concept="2oR75g" id="7E_6zdv1nmq" role="2OqNvi" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="3cqZAl" id="7E_6zdv1nkH" role="3clF45" />
-      <node concept="37vLTG" id="7E_6zdv1nkK" role="3clF46">
-        <property role="TrG5h" value="locator" />
-        <node concept="3uibUv" id="7E_6zdv1nkL" role="1tU5fm">
-          <ref role="3uigEE" to="kart:~Locator" resolve="Locator" />
         </node>
       </node>
     </node>
@@ -499,21 +534,19 @@
         <node concept="17QB3L" id="7E_6zdv1nkR" role="1tU5fm" />
       </node>
       <node concept="37vLTG" id="7E_6zdv1nkS" role="3clF46">
-        <property role="TrG5h" value="locator" />
-        <node concept="3uibUv" id="7E_6zdv1nkT" role="1tU5fm">
-          <ref role="3uigEE" to="kart:~Locator" resolve="Locator" />
+        <property role="TrG5h" value="value" />
+        <node concept="17QB3L" id="1Xtqokxjlag" role="1tU5fm" />
+        <node concept="2AHcQZ" id="1XtqokxjkF9" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
         </node>
       </node>
       <node concept="3clFbS" id="7E_6zdv1nkP" role="3clF47">
         <node concept="3clFbF" id="7E_6zdv1nnQ" role="3cqZAp">
           <node concept="1rXfSq" id="4hiugqyyXJj" role="3clFbG">
             <ref role="37wK5l" node="7E_6zdv1nnq" resolve="saveElement" />
-            <node concept="37vLTw" id="2BHiRxgm$9F" role="37wK5m">
-              <ref role="3cqZAo" node="7E_6zdv1nkS" resolve="locator" />
-            </node>
             <node concept="2ShNRf" id="7E_6zdv1nnU" role="37wK5m">
               <node concept="1pGfFk" id="7E_6zdv1nnW" role="2ShVmc">
-                <ref role="37wK5l" to="mdm6:~PropertyLineContent.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNodeId,java.lang.String)" resolve="PropertyLineContent" />
+                <ref role="37wK5l" to="mdm6:~PropertyLineContent.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNodeId,java.lang.String,java.lang.String)" resolve="PropertyLineContent" />
                 <node concept="2OqwBi" id="7E_6zdv1nnY" role="37wK5m">
                   <node concept="37vLTw" id="2BHiRxeudAC" role="2Oq$k0">
                     <ref role="3cqZAo" node="7E_6zdv1nlh" resolve="myNodeIdStack" />
@@ -522,6 +555,15 @@
                 </node>
                 <node concept="37vLTw" id="2BHiRxgllhZ" role="37wK5m">
                   <ref role="3cqZAo" node="7E_6zdv1nkQ" resolve="name" />
+                </node>
+                <node concept="3K4zz7" id="12PSAxfb84Z" role="37wK5m">
+                  <node concept="37vLTw" id="12PSAxfb8vQ" role="3K4E3e">
+                    <ref role="3cqZAo" node="7E_6zdv1nkS" resolve="value" />
+                  </node>
+                  <node concept="10Nm6u" id="12PSAxfb8_w" role="3K4GZi" />
+                  <node concept="37vLTw" id="12PSAxfb7_k" role="3K4Cdx">
+                    <ref role="3cqZAo" node="1XtqokxkaKi" resolve="myWithPropertyValue" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -539,22 +581,20 @@
           <ref role="3uigEE" to="c17a:~SProperty" resolve="SProperty" />
         </node>
       </node>
-      <node concept="37vLTG" id="4PEU_E_AVU" role="3clF46">
-        <property role="TrG5h" value="locator" />
-        <node concept="3uibUv" id="4PEU_E_AVV" role="1tU5fm">
-          <ref role="3uigEE" to="kart:~Locator" resolve="Locator" />
+      <node concept="37vLTG" id="1XtqokxjlLR" role="3clF46">
+        <property role="TrG5h" value="value" />
+        <node concept="17QB3L" id="1XtqokxjlLS" role="1tU5fm" />
+        <node concept="2AHcQZ" id="1XtqokxjlLT" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
         </node>
       </node>
       <node concept="3clFbS" id="4PEU_E_AVW" role="3clF47">
         <node concept="3clFbF" id="4PEU_E_AVX" role="3cqZAp">
           <node concept="1rXfSq" id="4PEU_E_AVY" role="3clFbG">
             <ref role="37wK5l" node="7E_6zdv1nnq" resolve="saveElement" />
-            <node concept="37vLTw" id="4PEU_E_AVZ" role="37wK5m">
-              <ref role="3cqZAo" node="4PEU_E_AVU" resolve="locator" />
-            </node>
             <node concept="2ShNRf" id="4PEU_E_AW0" role="37wK5m">
               <node concept="1pGfFk" id="4PEU_E_AW1" role="2ShVmc">
-                <ref role="37wK5l" to="mdm6:~PropertyLineContent.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNodeId,org.jetbrains.mps.openapi.language.SProperty)" resolve="PropertyLineContent" />
+                <ref role="37wK5l" to="mdm6:~PropertyLineContent.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNodeId,org.jetbrains.mps.openapi.language.SProperty,java.lang.String)" resolve="PropertyLineContent" />
                 <node concept="2OqwBi" id="4PEU_E_AW2" role="37wK5m">
                   <node concept="37vLTw" id="4PEU_E_AW3" role="2Oq$k0">
                     <ref role="3cqZAo" node="7E_6zdv1nlh" resolve="myNodeIdStack" />
@@ -563,6 +603,15 @@
                 </node>
                 <node concept="37vLTw" id="4PEU_E_AW5" role="37wK5m">
                   <ref role="3cqZAo" node="4PEU_E_AVS" resolve="prop" />
+                </node>
+                <node concept="3K4zz7" id="12PSAxfb9gR" role="37wK5m">
+                  <node concept="37vLTw" id="12PSAxfb9gS" role="3K4E3e">
+                    <ref role="3cqZAo" node="1XtqokxjlLR" resolve="value" />
+                  </node>
+                  <node concept="10Nm6u" id="12PSAxfb9gT" role="3K4GZi" />
+                  <node concept="37vLTw" id="12PSAxfb9gU" role="3K4Cdx">
+                    <ref role="3cqZAo" node="1XtqokxkaKi" resolve="myWithPropertyValue" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -583,12 +632,9 @@
         <node concept="3clFbF" id="7E_6zdv1no5" role="3cqZAp">
           <node concept="1rXfSq" id="4hiugqyzk7J" role="3clFbG">
             <ref role="37wK5l" node="7E_6zdv1nnq" resolve="saveElement" />
-            <node concept="37vLTw" id="2BHiRxglRum" role="37wK5m">
-              <ref role="3cqZAo" node="7E_6zdv1nl0" resolve="locator" />
-            </node>
             <node concept="2ShNRf" id="7E_6zdv1no8" role="37wK5m">
               <node concept="1pGfFk" id="7E_6zdv1no9" role="2ShVmc">
-                <ref role="37wK5l" to="mdm6:~ReferenceLineContent.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNodeId,java.lang.String)" resolve="ReferenceLineContent" />
+                <ref role="37wK5l" to="mdm6:~ReferenceLineContent.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNodeId,java.lang.String,java.lang.String)" resolve="ReferenceLineContent" />
                 <node concept="2OqwBi" id="7E_6zdv1noa" role="37wK5m">
                   <node concept="2oR75g" id="7E_6zdv1noc" role="2OqNvi" />
                   <node concept="37vLTw" id="2BHiRxeuqNn" role="2Oq$k0">
@@ -598,16 +644,26 @@
                 <node concept="37vLTw" id="2BHiRxgheZB" role="37wK5m">
                   <ref role="3cqZAo" node="7E_6zdv1nkY" resolve="role" />
                 </node>
+                <node concept="3K4zz7" id="12PSAxfb9Tp" role="37wK5m">
+                  <node concept="37vLTw" id="12PSAxfb9Tq" role="3K4E3e">
+                    <ref role="3cqZAo" node="1Xtqokxjnke" resolve="value" />
+                  </node>
+                  <node concept="10Nm6u" id="12PSAxfb9Tr" role="3K4GZi" />
+                  <node concept="37vLTw" id="12PSAxfbaoZ" role="3K4Cdx">
+                    <ref role="3cqZAo" node="1Xtqokxk9tm" resolve="myWithAssociationTarget" />
+                  </node>
+                </node>
               </node>
             </node>
           </node>
         </node>
       </node>
       <node concept="3Tm1VV" id="7E_6zdv1nkW" role="1B3o_S" />
-      <node concept="37vLTG" id="7E_6zdv1nl0" role="3clF46">
-        <property role="TrG5h" value="locator" />
-        <node concept="3uibUv" id="7E_6zdv1nl1" role="1tU5fm">
-          <ref role="3uigEE" to="kart:~Locator" resolve="Locator" />
+      <node concept="37vLTG" id="1Xtqokxjnke" role="3clF46">
+        <property role="TrG5h" value="value" />
+        <node concept="17QB3L" id="1Xtqokxjnkf" role="1tU5fm" />
+        <node concept="2AHcQZ" id="1Xtqokxjnkg" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
         </node>
       </node>
     </node>
@@ -624,12 +680,9 @@
         <node concept="3clFbF" id="4PEU_E_zhx" role="3cqZAp">
           <node concept="1rXfSq" id="4PEU_E_zhy" role="3clFbG">
             <ref role="37wK5l" node="7E_6zdv1nnq" resolve="saveElement" />
-            <node concept="37vLTw" id="4PEU_E_zhz" role="37wK5m">
-              <ref role="3cqZAo" node="4PEU_E_zhF" resolve="locator" />
-            </node>
             <node concept="2ShNRf" id="4PEU_E_zh$" role="37wK5m">
               <node concept="1pGfFk" id="4PEU_E_zh_" role="2ShVmc">
-                <ref role="37wK5l" to="mdm6:~ReferenceLineContent.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNodeId,org.jetbrains.mps.openapi.language.SReferenceLink)" resolve="ReferenceLineContent" />
+                <ref role="37wK5l" to="mdm6:~ReferenceLineContent.&lt;init&gt;(org.jetbrains.mps.openapi.model.SNodeId,org.jetbrains.mps.openapi.language.SReferenceLink,java.lang.String)" resolve="ReferenceLineContent" />
                 <node concept="2OqwBi" id="4PEU_E_zhA" role="37wK5m">
                   <node concept="2oR75g" id="4PEU_E_zhB" role="2OqNvi" />
                   <node concept="37vLTw" id="4PEU_E_zhC" role="2Oq$k0">
@@ -639,16 +692,26 @@
                 <node concept="37vLTw" id="4PEU_E_zhD" role="37wK5m">
                   <ref role="3cqZAo" node="4PEU_E_zhu" resolve="link" />
                 </node>
+                <node concept="3K4zz7" id="12PSAxfbaSi" role="37wK5m">
+                  <node concept="37vLTw" id="12PSAxfbaSj" role="3K4E3e">
+                    <ref role="3cqZAo" node="1XtqokxjoBy" resolve="value" />
+                  </node>
+                  <node concept="10Nm6u" id="12PSAxfbaSk" role="3K4GZi" />
+                  <node concept="37vLTw" id="12PSAxfbaSl" role="3K4Cdx">
+                    <ref role="3cqZAo" node="1Xtqokxk9tm" resolve="myWithAssociationTarget" />
+                  </node>
+                </node>
               </node>
             </node>
           </node>
         </node>
       </node>
       <node concept="3Tm1VV" id="4PEU_E_zhE" role="1B3o_S" />
-      <node concept="37vLTG" id="4PEU_E_zhF" role="3clF46">
-        <property role="TrG5h" value="locator" />
-        <node concept="3uibUv" id="4PEU_E_zhG" role="1tU5fm">
-          <ref role="3uigEE" to="kart:~Locator" resolve="Locator" />
+      <node concept="37vLTG" id="1XtqokxjoBy" role="3clF46">
+        <property role="TrG5h" value="value" />
+        <node concept="17QB3L" id="1XtqokxjoBz" role="1tU5fm" />
+        <node concept="2AHcQZ" id="1XtqokxjoB$" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
         </node>
       </node>
     </node>
@@ -707,8 +770,8 @@
                 <node concept="liA8E" id="7E_6zdv1rHO" role="2OqNvi">
                   <ref role="37wK5l" to="kart:~Locator.getLineNumber()" resolve="getLineNumber" />
                 </node>
-                <node concept="37vLTw" id="2BHiRxgh9Zl" role="2Oq$k0">
-                  <ref role="3cqZAo" node="7E_6zdv1nl8" resolve="locator" />
+                <node concept="37vLTw" id="1XtqokxjEsy" role="2Oq$k0">
+                  <ref role="3cqZAo" node="1Xtqokxj1b7" resolve="myLocator" />
                 </node>
               </node>
               <node concept="3cmrfG" id="7E_6zdv1rHL" role="3uHU7w">
@@ -736,18 +799,37 @@
         <property role="TrG5h" value="text" />
         <node concept="17QB3L" id="7E_6zdv1nl7" role="1tU5fm" />
       </node>
-      <node concept="37vLTG" id="7E_6zdv1nl8" role="3clF46">
-        <property role="TrG5h" value="locator" />
-        <node concept="3uibUv" id="7E_6zdv1nl9" role="1tU5fm">
-          <ref role="3uigEE" to="kart:~Locator" resolve="Locator" />
-        </node>
-      </node>
       <node concept="3cqZAl" id="7E_6zdv1nl3" role="3clF45" />
     </node>
     <node concept="3clFb_" id="7E_6zdv1nlv" role="jymVt">
       <property role="TrG5h" value="getLineToContentMap" />
       <node concept="3Tm1VV" id="7E_6zdv1nly" role="1B3o_S" />
       <node concept="3clFbS" id="7E_6zdv1nlz" role="3clF47">
+        <node concept="3SKdUt" id="1XtqokxkdCR" role="3cqZAp">
+          <node concept="1PaTwC" id="1XtqokxkdCS" role="3ndbpf">
+            <node concept="3oM_SD" id="1XtqokxkdD1" role="1PaTwD">
+              <property role="3oM_SC" value="XXX" />
+            </node>
+            <node concept="3oM_SD" id="1XtqokxkdD3" role="1PaTwD">
+              <property role="3oM_SC" value="vital" />
+            </node>
+            <node concept="3oM_SD" id="1XtqokxkdDG" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="1XtqokxkdDS" role="1PaTwD">
+              <property role="3oM_SC" value="keep" />
+            </node>
+            <node concept="3oM_SD" id="1XtqokxkdFa" role="1PaTwD">
+              <property role="3oM_SC" value="by-reference" />
+            </node>
+            <node concept="3oM_SD" id="1XtqokxkdEE" role="1PaTwD">
+              <property role="3oM_SC" value="value" />
+            </node>
+            <node concept="3oM_SD" id="1XtqokxkdFx" role="1PaTwD">
+              <property role="3oM_SC" value="here" />
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="7E_6zdv1nl$" role="3cqZAp">
           <node concept="37vLTw" id="2BHiRxeuLay" role="3clFbG">
             <ref role="3cqZAo" node="7E_6zdv1nla" resolve="myLineToContentMap" />

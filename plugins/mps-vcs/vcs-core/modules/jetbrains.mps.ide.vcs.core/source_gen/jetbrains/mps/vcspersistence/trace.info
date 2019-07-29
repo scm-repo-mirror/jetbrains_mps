@@ -346,7 +346,7 @@
       <node id="776994417303013965" at="241,82,242,76" concept="5" />
       <node id="776994417303013977" at="243,23,244,20" concept="6" />
       <node id="776994417303013979" at="245,7,246,0" concept="8" />
-      <node id="776994417303013980" at="246,0,247,87" concept="5" />
+      <node id="776994417303013980" at="246,0,247,95" concept="5" />
       <node id="776994417303013993" at="248,28,249,20" concept="6" />
       <node id="776994417303013995" at="250,7,251,0" concept="8" />
       <node id="776994417303013996" at="251,0,252,115" concept="1" />
@@ -385,7 +385,7 @@
       <node id="5317173964874517418" at="217,76,220,7" concept="3" />
       <node id="5317173964874517430" at="222,87,225,7" concept="3" />
       <node id="776994417303013972" at="242,76,245,7" concept="3" />
-      <node id="776994417303013988" at="247,87,250,7" concept="3" />
+      <node id="776994417303013988" at="247,95,250,7" concept="3" />
       <node id="5317173964874517897" at="289,71,292,5" concept="3" />
       <node id="5317173964874517229" at="154,87,159,7" concept="3" />
       <node id="5317173964874517709" at="259,93,264,5" concept="13" />
@@ -405,9 +405,9 @@
       <node id="5317173964874517340" at="198,0,211,0" concept="10" trace="readModel#(Ljetbrains/mps/smodel/SModelHeader;Lorg/jetbrains/mps/openapi/persistence/StreamDataSource;Ljetbrains/mps/smodel/loading/ModelLoadingState;)Ljetbrains/mps/smodel/loading/ModelLoadResult;" />
       <node id="5317173964874517193" at="148,0,163,0" concept="10" trace="loadDescriptor#(Lorg/jetbrains/mps/openapi/persistence/StreamDataSource;)Ljetbrains/mps/smodel/SModelHeader;" />
       <node id="5317173964874517454" at="213,97,231,5" concept="13" />
-      <node id="776994417303013940" at="238,97,256,5" concept="13" />
+      <node id="776994417303013940" at="238,117,256,5" concept="13" />
       <node id="5317173964874517395" at="212,0,233,0" concept="10" trace="getLineToContentMap#(Ljava/lang/String;)Ljava/util/List;" />
-      <node id="776994417303013934" at="237,0,258,0" concept="10" trace="getLineToContentMap#([B)Ljava/util/List;" />
+      <node id="776994417303013934" at="237,0,258,0" concept="10" trace="getLineToContentMap#([BZ)Ljava/util/List;" />
       <node id="5317173964875449125" at="98,0,127,0" concept="10" trace="getPersistence#(I)Ljetbrains/mps/smodel/persistence/def/IModelPersistence;" />
       <node id="5317173964874517249" at="164,0,197,0" concept="10" trace="readModel#(Ljetbrains/mps/smodel/SModelHeader;Lorg/xml/sax/InputSource;Ljetbrains/mps/smodel/loading/ModelLoadingState;)Ljetbrains/mps/smodel/loading/ModelLoadResult;" />
       <scope id="429578271698647182" at="104,22,105,77" />
@@ -552,12 +552,13 @@
         <var name="source" id="5317173964874517195" />
       </scope>
       <scope id="5317173964874517400" at="213,97,231,5" />
-      <scope id="776994417303013939" at="238,97,256,5" />
+      <scope id="776994417303013939" at="238,117,256,5" />
       <scope id="5317173964874517395" at="212,0,233,0">
         <var name="content" id="5317173964874517397" />
       </scope>
       <scope id="776994417303013934" at="237,0,258,0">
         <var name="content" id="776994417303013936" />
+        <var name="withValues" id="3943561870556486737" />
       </scope>
       <scope id="5317173964875449129" at="99,64,125,52" />
       <scope id="5317173964875449125" at="98,0,127,0">

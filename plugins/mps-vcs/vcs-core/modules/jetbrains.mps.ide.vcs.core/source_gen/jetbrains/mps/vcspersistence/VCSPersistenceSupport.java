@@ -235,7 +235,7 @@ public class VCSPersistenceSupport {
    * Alternative {@link jetbrains.mps.vcspersistence.VCSPersistenceSupport#getLineToContentMap(String) } that takes {@code byte[]} instead of {@code String} to be a bit more memory friendly
    */
   @Nullable
-  public static List<LineContent> getLineToContentMap(byte[] content) throws ModelReadException {
+  public static List<LineContent> getLineToContentMap(byte[] content, boolean withValues) throws ModelReadException {
     try {
       SModelHeader header;
       header = loadDescriptor(new InputSource(new ByteArrayInputStream(content)));
@@ -244,7 +244,7 @@ public class VCSPersistenceSupport {
         return null;
       }
 
-      XMLSAXHandler<List<LineContent>> handler = mp.getLineToContentMapReaderHandler();
+      XMLSAXHandler<List<LineContent>> handler = mp.getAnnotateHandler(withValues, withValues);
       if (handler == null) {
         return null;
       }
