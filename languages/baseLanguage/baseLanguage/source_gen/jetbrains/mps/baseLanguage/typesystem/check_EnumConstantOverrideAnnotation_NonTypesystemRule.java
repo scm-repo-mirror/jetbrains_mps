@@ -8,31 +8,32 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.util.OverridingMethodsCalculator;
 import java.util.Set;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_EnumConstantOverrideAnnotation_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_EnumConstantOverrideAnnotation_NonTypesystemRule() {
   }
   public void applyRule(final SNode enumConstant, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((SNodeOperations.getParent(enumConstant) == null) || !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(enumConstant), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass")))) {
+    if ((SNodeOperations.getParent(enumConstant) == null) || !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(enumConstant), AUX_o47kbp.EnumClass_acf68fc0))) {
       return;
     }
-    OverridingMethodsCalculator finder = new OverridingMethodsCalculator(SNodeOperations.cast(SNodeOperations.getParent(enumConstant), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass")), enumConstant);
+    OverridingMethodsCalculator finder = new OverridingMethodsCalculator(SNodeOperations.cast(SNodeOperations.getParent(enumConstant), AUX_o47kbp.EnumClass_acf68fc0), enumConstant);
     Set<SNode> overridingMethods = finder.getOverridingMethods();
     for (SNode method : SLinkOperations.getChildren(enumConstant, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, 0x6d60019ab157734L, "method"))) {
       for (SNode annotationInstance : SLinkOperations.getChildren(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation"))) {
         if (SLinkOperations.hasPointer(annotationInstance, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation"), new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Override")) && !(SetSequence.fromSet(overridingMethods).contains(method))) {
           {
-            MessageTarget errorTarget = new NodeMessageTarget();
+            final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(annotationInstance, "Method does not override method from its superclass", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "6941917182338144464", null, errorTarget);
           }
           break;
@@ -41,12 +42,17 @@ public class check_EnumConstantOverrideAnnotation_NonTypesystemRule extends Abst
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, "jetbrains.mps.baseLanguage.structure.EnumConstantDeclaration");
+    return AUX_o47kbp.EnumConstantDeclaration_b06144d8;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_o47kbp {
+    /*package*/ static final SConcept EnumClass_acf68fc0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
+    /*package*/ static final SConcept EnumConstantDeclaration_b06144d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, "jetbrains.mps.baseLanguage.structure.EnumConstantDeclaration");
   }
 }

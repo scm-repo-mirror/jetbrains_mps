@@ -8,14 +8,22 @@ import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
-import jetbrains.mps.typesystem.inference.SubtypingManager;
-import jetbrains.mps.typesystem.inference.TypeChecker;
-import jetbrains.mps.typesystem.inference.util.StructuralNodeSet;
+import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
+import java.util.HashSet;
+import java.util.Deque;
+import jetbrains.mps.internal.collections.runtime.LinkedListSequence;
+import java.util.LinkedList;
+import jetbrains.mps.smodel.behaviour.BHReflection;
+import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
+import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.lang.pattern.util.MatchingUtil;
+import jetbrains.mps.lang.pattern.util.IMatchModifier;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class MethodParameter extends MethodParameterModel {
   private SNode myDeclaration;
@@ -33,7 +41,7 @@ public class MethodParameter extends MethodParameterModel {
       this.setTypeName("null");
     }
     this.setName(name);
-    this.myVariableReference = SNodeOperations.cast(reference, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression"));
+    this.myVariableReference = SNodeOperations.cast(reference, AUX_8psez8.Expression_4199e28d);
     this.myAvailableTypes = this.createAvailableTypes();
   }
   public List<String> createAvailableTypes() {
@@ -41,21 +49,23 @@ public class MethodParameter extends MethodParameterModel {
       List<String> result = ListSequence.fromList(new ArrayList<String>());
       return result;
     }
-    SubtypingManager manager = TypeChecker.getInstance().getSubtypingManager();
-    StructuralNodeSet<?> frontier = new StructuralNodeSet();
     List<SNode> found = new ArrayList<SNode>();
-    frontier.add(this.myType);
-    while (!(frontier.isEmpty())) {
-      StructuralNodeSet<?> ancestors = new StructuralNodeSet();
-      for (SNode node : SetSequence.fromSet(frontier)) {
-        ancestors.addAllStructurally(manager.collectImmediateSupertypes(node, false));
-        ListSequence.fromList(found).addElement(node);
+    Set<NodeWrapper> visited = SetSequence.fromSet(new HashSet<NodeWrapper>());
+    final Deque<SNode> queue = LinkedListSequence.fromListAndArrayNew(new LinkedList<SNode>(), myType);
+    while (!(LinkedListSequence.fromLinkedListNew(queue).isEmpty())) {
+      SNode t = LinkedListSequence.fromLinkedListNew(queue).removeElementAt(0);
+      if (SetSequence.fromSet(visited).contains(new NodeWrapper(t))) {
+        continue;
       }
-      for (SNode passed : ListSequence.fromList(found)) {
-        ancestors.removeStructurally(passed);
-      }
-      frontier = ancestors;
+      ListSequence.fromList(found).addElement(t);
+      SetSequence.fromSet(visited).addElement(new NodeWrapper(t));
+      ListSequence.fromList(((List<SNode>) BHReflection.invoke0(t, AUX_8psez8.Type_4199e276, SMethodTrimmedId.create("getSupertypes", null, "4w2h6RLlygH")))).visitAll(new IVisitor<SNode>() {
+        public void visit(SNode it) {
+          LinkedListSequence.fromLinkedListNew(queue).addElement(it);
+        }
+      });
     }
+
     List<String> result = ListSequence.fromList(new ArrayList<String>());
     for (SNode node : ListSequence.fromList(found)) {
       ListSequence.fromList(result).addElement(node.getPresentation());
@@ -90,9 +100,39 @@ public class MethodParameter extends MethodParameterModel {
     return SNodeOperations.copyNode(this.myVariableReference);
   }
   public boolean isFinal() {
-    if (SNodeOperations.isInstanceOf(this.myDeclaration, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration"))) {
-      return SPropertyOperations.getBoolean(SNodeOperations.cast(this.myDeclaration, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration")), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal"));
+    if (SNodeOperations.isInstanceOf(this.myDeclaration, AUX_8psez8.VariableDeclaration_3c610994)) {
+      return SPropertyOperations.getBoolean(SNodeOperations.cast(this.myDeclaration, AUX_8psez8.VariableDeclaration_3c610994), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal"));
     }
     return false;
+  }
+
+  private static class NodeWrapper {
+    private int myHash;
+    private SNode myNode;
+
+    public NodeWrapper(SNode node) {
+      this.myNode = node;
+      this.myHash = MatchingUtil.hash(node);
+    }
+
+    @Override
+    public int hashCode() {
+      return myHash;
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (!(that instanceof NodeWrapper)) {
+        return false;
+      }
+      // ignore attributes while matching types 
+      return MatchingUtil.matchNodes(this.myNode, ((NodeWrapper) that).myNode, IMatchModifier.DEFAULT, false);
+    }
+  }
+
+  private static final class AUX_8psez8 {
+    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+    /*package*/ static final SConcept Type_4199e276 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
   }
 }

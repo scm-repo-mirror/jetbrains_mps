@@ -16,6 +16,7 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.structure.behavior.LinkDeclaration__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_CellModel_RefNode_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public check_CellModel_RefNode_InferenceRule() {
@@ -23,21 +24,25 @@ public class check_CellModel_RefNode_InferenceRule extends AbstractInferenceRule
   public void applyRule(final SNode refNode, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     SNode lnk = SLinkOperations.getTarget(refNode, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10964446123L, 0x10973779681L, "relationDeclaration"));
     if (!(SEnumOperations.isMember(SPropertyOperations.getEnum(lnk, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b9L))) {
-      MessageTarget errorTarget = new NodeMessageTarget();
+      final MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(refNode, "aggregation link expected", "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "1180280667546", null, errorTarget);
     }
     if (!((boolean) LinkDeclaration__BehaviorDescriptor.isSingular_idhEwIfAt.invoke(lnk))) {
-      MessageTarget errorTarget = new NodeMessageTarget();
+      final MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(refNode, "single cardinality expected", "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "1180280735244", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb05cdc7L, "jetbrains.mps.lang.editor.structure.CellModel_RefNode");
+    return AUX_bfk6xq.CellModel_RefNode_2d0a6e61;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_bfk6xq {
+    /*package*/ static final SConcept CellModel_RefNode_2d0a6e61 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb05cdc7L, "jetbrains.mps.lang.editor.structure.CellModel_RefNode");
   }
 }

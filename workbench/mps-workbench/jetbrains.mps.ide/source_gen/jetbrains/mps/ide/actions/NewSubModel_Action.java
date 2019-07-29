@@ -12,16 +12,10 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.ide.ui.tree.smodel.SModelTreeNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.project.AbstractModule;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.smodel.SModelStereotype;
 import org.jetbrains.annotations.NotNull;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.actionSystem.CommonDataKeys;
 import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
-import jetbrains.mps.ide.dialogs.project.creation.NewModelDialog;
-import jetbrains.mps.ide.projectPane.ProjectPane;
-import org.jetbrains.mps.openapi.model.EditableSModel;
-import jetbrains.mps.ide.dialogs.project.creation.ModelCreateHelper;
 
 public class NewSubModel_Action extends BaseAction {
   private static final Icon ICON = MPSIcons.Nodes.Model;
@@ -44,15 +38,7 @@ public class NewSubModel_Action extends BaseAction {
       return false;
     }
 
-    boolean correctStereotype = false;
-    String stereotype = SModelStereotype.getStereotype(((SModel) MapSequence.fromMap(_params).get("model")));
-    for (String availableStereotype : SModelStereotype.values) {
-      if (stereotype.equals(availableStereotype)) {
-        correctStereotype = true;
-        break;
-      }
-    }
-    return correctStereotype;
+    return Sequence.fromIterable(Sequence.fromArray(SModelStereotype.values)).contains(((SModel) MapSequence.fromMap(_params).get("model")).getName().getStereotype());
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -62,13 +48,6 @@ public class NewSubModel_Action extends BaseAction {
   protected boolean collectActionData(AnActionEvent event, final Map<String, Object> _params) {
     if (!(super.collectActionData(event, _params))) {
       return false;
-    }
-    {
-      Project p = event.getData(CommonDataKeys.PROJECT);
-      MapSequence.fromMap(_params).put("ideaProject", p);
-      if (p == null) {
-        return false;
-      }
     }
     {
       MPSProject p = event.getData(MPSCommonDataKeys.MPS_PROJECT);
@@ -95,27 +74,9 @@ public class NewSubModel_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    final Wrappers._T<NewModelDialog> dialog = new Wrappers._T<NewModelDialog>();
-    final String namespace = ((SModel) MapSequence.fromMap(_params).get("model")).getName().getLongName();
-
-    ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().getModelAccess().runReadAction(new Runnable() {
-      public void run() {
-        String stereotype = SModelStereotype.getStereotype(((SModel) MapSequence.fromMap(_params).get("model")));
-        dialog.value = NewModelDialog.createForNewModel(((MPSProject) MapSequence.fromMap(_params).get("project")), (AbstractModule) ((SModel) MapSequence.fromMap(_params).get("model")).getModule(), namespace, stereotype, true);
-      }
-    });
-
-    dialog.value.show();
-    SModel result = check_xgrzw6_a0g0h(dialog.value.getResultHelper());
-    if (result != null) {
-      SModel modelDescriptor = result;
-      ProjectPane.getInstance(((Project) MapSequence.fromMap(_params).get("ideaProject"))).selectModel(modelDescriptor, false);
-    }
+    NewSubModel_Action.this.getExecutor(_params).execute();
   }
-  private static EditableSModel check_xgrzw6_a0g0h(ModelCreateHelper checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.createModelHandleExceptions();
-    }
-    return null;
+  protected NewModelActionExecutor getExecutor(final Map<String, Object> _params) {
+    return new NewModelActionExecutor(((MPSProject) MapSequence.fromMap(_params).get("project")), ((SModel) MapSequence.fromMap(_params).get("model")).getModule(), NewModelActionExecutor.getSettingsFactoryForSubmodel(((SModel) MapSequence.fromMap(_params).get("model"))));
   }
 }

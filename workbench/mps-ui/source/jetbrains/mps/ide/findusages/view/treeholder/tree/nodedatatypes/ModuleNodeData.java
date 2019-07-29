@@ -17,6 +17,7 @@ package jetbrains.mps.ide.findusages.view.treeholder.tree.nodedatatypes;
 
 import jetbrains.mps.ide.findusages.CantLoadSomethingException;
 import jetbrains.mps.ide.findusages.CantSaveSomethingException;
+import jetbrains.mps.ide.findusages.view.treeholder.treeview.INodeRepresentator;
 import jetbrains.mps.ide.findusages.view.treeholder.treeview.path.PathItemRole;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
@@ -35,19 +36,14 @@ public class ModuleNodeData extends AbstractResultNodeData {
 
   private SModuleReference myModuleReference;
 
-  public ModuleNodeData(PathItemRole role, @Nullable String caption, @Nullable String info, @NotNull SModuleReference moduleRef, boolean isResult, boolean resultsSection) {
-    super(role, caption != null ? caption : getCaption(moduleRef), info, isResult, resultsSection);
+  public ModuleNodeData(PathItemRole role, @NotNull SModuleReference moduleRef, @Nullable Object presentationObject, boolean isResult, boolean resultsSection) {
+    super(role, moduleRef.getModuleName(), null, presentationObject, isResult, resultsSection);
     myModuleReference = moduleRef;
   }
 
   public ModuleNodeData(Element element, Project project) throws CantLoadSomethingException {
-    read(element, project);
+    super(element, project);
   }
-
-  private static String getCaption(SModuleReference moduleRef) {
-    return moduleRef.getModuleName();
-  }
-
 
   @Override
   public Icon getIcon(PresentationContext presentationContext) {

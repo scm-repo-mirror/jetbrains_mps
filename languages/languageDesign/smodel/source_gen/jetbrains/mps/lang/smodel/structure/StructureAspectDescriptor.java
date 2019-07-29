@@ -51,7 +51,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptContainmentLinkId = createDescriptorForContainmentLinkId();
   /*package*/ final ConceptDescriptor myConceptDevkitIdentity = createDescriptorForDevkitIdentity();
   /*package*/ final ConceptDescriptor myConceptDevkitPointer = createDescriptorForDevkitPointer();
-  /*package*/ final ConceptDescriptor myConceptEnumBody = createDescriptorForEnumBody();
   /*package*/ final ConceptDescriptor myConceptEnumMemberOperation = createDescriptorForEnumMemberOperation();
   /*package*/ final ConceptDescriptor myConceptEnumMemberReference = createDescriptorForEnumMemberReference();
   /*package*/ final ConceptDescriptor myConceptEnumMemberReference_Old = createDescriptorForEnumMemberReference_Old();
@@ -63,6 +62,9 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptEnumMember_ValueOperation_Old = createDescriptorForEnumMember_ValueOperation_Old();
   /*package*/ final ConceptDescriptor myConceptEnumOperation = createDescriptorForEnumOperation();
   /*package*/ final ConceptDescriptor myConceptEnumSwitchCase = createDescriptorForEnumSwitchCase();
+  /*package*/ final ConceptDescriptor myConceptEnumSwitchCaseBody = createDescriptorForEnumSwitchCaseBody();
+  /*package*/ final ConceptDescriptor myConceptEnumSwitchCaseBody_Expression = createDescriptorForEnumSwitchCaseBody_Expression();
+  /*package*/ final ConceptDescriptor myConceptEnumSwitchCaseBody_StatementList = createDescriptorForEnumSwitchCaseBody_StatementList();
   /*package*/ final ConceptDescriptor myConceptEnumSwitchExpression = createDescriptorForEnumSwitchExpression();
   /*package*/ final ConceptDescriptor myConceptEnum_FromNameOperation = createDescriptorForEnum_FromNameOperation();
   /*package*/ final ConceptDescriptor myConceptEnum_FromPresentationOperation = createDescriptorForEnum_FromPresentationOperation();
@@ -71,7 +73,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptEnumerationIdRefExpression = createDescriptorForEnumerationIdRefExpression();
   /*package*/ final ConceptDescriptor myConceptEqualsStructurallyExpression = createDescriptorForEqualsStructurallyExpression();
   /*package*/ final ConceptDescriptor myConceptExactConceptCase = createDescriptorForExactConceptCase();
-  /*package*/ final ConceptDescriptor myConceptExpressionEnumBody = createDescriptorForExpressionEnumBody();
   /*package*/ final ConceptDescriptor myConceptGeneratorIdentity = createDescriptorForGeneratorIdentity();
   /*package*/ final ConceptDescriptor myConceptGeneratorModulePointer = createDescriptorForGeneratorModulePointer();
   /*package*/ final ConceptDescriptor myConceptIConceptSwitchCase = createDescriptorForIConceptSwitchCase();
@@ -217,7 +218,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptSearchScopeType = createDescriptorForSearchScopeType();
   /*package*/ final ConceptDescriptor myConceptSearchScope_ContainsOperation = createDescriptorForSearchScope_ContainsOperation();
   /*package*/ final ConceptDescriptor myConceptSemanticDowncastExpression = createDescriptorForSemanticDowncastExpression();
-  /*package*/ final ConceptDescriptor myConceptStatementListEnumBody = createDescriptorForStatementListEnumBody();
   /*package*/ final ConceptDescriptor myConceptSubconceptCase = createDescriptorForSubconceptCase();
   private final LanguageConceptSwitch myIndexSwitch;
 
@@ -238,7 +238,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAbstractLanguageIdentity, myConceptAbstractNodeRefExpression, myConceptAbstractOperationParameter, myConceptAbstractPointerResolveOperation, myConceptAbstractTypeCastExpression, myConceptAggregationIdentity, myConceptAllAttributeQualifier, myConceptAsNodeOperation, myConceptAsSConcept, myConceptAssociationIdentity, myConceptAttributeAccess, myConceptAttributeQualifier, myConceptBootstrapAwareMetaObject, myConceptChildAttributeQualifier, myConceptChildNodeRefExpression, myConceptConceptAliasOperation, myConceptConceptId, myConceptConceptIdRefExpression, myConceptConceptIdentity, myConceptConceptMemberIdentity, myConceptConceptNodeType, myConceptConceptRefExpression, myConceptConceptReference, myConceptConceptShortDescriptionOperation, myConceptConceptSwitchStatement, myConceptConcept_GetAllSubConcepts, myConceptConcept_GetAllSuperConcepts, myConceptConcept_GetDirectSuperConcepts, myConceptConcept_IsExactlyOperation, myConceptConcept_IsSubConceptOfOperation, myConceptConcept_IsSuperConceptOfOperation, myConceptConcept_NewInstance, myConceptContainmentLinkId, myConceptDevkitIdentity, myConceptDevkitPointer, myConceptEnumBody, myConceptEnumMemberOperation, myConceptEnumMemberReference, myConceptEnumMemberReference_Old, myConceptEnumMemberValueRefExpression, myConceptEnumMember_IsOperation, myConceptEnumMember_NameOperation, myConceptEnumMember_NameOperation_Old, myConceptEnumMember_PresentationOperation, myConceptEnumMember_ValueOperation_Old, myConceptEnumOperation, myConceptEnumSwitchCase, myConceptEnumSwitchExpression, myConceptEnum_FromNameOperation, myConceptEnum_FromPresentationOperation, myConceptEnum_MemberLiteral, myConceptEnum_MembersOperation, myConceptEnumerationIdRefExpression, myConceptEqualsStructurallyExpression, myConceptExactConceptCase, myConceptExpressionEnumBody, myConceptGeneratorIdentity, myConceptGeneratorModulePointer, myConceptIConceptSwitchCase, myConceptILinkAccess, myConceptILinkAccessQualifier, myConceptILinkAccessQualifierContainer, myConceptILinkQualifier, myConceptINodePointerArg, myConceptIPropertyQualifier, myConceptIRefConceptArg, myConceptIReferenceOperation, myConceptIfInstanceOfStatement, myConceptIfInstanceOfVarReference, myConceptIfInstanceOfVariable, myConceptLanguageId, myConceptLanguageIdentity, myConceptLanguageIdentityBySourceModule, myConceptLanguageRefExpression, myConceptLanguageReferenceExpression, myConceptLinkAttributeQualifier, myConceptLinkIdRefExpression, myConceptLinkList_AddNewChildOperation, myConceptLinkQualifier, myConceptLinkRefExpression, myConceptLinkRefQualifier, myConceptLink_SetNewChildOperation, myConceptLink_SetTargetOperation, myConceptLink_SetTargetPointerOperation, myConceptModelPointerExpression, myConceptModelPointer_ResolveOperation, myConceptModelReferenceExpression, myConceptModel_AddRootOperation, myConceptModel_CreateNewNodeOperation, myConceptModel_CreateNewRootNodeOperation, myConceptModel_GetLongNameOperation, myConceptModel_GetModule, myConceptModel_NodesIncludingImportedOperation, myConceptModel_NodesOperation, myConceptModel_PointerOperation, myConceptModel_RootsIncludingImportedOperation, myConceptModel_RootsOperation, myConceptModuleIdentity, myConceptModulePointer, myConceptModuleRefExpression, myConceptModuleReferenceExpression, myConceptNodeAttributeQualifier, myConceptNodePointerArg_Identity, myConceptNodePointerExpression, myConceptNodePointerExpression_Old, myConceptNodePointer_GetModelOperation, myConceptNodePointer_ResolveOperation, myConceptNodeRefExpression, myConceptNode_ConceptMethodCall, myConceptNode_ContainingLinkOperation, myConceptNode_CopyOperation, myConceptNode_DeleteOperation, myConceptNode_DetachOperation, myConceptNode_GetAllSiblingsOperation, myConceptNode_GetAncestorOperation, myConceptNode_GetAncestorsOperation, myConceptNode_GetChildrenAndChildAttributesOperation, myConceptNode_GetChildrenOperation, myConceptNode_GetConceptOperation, myConceptNode_GetContainingRoleOperation, myConceptNode_GetContainingRootOperation, myConceptNode_GetDescendantsOperation, myConceptNode_GetIndexInParentOperation, myConceptNode_GetModelOperation, myConceptNode_GetNextSiblingOperation, myConceptNode_GetNextSiblingsOperation, myConceptNode_GetParentOperation, myConceptNode_GetPrevSiblingOperation, myConceptNode_GetPrevSiblingsOperation, myConceptNode_GetReferenceOperation, myConceptNode_GetReferencesOperation, myConceptNode_GetSConceptOperation, myConceptNode_InsertNewNextSiblingOperation, myConceptNode_InsertNewPrevSiblingOperation, myConceptNode_InsertNextSiblingOperation, myConceptNode_InsertPrevSiblingOperation, myConceptNode_IsAttributeOperation, myConceptNode_IsInstanceOfOperation, myConceptNode_IsNotNullOperation, myConceptNode_IsNullOperation, myConceptNode_IsOperation, myConceptNode_IsRoleOperation, myConceptNode_PointerOperation, myConceptNode_ReplaceWithAnotherOperation, myConceptNode_ReplaceWithNewOperation, myConceptOfConceptOperation, myConceptOperationParm_Concept, myConceptOperationParm_ConceptList, myConceptOperationParm_Inclusion, myConceptOperationParm_LinkQualifier, myConceptOperationParm_Root, myConceptOperationParm_SameMetaLevel, myConceptOperationParm_StopConceptList, myConceptPoundExpression, myConceptPropertyAttributeQualifier, myConceptPropertyDeserializeExpression, myConceptPropertyId, myConceptPropertyIdRefExpression, myConceptPropertyIdentity, myConceptPropertyQualifier, myConceptPropertySerializeExpression, myConceptProperty_HasValue_Enum, myConceptProperty_HasValue_Simple, myConceptProperty_RemoveOperation, myConceptProperty_SetOperation, myConceptRefConcept_Reference, myConceptReferenceLinkId, myConceptReference_ContainingLinkOperation, myConceptReference_GetLinkDeclarationOperation, myConceptReference_GetResolveInfo, myConceptReference_GetRoleOperation, myConceptReference_GetTargetOperation, myConceptSConceptOperation, myConceptSConceptType, myConceptSConceptTypeCastExpression, myConceptSConceptTypeLiteral, myConceptSEnumOperationInvocation, myConceptSEnumOperation_Old, myConceptSEnum_MemberForNameOperation_Old, myConceptSEnum_MemberForValueOperation_Old, myConceptSEnum_MemberOperation_Old, myConceptSEnum_MembersOperation_Old, myConceptSEnumerationMemberType, myConceptSEnumerationType, myConceptSLinkAccess, myConceptSLinkImplicitSelect, myConceptSLinkListAccess, myConceptSModelPointerType, myConceptSModelType, myConceptSNodeCreator, myConceptSNodeListCreator, myConceptSNodeListType, myConceptSNodeOperation, myConceptSNodePointerType, myConceptSNodeType, myConceptSNodeTypeCastExpression, myConceptSPropertyAccess, myConceptSReferenceType, myConceptSearchScopeType, myConceptSearchScope_ContainsOperation, myConceptSemanticDowncastExpression, myConceptStatementListEnumBody, myConceptSubconceptCase);
+    return Arrays.asList(myConceptAbstractLanguageIdentity, myConceptAbstractNodeRefExpression, myConceptAbstractOperationParameter, myConceptAbstractPointerResolveOperation, myConceptAbstractTypeCastExpression, myConceptAggregationIdentity, myConceptAllAttributeQualifier, myConceptAsNodeOperation, myConceptAsSConcept, myConceptAssociationIdentity, myConceptAttributeAccess, myConceptAttributeQualifier, myConceptBootstrapAwareMetaObject, myConceptChildAttributeQualifier, myConceptChildNodeRefExpression, myConceptConceptAliasOperation, myConceptConceptId, myConceptConceptIdRefExpression, myConceptConceptIdentity, myConceptConceptMemberIdentity, myConceptConceptNodeType, myConceptConceptRefExpression, myConceptConceptReference, myConceptConceptShortDescriptionOperation, myConceptConceptSwitchStatement, myConceptConcept_GetAllSubConcepts, myConceptConcept_GetAllSuperConcepts, myConceptConcept_GetDirectSuperConcepts, myConceptConcept_IsExactlyOperation, myConceptConcept_IsSubConceptOfOperation, myConceptConcept_IsSuperConceptOfOperation, myConceptConcept_NewInstance, myConceptContainmentLinkId, myConceptDevkitIdentity, myConceptDevkitPointer, myConceptEnumMemberOperation, myConceptEnumMemberReference, myConceptEnumMemberReference_Old, myConceptEnumMemberValueRefExpression, myConceptEnumMember_IsOperation, myConceptEnumMember_NameOperation, myConceptEnumMember_NameOperation_Old, myConceptEnumMember_PresentationOperation, myConceptEnumMember_ValueOperation_Old, myConceptEnumOperation, myConceptEnumSwitchCase, myConceptEnumSwitchCaseBody, myConceptEnumSwitchCaseBody_Expression, myConceptEnumSwitchCaseBody_StatementList, myConceptEnumSwitchExpression, myConceptEnum_FromNameOperation, myConceptEnum_FromPresentationOperation, myConceptEnum_MemberLiteral, myConceptEnum_MembersOperation, myConceptEnumerationIdRefExpression, myConceptEqualsStructurallyExpression, myConceptExactConceptCase, myConceptGeneratorIdentity, myConceptGeneratorModulePointer, myConceptIConceptSwitchCase, myConceptILinkAccess, myConceptILinkAccessQualifier, myConceptILinkAccessQualifierContainer, myConceptILinkQualifier, myConceptINodePointerArg, myConceptIPropertyQualifier, myConceptIRefConceptArg, myConceptIReferenceOperation, myConceptIfInstanceOfStatement, myConceptIfInstanceOfVarReference, myConceptIfInstanceOfVariable, myConceptLanguageId, myConceptLanguageIdentity, myConceptLanguageIdentityBySourceModule, myConceptLanguageRefExpression, myConceptLanguageReferenceExpression, myConceptLinkAttributeQualifier, myConceptLinkIdRefExpression, myConceptLinkList_AddNewChildOperation, myConceptLinkQualifier, myConceptLinkRefExpression, myConceptLinkRefQualifier, myConceptLink_SetNewChildOperation, myConceptLink_SetTargetOperation, myConceptLink_SetTargetPointerOperation, myConceptModelPointerExpression, myConceptModelPointer_ResolveOperation, myConceptModelReferenceExpression, myConceptModel_AddRootOperation, myConceptModel_CreateNewNodeOperation, myConceptModel_CreateNewRootNodeOperation, myConceptModel_GetLongNameOperation, myConceptModel_GetModule, myConceptModel_NodesIncludingImportedOperation, myConceptModel_NodesOperation, myConceptModel_PointerOperation, myConceptModel_RootsIncludingImportedOperation, myConceptModel_RootsOperation, myConceptModuleIdentity, myConceptModulePointer, myConceptModuleRefExpression, myConceptModuleReferenceExpression, myConceptNodeAttributeQualifier, myConceptNodePointerArg_Identity, myConceptNodePointerExpression, myConceptNodePointerExpression_Old, myConceptNodePointer_GetModelOperation, myConceptNodePointer_ResolveOperation, myConceptNodeRefExpression, myConceptNode_ConceptMethodCall, myConceptNode_ContainingLinkOperation, myConceptNode_CopyOperation, myConceptNode_DeleteOperation, myConceptNode_DetachOperation, myConceptNode_GetAllSiblingsOperation, myConceptNode_GetAncestorOperation, myConceptNode_GetAncestorsOperation, myConceptNode_GetChildrenAndChildAttributesOperation, myConceptNode_GetChildrenOperation, myConceptNode_GetConceptOperation, myConceptNode_GetContainingRoleOperation, myConceptNode_GetContainingRootOperation, myConceptNode_GetDescendantsOperation, myConceptNode_GetIndexInParentOperation, myConceptNode_GetModelOperation, myConceptNode_GetNextSiblingOperation, myConceptNode_GetNextSiblingsOperation, myConceptNode_GetParentOperation, myConceptNode_GetPrevSiblingOperation, myConceptNode_GetPrevSiblingsOperation, myConceptNode_GetReferenceOperation, myConceptNode_GetReferencesOperation, myConceptNode_GetSConceptOperation, myConceptNode_InsertNewNextSiblingOperation, myConceptNode_InsertNewPrevSiblingOperation, myConceptNode_InsertNextSiblingOperation, myConceptNode_InsertPrevSiblingOperation, myConceptNode_IsAttributeOperation, myConceptNode_IsInstanceOfOperation, myConceptNode_IsNotNullOperation, myConceptNode_IsNullOperation, myConceptNode_IsOperation, myConceptNode_IsRoleOperation, myConceptNode_PointerOperation, myConceptNode_ReplaceWithAnotherOperation, myConceptNode_ReplaceWithNewOperation, myConceptOfConceptOperation, myConceptOperationParm_Concept, myConceptOperationParm_ConceptList, myConceptOperationParm_Inclusion, myConceptOperationParm_LinkQualifier, myConceptOperationParm_Root, myConceptOperationParm_SameMetaLevel, myConceptOperationParm_StopConceptList, myConceptPoundExpression, myConceptPropertyAttributeQualifier, myConceptPropertyDeserializeExpression, myConceptPropertyId, myConceptPropertyIdRefExpression, myConceptPropertyIdentity, myConceptPropertyQualifier, myConceptPropertySerializeExpression, myConceptProperty_HasValue_Enum, myConceptProperty_HasValue_Simple, myConceptProperty_RemoveOperation, myConceptProperty_SetOperation, myConceptRefConcept_Reference, myConceptReferenceLinkId, myConceptReference_ContainingLinkOperation, myConceptReference_GetLinkDeclarationOperation, myConceptReference_GetResolveInfo, myConceptReference_GetRoleOperation, myConceptReference_GetTargetOperation, myConceptSConceptOperation, myConceptSConceptType, myConceptSConceptTypeCastExpression, myConceptSConceptTypeLiteral, myConceptSEnumOperationInvocation, myConceptSEnumOperation_Old, myConceptSEnum_MemberForNameOperation_Old, myConceptSEnum_MemberForValueOperation_Old, myConceptSEnum_MemberOperation_Old, myConceptSEnum_MembersOperation_Old, myConceptSEnumerationMemberType, myConceptSEnumerationType, myConceptSLinkAccess, myConceptSLinkImplicitSelect, myConceptSLinkListAccess, myConceptSModelPointerType, myConceptSModelType, myConceptSNodeCreator, myConceptSNodeListCreator, myConceptSNodeListType, myConceptSNodeOperation, myConceptSNodePointerType, myConceptSNodeType, myConceptSNodeTypeCastExpression, myConceptSPropertyAccess, myConceptSReferenceType, myConceptSearchScopeType, myConceptSearchScope_ContainsOperation, myConceptSemanticDowncastExpression, myConceptSubconceptCase);
   }
 
   @Override
@@ -315,8 +315,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptDevkitIdentity;
       case LanguageConceptSwitch.DevkitPointer:
         return myConceptDevkitPointer;
-      case LanguageConceptSwitch.EnumBody:
-        return myConceptEnumBody;
       case LanguageConceptSwitch.EnumMemberOperation:
         return myConceptEnumMemberOperation;
       case LanguageConceptSwitch.EnumMemberReference:
@@ -339,6 +337,12 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptEnumOperation;
       case LanguageConceptSwitch.EnumSwitchCase:
         return myConceptEnumSwitchCase;
+      case LanguageConceptSwitch.EnumSwitchCaseBody:
+        return myConceptEnumSwitchCaseBody;
+      case LanguageConceptSwitch.EnumSwitchCaseBody_Expression:
+        return myConceptEnumSwitchCaseBody_Expression;
+      case LanguageConceptSwitch.EnumSwitchCaseBody_StatementList:
+        return myConceptEnumSwitchCaseBody_StatementList;
       case LanguageConceptSwitch.EnumSwitchExpression:
         return myConceptEnumSwitchExpression;
       case LanguageConceptSwitch.Enum_FromNameOperation:
@@ -355,8 +359,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptEqualsStructurallyExpression;
       case LanguageConceptSwitch.ExactConceptCase:
         return myConceptExactConceptCase;
-      case LanguageConceptSwitch.ExpressionEnumBody:
-        return myConceptExpressionEnumBody;
       case LanguageConceptSwitch.GeneratorIdentity:
         return myConceptGeneratorIdentity;
       case LanguageConceptSwitch.GeneratorModulePointer:
@@ -647,8 +649,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptSearchScope_ContainsOperation;
       case LanguageConceptSwitch.SemanticDowncastExpression:
         return myConceptSemanticDowncastExpression;
-      case LanguageConceptSwitch.StatementListEnumBody:
-        return myConceptStatementListEnumBody;
       case LanguageConceptSwitch.SubconceptCase:
         return myConceptSubconceptCase;
       default:
@@ -1008,13 +1008,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.property("devkitId", 0x721adb764b3fbd1dL).type(PrimitiveTypeId.STRING).origin("8222125370833354013").done();
     return b.create();
   }
-  private static ConceptDescriptor createDescriptorForEnumBody() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.smodel", "EnumBody", 0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdc60L);
-    b.class_(false, true, false);
-    b.origin("r:00000000-0000-4000-0000-011c89590301(jetbrains.mps.lang.smodel.structure)/2453008993612717152");
-    b.version(2);
-    return b.create();
-  }
   private static ConceptDescriptor createDescriptorForEnumMemberOperation() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.smodel", "EnumMemberOperation", 0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120f244ef53L);
     b.interface_();
@@ -1119,6 +1112,33 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("body", 0x220ad6aedf1fdc5aL).target(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdc60L).optional(false).ordered(true).multiple(false).origin("2453008993612717146").done();
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForEnumSwitchCaseBody() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.smodel", "EnumSwitchCaseBody", 0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdc60L);
+    b.class_(false, true, false);
+    b.origin("r:00000000-0000-4000-0000-011c89590301(jetbrains.mps.lang.smodel.structure)/2453008993612717152");
+    b.version(2);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForEnumSwitchCaseBody_Expression() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.smodel", "EnumSwitchCaseBody_Expression", 0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc5L);
+    b.class_(false, false, false);
+    b.super_("jetbrains.mps.lang.smodel.structure.EnumSwitchCaseBody", 0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdc60L);
+    b.origin("r:00000000-0000-4000-0000-011c89590301(jetbrains.mps.lang.smodel.structure)/2453008993612717253");
+    b.version(2);
+    b.aggregate("expression", 0x220ad6aedf1fdcc6L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(false).ordered(true).multiple(false).origin("2453008993612717254").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForEnumSwitchCaseBody_StatementList() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.smodel", "EnumSwitchCaseBody_StatementList", 0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc9L);
+    b.class_(false, false, false);
+    b.super_("jetbrains.mps.lang.smodel.structure.EnumSwitchCaseBody", 0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdc60L);
+    b.parent(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L);
+    b.origin("r:00000000-0000-4000-0000-011c89590301(jetbrains.mps.lang.smodel.structure)/2453008993612717257");
+    b.version(2);
+    b.aggregate("statementList", 0x220ad6aedf1fdccaL).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L).optional(false).ordered(true).multiple(false).origin("2453008993612717258").done();
+    b.alias("{");
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForEnumSwitchExpression() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.smodel", "EnumSwitchExpression", 0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL);
     b.class_(false, false, false);
@@ -1127,7 +1147,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.aggregate("enumExpression", 0x220ad6aedf1d75e0L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(false).ordered(true).multiple(false).origin("2453008993612559840").done();
     b.aggregate("cases", 0x220ad6aedf1fd3b7L).target(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75e3L).optional(true).ordered(true).multiple(true).origin("2453008993612714935").done();
-    b.aggregate("default", 0x220ad6aedf8d9b4eL).target(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdc60L).optional(true).ordered(true).multiple(false).origin("2453008993619909454").done();
+    b.aggregate("otherwiseBody", 0x220ad6aedf8d9b4eL).target(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdc60L).optional(true).ordered(true).multiple(false).origin("2453008993619909454").done();
     b.alias("enum switch");
     return b.create();
   }
@@ -1198,15 +1218,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("concept", 0x53cfca750a909cf3L).target(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10cd05c601dL).optional(false).ordered(true).multiple(false).origin("6039268229364358387").done();
     b.aggregate("body", 0x53cfca750a909cf4L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L).optional(false).ordered(true).multiple(false).origin("6039268229364358388").done();
     b.alias("exact concept");
-    return b.create();
-  }
-  private static ConceptDescriptor createDescriptorForExpressionEnumBody() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.smodel", "ExpressionEnumBody", 0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc5L);
-    b.class_(false, false, false);
-    b.super_("jetbrains.mps.lang.smodel.structure.EnumBody", 0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdc60L);
-    b.origin("r:00000000-0000-4000-0000-011c89590301(jetbrains.mps.lang.smodel.structure)/2453008993612717253");
-    b.version(2);
-    b.aggregate("expression", 0x220ad6aedf1fdcc6L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(false).ordered(true).multiple(false).origin("2453008993612717254").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForGeneratorIdentity() {
@@ -2671,17 +2682,6 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.aggregate("leftExpression", 0x10aaf6f6e81L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(false).ordered(true).multiple(false).origin("1145404616321").done();
     b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     b.alias("/");
-    return b.create();
-  }
-  private static ConceptDescriptor createDescriptorForStatementListEnumBody() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.smodel", "StatementListEnumBody", 0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc9L);
-    b.class_(false, false, false);
-    b.super_("jetbrains.mps.lang.smodel.structure.EnumBody", 0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdc60L);
-    b.parent(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L);
-    b.origin("r:00000000-0000-4000-0000-011c89590301(jetbrains.mps.lang.smodel.structure)/2453008993612717257");
-    b.version(2);
-    b.aggregate("statementList", 0x220ad6aedf1fdccaL).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L).optional(false).ordered(true).multiple(false).origin("2453008993612717258").done();
-    b.alias("{");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForSubconceptCase() {

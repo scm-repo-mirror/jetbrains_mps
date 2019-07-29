@@ -13,6 +13,7 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class check_UnknownLocalCall_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -22,7 +23,7 @@ public class check_UnknownLocalCall_NonTypesystemRule extends AbstractNonTypesys
     if (IYetUnresolved__BehaviorDescriptor.evaluateSubst_id73E7sj5sxxG.invoke(unkCall) != null) {
       // success 
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(unkCall, "Resolved local call", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "6021327890422133162", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.typesystem.ResolvedUnknownNode_QuickFix", true);
@@ -34,17 +35,21 @@ public class check_UnknownLocalCall_NonTypesystemRule extends AbstractNonTypesys
     }
 
     {
-      MessageTarget errorTarget = new NodeMessageTarget();
+      final MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(unkCall, "Unresolved method call", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "6396739326936528614", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x245faa02186fc5d6L, "jetbrains.mps.baseLanguage.structure.UnknownLocalCall");
+    return AUX_km11r8.UnknownLocalCall_23cb4056;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_km11r8 {
+    /*package*/ static final SConcept UnknownLocalCall_23cb4056 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x245faa02186fc5d6L, "jetbrains.mps.baseLanguage.structure.UnknownLocalCall");
   }
 }

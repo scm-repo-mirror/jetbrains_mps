@@ -16,6 +16,7 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_BeforeTaskCall_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_BeforeTaskCall_InferenceRule() {
@@ -24,7 +25,7 @@ public class typeof_BeforeTaskCall_InferenceRule extends AbstractInferenceRule_R
     List<SNode> declaredParameters = SLinkOperations.getChildren(SLinkOperations.getTarget(beforeTaskCall, MetaAdapterFactory.getReferenceLink(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x5ae6ebde781f1fd8L, 0x5ae6ebde781f1fd9L, "beforeTask")), MetaAdapterFactory.getContainmentLink(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x61a8be33d403b7bfL, 0x5ae6ebde781f96aaL, "parameter"));
     if (ListSequence.fromList(SLinkOperations.getChildren(beforeTaskCall, MetaAdapterFactory.getContainmentLink(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x5ae6ebde781f1fd8L, 0x4bfe4368347f5400L, "parameter"))).count() != ListSequence.fromList(declaredParameters).count()) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(beforeTaskCall, "Incompatible number of parameters", "r:8b43a830-217d-43d8-a0f8-6460c443f22d(jetbrains.mps.execution.configurations.typesystem)", "5475888311765613831", null, errorTarget);
       }
     }
@@ -40,12 +41,16 @@ public class typeof_BeforeTaskCall_InferenceRule extends AbstractInferenceRule_R
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x5ae6ebde781f1fd8L, "jetbrains.mps.execution.configurations.structure.BeforeTaskCall");
+    return AUX_gdqhb7.BeforeTaskCall_b25d8f4b;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_gdqhb7 {
+    /*package*/ static final SConcept BeforeTaskCall_b25d8f4b = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x5ae6ebde781f1fd8L, "jetbrains.mps.execution.configurations.structure.BeforeTaskCall");
   }
 }

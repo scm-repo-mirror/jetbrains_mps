@@ -21,10 +21,10 @@ import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
-import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_EditorForNonAbstractConcept_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_EditorForNonAbstractConcept_NonTypesystemRule() {
@@ -43,7 +43,7 @@ public class check_EditorForNonAbstractConcept_NonTypesystemRule extends Abstrac
       List<SNode> aspects = AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspectCollection_id1n18fON7w20.invoke(acd, LanguageAspect.EDITOR);
       if (!((SNodeOperations.is(acd, new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1133920641626")))) && ListSequence.fromList(aspects).any(new IWhereFilter<SNode>() {
         public boolean accept(SNode a) {
-          return SNodeOperations.isInstanceOf(a, MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9845363abL, "jetbrains.mps.lang.editor.structure.ConceptEditorDeclaration"));
+          return SNodeOperations.isInstanceOf(a, AUX_aglxk8.ConceptEditorDeclaration_9422d3dc);
         }
       })) {
         return;
@@ -51,18 +51,22 @@ public class check_EditorForNonAbstractConcept_NonTypesystemRule extends Abstrac
       QueueSequence.fromQueue(toCheck).addSequence(ListSequence.fromList(AbstractConceptDeclaration__BehaviorDescriptor.getImmediateSuperconcepts_idhMuxyK2.invoke(acd)));
     }
     {
-      MessageTarget errorTarget = new NodeMessageTarget();
-      errorTarget = new PropertyMessageTarget("name");
+      final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportInfo(conceptDeclaration, "Editor for concept " + SPropertyOperations.getString(conceptDeclaration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + " is not defined. Default editor will be used.", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "2823239769520680200", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+    return AUX_aglxk8.ConceptDeclaration_cb225da8;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_aglxk8 {
+    /*package*/ static final SConcept ConceptEditorDeclaration_9422d3dc = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9845363abL, "jetbrains.mps.lang.editor.structure.ConceptEditorDeclaration");
+    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
   }
 }

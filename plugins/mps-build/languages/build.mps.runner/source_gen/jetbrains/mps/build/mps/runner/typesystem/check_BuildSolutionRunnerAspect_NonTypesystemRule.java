@@ -17,7 +17,6 @@ import jetbrains.mps.project.structure.modules.ModuleReference;
 import jetbrains.mps.build.mps.behavior.BuildMps_AbstractModule__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
-import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.messageTargets.ReferenceMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -28,6 +27,7 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.baseLanguage.behavior.ClassConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_BuildSolutionRunnerAspect_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_BuildSolutionRunnerAspect_NonTypesystemRule() {
@@ -45,15 +45,14 @@ public class check_BuildSolutionRunnerAspect_NonTypesystemRule extends AbstractN
     SModule module = moduleReference.resolve(repo);
     if (module == null) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
-        errorTarget = new ReferenceMessageTarget("solution");
+        final MessageTarget errorTarget = new ReferenceMessageTarget(MetaAdapterFactory.getReferenceLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, 0x54b085b5945c6691L, "solution"));
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(buildSolutionRunner, "Cannot find solution " + SPropertyOperations.getString(solution, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), "r:6869e2b7-2b2d-443c-a462-ce5a9004892e(jetbrains.mps.build.mps.runner.typesystem)", "6452630887099532660", null, errorTarget);
       }
       return;
     }
     for (SModel m : module.getModels()) {
       if (SModelOperations.getModelName(m).equals(module.getModuleName())) {
-        SNode classToRun = ListSequence.fromList(SModelOperations.roots(m, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept"))).findFirst(new IWhereFilter<SNode>() {
+        SNode classToRun = ListSequence.fromList(SModelOperations.roots(m, AUX_yzsztx.ClassConcept_e2711824)).findFirst(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
             return SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(className);
           }
@@ -63,7 +62,7 @@ public class check_BuildSolutionRunnerAspect_NonTypesystemRule extends AbstractN
         }
         SNode methodToRun = Sequence.fromIterable(ClassConcept__BehaviorDescriptor.staticMethods_id4_LVZ3pCeXr.invoke(classToRun)).findFirst(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(methodName) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9581ff1L, "jetbrains.mps.baseLanguage.structure.PublicVisibility")) && ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).count() < 2;
+            return SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(methodName) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")), AUX_yzsztx.PublicVisibility_63d95354) && ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).count() < 2;
           }
         });
         if ((methodToRun != null)) {
@@ -72,18 +71,23 @@ public class check_BuildSolutionRunnerAspect_NonTypesystemRule extends AbstractN
       }
     }
     {
-      MessageTarget errorTarget = new NodeMessageTarget();
-      errorTarget = new ReferenceMessageTarget("solution");
+      final MessageTarget errorTarget = new ReferenceMessageTarget(MetaAdapterFactory.getReferenceLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, 0x54b085b5945c6691L, "solution"));
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(buildSolutionRunner, "Cannot find public static void " + className + "." + methodName + "(...) in " + SPropertyOperations.getString(solution, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), "r:6869e2b7-2b2d-443c-a462-ce5a9004892e(jetbrains.mps.build.mps.runner.typesystem)", "7415565752189086936", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, "jetbrains.mps.build.mps.runner.structure.BuildSolutionRunnerAspect");
+    return AUX_yzsztx.BuildSolutionRunnerAspect_117d9fe8;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_yzsztx {
+    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept PublicVisibility_63d95354 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9581ff1L, "jetbrains.mps.baseLanguage.structure.PublicVisibility");
+    /*package*/ static final SConcept BuildSolutionRunnerAspect_117d9fe8 = MetaAdapterFactory.getConcept(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, "jetbrains.mps.build.mps.runner.structure.BuildSolutionRunnerAspect");
   }
 }

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123140:jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123159:jetbrains.mps.baseLanguage.structure.IfStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242864:jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242878:jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123157:jetbrains.mps.baseLanguage.structure.Statement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
+  <root>
+    <file name="ConstraintsAspectDescriptor.java">
+      <unit at="13,0,29,0" name="jetbrains.mps.lang.feedback.problem.failingRule.constraints.ConstraintsAspectDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:a3bec607-7151-4d0d-93f7-37e8de283287(jetbrains.mps.lang.feedback.problem.failingRule.constraints)/6285588811486137643">
+    <file name="FailingRuleProblem_Constraints.java">
+      <node id="6285588811486137643" at="36,43,37,50" concept="9" />
+      <node id="6285588811486137643" at="44,127,45,128" concept="4" />
+      <node id="6285588811486137643" at="45,128,46,0" concept="6" />
+      <node id="6285588811486137643" at="47,55,48,71" concept="1" />
+      <node id="6285588811486137643" at="49,9,50,0" concept="6" />
+      <node id="6285588811486137643" at="50,0,51,22" concept="5" />
+      <node id="1938781798615217718" at="59,44,60,20" concept="5" />
+      <node id="1938781798615217718" at="67,63,68,57" concept="5" />
+      <node id="1938781798615313045" at="72,54,73,98" concept="4" />
+      <node id="1938781798615280312" at="73,98,74,376" concept="4" />
+      <node id="1938781798615255141" at="74,376,75,162" concept="4" />
+      <node id="1938781798615311052" at="79,40,80,32" concept="5" />
+      <node id="1938781798615274951" at="81,19,82,129" concept="4" />
+      <node id="1938781798615277902" at="83,114,84,33" concept="5" />
+      <node id="1938781798615259500" at="85,19,86,291" concept="5" />
+      <node id="1938781798615252688" at="89,13,90,132" concept="5" />
+      <node id="6285588811486137643" at="94,6,95,131" concept="4" />
+      <node id="1938781798615217718" at="95,131,96,42" concept="1" />
+      <node id="6285588811486137643" at="96,42,97,22" concept="5" />
+      <node id="7614984822540740462" at="99,128,100,197" concept="5" />
+      <node id="6285588811486137643" at="102,0,103,0" concept="7" trace="canBeChildBreakingPoint" />
+      <node id="6285588811486137643" at="103,0,104,0" concept="7" trace="breakingNode_9cv73f_a0a0a0a0a1a0a0a0d" />
+      <node id="6285588811486137643" at="106,0,107,0" concept="7" trace="FailingRuleProblem_9554ad4f" />
+      <node id="6285588811486137643" at="107,0,108,0" concept="7" trace="FeedbackPerConceptRoot_c8c13b93" />
+      <node id="6285588811486137643" at="108,0,109,0" concept="7" trace="Rule_5f090c4b" />
+      <node id="6285588811486137643" at="109,0,110,0" concept="7" trace="RulesConstraintsRoot_9de962df" />
+      <node id="6285588811486137643" at="36,0,39,0" concept="0" trace="FailingRuleProblem_Constraints#()V" />
+      <node id="6285588811486137643" at="46,0,49,9" concept="2" />
+      <node id="1938781798615308891" at="78,55,81,19" concept="2" />
+      <node id="1938781798615275840" at="82,129,85,19" concept="2" />
+      <node id="6285588811486137643" at="99,0,102,0" concept="8" trace="staticCanBeAChild#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Lorg/jetbrains/mps/openapi/language/SContainmentLink;)Z" />
+      <node id="1938781798615217718" at="58,0,62,0" concept="3" trace="hasOwnScopeProvider#()Z" />
+      <node id="1938781798615217718" at="66,0,70,0" concept="3" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
+      <node id="6285588811486137643" at="43,0,53,0" concept="3" trace="invoke#(Ljetbrains/mps/smodel/runtime/ConstraintContext_CanBeChild;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Ljava/lang/Boolean;" />
+      <node id="1938781798615258479" at="77,0,88,0" concept="3" trace="isExcluded#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="6285588811486137643" at="41,103,53,6" concept="5" />
+      <node id="1938781798615217831" at="75,162,88,16" concept="5" />
+      <node id="6285588811486137643" at="40,0,55,0" concept="3" trace="calculateCanBeChildConstraint#()Ljetbrains/mps/smodel/runtime/ConstraintFunction;" />
+      <node id="1938781798615251124" at="71,122,89,13" concept="2" />
+      <node id="1938781798615217718" at="70,0,92,0" concept="3" trace="createScope#(Ljetbrains/mps/smodel/IOperationContext;Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
+      <node id="1938781798615217718" at="64,56,92,10" concept="5" />
+      <node id="1938781798615217718" at="62,0,94,0" concept="3" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
+      <node id="1938781798615217718" at="56,90,94,6" concept="4" />
+      <node id="6285588811486137643" at="55,0,99,0" concept="3" trace="getSpecifiedReferences#()Ljava/util/Map;" />
+      <scope id="6285588811486137643" at="36,43,37,50" />
+      <scope id="6285588811486137643" at="47,55,48,71" />
+      <scope id="1938781798615217718" at="59,44,60,20" />
+      <scope id="1938781798615217718" at="67,63,68,57" />
+      <scope id="1938781798615308893" at="79,40,80,32" />
+      <scope id="1938781798615275842" at="83,114,84,33" />
+      <scope id="7614984822540739032" at="99,128,100,197" />
+      <scope id="6285588811486137643" at="36,0,39,0" />
+      <scope id="6285588811486137643" at="99,0,102,0">
+        <var name="childConcept" id="6285588811486137643" />
+        <var name="link" id="6285588811486137643" />
+        <var name="node" id="6285588811486137643" />
+        <var name="parentNode" id="6285588811486137643" />
+      </scope>
+      <scope id="1938781798615217718" at="58,0,62,0" />
+      <scope id="1938781798615217718" at="66,0,70,0" />
+      <scope id="6285588811486137643" at="44,127,51,22">
+        <var name="result" id="6285588811486137643" />
+      </scope>
+      <scope id="1938781798615258488" at="78,55,86,291">
+        <var name="containingRoot" id="1938781798615274952" />
+      </scope>
+      <scope id="6285588811486137643" at="43,0,53,0">
+        <var name="checkingNodeContext" id="6285588811486137643" />
+        <var name="context" id="6285588811486137643" />
+      </scope>
+      <scope id="1938781798615258479" at="77,0,88,0">
+        <var name="node" id="1938781798615258485" />
+      </scope>
+      <scope id="6285588811486137643" at="41,103,53,6" />
+      <scope id="6285588811486137643" at="40,0,55,0" />
+      <scope id="1938781798615251126" at="72,54,88,16">
+        <var name="baseScope" id="1938781798615255142" />
+        <var name="concept" id="1938781798615280313" />
+        <var name="containingRoot" id="1938781798615313046" />
+      </scope>
+      <scope id="1938781798615217718" at="71,122,90,132" />
+      <scope id="1938781798615217718" at="70,0,92,0">
+        <var name="_context" id="1938781798615217718" />
+        <var name="operationContext" id="1938781798615217718" />
+      </scope>
+      <scope id="1938781798615217718" at="64,56,92,10" />
+      <scope id="1938781798615217718" at="62,0,94,0" />
+      <scope id="6285588811486137643" at="56,90,97,22">
+        <var name="d0" id="1938781798615217718" />
+        <var name="references" id="6285588811486137643" />
+      </scope>
+      <scope id="6285588811486137643" at="55,0,99,0" />
+      <unit id="6285588811486137643" at="105,0,111,0" name="jetbrains.mps.lang.feedback.problem.failingRule.constraints.FailingRuleProblem_Constraints$AUX_9cv73f" />
+      <unit id="6285588811486137643" at="42,15,53,5" name="jetbrains.mps.lang.feedback.problem.failingRule.constraints.FailingRuleProblem_Constraints$1" />
+      <unit id="1938781798615257227" at="76,25,88,15" name="jetbrains.mps.lang.feedback.problem.failingRule.constraints.FailingRuleProblem_Constraints$2$1$1" />
+      <unit id="1938781798615217718" at="65,19,92,9" name="jetbrains.mps.lang.feedback.problem.failingRule.constraints.FailingRuleProblem_Constraints$2$1" />
+      <unit id="1938781798615217718" at="57,48,94,5" name="jetbrains.mps.lang.feedback.problem.failingRule.constraints.FailingRuleProblem_Constraints$2" />
+      <unit id="6285588811486137643" at="35,0,112,0" name="jetbrains.mps.lang.feedback.problem.failingRule.constraints.FailingRuleProblem_Constraints" />
+    </file>
+  </root>
+</debug-info>
+

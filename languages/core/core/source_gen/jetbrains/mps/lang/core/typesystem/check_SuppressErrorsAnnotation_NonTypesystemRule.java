@@ -15,6 +15,7 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_SuppressErrorsAnnotation_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_SuppressErrorsAnnotation_NonTypesystemRule() {
@@ -25,7 +26,7 @@ public class check_SuppressErrorsAnnotation_NonTypesystemRule extends AbstractNo
       FlavouredItem.ReportItemPredicate.deserialize((serializedPredicate == null ? "" : serializedPredicate));
     } catch (IllegalArgumentException e) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(suppressErrorsAnnotation, "invalid suppressing predicate", "r:cec599e3-51d2-48a7-af31-989e3cbd593c(jetbrains.mps.lang.core.typesystem)", "3813199577742754157", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.core.typesystem.DoNotSuppressError_QuickFix", false);
@@ -37,12 +38,16 @@ public class check_SuppressErrorsAnnotation_NonTypesystemRule extends AbstractNo
     // todo: message should be not empty, add migration if necessary 
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
+    return AUX_2jtsz0.SuppressErrorsAnnotation_4912d93;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_2jtsz0 {
+    /*package*/ static final SConcept SuppressErrorsAnnotation_4912d93 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
   }
 }

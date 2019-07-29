@@ -17,6 +17,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.samples.heating.behavior.Slot__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_Slot_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_Slot_NonTypesystemRule() {
@@ -24,7 +25,7 @@ public class check_Slot_NonTypesystemRule extends AbstractNonTypesystemRule_Runt
   public void applyRule(final SNode slot, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (SPropertyOperations.getInteger(slot, MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe28827cL, "start")) == -1) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(slot, "Not a valid value", "r:6d78acb4-911e-4959-8535-0a1b3e5c1b7e(jetbrains.mps.samples.heating.typesystem)", "2978080762093971534", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.samples.heating.typesystem.AssignCorrectValue_QuickFix", true);
@@ -33,10 +34,10 @@ public class check_Slot_NonTypesystemRule extends AbstractNonTypesystemRule_Runt
       }
       return;
     }
-    SNode prev = SNodeOperations.cast(SNodeOperations.getPrevSibling(slot), MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, "jetbrains.mps.samples.heating.structure.Slot"));
+    SNode prev = SNodeOperations.cast(SNodeOperations.getPrevSibling(slot), AUX_psflk4.Slot_ae41f8e3);
     if ((prev != null)) {
       if (!(SPropertyOperations.getInteger(prev, MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe28827cL, "start")) <= SPropertyOperations.getInteger(slot, MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe28827cL, "start")))) {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(slot, "The event should be scheduled after the one above it", "r:6d78acb4-911e-4959-8535-0a1b3e5c1b7e(jetbrains.mps.samples.heating.typesystem)", "5063359128233240887", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.samples.heating.typesystem.MoveItemToTheRightPositionWithinDailyPlan_QuickFix", true);
@@ -45,7 +46,7 @@ public class check_Slot_NonTypesystemRule extends AbstractNonTypesystemRule_Runt
       }
       if (SPropertyOperations.getInteger(SLinkOperations.getTarget(prev, MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe289dd1L, "event")), MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec62L, 0x4644aa4ce08aec70L, "temperature")) == SPropertyOperations.getInteger(SLinkOperations.getTarget(slot, MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe289dd1L, "event")), MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec62L, 0x4644aa4ce08aec70L, "temperature"))) {
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
+          final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(slot, "This event is not changing the temperature.", "r:6d78acb4-911e-4959-8535-0a1b3e5c1b7e(jetbrains.mps.samples.heating.typesystem)", "4664795093170882120", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.samples.heating.typesystem.RemoveSlot_QuickFix", false);
@@ -57,7 +58,7 @@ public class check_Slot_NonTypesystemRule extends AbstractNonTypesystemRule_Runt
     SNode customizedSlot = Slot__BehaviorDescriptor.getCustomizedSlot_idNU25Mr18Am.invoke(slot);
     if ((customizedSlot != null) && SPropertyOperations.getInteger(SLinkOperations.getTarget(customizedSlot, MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe289dd1L, "event")), MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec62L, 0x4644aa4ce08aec70L, "temperature")) == SPropertyOperations.getInteger(SLinkOperations.getTarget(slot, MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe289dd1L, "event")), MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec62L, 0x4644aa4ce08aec70L, "temperature"))) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(slot, "The customizing event is setting the same temperature as the original one", "r:6d78acb4-911e-4959-8535-0a1b3e5c1b7e(jetbrains.mps.samples.heating.typesystem)", "935069066463792184", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.samples.heating.typesystem.RemoveSlot_QuickFix", false);
@@ -67,12 +68,16 @@ public class check_Slot_NonTypesystemRule extends AbstractNonTypesystemRule_Runt
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, "jetbrains.mps.samples.heating.structure.Slot");
+    return AUX_psflk4.Slot_ae41f8e3;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_psflk4 {
+    /*package*/ static final SConcept Slot_ae41f8e3 = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, "jetbrains.mps.samples.heating.structure.Slot");
   }
 }

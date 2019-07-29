@@ -8,29 +8,32 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
-import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ConceptA_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_ConceptA_NonTypesystemRule() {
   }
   public void applyRule(final SNode conceptA, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     {
-      MessageTarget errorTarget = new NodeMessageTarget();
-      errorTarget = new PropertyMessageTarget("conceptAProp");
+      final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0x38be1c36cdf64e3cL, 0xb9db14f88a11fa03L, 0x7aa4e26e6874ca31L, 0x7aa4e26e6874ca74L, "conceptAProp"));
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(conceptA, "error from ConceptA", "r:05c5940c-484d-4321-945d-0e467fc18ae8(testOverridingRule.typesystem)", "8837437332634520235", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x38be1c36cdf64e3cL, 0xb9db14f88a11fa03L, 0x7aa4e26e6874ca31L, "testOverridingRule.structure.ConceptA");
+    return AUX_wbtzqp.ConceptA_ffe6f1ba;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_wbtzqp {
+    /*package*/ static final SConcept ConceptA_ffe6f1ba = MetaAdapterFactory.getConcept(0x38be1c36cdf64e3cL, 0xb9db14f88a11fa03L, 0x7aa4e26e6874ca31L, "testOverridingRule.structure.ConceptA");
   }
 }

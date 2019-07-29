@@ -8,10 +8,12 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import java.awt.Frame;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.ide.editor.MPSEditorDataKeys;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.ide.devkit.cellExplorer.CellProperties;
+import jetbrains.mps.smodel.ModelAccessHelper;
+import jetbrains.mps.util.Computable;
 import jetbrains.mps.ide.devkit.cellExplorer.CellPropertiesWindow;
 
 public class CellProperties_Action extends BaseAction {
@@ -33,14 +35,12 @@ public class CellProperties_Action extends BaseAction {
     }
     {
       Frame p = event.getData(MPSCommonDataKeys.FRAME);
-      MapSequence.fromMap(_params).put("frame", p);
       if (p == null) {
         return false;
       }
     }
     {
       EditorCell p = event.getData(MPSEditorDataKeys.EDITOR_CELL);
-      MapSequence.fromMap(_params).put("cell", p);
       if (p == null) {
         return false;
       }
@@ -49,6 +49,12 @@ public class CellProperties_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    new CellPropertiesWindow(((EditorCell) MapSequence.fromMap(_params).get("cell")), ((Frame) MapSequence.fromMap(_params).get("frame")));
+    final EditorCell cell = event.getData(MPSEditorDataKeys.EDITOR_CELL);
+    CellProperties props = new ModelAccessHelper(cell.getEditorComponent().getEditorContext().getRepository()).runReadAction(new Computable<CellProperties>() {
+      public CellProperties compute() {
+        return new CellProperties(cell);
+      }
+    });
+    new CellPropertiesWindow(props, event.getData(MPSCommonDataKeys.FRAME)).setVisible(true);
   }
 }

@@ -21,6 +21,9 @@ import com.intellij.facet.FacetManager;
 import com.intellij.facet.FacetManagerAdapter;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.module.Module;
+import com.intellij.openapi.projectRoots.JavaSdkVersion;
+import com.intellij.openapi.projectRoots.Sdk;
+import com.intellij.openapi.projectRoots.SdkTypeId;
 import com.intellij.openapi.roots.CompilerModuleExtension;
 import com.intellij.openapi.roots.JdkOrderEntry;
 import com.intellij.openapi.roots.LibraryOrderEntry;
@@ -67,6 +70,7 @@ import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.FileSystemExtPoint;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import org.jetbrains.mps.openapi.module.SDependency;
@@ -141,6 +145,25 @@ public class SolutionIdea extends Solution {
     newDescriptor.setNamespace(myModule.getName());
 //    addLibs(newDescriptor);
     super.doSetModuleDescriptor(newDescriptor);
+
+    updateJDKSolutionIfNeeded();
+  }
+
+  private void updateJDKSolutionIfNeeded() {
+    Sdk sdk = ModuleRootManager.getInstance(myModule).getSdk();
+    if (sdk == null) {
+      return;
+    }
+    if (!JdkStubSolutionManager.JAVA_SDK_TYPE.equals(sdk.getSdkType().getName())) {
+      return;
+    }
+
+    String versionString = sdk.getVersionString();
+    JavaSdkVersion sdkVersion = JavaSdkVersion.fromVersionString(versionString);
+    if (sdkVersion==null || !sdkVersion.isAtLeast(JavaSdkVersion.JDK_11)) {
+      myModule.getProject().getComponent(MultipleSdkProblemNotifier.class).reportIncorrectJDK(myModule, versionString);
+      return;
+    }
 
     try {
       ApplicationManager.getApplication().getComponent(JdkStubSolutionManager.class).claimSdk(myModule);

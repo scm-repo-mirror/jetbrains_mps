@@ -14,10 +14,10 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
-import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_DuplicatedRules_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_DuplicatedRules_NonTypesystemRule() {
@@ -27,25 +27,28 @@ public class check_DuplicatedRules_NonTypesystemRule extends AbstractNonTypesyst
     if ((name == null || name.length() == 0)) {
       return;
     }
-    if (ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(abstractRule), MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, "jetbrains.mps.lang.typesystem.structure.AbstractRule"))).any(new IWhereFilter<SNode>() {
+    if (ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(abstractRule), AUX_cggkm5.AbstractRule_3c273af)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return it != abstractRule && name.equalsIgnoreCase(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
       }
     })) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
-        errorTarget = new PropertyMessageTarget("name");
+        final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(abstractRule, "Duplicated name of the typesystem rule", "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "8433157989202147284", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, "jetbrains.mps.lang.typesystem.structure.AbstractRule");
+    return AUX_cggkm5.AbstractRule_3c273af;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_cggkm5 {
+    /*package*/ static final SConcept AbstractRule_3c273af = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, "jetbrains.mps.lang.typesystem.structure.AbstractRule");
   }
 }

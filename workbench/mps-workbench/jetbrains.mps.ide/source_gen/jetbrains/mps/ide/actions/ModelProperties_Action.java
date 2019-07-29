@@ -5,10 +5,12 @@ package jetbrains.mps.ide.actions;
 import jetbrains.mps.workbench.action.BaseAction;
 import javax.swing.Icon;
 import com.intellij.icons.AllIcons;
+import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
+import com.intellij.openapi.actionSystem.Presentation;
+import jetbrains.mps.ide.IdeBundle;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.workbench.ActionPlace;
 import jetbrains.mps.project.MPSProject;
@@ -34,12 +36,10 @@ public class ModelProperties_Action extends BaseAction {
     return true;
   }
   @Override
-  public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    return ((Integer) MapSequence.fromMap(_params).get("size")) == 1;
-  }
-  @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
-    this.setEnabledState(event.getPresentation(), this.isApplicable(event, _params));
+    Presentation presentation = event.getPresentation();
+    presentation.setText(IdeBundle.message("actions.model.properties.title"));
+    presentation.setEnabledAndVisible(((Integer) MapSequence.fromMap(_params).get("size")) == 1);
   }
   @Override
   protected boolean collectActionData(AnActionEvent event, final Map<String, Object> _params) {

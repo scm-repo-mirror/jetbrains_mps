@@ -394,6 +394,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.ImmediateSupertypesExpression:
         if (props_ImmediateSupertypesExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.deprecated(true);
           cpb.rawPresentation("immediateSupertypes()");
           props_ImmediateSupertypesExpression = cpb.create();
         }
@@ -671,7 +672,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.PropertyNameTarget:
         if (props_PropertyNameTarget == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("property name");
+          cpb.rawPresentation("property");
           props_PropertyNameTarget = cpb.create();
         }
         return props_PropertyNameTarget;

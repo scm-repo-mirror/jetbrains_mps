@@ -2,12 +2,12 @@
 <model ref="r:229ce18d-2bb0-4d5b-a7cd-cec65841e459(jetbrains.mps.lang.behavior.generator.template.main@generator)">
   <persistence version="9" />
   <languages>
-    <use id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal" version="0" />
-    <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="3" />
-    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="2" />
-    <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="2" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
-    <use id="69b8a993-9b87-4d96-bf0c-3559f4bb0c63" name="jetbrains.mps.lang.slanguage" version="0" />
+    <use id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal" version="-1" />
+    <use id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator" version="-1" />
+    <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="-1" />
+    <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="-1" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
+    <use id="69b8a993-9b87-4d96-bf0c-3559f4bb0c63" name="jetbrains.mps.lang.slanguage" version="-1" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -514,11 +514,6 @@
       <property role="TrG5h" value="BHClassConstructor" />
       <ref role="2rTdP9" to="1i04:hP3h7Gq" resolve="ConceptBehavior" />
       <ref role="2rZz_L" to="tpee:fzclF84" resolve="ConstructorDeclaration" />
-    </node>
-    <node concept="2rT7sh" id="78MdKhpIE2y" role="2rTMjI">
-      <property role="TrG5h" value="BHClassConceptField" />
-      <ref role="2rTdP9" to="1i04:hP3h7Gq" resolve="ConceptBehavior" />
-      <ref role="2rZz_L" to="tpee:f$Wx3kv" resolve="StaticFieldDeclaration" />
     </node>
     <node concept="2rT7sh" id="78MdKhpEC37" role="2rTMjI">
       <property role="TrG5h" value="BHMethodImpl" />
@@ -1912,9 +1907,6 @@
       </node>
       <node concept="3uibUv" id="3uq0yNaWTuK" role="1tU5fm">
         <ref role="3uigEE" to="c17a:~SAbstractConcept" resolve="SAbstractConcept" />
-      </node>
-      <node concept="2ZBi8u" id="78MdKhpIBul" role="lGtFl">
-        <ref role="2rW$FS" node="78MdKhpIE2y" resolve="BHClassConceptField" />
       </node>
     </node>
     <node concept="2tJIrI" id="22P$f14BEIX" role="jymVt" />

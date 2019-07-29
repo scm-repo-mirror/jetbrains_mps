@@ -83,5 +83,9 @@
     <orderEntry type="module" module-name="mps-java-platform" scope="TEST" />
     <orderEntry type="module" module-name="mps-java-workbench" scope="TEST" />
     <orderEntry type="module" module-name="pattern-runtime" scope="TEST" />
+    <orderEntry type="module" module-name="feedback-api" />
+    <orderEntry type="module" module-name="constraints-runtime" />
+    <orderEntry type="module" module-name="messages-api" />
+    <orderEntry type="module" module-name="mps-httpsupport" />
   </component>
 </module>

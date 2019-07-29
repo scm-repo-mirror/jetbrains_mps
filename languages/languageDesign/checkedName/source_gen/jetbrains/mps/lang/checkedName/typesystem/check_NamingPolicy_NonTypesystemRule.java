@@ -18,6 +18,7 @@ import jetbrains.mps.errors.BaseQuickFixProvider;
 import jetbrains.mps.checkedName.PropertyReference;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class check_NamingPolicy_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_NamingPolicy_NonTypesystemRule() {
@@ -28,7 +29,7 @@ public class check_NamingPolicy_NonTypesystemRule extends AbstractNonTypesystemR
       if (!(NameUtil.satisfiesPartNamingPolicy(SPropertyOperations.getString(s, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"))))) {
         String myWarning = warningMessage + ".";
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
+          final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(s, myWarning, "r:f922da3a-135f-4fe9-9051-9f018bc5c1bf(jetbrains.mps.lang.checkedName.typesystem)", "4844813484172611508", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.checkedName.typesystem.FixNamingPolicy_literal_once_QuickFix", false);
@@ -51,8 +52,7 @@ public class check_NamingPolicy_NonTypesystemRule extends AbstractNonTypesystemR
       if (!(NameUtil.satisfiesNamingPolicy(SPropertyOperations.getString(p.getNode(), p.getProperty())))) {
         String myWarning = warningMessage + "; no leading and trailing whitespaces are allowed.";
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
-          errorTarget = new PropertyMessageTarget(p.getProperty().getName());
+          final MessageTarget errorTarget = new PropertyMessageTarget(p.getProperty());
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(p.getNode(), myWarning, "r:f922da3a-135f-4fe9-9051-9f018bc5c1bf(jetbrains.mps.lang.checkedName.typesystem)", "4844813484172611556", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.checkedName.typesystem.FixNamingPolicy_property_once_QuickFix", false);
@@ -70,12 +70,16 @@ public class check_NamingPolicy_NonTypesystemRule extends AbstractNonTypesystemR
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getInterfaceConcept(0xfe9d76d7580945c9L, 0xae28a40915b4d6ffL, 0x433c3c31e7218f38L, "jetbrains.mps.lang.checkedName.structure.ICheckedNamePolicy");
+    return AUX_qpzidu.ICheckedNamePolicy_899d000c;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_qpzidu {
+    /*package*/ static final SInterfaceConcept ICheckedNamePolicy_899d000c = MetaAdapterFactory.getInterfaceConcept(0xfe9d76d7580945c9L, 0xae28a40915b4d6ffL, 0x433c3c31e7218f38L, "jetbrains.mps.lang.checkedName.structure.ICheckedNamePolicy");
   }
 }

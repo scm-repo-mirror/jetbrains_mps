@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,8 @@
  */
 package jetbrains.mps.nodeEditor;
 
+import com.intellij.ui.JBColor;
 import jetbrains.mps.errors.MessageStatus;
-import jetbrains.mps.errors.item.NodeFeatureReportItem;
 import jetbrains.mps.errors.item.NodeReportItem;
 import jetbrains.mps.ide.util.ColorAndGraphicsUtil;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
@@ -28,7 +28,6 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.EditorCell_Collection;
 import jetbrains.mps.openapi.editor.message.EditorMessageOwner;
 import jetbrains.mps.openapi.editor.message.SimpleEditorMessage;
-import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.smodel.SNodeUtil;
 import org.jetbrains.mps.openapi.model.SNode;
 
@@ -46,15 +45,15 @@ public class HighlighterMessage extends EditorMessageWithTarget {
 
   public static Color getMessageColor(MessageStatus messageStatus) {
     if (messageStatus == MessageStatus.ERROR) {
-      return new Color(ColorConstants.ERROR);
+      return MPSColors.RED;
     }
     if (messageStatus == MessageStatus.WARNING) {
-      return new Color(StyleRegistry.getInstance().isDarkTheme() ? ColorConstants.WARNING_DARK : ColorConstants.WARNING);
+      return new JBColor(ColorConstants.WARNING, ColorConstants.WARNING_DARK);
     }
     if (messageStatus == MessageStatus.OK) {
-      return new Color(ColorConstants.OK);
+      return JBColor.lightGray;
     }
-    return Color.BLACK;
+    return JBColor.BLACK;
   }
 
   public HighlighterMessage(EditorMessageOwner owner, NodeReportItem reportItem, SNode node) {
@@ -76,11 +75,6 @@ public class HighlighterMessage extends EditorMessageWithTarget {
       return false;
     }
     return super.sameAs(message);
-  }
-
-  @Override
-  public EditorCell getCellForParentNodeInMainEditor(EditorComponent editor) {
-    return super.getCellForParentNodeInMainEditor(editor);
   }
 
   @Override

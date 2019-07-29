@@ -13,24 +13,23 @@ import jetbrains.mps.errors.MessageStatus;
 import java.awt.Color;
 import jetbrains.mps.vcs.diff.changes.ChangeType;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
-import jetbrains.mps.errors.messageTargets.MessageTargetEnum;
+import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.openapi.editor.cells.EditorCell_Collection;
+import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import java.awt.Graphics;
 import jetbrains.mps.nodeEditor.EditorComponent;
+import jetbrains.mps.errors.messageTargets.DeletedNodeMessageTarget;
 import java.awt.Rectangle;
 import jetbrains.mps.nodeEditor.cells.GeometryUtil;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.nodeEditor.messageTargets.CellFinder;
 import java.util.Objects;
-import jetbrains.mps.openapi.editor.message.SimpleEditorMessage;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.openapi.editor.cells.CellMessagesUtil;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.errors.messageTargets.DeletedNodeMessageTarget;
 import jetbrains.mps.ide.util.ColorAndGraphicsUtil;
 import jetbrains.mps.nodeEditor.inspector.InspectorEditorComponent;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
@@ -43,14 +42,16 @@ import org.apache.log4j.Level;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.openapi.editor.menus.transformation.SPropertyInfo;
 import jetbrains.mps.openapi.editor.cells.EditorCellContext;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ChangeEditorMessage extends EditorMessageWithTarget {
   private static final Logger LOG = LogManager.getLogger(ChangeEditorMessage.class);
   private static final String NAME_PROPERTY = "name";
   private ModelChange myChange;
-  private ChangeEditorMessage.ConflictChecker myConflictsChecker;
+  private ConflictChecker myConflictsChecker;
   private boolean myHighlighted;
-  protected ChangeEditorMessage(SNode node, MessageTarget target, EditorMessageOwner owner, ModelChange change, ChangeEditorMessage.ConflictChecker conflictChecker, boolean highlighted) {
+  protected ChangeEditorMessage(SNode node, MessageTarget target, EditorMessageOwner owner, ModelChange change, ConflictChecker conflictChecker, boolean highlighted) {
     super(node, MessageStatus.OK, target, null, "", owner);
     myChange = change;
     myConflictsChecker = conflictChecker;
@@ -75,14 +76,20 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
     return true;
   }
   private boolean isDirectCell(EditorCell cell) {
-    // Return true if and only if this cell should be painted, not only set in frame 
+    // Return true if and only if this cell represents complete change and shall get respective indication (i.e. filled background) be painted, not only set in frame 
+    // Otherwise, the cell receives rectangle frame only to indicate there's a change, although the cell doesn't represent the exact change itself. 
     if (cell == null) {
       return false;
     }
-    if (myMessageTarget.getTarget() == MessageTargetEnum.NODE) {
+    if (myMessageTarget instanceof NodeMessageTarget) {
       return getNode() == cell.getSNode();
     } else {
-      return !(cell instanceof EditorCell_Collection) && isNameCell(cell) == (myMessageTarget.getTarget() == MessageTargetEnum.PROPERTY && NAME_PROPERTY.equals(myMessageTarget.getRole()));
+      // cell with name of a node is often used as an 'indicative' cell for changes otherwise not visible in the editor 
+      // therefore, for cell with name we shall tell it is direct only when our target is 'name' property 
+      if (cell instanceof EditorCell_Collection) {
+        return false;
+      }
+      return isNameCell(cell) == (myMessageTarget instanceof PropertyMessageTarget && NAME_PROPERTY.equals(myMessageTarget.getRole()));
     }
   }
 
@@ -100,8 +107,12 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
       ((jetbrains.mps.nodeEditor.cells.EditorCell) cell).paintSelection(graphics, getColor(), false);
       repaintConflictedMessages(graphics, cell);
     } else {
-      if (myMessageTarget.getTarget() == MessageTargetEnum.DELETED_CHILD) {
-        drawDeletedChild(graphics, cell);
+      if (myMessageTarget instanceof DeletedNodeMessageTarget) {
+        DeletedNodeMessageTarget dmt = ((DeletedNodeMessageTarget) myMessageTarget);
+        if (cell instanceof EditorCell_Collection && dmt.getLink().equals(cell.getSRole())) {
+          graphics.setColor(getColor());
+          drawDeletedChild(graphics, (EditorCell_Collection) cell, dmt.getNextChildIndex());
+        }
       } else {
         Rectangle bounds = (isIndirectRoot(editor) ? getFirstPseudoLineBounds(editor) : GeometryUtil.getBounds(cell));
         graphics.setColor(ChangeColors.get((isConflicted() ? ChangeType.CONFLICTED : ChangeType.CHANGE)));
@@ -118,7 +129,7 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
         EditorCell cell = ChangeEditorMessage.super.getCell(editor);
         if (cell != null && cell.isBig() && !(isDirectCell(cell))) {
           SNode node = getNode();
-          if (SNodeOperations.isInstanceOf(node, MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept"))) {
+          if (SNodeOperations.isInstanceOf(node, AUX_myu41h.INamedConcept_8cd7e247)) {
             cell = CellFinder.getCellForProperty(editor, node, NAME_PROPERTY);
           }
         }
@@ -128,10 +139,16 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
   }
   @Override
   public boolean acceptCell(EditorCell cell, EditorComponent component) {
-    EditorCell superCell = super.getCell(component);
-    return isNameCell(cell) && !(isDirectCell(cell)) && superCell != null && cell.isBig() || super.acceptCell(cell, component);
+    if (super.acceptCell(cell, component)) {
+      return true;
+    }
+    if (cell.isBig() && isNameCell(cell) && !(isDirectCell(cell))) {
+      EditorCell superCell = super.getCell(component);
+      return superCell != null;
+    }
+    return false;
   }
-  private boolean isNameCell(EditorCell cell) {
+  private static boolean isNameCell(EditorCell cell) {
     return Objects.equals(check_myu41h_a0a0r(check_myu41h_a0a0a71(check_myu41h_a0a0a0r(cell.getCellContext()))), NAME_PROPERTY);
   }
   private void repaintConflictedMessages(Graphics graphics, EditorCell cell) {
@@ -139,46 +156,40 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
     // "conflicted" red frame. In this case, we repaint conflicted red frame again 
     EditorCell_Collection parent = cell.getParent();
     if (parent != null && parent.getCellsCount() == 1) {
-      SimpleEditorMessage messageToRepaint = Sequence.fromIterable(((Iterable<ChangeEditorMessage>) CellMessagesUtil.getMessages(parent, ChangeEditorMessage.class))).findFirst(new IWhereFilter<ChangeEditorMessage>() {
+      ChangeEditorMessage messageToRepaint = Sequence.fromIterable(((Iterable<ChangeEditorMessage>) CellMessagesUtil.getMessages(parent, ChangeEditorMessage.class))).findFirst(new IWhereFilter<ChangeEditorMessage>() {
         public boolean accept(ChangeEditorMessage m) {
           return m.isConflicted();
         }
       });
       if (messageToRepaint != null) {
-        ((ChangeEditorMessage) messageToRepaint).paint(graphics, (EditorComponent) cell.getEditorComponent(), parent);
+        messageToRepaint.paint(graphics, (EditorComponent) cell.getEditorComponent(), parent);
       }
     }
   }
-  private void drawDeletedChild(Graphics graphics, EditorCell cell) {
-    if (myMessageTarget.getRole().equals(cell.getRole())) {
-      int index = ((DeletedNodeMessageTarget) myMessageTarget).getNextChildIndex();
-      if (index != -1) {
-        EditorCell_Collection collectionCell = (EditorCell_Collection) cell;
-
-        if (hasChildrenWithDifferentNode(cell)) {
-          EditorCell childCell = getChildCell(collectionCell, index);
-          if (isVertical(collectionCell)) {
-            drawHorizontalLine(graphics, collectionCell, childCell);
-          } else {
-            drawVerticalLineWithArrows(graphics, collectionCell, childCell);
-          }
+  private static void drawDeletedChild(Graphics graphics, EditorCell_Collection collectionCell, int index) {
+    if (index != -1) {
+      if (hasChildrenWithDifferentNode(collectionCell)) {
+        EditorCell childCell = getChildCell(collectionCell, index);
+        if (isVertical(collectionCell)) {
+          drawHorizontalLine(graphics, collectionCell, childCell);
         } else {
-          ((jetbrains.mps.nodeEditor.cells.EditorCell) cell).paintSelection(graphics, getColor(), false);
+          drawVerticalLineWithArrows(graphics, collectionCell, childCell);
         }
+      } else {
+        ((jetbrains.mps.nodeEditor.cells.EditorCell) collectionCell).paintSelection(graphics, graphics.getColor(), false);
       }
     }
   }
-  private void drawHorizontalLine(Graphics graphics, EditorCell_Collection collectionCell, EditorCell childCell) {
+  private static void drawHorizontalLine(Graphics graphics, EditorCell_Collection collectionCell, EditorCell childCell) {
     int y;
     if (childCell != null) {
       y = childCell.getY();
     } else {
       y = collectionCell.lastCell().getBottom();
     }
-    graphics.setColor(getColor());
     graphics.drawLine(collectionCell.getX(), y, collectionCell.getRight(), y);
   }
-  private void drawVerticalLineWithArrows(Graphics graphics, EditorCell_Collection collectionCell, EditorCell cell) {
+  private static void drawVerticalLineWithArrows(Graphics graphics, EditorCell_Collection collectionCell, EditorCell cell) {
     int x;
     EditorCell childCell;
     if (cell != null) {
@@ -191,24 +202,29 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
     int y1 = childCell.getY();
     int y2 = childCell.getBottom();
 
-    graphics.setColor(getColor());
     graphics.drawLine(x, y1, x, y2);
     graphics.fillPolygon(new int[]{x, x - 3, x + 3}, new int[]{y1 - 2, y1 - 5, y1 - 5}, 3);
     graphics.fillPolygon(new int[]{x, x - 3, x + 3}, new int[]{y2 + 2, y2 + 5, y2 + 5}, 3);
 
-    graphics.setColor(ColorAndGraphicsUtil.brightenColor(getColor(), 0.8f));
+    graphics.setColor(ColorAndGraphicsUtil.brightenColor(graphics.getColor(), 0.8f));
     graphics.drawPolygon(new int[]{x, x - 3, x + 3}, new int[]{y1 - 2, y1 - 5, y1 - 5}, 3);
     graphics.drawPolygon(new int[]{x, x - 3, x + 3}, new int[]{y2 + 2, y2 + 5, y2 + 5}, 3);
   }
-  private boolean isIndirectRoot(final EditorComponent editor) {
+
+  private boolean isIndirectRoot(final jetbrains.mps.openapi.editor.EditorComponent editor) {
+    // XXX [artem] no idea yet what does 'indirect root' mean 
+    if (editor instanceof InspectorEditorComponent) {
+      return false;
+    }
     ModelAccessHelper mah = new ModelAccessHelper(editor.getEditorContext().getRepository());
     return mah.runReadAction(new Computable<Boolean>() {
       public Boolean compute() {
-        return !(editor instanceof InspectorEditorComponent) && !(isDirectCell(getCell(editor))) && check_myu41h_a0a0a0a0b0w(getNode(), ChangeEditorMessage.this) == null;
+        return check_myu41h_a0a0a0a0d0x(getNode(), ChangeEditorMessage.this) == null && !(isDirectCell(getCell((EditorComponent) editor)));
       }
     });
   }
-  private Rectangle getFirstPseudoLineBounds(EditorComponent editor) {
+
+  private Rectangle getFirstPseudoLineBounds(jetbrains.mps.openapi.editor.EditorComponent editor) {
     Iterable<EditorCell> leafCells = new _FunctionTypes._return_P1_E0<Iterable<EditorCell>, EditorCell>() {
       public Iterable<EditorCell> invoke(final EditorCell cell) {
         return new Iterable<EditorCell>() {
@@ -234,13 +250,13 @@ __switch__:
                       this.__CP__ = 6;
                       break;
                     case 7:
-                      this._7__yield_myu41h_a0a0a0a0a0a32_it = Sequence.fromIterable(invoke(_4_child)).iterator();
+                      this._7__yield_myu41h_a0a0a0a0a0a52_it = Sequence.fromIterable(invoke(_4_child)).iterator();
                     case 8:
-                      if (!(this._7__yield_myu41h_a0a0a0a0a0a32_it.hasNext())) {
+                      if (!(this._7__yield_myu41h_a0a0a0a0a0a52_it.hasNext())) {
                         this.__CP__ = 5;
                         break;
                       }
-                      this._7__yield_myu41h_a0a0a0a0a0a32 = this._7__yield_myu41h_a0a0a0a0a0a32_it.next();
+                      this._7__yield_myu41h_a0a0a0a0a0a52 = this._7__yield_myu41h_a0a0a0a0a0a52_it.next();
                       this.__CP__ = 9;
                       break;
                     case 2:
@@ -252,7 +268,7 @@ __switch__:
                       break;
                     case 10:
                       this.__CP__ = 8;
-                      this.yield(_7__yield_myu41h_a0a0a0a0a0a32);
+                      this.yield(_7__yield_myu41h_a0a0a0a0a0a52);
                       return true;
                     case 12:
                       this.__CP__ = 1;
@@ -281,8 +297,8 @@ __switch__:
               }
               private EditorCell _4_child;
               private Iterator<EditorCell> _4_child_it;
-              private EditorCell _7__yield_myu41h_a0a0a0a0a0a32;
-              private Iterator<EditorCell> _7__yield_myu41h_a0a0a0a0a0a32_it;
+              private EditorCell _7__yield_myu41h_a0a0a0a0a0a52;
+              private Iterator<EditorCell> _7__yield_myu41h_a0a0a0a0a0a52_it;
             };
           }
         };
@@ -299,8 +315,9 @@ __switch__:
       }
     }).toGenericArray(EditorCell.class));
   }
-  public Bounds getBounds(EditorComponent editor) {
-    if (myMessageTarget.getTarget() != MessageTargetEnum.DELETED_CHILD) {
+
+  public Bounds getBounds(jetbrains.mps.openapi.editor.EditorComponent editor) {
+    if (!(myMessageTarget instanceof DeletedNodeMessageTarget)) {
       if (isIndirectRoot(editor)) {
         Rectangle r = getFirstPseudoLineBounds(editor);
         return new Bounds(r.y, r.y + r.height);
@@ -308,17 +325,14 @@ __switch__:
         return getBoundsSuper(editor);
       }
     } else {
-      DeletedNodeMessageTarget cmt = ((DeletedNodeMessageTarget) myMessageTarget);
-      EditorCell cell = getCell(editor);
-      if (cell == null) {
-        cell = getCellForParentNodeInMainEditor(editor);
-      }
+      DeletedNodeMessageTarget dmt = ((DeletedNodeMessageTarget) myMessageTarget);
+      EditorCell cell = getCellInBothWays(editor);
       if (cell == null) {
         return new Bounds(-1, -1);
       }
-      if (cmt.getRole().equals(cell.getRole())) {
+      if (dmt.getLink().equals(cell.getSRole())) {
         if (hasChildrenWithDifferentNode(cell)) {
-          return getBoundsForChild((EditorCell_Collection) cell, cmt.getNextChildIndex());
+          return getBoundsForChild((EditorCell_Collection) cell, dmt.getNextChildIndex());
         } else {
           return getBoundsSuper(editor);
         }
@@ -328,6 +342,7 @@ __switch__:
       }
     }
   }
+
   private Bounds getBoundsForChild(EditorCell_Collection cell, int index) {
     EditorCell childCell = getChildCell(cell, index);
 
@@ -343,20 +358,30 @@ __switch__:
     }
     return new Bounds(minY, maxY);
   }
-  private Bounds getBoundsSuper(EditorComponent component) {
-    return new Bounds(super.getStart(component), super.getStart(component) + super.getHeight(component));
+
+  private Bounds getBoundsSuper(jetbrains.mps.openapi.editor.EditorComponent editorComponent) {
+    int y = -1;
+    int height = -1;
+    EditorCell cell = getCellInBothWays((EditorComponent) editorComponent);
+    if (cell != null) {
+      y = cell.getY();
+      height = cell.getHeight();
+    }
+    return new Bounds(y, y + height);
   }
   @Override
   public int getStart(jetbrains.mps.openapi.editor.EditorComponent component) {
-    return (int) getBounds(((EditorComponent) component)).start();
+    return (int) getBounds(component).start();
   }
   @Override
   public int getHeight(jetbrains.mps.openapi.editor.EditorComponent component) {
-    return getBounds(((EditorComponent) component)).length();
+    return getBounds(component).length();
   }
+
   public void setHighlighted(boolean highlighted) {
     myHighlighted = highlighted;
   }
+
   private static boolean hasChildrenWithDifferentNode(EditorCell cell) {
     if (cell instanceof EditorCell_Collection) {
       final EditorCell_Collection collectionCell = (EditorCell_Collection) cell;
@@ -415,10 +440,14 @@ __switch__:
     }
     return null;
   }
-  private static SNode check_myu41h_a0a0a0a0b0w(SNode checkedDotOperand, ChangeEditorMessage checkedDotThisExpression) {
+  private static SNode check_myu41h_a0a0a0a0d0x(SNode checkedDotOperand, ChangeEditorMessage checkedDotThisExpression) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getParent();
     }
     return null;
+  }
+
+  private static final class AUX_myu41h {
+    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
   }
 }

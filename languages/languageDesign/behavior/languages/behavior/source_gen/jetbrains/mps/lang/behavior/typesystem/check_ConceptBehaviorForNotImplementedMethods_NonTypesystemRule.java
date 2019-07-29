@@ -20,6 +20,7 @@ import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.baseLanguage.behavior.BaseMethodDeclaration__BehaviorDescriptor;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ConceptBehaviorForNotImplementedMethods_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_ConceptBehaviorForNotImplementedMethods_NonTypesystemRule() {
@@ -28,7 +29,7 @@ public class check_ConceptBehaviorForNotImplementedMethods_NonTypesystemRule ext
     if (SPropertyOperations.getBoolean(SLinkOperations.getTarget(nodeToCheck, MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, 0x11d43447b1fL, "concept")), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract"))) {
       return;
     }
-    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(nodeToCheck, MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, 0x11d43447b1fL, "concept")), MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration"))) {
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(nodeToCheck, MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, 0x11d43447b1fL, "concept")), AUX_ne17q0.InterfaceConceptDeclaration_efdf2bc9)) {
       return;
     }
     List<SNode> methodDeclarations = AbstractConceptDeclaration__BehaviorDescriptor.getNotImplementedConceptMethods_idhEwILIz.invoke(SLinkOperations.getTarget(nodeToCheck, MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, 0x11d43447b1fL, "concept")));
@@ -42,11 +43,11 @@ public class check_ConceptBehaviorForNotImplementedMethods_NonTypesystemRule ext
       if (notImplementedMethods) {
         String msg = "Concept " + SPropertyOperations.getString(SLinkOperations.getTarget(nodeToCheck, MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, 0x11d43447b1fL, "concept")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + " doesn't implement " + methodDeclarations;
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
+          final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(nodeToCheck, msg, "r:f7f8a091-d98d-402d-85c4-5f05cb2b8c61(jetbrains.mps.lang.behavior.typesystem)", "1198950378289", null, errorTarget);
         }
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
+          final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(nodeToCheck, MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, 0x11d43447b1fL, "concept")), msg, "r:f7f8a091-d98d-402d-85c4-5f05cb2b8c61(jetbrains.mps.lang.behavior.typesystem)", "66987406575552399", null, errorTarget);
         }
       }
@@ -54,7 +55,7 @@ public class check_ConceptBehaviorForNotImplementedMethods_NonTypesystemRule ext
     for (SNode cmd : SLinkOperations.getChildren(nodeToCheck, MetaAdapterFactory.getContainmentLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, 0x11d43447b25L, "method"))) {
       if ((boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(cmd)) {
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
+          final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(cmd, "Abstract method in non-abstract concept", "r:f7f8a091-d98d-402d-85c4-5f05cb2b8c61(jetbrains.mps.lang.behavior.typesystem)", "1198949983025", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.behavior.typesystem.MakeConceptAbstract_QuickFix", false);
@@ -71,12 +72,17 @@ public class check_ConceptBehaviorForNotImplementedMethods_NonTypesystemRule ext
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, "jetbrains.mps.lang.behavior.structure.ConceptBehavior");
+    return AUX_ne17q0.ConceptBehavior_68ebe6cd;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_ne17q0 {
+    /*package*/ static final SConcept InterfaceConceptDeclaration_efdf2bc9 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
+    /*package*/ static final SConcept ConceptBehavior_68ebe6cd = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, "jetbrains.mps.lang.behavior.structure.ConceptBehavior");
   }
 }

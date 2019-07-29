@@ -13,18 +13,18 @@ import java.util.Set;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
-import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ExtendedConceptsAreInExtendedLanguages_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_ExtendedConceptsAreInExtendedLanguages_NonTypesystemRule() {
@@ -36,14 +36,14 @@ public class check_ExtendedConceptsAreInExtendedLanguages_NonTypesystemRule exte
     }
     Set<Language> extendedLanguages = language.getAllExtendedLanguages();
     List<SNode> superConcepts = new ArrayList<SNode>();
-    if (SNodeOperations.isInstanceOf(cd, MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration"))) {
-      ListSequence.fromList(superConcepts).addElement(SLinkOperations.getTarget(SNodeOperations.as(cd, MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration")), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends")));
+    if (SNodeOperations.isInstanceOf(cd, AUX_iywwln.ConceptDeclaration_cb225da8)) {
+      ListSequence.fromList(superConcepts).addElement(SLinkOperations.getTarget(SNodeOperations.as(cd, AUX_iywwln.ConceptDeclaration_cb225da8), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends")));
       // for implemented interfaces, we do not require extends between languages. 
       // I'm not quite sure we shall demand extends between languages even for super-concepts, but it's just too much to lift this restriction now ;) 
       // Generally, however, it seems reasonable to demand extends in super-concepts case, as it means re-use of functionality, and absence of this 
       // constraint would encourage people to have bad design and extend concepts they shall not extend. OTOH, each language extending lang.core look odd. 
-    } else if (SNodeOperations.isInstanceOf(cd, MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration"))) {
-      ListSequence.fromList(superConcepts).addSequence(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(SNodeOperations.as(cd, MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration")), MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, 0x110356e9df4L, "extends")), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc"))));
+    } else if (SNodeOperations.isInstanceOf(cd, AUX_iywwln.InterfaceConceptDeclaration_efdf2bc9)) {
+      ListSequence.fromList(superConcepts).addSequence(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(SNodeOperations.as(cd, AUX_iywwln.InterfaceConceptDeclaration_efdf2bc9), MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, 0x110356e9df4L, "extends")), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc"))));
     }
     for (SNode superConcept : superConcepts) {
       Language conceptLanguage = SModelUtil.getDeclaringLanguage(superConcept);
@@ -52,8 +52,7 @@ public class check_ExtendedConceptsAreInExtendedLanguages_NonTypesystemRule exte
       }
       if (!(SetSequence.fromSet(extendedLanguages).contains(conceptLanguage))) {
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
-          errorTarget = new PropertyMessageTarget("name");
+          final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(cd, "language " + conceptLanguage.getModuleName() + " of concept " + SPropertyOperations.getString(superConcept, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + " is not extended by " + language.getModuleName(), "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "1235136520823", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.structure.typesystem.AddExtendedLanguage_QuickFix", false);
@@ -67,12 +66,18 @@ public class check_ExtendedConceptsAreInExtendedLanguages_NonTypesystemRule exte
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    return AUX_iywwln.AbstractConceptDeclaration_ec74828f;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_iywwln {
+    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+    /*package*/ static final SConcept InterfaceConceptDeclaration_efdf2bc9 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
+    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
   }
 }

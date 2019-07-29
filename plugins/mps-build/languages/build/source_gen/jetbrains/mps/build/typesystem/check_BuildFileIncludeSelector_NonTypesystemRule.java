@@ -10,10 +10,10 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
-import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_BuildFileIncludeSelector_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_BuildFileIncludeSelector_NonTypesystemRule() {
@@ -25,14 +25,13 @@ public class check_BuildFileIncludeSelector_NonTypesystemRule extends AbstractNo
     }
     if (pattern.contains(" ") || pattern.contains("\t") || pattern.contains(",")) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
-        errorTarget = new PropertyMessageTarget("pattern");
+        final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9262f9cL, 0x48d5d03db9262f9dL, "pattern"));
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(inc, "include selector cannot contain spaces or comma", "r:2349e4dd-6518-4a4c-9022-c7887bed8b52(jetbrains.mps.build.typesystem)", "6592112598314485641", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9262f9cL, "jetbrains.mps.build.structure.BuildFileIncludeSelector");
+    return AUX_c7510j.BuildFileIncludeSelector_a8a34ff4;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -42,5 +41,9 @@ public class check_BuildFileIncludeSelector_NonTypesystemRule extends AbstractNo
   }
   private static boolean isEmptyString(String str) {
     return str == null || str.length() == 0;
+  }
+
+  private static final class AUX_c7510j {
+    /*package*/ static final SConcept BuildFileIncludeSelector_a8a34ff4 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9262f9cL, "jetbrains.mps.build.structure.BuildFileIncludeSelector");
   }
 }

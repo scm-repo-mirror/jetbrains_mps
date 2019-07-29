@@ -13,11 +13,11 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
-import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.messageTargets.ReferenceMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class CheckNoDuplicatedPropertyHints_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public CheckNoDuplicatedPropertyHints_NonTypesystemRule() {
@@ -27,26 +27,30 @@ public class CheckNoDuplicatedPropertyHints_NonTypesystemRule extends AbstractNo
       return;
     }
 
-    Iterable<SNode> sameFeatureHints = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(pd, MetaAdapterFactory.getConcept(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x39744cf955c648fcL, "jetbrains.mps.vcs.mergehints.structure.ConceptVCSDescriptor"), false, false), MetaAdapterFactory.getContainmentLink(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x39744cf955c648fcL, 0x4f2cc0d970a4f8c9L, "features")), MetaAdapterFactory.getConcept(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x4f2cc0d970a4f9d0L, "jetbrains.mps.vcs.mergehints.structure.PropertyVCSDescriptor"))).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> sameFeatureHints = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(pd, AUX_fsao5g.ConceptVCSDescriptor_41489e66, false, false), MetaAdapterFactory.getContainmentLink(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x39744cf955c648fcL, 0x4f2cc0d970a4f8c9L, "features")), AUX_fsao5g.PropertyVCSDescriptor_eb95949a)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x4f2cc0d970a4f9d0L, 0x4f2cc0d970a4f877L, "prop")) == SLinkOperations.getTarget(pd, MetaAdapterFactory.getReferenceLink(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x4f2cc0d970a4f9d0L, 0x4f2cc0d970a4f877L, "prop"));
       }
     });
     if (Sequence.fromIterable(sameFeatureHints).count() != 1) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
-        errorTarget = new ReferenceMessageTarget("prop");
+        final MessageTarget errorTarget = new ReferenceMessageTarget(MetaAdapterFactory.getReferenceLink(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x4f2cc0d970a4f9d0L, 0x4f2cc0d970a4f877L, "prop"));
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(pd, "Multiple hints are defined for property " + SPropertyOperations.getString(SLinkOperations.getTarget(pd, MetaAdapterFactory.getReferenceLink(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x4f2cc0d970a4f9d0L, 0x4f2cc0d970a4f877L, "prop")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), "r:09da38a1-d679-467f-8975-eacacbd1c0a3(jetbrains.mps.vcs.mergehints.typesystem)", "6556262262332943883", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x4f2cc0d970a4f9d0L, "jetbrains.mps.vcs.mergehints.structure.PropertyVCSDescriptor");
+    return AUX_fsao5g.PropertyVCSDescriptor_eb95949a;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_fsao5g {
+    /*package*/ static final SConcept ConceptVCSDescriptor_41489e66 = MetaAdapterFactory.getConcept(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x39744cf955c648fcL, "jetbrains.mps.vcs.mergehints.structure.ConceptVCSDescriptor");
+    /*package*/ static final SConcept PropertyVCSDescriptor_eb95949a = MetaAdapterFactory.getConcept(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x4f2cc0d970a4f9d0L, "jetbrains.mps.vcs.mergehints.structure.PropertyVCSDescriptor");
   }
 }

@@ -20,6 +20,7 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import jetbrains.mps.smodel.SReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_AnalyzerRunnerCreator_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_AnalyzerRunnerCreator_InferenceRule() {
@@ -33,7 +34,7 @@ public class typeof_AnalyzerRunnerCreator_InferenceRule extends AbstractInferenc
     SNode analyzer = SLinkOperations.getTarget(analyzerRunnerCreator, MetaAdapterFactory.getReferenceLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x151c4f99e489a16L, 0x151c4f99e489a17L, "analyzer"));
     if (ListSequence.fromList(SLinkOperations.getChildren(analyzerRunnerCreator, MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x151c4f99e489a16L, 0x376a4d52f8d10dc6L, "parameters"))).count() != ListSequence.fromList(SLinkOperations.getChildren(analyzer, MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, 0x376a4d52f8c2e303L, "constructorParameters"))).count()) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(analyzerRunnerCreator, "wrong number of parameters", "r:139daa25-c5a7-4ac9-85a2-eb14d22e8f56(jetbrains.mps.lang.dataFlow.analyzers.typesystem)", "3993089038374551275", null, errorTarget);
       }
     }
@@ -56,7 +57,7 @@ public class typeof_AnalyzerRunnerCreator_InferenceRule extends AbstractInferenc
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x151c4f99e489a16L, "jetbrains.mps.lang.dataFlow.analyzers.structure.AnalyzerRunnerCreator");
+    return AUX_tazfkf.AnalyzerRunnerCreator_32bcc871;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -75,5 +76,9 @@ public class typeof_AnalyzerRunnerCreator_InferenceRule extends AbstractInferenc
       quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter"), SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
+  }
+
+  private static final class AUX_tazfkf {
+    /*package*/ static final SConcept AnalyzerRunnerCreator_32bcc871 = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x151c4f99e489a16L, "jetbrains.mps.lang.dataFlow.analyzers.structure.AnalyzerRunnerCreator");
   }
 }

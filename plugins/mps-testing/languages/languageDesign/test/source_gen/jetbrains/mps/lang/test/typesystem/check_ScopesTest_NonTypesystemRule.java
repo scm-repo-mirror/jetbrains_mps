@@ -16,6 +16,7 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ScopesTest_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_ScopesTest_NonTypesystemRule() {
@@ -23,18 +24,22 @@ public class check_ScopesTest_NonTypesystemRule extends AbstractNonTypesystemRul
   public void applyRule(final SNode scopesTest, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (!((boolean) ScopesTest__BehaviorDescriptor.isSimple_id4IvydoGvpbr.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(scopesTest)), INodesTestMethod__BehaviorDescriptor.getAnnotatedNode_id38gbJV0XvZR.invoke(scopesTest)))) {
       if (!((SLinkOperations.getTarget(scopesTest, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, 0x4b9f88d62c795596L, "checkingReference")) != null))) {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(scopesTest, "should specify reference link to check", "r:00000000-0000-4000-0000-011c89590385(jetbrains.mps.lang.test.typesystem)", "9018216227566657445", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, "jetbrains.mps.lang.test.structure.ScopesTest");
+    return AUX_7v6hu5.ScopesTest_1ed83fd8;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_7v6hu5 {
+    /*package*/ static final SConcept ScopesTest_1ed83fd8 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, "jetbrains.mps.lang.test.structure.ScopesTest");
   }
 }

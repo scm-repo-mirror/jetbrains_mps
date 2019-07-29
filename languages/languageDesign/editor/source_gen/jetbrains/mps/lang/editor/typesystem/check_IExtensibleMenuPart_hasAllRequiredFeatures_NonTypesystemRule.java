@@ -18,6 +18,7 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import java.util.Comparator;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class check_IExtensibleMenuPart_hasAllRequiredFeatures_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -28,7 +29,7 @@ public class check_IExtensibleMenuPart_hasAllRequiredFeatures_NonTypesystemRule 
 
     if (Sequence.fromIterable(missingFeatures).isNotEmpty()) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(part, "Missing feature(s): " + IterableUtils.join(Sequence.fromIterable(missingFeatures).select(new ISelector<SConcept, String>() {
           public String select(SConcept it) {
             return it.getConceptAlias() + " (" + it.getName() + ")";
@@ -46,12 +47,16 @@ public class check_IExtensibleMenuPart_hasAllRequiredFeatures_NonTypesystemRule 
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x652f322a364c9a28L, "jetbrains.mps.lang.editor.structure.IExtensibleTransformationMenuPart");
+    return AUX_hb2usr.IExtensibleTransformationMenuPart_c440c883;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_hb2usr {
+    /*package*/ static final SInterfaceConcept IExtensibleTransformationMenuPart_c440c883 = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x652f322a364c9a28L, "jetbrains.mps.lang.editor.structure.IExtensibleTransformationMenuPart");
   }
 }

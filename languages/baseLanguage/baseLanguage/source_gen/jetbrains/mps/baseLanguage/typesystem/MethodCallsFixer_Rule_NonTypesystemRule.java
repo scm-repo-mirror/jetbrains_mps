@@ -12,11 +12,11 @@ import jetbrains.mps.baseLanguage.scopes.MethodResolveUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
-import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.messageTargets.ReferenceMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class MethodCallsFixer_Rule_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public MethodCallsFixer_Rule_NonTypesystemRule() {
@@ -30,8 +30,7 @@ public class MethodCallsFixer_Rule_NonTypesystemRule extends AbstractNonTypesyst
     if (newTarget != null) {
       if (baseMethodDeclaration == null) {
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
-          errorTarget = new ReferenceMessageTarget("baseMethodDeclaration");
+          final MessageTarget errorTarget = new ReferenceMessageTarget(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"));
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(methodCallNode, "Unresolved reference to method declaration", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "869282237625475452", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.typesystem.MethodCallsFixer_Quickfix_QuickFix", true);
@@ -42,8 +41,7 @@ public class MethodCallsFixer_Rule_NonTypesystemRule extends AbstractNonTypesyst
         }
       } else if (goodReplacement) {
         if (!(newTarget == baseMethodDeclaration)) {
-          MessageTarget errorTarget = new NodeMessageTarget();
-          errorTarget = new ReferenceMessageTarget("baseMethodDeclaration");
+          final MessageTarget errorTarget = new ReferenceMessageTarget(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"));
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(methodCallNode, "Reference to wrong overriden method", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "869282237625479726", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.typesystem.MethodCallsFixer_Quickfix_QuickFix", true);
@@ -56,12 +54,16 @@ public class MethodCallsFixer_Rule_NonTypesystemRule extends AbstractNonTypesyst
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
+    return AUX_j8xv28.IMethodCall_ee2c776b;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_j8xv28 {
+    /*package*/ static final SInterfaceConcept IMethodCall_ee2c776b = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
   }
 }

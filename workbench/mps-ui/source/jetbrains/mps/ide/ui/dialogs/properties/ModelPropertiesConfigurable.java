@@ -18,7 +18,6 @@ package jetbrains.mps.ide.ui.dialogs.properties;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.ui.AnActionButton;
-import com.intellij.ui.AnActionButtonRunnable;
 import com.intellij.ui.IdeBorderFactory;
 import com.intellij.ui.SpeedSearchComparator;
 import com.intellij.ui.ToolbarDecorator;
@@ -212,7 +211,7 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
 
     public ModelDependenciesComponent() {
       super(PropertiesBundle.message("mps.properties.dependencies.title"), General.Dependencies,
-          PropertiesBundle.message("mps.properties.dependencies.tip"));
+            PropertiesBundle.message("mps.properties.dependencies.tip"));
       myImportedModels = new ModelImportedModelsTableModel(myModelProperties);
       myImportedModels.init();
     }
@@ -222,8 +221,8 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
         final SModelReference modelReference = (SModelReference) value;
         if (getActualCrossModelReferences().contains(modelReference)) {
           ViewUsagesDeleteDialog viewUsagesDeleteDialog = new ViewUsagesDeleteDialog(
-              ProjectHelper.toIdeaProject(myProject), "Delete imported model",
-              "This model is used in model. Do you really want to delete it?", "Model state will become inconsistent") {
+              ProjectHelper.toIdeaProject(myProject), PropertiesBundle.message("model.dependencies.delete.title"),
+              PropertiesBundle.message("model.dependencies.delete.text"), PropertiesBundle.message("model.dependencies.delete.warningText")) {
             @Override
             public void doViewAction() {
               myFindActionButton.actionPerformed(null);
@@ -292,7 +291,7 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
       }).addExtraAction(new AnActionButton() {
         {
           getTemplatePresentation().setIcon(MPSIcons.General.ModelChecker);
-          getTemplatePresentation().setText("Remove unused model imports");
+          getTemplatePresentation().setText(PropertiesBundle.message("model.dependencies.unused"));
         }
 
         @Override
@@ -307,7 +306,7 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
         @Override
         public void actionPerformed(AnActionEvent e) {
           boolean anyRemoved = false;
-          for(int row = myImportedModels.getRowCount()-1; row >= 0; row--) {
+          for (int row = myImportedModels.getRowCount() - 1; row >= 0; row--) {
             if (!actualCrossModelRefs.contains(myImportedModels.getValueAt(row))) {
               myImportedModels.removeRow(row);
               anyRemoved = true;
@@ -324,8 +323,9 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
       JPanel table = decorator.createPanel();
       table.setBorder(IdeBorderFactory.createBorder());
       myImportedModelsComponent.add(table, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH,
-          GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
-          GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                                                               GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
+                                                               GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0,
+                                                               false));
 
       new TableColumnSearch(importedModelsTable, 0).setComparator(new SpeedSearchComparator(false, true));
 
@@ -383,13 +383,13 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
 
     @Override
     protected ToolbarDecorator createToolbar(JBTable usedLangsTable) {
-      ToolbarDecorator decorator =  super.createToolbar(usedLangsTable);
+      ToolbarDecorator decorator = super.createToolbar(usedLangsTable);
       decorator.setAddAction(anActionButton -> {
         Iterable<SModule> modules = new ConditionalIterable<>(getProjectModules(), new ModuleInstanceCondition(Language.class, DevKit.class));
         modules = new ConditionalIterable<>(modules, new VisibleModuleCondition());
         ComputeRunnable<List<SModuleReference>> c = new ComputeRunnable<>(new ModuleCollector(modules));
         myProject.getModelAccess().runReadAction(c);
-        List<SModuleReference> list = CommonChoosers.showModuleSetChooser(myProject, "Choose Language or DevKit", c.getResult());
+        List<SModuleReference> list = CommonChoosers.showModuleSetChooser(myProject, PropertiesBundle.message("model.usedlanguages.choose"), c.getResult());
         for (SModuleReference reference : list) {
           myUsedLangsTableModel.addItem(reference);
         }
@@ -401,8 +401,9 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
           boolean inActualUse = new ModelAccessHelper(myProject.getModelAccess()).runReadAction(() -> myInUseCondition.met(entry));
           if (inActualUse) {
             ViewUsagesDeleteDialog viewUsagesDeleteDialog = new ViewUsagesDeleteDialog(
-                ProjectHelper.toIdeaProject(myProject), "Delete used language",
-                "This language is used by model. Do you really want to delete it?", "Model state will become inconsistent") {
+                ProjectHelper.toIdeaProject(myProject), PropertiesBundle.message("model.usedlanguages.delete.title"),
+                PropertiesBundle.message("model.usedlanguages.delete.text"),
+                PropertiesBundle.message("model.usedlanguages.delete.warningText")) {
               @Override
               public void doViewAction() {
                 findUsages(entry);
@@ -430,8 +431,9 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
       decorator.addExtraAction(new AnActionButton() {
         {
           getTemplatePresentation().setIcon(MPSIcons.General.ModelChecker);
-          getTemplatePresentation().setText("Remove unused languages");
+          getTemplatePresentation().setText(PropertiesBundle.message("model.usedlanugages.unused"));
         }
+
         @Override
         public void actionPerformed(AnActionEvent e) {
           myProject.getModelAccess().runReadAction(() -> {
@@ -461,7 +463,7 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
 
     public InfoTab() {
       super(PropertiesBundle.message("model.info.title"), AllIcons.General.ExternalToolsSmall,
-          PropertiesBundle.message("model.info.tip"));
+            PropertiesBundle.message("model.info.tip"));
       myIsDefSModelDescr = myInPlugin && myModelDescriptor instanceof DefaultSModelDescriptor;
     }
 
@@ -474,22 +476,24 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
       panel.setLayout(new GridLayoutManager(rowsCount, 1, INSETS, -1, -1));
 
       myDoNotGenerateCheckBox = new JBCheckBox(PropertiesBundle.message("model.info.checkboxDNG"),
-          myModelProperties.isDoNotGenerate());
+                                               myModelProperties.isDoNotGenerate());
       panel.add(myDoNotGenerateCheckBox, new GridConstraints(rowIndex++, 0, 1, 1, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_HORIZONTAL,
-          GridConstraints.SIZEPOLICY_CAN_GROW | GridConstraints.SIZEPOLICY_CAN_SHRINK, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+                                                             GridConstraints.SIZEPOLICY_CAN_GROW | GridConstraints.SIZEPOLICY_CAN_SHRINK,
+                                                             GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
       if (myIsDefSModelDescr) {
         myGenerateIntoModelFolderCheckBox = new JBCheckBox(PropertiesBundle.message("model.info.checkboxGIMF"),
-            myModelProperties.isGenerateIntoModelFolder());
+                                                           myModelProperties.isGenerateIntoModelFolder());
         panel.add(myGenerateIntoModelFolderCheckBox,
-            new GridConstraints(rowIndex++, 0, 1, 1, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_HORIZONTAL,
-                GridConstraints.SIZEPOLICY_CAN_GROW | GridConstraints.SIZEPOLICY_CAN_SHRINK, GridConstraints.SIZEPOLICY_FIXED, null, null, null,
-                0, false));
+                  new GridConstraints(rowIndex++, 0, 1, 1, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_HORIZONTAL,
+                                      GridConstraints.SIZEPOLICY_CAN_GROW | GridConstraints.SIZEPOLICY_CAN_SHRINK, GridConstraints.SIZEPOLICY_FIXED, null, null,
+                                      null,
+                                      0, false));
       }
 
       panel.add(new JBLabel(PropertiesBundle.message("mps.properties.common.filepathlabel")),
-          new GridConstraints(rowIndex++, 0, 1, 1, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED,
-              GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+                new GridConstraints(rowIndex++, 0, 1, 1, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED,
+                                    GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 
       String filePath = "(not editable model)";
       if (myModelDescriptor instanceof EditableSModel) {
@@ -504,7 +508,8 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
       textField.setEditable(false);
       textField.setText(filePath);
       panel.add(textField, new GridConstraints(rowIndex++, 0, 1, 1, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_HORIZONTAL,
-          GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null));
+                                               GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED,
+                                               null, null, null));
 
       final JBTable languagesTable = new JBTable();
       languagesTable.setShowHorizontalLines(false);
@@ -540,8 +545,8 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
       JPanel table = decorator.createPanel();
       table.setBorder(IdeBorderFactory.createBorder());
       panel.add(table, new GridConstraints(rowIndex, 0, 1, 1, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_BOTH,
-          GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
-          GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+                                           GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
+                                           GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
 
       new TableColumnSearch(languagesTable, 0).setComparator(new SpeedSearchComparator(false, true));
 
@@ -551,8 +556,8 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
     @Override
     public boolean isModified() {
       return myDoNotGenerateCheckBox.isSelected() != myModelProperties.isDoNotGenerate()
-          || (myIsDefSModelDescr && (myGenerateIntoModelFolderCheckBox.isSelected() != myModelProperties.isGenerateIntoModelFolder()))
-          || myEngagedLanguagesModel.isModified();
+             || (myIsDefSModelDescr && (myGenerateIntoModelFolderCheckBox.isSelected() != myModelProperties.isGenerateIntoModelFolder()))
+             || myEngagedLanguagesModel.isModified();
     }
 
     @Override
@@ -576,7 +581,7 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
     private final Collection<SLanguage> myExplicitUse;
 
     /**
-     * @param actualInUse set of modules to check against
+     * @param actualInUse   set of modules to check against
      * @param explicitInUse set of modules to treat as known and that should not be considered when (and if) we build derived
      *                      dependencies of a module in question.
      */
@@ -584,6 +589,7 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
       myActualUse = actualInUse;
       myExplicitUse = explicitInUse;
     }
+
     @Override
     public boolean met(UsedLangsTableModel.Import entry) {
       if (entry == null) {
@@ -615,6 +621,7 @@ public class ModelPropertiesConfigurable extends MPSPropertiesConfigurable {
     public ComputeUsedLanguages(@NotNull SModel model) {
       myModel = model;
     }
+
     @Override
     public Set<SLanguage> compute() {
       final ModelDependencyScanner ms = new ModelDependencyScanner().usedLanguages(true).crossModelReferences(false);

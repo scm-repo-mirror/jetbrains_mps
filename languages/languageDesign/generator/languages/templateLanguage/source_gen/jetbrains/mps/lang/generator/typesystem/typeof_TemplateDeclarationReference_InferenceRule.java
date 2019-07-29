@@ -8,28 +8,29 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.generator.behavior.TemplateDeclarationReference__BehaviorDescriptor;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_TemplateDeclarationReference_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_TemplateDeclarationReference_InferenceRule() {
   }
   public void applyRule(final SNode templateDeclRef, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode rule = SNodeOperations.getNodeAncestor(templateDeclRef, MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b64647L, "jetbrains.mps.lang.generator.structure.BaseMappingRule"), false, false);
+    SNode rule = SNodeOperations.getNodeAncestor(templateDeclRef, AUX_qhzqrb.BaseMappingRule_6fbb9a69, false, false);
     if (rule != null) {
       SNode templateApplicableConcept = SLinkOperations.getTarget(TemplateDeclarationReference__BehaviorDescriptor.getTemplate_idQzR6ThtRo7.invoke(templateDeclRef), MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0x1100343ad9eL, "applicableConcept"));
       SNode ruleApplicableConcept = SLinkOperations.getTarget(rule, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b64647L, 0x10fc0b6e730L, "applicableConcept"));
       if (ruleApplicableConcept != null && templateApplicableConcept != null) {
         if (!((boolean) AbstractConceptDeclaration__BehaviorDescriptor.isSubconceptOf_id73yVtVlWOga.invoke(ruleApplicableConcept, templateApplicableConcept))) {
           {
-            MessageTarget errorTarget = new NodeMessageTarget();
+            final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(templateDeclRef, "template is not applicable to the rule concept '" + SPropertyOperations.getString(ruleApplicableConcept, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "'", "r:00000000-0000-4000-0000-011c895902e4(jetbrains.mps.lang.generator.typesystem)", "1722980698497666436", null, errorTarget);
           }
         }
@@ -37,12 +38,17 @@ public class typeof_TemplateDeclarationReference_InferenceRule extends AbstractI
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11013906056L, "jetbrains.mps.lang.generator.structure.TemplateDeclarationReference");
+    return AUX_qhzqrb.TemplateDeclarationReference_4d5da335;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_qhzqrb {
+    /*package*/ static final SConcept BaseMappingRule_6fbb9a69 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b64647L, "jetbrains.mps.lang.generator.structure.BaseMappingRule");
+    /*package*/ static final SConcept TemplateDeclarationReference_4d5da335 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11013906056L, "jetbrains.mps.lang.generator.structure.TemplateDeclarationReference");
   }
 }

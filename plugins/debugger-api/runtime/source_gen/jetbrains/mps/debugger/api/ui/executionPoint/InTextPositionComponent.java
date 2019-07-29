@@ -26,15 +26,15 @@ import jetbrains.mps.debug.api.source.PositionProvider;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.editor.markup.TextAttributes;
-import java.awt.Color;
+import jetbrains.mps.nodeEditor.MPSColors;
 import com.intellij.openapi.editor.ex.MarkupModelEx;
 import com.intellij.openapi.editor.impl.DocumentMarkupModel;
 import com.intellij.openapi.editor.markup.HighlighterLayer;
 import jetbrains.mps.debug.api.SessionChangeAdapter;
 
 public class InTextPositionComponent implements ProjectComponent {
-  private final SessionChangeListener myChangeListener = new InTextPositionComponent.MySessionChangeListener();
-  private final DebugSessionManagerComponent.DebugSessionListener myCurrentDebugSessionListener = new InTextPositionComponent.MyCurrentDebugSessionListener();
+  private final SessionChangeListener myChangeListener = new MySessionChangeListener();
+  private final DebugSessionManagerComponent.DebugSessionListener myCurrentDebugSessionListener = new MyCurrentDebugSessionListener();
   private final Project myProject;
   private volatile RangeHighlighter myHighlighter;
   private final FileEditorManager myEditorManager;
@@ -183,8 +183,8 @@ public class InTextPositionComponent implements ProjectComponent {
     }
 
     TextAttributes attributes = new TextAttributes();
-    attributes.setForegroundColor(Color.WHITE);
-    attributes.setBackgroundColor(Color.BLUE);
+    attributes.setForegroundColor(MPSColors.WHITE);
+    attributes.setBackgroundColor(MPSColors.BLUE);
 
     RangeHighlighter highlighter = ((MarkupModelEx) DocumentMarkupModel.forDocument(document, myProject, true)).addPersistentLineHighlighter(location.getLineNumber() - 1, HighlighterLayer.SELECTION - 1, attributes);
     if (highlighter == null || !(highlighter.isValid())) {

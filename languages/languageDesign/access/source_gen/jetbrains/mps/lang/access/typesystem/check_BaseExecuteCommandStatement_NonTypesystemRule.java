@@ -13,6 +13,7 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_BaseExecuteCommandStatement_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_BaseExecuteCommandStatement_NonTypesystemRule() {
@@ -20,18 +21,22 @@ public class check_BaseExecuteCommandStatement_NonTypesystemRule extends Abstrac
   public void applyRule(final SNode baseExecuteCommandStatement, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if ((SLinkOperations.getTarget(baseExecuteCommandStatement, MetaAdapterFactory.getContainmentLink(0x63650c5916c8498aL, 0x99c8005c7ee9515dL, 0x7c8b08a50a3ea20aL, 0x13bfe1ec0ded851eL, "repo")) == null)) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(baseExecuteCommandStatement, "Shall specify a repository to lock", "r:aad06b20-0a6a-42d7-81b8-671529c6126a(jetbrains.mps.lang.access.typesystem)", "1705896275416798528", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x63650c5916c8498aL, 0x99c8005c7ee9515dL, 0x7c8b08a50a3ea20aL, "jetbrains.mps.lang.access.structure.BaseExecuteCommandStatement");
+    return AUX_fkdu2a.BaseExecuteCommandStatement_af1c362b;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_fkdu2a {
+    /*package*/ static final SConcept BaseExecuteCommandStatement_af1c362b = MetaAdapterFactory.getConcept(0x63650c5916c8498aL, 0x99c8005c7ee9515dL, 0x7c8b08a50a3ea20aL, "jetbrains.mps.lang.access.structure.BaseExecuteCommandStatement");
   }
 }

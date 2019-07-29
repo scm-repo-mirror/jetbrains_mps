@@ -17,6 +17,7 @@ import jetbrains.mps.lang.generator.behavior.NodeMacro__BehaviorDescriptor;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_WeaveMacro_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_WeaveMacro_NonTypesystemRule() {
@@ -25,7 +26,7 @@ public class check_WeaveMacro_NonTypesystemRule extends AbstractNonTypesystemRul
     SNode template = TemplateDeclarationReference__BehaviorDescriptor.getTemplate_idQzR6ThtRo7.invoke(SLinkOperations.getTarget(macro, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x300c02df884235d3L, 0x300c02df884261edL, "ruleConsequence")));
     if ((template == null)) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(macro, "No template", "r:00000000-0000-4000-0000-011c895902e4(jetbrains.mps.lang.generator.typesystem)", "3850501259760058788", null, errorTarget);
       }
     } else {
@@ -34,7 +35,7 @@ public class check_WeaveMacro_NonTypesystemRule extends AbstractNonTypesystemRul
         if (!(MetaAdapterByDeclaration.getConcept(inputNodeConcept).isSubConceptOf(MetaAdapterByDeclaration.getConcept(SLinkOperations.getTarget(template, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0x1100343ad9eL, "applicableConcept")))))) {
           String msg = String.format("Input node (%s) is not an instance of template's expected concept (%s)", SPropertyOperations.getString(inputNodeConcept, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), SPropertyOperations.getString(SLinkOperations.getTarget(template, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0x1100343ad9eL, "applicableConcept")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
           {
-            MessageTarget errorTarget = new NodeMessageTarget();
+            final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(macro, msg, "r:00000000-0000-4000-0000-011c895902e4(jetbrains.mps.lang.generator.typesystem)", "3850501259760058987", null, errorTarget);
           }
         }
@@ -42,12 +43,16 @@ public class check_WeaveMacro_NonTypesystemRule extends AbstractNonTypesystemRul
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x300c02df884235d3L, "jetbrains.mps.lang.generator.structure.WeaveMacro");
+    return AUX_829uai.WeaveMacro_21be982a;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_829uai {
+    /*package*/ static final SConcept WeaveMacro_21be982a = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x300c02df884235d3L, "jetbrains.mps.lang.generator.structure.WeaveMacro");
   }
 }

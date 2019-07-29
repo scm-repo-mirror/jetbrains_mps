@@ -18,11 +18,13 @@ package jetbrains.mps.core.platform;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.components.ComponentPlugin;
 import jetbrains.mps.components.CoreComponent;
+import jetbrains.mps.core.aspects.feedback.api.MPSFeedbackPlugin;
 import jetbrains.mps.generator.MPSGenerator;
 import jetbrains.mps.ide.findusages.MPSFindUsages;
 import jetbrains.mps.lang.dataFlow.MPSDataFlow;
 import jetbrains.mps.make.facets.MPSMake;
 import jetbrains.mps.persistence.MPSPersistence;
+import jetbrains.mps.smodel.MPSModuleRepository;
 import jetbrains.mps.text.impl.MPSTextGenerator;
 import jetbrains.mps.typechecking.internal.MPSTypechecking;
 import jetbrains.mps.typesystem.MPSTypesystem;
@@ -60,14 +62,17 @@ class PlatformBase implements Platform {
       new Runnable() {
         @Override
         public void run() {
-          initAndRegister(new MPSProjectValidation(myCore));
+          initAndRegister(new MPSProjectValidation(PlatformBase.this));
           initAndRegister(new MPSMake(myCore.getLanguageRegistry()));
-          MPSTypechecking mpsTypechecking = new MPSTypechecking(myCore.getLanguageRegistry(), myCore.getClassLoaderManager());
+          MPSTypechecking mpsTypechecking = new MPSTypechecking(myCore.getLanguageRegistry(),
+                                                                myCore.getClassLoaderManager(),
+                                                                myCore.findComponent(MPSModuleRepository.class));
           initAndRegister(mpsTypechecking);
           initAndRegister(new MPSTypesystem(myCore.getLanguageRegistry(), myCore.getClassLoaderManager(), mpsTypechecking));
           initAndRegister(new MPSGenerator(myCore));
           initAndRegister(new MPSFindUsages(myCore.getLanguageRegistry()));
           initAndRegister(new MPSTextGenerator(myCore.getLanguageRegistry()));
+          initAndRegister(new MPSFeedbackPlugin(myCore.getLanguageRegistry()));
           initAndRegister(new MPSDataFlow(myCore.getClassLoaderManager()));
         }
       }.run();

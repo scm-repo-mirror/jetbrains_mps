@@ -14,6 +14,7 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class check_FontFamilyContainer_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_FontFamilyContainer_NonTypesystemRule() {
@@ -21,13 +22,13 @@ public class check_FontFamilyContainer_NonTypesystemRule extends AbstractNonType
   public void applyRule(final SNode node, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (isNotEmptyString(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x64508f613f1cbac1L, 0x64508f613f1cbac2L, "family"))) && !(FontRegistry.getInstance().getAvailableFontFamilyNames().contains(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x64508f613f1cbac1L, 0x64508f613f1cbac2L, "family"))))) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(node, "The font is not available", "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "7228435049763095199", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x64508f613f1cbac1L, "jetbrains.mps.lang.editor.structure.FontFamilyContainer");
+    return AUX_kp1oet.FontFamilyContainer_5629259;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -37,5 +38,9 @@ public class check_FontFamilyContainer_NonTypesystemRule extends AbstractNonType
   }
   private static boolean isNotEmptyString(String str) {
     return str != null && str.length() > 0;
+  }
+
+  private static final class AUX_kp1oet {
+    /*package*/ static final SInterfaceConcept FontFamilyContainer_5629259 = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x64508f613f1cbac1L, "jetbrains.mps.lang.editor.structure.FontFamilyContainer");
   }
 }

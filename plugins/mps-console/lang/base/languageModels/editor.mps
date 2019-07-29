@@ -23,6 +23,7 @@
     <import index="f4zo" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.cells(MPS.Editor/)" />
     <import index="lwvz" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.selection(MPS.Editor/)" />
     <import index="b8lf" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.selection(MPS.Editor/)" />
+    <import index="lzb2" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui(MPS.IDEA/)" implicit="true" />
     <import index="3xdn" ref="r:935ba0ee-7291-4caa-a807-d76e8fc69391(jetbrains.mps.lang.smodel.query.structure)" implicit="true" />
     <import index="fq2o" ref="r:11d950c0-cabb-4b20-860f-4f2898171c08(jetbrains.mps.lang.smodel.query.behavior)" implicit="true" />
     <import index="tpen" ref="r:00000000-0000-4000-0000-011c895902c3(jetbrains.mps.baseLanguage.editor)" implicit="true" />
@@ -624,7 +625,7 @@
                   <node concept="3cpWs6" id="22lVekVIze5" role="3cqZAp">
                     <node concept="10M0yZ" id="22lVekVIze6" role="3cqZAk">
                       <ref role="1PxDUh" to="exr9:~MPSColors" resolve="MPSColors" />
-                      <ref role="3cqZAo" to="z60i:~Color.GRAY" resolve="GRAY" />
+                      <ref role="3cqZAo" to="lzb2:~JBColor.GRAY" resolve="GRAY" />
                     </node>
                   </node>
                 </node>

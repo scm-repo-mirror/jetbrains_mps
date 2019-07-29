@@ -14,6 +14,7 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class check_AbstractMethodIsVirtual_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -22,7 +23,7 @@ public class check_AbstractMethodIsVirtual_NonTypesystemRule extends AbstractNon
   public void applyRule(final SNode conceptMethodDeclaration, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if ((boolean) BaseMethodDeclaration__BehaviorDescriptor.isAbstract_idhWjv7RO.invoke(conceptMethodDeclaration) && !((boolean) ConceptMethodDeclaration__BehaviorDescriptor.isVirtual_id6WSEafdhbZX.invoke(conceptMethodDeclaration))) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(conceptMethodDeclaration, "An abstract method ought to be virtual", "r:f7f8a091-d98d-402d-85c4-5f05cb2b8c61(jetbrains.mps.lang.behavior.typesystem)", "8014340958386763037", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.behavior.typesystem.MakeAbstractMethodVirtual_QuickFix", true);
@@ -33,12 +34,16 @@ public class check_AbstractMethodIsVirtual_NonTypesystemRule extends AbstractNon
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
+    return AUX_14fax9.ConceptMethodDeclaration_6c80ca4f;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_14fax9 {
+    /*package*/ static final SConcept ConceptMethodDeclaration_6c80ca4f = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
   }
 }

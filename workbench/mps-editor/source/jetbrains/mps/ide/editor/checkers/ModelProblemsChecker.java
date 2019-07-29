@@ -25,6 +25,7 @@ import jetbrains.mps.nodeEditor.checking.UpdateResult.Completed;
 import jetbrains.mps.openapi.editor.ColorConstants;
 import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.smodel.RepoListenerRegistrar;
+import jetbrains.mps.typesystem.checking.HighlightUtil;
 import jetbrains.mps.util.Cancellable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -107,11 +108,9 @@ public class ModelProblemsChecker extends BaseEditorChecker implements Disposabl
           continue;
         }
 
-        Color color =
-            p.isError() ? new Color(ColorConstants.ERROR) :
-                (StyleRegistry.getInstance().isDarkTheme() ? new Color(ColorConstants.WARNING_DARK) : new Color(ColorConstants.WARNING));
-        result.add(new ModelProblemMessage(node, p.isError() ? MessageStatus.ERROR : MessageStatus.WARNING,
-            color, p.getText(), this));
+        Color color = p.isError() ? HighlightUtil.getMessageColor(MessageStatus.ERROR)
+                                  : HighlightUtil.getMessageColor(MessageStatus.WARNING);
+        result.add(new ModelProblemMessage(node, p.isError() ? MessageStatus.ERROR : MessageStatus.WARNING, color, p.getText(), this));
       }
       return new Completed(true, result);
     } catch (RuntimeException e) {

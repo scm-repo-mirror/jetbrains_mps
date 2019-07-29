@@ -8,10 +8,14 @@ import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.project.AbstractModule;
-import jetbrains.mps.util.ModuleNameUtil;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.refactoring.RenameModuleDialog;
+import jetbrains.mps.project.Solution;
+import jetbrains.mps.ide.IdeBundle;
+import jetbrains.mps.smodel.Language;
+import jetbrains.mps.project.DevKit;
+import jetbrains.mps.smodel.Generator;
 
 public class RenameModule_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -28,7 +32,7 @@ public class RenameModule_Action extends BaseAction {
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
     boolean isApplicable = event.getData(MPSCommonDataKeys.MODULE) instanceof AbstractModule && !(event.getData(MPSCommonDataKeys.MODULE).isPackaged()) && !(event.getData(MPSCommonDataKeys.MODULE).isReadOnly());
-    event.getPresentation().setText("Rename " + ModuleNameUtil.getModuleType(event.getData(MPSCommonDataKeys.MODULE)));
+    event.getPresentation().setText(RenameModule_Action.this.getActionText(event.getData(MPSCommonDataKeys.MODULE), event));
     event.getPresentation().setEnabledAndVisible(isApplicable);
   }
   @Override
@@ -53,5 +57,21 @@ public class RenameModule_Action extends BaseAction {
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     new RenameModuleDialog(event.getData(MPSCommonDataKeys.MPS_PROJECT), ((AbstractModule) event.getData(MPSCommonDataKeys.MODULE))).show();
+  }
+  public String getActionText(SModule module, final AnActionEvent event) {
+    if (module instanceof Solution) {
+      return IdeBundle.message("actions.module.rename.text.solution");
+    }
+    if (module instanceof Language) {
+      return IdeBundle.message("actions.module.rename.text.language");
+    }
+    if (module instanceof DevKit) {
+      return IdeBundle.message("actions.module.rename.text.devkit");
+    }
+    if (module instanceof Generator) {
+      return IdeBundle.message("actions.module.rename.text.generator");
+    }
+
+    return IdeBundle.message("actions.module.rename.text.module");
   }
 }

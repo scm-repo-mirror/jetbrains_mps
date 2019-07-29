@@ -11,6 +11,7 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class check_NodeTypeOperation_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -18,21 +19,25 @@ public class check_NodeTypeOperation_NonTypesystemRule extends AbstractNonTypesy
   }
   public void applyRule(final SNode node_TypeOperation, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (!(!(RulesUtil.withinInferenceItem(node_TypeOperation)))) {
-      MessageTarget errorTarget = new NodeMessageTarget();
+      final MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(node_TypeOperation, "don't use typeOperation within inference rules", "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "6359146168314207369", null, errorTarget);
     }
     if (!(!(RulesUtil.withinTypeManagingItem(node_TypeOperation)))) {
-      MessageTarget errorTarget = new NodeMessageTarget();
+      final MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(node_TypeOperation, "don't use typeOperation within such rules", "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "1135966777630207247", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x111ef7d5e03L, "jetbrains.mps.lang.typesystem.structure.Node_TypeOperation");
+    return AUX_gkvzn.Node_TypeOperation_843e383d;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_gkvzn {
+    /*package*/ static final SConcept Node_TypeOperation_843e383d = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x111ef7d5e03L, "jetbrains.mps.lang.typesystem.structure.Node_TypeOperation");
   }
 }

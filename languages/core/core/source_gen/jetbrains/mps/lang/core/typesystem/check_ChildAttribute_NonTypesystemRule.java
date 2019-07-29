@@ -20,6 +20,7 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
 import jetbrains.mps.lang.core.behavior.ChildAttribute__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ChildAttribute_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_ChildAttribute_NonTypesystemRule() {
@@ -27,7 +28,7 @@ public class check_ChildAttribute_NonTypesystemRule extends AbstractNonTypesyste
   public void applyRule(final SNode childAttribute, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (SPropertyOperations.getString(childAttribute, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, 0x9d98713f249b587L, "linkId")) == null) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(childAttribute, "Child attribute should have link id", "r:cec599e3-51d2-48a7-af31-989e3cbd593c(jetbrains.mps.lang.core.typesystem)", "6063712545515824603", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.core.typesystem.add_ChildAttribute_id_QuickFix", false);
@@ -44,7 +45,7 @@ public class check_ChildAttribute_NonTypesystemRule extends AbstractNonTypesyste
       String reportName = ChildAttribute__BehaviorDescriptor.getNameForReporting_id5gACAVBz6xW.invoke(childAttribute);
       if (existingLink == null) {
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
+          final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(childAttribute, "Child Attribute is attached to not existing aggregation link: " + SPropertyOperations.getString(childAttribute, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, 0x9d98713f249b587L, "linkId")) + "(" + reportName + ")", "r:cec599e3-51d2-48a7-af31-989e3cbd593c(jetbrains.mps.lang.core.typesystem)", "709746936026611133", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.core.typesystem.RemoveUndeclaredLinkAttribute_QuickFix", false);
@@ -53,7 +54,7 @@ public class check_ChildAttribute_NonTypesystemRule extends AbstractNonTypesyste
         }
       } else if (!(Objects.equals(existingLink.getName(), reportName))) {
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
+          final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(childAttribute, "Incorrect aggregation link name: " + reportName, "r:cec599e3-51d2-48a7-af31-989e3cbd593c(jetbrains.mps.lang.core.typesystem)", "6063712545516066366", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.core.typesystem.fix_ChildAttribute_name_QuickFix", false);
@@ -64,12 +65,16 @@ public class check_ChildAttribute_NonTypesystemRule extends AbstractNonTypesyste
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
+    return AUX_qv0pth.ChildAttribute_96496d6c;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_qv0pth {
+    /*package*/ static final SConcept ChildAttribute_96496d6c = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
   }
 }

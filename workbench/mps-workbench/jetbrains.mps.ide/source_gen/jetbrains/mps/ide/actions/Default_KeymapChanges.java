@@ -27,7 +27,7 @@ public class Default_KeymapChanges extends BaseKeymapChanges {
     addSimpleShortcut("jetbrains.mps.ide.actions.FindConceptInstances_Action", getShortcut("alt F6"));
     addSimpleShortcut("jetbrains.mps.ide.actions.FindModelUsages_Action", getShortcut("alt F7"));
     addSimpleShortcut("jetbrains.mps.ide.actions.FindSpecificNodeUsages_Action", getShortcut("ctrl alt shift F7"));
-    addSimpleShortcut("jetbrains.mps.ide.actions.FindTextInProject_Action", getShortcut("ctrl shift F"));
+    addSimpleShortcut("jetbrains.mps.ide.actions.FindTextInProject_Action", getShortcut("ctrl alt shift F"));
     addSimpleShortcut("jetbrains.mps.ide.actions.GoToConceptDescendants_Action", getShortcut("ctrl alt B"));
     addSimpleShortcut("jetbrains.mps.ide.actions.GoToImplementationBehaviorMethod_Action", getShortcut("ctrl alt B"));
     addSimpleShortcut("jetbrains.mps.ide.actions.GoToModel_Action", getShortcut("ctrl alt shift M"));
@@ -65,8 +65,8 @@ public class Default_KeymapChanges extends BaseKeymapChanges {
     addComplexShortcut("jetbrains.mps.ide.actions.GoToNamedNode_Action", new BaseKeymapChanges.ComplexShortcut.ParameterizedSimpleShortcut(getShortcut("ctrl alt shift N")));
     addComplexShortcut("jetbrains.mps.ide.actions.GoToRootNode_Action", new BaseKeymapChanges.ComplexShortcut.ParameterizedSimpleShortcut(getShortcut("ctrl N")));
     // complex 
-    addComplexShortcut("jetbrains.mps.ide.actions.GoToBookmark_Action", new Default_KeymapChanges.GoToBookmark_ShortcutChange_qjewi8_zb());
-    addComplexShortcut("jetbrains.mps.ide.actions.SetBookmark_Action", new Default_KeymapChanges.SetBookmark_ShortcutChange_qjewi8_ac());
+    addComplexShortcut("jetbrains.mps.ide.actions.GoToBookmark_Action", new GoToBookmark_ShortcutChange_qjewi8_zb());
+    addComplexShortcut("jetbrains.mps.ide.actions.SetBookmark_Action", new SetBookmark_ShortcutChange_qjewi8_ac());
   }
   public String getScheme() {
     return "$default";

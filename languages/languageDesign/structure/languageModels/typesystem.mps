@@ -2,12 +2,12 @@
 <model ref="r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)">
   <persistence version="9" />
   <languages>
-    <use id="69b8a993-9b87-4d96-bf0c-3559f4bb0c63" name="jetbrains.mps.lang.slanguage" version="0" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
-    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
-    <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="4" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
-    <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
+    <use id="69b8a993-9b87-4d96-bf0c-3559f4bb0c63" name="jetbrains.mps.lang.slanguage" version="-1" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="-1" />
+    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
+    <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="-1" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
+    <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
     <devkit ref="00000000-0000-4000-0000-1de82b3a4936(jetbrains.mps.devkit.aspect.typesystem)" />
   </languages>
   <imports>
@@ -4303,7 +4303,7 @@
                     <node concept="3clFbS" id="4ZW4vbPOwOU" role="3eOfB_">
                       <node concept="a7r0C" id="2sxsDnZyDeu" role="3cqZAp">
                         <node concept="Xl_RD" id="2sxsDnZyDev" role="a7wSD">
-                          <property role="Xl_RC" value="Node id and property id differ. It's recommended to keep ids synchronised. Use quickfix to set corrected id" />
+                          <property role="Xl_RC" value="Node id and link id differ. It's recommended to keep ids synchronised. Use quickfix to set corrected id" />
                         </node>
                         <node concept="3Cnw8n" id="2sxsDnZyDex" role="2OEOjU">
                           <ref role="QpYPw" node="4H96pIbEyix" resolve="CorrectDuplicateId" />
@@ -4733,10 +4733,7 @@
               <node concept="3clFbJ" id="2BJSfVLNMV0" role="3cqZAp">
                 <node concept="3clFbS" id="2BJSfVLNMV2" role="3clFbx">
                   <node concept="a7r0C" id="2BJSfVLOzk6" role="3cqZAp">
-                    <node concept="3cpWs3" id="2BJSfVLO$X3" role="a7wSD">
-                      <node concept="Xl_RD" id="2BJSfVLO$Xj" role="3uHU7w">
-                        <property role="Xl_RC" value="That obviously might lead to unnecessary errors in the client's code." />
-                      </node>
+                    <node concept="3cpWs3" id="2BJSfVLO$Zy" role="a7wSD">
                       <node concept="3cpWs3" id="2BJSfVLO$xx" role="3uHU7B">
                         <node concept="3cpWs3" id="2BJSfVLO$xE" role="3uHU7B">
                           <node concept="Xl_RD" id="2BJSfVLO$xK" role="3uHU7B">
@@ -4746,14 +4743,12 @@
                             <property role="Xl_RC" value=" It is better to have default implementation for every such method since at the present moment\n" />
                           </node>
                         </node>
-                        <node concept="3cpWs3" id="2BJSfVLO$Zy" role="3uHU7w">
-                          <node concept="Xl_RD" id="2BJSfVLO$ZC" role="3uHU7B">
-                            <property role="Xl_RC" value="MPS creates instances of abstract concepts which are contained as a child link in some concept\n " />
-                          </node>
-                          <node concept="Xl_RD" id="2BJSfVLO$ZE" role="3uHU7w">
-                            <property role="Xl_RC" value="and any method of such concept might be spuriously invoked.\n" />
-                          </node>
+                        <node concept="Xl_RD" id="2BJSfVLO$ZC" role="3uHU7w">
+                          <property role="Xl_RC" value="MPS creates instances of abstract concepts which are contained as a child link in some concept\n " />
                         </node>
+                      </node>
+                      <node concept="Xl_RD" id="2BJSfVLO$ZE" role="3uHU7w">
+                        <property role="Xl_RC" value="and any method of such concept might be spuriously invoked.\n" />
                       </node>
                     </node>
                     <node concept="1YBJjd" id="2BJSfVLO$Xl" role="2OEOjV">
@@ -5179,12 +5174,26 @@
         <node concept="3clFbS" id="VFd4X$twLg" role="2LFqv$">
           <node concept="3clFbJ" id="VFd4X$ua$2" role="3cqZAp">
             <node concept="3clFbS" id="VFd4X$ua$4" role="3clFbx">
-              <node concept="2MkqsV" id="VFd4X$uLJf" role="3cqZAp">
-                <node concept="Xl_RD" id="VFd4X$uLJx" role="2MkJ7o">
-                  <property role="Xl_RC" value="Empty member name" />
-                </node>
-                <node concept="2GrUjf" id="VFd4X$uLKu" role="2OEOjV">
-                  <ref role="2Gs0qQ" node="VFd4X$twLe" resolve="member" />
+              <node concept="3SKdUt" id="6aKHLXblNG4" role="3cqZAp">
+                <node concept="1PaTwC" id="6aKHLXblNG5" role="3ndbpf">
+                  <node concept="3oM_SD" id="6aKHLXblNGf" role="1PaTwD">
+                    <property role="3oM_SC" value="already" />
+                  </node>
+                  <node concept="3oM_SD" id="6aKHLXblNGh" role="1PaTwD">
+                    <property role="3oM_SC" value="red" />
+                  </node>
+                  <node concept="3oM_SD" id="6aKHLXblNGk" role="1PaTwD">
+                    <property role="3oM_SC" value="due" />
+                  </node>
+                  <node concept="3oM_SD" id="6aKHLXblNGo" role="1PaTwD">
+                    <property role="3oM_SC" value="to" />
+                  </node>
+                  <node concept="3oM_SD" id="6aKHLXblNGt" role="1PaTwD">
+                    <property role="3oM_SC" value="name" />
+                  </node>
+                  <node concept="3oM_SD" id="6aKHLXblNGz" role="1PaTwD">
+                    <property role="3oM_SC" value="constraint" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -5352,6 +5361,9 @@
                     <node concept="2GrUjf" id="VFd4X$xFOZ" role="2OEOjV">
                       <ref role="2Gs0qQ" node="VFd4X$xFMW" resolve="member" />
                     </node>
+                    <node concept="2ODE4t" id="6aKHLXbmfM0" role="2OEWyd">
+                      <ref role="2ODJFN" to="tpck:h0TrG11" resolve="name" />
+                    </node>
                   </node>
                 </node>
               </node>
@@ -5417,6 +5429,9 @@
                     </node>
                     <node concept="2GrUjf" id="VFd4X$xFS5" role="2OEOjV">
                       <ref role="2Gs0qQ" node="VFd4X$xFS0" resolve="member" />
+                    </node>
+                    <node concept="2ODE4t" id="6aKHLXbmfNO" role="2OEWyd">
+                      <ref role="2ODJFN" to="tpce:_jzzDSlxy8" resolve="presentation" />
                     </node>
                   </node>
                 </node>
@@ -5638,6 +5653,25 @@
         </node>
       </node>
       <node concept="3clFbH" id="6Kv_6E71$WI" role="3cqZAp" />
+      <node concept="3clFbJ" id="6aKHLXblLdL" role="3cqZAp">
+        <node concept="3clFbS" id="6aKHLXblLdN" role="3clFbx">
+          <node concept="3cpWs6" id="6aKHLXblMhs" role="3cqZAp" />
+        </node>
+        <node concept="2OqwBi" id="6aKHLXblLVA" role="3clFbw">
+          <node concept="2OqwBi" id="6aKHLXblLrR" role="2Oq$k0">
+            <node concept="1YBJjd" id="6aKHLXblLf3" role="2Oq$k0">
+              <ref role="1YBMHb" node="6Kv_6E71$Xt" resolve="dtd" />
+            </node>
+            <node concept="1mfA1w" id="6aKHLXblLN6" role="2OqNvi" />
+          </node>
+          <node concept="1mIQ4w" id="6aKHLXblMbE" role="2OqNvi">
+            <node concept="chp4Y" id="6aKHLXblMdx" role="cj9EA">
+              <ref role="cht4Q" to="tpce:1ob16QTis9A" resolve="EnumMigrationInfo" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3clFbH" id="6aKHLXblLcF" role="3cqZAp" />
       <node concept="3clFbJ" id="6Kv_6E71$WJ" role="3cqZAp">
         <node concept="2OqwBi" id="6Kv_6E71$WK" role="3clFbw">
           <node concept="2OqwBi" id="6Kv_6E71$WL" role="2Oq$k0">

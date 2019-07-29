@@ -13,6 +13,7 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_BuildMps_TipsSolution_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_BuildMps_TipsSolution_NonTypesystemRule() {
@@ -20,24 +21,28 @@ public class check_BuildMps_TipsSolution_NonTypesystemRule extends AbstractNonTy
   public void applyRule(final SNode buildMps_TipsSolution, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if ((SLinkOperations.getTarget(buildMps_TipsSolution, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x71731b16a233b3c4L, 0x5bc8182317c9f320L, "solution")) == null)) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(buildMps_TipsSolution, "Empty link", "r:473be7a1-ec10-4475-89b9-397d2558ecb0(jetbrains.mps.build.mps.typesystem)", "8046287930334378974", null, errorTarget);
       }
     }
     if ((SLinkOperations.getTarget(buildMps_TipsSolution, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x71731b16a233b3c4L, 0x77af9abd5accf0caL, "path")) == null)) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(buildMps_TipsSolution, "No path", "r:473be7a1-ec10-4475-89b9-397d2558ecb0(jetbrains.mps.build.mps.typesystem)", "8046287930334379370", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x71731b16a233b3c4L, "jetbrains.mps.build.mps.structure.BuildMps_TipsSolution");
+    return AUX_qajgol.BuildMps_TipsSolution_f840ae4a;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_qajgol {
+    /*package*/ static final SConcept BuildMps_TipsSolution_f840ae4a = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x71731b16a233b3c4L, "jetbrains.mps.build.mps.structure.BuildMps_TipsSolution");
   }
 }

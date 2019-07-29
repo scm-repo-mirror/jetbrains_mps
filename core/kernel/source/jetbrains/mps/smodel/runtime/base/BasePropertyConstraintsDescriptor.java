@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.smodel.runtime.base;
 
+import jetbrains.mps.kernel.model.SModelUtil;
 import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.smodel.adapter.ids.SPropertyId;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -25,7 +26,6 @@ import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.ConceptDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.runtime.InheritanceIterable;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDispatchable;
 import jetbrains.mps.smodel.runtime.PropertyDescriptor;
@@ -105,7 +105,8 @@ public class BasePropertyConstraintsDescriptor implements PropertyConstraintsDis
   @Nullable
   private static PropertyConstraintsDescriptor getSomethingUsingInheritance(SAbstractConcept concept, SProperty property,
       InheritanceCalculateParameters parameters) {
-    for (SAbstractConcept parent : new InheritanceIterable(concept)) {
+    // fixme rewrite without recursion
+    for (SAbstractConcept parent : SModelUtil.getDirectSuperConcepts(concept)) {
       if (!((SAbstractConceptAdapter) parent).hasProperty(property)) {
         continue;
       }

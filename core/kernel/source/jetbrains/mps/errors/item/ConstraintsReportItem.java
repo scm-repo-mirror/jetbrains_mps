@@ -18,22 +18,24 @@ package jetbrains.mps.errors.item;
 import jetbrains.mps.errors.MessageStatus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.model.SNode;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public abstract class ConstraintsReportItem extends NodeReportItemBase implements RuleIdFlavouredItem, IssueKindReportItem, NodeReportItem {
   private final TypesystemRuleId myRuleNode;
+
   public ConstraintsReportItem(@NotNull SNode node, String message, @Nullable TypesystemRuleId ruleNode) {
     super(MessageStatus.ERROR, node.getReference(), message);
     myRuleNode = ruleNode;
   }
+
   @Override
   public Collection<TypesystemRuleId> getRuleId() {
     if (myRuleNode != null) {
@@ -48,39 +50,44 @@ public abstract class ConstraintsReportItem extends NodeReportItemBase implement
     return new LinkedHashSet<>(Arrays.asList(FLAVOUR_ISSUE_KIND, FLAVOUR_RULE_ID, FLAVOUR_NODE));
   }
 
+  @Internal
   public static class PropertyConstraintReportItem extends ConstraintsReportItem implements NodeFeatureReportItem {
-    private SProperty myProperty;
-    public PropertyConstraintReportItem(@NotNull SNode node, SProperty property, TypesystemRuleId ruleId) {
-      super(node, getMessage(property), ruleId);
+    private final SProperty myProperty;
+
+    public PropertyConstraintReportItem(@NotNull SNode node, @NotNull SProperty property, @NotNull TypesystemRuleId ruleId, @NotNull String message) {
+      super(node, message, ruleId);
       myProperty = property;
     }
-    public static String getMessage(SProperty property) {
-      return "Property constraint violation for property \"" + property.getName() + "\"";
-    }
+
     @Override
     public SProperty getConceptFeature() {
       return myProperty;
     }
+
     @Override
     public ItemKind getIssueKind() {
       return IssueKindReportItem.CONSTRAINTS.deriveItemKind("property constraint violation");
     }
   }
 
+  @Internal
   public static class CanBeChildFailedReportItem extends ConstraintsReportItem {
-    public CanBeChildFailedReportItem(@NotNull SNode node, SNode parent, @NotNull TypesystemRuleId ruleNode) {
-      super(node, "Node " + node + " cannot be child of node " + parent, ruleNode);
+    public CanBeChildFailedReportItem(@NotNull SNode node, @NotNull String message, @NotNull TypesystemRuleId ruleNode) {
+      super(node, message, ruleNode);
     }
+
     @Override
     public ItemKind getIssueKind() {
       return IssueKindReportItem.CONSTRAINTS.deriveItemKind("cannot be child");
     }
   }
 
+  @Internal
   public static class CanBeRootFailedReportItem extends ConstraintsReportItem {
-    public CanBeRootFailedReportItem(@NotNull SNode node, @NotNull TypesystemRuleId ruleNode) {
-      super(node, "Not rootable concept added as root", ruleNode);
+    public CanBeRootFailedReportItem(@NotNull SNode node, @NotNull String message, @NotNull TypesystemRuleId ruleNode) {
+      super(node, message, ruleNode);
     }
+
     @Override
     public ItemKind getIssueKind() {
       return IssueKindReportItem.CONSTRAINTS.deriveItemKind("not rootable");
@@ -88,9 +95,10 @@ public abstract class ConstraintsReportItem extends NodeReportItemBase implement
   }
 
   public static class CanBeParentFailedReportItem extends ConstraintsReportItem {
-    public CanBeParentFailedReportItem(@NotNull SNode node, @NotNull SNode child, @NotNull TypesystemRuleId ruleNode) {
-      super(node, "Node " + node + " cannot be parent of node " + child, ruleNode);
+    public CanBeParentFailedReportItem(@NotNull SNode node, @NotNull String message, @NotNull TypesystemRuleId ruleNode) {
+      super(node, message, ruleNode);
     }
+
     @Override
     public ItemKind getIssueKind() {
       return IssueKindReportItem.CONSTRAINTS.deriveItemKind("cannot be parent");
@@ -98,9 +106,11 @@ public abstract class ConstraintsReportItem extends NodeReportItemBase implement
   }
 
   public static class CanBeAncestorFailedReportItem extends ConstraintsReportItem {
-    public CanBeAncestorFailedReportItem(@NotNull SNode node, @NotNull SNode ancestor, @NotNull TypesystemRuleId ruleNode) {
-      super(node, "Invalid ancestor: " + ancestor, ruleNode);
+    public CanBeAncestorFailedReportItem(@NotNull SNode ancestor, @NotNull SNode child, @NotNull String message,
+                                         @NotNull TypesystemRuleId ruleNode) {
+      super(child, message, ruleNode);
     }
+
     @Override
     public ItemKind getIssueKind() {
       return IssueKindReportItem.CONSTRAINTS.deriveItemKind("cannot be ancestor");

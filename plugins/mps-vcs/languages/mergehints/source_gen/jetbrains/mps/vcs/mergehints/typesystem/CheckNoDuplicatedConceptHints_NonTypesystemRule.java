@@ -16,11 +16,11 @@ import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
-import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.messageTargets.ReferenceMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class CheckNoDuplicatedConceptHints_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public CheckNoDuplicatedConceptHints_NonTypesystemRule() {
@@ -31,7 +31,7 @@ public class CheckNoDuplicatedConceptHints_NonTypesystemRule extends AbstractNon
     }
 
     // check only one hint is specified for exact concept 
-    Iterable<SNode> sameConceptHints = ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(cd), MetaAdapterFactory.getConcept(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x39744cf955c648f9L, "jetbrains.mps.vcs.mergehints.structure.VCSHints"))).translate(new ITranslator2<SNode, SNode>() {
+    Iterable<SNode> sameConceptHints = ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(cd), AUX_9gr92k.VCSHints_41489bc3)).translate(new ITranslator2<SNode, SNode>() {
       public Iterable<SNode> translate(SNode it) {
         return SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x39744cf955c648f9L, 0x39744cf955c648faL, "concepts"));
       }
@@ -42,19 +42,23 @@ public class CheckNoDuplicatedConceptHints_NonTypesystemRule extends AbstractNon
     });
     if (Sequence.fromIterable(sameConceptHints).count() != 1) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
-        errorTarget = new ReferenceMessageTarget("cncpt");
+        final MessageTarget errorTarget = new ReferenceMessageTarget(MetaAdapterFactory.getReferenceLink(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x39744cf955c648fcL, 0x39744cf955c649b5L, "cncpt"));
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(cd, "Multiple hints are defined for concept " + SPropertyOperations.getString(SLinkOperations.getTarget(cd, MetaAdapterFactory.getReferenceLink(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x39744cf955c648fcL, 0x39744cf955c649b5L, "cncpt")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), "r:09da38a1-d679-467f-8975-eacacbd1c0a3(jetbrains.mps.vcs.mergehints.typesystem)", "6556262262332720020", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x39744cf955c648fcL, "jetbrains.mps.vcs.mergehints.structure.ConceptVCSDescriptor");
+    return AUX_9gr92k.ConceptVCSDescriptor_41489e66;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_9gr92k {
+    /*package*/ static final SConcept VCSHints_41489bc3 = MetaAdapterFactory.getConcept(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x39744cf955c648f9L, "jetbrains.mps.vcs.mergehints.structure.VCSHints");
+    /*package*/ static final SConcept ConceptVCSDescriptor_41489e66 = MetaAdapterFactory.getConcept(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x39744cf955c648fcL, "jetbrains.mps.vcs.mergehints.structure.ConceptVCSDescriptor");
   }
 }

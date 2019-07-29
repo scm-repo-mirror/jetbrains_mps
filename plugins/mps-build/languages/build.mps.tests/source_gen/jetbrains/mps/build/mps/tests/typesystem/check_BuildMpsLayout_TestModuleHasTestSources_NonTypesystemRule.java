@@ -15,6 +15,7 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_BuildMpsLayout_TestModuleHasTestSources_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_BuildMpsLayout_TestModuleHasTestSources_NonTypesystemRule() {
@@ -23,7 +24,7 @@ public class check_BuildMpsLayout_TestModuleHasTestSources_NonTypesystemRule ext
     SNode solution = SLinkOperations.getTarget(testmodule, MetaAdapterFactory.getReferenceLink(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x3f496e80bd8ef372L, 0x3f496e80bd8ef373L, "module"));
     if (!((boolean) BuildMps_Solution__BehaviorDescriptor.hasTestsSources_id6ogfLD6evrW.invoke(solution))) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(testmodule, "The solution sources do not include tests", "r:f8814f89-9801-40d6-822f-e0e0a3a2c53d(jetbrains.mps.build.mps.tests.typesystem)", "2834134232276236148", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.build.mps.tests.typesystem.addTestSources_QuickFix", false);
@@ -34,12 +35,16 @@ public class check_BuildMpsLayout_TestModuleHasTestSources_NonTypesystemRule ext
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x3f496e80bd8ef372L, "jetbrains.mps.build.mps.tests.structure.BuildMpsLayout_TestModule");
+    return AUX_p7g37w.BuildMpsLayout_TestModule_bb9add79;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_p7g37w {
+    /*package*/ static final SConcept BuildMpsLayout_TestModule_bb9add79 = MetaAdapterFactory.getConcept(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x3f496e80bd8ef372L, "jetbrains.mps.build.mps.tests.structure.BuildMpsLayout_TestModule");
   }
 }

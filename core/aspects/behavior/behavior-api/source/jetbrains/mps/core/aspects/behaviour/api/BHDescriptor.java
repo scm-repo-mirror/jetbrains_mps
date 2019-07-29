@@ -25,7 +25,8 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 
 /**
- * Behavior descriptor interface. Each {@link org.jetbrains.mps.openapi.language.SAbstractConcept} has such a descriptor (one-one relation).
+ * Behavior descriptor interface.
+ * Each {@link org.jetbrains.mps.openapi.language.SAbstractConcept} has such a descriptor (one-one relation).
  * It contains the behavioral part of the {@link SAbstractConcept} api.
  * Here one can get and invoke methods, specific to the given {@link SAbstractConcept}
  *

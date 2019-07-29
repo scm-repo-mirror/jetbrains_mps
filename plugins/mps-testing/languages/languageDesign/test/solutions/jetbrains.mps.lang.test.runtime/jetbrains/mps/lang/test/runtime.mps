@@ -2,13 +2,13 @@
 <model ref="r:00000000-0000-4000-0000-011c895903a2(jetbrains.mps.lang.test.runtime)">
   <persistence version="9" />
   <languages>
-    <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="0" />
-    <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="0" />
-    <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="1" />
-    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="1" />
-    <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="2" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
+    <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
+    <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="-1" />
+    <use id="f61473f9-130f-42f6-b98d-6c438812c2f6" name="jetbrains.mps.baseLanguage.unitTest" version="-1" />
+    <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
+    <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="-1" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="-1" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
   </languages>
   <imports>
     <import index="tp5g" ref="r:00000000-0000-4000-0000-011c89590388(jetbrains.mps.lang.test.structure)" />
@@ -83,7 +83,7 @@
     <import index="tp5o" ref="r:00000000-0000-4000-0000-011c89590380(jetbrains.mps.lang.test.behavior)" />
     <import index="ykok" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.constraints(MPS.Core/)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
-    <import index="k2t0" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.checkers(MPS.Core/)" implicit="true" />
+    <import index="k2t0" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.checkers(MPS.Core/)" />
     <import index="35tq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.scope(MPS.Core/)" implicit="true" />
   </imports>
   <registry>
@@ -6746,7 +6746,8 @@
             <node concept="TSZUe" id="fM_JX6vcUA" role="2OqNvi">
               <node concept="2ShNRf" id="fM_JX6veqV" role="25WWJ7">
                 <node concept="1pGfFk" id="fM_JX6veqW" role="2ShVmc">
-                  <ref role="37wK5l" to="wsw7:6qi2OtU3uwS" resolve="ConstraintsChecker" />
+                  <ref role="37wK5l" to="k2t0:~ConstraintsChecker.&lt;init&gt;(jetbrains.mps.components.ComponentHost)" resolve="ConstraintsChecker" />
+                  <node concept="10Nm6u" id="5vZLfeXj_LH" role="37wK5m" />
                 </node>
               </node>
             </node>
@@ -6760,7 +6761,7 @@
             <node concept="TSZUe" id="fM_JX6vdkQ" role="2OqNvi">
               <node concept="2ShNRf" id="fM_JX6vewf" role="25WWJ7">
                 <node concept="1pGfFk" id="fM_JX6vewg" role="2ShVmc">
-                  <ref role="37wK5l" to="wsw7:6qi2OtU3tXr" resolve="RefScopeChecker" />
+                  <ref role="37wK5l" to="k2t0:~RefScopeChecker.&lt;init&gt;()" resolve="RefScopeChecker" />
                 </node>
               </node>
             </node>
@@ -8332,15 +8333,16 @@
             <node concept="2OqwBi" id="5P_sMle93I8" role="2Oq$k0">
               <node concept="2ShNRf" id="5P_sMle9018" role="2Oq$k0">
                 <node concept="1pGfFk" id="5P_sMle936D" role="2ShVmc">
-                  <ref role="37wK5l" to="wsw7:6qi2OtU3uwS" resolve="ConstraintsChecker" />
+                  <ref role="37wK5l" to="k2t0:~ConstraintsChecker.&lt;init&gt;(jetbrains.mps.components.ComponentHost)" resolve="ConstraintsChecker" />
+                  <node concept="10Nm6u" id="5vZLfeXl70o" role="37wK5m" />
                 </node>
               </node>
               <node concept="liA8E" id="5P_sMle97c7" role="2OqNvi">
-                <ref role="37wK5l" to="wsw7:5P_sMle3Nj6" resolve="asRootChecker" />
+                <ref role="37wK5l" to="k2t0:~IChecker$AbstractNodeChecker.asRootChecker()" resolve="asRootChecker" />
               </node>
             </node>
             <node concept="liA8E" id="5P_sMle9ala" role="2OqNvi">
-              <ref role="37wK5l" to="wsw7:1EzqTC0eAhk" resolve="check" />
+              <ref role="37wK5l" to="k2t0:~IChecker.check(java.lang.Object,org.jetbrains.mps.openapi.module.SRepository,org.jetbrains.mps.openapi.util.Consumer,org.jetbrains.mps.openapi.util.ProgressMonitor)" resolve="check" />
               <node concept="37vLTw" id="5P_sMle9ayC" role="37wK5m">
                 <ref role="3cqZAo" node="3fCX6WCBvHQ" resolve="myRoot" />
               </node>
@@ -8362,16 +8364,16 @@
           <node concept="2OqwBi" id="5P_sMle9gg7" role="3clFbG">
             <node concept="2OqwBi" id="5P_sMle9gg8" role="2Oq$k0">
               <node concept="2ShNRf" id="5P_sMle9gg9" role="2Oq$k0">
-                <node concept="1pGfFk" id="5P_sMle9nR4" role="2ShVmc">
-                  <ref role="37wK5l" to="wsw7:6qi2OtU3tXr" resolve="RefScopeChecker" />
+                <node concept="1pGfFk" id="5vZLfeXkNfS" role="2ShVmc">
+                  <ref role="37wK5l" to="k2t0:~RefScopeChecker.&lt;init&gt;()" resolve="RefScopeChecker" />
                 </node>
               </node>
               <node concept="liA8E" id="5P_sMle9ggb" role="2OqNvi">
-                <ref role="37wK5l" to="wsw7:5P_sMle3Nj6" resolve="asRootChecker" />
+                <ref role="37wK5l" to="k2t0:~IChecker$AbstractNodeChecker.asRootChecker()" resolve="asRootChecker" />
               </node>
             </node>
             <node concept="liA8E" id="5P_sMle9ggc" role="2OqNvi">
-              <ref role="37wK5l" to="wsw7:1EzqTC0eAhk" resolve="check" />
+              <ref role="37wK5l" to="k2t0:~IChecker.check(java.lang.Object,org.jetbrains.mps.openapi.module.SRepository,org.jetbrains.mps.openapi.util.Consumer,org.jetbrains.mps.openapi.util.ProgressMonitor)" resolve="check" />
               <node concept="37vLTw" id="5P_sMle9ggd" role="37wK5m">
                 <ref role="3cqZAo" node="3fCX6WCBvHQ" resolve="myRoot" />
               </node>
@@ -12106,7 +12108,7 @@
       <property role="od$2w" value="false" />
       <property role="DiZV1" value="false" />
       <node concept="37vLTG" id="5s44y2LgIl_" role="3clF46">
-        <property role="TrG5h" value="eventTargetComponent" />
+        <property role="TrG5h" value="eventTargMpsTestsSuiteetComponent" />
         <node concept="3uibUv" id="5s44y2LgIlA" role="1tU5fm">
           <ref role="3uigEE" to="z60i:~Component" resolve="Component" />
         </node>
@@ -12120,7 +12122,7 @@
           </node>
           <node concept="3clFbC" id="5s44y2LgIlG" role="3clFbw">
             <node concept="37vLTw" id="5s44y2LgIlH" role="3uHU7B">
-              <ref role="3cqZAo" node="5s44y2LgIl_" resolve="eventTargetComponent" />
+              <ref role="3cqZAo" node="5s44y2LgIl_" resolve="eventTargMpsTestsSuiteetComponent" />
             </node>
             <node concept="10Nm6u" id="5s44y2LgIlI" role="3uHU7w" />
           </node>
@@ -12134,7 +12136,7 @@
             </node>
             <node concept="2OqwBi" id="5s44y2LgIlN" role="33vP2m">
               <node concept="37vLTw" id="5s44y2LgIlO" role="2Oq$k0">
-                <ref role="3cqZAo" node="5s44y2LgIl_" resolve="eventTargetComponent" />
+                <ref role="3cqZAo" node="5s44y2LgIl_" resolve="eventTargMpsTestsSuiteetComponent" />
               </node>
               <node concept="liA8E" id="5s44y2LgIlP" role="2OqNvi">
                 <ref role="37wK5l" to="wyt6:~Object.getClass()" resolve="getClass" />
@@ -12182,7 +12184,7 @@
                       <ref role="3cqZAo" node="5s44y2LgIlR" resolve="theMethod" />
                     </node>
                     <node concept="liA8E" id="5s44y2LgIm9" role="2OqNvi">
-                      <ref role="37wK5l" to="t6h5:~AccessibleObject.setAccessible(boolean)" resolve="setAccessible" />
+                      <ref role="37wK5l" to="t6h5:~Method.setAccessible(boolean)" resolve="setAccessible" />
                       <node concept="3clFbT" id="5s44y2LgIma" role="37wK5m">
                         <property role="3clFbU" value="true" />
                       </node>
@@ -12248,7 +12250,7 @@
                 </node>
                 <node concept="2OqwBi" id="5s44y2LgIm$" role="3uHU7w">
                   <node concept="37vLTw" id="5s44y2LgIm_" role="2Oq$k0">
-                    <ref role="3cqZAo" node="5s44y2LgIl_" resolve="eventTargetComponent" />
+                    <ref role="3cqZAo" node="5s44y2LgIl_" resolve="eventTargMpsTestsSuiteetComponent" />
                   </node>
                   <node concept="liA8E" id="5s44y2LgImA" role="2OqNvi">
                     <ref role="37wK5l" to="wyt6:~Object.getClass()" resolve="getClass" />

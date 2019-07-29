@@ -15,6 +15,7 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class check_SubstituteFeaturesAreNotDuplicated_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_SubstituteFeaturesAreNotDuplicated_NonTypesystemRule() {
@@ -23,19 +24,23 @@ public class check_SubstituteFeaturesAreNotDuplicated_NonTypesystemRule extends 
     ListSequence.fromList(DuplicationUtil.getDuplications(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x75a895eb6bcee99dL, 0x75a895eb6bcee99eL, "features")))).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
+          final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(it, "duplicated feature", "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "4001367738979321840", null, errorTarget);
         }
       }
     });
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x75a895eb6bcee99dL, "jetbrains.mps.lang.editor.structure.IExtensibleSubstituteMenuPart");
+    return AUX_8iwegc.IExtensibleSubstituteMenuPart_7541fcec;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_8iwegc {
+    /*package*/ static final SInterfaceConcept IExtensibleSubstituteMenuPart_7541fcec = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x75a895eb6bcee99dL, "jetbrains.mps.lang.editor.structure.IExtensibleSubstituteMenuPart");
   }
 }

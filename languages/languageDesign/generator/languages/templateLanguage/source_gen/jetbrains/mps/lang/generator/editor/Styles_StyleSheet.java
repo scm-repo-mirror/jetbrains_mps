@@ -11,6 +11,7 @@ import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.nodeEditor.MPSColors;
 import jetbrains.mps.nodeEditor.MPSFonts;
+import jetbrains.mps.lang.structure.editor.structure_StyleSheet.KeywordStyleClass;
 
 public class Styles_StyleSheet {
   /**
@@ -21,7 +22,7 @@ public class Styles_StyleSheet {
   public static void apply_GeneratorKeyWord(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.GeneratorKeyWordStyleClass(editorContext, node).apply(style, editorCell);
+    new GeneratorKeyWordStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -31,7 +32,7 @@ public class Styles_StyleSheet {
   public static void apply_reference(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.referenceStyleClass(editorContext, node).apply(style, editorCell);
+    new referenceStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -41,7 +42,7 @@ public class Styles_StyleSheet {
   public static void apply_constant(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.constantStyleClass(editorContext, node).apply(style, editorCell);
+    new constantStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -51,7 +52,7 @@ public class Styles_StyleSheet {
   public static void apply_literal(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.literalStyleClass(editorContext, node).apply(style, editorCell);
+    new literalStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -61,7 +62,7 @@ public class Styles_StyleSheet {
   public static void apply_macroStart(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.macroStartStyleClass(editorContext, node).apply(style, editorCell);
+    new macroStartStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -71,7 +72,7 @@ public class Styles_StyleSheet {
   public static void apply_nodeUnderMacro(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.nodeUnderMacroStyleClass(editorContext, node).apply(style, editorCell);
+    new nodeUnderMacroStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -81,7 +82,7 @@ public class Styles_StyleSheet {
   public static void apply_mappingLabelReference(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.mappingLabelReferenceStyleClass(editorContext, node).apply(style, editorCell);
+    new mappingLabelReferenceStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -91,7 +92,7 @@ public class Styles_StyleSheet {
   public static void apply_macroDescriptionText(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.macroDescriptionTextStyleClass(editorContext, node).apply(style, editorCell);
+    new macroDescriptionTextStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -101,7 +102,7 @@ public class Styles_StyleSheet {
   public static void apply_mappingRuleDeclaration(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.mappingRuleDeclarationStyleClass(editorContext, node).apply(style, editorCell);
+    new mappingRuleDeclarationStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -111,7 +112,7 @@ public class Styles_StyleSheet {
   public static void apply_mappingRuleReference(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.mappingRuleReferenceStyleClass(editorContext, node).apply(style, editorCell);
+    new mappingRuleReferenceStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -121,7 +122,7 @@ public class Styles_StyleSheet {
   public static void apply_Parenthesis(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.ParenthesisStyleClass(editorContext, node).apply(style, editorCell);
+    new ParenthesisStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -131,7 +132,7 @@ public class Styles_StyleSheet {
   public static void apply_LeftParen(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.LeftParenStyleClass(editorContext, node).apply(style, editorCell);
+    new LeftParenStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -141,7 +142,7 @@ public class Styles_StyleSheet {
   public static void apply_RightParen(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.RightParenStyleClass(editorContext, node).apply(style, editorCell);
+    new RightParenStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -151,7 +152,7 @@ public class Styles_StyleSheet {
   public static void apply_VariableRef(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.VariableRefStyleClass(editorContext, node).apply(style, editorCell);
+    new VariableRefStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -161,7 +162,7 @@ public class Styles_StyleSheet {
   public static void apply_TemplateParameterRef(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.TemplateParameterRefStyleClass(editorContext, node).apply(style, editorCell);
+    new TemplateParameterRefStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -171,7 +172,7 @@ public class Styles_StyleSheet {
   public static void apply_PatternRef(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.PatternRefStyleClass(editorContext, node).apply(style, editorCell);
+    new PatternRefStyleClass(editorContext, node).apply(style, editorCell);
   }
   /**
    * 
@@ -181,7 +182,7 @@ public class Styles_StyleSheet {
   public static void apply_Comment(Style style, EditorCell editorCell) {
     SNode node = (editorCell == null ? null : editorCell.getSNode());
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
-    new Styles_StyleSheet.CommentStyleClass(editorContext, node).apply(style, editorCell);
+    new CommentStyleClass(editorContext, node).apply(style, editorCell);
   }
 
   public static class GeneratorKeyWordStyleClass extends AbstractStyleClass {
@@ -203,7 +204,7 @@ public class Styles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.DARK_BLUE));
+      new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.ITALIC);
     }
 
@@ -227,7 +228,7 @@ public class Styles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
-      style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.DARK_BLUE));
+      new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.BOLD);
     }
 
@@ -239,8 +240,8 @@ public class Styles_StyleSheet {
 
     @Override
     public void apply(Style style, EditorCell editorCell) {
+      new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
       style.set(StyleAttributes.FONT_STYLE, MPSFonts.BOLD_ITALIC);
-      style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.DARK_BLUE));
       style.set(StyleAttributes.EDITABLE, true);
       style.set(StyleAttributes.PUNCTUATION_RIGHT, true);
     }

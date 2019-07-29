@@ -16,6 +16,7 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_RequiredAnnotationDataDeclaration_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_RequiredAnnotationDataDeclaration_NonTypesystemRule() {
@@ -26,18 +27,22 @@ public class check_RequiredAnnotationDataDeclaration_NonTypesystemRule extends A
         continue;
       }
       if (!((IMigrationUnit__BehaviorDescriptor.getProducedAnnotationData_id5TUCQr2CN0$.invoke(SLinkOperations.getTarget(dep, MetaAdapterFactory.getReferenceLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2b3ece9L, 0x5e7aa366c2b3eceaL, "script"))) != null))) {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(dep, "Script " + SPropertyOperations.getString(SLinkOperations.getTarget(dep, MetaAdapterFactory.getReferenceLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2b3ece9L, 0x5e7aa366c2b3eceaL, "script")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + " does not produce any data", "r:47a77104-3b09-4998-a2bd-ada4655c0c77(jetbrains.mps.lang.migration.typesystem)", "6807933448472413406", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2ad9bc0L, "jetbrains.mps.lang.migration.structure.RequiredAnnotationDataDeclaration");
+    return AUX_myak5r.RequiredAnnotationDataDeclaration_d5106f2c;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_myak5r {
+    /*package*/ static final SConcept RequiredAnnotationDataDeclaration_d5106f2c = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2ad9bc0L, "jetbrains.mps.lang.migration.structure.RequiredAnnotationDataDeclaration");
   }
 }

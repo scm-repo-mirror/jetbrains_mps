@@ -45,7 +45,7 @@ public class check_QueryDuplicatedParameters_NonTypesystemRule extends AbstractN
       if (Sequence.fromIterable(group).count() > 1) {
         for (SNode other : Sequence.fromIterable(group).tail(Sequence.fromIterable(group).count() - 1)) {
           {
-            MessageTarget errorTarget = new NodeMessageTarget();
+            final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(other, "Duplicated parameter: " + SConceptOperations.conceptAlias(SNodeOperations.getConcept(Sequence.fromIterable(group).first())), "r:7e8cfa8a-da13-467d-9878-63b90b943128(jetbrains.mps.lang.smodel.query.typesystem)", "2284201910212797905", null, errorTarget);
           }
         }
@@ -53,12 +53,16 @@ public class check_QueryDuplicatedParameters_NonTypesystemRule extends AbstractN
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x3bc644217616ddf9L, "jetbrains.mps.lang.smodel.query.structure.QueryParameterList");
+    return AUX_s7v7ub.QueryParameterList_88e89151;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_s7v7ub {
+    /*package*/ static final SConcept QueryParameterList_88e89151 = MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x3bc644217616ddf9L, "jetbrains.mps.lang.smodel.query.structure.QueryParameterList");
   }
 }

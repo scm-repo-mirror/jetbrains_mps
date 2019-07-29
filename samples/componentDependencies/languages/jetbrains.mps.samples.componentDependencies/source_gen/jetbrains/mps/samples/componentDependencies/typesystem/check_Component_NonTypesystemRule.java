@@ -21,6 +21,7 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_Component_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_Component_NonTypesystemRule() {
@@ -35,7 +36,7 @@ public class check_Component_NonTypesystemRule extends AbstractNonTypesystemRule
         SetSequence.fromSet(visitedComponents).addElement(nextComponent);
         if (nextComponent == component) {
           {
-            MessageTarget errorTarget = new NodeMessageTarget();
+            final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(component, "Cyclic Dependnecy", "r:6c7cc4eb-60e9-407a-94da-5f4d6ac9650c(jetbrains.mps.samples.componentDependencies.typesystem)", "8153794773742347573", null, errorTarget);
           }
           return;
@@ -49,12 +50,16 @@ public class check_Component_NonTypesystemRule extends AbstractNonTypesystemRule
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, "jetbrains.mps.samples.componentDependencies.structure.Component");
+    return AUX_6hgygs.Component_5ebb22db;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_6hgygs {
+    /*package*/ static final SConcept Component_5ebb22db = MetaAdapterFactory.getConcept(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, "jetbrains.mps.samples.componentDependencies.structure.Component");
   }
 }

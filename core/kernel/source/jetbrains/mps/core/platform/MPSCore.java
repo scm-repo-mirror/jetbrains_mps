@@ -80,7 +80,6 @@ public final class MPSCore extends ComponentPlugin implements ComponentHost {
   private ModelFactoryService myModelFactoryService;
   private ModelsAutoImportsManager myAutoImportsManager;
   private DescriptorIOFacade myModuleDescriptorFacade;
-  private CheckerRegistry myCheckerRegistry;
   private VFSManager myVFSManager;
 
   /**
@@ -100,7 +99,6 @@ public final class MPSCore extends ComponentPlugin implements ComponentHost {
   @Override
   public void dispose() {
     super.dispose();
-    myCheckerRegistry = null;
     myModuleDescriptorFacade = null;
     myAutoImportsManager = null;
     myModelFactoryService = null;
@@ -159,8 +157,7 @@ public final class MPSCore extends ComponentPlugin implements ComponentHost {
     init(myModuleDescriptorFacade = new DescriptorIOFacade());
 
     init(new ResolverComponent());
-    myCheckerRegistry = init(new CheckerRegistry());
-    init(new ValidationSettings(myCheckerRegistry));
+    init(new ValidationSettings());
 
     myAutoImportsManager = init(new ModelsAutoImportsManager());
     myAutoImportsManager.register(new LanguageModelsAutoImports());
@@ -246,9 +243,6 @@ public final class MPSCore extends ComponentPlugin implements ComponentHost {
     }
     if (ModelsAutoImportsManager.class.equals(componentClass)) {
       return componentClass.cast(myAutoImportsManager);
-    }
-    if (CheckerRegistry.class.equals(componentClass)) {
-      return componentClass.cast(myCheckerRegistry);
     }
     if (VFSManager.class.equals(componentClass)) {
       return componentClass.cast(myVFSManager);

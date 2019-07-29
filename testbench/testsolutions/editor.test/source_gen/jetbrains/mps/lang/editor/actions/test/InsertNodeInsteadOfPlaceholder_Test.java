@@ -21,7 +21,7 @@ public class InsertNodeInsteadOfPlaceholder_Test extends BaseTransformationTest 
 
   @Test
   public void test_InsertNodeInsteadOfPlaceholder() throws Throwable {
-    new InsertNodeInsteadOfPlaceholder_Test.TestBody(this).testMethod();
+    new TestBody(this).testMethod();
   }
 
   /*package*/ static class TestBody extends BaseEditorTestBody {
@@ -33,6 +33,7 @@ public class InsertNodeInsteadOfPlaceholder_Test extends BaseTransformationTest 
     @Override
     public void testMethodImpl() throws Exception {
       initEditorComponent("6997653033586475517", "6997653033586475520");
+      invokeAction("jetbrains.mps.ide.editor.actions.Insert_Action");
       invokeAction("jetbrains.mps.ide.editor.actions.Insert_Action");
     }
   }

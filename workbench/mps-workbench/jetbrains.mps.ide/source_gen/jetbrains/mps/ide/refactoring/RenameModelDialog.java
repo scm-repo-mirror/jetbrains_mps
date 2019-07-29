@@ -6,6 +6,7 @@ import jetbrains.mps.ide.platform.refactoring.RenameDialog;
 import jetbrains.mps.project.MPSProject;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import java.awt.HeadlessException;
+import jetbrains.mps.ide.IdeBundle;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModelName;
 import javax.lang.model.SourceVersion;
@@ -19,7 +20,7 @@ public class RenameModelDialog extends RenameDialog {
     super(mpsProject.getProject(), sm.getName().getValue(), "model");
     myProject = mpsProject;
     myModelDescriptor = sm;
-    setTitle("Rename Model");
+    setTitle(IdeBundle.message("actions.model.rename.title"));
   }
 
 
@@ -34,7 +35,7 @@ public class RenameModelDialog extends RenameDialog {
     }
 
     if (!((SourceVersion.isName(newModelName.getLongName())))) {
-      return "Model name should be valid Java package";
+      return IdeBundle.message("actions.model.rename.invalid.name");
     }
 
     return super.checkValue();

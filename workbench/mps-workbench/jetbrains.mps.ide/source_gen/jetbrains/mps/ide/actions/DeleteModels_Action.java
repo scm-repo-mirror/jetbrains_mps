@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
+import jetbrains.mps.ide.IdeBundle;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.project.MPSProject;
@@ -34,7 +35,7 @@ public class DeleteModels_Action extends BaseAction {
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
-    event.getPresentation().setText((((List<SModel>) MapSequence.fromMap(_params).get("models")).size() == 1 ? "Delete Model" : "Delete Models"));
+    event.getPresentation().setText((((List<SModel>) MapSequence.fromMap(_params).get("models")).size() == 1 ? IdeBundle.message("actions.model.delete.title") : IdeBundle.message("actions.model.delete.title.many")));
     boolean anyRegular = false;
     for (SModel m : ListSequence.fromList(((List<SModel>) MapSequence.fromMap(_params).get("models")))) {
       if (!(SModelStereotype.isStubModel(m)) && !(SModelStereotype.isDescriptorModel(m))) {
@@ -75,8 +76,8 @@ public class DeleteModels_Action extends BaseAction {
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     boolean safeDelete = RefactoringSettings.getInstance().SAFE_DELETE;
-    final DeleteDialog.DeleteOption safeOption = new DeleteDialog.DeleteOption("Safe Delete", safeDelete, true);
-    DeleteDialog dialog = new DeleteDialog(((MPSProject) MapSequence.fromMap(_params).get("project")), "Delete Models", "Are you sure you want to delete selected models?", safeOption);
+    final DeleteDialog.DeleteOption safeOption = new DeleteDialog.DeleteOption(IdeBundle.message("actions.model.delete.safedelete"), safeDelete, true);
+    DeleteDialog dialog = new DeleteDialog(((MPSProject) MapSequence.fromMap(_params).get("project")), IdeBundle.message("actions.model.delete.title.many"), IdeBundle.message("actions.model.delete.message"), safeOption);
     dialog.show();
     if (!(dialog.isOK())) {
       return;

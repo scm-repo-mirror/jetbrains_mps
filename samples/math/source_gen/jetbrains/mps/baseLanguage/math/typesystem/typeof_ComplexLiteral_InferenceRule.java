@@ -16,6 +16,7 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_ComplexLiteral_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_ComplexLiteral_InferenceRule() {
@@ -56,7 +57,7 @@ public class typeof_ComplexLiteral_InferenceRule extends AbstractInferenceRule_R
                     }
                   } else {
                     {
-                      MessageTarget errorTarget = new NodeMessageTarget();
+                      final MessageTarget errorTarget = new NodeMessageTarget();
                       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(literal, "Arguments's type should be subtype of BigDecimal", "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1238426927693", null, errorTarget);
                     }
                   }
@@ -78,7 +79,7 @@ public class typeof_ComplexLiteral_InferenceRule extends AbstractInferenceRule_R
               }
             } else {
               {
-                MessageTarget errorTarget = new NodeMessageTarget();
+                final MessageTarget errorTarget = new NodeMessageTarget();
                 IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(literal, "Arguments's type should be subtype of BigDecimal", "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1238426926406", null, errorTarget);
               }
             }
@@ -88,12 +89,16 @@ public class typeof_ComplexLiteral_InferenceRule extends AbstractInferenceRule_R
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12052224b0bL, "jetbrains.mps.baseLanguage.math.structure.ComplexLiteral");
+    return AUX_4x5sbl.ComplexLiteral_4e127b4;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_4x5sbl {
+    /*package*/ static final SConcept ComplexLiteral_4e127b4 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12052224b0bL, "jetbrains.mps.baseLanguage.math.structure.ComplexLiteral");
   }
 }

@@ -18,6 +18,7 @@ package jetbrains.mps.errors.item;
 import jetbrains.mps.errors.item.ReportItemBase.MultipleReportItemFlavour;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.util.ArrayList;
@@ -26,20 +27,23 @@ import java.util.Iterator;
 import java.util.List;
 
 public interface RuleIdFlavouredItem extends FlavouredItem {
+  final class TypesystemRuleId {
+    @Nullable private final SNodeReference myNodeReference;
 
-  class TypesystemRuleId {
-    private final @NotNull SNodeReference myNodeReference;
-    public TypesystemRuleId(@NotNull SNodeReference nodeReference) {
+    public TypesystemRuleId(@Nullable SNodeReference nodeReference) {
       myNodeReference = nodeReference;
     }
-    @NotNull
+
+    @Nullable
     public SNodeReference getSourceNode() {
       return myNodeReference;
     }
+
     @Override
     public String toString() {
       return myNodeReference.toString();
     }
+
     @Override
     public boolean equals(Object o) {
       if (this == o) {
@@ -51,6 +55,7 @@ public interface RuleIdFlavouredItem extends FlavouredItem {
       TypesystemRuleId that = (TypesystemRuleId) o;
       return myNodeReference.equals(that.myNodeReference);
     }
+
     @Override
     public int hashCode() {
       return myNodeReference.hashCode();
@@ -59,8 +64,7 @@ public interface RuleIdFlavouredItem extends FlavouredItem {
 
   Collection<TypesystemRuleId> getRuleId();
 
-  RuleIdFlavour FLAVOUR_RULE_ID =
-      new RuleIdFlavour("FLAVOUR_RULE_ID");
+  RuleIdFlavour FLAVOUR_RULE_ID = new RuleIdFlavour("FLAVOUR_RULE_ID");
 
   class RuleIdFlavour extends MultipleReportItemFlavour<RuleIdFlavouredItem, TypesystemRuleId> {
     public RuleIdFlavour(String id) {
@@ -124,5 +128,4 @@ public interface RuleIdFlavouredItem extends FlavouredItem {
       }
     }
   }
-
 }

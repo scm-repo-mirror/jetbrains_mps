@@ -51,6 +51,7 @@
     <import index="mz8t" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util.xmlb(MPS.IDEA/)" />
     <import index="3ju5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs(MPS.Core/)" />
     <import index="g1qu" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util.ui(MPS.IDEA/)" />
+    <import index="gsnq" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.ui.dialogs.properties(MPS.Platform/)" />
     <import index="tpce" ref="r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)" implicit="true" />
   </imports>
   <registry>
@@ -2293,8 +2294,12 @@
         <node concept="3clFbF" id="29N7xYwTG50" role="3cqZAp">
           <node concept="1rXfSq" id="4hiugqyyIfY" role="3clFbG">
             <ref role="37wK5l" to="jkm4:~DialogWrapper.setTitle(java.lang.String)" resolve="setTitle" />
-            <node concept="Xl_RD" id="29N7xYwTG52" role="37wK5m">
-              <property role="Xl_RC" value="Rename Model" />
+            <node concept="2YIFZM" id="6aHs3s7L7KJ" role="37wK5m">
+              <ref role="37wK5l" to="3a50:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+              <ref role="1Pybhc" to="3a50:~IdeBundle" resolve="IdeBundle" />
+              <node concept="Xl_RD" id="6aHs3s7L7KK" role="37wK5m">
+                <property role="Xl_RC" value="actions.model.rename.title" />
+              </node>
             </node>
           </node>
         </node>
@@ -2385,8 +2390,12 @@
           </node>
           <node concept="3clFbS" id="2174XWuQEe3" role="3clFbx">
             <node concept="3cpWs6" id="2174XWuQEe7" role="3cqZAp">
-              <node concept="Xl_RD" id="2174XWuQEe6" role="3cqZAk">
-                <property role="Xl_RC" value="Model name should be valid Java package" />
+              <node concept="2YIFZM" id="6aHs3s7L8k7" role="3cqZAk">
+                <ref role="37wK5l" to="3a50:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+                <ref role="1Pybhc" to="3a50:~IdeBundle" resolve="IdeBundle" />
+                <node concept="Xl_RD" id="6aHs3s7L8k8" role="37wK5m">
+                  <property role="Xl_RC" value="actions.model.rename.invalid.name" />
+                </node>
               </node>
             </node>
           </node>
@@ -2584,8 +2593,12 @@
         <node concept="3clFbF" id="29N7xYwTGpc" role="3cqZAp">
           <node concept="1rXfSq" id="4hiugqyzk2s" role="3clFbG">
             <ref role="37wK5l" to="jkm4:~DialogWrapper.setTitle(java.lang.String)" resolve="setTitle" />
-            <node concept="Xl_RD" id="29N7xYwTGpe" role="37wK5m">
-              <property role="Xl_RC" value="Rename Module" />
+            <node concept="2YIFZM" id="3_TiVQaQtlm" role="37wK5m">
+              <ref role="1Pybhc" to="3a50:~IdeBundle" resolve="IdeBundle" />
+              <ref role="37wK5l" to="3a50:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+              <node concept="Xl_RD" id="3_TiVQaQtp8" role="37wK5m">
+                <property role="Xl_RC" value="actions.module.rename.title" />
+              </node>
             </node>
           </node>
         </node>
@@ -2669,8 +2682,12 @@
                           <node concept="37vLTw" id="2XQ6n0kZl6i" role="37vLTJ">
                             <ref role="3cqZAo" node="2XQ6n0kZih6" resolve="checkResult" />
                           </node>
-                          <node concept="Xl_RD" id="2XQ6n0kZbM6" role="37vLTx">
-                            <property role="Xl_RC" value="Module with the same name already exists in repository" />
+                          <node concept="2YIFZM" id="3_TiVQaQu8F" role="37vLTx">
+                            <ref role="1Pybhc" to="3a50:~IdeBundle" resolve="IdeBundle" />
+                            <ref role="37wK5l" to="3a50:~IdeBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+                            <node concept="Xl_RD" id="3_TiVQaQunz" role="37wK5m">
+                              <property role="Xl_RC" value="actions.module.rename.name.in.repository" />
+                            </node>
                           </node>
                         </node>
                       </node>
@@ -3157,18 +3174,30 @@
             <property role="TrG5h" value="info" />
             <property role="3TUv4t" value="true" />
             <node concept="17QB3L" id="4xnDkoPodE7" role="1tU5fm" />
-            <node concept="2YIFZM" id="4xnDkoPoQWM" role="33vP2m">
-              <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
-              <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
-              <node concept="Xl_RD" id="4xnDkoPonB3" role="37wK5m">
-                <property role="Xl_RC" value="&lt;html&gt;&lt;p&gt;Module folder contains submodule(s):%s&lt;/p&gt;&lt;/html&gt;" />
+            <node concept="3cpWs3" id="3_TiVQaQ_zc" role="33vP2m">
+              <node concept="Xl_RD" id="3_TiVQaQ_E8" role="3uHU7w">
+                <property role="Xl_RC" value="&lt;/html&gt;&lt;/p&gt;" />
               </node>
-              <node concept="2OqwBi" id="4xnDkoPoSaX" role="37wK5m">
-                <node concept="37vLTw" id="4xnDkoPoRNI" role="2Oq$k0">
-                  <ref role="3cqZAo" node="4xnDkoPoCbf" resolve="builder" />
+              <node concept="3cpWs3" id="3_TiVQaQzyA" role="3uHU7B">
+                <node concept="3cpWs3" id="3_TiVQaQwLR" role="3uHU7B">
+                  <node concept="Xl_RD" id="3_TiVQaQw7Z" role="3uHU7B">
+                    <property role="Xl_RC" value="&lt;html&gt;&lt;p&gt;" />
+                  </node>
+                  <node concept="2YIFZM" id="3_TiVQaQx5M" role="3uHU7w">
+                    <ref role="37wK5l" to="gsnq:~PropertiesBundle.message(java.lang.String,java.lang.Object...)" resolve="message" />
+                    <ref role="1Pybhc" to="gsnq:~PropertiesBundle" resolve="PropertiesBundle" />
+                    <node concept="Xl_RD" id="3_TiVQaQxny" role="37wK5m">
+                      <property role="Xl_RC" value="actions.module.rename.contains.submodules" />
+                    </node>
+                  </node>
                 </node>
-                <node concept="liA8E" id="4xnDkoPoSya" role="2OqNvi">
-                  <ref role="37wK5l" to="wyt6:~StringBuilder.toString()" resolve="toString" />
+                <node concept="2OqwBi" id="3_TiVQaQ$A4" role="3uHU7w">
+                  <node concept="37vLTw" id="3_TiVQaQ$ds" role="2Oq$k0">
+                    <ref role="3cqZAo" node="4xnDkoPoCbf" resolve="builder" />
+                  </node>
+                  <node concept="liA8E" id="3_TiVQaQ_8L" role="2OqNvi">
+                    <ref role="37wK5l" to="wyt6:~StringBuilder.toString()" resolve="toString" />
+                  </node>
                 </node>
               </node>
             </node>

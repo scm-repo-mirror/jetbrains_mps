@@ -15,6 +15,7 @@ import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_OperationAssignmentExpression_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_OperationAssignmentExpression_InferenceRule() {
@@ -42,7 +43,7 @@ public class typeof_OperationAssignmentExpression_InferenceRule extends Abstract
                   }
                 } else {
                   {
-                    MessageTarget errorTarget = new NodeMessageTarget();
+                    final MessageTarget errorTarget = new NodeMessageTarget();
                     IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(operation, "operation is not applicable to these operands", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4957392803029437238", null, errorTarget);
                   }
                 }
@@ -54,12 +55,16 @@ public class typeof_OperationAssignmentExpression_InferenceRule extends Abstract
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x44cc327d2ca5cb08L, "jetbrains.mps.baseLanguage.structure.OperationAssignmentExpression");
+    return AUX_4lgjyi.OperationAssignmentExpression_f95e9b54;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return true;
+  }
+
+  private static final class AUX_4lgjyi {
+    /*package*/ static final SConcept OperationAssignmentExpression_f95e9b54 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x44cc327d2ca5cb08L, "jetbrains.mps.baseLanguage.structure.OperationAssignmentExpression");
   }
 }

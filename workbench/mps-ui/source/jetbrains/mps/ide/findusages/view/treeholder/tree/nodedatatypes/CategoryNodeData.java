@@ -22,7 +22,6 @@ import jetbrains.mps.ide.findusages.view.treeholder.treeview.path.PathItemRole;
 import jetbrains.mps.ide.icons.IdeIcons;
 import jetbrains.mps.project.Project;
 import org.jdom.Element;
-import org.jetbrains.annotations.Nullable;
 
 import javax.swing.Icon;
 
@@ -34,9 +33,10 @@ public class CategoryNodeData extends BaseNodeData {
   private final Icon myIcon;
   private String myCategory = "";
 
-  public CategoryNodeData(PathItemRole role, CategoryKind categoryKind, String category, @Nullable Icon icon, boolean resultsSection) {
+  // in fact, resultsSection is useless (===true) as UsagesTree doesn't show categories in 'search elements' section at all
+  public CategoryNodeData(PathItemRole role, CategoryKind categoryKind, String category, boolean resultsSection) {
     super(role, category, null, false, resultsSection);
-    myIcon = icon;
+    myIcon = categoryKind.getIcon();
     myCategory = category;
     myCategoryKindName = categoryKind.getName();
   }
@@ -48,7 +48,7 @@ public class CategoryNodeData extends BaseNodeData {
 
   @Override
   public Icon getIcon(PresentationContext presentationContext) {
-    return myIcon != null ? myIcon :IdeIcons.CLOSED_FOLDER;
+    return myIcon != null ? myIcon : IdeIcons.CLOSED_FOLDER;
   }
 
   @Override

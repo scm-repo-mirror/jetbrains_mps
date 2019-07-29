@@ -602,7 +602,7 @@
   </node>
   <node concept="3_zdsH" id="28aPEVvkoQ2">
     <property role="3GE5qa" value="enumSwitch" />
-    <ref role="3_znuS" to="tp25:28aPEVv7XN5" resolve="ExpressionEnumBody" />
+    <ref role="3_znuS" to="tp25:28aPEVv7XN5" resolve="EnumSwitchCaseBody_Expression" />
     <node concept="3__wT9" id="28aPEVvkoQ3" role="3_A6iZ">
       <node concept="3clFbS" id="28aPEVvkoQ4" role="2VODD2">
         <node concept="3AgYrR" id="28aPEVvkoQn" role="3cqZAp">
@@ -618,7 +618,7 @@
   </node>
   <node concept="3_zdsH" id="28aPEVvkpiE">
     <property role="3GE5qa" value="enumSwitch" />
-    <ref role="3_znuS" to="tp25:28aPEVv7XN9" resolve="StatementListEnumBody" />
+    <ref role="3_znuS" to="tp25:28aPEVv7XN9" resolve="EnumSwitchCaseBody_StatementList" />
     <node concept="3__wT9" id="28aPEVvkpiF" role="3_A6iZ">
       <node concept="3clFbS" id="28aPEVvkpiG" role="2VODD2">
         <node concept="3AgYrR" id="28aPEVvkpiZ" role="3cqZAp">

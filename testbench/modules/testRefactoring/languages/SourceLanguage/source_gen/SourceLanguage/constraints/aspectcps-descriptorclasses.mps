@@ -90,7 +90,20 @@
       <concept id="7980339663309897032" name="jetbrains.mps.lang.generator.structure.OriginTrace" flags="ng" index="cd27G">
         <child id="7980339663309897037" name="origin" index="cd27D" />
       </concept>
-      <concept id="3864140621129707969" name="jetbrains.mps.lang.generator.structure.GeneratorDebug_Mappings" flags="nn" index="39dXUE" />
+      <concept id="3864140621129707969" name="jetbrains.mps.lang.generator.structure.GeneratorDebug_Mappings" flags="nn" index="39dXUE">
+        <child id="3864140621129713349" name="labels" index="39e2AI" />
+      </concept>
+      <concept id="3864140621129713351" name="jetbrains.mps.lang.generator.structure.GeneratorDebug_NodeMapEntry" flags="nn" index="39e2AG">
+        <property id="5843998055530255671" name="isNewRoot" index="2mV_xN" />
+        <child id="3864140621129713365" name="outputNode" index="39e2AY" />
+      </concept>
+      <concept id="3864140621129713348" name="jetbrains.mps.lang.generator.structure.GeneratorDebug_LabelEntry" flags="nn" index="39e2AJ">
+        <property id="3864140621129715945" name="label" index="39e3Y2" />
+        <child id="3864140621129715947" name="entries" index="39e3Y0" />
+      </concept>
+      <concept id="3864140621129713362" name="jetbrains.mps.lang.generator.structure.GeneratorDebug_NodeRef" flags="nn" index="39e2AT">
+        <reference id="3864140621129713363" name="node" index="39e2AS" />
+      </concept>
       <concept id="3637169702552512264" name="jetbrains.mps.lang.generator.structure.ElementaryNodeId" flags="ng" index="3u3nmq">
         <property id="3637169702552512269" name="nodeId" index="3u3nmv" />
       </concept>
@@ -369,6 +382,16 @@
       </node>
     </node>
   </node>
-  <node concept="39dXUE" id="1E" />
+  <node concept="39dXUE" id="1E">
+    <node concept="39e2AJ" id="1F" role="39e2AI">
+      <property role="39e3Y2" value="aspectDescriptorClass" />
+      <node concept="39e2AG" id="1G" role="39e3Y0">
+        <property role="2mV_xN" value="true" />
+        <node concept="39e2AT" id="1H" role="39e2AY">
+          <ref role="39e2AS" node="1k" resolve="ConstraintsAspectDescriptor" />
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 

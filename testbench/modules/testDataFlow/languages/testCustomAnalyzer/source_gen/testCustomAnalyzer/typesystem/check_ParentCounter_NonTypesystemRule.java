@@ -23,6 +23,7 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ParentCounter_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_ParentCounter_NonTypesystemRule() {
@@ -41,7 +42,7 @@ public class check_ParentCounter_NonTypesystemRule extends AbstractNonTypesystem
       SNode source = ((SNode) instruction.getSource());
       if (resultCounter > SPropertyOperations.getInteger(root, MetaAdapterFactory.getProperty(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, 0x73a316f7f548c73dL, "maxChildCount")) && source != null) {
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
+          final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(root, "child counter > " + SPropertyOperations.getInteger(root, MetaAdapterFactory.getProperty(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, 0x73a316f7f548c73dL, "maxChildCount")), "r:6ac8df16-203b-470e-8af3-57784a2fb1f4(testCustomAnalyzer.typesystem)", "2955426575106086783", null, errorTarget);
         }
         break;
@@ -49,12 +50,16 @@ public class check_ParentCounter_NonTypesystemRule extends AbstractNonTypesystem
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, "testCustomAnalyzer.structure.Root");
+    return AUX_4z1q8n.Root_b795c6fc;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_4z1q8n {
+    /*package*/ static final SConcept Root_b795c6fc = MetaAdapterFactory.getConcept(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, "testCustomAnalyzer.structure.Root");
   }
 }

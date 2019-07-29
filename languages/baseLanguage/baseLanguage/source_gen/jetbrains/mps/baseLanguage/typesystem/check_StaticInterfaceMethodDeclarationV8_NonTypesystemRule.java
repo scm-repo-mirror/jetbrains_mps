@@ -18,8 +18,9 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class check_StaticInterfaceMethodDeclarationV8_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_StaticInterfaceMethodDeclarationV8_NonTypesystemRule() {
@@ -35,14 +36,14 @@ public class check_StaticInterfaceMethodDeclarationV8_NonTypesystemRule extends 
       JavaCompilerOptionsComponent.JavaVersion sourceJavaVersion = JavaCompilerOptionsComponent.getInstance().getJavaCompilerOptions(project).getTargetJavaVersion();
       if (sourceJavaVersion.compareTo(JavaCompilerOptionsComponent.JavaVersion.VERSION_1_8) < 0) {
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
+          final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(intfc, "Static interface method declarations are allowed only at source level 1.8 or above. Current java language level:" + sourceJavaVersion.getCompilerVersion(), "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "7197377355157103256", null, errorTarget);
         }
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    return AUX_9qsk8d.Interface_bca2069;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -55,5 +56,9 @@ public class check_StaticInterfaceMethodDeclarationV8_NonTypesystemRule extends 
       return checkedDotOperand.getModule();
     }
     return null;
+  }
+
+  private static final class AUX_9qsk8d {
+    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
   }
 }

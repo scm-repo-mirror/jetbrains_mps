@@ -24,7 +24,6 @@ import jetbrains.mps.newTypesystem.context.typechecking.IncrementalTypechecking;
 import jetbrains.mps.smodel.SNodeId;
 import jetbrains.mps.typesystem.inference.TypeChecker;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
-import jetbrains.mps.typesystem.inference.TypeContextManager;
 import jetbrains.mps.util.CollectionUtil;
 import jetbrains.mps.util.Pair;
 import org.jetbrains.mps.openapi.model.SModel;

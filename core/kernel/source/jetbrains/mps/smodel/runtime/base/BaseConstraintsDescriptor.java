@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.smodel.runtime.base;
 
+import jetbrains.mps.kernel.model.SModelUtil;
 import jetbrains.mps.smodel.adapter.structure.concept.SAbstractConceptAdapter;
 import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -27,7 +28,6 @@ import jetbrains.mps.smodel.runtime.ConstraintFunction;
 import jetbrains.mps.smodel.runtime.ConstraintFunctions;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.IconResource;
-import jetbrains.mps.smodel.runtime.InheritanceIterable;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
@@ -44,7 +44,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
-import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
   private final SAbstractConcept myConcept;
@@ -57,9 +57,13 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
 
   private final ConcurrentHashMap<SProperty, PropertyConstraintsDescriptor> propertiesConstraints = new ConcurrentHashMap<>();
   private final ConcurrentHashMap<SReferenceLink, ReferenceConstraintsDescriptor> referencesConstraints = new ConcurrentHashMap<>();
+  private boolean myCanBeChildIsDefined = true;
+  private boolean myCanBeRootIsDefined = true;
+  private boolean myCanBeAncestorIsDefined = true;
+  private boolean myCanBeParentIsDefined = true;
 
-  public BaseConstraintsDescriptor(SAbstractConcept concept) {
-    this.myConcept = concept;
+  public BaseConstraintsDescriptor(@NotNull SAbstractConcept concept) {
+    myConcept = concept;
 
     propertiesConstraints.putAll(getSpecifiedProperties());
     referencesConstraints.putAll(getSpecifiedReferences());
@@ -69,6 +73,26 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
     myCanBeParentConstraint = calculateCanBeParentConstraint();
     myCanBeAncestorConstraint = calculateCanBeAncestorConstraint();
     myDefaultScopeConstraint = calculateDefaultScopeConstraint();
+  }
+
+  @Override
+  public boolean canBeChildIsDefined() {
+    return myCanBeChildIsDefined;
+  }
+
+  @Override
+  public boolean canBeParentIsDefined() {
+    return myCanBeParentIsDefined;
+  }
+
+  @Override
+  public boolean canBeRootIsDefined() {
+    return myCanBeRootIsDefined;
+  }
+
+  @Override
+  public boolean canBeAncestorIsDefined() {
+    return myCanBeAncestorIsDefined;
   }
 
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
@@ -82,18 +106,22 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
   }
 
   protected ConstraintFunction<ConstraintContext_CanBeChild, Boolean> calculateCanBeChildConstraint() {
+    myCanBeChildIsDefined = false;
     return ConstraintFunctions.createBooleanComposition(collectParents(ConstraintFunctions::getCanBeChildConstraintFunction));
   }
 
   protected ConstraintFunction<ConstraintContext_CanBeRoot, Boolean> calculateCanBeRootConstraint() {
+    myCanBeRootIsDefined = false;
     return ConstraintFunctions.createBooleanComposition(collectParents(ConstraintFunctions::getCanBeRootConstraintFunction));
   }
 
   protected ConstraintFunction<ConstraintContext_CanBeParent, Boolean> calculateCanBeParentConstraint() {
+    myCanBeParentIsDefined = false;
     return ConstraintFunctions.createBooleanComposition(collectParents(ConstraintFunctions::getCanBeParentConstraintFunction));
   }
 
   protected ConstraintFunction<ConstraintContext_CanBeAncestor, Boolean> calculateCanBeAncestorConstraint() {
+    myCanBeAncestorIsDefined = false;
     return ConstraintFunctions.createBooleanComposition(collectParents(ConstraintFunctions::getCanBeAncestorConstraintFunction));
   }
 
@@ -126,14 +154,13 @@ public class BaseConstraintsDescriptor implements ConstraintsDescriptor {
     return myDefaultScopeConstraint;
   }
 
-  private <C, R> List<ConstraintFunction<C, R>> collectParents(
-      Function<BaseConstraintsDescriptor, ConstraintFunction<C, R>> mapper
-  ) {
-    return new InheritanceIterable(myConcept).stream()
-        .map(BaseConstraintsDescriptor::getDescriptor)
-        .filter(Objects::nonNull)
-        .map(mapper)
-        .collect(Collectors.toList());
+  private <C, R> Stream<ConstraintFunction<C, R>> collectParents(Function<BaseConstraintsDescriptor, ConstraintFunction<C, R>> mapper) {
+    // fixme rewrite without recursion
+    List<SAbstractConcept> directSuperConcepts = SModelUtil.getDirectSuperConcepts(myConcept);
+    return directSuperConcepts.stream()
+                              .map(BaseConstraintsDescriptor::getDescriptor)
+                              .filter(Objects::nonNull)
+                              .map(mapper);
   }
 
   protected static BaseConstraintsDescriptor getDescriptor(SAbstractConcept concept) {

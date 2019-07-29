@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.smodel.language;
 
+import jetbrains.mps.core.aspects.constraints.rules.RulesConstraintsRegistry;
 import jetbrains.mps.smodel.runtime.ConstraintsAspectDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.illegal.IllegalConstraintsDescriptor;
@@ -27,14 +28,22 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ConstraintsRegistry implements CoreAspectRegistry {
+/**
+ * Here we track constraints descriptors, both legacy and new.
+ *
+ * todo probably, here we will mirror all the methods from {@link RulesConstraintsRegistry}
+ */
+public final class ConstraintsRegistry implements CoreAspectRegistry {
   private static final Logger LOG = LogManager.getLogger(ConstraintsRegistry.class);
+
   private final ConceptInLoadingStorage<SAbstractConcept> myStorage = new ConceptInLoadingStorage<>();
   private final Map<SAbstractConcept, ConstraintsDescriptor> myConstraintsDescriptors = new ConcurrentHashMap<>();
   private final LanguageRegistry myLanguageRegistry;
+  private final RulesConstraintsRegistry myNewCounterpart;
 
-  public ConstraintsRegistry(LanguageRegistry languageRegistry) {
+  public ConstraintsRegistry(@NotNull LanguageRegistry languageRegistry) {
     myLanguageRegistry = languageRegistry;
+    myNewCounterpart = new RulesConstraintsRegistry(languageRegistry);
   }
 
   @NotNull
@@ -83,8 +92,13 @@ public class ConstraintsRegistry implements CoreAspectRegistry {
 
   }
 
+  public RulesConstraintsRegistry getNewRegistry() {
+    return myNewCounterpart;
+  }
+
   @Override
   public void clear() {
     myConstraintsDescriptors.clear();
+    myNewCounterpart.clear();
   }
 }

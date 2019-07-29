@@ -52,7 +52,7 @@ public class NodeCheckerUtil {
     List<IChecker<?, ? extends IssueKindReportItem>> result = ListSequence.fromList(new ArrayList<IChecker<?, ? extends IssueKindReportItem>>());
     ListSequence.fromList(result).addElement(new TypesystemChecker());
     ListSequence.fromList(result).addElement(new NonTypesystemChecker());
-    ListSequence.fromList(result).addElement(new ConstraintsChecker());
+    ListSequence.fromList(result).addElement(new ConstraintsChecker(null));
     ListSequence.fromList(result).addElement(new RefScopeChecker());
     ListSequence.fromList(result).addElement(new TargetConceptChecker());
     ListSequence.fromList(result).addElement(new StructureChecker());

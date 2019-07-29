@@ -17,12 +17,12 @@ public class Mac_KeymapChanges extends BaseKeymapChanges {
     addSimpleShortcut("jetbrains.mps.ide.actions.ShowClassInHierarchy_Action", getShortcut("ctrl H"));
     addSimpleShortcut("jetbrains.mps.ide.actions.ShowConceptInHierarchy_Action", getShortcut("ctrl H"));
     // simple with remove/replace 
-    addSimpleShortcut("jetbrains.mps.ide.actions.FindTextInProject_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl shift F"), false, true));
+    addSimpleShortcut("jetbrains.mps.ide.actions.FindTextInProject_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl alt shift F"), false, true));
     addSimpleShortcut("jetbrains.mps.ide.actions.ShowNodeInfo_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl Q"), false, true));
     // simple parameterized 
     addComplexShortcut("jetbrains.mps.ide.actions.GoToBookmark_Action", new BaseKeymapChanges.ComplexShortcut.ParameterizedSimpleShortcut(getShortcut("ctrl 0")));
     // complex 
-    addComplexShortcut("jetbrains.mps.ide.actions.GoToBookmark_Action", new Mac_KeymapChanges.GoToBookmark_ShortcutChange_tqv_g());
+    addComplexShortcut("jetbrains.mps.ide.actions.GoToBookmark_Action", new GoToBookmark_ShortcutChange_tqv_g());
   }
   public String getScheme() {
     return "Mac OS X";

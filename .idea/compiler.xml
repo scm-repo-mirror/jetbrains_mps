@@ -3,6 +3,8 @@
   <component name="CompilerConfiguration">
     <option name="BUILD_PROCESS_HEAP_SIZE" value="1024" />
     <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/languages.test/constraints.rulesAndMessages.sandbox/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages.test/constraints.rulesAndMessages.sandbox/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages.test/languageDesign/lang.editor.editorTest.extension/generator/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages.test/languageDesign/lang.editor.editorTest.extension/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages.test/languageDesign/lang.editor.editorTest/source_gen" includeSubdirectories="true" />
@@ -88,8 +90,19 @@
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/behavior/languages/testlang/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/checkedName/generator/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/checkedName/source_gen" includeSubdirectories="true" />
-      <directory url="file://$PROJECT_DIR$/languages/languageDesign/constraints/generator/source_gen" includeSubdirectories="true" />
-      <directory url="file://$PROJECT_DIR$/languages/languageDesign/constraints/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/constraints/legacy-msg-specification/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/constraints/legacy/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/constraints/legacy/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/constraints/rules/kinds/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/constraints/rules/kinds/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/constraints/rules/rules/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/constraints/rules/rules/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/constraints/rules/skeleton/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/constraints/rules/skeleton/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/context.defs/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/context.defs/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/context/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/context/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/customAspect/generator/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/customAspect/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/dataFlow/generator/source_gen" includeSubdirectories="true" />
@@ -102,6 +115,22 @@
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/editor/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/extension/generator/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/extension/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/feedback/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/feedback/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/messages/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/messages/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/problem/childAndProp/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/problem/childAndProp/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/problem/failingRule/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/problem/failingRule/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/problem/problem/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/problem/problem/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/problem/scopes/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/problem/scopes/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/problem/structural/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/problem/structural/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/skeleton/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/feedback/skeleton/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/findUsages/generator/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/findUsages/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/generator/languages/descriptor/generator/source_gen" includeSubdirectories="true" />
@@ -152,6 +181,10 @@
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/make/languages/script/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/make/solutions/jetbrains.mps.make.sandbox/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/make/solutions/jetbrains.mps.make.sandbox/test_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/messages/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/messages/rules/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/messages/rules/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/languages/languageDesign/messages/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/migration/generator/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/migration/solutions/actions/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/languages/languageDesign/migration/solutions/actions/test_gen" includeSubdirectories="true" />
@@ -576,6 +609,8 @@
       <directory url="file://$PROJECT_DIR$/samples/money/solutions/jetbrains.mps.baseLanguage.money.sandbox/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/samples/money/solutions/jetbrains.mps.baseLanguage.money.sandbox/test_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/samples/money/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/samples/multiAspectLang/generator/source_gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/samples/multiAspectLang/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/samples/multiTarget/languages/MultiTarget/sandbox/source_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/samples/multiTarget/languages/MultiTarget/sandbox/test_gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/samples/multiTarget/languages/MultiTarget/source_gen" includeSubdirectories="true" />
@@ -928,6 +963,11 @@
   </component>
   <component name="JavacSettings">
     <option name="DEPRECATION" value="false" />
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="debugger-java-api" options="--add-modules jdk.jdi" />
+      <module name="debugger-java-customViewers" options="--add-modules jdk.jdi" />
+      <module name="debugger-java-runtime" options="--add-modules jdk.jdi" />
+    </option>
     <option name="MAXIMUM_HEAP_SIZE" value="1024" />
   </component>
 </project>

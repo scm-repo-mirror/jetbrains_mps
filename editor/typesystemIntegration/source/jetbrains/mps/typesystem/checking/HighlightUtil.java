@@ -18,9 +18,7 @@ package jetbrains.mps.typesystem.checking;
 import jetbrains.mps.errors.MessageStatus;
 import jetbrains.mps.errors.item.NodeReportItem;
 import jetbrains.mps.nodeEditor.HighlighterMessage;
-import jetbrains.mps.openapi.editor.ColorConstants;
 import jetbrains.mps.openapi.editor.message.EditorMessageOwner;
-import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SRepository;
 
@@ -37,15 +35,6 @@ public class HighlightUtil {
   // used in mbeddr
   @SuppressWarnings("unused")
   public static Color getMessageColor(MessageStatus messageStatus) {
-    if (messageStatus == MessageStatus.ERROR) {
-      return new Color(ColorConstants.ERROR);
-    }
-    if (messageStatus == MessageStatus.WARNING) {
-      return new Color(StyleRegistry.getInstance().isDarkTheme() ? ColorConstants.WARNING_DARK : ColorConstants.WARNING);
-    }
-    if (messageStatus == MessageStatus.OK) {
-      return new Color(ColorConstants.OK);
-    }
-    return Color.BLACK;
+    return HighlighterMessage.getMessageColor(messageStatus);
   }
 }

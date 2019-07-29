@@ -10,6 +10,7 @@
   <imports>
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
+    <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
   </imports>
   <registry>
     <language id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test">
@@ -42,6 +43,9 @@
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
       </concept>
+      <concept id="1068580123155" name="jetbrains.mps.baseLanguage.structure.ExpressionStatement" flags="nn" index="3clFbF">
+        <child id="1068580123156" name="expression" index="3clFbG" />
+      </concept>
       <concept id="1068580123136" name="jetbrains.mps.baseLanguage.structure.StatementList" flags="sn" stub="5293379017992965193" index="3clFbS">
         <child id="1068581517665" name="statement" index="3cqZAp" />
       </concept>
@@ -49,9 +53,8 @@
         <child id="1068581242865" name="localVariableDeclaration" index="3cpWs9" />
       </concept>
       <concept id="1068581242863" name="jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration" flags="nr" index="3cpWsn" />
-      <concept id="1107535904670" name="jetbrains.mps.baseLanguage.structure.ClassifierType" flags="in" index="3uibUv">
-        <reference id="1107535924139" name="classifier" index="3uigEE" />
-        <child id="1109201940907" name="parameter" index="11_B2D" />
+      <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
+        <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
       </concept>
     </language>
     <language id="3a13115c-633c-4c5c-bbcc-75c4219e9555" name="jetbrains.mps.lang.quotation">
@@ -60,9 +63,6 @@
       </concept>
     </language>
     <language id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem">
-      <concept id="1177068340529" name="jetbrains.mps.lang.typesystem.structure.ImmediateSupertypesExpression" flags="nn" index="eJogz">
-        <child id="1177068475017" name="subtypeExpression" index="eJTer" />
-      </concept>
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
@@ -96,6 +96,7 @@
       </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
+      <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
       <concept id="1138055754698" name="jetbrains.mps.lang.smodel.structure.SNodeType" flags="in" index="3Tqbb2">
         <reference id="1138405853777" name="concept" index="ehGHo" />
       </concept>
@@ -269,17 +270,13 @@
               <node concept="7OXhh" id="69i6cTcJDFG" role="7EUXB" />
             </node>
           </node>
-          <node concept="3cpWs8" id="69i6cTcHpvg" role="3cqZAp">
-            <node concept="3cpWsn" id="69i6cTcHpvh" role="3cpWs9">
-              <property role="TrG5h" value="superTypes" />
-              <node concept="3uibUv" id="69i6cTcHpv8" role="1tU5fm">
-                <ref role="3uigEE" to="33ny:~Set" resolve="Set" />
-                <node concept="3Tqbb2" id="69i6cTcHpvb" role="11_B2D" />
+          <node concept="3clFbF" id="5fAG$7uAeDe" role="3cqZAp">
+            <node concept="2OqwBi" id="5fAG$7uAeIT" role="3clFbG">
+              <node concept="37vLTw" id="5fAG$7uAeDc" role="2Oq$k0">
+                <ref role="3cqZAo" node="69i6cTcHpqw" resolve="leftExpression" />
               </node>
-              <node concept="eJogz" id="69i6cTcHpvi" role="33vP2m">
-                <node concept="37vLTw" id="69i6cTcHpvj" role="eJTer">
-                  <ref role="3cqZAo" node="69i6cTcHpqw" resolve="leftExpression" />
-                </node>
+              <node concept="2qgKlT" id="5fAG$7uAeSJ" role="2OqNvi">
+                <ref role="37wK5l" to="tpcu:hEwIMiw" resolve="getPresentation" />
               </node>
             </node>
           </node>

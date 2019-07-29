@@ -18,6 +18,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class RoutineUniqueness_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public RoutineUniqueness_NonTypesystemRule() {
@@ -27,15 +28,15 @@ public class RoutineUniqueness_NonTypesystemRule extends AbstractNonTypesystemRu
       return;
     }
     Iterable<SNode> defs;
-    SNode parentScript = SNodeOperations.getNodeAncestor(routineDefinition, MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2d523c5e4cc45746L, "jetbrains.mps.samples.Kaja.structure.Script"), false, false);
+    SNode parentScript = SNodeOperations.getNodeAncestor(routineDefinition, AUX_8cz67z.Script_a5f03f85, false, false);
     if (parentScript != null) {
-      defs = ListSequence.fromList(SNodeOperations.getNodeDescendants(parentScript, MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ed6f79L, "jetbrains.mps.samples.Kaja.structure.RoutineDefinition"), false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
+      defs = ListSequence.fromList(SNodeOperations.getNodeDescendants(parentScript, AUX_8cz67z.RoutineDefinition_6674bc6d, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return SPropertyOperations.getString(routineDefinition, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
         }
       });
     } else {
-      defs = ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(routineDefinition, MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x3cfcda239f19d316L, "jetbrains.mps.samples.Kaja.structure.Library"), false, false), MetaAdapterFactory.getContainmentLink(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x3cfcda239f19d316L, 0x3cfcda239f19d317L, "definitions"))).where(new IWhereFilter<SNode>() {
+      defs = ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(routineDefinition, AUX_8cz67z.Library_9cea916e, false, false), MetaAdapterFactory.getContainmentLink(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x3cfcda239f19d316L, 0x3cfcda239f19d317L, "definitions"))).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return SPropertyOperations.getString(routineDefinition, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
         }
@@ -43,18 +44,24 @@ public class RoutineUniqueness_NonTypesystemRule extends AbstractNonTypesystemRu
     }
     if (Sequence.fromIterable(defs).count() > 1) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(routineDefinition, "Routine names must be unique within a Script or a Library", "r:af5f8eb9-49c0-4279-87d3-3c80b1a56988(jetbrains.mps.samples.Kaja.typesystem)", "1904811872814128956", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ed6f79L, "jetbrains.mps.samples.Kaja.structure.RoutineDefinition");
+    return AUX_8cz67z.RoutineDefinition_6674bc6d;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_8cz67z {
+    /*package*/ static final SConcept Script_a5f03f85 = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2d523c5e4cc45746L, "jetbrains.mps.samples.Kaja.structure.Script");
+    /*package*/ static final SConcept RoutineDefinition_6674bc6d = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ed6f79L, "jetbrains.mps.samples.Kaja.structure.RoutineDefinition");
+    /*package*/ static final SConcept Library_9cea916e = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x3cfcda239f19d316L, "jetbrains.mps.samples.Kaja.structure.Library");
   }
 }

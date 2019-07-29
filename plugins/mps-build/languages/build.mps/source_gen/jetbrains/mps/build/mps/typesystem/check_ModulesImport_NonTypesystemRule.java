@@ -23,6 +23,7 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.messages.MessageKind;
 import jetbrains.mps.build.mps.util.ModuleChecker;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class check_ModulesImport_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -36,7 +37,7 @@ public class check_ModulesImport_NonTypesystemRule extends AbstractNonTypesystem
     String workingDir = BuildProject__BehaviorDescriptor.getBasePath_id4jjtc7WZOyG.invoke(buildProject, Context.defaultContext());
     if ((workingDir == null || workingDir.length() == 0)) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(buildProject, "working directory is unavailable", "r:473be7a1-ec10-4475-89b9-397d2558ecb0(jetbrains.mps.build.mps.typesystem)", "2531699772406302731", null, errorTarget);
       }
       return;
@@ -52,12 +53,12 @@ public class check_ModulesImport_NonTypesystemRule extends AbstractNonTypesystem
         }
         if (msg.getKind() == MessageKind.ERROR) {
           {
-            MessageTarget errorTarget = new NodeMessageTarget();
+            final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(location, msg.getText(), "r:473be7a1-ec10-4475-89b9-397d2558ecb0(jetbrains.mps.build.mps.typesystem)", "7141285424006551198", null, errorTarget);
           }
         } else if (msg.getKind() == MessageKind.WARNING) {
           {
-            MessageTarget errorTarget = new NodeMessageTarget();
+            final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(location, msg.getText(), "r:473be7a1-ec10-4475-89b9-397d2558ecb0(jetbrains.mps.build.mps.typesystem)", "2799875068636550272", null, errorTarget);
           }
         }
@@ -66,12 +67,16 @@ public class check_ModulesImport_NonTypesystemRule extends AbstractNonTypesystem
     ml.checkAllModules(ModuleChecker.CheckType.CHECK);
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+    return AUX_e9am04.BuildProject_808bb057;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_e9am04 {
+    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
   }
 }

@@ -6,7 +6,7 @@
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
     <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="-1" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="-1" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="-1" />
     <use id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging" version="-1" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
   </languages>
@@ -1375,12 +1375,14 @@
                 </node>
                 <node concept="2ShNRf" id="34euvBSHAJv" role="HW$Y0">
                   <node concept="1pGfFk" id="34euvBSHAJw" role="2ShVmc">
-                    <ref role="37wK5l" to="wsw7:6qi2OtU3uwS" resolve="ConstraintsChecker" />
+                    <ref role="37wK5l" to="k2t0:~ConstraintsChecker.&lt;init&gt;(jetbrains.mps.components.ComponentHost)" resolve="ConstraintsChecker" />
+                    <node concept="10Nm6u" id="3ost_8YMRFk" role="37wK5m" />
                   </node>
                 </node>
                 <node concept="2ShNRf" id="34euvBSHAJx" role="HW$Y0">
                   <node concept="1pGfFk" id="34euvBSHAJy" role="2ShVmc">
-                    <ref role="37wK5l" to="wsw7:6qi2OtU3tXr" resolve="RefScopeChecker" />
+                    <ref role="37wK5l" to="k2t0:~RefScopeChecker.&lt;init&gt;(jetbrains.mps.components.ComponentHost)" resolve="RefScopeChecker" />
+                    <node concept="10Nm6u" id="3ost_8YMS86" role="37wK5m" />
                   </node>
                 </node>
                 <node concept="2ShNRf" id="34euvBSHAJz" role="HW$Y0">
@@ -1606,21 +1608,15 @@
                 </node>
                 <node concept="10QFUN" id="3ukCc1okV3b" role="HW$Y0">
                   <node concept="10QFUN" id="3ukCc1okV37" role="10QFUP">
-                    <node concept="2ShNRf" id="3ukCc1okV38" role="10QFUP">
-                      <node concept="1pGfFk" id="3ukCc1okV39" role="2ShVmc">
-                        <ref role="37wK5l" to="6if8:~StructureChecker.&lt;init&gt;(boolean,boolean,boolean,boolean)" resolve="StructureChecker" />
-                        <node concept="3clFbT" id="3ukCc1okXCy" role="37wK5m">
-                          <property role="3clFbU" value="true" />
+                    <node concept="2OqwBi" id="3ost_8YM$rx" role="10QFUP">
+                      <node concept="2ShNRf" id="3ukCc1okV38" role="2Oq$k0">
+                        <node concept="1pGfFk" id="3ukCc1okV39" role="2ShVmc">
+                          <ref role="37wK5l" to="6if8:~StructureChecker.&lt;init&gt;(jetbrains.mps.components.ComponentHost)" resolve="StructureChecker" />
+                          <node concept="10Nm6u" id="3ost_8YMyaQ" role="37wK5m" />
                         </node>
-                        <node concept="3clFbT" id="3ukCc1okYdi" role="37wK5m">
-                          <property role="3clFbU" value="true" />
-                        </node>
-                        <node concept="3clFbT" id="3ukCc1okYNn" role="37wK5m">
-                          <property role="3clFbU" value="true" />
-                        </node>
-                        <node concept="3clFbT" id="3ukCc1okZom" role="37wK5m">
-                          <property role="3clFbU" value="false" />
-                        </node>
+                      </node>
+                      <node concept="liA8E" id="3ost_8YMAe7" role="2OqNvi">
+                        <ref role="37wK5l" to="6if8:~StructureChecker.withoutBrokenReferences()" resolve="withoutBrokenReferences" />
                       </node>
                     </node>
                     <node concept="3uibUv" id="3ukCc1okV3a" role="10QFUM">
@@ -1682,15 +1678,20 @@
                 </node>
                 <node concept="10QFUN" id="3ukCc1olfXX" role="HW$Y0">
                   <node concept="10QFUN" id="3ukCc1olfXY" role="10QFUP">
-                    <node concept="2ShNRf" id="3ukCc1olfXZ" role="10QFUP">
-                      <node concept="1pGfFk" id="3ukCc1olfY0" role="2ShVmc">
-                        <ref role="37wK5l" to="6if8:~StructureChecker.&lt;init&gt;(boolean,boolean,boolean,boolean)" resolve="StructureChecker" />
-                        <node concept="3clFbT" id="3ukCc1olfY1" role="37wK5m" />
-                        <node concept="3clFbT" id="3ukCc1olfY2" role="37wK5m" />
-                        <node concept="3clFbT" id="3ukCc1olfY3" role="37wK5m" />
-                        <node concept="3clFbT" id="3ukCc1olfY4" role="37wK5m">
-                          <property role="3clFbU" value="true" />
+                    <node concept="2OqwBi" id="3ost_8YMFEh" role="10QFUP">
+                      <node concept="2OqwBi" id="3ost_8YMD0z" role="2Oq$k0">
+                        <node concept="2ShNRf" id="3ukCc1olfXZ" role="2Oq$k0">
+                          <node concept="1pGfFk" id="3ukCc1olfY0" role="2ShVmc">
+                            <ref role="37wK5l" to="6if8:~StructureChecker.&lt;init&gt;(jetbrains.mps.components.ComponentHost)" resolve="StructureChecker" />
+                            <node concept="10Nm6u" id="3ost_8YMC4z" role="37wK5m" />
+                          </node>
                         </node>
+                        <node concept="liA8E" id="3ost_8YMEI_" role="2OqNvi">
+                          <ref role="37wK5l" to="6if8:~StructureChecker.withoutCardinalities()" resolve="withoutCardinalities" />
+                        </node>
+                      </node>
+                      <node concept="liA8E" id="3ost_8YMGb_" role="2OqNvi">
+                        <ref role="37wK5l" to="6if8:~StructureChecker.withoutMissingRTLanguages()" resolve="withoutMissingRTLanguages" />
                       </node>
                     </node>
                     <node concept="3uibUv" id="3ukCc1olfY5" role="10QFUM">
@@ -3116,7 +3117,7 @@
               <ref role="37wK5l" to="wyt6:~System.getProperties()" resolve="getProperties" />
             </node>
             <node concept="liA8E" id="8knae4MO8j" role="2OqNvi">
-              <ref role="37wK5l" to="33ny:~Hashtable.entrySet()" resolve="entrySet" />
+              <ref role="37wK5l" to="33ny:~Properties.entrySet()" resolve="entrySet" />
             </node>
           </node>
         </node>

@@ -17,6 +17,7 @@ import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.typesystem.runtime.HUtil;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class raw_ClassifierType_subtypeOf_generic_ClassifierType_InequationReplacementRule extends AbstractInequationReplacementRule_Runtime {
   public raw_ClassifierType_subtypeOf_generic_ClassifierType_InequationReplacementRule() {
@@ -30,7 +31,7 @@ public class raw_ClassifierType_subtypeOf_generic_ClassifierType_InequationRepla
     if (SNodeOperations.getModel(subtype) != null) {
       // it's strange to report an error for typesystem node as it will be never shown 
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(subtype, "Unchecked conversion", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "2796241438627654736", null, errorTarget);
         HUtil.addAdditionalRuleIdsFromInfo(_reporter_2309309498, equationInfo);
       }
@@ -57,9 +58,13 @@ public class raw_ClassifierType_subtypeOf_generic_ClassifierType_InequationRepla
   }
 
   public SAbstractConcept getApplicableSubtypeConcept() {
-    return MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+    return AUX_fjrm4e.ClassifierType_42700403;
   }
   public SAbstractConcept getApplicableSupertypeConcept() {
-    return MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+    return AUX_fjrm4e.ClassifierType_42700403;
+  }
+
+  private static final class AUX_fjrm4e {
+    /*package*/ static final SConcept ClassifierType_42700403 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
   }
 }

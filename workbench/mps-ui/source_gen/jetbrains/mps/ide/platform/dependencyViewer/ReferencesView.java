@@ -12,17 +12,13 @@ import java.util.List;
 import jetbrains.mps.ide.findusages.model.CategoryKind;
 import java.util.Collections;
 import javax.swing.Icon;
-import jetbrains.mps.ide.findusages.view.treeholder.tree.TextOptions;
 import jetbrains.mps.ide.icons.IdeIcons;
-import org.jetbrains.annotations.NotNull;
-import org.jdom.Element;
-import jetbrains.mps.ide.findusages.CantLoadSomethingException;
-import jetbrains.mps.ide.findusages.CantSaveSomethingException;
+import jetbrains.mps.ide.findusages.view.treeholder.tree.TextOptions;
 
 public class ReferencesView extends UsagesView {
   public ReferencesView(Project project, DependenciesPanel component) {
     super(project, new ViewOptions(false, false, false, false, false, false));
-    setCustomNodeRepresentator(new ReferencesView.MyNodeRepresentator());
+    setCustomNodeRepresentator(new MyNodeRepresentator());
     UsagesTree usagesTree = getTreeComponent().getTree();
     usagesTree.setSelectionRow(0);
     usagesTree.setShowPopupMenu(false);
@@ -36,31 +32,12 @@ public class ReferencesView extends UsagesView {
       return Collections.emptyList();
     }
     @Override
-    public Icon getCategoryIcon(String string) {
-      return null;
-    }
-    @Override
-    public String getCategoryText(TextOptions options, String string, boolean b) {
-      return "References";
-    }
-    @Override
     public Icon getResultsIcon() {
       return IdeIcons.DEFAULT_ICON;
     }
     @Override
     public String getResultsText(TextOptions options) {
       return "Usages of the right tree scope selection in the left tree scope selection";
-    }
-    @NotNull
-    @Override
-    public String getPresentation(SNode node) {
-      return node.getPresentation();
-    }
-    @Override
-    public void read(Element element, jetbrains.mps.project.Project project) throws CantLoadSomethingException {
-    }
-    @Override
-    public void write(Element element, jetbrains.mps.project.Project project) throws CantSaveSomethingException {
     }
   }
 }

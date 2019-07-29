@@ -17,6 +17,7 @@ package jetbrains.mps.nodeEditor.cellMenu;
 
 import com.intellij.util.ui.UIUtil;
 import jetbrains.mps.nodeEditor.EditorComponent;
+import jetbrains.mps.nodeEditor.MPSColors;
 import jetbrains.mps.nodeEditor.cells.TextLine;
 import jetbrains.mps.nodeEditor.keyboard.TextChangeEvent;
 import jetbrains.mps.openapi.editor.style.StyleRegistry;
@@ -304,9 +305,9 @@ public class NodeSubstitutePatternEditor {
       protected void paintComponent(Graphics g) {
         // COLORS: move colors to properties
         Rectangle bounds = g.getClipBounds();
-        g.setColor(StyleRegistry.getInstance().getSimpleColor(Color.YELLOW));
+        g.setColor(StyleRegistry.getInstance().getSimpleColor(MPSColors.YELLOW));
         g.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
-        g.setColor(StyleRegistry.getInstance().getSimpleColor(Color.GRAY));
+        g.setColor(StyleRegistry.getInstance().getSimpleColor(MPSColors.GRAY));
         g.drawRect(bounds.x, bounds.y, bounds.width - 1, bounds.height - 1);
         EditorComponent.turnOnAliasingIfPossible((Graphics2D) g);
 

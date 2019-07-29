@@ -32,6 +32,9 @@
         <property id="1225118929411" name="build" index="YLPcu" />
         <property id="1225118933224" name="comment" index="YLQ7P" />
       </concept>
+      <concept id="7862711839422615209" name="jetbrains.mps.lang.structure.structure.DocumentedNodeAnnotation" flags="ng" index="t5JxF">
+        <property id="7862711839422615217" name="text" index="t5JxN" />
+      </concept>
       <concept id="6054523464626862044" name="jetbrains.mps.lang.structure.structure.AttributeInfo_IsMultiple" flags="ng" index="tn0Fv">
         <property id="6054523464626875854" name="value" index="tnX3d" />
       </concept>
@@ -1231,6 +1234,38 @@
       <property role="TrG5h" value="none" />
       <property role="3tVfz5" value="5404671619616246764" />
       <ref role="2wpffI" node="4G1g3fIR8JG" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="nddphzyHx5">
+    <property role="TrG5h" value="ExperimentalAPINodeAttribute" />
+    <property role="3GE5qa" value="deprecatedAnnotation" />
+    <property role="EcuMT" value="418049251856799813" />
+    <property role="R5$K2" value="true" />
+    <ref role="1TJDcQ" to="tpck:2ULFgo8_XDk" resolve="NodeAttribute" />
+    <node concept="PrWs8" id="nddphzyHx6" role="PzmwI">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+    <node concept="PrWs8" id="nddphzyHx7" role="PzmwI">
+      <ref role="PrY4T" to="tpck:19gBtYEAf4C" resolve="InterfacePart" />
+    </node>
+    <node concept="1TJgyi" id="nddphzyHx8" role="1TKVEl">
+      <property role="TrG5h" value="build" />
+      <property role="IQ2nx" value="418049251856799816" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyi" id="nddphzyHx9" role="1TKVEl">
+      <property role="TrG5h" value="comment" />
+      <property role="IQ2nx" value="418049251856799817" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="M6xJ_" id="nddphzyHxa" role="lGtFl">
+      <property role="Hh88m" value="experimentalAPIAttribute" />
+      <node concept="trNpa" id="nddphzEnSj" role="EQaZv">
+        <ref role="trN6q" node="h0PkWnZ" resolve="AbstractConceptDeclaration" />
+      </node>
+    </node>
+    <node concept="t5JxF" id="6WJr2NngPmT" role="lGtFl">
+      <property role="t5JxN" value="Use this attribtue with those concept declarations which offer some non-stable or early-access functionality" />
     </node>
   </node>
 </model>

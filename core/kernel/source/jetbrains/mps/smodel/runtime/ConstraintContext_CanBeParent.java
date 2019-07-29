@@ -15,6 +15,7 @@
  */
 package jetbrains.mps.smodel.runtime;
 
+import jetbrains.mps.core.aspects.constraints.rules.kinds.ContainmentContext;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -27,50 +28,56 @@ import org.jetbrains.mps.openapi.model.SNode;
  * @author Radimir.Sorokin
  * @since 3.5
  */
+// @Deprecated
 public final class ConstraintContext_CanBeParent {
+  @NotNull private final ContainmentContext myNewContext;
 
-  @Nullable
-  private final SNode myChildNode;
-
-  @NotNull
-  private final SNode myNode;
-
-  @NotNull
-  private final SAbstractConcept myChildConcept;
-
-  /*TODO @NotNull*/
-  private final SContainmentLink myLink;
+  private ConstraintContext_CanBeParent(@NotNull ContainmentContext context) {
+    myNewContext = context;
+  }
 
   public ConstraintContext_CanBeParent(@NotNull SNode childNode) {
-    myChildNode = childNode;
-    myNode = childNode.getParent();
-    myChildConcept = childNode.getConcept();
-    myLink = childNode.getContainmentLink();
+    myNewContext = new ContainmentContext.Builder().buildFromChildNode(childNode);
   }
 
   public ConstraintContext_CanBeParent(@NotNull SAbstractConcept childConcept, @NotNull SNode node, SContainmentLink link) {
-    myChildNode = null;
-    myNode = node;
-    myChildConcept = childConcept;
-    myLink = link;
+    myNewContext = new ContainmentContext.Builder()
+                       .childConcept(childConcept)
+                       .parentNode(node)
+                       .link(link)
+                       .build();
+  }
+
+  public static ConstraintContext_CanBeParent convert(@NotNull ContainmentContext context) {
+    return new ConstraintContext_CanBeParent(context);
+  }
+
+  @NotNull
+  public ContainmentContext adapt() {
+    return myNewContext;
   }
 
   @Nullable
   public SNode getChildNode() {
-    return myChildNode;
+    return myNewContext.getChildNode();
   }
 
   @NotNull
   public SNode getNode() {
-    return myNode;
+    return myNewContext.getParentNode();
   }
 
   @NotNull
   public SAbstractConcept getChildConcept() {
-    return myChildConcept;
+    return myNewContext.getChildConcept();
   }
 
   public SContainmentLink getLink() {
-    return myLink;
+    return myNewContext.getLink();
+  }
+
+  @NotNull
+  public SAbstractConcept getConcept() {
+    return myNewContext.getParentConcept();
   }
 }

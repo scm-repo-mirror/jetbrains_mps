@@ -22,6 +22,7 @@ import java.util.Objects;
 import jetbrains.mps.lang.structure.util.ConceptIdHelper;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_AbstractConceptDeclaration_Ids_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_AbstractConceptDeclaration_Ids_NonTypesystemRule() {
@@ -33,7 +34,7 @@ public class check_AbstractConceptDeclaration_Ids_NonTypesystemRule extends Abst
 
     if (isEmptyString(SPropertyOperations.getString(acd, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId")))) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(acd, "Concept id is not defined.\n" + "Please run MainMenu->Migration->Migrations->Language Migrations->j.m.lang.structure->Set Ids\n" + "If this concept was created manually, invoke the \"Generate IDs\" intention on it", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "1587916991969781666", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.structure.typesystem.GenerateConceptIds_QuickFix", false);
@@ -42,13 +43,13 @@ public class check_AbstractConceptDeclaration_Ids_NonTypesystemRule extends Abst
         }
       }
     } else {
-      if (ListSequence.fromList(SModelOperations.nodes(SNodeOperations.getModel(acd), MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration"))).any(new IWhereFilter<SNode>() {
+      if (ListSequence.fromList(SModelOperations.nodes(SNodeOperations.getModel(acd), AUX_hcbjaj.AbstractConceptDeclaration_ec74828f)).any(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return it != acd && Objects.equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId")), SPropertyOperations.getString(acd, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId")));
         }
       })) {
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
+          final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(acd, "Duplicate concept id.\n" + "Please invoke the \"Correct ID\" intention on it", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "5424895381998262898", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.structure.typesystem.CorrectDuplicateId_QuickFix", false);
@@ -58,7 +59,7 @@ public class check_AbstractConceptDeclaration_Ids_NonTypesystemRule extends Abst
         }
       } else if (!(Objects.equals(SPropertyOperations.getString(acd, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId")), ConceptIdHelper.getNodeIdString(acd)))) {
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
+          final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(acd, "Node id and concept id differ. It's recommended to keep ids synchronised until MPS 3.5. Use quickfix to set corrected id", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "2819660830273583910", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.structure.typesystem.CorrectDuplicateId_QuickFix", false);
@@ -72,7 +73,7 @@ public class check_AbstractConceptDeclaration_Ids_NonTypesystemRule extends Abst
     for (final SNode p : ListSequence.fromList(SLinkOperations.getChildren(acd, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6cL, "propertyDeclaration")))) {
       if (isEmptyString(SPropertyOperations.getString(p, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId")))) {
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
+          final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(p, "Property id is not defined.\n" + "Please run MainMenu->Migration->Migrations->Language Migrations->j.m.lang.structure->Set Ids\n" + "If this property was created manually, invoke the \"Generate IDs\" intention on it", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "241647608299548534", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.structure.typesystem.GenerateConceptIds_QuickFix", false);
@@ -87,7 +88,7 @@ public class check_AbstractConceptDeclaration_Ids_NonTypesystemRule extends Abst
           }
         })) {
           {
-            MessageTarget errorTarget = new NodeMessageTarget();
+            final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(p, "Duplicate property id.\n" + "Please invoke the \"Correct ID\" intention on it", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "5424895381998286923", null, errorTarget);
             {
               BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.structure.typesystem.CorrectDuplicateId_QuickFix", false);
@@ -97,7 +98,7 @@ public class check_AbstractConceptDeclaration_Ids_NonTypesystemRule extends Abst
           }
         } else if (!(Objects.equals(SPropertyOperations.getString(p, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId")), ConceptIdHelper.getNodeIdString(p)))) {
           {
-            MessageTarget errorTarget = new NodeMessageTarget();
+            final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(p, "Node id and property id differ. It's recommended to keep ids synchronised until MPS 3.5. Use quickfix to set corrected id", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "2819660830273589312", null, errorTarget);
             {
               BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.structure.typesystem.CorrectDuplicateId_QuickFix", false);
@@ -112,7 +113,7 @@ public class check_AbstractConceptDeclaration_Ids_NonTypesystemRule extends Abst
     for (final SNode l : ListSequence.fromList(SLinkOperations.getChildren(acd, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6bL, "linkDeclaration")))) {
       if (isEmptyString(SPropertyOperations.getString(l, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId")))) {
         {
-          MessageTarget errorTarget = new NodeMessageTarget();
+          final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(l, "Link id is not defined.\n" + "Please run MainMenu->Migration->Migrations->Language Migrations->j.m.lang.structure->Set Ids\n" + "If this link was created manually, invoke the \"Generate IDs\" intention on it", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "241647608299555835", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.structure.typesystem.GenerateConceptIds_QuickFix", false);
@@ -127,7 +128,7 @@ public class check_AbstractConceptDeclaration_Ids_NonTypesystemRule extends Abst
           }
         })) {
           {
-            MessageTarget errorTarget = new NodeMessageTarget();
+            final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(l, "Duplicate link id.\n" + "Please invoke the \"Correct ID\" intention on it", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "5424895381998288260", null, errorTarget);
             {
               BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.structure.typesystem.CorrectDuplicateId_QuickFix", false);
@@ -137,8 +138,8 @@ public class check_AbstractConceptDeclaration_Ids_NonTypesystemRule extends Abst
           }
         } else if (!(Objects.equals(SPropertyOperations.getString(l, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId")), ConceptIdHelper.getNodeIdString(l)))) {
           {
-            MessageTarget errorTarget = new NodeMessageTarget();
-            IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(l, "Node id and property id differ. It's recommended to keep ids synchronised. Use quickfix to set corrected id", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "2819660830273606558", null, errorTarget);
+            final MessageTarget errorTarget = new NodeMessageTarget();
+            IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(l, "Node id and link id differ. It's recommended to keep ids synchronised. Use quickfix to set corrected id", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "2819660830273606558", null, errorTarget);
             {
               BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.structure.typesystem.CorrectDuplicateId_QuickFix", false);
               intentionProvider.putArgument("l", l);
@@ -150,7 +151,7 @@ public class check_AbstractConceptDeclaration_Ids_NonTypesystemRule extends Abst
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    return AUX_hcbjaj.AbstractConceptDeclaration_ec74828f;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -160,5 +161,9 @@ public class check_AbstractConceptDeclaration_Ids_NonTypesystemRule extends Abst
   }
   private static boolean isEmptyString(String str) {
     return str == null || str.length() == 0;
+  }
+
+  private static final class AUX_hcbjaj {
+    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
   }
 }

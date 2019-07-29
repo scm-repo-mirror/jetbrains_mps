@@ -12,6 +12,7 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class check_DragMouseStatement_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -20,18 +21,22 @@ public class check_DragMouseStatement_NonTypesystemRule extends AbstractNonTypes
   public void applyRule(final SNode dragMouseStatement, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (DragMouseStatement__BehaviorDescriptor.getPressMouseStatement_id3CVcUJxN49_.invoke(dragMouseStatement) == null) {
       {
-        MessageTarget errorTarget = new NodeMessageTarget();
+        final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(dragMouseStatement, "Drag Mouse statement should be located inside Press Mouse statement", "r:00000000-0000-4000-0000-011c89590385(jetbrains.mps.lang.test.typesystem)", "4196004291146540914", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x2ec0ea8c55ca0a3L, "jetbrains.mps.lang.test.structure.DragMouseStatement");
+    return AUX_eyi3v8.DragMouseStatement_897fb853;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
   public boolean overrides() {
     return false;
+  }
+
+  private static final class AUX_eyi3v8 {
+    /*package*/ static final SConcept DragMouseStatement_897fb853 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x2ec0ea8c55ca0a3L, "jetbrains.mps.lang.test.structure.DragMouseStatement");
   }
 }

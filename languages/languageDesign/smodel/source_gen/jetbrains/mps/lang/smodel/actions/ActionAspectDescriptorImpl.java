@@ -9,6 +9,7 @@ import jetbrains.mps.openapi.actions.descriptor.NodeFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.Arrays;
 import java.util.Collections;
+import jetbrains.mps.openapi.actions.descriptor.PasteWrapper;
 
 public class ActionAspectDescriptorImpl extends BaseActionAspectDescriptor implements ActionAspectDescriptor {
   private static final String LANGUAGE_FQ_NAME = "jetbrains.mps.lang.smodel";
@@ -61,5 +62,9 @@ public class ActionAspectDescriptorImpl extends BaseActionAspectDescriptor imple
     return Collections.<NodeFactory>emptyList();
   }
 
-  private static String[] stringSwitchCases_tpto26_a0a0a0c = new String[]{"ConceptIdRefExpression", "ConceptRefExpression", "Concept_IsSubConceptOfOperation", "Concept_IsSuperConceptOfOperation", "Concept_NewInstance", "LinkList_AddNewChildOperation", "Link_SetNewChildOperation", "Model_CreateNewNodeOperation", "Node_GetAncestorOperation", "Node_GetChildrenAndChildAttributesOperation", "Node_GetDescendantsOperation", "Node_InsertNewNextSiblingOperation", "Node_InsertNewPrevSiblingOperation", "Node_ReplaceWithNewOperation", "SConceptType", "SNodeCreator", "SNodeListType", "SNodePointerType", "SNodeType"};
+  @Override
+  public Collection<PasteWrapper> getPasteWrappers() {
+    return Arrays.asList(new PasteWrapper[]{new SwitchExpressionPW_PasteWrapper_0(), new SwitchExpressionPW_PasteWrapper_1(), new SwitchExpressionPW_PasteWrapper_2(), new SwitchExpressionPW_PasteWrapper_3(), new SwitchExpressionPW_PasteWrapper_4(), new SwitchExpressionPW_PasteWrapper_5(), new SwitchExpressionPW_PasteWrapper_6()});
+  }
+  private static final String[] stringSwitchCases_tpto26_a0a0a0c = new String[]{"ConceptIdRefExpression", "ConceptRefExpression", "Concept_IsSubConceptOfOperation", "Concept_IsSuperConceptOfOperation", "Concept_NewInstance", "LinkList_AddNewChildOperation", "Link_SetNewChildOperation", "Model_CreateNewNodeOperation", "Node_GetAncestorOperation", "Node_GetChildrenAndChildAttributesOperation", "Node_GetDescendantsOperation", "Node_InsertNewNextSiblingOperation", "Node_InsertNewPrevSiblingOperation", "Node_ReplaceWithNewOperation", "SConceptType", "SNodeCreator", "SNodeListType", "SNodePointerType", "SNodeType"};
 }

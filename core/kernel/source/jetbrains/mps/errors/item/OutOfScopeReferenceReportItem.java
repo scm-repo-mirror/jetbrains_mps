@@ -34,11 +34,18 @@ public class OutOfScopeReferenceReportItem extends ReferenceReportItem implement
   private final TypesystemRuleId myRuleNode;
   private final EditorQuickFix myQuickfix;
   private final EditorQuickFix myAddImportQuickfix;
+
+  @Deprecated
   public OutOfScopeReferenceReportItem(@NotNull SReference ref, @Nullable SNodeReference ruleNode, @NotNull EditorQuickFix quickfix) {
-    this(ref, ruleNode, quickfix, null);
+    this(ref, ruleNode, quickfix, null, "");
   }
-  public OutOfScopeReferenceReportItem(@NotNull SReference ref, @Nullable SNodeReference ruleNode, @NotNull EditorQuickFix quickfix, @Nullable EditorQuickFix addImportQuickfix) {
-    super(MessageStatus.ERROR, ref, getMessage(ref.getTargetNode().getName(), ref.getLink()));
+
+  public OutOfScopeReferenceReportItem(@NotNull SReference ref,
+                                       @Nullable SNodeReference ruleNode,
+                                       @NotNull EditorQuickFix quickfix,
+                                       @Nullable EditorQuickFix addImportQuickfix,
+                                       @NotNull String message) {
+    super(MessageStatus.ERROR, ref, message);
     myRuleNode = ruleNode == null ? null : new TypesystemRuleId(ruleNode);
     myQuickfix = quickfix;
     myAddImportQuickfix = addImportQuickfix;
@@ -47,10 +54,6 @@ public class OutOfScopeReferenceReportItem extends ReferenceReportItem implement
   @Override
   public Set<ReportItemFlavour<?, ?>> getIdFlavours() {
     return new HashSet<>(Arrays.asList(FLAVOUR_ISSUE_KIND, FLAVOUR_NODE, FLAVOUR_NODE_FEATURE, FLAVOUR_RULE_ID));
-  }
-
-  public static String getMessage(String targetName, SReferenceLink referenceLink) {
-    return "reference" + (targetName == null ? "" : " " + targetName) + " (" + referenceLink.getName() + ") is out of search scope";
   }
 
   @Override

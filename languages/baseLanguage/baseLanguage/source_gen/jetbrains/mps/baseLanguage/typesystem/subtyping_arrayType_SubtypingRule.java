@@ -9,31 +9,40 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import java.util.ArrayList;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.typechecking.TypecheckingFacade;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.baseLanguage.behavior.Type__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.pattern.util.MatchingUtil;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.SReference;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class subtyping_arrayType_SubtypingRule extends SubtypingRule_Runtime implements ISubtypingRule_Runtime {
   public subtyping_arrayType_SubtypingRule() {
   }
   public List<SNode> getSubOrSuperTypes(SNode arrayType, TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     List<SNode> result = new ArrayList<SNode>();
-    if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(arrayType, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, 0xf940d819f8L, "componentType")), MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType")))) {
-      for (SNode componentTypeSupertype : TypecheckingFacade.getFromContext().getImmediateSupertypes(SLinkOperations.getTarget(arrayType, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, 0xf940d819f8L, "componentType")))) {
-        if (SNodeOperations.isInstanceOf(componentTypeSupertype, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type"))) {
-          ListSequence.fromList(result).addElement(_quotation_createNode_ny91lb_a0a0a0a0a1a1(componentTypeSupertype));
-        }
+    SNode componentType = SLinkOperations.getTarget(arrayType, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, 0xf940d819f8L, "componentType"));
+    if (SNodeOperations.isInstanceOf(componentType, AUX_ny91lb.Type_4199e276) && !(SNodeOperations.isInstanceOf(componentType, AUX_ny91lb.PrimitiveType_53355efd))) {
+      for (SNode componentTypeSupertype : Type__BehaviorDescriptor.getSupertypes_id4w2h6RLlygH.invoke(componentType)) {
+        ListSequence.fromList(result).addElement(_quotation_createNode_ny91lb_a0a0a0a2a1(componentTypeSupertype));
+      }
+      if (SNodeOperations.isInstanceOf(componentType, AUX_ny91lb.ArrayType_67000423)) {
+        ListSequence.fromList(result).addElement(_quotation_createNode_ny91lb_a0a0a1a2a1());
+      }
+      SNode javaType = Type__BehaviorDescriptor.getJavaType_idhEwIzO1.invoke(componentType);
+      if (!((MatchingUtil.matchNodes(componentType, javaType)))) {
+        ListSequence.fromList(result).addElement(SNodeOperations.copyNode(javaType));
       }
     }
     return result;
   }
   public SAbstractConcept getApplicableConcept() {
-    return MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, "jetbrains.mps.baseLanguage.structure.ArrayType");
+    return AUX_ny91lb.ArrayType_67000423;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -41,7 +50,7 @@ public class subtyping_arrayType_SubtypingRule extends SubtypingRule_Runtime imp
   public boolean isWeak() {
     return false;
   }
-  private static SNode _quotation_createNode_ny91lb_a0a0a0a0a1a1(Object parameter_1) {
+  private static SNode _quotation_createNode_ny91lb_a0a0a0a2a1(Object parameter_1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     SNode quotedNode_3 = null;
@@ -51,5 +60,21 @@ public class subtyping_arrayType_SubtypingRule extends SubtypingRule_Runtime imp
       quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, 0xf940d819f8L, "componentType"), SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
+  }
+  private static SNode _quotation_createNode_ny91lb_a0a0a1a2a1() {
+    PersistenceFacade facade = PersistenceFacade.getInstance();
+    SNode quotedNode_1 = null;
+    SNode quotedNode_2 = null;
+    quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf940d819f7L, "ArrayType"), null, null, false);
+    quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType"), null, null, false);
+    quotedNode_2.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), SReference.create(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), quotedNode_2, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Object")));
+    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, 0xf940d819f8L, "componentType"), quotedNode_2);
+    return quotedNode_1;
+  }
+
+  private static final class AUX_ny91lb {
+    /*package*/ static final SConcept ArrayType_67000423 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, "jetbrains.mps.baseLanguage.structure.ArrayType");
+    /*package*/ static final SConcept Type_4199e276 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+    /*package*/ static final SConcept PrimitiveType_53355efd = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType");
   }
 }
