@@ -2934,7 +2934,7 @@
             <ref role="L2wRA" node="SHPhCD4xa0" resolve="jetbrains.mps.lang.rulesAndMessages" />
           </node>
           <node concept="L2wRC" id="SHPhCD4yzL" role="39821P">
-            <ref role="L2wRA" node="3qkjbZn4$o0" resolve="jetbrains.mps.lang.constraints.msgSpecification" />
+            <ref role="L2wRA" node="3qkjbZn4$o0" resolve="jetbrains.mps.lang.constraints.msg.specification" />
           </node>
           <node concept="L2wRC" id="2d0qgmCdfZs" role="39821P">
             <ref role="L2wRA" node="7Kfy9QB6KXW" resolve="jetbrains.mps.lang.core" />
@@ -9618,7 +9618,7 @@
       </node>
       <node concept="1E1JtD" id="3qkjbZn4$o0" role="2G$12L">
         <property role="BnDLt" value="true" />
-        <property role="TrG5h" value="jetbrains.mps.lang.constraints.msgSpecification" />
+        <property role="TrG5h" value="jetbrains.mps.lang.constraints.msg.specification" />
         <property role="3LESm3" value="e51810c5-7308-4642-bcb6-469e61b5dd18" />
         <node concept="3rtmxn" id="3qkjbZn4$o1" role="3bR31x">
           <node concept="3LXTmp" id="3qkjbZn4$o2" role="3rtmxm">
@@ -9650,7 +9650,7 @@
                 <node concept="2Ry0Ak" id="3qkjbZn4$X9" role="2Ry0An">
                   <property role="2Ry0Am" value="legacy-msg-specification" />
                   <node concept="2Ry0Ak" id="3qkjbZn4$Y$" role="2Ry0An">
-                    <property role="2Ry0Am" value="jetbrains.mps.lang.constraints.msgSpecification.mpl" />
+                    <property role="2Ry0Am" value="jetbrains.mps.lang.constraints.msg.specification.mpl" />
                   </node>
                 </node>
               </node>
@@ -9695,6 +9695,11 @@
         <node concept="1SiIV0" id="3qkjbZn8ouQ" role="3bR37C">
           <node concept="3bR9La" id="3qkjbZn8ouR" role="1SiIV1">
             <ref role="3bR37D" node="3qkjbZn89da" resolve="jetbrains.mps.lang.feedback.problem.childAndProp" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="35XoixCNiXT" role="3bR37C">
+          <node concept="3bR9La" id="35XoixCNiXU" role="1SiIV1">
+            <ref role="3bR37D" node="1ia2VB5guYy" resolve="MPS.IDEA" />
           </node>
         </node>
       </node>
