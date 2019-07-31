@@ -237,6 +237,10 @@ public class QueriesGenerated extends QueryProviderBase {
   public static void mappingScript_CodeBlock_7(final MappingScriptContext _context) {
     Map<SNode, SNode> classifier2AuxContainers = MapSequence.fromMap(new HashMap<SNode, SNode>());
     for (SNode extractExpr : SModelOperations.nodes(_context.getModel(), AUX_x583g4.ExtractToSingleConstantExpression_72f5d62d)) {
+      if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(extractExpr), AUX_x583g4.StaticFieldDeclaration_9649293d) && SNodeOperations.hasRole(extractExpr, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer"))) {
+        SNodeOperations.replaceWithAnother(extractExpr, SLinkOperations.getTarget(extractExpr, MetaAdapterFactory.getContainmentLink(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x4460846a234a2626L, 0x4460846a234ab020L, "expression")));
+        continue;
+      }
       List<SNode> ancestors = SNodeOperations.getNodeAncestorsWhereConceptInList(extractExpr, new SAbstractConcept[]{AUX_x583g4.Classifier_4b7e553}, false);
       if (Sequence.fromIterable(SNodeOperations.ofConcept(ancestors, AUX_x583g4.Classifier_4b7e553)).first() == null) {
         _context.showWarningMessage(extractExpr, "Could not find the enclosing classifier");
@@ -275,7 +279,7 @@ public class QueriesGenerated extends QueryProviderBase {
         SLinkOperations.setTarget(field, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"), typeCopy);
         ListSequence.fromList(SLinkOperations.getChildren(auxContainerForConstants, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member"))).addElement(field);
       }
-      SNode newRef = _quotation_createNode_x583g4_a0i0b0vb(auxContainerForConstants, field);
+      SNode newRef = _quotation_createNode_x583g4_a0j0b0vb(auxContainerForConstants, field);
       SNodeOperations.replaceWithAnother(extractExpr, newRef);
     }
   }
@@ -675,7 +679,7 @@ public class QueriesGenerated extends QueryProviderBase {
       }
     }
   }
-  private static SNode _quotation_createNode_x583g4_a0i0b0vb(Object parameter_1, Object parameter_2) {
+  private static SNode _quotation_createNode_x583g4_a0j0b0vb(Object parameter_1, Object parameter_2) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_3 = null;
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf940c80846L, "StaticFieldReference"), null, null, false);
@@ -691,6 +695,7 @@ public class QueriesGenerated extends QueryProviderBase {
     /*package*/ static final SConcept ExtractStatementListExpression_e77dd99 = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x2c5dbc7b762fd2a7L, "jetbrains.mps.baseLanguageInternal.structure.ExtractStatementListExpression");
     /*package*/ static final SConcept Statement_9dbf9b0e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
     /*package*/ static final SConcept StatementList_9dbf9acf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
+    /*package*/ static final SConcept StaticFieldDeclaration_9649293d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
     /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
     /*package*/ static final SConcept PlaceholderMember_c843310c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1458378889e6d166L, "jetbrains.mps.baseLanguage.structure.PlaceholderMember");
     /*package*/ static final SConcept Type_4199e276 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
