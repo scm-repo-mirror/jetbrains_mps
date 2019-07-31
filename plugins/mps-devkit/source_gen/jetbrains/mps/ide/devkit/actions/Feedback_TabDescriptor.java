@@ -18,6 +18,13 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.kernel.model.SModelUtil;
+import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
+import jetbrains.mps.smodel.language.LanguageAspectSupport;
+import com.intellij.openapi.ui.Messages;
+import java.util.Objects;
+import jetbrains.mps.smodel.action.NodeFactoryManager;
+import jetbrains.mps.kernel.language.ConceptAspectsHelper;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class Feedback_TabDescriptor extends RelationDescriptor {
@@ -70,6 +77,23 @@ public class Feedback_TabDescriptor extends RelationDescriptor {
   }
   public Iterable<SConcept> getAspectConcepts(final SNode node) {
     return ListSequence.fromListAndArray(new ArrayList<SConcept>(), AUX_cwk4b9.FeedbackPerConceptRoot_c8c13b93);
+  }
+  public SNode createAspect(final SNode node, final SConcept concept) {
+    Language lang = SModelUtil.getDeclaringLanguage(node);
+    assert lang != null : "Language cannot be null for " + node;
+    LanguageAspectDescriptor feedbackAspect = LanguageAspectSupport.getAspectDescriptorById("feedback");
+    if (feedbackAspect == null) {
+      Messages.showErrorDialog("Feedback aspect is not found", "Aspect Not Deployed");
+      return null;
+    }
+    SModel feedbackModel = Objects.requireNonNull(feedbackAspect).getAspectModels(lang).stream().findAny().orElse(null);
+    if (feedbackModel == null) {
+      feedbackAspect.create(lang);
+      feedbackModel = feedbackAspect.getAspectModels(lang).stream().findAny().orElse(null);
+    }
+    assert feedbackModel != null;
+    SNode newConceptAspectRoot = (SNode) NodeFactoryManager.createNode(concept, null, null, feedbackModel);
+    return ConceptAspectsHelper.attachNewConceptAspect(node, newConceptAspectRoot, feedbackModel);
   }
 
   private static final class AUX_cwk4b9 {

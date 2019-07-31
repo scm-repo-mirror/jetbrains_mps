@@ -31,6 +31,7 @@
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="bb70" ref="r:47656d18-dbba-45c4-80e3-b6a073fd7710(jetbrains.mps.lang.feedback.problem.childAndProp.structure)" />
     <import index="z1c3" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
+    <import index="jkm4" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.ui(MPS.IDEA/)" />
     <import index="sis7" ref="r:ff619a2b-8fe7-4627-a515-9b4874d6fc53(jetbrains.mps.lang.feedback.problem.structure)" implicit="true" />
     <import index="tpce" ref="r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)" implicit="true" />
   </imports>
@@ -570,6 +571,31 @@
               <node concept="Xl_RD" id="3qkjbZlMgxO" role="37wK5m">
                 <property role="Xl_RC" value="feedback" />
               </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="7q69Q_JnwVs" role="3cqZAp">
+          <node concept="3clFbS" id="7q69Q_JnwVu" role="3clFbx">
+            <node concept="3clFbF" id="35XoixCLiDs" role="3cqZAp">
+              <node concept="2YIFZM" id="35XoixCLja3" role="3clFbG">
+                <ref role="37wK5l" to="jkm4:~Messages.showErrorDialog(java.lang.String,java.lang.String)" resolve="showErrorDialog" />
+                <ref role="1Pybhc" to="jkm4:~Messages" resolve="Messages" />
+                <node concept="Xl_RD" id="35XoixCM9eT" role="37wK5m">
+                  <property role="Xl_RC" value="Feedback aspect is not found" />
+                </node>
+                <node concept="Xl_RD" id="35XoixCLkmz" role="37wK5m">
+                  <property role="Xl_RC" value="Aspect Not Deployed" />
+                </node>
+              </node>
+            </node>
+            <node concept="3cpWs6" id="7q69Q_JnzeD" role="3cqZAp">
+              <node concept="10Nm6u" id="7q69Q_Jnzfm" role="3cqZAk" />
+            </node>
+          </node>
+          <node concept="3clFbC" id="7q69Q_JnyH2" role="3clFbw">
+            <node concept="10Nm6u" id="7q69Q_Jnza0" role="3uHU7w" />
+            <node concept="37vLTw" id="7q69Q_JnxX7" role="3uHU7B">
+              <ref role="3cqZAo" node="3qkjbZlMgxL" resolve="feedbackAspect" />
             </node>
           </node>
         </node>

@@ -14,6 +14,7 @@ import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.language.LanguageAspectDescriptor;
 import jetbrains.mps.smodel.language.LanguageAspectSupport;
+import com.intellij.openapi.ui.Messages;
 import org.jetbrains.mps.openapi.model.SModel;
 import java.util.Objects;
 import java.util.List;
@@ -44,6 +45,10 @@ public class MessageIntentionHelper {
       return null;
     }
     LanguageAspectDescriptor feedbackAspect = LanguageAspectSupport.getAspectDescriptorById("feedback");
+    if (feedbackAspect == null) {
+      Messages.showErrorDialog("Feedback aspect is not found", "Aspect Not Deployed");
+      return null;
+    }
     SModel feedbackModel = Objects.requireNonNull(feedbackAspect).getAspectModels(lang).stream().findAny().orElse(null);
     if (feedbackModel == null) {
       feedbackAspect.create(lang);
