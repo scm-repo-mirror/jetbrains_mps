@@ -64,6 +64,14 @@
 
     <applicationService serviceInterface="com.intellij.profile.codeInspection.InspectionProfileManager"
                         serviceImplementation="com.intellij.codeInspection.ex.ApplicationInspectionProfileManager"/>
+
+    <favoriteNodeProvider implementation="jetbrains.mps.ide.projectPane.favorites.providers.MPSFavoriteNodeProvider"/>
+    <favoriteNodeProvider implementation="jetbrains.mps.ide.projectPane.favorites.providers.MPSFavoriteReferenceProvider"/>
+    <favoriteNodeProvider implementation="jetbrains.mps.ide.projectPane.favorites.providers.MPSFavoriteModelProvider"/>
+    <favoriteNodeProvider implementation="jetbrains.mps.ide.projectPane.favorites.providers.MPSFavoriteModuleProvider"/>
+    <!-- TODO: decide, if it is needed
+    <favoriteNodeProvider implementation="jetbrains.mps.ide.projectPane.favorites.providers.MPSFavoritePropertyProvider"/>
+    -->
   </extensions>
 
 </idea-plugin>
